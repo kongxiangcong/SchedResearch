@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "elapsed_executions": 1440,
+  "A_pairs": 360,
+  "B_pairs": 360,
+  "scope": "same-engine independent rerun; separate from independent checker",
+  "script_sha256": "b6df9581fdbde83df7fffd105f44b4319ed361ed5d691c7503170a307fa25d48"
+}

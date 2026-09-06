@@ -1,0 +1,211 @@
+{
+  "assembled_utc": "2026-09-05T07:37:27.948097+00:00",
+  "revision": "42cba83aee86b253c49eccd484646e91d062468d",
+  "archive_sha256": "971e612a83c0d8c848ab1f5a78e03db53f5a1568bb96b1553150f387c78a1d3d",
+  "archive_url": "https://codeload.github.com/Xilinx/XRT/tar.gz/42cba83aee86b253c49eccd484646e91d062468d",
+  "roots": [
+    "xrt/xrt_device.h",
+    "xrt/xrt_kernel.h",
+    "xrt/xrt_bo.h",
+    "xrt/xrt_hw_context.h",
+    "experimental/xrt_xclbin.h"
+  ],
+  "headers": [
+    {
+      "path": "sdk/include/deprecated/xcl_app_debug.h",
+      "source_path": "src/runtime_src/core/include/deprecated/xcl_app_debug.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/deprecated/xcl_app_debug.h",
+      "sha256": "8fd2ec2fe3a5f7eb79140c114e694ccab1587389f0711d3c9ca4db59ac503303",
+      "bytes": 8043
+    },
+    {
+      "path": "sdk/include/deprecated/xclperf.h",
+      "source_path": "src/runtime_src/core/include/deprecated/xclperf.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/deprecated/xclperf.h",
+      "sha256": "759546c8a577bd40e948f24ed63d25fe0461e4f5f5dcce91b3180383cce60583",
+      "bytes": 21049
+    },
+    {
+      "path": "sdk/include/deprecated/xrt.h",
+      "source_path": "src/runtime_src/core/include/deprecated/xrt.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/deprecated/xrt.h",
+      "sha256": "6555c56c08c02d8dfc1c1d0fb037fe9dc1cd389b74866d60e4c6a640a1317c79",
+      "bytes": 26235
+    },
+    {
+      "path": "sdk/include/ert.h",
+      "source_path": "src/runtime_src/core/include/ert.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/ert.h",
+      "sha256": "66024290af38aa9895b461f3417cabb48999a113dd331c1948ec1e2c86f1d264",
+      "bytes": 33960
+    },
+    {
+      "path": "sdk/include/experimental/xrt_exception.h",
+      "source_path": "src/runtime_src/core/include/experimental/xrt_exception.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_exception.h",
+      "sha256": "6f853d65353d9c6939276d5e20435431f6e9f443039bc4c8fdc29ff84b50c2e1",
+      "bytes": 784
+    },
+    {
+      "path": "sdk/include/experimental/xrt_fence.h",
+      "source_path": "src/runtime_src/core/include/experimental/xrt_fence.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_fence.h",
+      "sha256": "28aebd905802a1827ff4612d580648c996cd6b09c34b6e3efbbbff2e496521a7",
+      "bytes": 6195
+    },
+    {
+      "path": "sdk/include/experimental/xrt_hw_context.h",
+      "source_path": "src/runtime_src/core/include/experimental/xrt_hw_context.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_hw_context.h",
+      "sha256": "aa1c09831e872940a76b10a698c6f70cebc7bbf73b952456d7c3b11a04131595",
+      "bytes": 143
+    },
+    {
+      "path": "sdk/include/experimental/xrt_xclbin.h",
+      "source_path": "src/runtime_src/core/include/experimental/xrt_xclbin.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_xclbin.h",
+      "sha256": "fc5c60bd6cd36b7f700a554908c0e3f81eade5d4bec97596680b10bf0a2546af",
+      "bytes": 26221
+    },
+    {
+      "path": "sdk/include/version.h",
+      "source_path": "locally generated ABI macros",
+      "url": null,
+      "sha256": "d480a87c506836e8d85bc381d88f8f82c65211ccce3ffcc4fdba116b4a1a5a4e",
+      "bytes": 428,
+      "generation_sources": {
+        "src/CMakeLists.txt": {
+          "sha256": "2cf74b3d83cb6f8dbad17867d52761a0fb057006c790522cff820a85b4db237c",
+          "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/CMakeLists.txt"
+        },
+        "src/CMake/config/version.h.in": {
+          "sha256": "e7a5263566e43cb2a5812265de7294bb1f5c4664846c2aca3e1a32d416d0bcd6",
+          "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/CMake/config/version.h.in"
+        }
+      }
+    },
+    {
+      "path": "sdk/include/windows/types.h",
+      "source_path": "src/runtime_src/core/include/windows/types.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/windows/types.h",
+      "sha256": "cac0d0094bd2a5858bc86a37560ceb7e437743b7df180a9dc563d01eac05ac22",
+      "bytes": 747
+    },
+    {
+      "path": "sdk/include/windows/uuid.h",
+      "source_path": "src/runtime_src/core/include/windows/uuid.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/windows/uuid.h",
+      "sha256": "96355a6869c6bd2a50165fea3d04d397414a4e9d88d7ddffcd34fa40a2bd4db8",
+      "bytes": 2647
+    },
+    {
+      "path": "sdk/include/xclbin.h",
+      "source_path": "src/runtime_src/core/include/xclbin.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xclbin.h",
+      "sha256": "d837a0393cd3fbfa825a774935bb3e1a98d3c6cc7693fa90a78dd0604aa0d6ea",
+      "bytes": 27099
+    },
+    {
+      "path": "sdk/include/xclerr.h",
+      "source_path": "src/runtime_src/core/include/xclerr.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xclerr.h",
+      "sha256": "f7531cf46a8cf492d0f5fdab2f0a6308d5680eba3ab4b27f1f1078fe2569988d",
+      "bytes": 3180
+    },
+    {
+      "path": "sdk/include/xclhal2_mem.h",
+      "source_path": "src/runtime_src/core/include/xclhal2_mem.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xclhal2_mem.h",
+      "sha256": "102853a74c53a4afac8b4040115a6fd8b9daa6e88cffd548d18a60cce89d8c83",
+      "bytes": 726
+    },
+    {
+      "path": "sdk/include/xrt.h",
+      "source_path": "src/runtime_src/core/include/xrt.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt.h",
+      "sha256": "eb5f8d2b03c8ac06498c4dd60800e0cae40ee76217e2350d8015a5111e2042fd",
+      "bytes": 812
+    },
+    {
+      "path": "sdk/include/xrt/detail/abi.h",
+      "source_path": "src/runtime_src/core/include/xrt/detail/abi.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/detail/abi.h",
+      "sha256": "12e01f4e5873cf08690f7edb6734f8c3571d2fd09876cc30e31daadd838de17e",
+      "bytes": 989
+    },
+    {
+      "path": "sdk/include/xrt/detail/any.h",
+      "source_path": "src/runtime_src/core/include/xrt/detail/any.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/detail/any.h",
+      "sha256": "3b154a16052b6723f9717b314a25c60437d7a491ef26d3beee38f246044247e9",
+      "bytes": 848
+    },
+    {
+      "path": "sdk/include/xrt/detail/config.h",
+      "source_path": "src/runtime_src/core/include/xrt/detail/config.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/detail/config.h",
+      "sha256": "08478a5707b393d725065f5e5b072e05d00de6010b07fe282990b8b27c678a91",
+      "bytes": 617
+    },
+    {
+      "path": "sdk/include/xrt/detail/param_traits.h",
+      "source_path": "src/runtime_src/core/include/xrt/detail/param_traits.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/detail/param_traits.h",
+      "sha256": "eca3d9f9809736a94d83d127c1783e82991e1a65eb93eaf4e89ffd073913172e",
+      "bytes": 1628
+    },
+    {
+      "path": "sdk/include/xrt/detail/pimpl.h",
+      "source_path": "src/runtime_src/core/include/xrt/detail/pimpl.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/detail/pimpl.h",
+      "sha256": "c1fd14e644a258d20db03eb6363fcee463399068a4959d5cb316bef6bf013559",
+      "bytes": 1516
+    },
+    {
+      "path": "sdk/include/xrt/xrt_bo.h",
+      "source_path": "src/runtime_src/core/include/xrt/xrt_bo.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/xrt_bo.h",
+      "sha256": "a41ff6217e9fcf3fa327b7b76088a26faeb14ffc9679a68898bda936d742899d",
+      "bytes": 24969
+    },
+    {
+      "path": "sdk/include/xrt/xrt_device.h",
+      "source_path": "src/runtime_src/core/include/xrt/xrt_device.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/xrt_device.h",
+      "sha256": "d784f5d940614476786db0faf45bc8c88dd79a22ee2e7a175d07d48e94cd18ec",
+      "bytes": 14431
+    },
+    {
+      "path": "sdk/include/xrt/xrt_hw_context.h",
+      "source_path": "src/runtime_src/core/include/xrt/xrt_hw_context.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/xrt_hw_context.h",
+      "sha256": "5f0b5d7664fac47f517319ddc1316936c136a4f76ca824f72500bbfc072a3428",
+      "bytes": 4400
+    },
+    {
+      "path": "sdk/include/xrt/xrt_kernel.h",
+      "source_path": "src/runtime_src/core/include/xrt/xrt_kernel.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/xrt_kernel.h",
+      "sha256": "67faaf27e524f712363d4248dbc7aadd97e2a512532464b3b2715aa71d854cc7",
+      "bytes": 30646
+    },
+    {
+      "path": "sdk/include/xrt/xrt_uuid.h",
+      "source_path": "src/runtime_src/core/include/xrt/xrt_uuid.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/xrt_uuid.h",
+      "sha256": "a17fe06087f56f4fbf971d951ae25e2f13a32e616f45c6495c0e6aa76fed49cc",
+      "bytes": 4633
+    },
+    {
+      "path": "sdk/include/xrt_mem.h",
+      "source_path": "src/runtime_src/core/include/xrt_mem.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt_mem.h",
+      "sha256": "a2ec65ecb5d7cba1b21caa1ff252f5671056d1870ead4ee420fd48cfa80bc12b",
+      "bytes": 4008
+    }
+  ],
+  "unresolved_quoted_includes": [],
+  "dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+  "dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+  "export_count": 426
+}

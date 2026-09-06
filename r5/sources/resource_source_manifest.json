@@ -1,0 +1,164 @@
+{
+  "captured_utc": "2026-09-05T06:15:37.940327+00:00",
+  "verified_utc": "2026-09-05T06:19:58.860947+00:00",
+  "weight_payloads_downloaded": false,
+  "files": [
+    {
+      "path": "qwen/config.json",
+      "bytes": 3161,
+      "sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+      "inherited_from": "r4/sources/qwen/config.json",
+      "access": "verified_copy"
+    },
+    {
+      "path": "qwen/modeling_qwen3_5.py",
+      "bytes": 95578,
+      "sha256": "458360c8072e6130580639170ad3e645b975512dbabae31eab5f92de5f0f09ef",
+      "inherited_from": "r4/sources/qwen/modeling_qwen3_5.py",
+      "access": "verified_copy"
+    },
+    {
+      "path": "qwen/representative_weight_shapes.json",
+      "bytes": 4013,
+      "sha256": "0cfea86881cb17b746b5b8150bf7ce35605756141c1ab365b1c4df9e962d372a",
+      "inherited_from": "r4/sources/qwen/representative_weight_shapes.json",
+      "access": "verified_copy"
+    },
+    {
+      "path": "qwen/r4_manifest.json",
+      "bytes": 5081,
+      "sha256": "cc49171e4ad054b04372299c06e1a441f8f5792b652a4e25789f791fdfd8a05e",
+      "inherited_from": "r4/sources/qwen/manifest.json",
+      "access": "verified_copy"
+    },
+    {
+      "path": "flux/config.json",
+      "bytes": 541,
+      "sha256": "09733c74a3da6d17dd0a0472a091a8950c7c6935889c32c16cc800ede05029de",
+      "inherited_from": "r4/sources/flux/FLUX.2-klein-4B/transformer/config.json",
+      "access": "verified_copy"
+    },
+    {
+      "path": "flux/model.py",
+      "bytes": 28031,
+      "sha256": "e062691d789ec80a04a5fbc421b09d3b7e264305be1dfcb6da65d68c259e18c1",
+      "inherited_from": "r4/sources/flux/black-forest-labs__flux2/src/flux2/model.py",
+      "access": "verified_copy"
+    },
+    {
+      "path": "flux/r4_manifest.json",
+      "bytes": 13279,
+      "sha256": "44bb4ee0454b03d49a0e47aacaedbb47034bdc452435943d7ebbf1c63874015d",
+      "inherited_from": "r4/sources/flux/source_manifest.json",
+      "access": "verified_copy"
+    },
+    {
+      "path": "arm/cmsis_source_README.md",
+      "bytes": 25715,
+      "sha256": "9a77c718d17f8fcf5a77c6df825a2be1712aab14e054cca093223586205fb035",
+      "inherited_from": "r4/sources/flux/ARM-software__CMSIS-Ethos-U/source/README.md",
+      "access": "verified_copy"
+    },
+    {
+      "path": "arm/git_revision.json",
+      "bytes": 182,
+      "sha256": "636761d816f340d55a4d475ab964eff4f84c81d5cf28f63f0a7273ec0d6b1346",
+      "inherited_from": "r4/sources/flux/ARM-software__CMSIS-Ethos-U/git_revision.json",
+      "access": "verified_copy"
+    },
+    {
+      "path": "gemmini/commit.json",
+      "bytes": 113,
+      "sha256": "8ed1cdde4cd385c72aab5e92c6071659ed6c97d9b9653695f99305801f731e7f",
+      "access": "git_ls_remote"
+    },
+    {
+      "path": "gemmini/README.md",
+      "bytes": 40587,
+      "sha256": "9c5977d88b6ffa0fb04e5a8f878eb984d2f4c8c329539b6c8b29b57f2d2c42b7",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/README.md",
+      "resolved_url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/README.md",
+      "access": "download"
+    },
+    {
+      "path": "gemmini/src/main/scala/gemmini/Scratchpad.scala",
+      "bytes": 42628,
+      "sha256": "e4d3a12c700fe9edaf5c2ce2f283ec5233a98bd103fb04054160e8097cb89a4f",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/Scratchpad.scala",
+      "resolved_url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/Scratchpad.scala",
+      "access": "download"
+    },
+    {
+      "path": "gemmini/src/main/scala/gemmini/DMA.scala",
+      "bytes": 28410,
+      "sha256": "db6d9d61f8794f6d60508c5844a2b287ffab0cd795a662b84b970dd9615e5dc1",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/DMA.scala",
+      "resolved_url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/DMA.scala",
+      "access": "download"
+    },
+    {
+      "path": "gemmini/src/main/scala/gemmini/Configs.scala",
+      "bytes": 14307,
+      "sha256": "178c21ac741c89c08158efa71fb34da35d27b75bd50bde5116a5e19178f8391b",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/Configs.scala",
+      "resolved_url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/Configs.scala",
+      "access": "download"
+    },
+    {
+      "path": "arm/ethos_u85_trm_102685_0000_05_en.pdf",
+      "bytes": 2824528,
+      "sha256": "3fc6287d861b482e12f29ecd02103128fece6a78ffbe4656332ebb08aaffb8ca",
+      "url": "https://documentation-service.arm.com/static/67b5ba01ce2747241fce860f",
+      "access": "existing_frozen_file"
+    },
+    {
+      "path": "arm/ethos_u85_trm_102685_0000_05_en.txt",
+      "bytes": 669141,
+      "sha256": "186043c61913ee265ee3370fe1c29b189e47a1d76162039a2f1d16fd047c6f45",
+      "access": "pymupdf_text_extraction"
+    }
+  ],
+  "failures": [
+    {
+      "url": "https://api.github.com/repos/ucb-bar/gemmini/commits/HEAD",
+      "path": "gemmini/commit.json",
+      "error": "HTTPError: HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "tool": "web.find",
+      "url": "https://documentation-service.arm.com/static/67b5ba01ce2747241fce860f",
+      "pattern": "ext_rd_stall_limit",
+      "error": "No matching text found / Internal Error; local PDF text extraction is the fallback evidence"
+    },
+    {
+      "tool": "web.find",
+      "url": "https://documentation-service.arm.com/static/67b5ba01ce2747241fce860f",
+      "pattern": "NoC",
+      "error": "No matching text found / Internal Error; local PDF text extraction is the fallback evidence"
+    },
+    {
+      "tool": "web.find",
+      "url": "https://documentation-service.arm.com/static/67b5ba01ce2747241fce860f",
+      "pattern": "arbitration",
+      "error": "No matching text found / Internal Error; local PDF text extraction is the fallback evidence"
+    },
+    {
+      "tool": "web.find",
+      "url": "https://documentation-service.arm.com/static/67b5ba01ce2747241fce860f",
+      "pattern": "outstanding",
+      "error": "No matching text found / Internal Error; local PDF text extraction is the fallback evidence"
+    },
+    {
+      "tool": "web.find",
+      "url": "https://documentation-service.arm.com/static/67b5ba01ce2747241fce860f",
+      "pattern": "stall",
+      "error": "No matching text found / Internal Error; local PDF text extraction is the fallback evidence"
+    },
+    {
+      "tool": "web.find",
+      "url": "https://documentation-service.arm.com/static/67b5ba01ce2747241fce860f",
+      "pattern": "bank",
+      "error": "No matching text found / Internal Error; local PDF text extraction is the fallback evidence"
+    }
+  ]
+}

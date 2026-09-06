@@ -1,0 +1,994 @@
+                                       LATTICE: Constraint-Directed Scheduling, Memory
+                                           Planning, and Pipeline Refinement for NPUs
+
+                                         Runhao Liu, Minnan Pei, Fei Ding, Guangzhen Yao§, You Li¶, Peng Xiao, Gang Li, and Peng Zhang
+                                                                   Zhejiang University Institute of Automation, Chinese Academy of Sciences
+
+                                                         Alibaba Group §Northeast Normal University ¶Guangdong Polytechnic Normal University
+
+                                                                                                       runhaoliu@zju.edu.cn, peiminnan19@mails.ucas.ac.cn
+
+arXiv:2607.17422v3 [cs.NI] 4 Aug 2026     Abstract--General-purpose NPUs execute fine-grained com-              The coupling follows a directed constraint chain. Command
+                                       mand DAGs across heterogeneous compute and memory-transfer            order first determines when each object is allocated, accessed,
+                                       engines backed by finite, explicitly managed on-chip memories.        and released, thereby shaping the lifetime geometry exposed
+                                       This execution model creates a directed dependency between            to memory planning. The planner then binds these lifetimes
+                                       scheduling and memory planning: different legal topological           to physical intervals and inserts spill/reload events. Once
+                                       orders induce different lifetime overlap, placement opportu-          materialized, these decisions restrict subsequent timing: two
+                                       nities, and spill behavior, while a materialized layout intro-        residencies that reuse the same physical interval cannot own
+                                       duces physical-address reuse constraints absent from the input        it concurrently, and an access cannot execute before the event
+                                       precedence DAG. Command order therefore shapes the feasible           that establishes its residency. Thus, order shapes the feasible
+                                       memory plan, and the realized plan in turn defines the legal          memory plan, and the realized memory plan in turn defines
+                                       space for subsequent timing refinement.                               the legal space for pipeline refinement.
+
+                                          We present LATTICE, a deterministic constraint-directed com-          Observation 1: topological legality does not imply mem-
+                                       piler pipeline. Memory-Pressure-Aware Topological Scheduling          ory equivalence. Different legal orders of the same command
+                                       reshapes lifetime geometry before address binding; Deterministic      DAG preserve every original precedence edge but change
+                                       Linear Repackaging materializes tiered placement, spill/reload        allocation-to-release overlap. They consequently produce dif-
+                                       events, and plan-induced reuse constraints; and Critical Path         ferent logical peaks, placement opportunities, spill decisions,
+                                       Enhancement recovers pipeline parallelism while preserving the        and off-chip traffic. Under an otherwise identical downstream
+                                       selected memory plan. Every accepted schedule passes indepen-         backend, four deterministic legal orders exhibit a 21.2%­
+                                       dent memory and timing verification. Across six artifact-provided     81.2% per-workload range in logical L1+UB peak and a
+                                       command traces labeled as derived from a Da Vinci NPU flow,           49.5%­67.7% range in extra DDR traffic. A legal order
+                                       LATTICE achieves the best or tied-best result in all 24 evaluated     is therefore not merely an interchangeable serialization of
+                                       workload­metric comparisons. Relative to the best evaluated           a fixed memory behavior; it selects the lifetime geometry
+                                       baseline for each workload and metric, it reduces peak memory,        from which the physical plan is constructed. Prior memory-
+                                       extra DDR traffic, spill count, and modeled makespan by 18.3%         aware scheduling methods exploit this pre-placement ordering
+                                       lower, 20.4% lower, 14.1% lower, and 16.3% lower, respectively.       freedom, but a complementary question arises after planning:
+                                       Plan-preserving CPE further reduces makespan by 12.1% over            once one order has been materialized into physical addresses
+                                       Freeze while leaving placement and memory traffic unchanged,          and spill/reload epochs, subsequent timing passes can no
+                                       establishing the static memory plan as a verifiable scheduling        longer reason from the original DAG alone.
+                                       contract between memory planning and pipeline optimization.
+                                                                                                                Observation 2: memory feasibility does not imply
+                                                                 I. INTRODUCTION                             scheduling freedom. When two physical residencies reuse
+                                                                                                             an overlapping address interval, the earlier residency's final
+                                          General-purpose NPUs increasingly execute a mixture of             accesses and closing spill or release must precede acquisition
+                                       convolution, matrix multiplication, attention, and generative         of the later residency. These plan-induced constraints may span
+                                       workloads [3], [8], [9], [46]. To support this range within           Cube, Vector, and MTE pipelines even when the corresponding
+                                       one core, modern NPUs combine heterogeneous Cube, Vector,             commands are independent in the input DAG. Removing only
+                                       and Scalar engines, multiple memory-transfer engines (MTEs),          these reuse constraints produces 36,399 ownership violations:
+                                       and a hierarchy of explicitly managed on-chip buffers [44],           the resulting schedules appear faster but are not executable.
+                                       [52], [54]. After lowering, operators are represented as fine-        Conversely, freezing the complete planner order is safe but
+                                       grained command DAGs distributed across these compute                 retains resource serialization unrelated to memory ownership.
+                                       and transfer pipelines. Decoupled engines expose compute­             The legal timing space therefore lies between these two
+                                       transfer overlap, but finite scratchpad capacity forces physical-     extremes: it must preserve the materialized memory plan while
+                                       address reuse and occasional off-chip movement [11], [13],            releasing the remaining pipeline-order freedom.
+                                       [24], [25]. Efficient execution therefore requires the compiler
+                                       to coordinate command order, data movement, and physical                 LATTICE exposes this missing inter-stage interface by treat-
+                                       memory planning rather than optimizing each in isolation.             ing the static memory plan as a first-class scheduling con-
+
+                                          Figure 1 summarizes the two inter-stage effects that moti-
+                                       vate LATTICE.
+
+                                          ||Runhao Liu and Minnan Pei contributed equally to this work.
+
+                                                                                                          1
+Obs. 1: Legal orders are not memory-equivalent                     Obs. 2: A memory-feasible plan is not scheduling-free
+
+      Legal Order A 1 2 3 4 5 6                                              Tensor A       Reuse constraint   Tensor B
+                                                                             residency                         residency
+                     L1/                High Peak                                                   B acquire                 Time
+                                              Time                 A access
+   1  3              UB
+
+      4          6                                                      Freeze Planner                         Preserve Planner
+
+   2  5              L1/                Low Peak                   Compute C1 Idle C2                          C1         C2  C3
+                     UB                         Time
+                                                                   DMA              Reload
+Same precedence DAG                                                                         Time                   Short prefetch Time
+
+      Legal Order B 1 3 4 2 5 6                                         Weak overlap                           Strong overlap
+
+1     ready-set                             LATTICE: MPAS  DLR  CPE                     Critical path
+                                                                                         Refine only free timing
+      ...     selected                                           Constraints
+         ...
+                                                AC BD
+23       3       next 4
+  ?                                                    Spill Reload
+         2
+                                        Best-fit placement and tire-aware spilling
+Choose the highest-priority ready node
+
+Fig. 1. Motivation and LATTICE overview. Legal order changes lifetime overlap and memory behavior, while physical-address reuse introduces constraints
+absent from the input DAG. MPAS shapes lifetime geometry, DLR materializes the memory plan, and CPE refines timing while preserving that plan.
+
+tract. Following the direction in which the constraints arise,                   II. BACKGROUND AND MOTIVATION
+MPAS first selects a legal order and reshapes lifetime overlap
+before address binding; DLR then materializes the resulting        A. Intra-Core Execution Model
+lifetime geometry into tiered placement, spill/reload events,
+and plan-induced reuse constraints; and CPE refines only              Figure 3 summarizes the Da Vinci-derived target core.
+the remaining resource order while preserving the selected         General-purpose NPUs integrate heterogeneous compute and
+memory plan. This constraint-directed decomposition allows         data-movement pipelines within each core: Cube executes
+scheduling, memory planning, and timing refinement to op-          matrix-intensive commands, Vector handles element-wise and
+timize their respective decision spaces without requiring one      reduction operations, Scalar performs lightweight control, and
+monolithic search or sacrificing execution validity.               memory-transfer engines (MTEs) move data through an ex-
+                                                                   plicitly managed memory hierarchy [44], [54]. DDR provides
+   This paper makes three contributions:                           off-chip backing storage; L1 and UB serve as relatively
+                                                                   large on-chip staging buffers; and L0A/L0B/L0C are smaller
+   · Plan-dependent execution semantics. We identify and           operand and result scratchpads close to the compute engines.
+      quantify both directions of the inter-stage dependency:      In our model, MTE2 performs loads and reloads, whereas
+      legal command orders induce different lifetime and mem-      MTE3 performs stores and spill-outs.
+      ory behavior, while physical-address reuse introduces
+      execution constraints absent from the input precedence          Unlike a transparent cache hierarchy, these buffers are
+      DAG.                                                         managed explicitly by the compiler. Each pipeline is single
+                                                                   issue, but commands assigned to different pipelines may
+   · Constraint-directed NPU compilation. We present LAT-          execute concurrently. Performance therefore depends not only
+      TICE, a deterministic MPAS­DLR­CPE pipeline in which         on the amount of computation, but also on when operands
+      DLR exports an explicit memory-plan contract and CPE         become resident, how long they occupy on-chip storage,
+      recovers compute­transfer overlap without invalidating       and whether data movement can overlap with computation.
+      the selected placement or spill/reload behavior.             Finite capacity further requires different logical objects to
+                                                                   reuse physical address ranges, coupling pipeline timing with
+   · End-to-end gains with independent validity evidence.          memory placement.
+      Among four evaluated baselines, LATTICE achieves the
+      best or tied-best result in all 24 workload­metric com-         The compiler input is a lowered command DAG G =
+      parisons. Relative to the best evaluated external method     (V, Eprec). Each vertex records its operation, assigned
+      for each workload and metric, it reduces peak memory,        pipeline, modeled latency, accessed-buffer set, and any AL-
+      extra DDR traffic, spill count, and modeled makespan         LOC/FREE action; buffer metadata provides size and home
+      by 18.3% lower, 20.4% lower, 14.1% lower, and 16.3%          tier. Eprec contains the mandatory data and execution prece-
+      lower, respectively. Controlled Ignore/Freeze/CPE diag-      dence known before memory planning. A logical buffer re-
+      nostics and an independent verifier establish that these     mains live from allocation through its final access and release,
+      gains come from executable, plan-preserving schedules.
+
+                                                                2
+     Stable         Memory-first  Criticality-first  MPAS                                                                 Freeze (safe)  CPE (safe)        Ignore (invalid)
+
+1.0
+Peak / Stable
+                                                                                                    Makespan / Ignore  2
+
+0.5                                                                                                                    1
+
+0.0                                                                                                                    0
+
+     Conv-0 Conv-1  FA-0          FA-1  MM-0         MM-1                                                                 Conv-0 Conv-1  FA-0        FA-1  MM-0              MM-1
+
+     (a) Legal order changes lifetime pressure                                                                            (b) Address reuse narrows timing freedom
+
+Fig. 2. Inter-stage effects. (a) Different legal orders of the same command DAG induce different logical L1+UB peaks under a common backend. (b) Removing
+plan-induced reuse constraints yields infeasible timing; Freeze and CPE preserve the realized memory plan.
+
+while spilling and reloading may later split this logical lifetime     plan-induced ordering constraints that cannot be inferred from
+into multiple physical residencies.                                    Eprec alone.
+
+   Physical addresses and residency epochs become explicit                The selected plans contain 550,492 strict access-level reuse
+downstream of the input DAG, after the compiler selects a              constraints. Figure 2(b) removes only these constraints in
+legal command order and constructs a finite-capacity tiered            Ignore, while retaining input precedence, lifecycle, transfer,
+memory plan. We hold the lowered DAG fixed and study                   and pipeline-resource constraints. The resulting timings ap-
+this low-level boundary, where command ordering first shapes           pear shorter, but produce 36,399 ownership conflicts and are
+memory behavior and the resulting physical plan subsequently           rejected by the independent verifier. This diagnostic confirms
+restricts timing optimization.                                         that topological legality alone does not preserve an already
+                                                                       materialized memory plan.
+B. Observation 1: Topological Legality Does Not Imply Mem-
+ory Equivalence                                                           Freeze provides a verified reference by preserving the com-
+                                                                       plete Stage-2 resource order, including serialization beyond
+   A legal topological order preserves every edge in Eprec, yet        residency and address ownership requirements. CPE preserves
+changes when buffers are allocated, accessed, and released.            the plan-induced constraints while reducing geometric-mean
+It therefore changes lifetime overlap, peak logical pressure,          makespan by 12.1% relative to Freeze. Post-placement timing
+the address holes exposed to placement, and the victim se-             freedom is therefore neither the unconstrained space of the
+quence selected during spilling. The same input DAG can                input DAG nor the fully frozen planner order; it is the space
+consequently induce different physical memory plans before             left legal by the realized memory plan.
+any hardware parameter or data dependency changes.
+                                                                       D. Our Approach
+   Figure 2(a) compares Stable, Memory-first, Criticality-first,
+and MPAS under the same downstream DLR/CPE backend.                       The two observations expose a directed compiler interface:
+Changing the legal order produces a 21.2%­81.2% per-                   command order shapes lifetime geometry, memory planning
+workload range in logical L1+UB peak and a 49.5%­67.7%                 materializes that geometry into physical execution constraints,
+range in extra DDR traffic. Thus, a legal order is a first-            and timing refinement must inherit those constraints. LATTICE
+class memory-planning decision that determines the lifetime            realizes this interface through three deterministic stages. MPAS
+geometry presented to the downstream planner.                          selects a memory-aware legal order before address binding;
+                                                                       DLR converts the resulting lifetime geometry into tiered
+   Prior memory-aware schedulers exploit this upstream or-             placement, lifecycle and spill/reload events, and plan-induced
+dering freedom [1], [20], [24], [50], [51]. LATTICE builds             reuse constraints; and CPE refines only the resource-order
+on this insight but focuses on the complementary downstream            freedom left by the fixed memory plan, accepting candidates
+question: after one order has been materialized as a concrete          that improve timing and pass independent verification.
+physical memory plan, which timing transformations remain
+legal?                                                                    This constraint-directed organization avoids a monolithic
+                                                                       search over scheduling, placement, and timing while pre-
+C. Observation 2: Memory Feasibility Does Not Imply                    serving end-to-end validity. The materialized memory plan
+Scheduling Freedom                                                     becomes a first-class compiler interface, allowing each stage
+                                                                       to optimize its own decision space under a shared legality
+   A physical memory plan couples tier assignments and                 boundary. Figure 3 shows where MPAS, DLR, and CPE act
+offsets with ownership epochs. If two residencies reuse an             across the command, memory, and compute­transfer layers.
+overlapping address interval, every access and closing spill or
+release of the earlier residency must complete before the later                          III. PROBLEM FORMULATION
+residency acquires that interval. Such a handoff can connect
+Cube, Vector, and MTE commands that are independent in                    Table I summarizes the notation used throughout the for-
+the input DAG. Physical address reuse therefore introduces             mulation and algorithms.
+
+                                                                    3
+                               Off-Chip DDR                                                               TABLE I
+                                                                             NOTATION USED IN FORMULATION AND ALGORITHMS.
+
+                  MTE2         S3 CPE           MTE3                      Symbol          Meaning
+
+                load / reload  compute-       store / spill               G = (V, Eprec)  Command DAG with precedence edges
+                                 DMA                                      v, q(v), cv     Command, assigned pipeline, and execution
+                                overlap                                                   latency
+                                                                          b, sb,  (b)     Buffer, size, and home tier
+S1 MPAS         L1 Buffer                     Unified Buffer              , Ib()          Legal order and induced lifetime interval
+                                                                          Mmax            Logical L1/UB live peak before placement
+scheduling for  L0A            L0B        L0C       On-Chip               r, x(r)         Physical residency and assigned
+peak pressure                                       Memory                                (tier, offset, size)
+                                                                                          Lifecycle and spill/reload event plan
+S2 DLR                                                                    Mres            Physical resident peak after placement
+                                                                          Pmem            Fixed memory-plan contract
+layout & spill                                                            Efixed          Immutable precedence, spill, and reuse con-
+                                                                                          straints
+                Cube Engine    Vector Engine   Scalar Engine              Texec           Memory-valid modeled makespan
+
+Fig. 3. Target architecture and LATTICE workflow: MPAS shapes life-
+times, DLR plans memory, and CPE overlaps compute and DMA.
+
+A. Order-Dependent Lifetime Semantics                                           After placement, the selected layout x, event stream ,
+                                                                             and physical-address reuse relations Ereuse are fixed. We
+   We model the lowered execution as a command DAG G =                       define the memory-plan contract as:
+(V, Eprec). Each command v is associated with a pipeline q(v),
+execution latency cv, and accessed buffers. Before physical                               Pmem = (x, , Ereuse).            (8)
+placement, the compiler can select any legal topological order:
+
+T (G) = { | (u) < (v), (u, v)  Eprec}. (1)                                      This contract specifies the memory behavior that subsequent
+                                                                             timing refinement must preserve.
+   For a buffer b with size sb and home tier  (b), let ab and
+fb denote its allocation and release commands. A legal order                 C. Plan-Constrained Timing
+determines its lifetime interval:
+
+                Ib() = [(ab), (fb)]  Z.                              (2)        Spill, reload, and lifecycle events are promoted to timing
+                                                                             vertices:
+   Therefore, command ordering determines the lifetime ge-
+ometry exposed to memory planning. The logical footprint of                               V  = V  V.                       (9)
+tier m at position k is
+
+                Rm(k; ) =            sb1[k  Ib()],                   (3)        The immutable constraints induced by the original DAG and
+                                                                             memory plan are:
+                           b: (b)=m
+
+and the pre-placement upper-tier peak is                                                  Efixed = Eprec  Espill  Ereuse.
+
+                                                                                                                           (10)
+
+                Mmax() = max             Rm(k; ).                    (4)
+                            k
+                               m{L1,UB}
+                                                                                A timing refinement is expressed through resource-order
+B. Memory Plan Contract                                                      constraints:
+
+   A memory planner converts the selected lifetime structure                              Gaug() = (V , Efixed  Epipe()).  (11)
+into a physical plan. Due to spilling and reloading, one
+logical buffer may generate multiple physical residencies. Each                 Let v and v = v + cv denote the start and finish time
+residency r is assigned:                                                     of command v. A schedule is valid when it satisfies the fixed
+                                                                             graph, memory feasibility, and pipeline resource constraints.
+                x(r) = (mr, or, sr).                                 (5)     The corresponding memory-valid modeled execution time is:
+
+   A valid placement requires that simultaneously active resi-
+dencies in the same tier occupy disjoint address ranges:
+
+                TimeOverlap(ri, rj)  mri = mrj                                            Texec = max v.                   (12)
+                                                                                                         vV 
+
+                 [oi, oi + si)  [oj, oj + sj) = .                    (6)        Based on this formulation, LATTICE implements three de-
+                                                                             terministic stages: MPAS selects an order that shapes lifetime
+   Let Jr be the acquire-to-release interval of residency r in               geometry, DLR materializes the memory-plan contract, and
+the replayed plan. The resulting physical resident peak is:                  CPE optimizes timing over the feasible region defined by that
+                                                                             contract.
+                Mres = max            sr1[k  Jr].                    (7)
+                     k
+                            r:mr Mon
+
+                                                                          4
+      Input          Stage 1:Memory-Pressure-                     Stage 2:Deterministic                                                                   Stage 3:Critical Path                  Final
+Representation     Aware Topological Scheduling                   Linear Repackaging                                                                          Enhancement                       Output
+
+  Operator-level   Reshape execution order to                Tiered layout & spill planning:                                                      Improve compute--DMA overlap to           Deterministic
+        DAG         suppress lifetime overlap                Reduce spills and off-chip traffic                                                  reduce makespan under fixed Stage-2       constraint-valid
+                              ...                                                                                                                                                          execution plan
+Compact Attribute  A. Ready-set scheduling...                A. Per-tier memory planner                                                               A. Critical-chain extraction
+                                                         Lifetime profile fixed for layout planning
+    op pipe        1          ready-set                                                                         Lifetime structure preservedL1home
+ cycles bufs                                                                                                        layout and spill plan fixed
+                   23                    selected            UB   tier            best-fit
+   size tier                             next 4                                  placement
+                              3                              L0A
+ Compact Metric
+                   4          2                              L0B             new result     new                                                      B. Slack-window discovery                  Method
+  Peak Memory                                                L0C
+   DDR Traffic     choose the highest-priority ready node                                                                                                   : slack-window discovered         Schedule
+   Spill Count                                                                                                                                   Compute                                   Memory layout
+    Makespan                                                 allocate in the buffer's home tier only
+                                                                                                                                                  DMA                                         Spill plan
+                      B. Live-set reshaping                  B. Tier-aware victim selection                                                         slack = actual start - earliest start  Pipeline timing
+
+                                             lower peak           same-tier   iterative eviction                                                     C. Local timing refinement                  Effect
+                                              residency
+                                                             candidates only                                                                        Compute                                Peak Memory
+                                                                                 and retry                                                                                                  DDR Traffic
+                                                                                                                                                       DMA                                  Spill Count
+                      before     after                          C. Cost-aware spill heuristic                                                           better overlap, earlier finish       Makespan
+
+                   same buffers, less harmful overlap        for L1 / UB                                                                               *:final refined schedule.
+                                                                                                                                                     same layout, same spill plan
+                      Priority hierarchy: FREE-first +       L0 uses no-future / farthest-next-use
+                   criticality/memory-pressure tie-breaking                                                                                                shorter makespan.
+
+                   (1) : reordered legal schedule.           X: deterministic address layout.
+                   Ib((1)) : updated lifetime intervals.     : spill plan.
+                                                             G(2) : memory-feasible schedule.
+
+                              Design principles : Deterministic · Tier-aware · Stage-wise · Non-regressive
+
+Fig. 4. Constraint-directed LATTICE flow. MPAS selects a legal order and reshapes lifetime geometry before address binding. DLR materializes tiered
+placement, spill/reload events, and plan-induced reuse constraints. CPE refines resource order while preserving the resulting memory plan.
+
+                   IV. LATTICE DESIGN                                               For a lifecycle command v, let b(v) denote its associated
+                                                                                 buffer. We define
+
+A. Overview                                                                                                     
+                                                                                                                0, v is FREE,
+   Figure 4 shows the three-stage LATTICE pipeline. Stage 1,                                                    
+Memory-Pressure-Aware Topological Scheduling (MPAS), se-                                              L(v) = 1, v is an ordinary command, (14)
+lects a legal command order (1) and reshapes the lifetime
+geometry exposed to memory planning. Stage 2, Deterministic                                                     2, v is ALLOC,
+Linear Repackaging (DLR), binds this geometry to tiered
+addresses and explicit spill/reload events, producing the fixed                                                                                  
+memory-plan contract                                                                                                                             -sb(v), v is FREE,
+                                                                                                                                                 
+
+                                                                                                      (v) = +sb(v), v is ALLOC,                                                            (15)
+
+                                                                                                                                                 0,  otherwise.
+
+                                                                                 The lifecycle class advances releases and delays allocations,
+
+                   Pmem = (x, , Ereuse).                                         while (v) favors larger releases and smaller allocations
+
+                                                                  (13)           within the same class. To avoid unnecessarily delaying long
+
+                                                                                 dependency chains, MPAS also uses the downstream bottom
+
+Here, x is the physical layout,  is the lifecycle and                            level
+spill/reload event plan, and Ereuse captures the ordering
+required by physical-address reuse. Stage 3, Critical Path                                            C(v) = cv + max C(w),                                                                (16)
+Enhancement (CPE), refines the resource-order edges Epipe()                                                                                          wsucc(v)
+subject to the fixed memory plan.
+                                                                                 where the maximum is zero for a sink. The next ready
+   The stage boundaries therefore encode explicit compiler                       command minimizes
+semantics: MPAS passes lifetime geometry to DLR; DLR
+materializes the memory semantics that later scheduling must                      KMPAS(v) = (L(v), (v), -C(v), inputpos(v), id(v)) (17)
+preserve; and CPE extracts the timing freedom permitted
+by that plan. Every accepted output passes the independent                       lexicographically. The final two fields provide stable tie break-
+memory and timing verifier described in Section IV-E.                            ing.
+
+B. Memory-Pressure-Aware Topological Scheduling                                     Because commands are selected only after all predecessors
+                                                                                 have been issued, the resulting (1) is legal by construction.
+   MPAS exploits the fact that different legal orders induce dif-                MPAS determines only command order and the induced life-
+ferent allocation-to-release overlap. It performs a deterministic                time intervals; physical placement and spill decisions remain
+Kahn traversal and selects the next command only from the                        deferred to DLR.
+current ready set.
+                                                                                 C. Deterministic Linear Repackaging
+
+                                                                                    Given (1), DLR scans the command stream and maintains
+                                                                                 an offset-ordered free list and resident map for every memory
+
+                                                                              5
+Algorithm 1 Memory-Pressure-Aware Topological Scheduling              Algorithm 2 Deterministic Linear Repackaging
+
+Require: Command DAG G = (V, Eprec)                                   Require: G, legal order (1), tier capacities C
+Ensure: Legal deterministic order (1)
+                                                                      Ensure: Fixed memory-plan contract Pmem
+1: Compute C(v) for all v in reverse topological order                 1: Initialize one free list and resident map per tier
+                                                                       2: for command v in (1) do
+2: Initialize indegrees and ready heap Q  {v | indeg(v) =              3: Apply the ALLOC/FREE action associated with v
+                                                                       4: Pin all operands required by v
+     0} using Eq. (17)                                                 5: for all required object b that is not resident do
+                                                                       6: while no best-fit interval exists for b do
+3: (1)  [ ]
+
+4: while Q =  do
+
+5: v  popmin(Q); append v to (1)
+
+6: for all w  succ(v) do                                              7:        Select a deterministic same-tier unpinned victim
+
+7: indeg(w)  indeg(w) - 1                                             8:        Emit DROP or SPILL OUT and release its interval
+
+8: if indeg(w) = 0 then                                               9:        end while
+
+9:   Insert w into Q                                                  10: Assign the best-fit interval
+
+10:  end if                                                           11: Emit ALLOCATE, MATERIALIZE, or SPILL IN as
+
+11: end for                                                                     required
+                                                                      12: end for
+12: end while
+
+13: Reject unless (1) contains every vertex exactly once              13: Record accesses and update backing-state validity
+                                                                      14: end for
+14: return (1)
+                                                                      15: Derive address-reuse ownership order
+tier. For a requested residency of size sb in its home tier  (b),     16: Construct Espill, Ereuse, and Gfixed
+the feasible holes are                                                17: return (x, , Ereuse)
+
+     Cb = [o, o + )  F(b) |   sb .                         (18)             a) Memory-plan contract.: The Stage-2 output is more
+                                                                      than an offset assignment. Acquisition, access, spill, reload,
+When Cb is nonempty, deterministic best fit selects                   and release relations form Espill, which bounds each access
+                                                                      by a valid residency and backing epoch. If two same-tier
+     [o, o + ) = arg min ( - sb, o) ,                      (19)       residencies reuse overlapping physical intervals, DLR orients
+                        [o,o+)Cb                                      their ownership handoff according to the realized plan and
+                                                                      expands it into explicit access-level ownership barriers Ereuse.
+where the comparison is lexicographic. Operands of the cur-           It then constructs
+rent command are pinned while its memory state is prepared,
+preventing their eviction.                                                      Gfixed = (V , Eprec  Espill  Ereuse) .        (22)
+
+   When no feasible interval exists, DLR selects a victim from        Thus, DLR converts the lifetime geometry selected by MPAS
+the unpinned residencies in the requested tier. Let b(k) be the       into the physical layout, event plan, and fixed dependencies
+next access to buffer b after scan position k, let b be its final     consumed by CPE.
+access position, and define the implemented writeback cost
+
+                      Wb = ( + sb) + sb.                   (20)
+
+For L1 and UB, victims are ranked by                                  D. Plan-Preserving Critical Path Enhancement
+
+                                  b(k) - k                            CPE starts from the complete safe Stage-2 resource order
+                                 max(1, Wb)
+     Kvictim(b, k) =  1noWB(b),              ,  -b,  -idb  ,          0, denoted Freeze. Freeze preserves the memory plan but
+
+                                                           (21)       may retain single-pipeline serialization that is not required by
+
+and the lexicographically largest key is selected. 1noWB(b)           Efixed.
+marks a dead or safely rematerializable residency, and b(k) =
++ when no future access exists. The policy therefore avoids              Let v be the earliest start time of command v under Gfixed,
+                                                                      and let v0 be its start time under Freeze. The resource-order
+
+unnecessary writeback first and otherwise balances reuse              slack is
+
+distance with spill cost. LRU is retained as the controlled                                slack(v) = v0 - v.                 (23)
+
+alternative in the Stage-2 ablation. For L0A/L0B/L0C, DLR             Positive slack identifies delay introduced by pipeline order
+                                                                      rather than by the fixed memory constraints.
+applies eager flushing to unpinned near-compute residencies,
+                                                                         CPE first constructs one deterministic list-scheduling seed
+preferring no-future-use and then farthest-next-use victims.          over Gfixed, using predicted finish time, downstream criticality,
+                                                                      slack, resource idle gap, and stable input order. The seed
+A victim is dropped when a future materialization can                 exclusively refines Epipe() and is retained when it preserves
+                                                                      Pmem, passes verification, and improves Freeze.
+reconstruct it; otherwise, DLR emits an explicit SPILL OUT.
+                                                                         Starting from the better valid order, CPE extracts one critical
+A later access emits SPILL IN only when a valid backing               chain and enumerates adjacent same-pipeline swaps within
+
+copy exists. Each allocation, materialization, spill, reload,
+
+drop, and release is anchored to a command phase, producing
+the event plan  and the associated residency epochs.
+
+                                                                   6
+Algorithm 3 Plan-Preserving Critical Path Enhancement                  number of reuse-related residency and access pairs. With at
+                                                                       most K evaluated timing candidates, CPE costs
+Require: Gfixed, Pmem, frozen resource order 0
+Ensure: Verified non-regressing order                                  O(K (|V | + |Eaug|)) ,  (24)
+
+1:   0; evaluate verified makespan T                                   where K is bounded by the configured seed and local-search
+2: Compute fixed-graph criticality and slack                           limits. All costs are incurred offline; disabling CPE retains the
+                                                                       verified MPAS+DLR Freeze plan.
+3: Construct deterministic slack-guided seed s
+4: if s preserves Pmem, passes verification, and T (s) < T
+
+   then
+
+5:   s; T  T (s)                                                                            V. EXPERIMENTAL SETUP
+6: end if
+7: for p = 1 to the bounded local-pass count do                           We evaluate end-to-end compiler-policy baselines and con-
+                                                                       trolled LATTICE variants over the same low-level command
+8: Extract a critical chain from Gaug()                                traces and target execution model. The end-to-end compar-
+9: Enumerate bounded adjacent swaps near the chain                     ison preserves each method's ordering and memory-policy
+                                                                       decisions, whereas the controlled studies share the LATTICE
+10: Discard candidates violating fixed edges or the memory             backend to isolate individual stages and constraints.
+
+     plan
+
+11: Select the valid candidate with the smallest T 
+
+12: if no candidate satisfies T  < T then                              A. Workloads and Baselines
+
+13:  break                                                                   a) Workloads.: We use six artifact-provided command
+                                                                       DAGs from Da Vinci-derived NPU execution flows: Case0
+14: end if                                                             and Case1 traces for convolution, FlashAttention, and ma-
+                                                                       trix multiplication. The common loader reconstructs 82,470
+15:   ; T  T                                                           commands, 165,562 input-precedence edges, and 25,920 ex-
+                                                                       plicit allocations totaling 2,377,703 trace storage units. Each
+16: end for                                                            command records its operation, execution pipeline, modeled
+17: return                                                             latency, accessed buffers, and ALLOC/FREE action; buffer
+                                                                       metadata provides size and home tier.
+a bounded neighborhood of that chain. A candidate  is
+accepted only if:                                                         Figure 5 shows substantial variation in graph scale, com-
+                                                                       mand composition, allocation granularity, and access span.
+   1) Gaug() is acyclic and preserves Efixed;                          The traces range from 1.7K commands and 2.7K edges to
+   2) every real pipeline remains single issue;                        36.1K commands and 85.7K edges. Convolution mixes DDR
+   3) x, , reuse orientation, physical resident peak, spill            movement, on-chip movement, and computation; FlashAtten-
+                                                                       tion is compute-intensive; and matrix multiplication contains a
+       count, and DDR traffic remain unchanged;                        larger fraction of on-chip movement. These differences expose
+   4) the independent verifier accepts the execution; and              distinct lifetime-overlap, fragmentation, and pipeline-overlap
+   5) Texec() < Texec().                                               conditions.
+
+   The search stops at the fixed pass bound or when no                    The artifact exposes the low-level command, buffer, tier,
+valid move improves makespan. Freeze is returned as the                and timing fields required for controlled compiler analysis.
+non-regressing fallback. Therefore, CPE recovers beneficial            Because the source network, tensor shapes, chip SKU, and
+overlap within its bounded neighborhood while preserving               compiler version are not encoded, we report the artifact's
+every memory-induced dependency of the materialized plan.              native storage units and modeled cycles, keeping every metric
+                                                                       tied to directly observable trace semantics.
+E. Validity, Determinism, and Complexity
+                                                                             b) End-to-end baselines.: We compare LATTICE with
+   A plan-level replay checks command coverage, event an-              command-level policy instantiations of HMCOS [49],
+chors, tier capacity, residency transitions, valid backing copies,     COSMA [27], MAGIS [5], and EDA [33]. All methods process
+operand availability, and physical address non-overlap. A              the same workloads and are evaluated with the same target
+timing-level replay verifies all edges in Efixed Epipe(), own-         tiers, transfer model, timing semantics, and metric definitions,
+ership handoffs, single-issue execution, and graph acyclicity.         while retaining their own ordering and memory-policy deci-
+Both replays recompute physical resident peak, DDR traffic,            sions.
+and spill count; an accepted CPE result must match the Stage-
+2 plan on all three metrics.                                              HMCOS follows the scheduling structure exposed by its
+                                                                       public implementation; COSMA instantiates its joint schedul-
+   Determinism follows from fixed metadata and capacities,             ing, allocation, and replacement policy through the determin-
+lexicographic keys, stable traversal order, deterministic place-       istic common backend; MAGIS applies its graph-reordering
+ment and victim selection, bounded candidate enumeration,              policy to the available command DAG; and EDA follows its
+and strict-improvement acceptance.                                     published traversal strategy. These command-level instantia-
+                                                                       tions preserve the defining policy decisions represented in
+   MPAS runs in O((|V | + |Eprec|) log |V |) with a ready heap.        the shared low-level IR, enabling controlled end-to-end replay
+DLR performs one command/event scan plus per-tier free-list
+and victim operations. Fixed-edge construction depends on the
+
+                                                                    7
+        DDR in DDR out On-chip move Compute        1.0                                                                                                      102
+     2.6k V 36.1k V 1.7k V 7.0k V 4.2k V 31.0k V
+     3.9k E 85.7k E 2.7k E 11.2k E 7.1k E 55.0k E                                                                                                           101
+Ordinary commands (%)125                           0.8
+                                                                 Empirical CDF100                                                                              Conv-0 Conv-1 FA-0 FA-1 MM-0 MM-1
+
+75                                                                                                                               ALLOC-to-last-access span0.6          (c) Stable-order access spans
+
+50                                                 0.4
+
+25                                                 0.2                     Conv-0 FA-1
+
+                                                                           Conv-1 MM-0
+
+                                                                           FA-0        MM-1
+
+0                                                  0.0  22             25  28              211
+  Conv-0 Conv-1 FA-0 FA-1 MM-0 MM-1
+                                                        Allocation size (trace units)
+
+     (a) Command mix and DAG scale                      (b) Allocation-size distributions
+
+Fig. 5. Workload characterization. (a) Command composition and DAG scale, excluding ALLOC/FREE commands. (b) Allocation-size distributions in trace
+storage units. (c) ALLOC-to-last-access spans in the stable input order. V and E denote command vertices and input-precedence edges.
+
+under identical timing and memory semantics. The compari-                                                  TABLE II
+son therefore isolates policy behavior from toolchain-specific             DEFAULT MEMORY AND TRANSFER MODEL IN TRACE UNITS.
+engineering. Base is the stable-order reference policy with no
+LATTICE stages and provides the normalization reference.                   Item                                                                             Value
+
+      c) Controlled variants.: Full LATTICE combines                       On-chip tiers                                                                    L1, UB, L0A, L0B, L0C
+MPAS, cost-aware DLR, and plan-preserving CPE. Stage at-                   Capacities                                                                       4096, 1024, 256, 256, 512
+tribution starts from Original+LRU+Freeze and progressively                Spill-out/reload pipeline                                                        MTE3/MTE2
+enables MPAS, the DLR victim policy, and CPE. LATTICE                      Added-transfer cost                                                              150 + 2qe modeled cycles
+w/o CPE retains the complete safe Stage-2 resource order,                  Per-pipeline issue                                                               Single issue
+while LATTICE-LRU w/o CPE additionally replaces DLR's                      Cross-pipeline execution                                                         Overlap permitted
+victim policy with LRU.                                                    CPE local-search bound                                                           2 passes, at most 4 candidate moves
+                                                                           CPE initial candidate                                                            One deterministic slack-guided seed
+   For order sensitivity, Stable, Memory-first, Criticality-first,
+and MPAS use the same DLR/CPE backend. For constraint                  diagnostics additionally distinguish the pre-placement logical
+diagnostics, Ignore removes Ereuse from a fixed MPAS+DLR               L1+UB peak from the post-placement physical resident peak
+plan, Freeze retains its complete Stage-2 resource order,              across all five on-chip tiers.
+and CPE changes only resource-order edges while pre-
+serving Efixed. The phase-direction counterfactual reuses an              Normalized aggregate results use geometric means of per-
+MPAS+DLR event/address plan under the Stable command                   workload ratios. Improvements over external methods are
+order without replanning.                                              arithmetic means of per-workload percentage reductions rel-
+                                                                       ative to the best evaluated external method for the corre-
+B. Replay Model and Metrics                                            sponding workload and metric. CPE improvement uses the
+                                                                       geometric mean of per-workload CPE/Freeze makespan ratios.
+   Our deterministic compiler-replay prototype comprises a             Each percentage identifies its reference in the accompanying
+common trace loader, tiered-memory planning, augmented-                text or caption.
+graph timing, and the independent verifier described in Sec-
+tion IV-E. ALLOCATE, FREE, DROP, and other zero-latency                   The evaluation focuses on static, single-core command
+lifecycle events consume no execution pipeline. SPILL OUT              streams to isolate compiler decisions from device-specific
+and SPILL IN are explicit timed vertices assigned to MTE3              runtime variation. The replay model abstracts dynamic arrivals,
+and MTE2, respectively. Each real pipeline is single issue,            continuous batching, sub-buffer access phases, and multi-
+while commands on distinct pipelines may overlap. Earliest             core compilation; whole-residency ownership supplies a strict,
+feasible timing over the augmented graph determines modeled            architecture-neutral safety criterion at this compiler boundary.
+makespan and compute­MTE overlap.
+                                                                                         VI. EXPERIMENTAL RESULTS
+   All controlled LATTICE variants use the configuration in
+Table II, identical event semantics, and the same planner,             A. Overall Comparison
+timing backend, and verifier. An accepted CPE output must
+preserve the Stage-2 layout, event plan, physical resident peak,          Figure 6(a) compares the complete compiler policies under
+spill count, and DDR traffic while satisfying all fixed and            the unified replay protocol. Relative to Base, LATTICE reduces
+resource-order constraints.                                            peak memory, extra DDR traffic, spill count, and modeled
+                                                                       makespan by 38.3% lower, 62.0% lower, 64.9% lower,
+   The end-to-end comparison reports peak memory,                      and 57.5% lower, respectively. The coordinated gains across
+planner-introduced two-way DDR transfer units, spill count             all four metrics show that the three stages improve memory
+(SPILL OUT events), and modeled makespan. Controlled                   efficiency and execution time simultaneously.
+
+                                                                    8
+Base 1.00     1.00   1.00  1.00       1.0  Conv-0                     53.7      42.7            8.5                     30.3  50
+
+HMCOS 1.00    0.55   0.55  0.59       0.8  Conv-1                     20.2      22.7            35.1                    23.3  40
+
+              0.73         0.74            Normalized value           19.8
+                                                                                                                                                        Reduction (%)
+COSMA 1.00           0.68             0.6  FA-0                                 16.9            7.2                     11.3
+                                                                                                                                              30
+
+MAGIS 0.75    0.58   0.46  0.59       0.4  FA-1                       16.3      15.9            5.8                     10.5
+                                                                                                                                              20
+
+EDA 1.00      0.49   0.44  0.51            MM-0                       0.0       17.0            20.4                    15.8
+
+                                      0.2                                                                                     10
+
+LATTICE 0.59  0.38   0.35  0.43            MM-1                       0.0       7.1             7.7                     6.5
+
+                                      0.0                                                                                     0
+
+  Peak        Extra   Spill Makespan       Peak memory                          Extra DDR  Spill count     Makespan
+memory        DDR    count
+
+(a) Geomean normalized to Base                                              (b) LATTICE reduction vs best external (%)
+
+Fig. 6. End-to-end comparison under unified replay. (a) Geometric means normalized to Base; lower is better. (b) LATTICE reduction relative to the best
+evaluated external method for each workload and metric; higher is better.
+
+   Figure 6(b) compares LATTICE with the best evaluated                                                      TABLE III
+external method separately for each workload and metric.               CONSTRAINT-PROPAGATION DIAGNOSTICS. IGNORE REMOVES REUSE
+LATTICE is best or tied-best in all 24 workload­metric
+comparisons. Averaged across the six workloads, it reduces               CONSTRAINTS; POST-PLAN REORDER CHANGES COMMAND ORDER
+peak memory by 18.3% lower, extra DDR traffic by 20.4%                WITHOUT REPLANNING. MAKESPAN IN (A) IS NORMALIZED TO FREEZE.
+lower, spill count by 14.1% lower, and makespan by 16.3%
+lower. Two matrix-multiplication peak-memory cells match                    (a) Reuse enforcement on fixed MPAS+DLR plans.
+the strongest external result; all other cells are strict im-
+provements. The largest joint gain occurs on Conv-0, where                 Policy Valid Reuse violations                      MS/Freeze
+LATTICE reduces peak memory by 53.7%, extra DDR traffic
+by 42.7%, spill count by 8.5%, and makespan by 30.3%                       Ignore 0/6                   36,399 0.533 (infeasible)
+relative to the corresponding strongest external results.
+                                                                           Freeze 6/6                   0                     1.000
+B. Stage and Order Analysis
+                                                                           CPE  6/6                     0                     0.879
+   The top of Figure 7 isolates the contribution of each
+stage along the directed compiler interface. MPAS directly                      (b) Phase-direction counterfactuals.
+targets the pre-placement order and reduces the geometric-
+mean logical peak by 53.4% lower. With the MPAS order                 Sequence             Valid Static errors Reuse violations
+fixed, DLR's cost-aware victim policy reduces DDR traffic
+by 6.6% lower and spill-out count by 4.4% lower relative              Post-plan reorder    0/6          265,988                     ­
+to LRU. With the complete DLR plan fixed, CPE reduces                                                           0             36,399
+geometric-mean makespan by 12.1%.                                     Timing without reuse 0/6                  0
+                                                                                                                                    0
+   The per-workload results reflect the different structural bot-     MPASDLRCPE 6/6
+tlenecks shown in Figure 5. MPAS produces its largest logical-
+pressure reductions on Conv-0 and the matrix-multiplication           61.7% in makespan. All 24 order­workload combinations
+traces, where lifetime overlap is more pronounced. CPE                remain topologically legal and produce verified plans.
+contributes most strongly on the two FlashAttention traces,
+whose heterogeneous pipelines expose more timing slack.                  Criticality-first leaves logical peak unchanged but can re-
+CPE leaves the layout, event stream, physical resident peak,          duce traffic and makespan by advancing long dependency
+DDR traffic, and spill count unchanged on every workload,             chains. Memory-first and MPAS reduce both lifetime pressure
+so its improvements come exclusively from resource-order              and downstream plan cost; MPAS further improves the two
+refinement.                                                           matrix-multiplication logical peaks by incorporating criticality
+                                                                      after its lifecycle priorities. The changing rankings across
+   The bottom of Figure 7 evaluates the four legal orders             metrics confirm that a legal order selects a distinct lifetime
+under an otherwise identical backend. Across the four orders,         geometry and hence a distinct physical memory and timing
+the per-workload variation reaches 21.2%­81.2% in logical             operating point.
+peak, 1.0%­77.2% in physical resident peak, 49.5%­67.7%
+in DDR traffic, 44.1%­60.8% in spill count, and 45.6%­                C. Memory-Plan Correctness and Timing Recovery
+
+                                                                         The top of Figure 8 visualizes representative DLR plans.
+                                                                      The horizontal axis follows normalized command order, while
+                                                                      the vertical ranges represent normalized UB and L1 address
+                                                                      space. Conv-0 develops dense late-stage reuse in L1; FA-
+                                                                      0 uses shorter, more interleaved residencies across UB; and
+                                                                      MM-0 retains several long-lived L1 allocations. Repeated use
+                                                                      of the same address range at disjoint command intervals
+
+                                                                   9
+                            MPAS: logical peak  DLR: DDR              DLR: spill        CPE: makespan
+
+Direct stage reduction (%)80
+                                                                                                                                                                                               Reduction vs Stable (%)
+60
+
+40
+
+20
+
+0                           Conv-1              FA-0                              FA-1                 MM-0  MM-1
+                    Conv-0
+
+                                              (a) Stage-wise ablation under the final configuration
+
+    Stable +0 +0 +0 +0 +0 +0                  +0 +0 +0 +0 +0 +0                         +0 +0 +0 +0 +0 +0                                                                                                             100
+                                                                                                                                                                                                                      50
+Memory-first +66 +24 +28 +21 +44 +47          +64 +41 +52 +54 +61 +54                   +47 +37 +61 +62 +53 +51                                                                                                       0
+                                                                                                                                                                                                                      -50
+Criticality-first +0 +0 +0 +0 +0 +0           +31 +49 +43 +37 +37 +34                   +30 +46 +49 +45 +27 +28                                                                                                       -100
+
+    MPAS +66 +24 +28 +21 +62 +81              +61 +35 +46 +48 +68 +66                   +45 +28 +52 +55 +57 +58
+
+    Conv-0 Conv-1 FA-0 FA-1 MM-0 MM-1         Conv-0 Conv-1 FA-0 FA-1 MM-0 MM-1         Conv-0 Conv-1 FA-0 FA-1 MM-0 MM-1
+
+    (b) Logical peak reduction vs Stable (%)  (c) DDR reduction vs Stable (%)           (d) Makespan reduction vs Stable (%)
+
+Fig. 7. Stage and order analysis. Top: direct effect of each LATTICE stage under the final configuration. Bottom: sensitivity to four legal orders using the
+same DLR/CPE backend; positive values denote reductions relative to Stable.
+
+exposes the ownership epochs from which DLR constructs                freedom permitted by the fixed memory plan.
+Ereuse. Independent replay confirms that no address­time cell
+is simultaneously owned by two residencies.                           D. Compiler Overhead
+
+   Table III(a) tests whether these induced constraints are              Figure 9 decomposes compilation into MPAS, DLR, fixed-
+required for valid execution. Ignore removes only Ereuse while        graph construction, CPE, and verification. Total compile time
+retaining input precedence, lifecycle, transfer, residency, and       ranges from 2,353.7­434,607.5 ms. MPAS and DLR remain
+resource constraints. The verifier detects 36,399 ownership           lightweight; CPE accounts for the largest share because it
+violations despite the apparent timing reduction and rejects          performs full timing evaluation and verification for alternative
+the resulting schedules for all 6 workloads. Freeze preserves         resource orders.
+the complete safe Stage-2 order, whereas CPE preserves Efixed
+but refines the remaining resource order. CPE remains valid              This cost is incurred offline and can be amortized across
+and strictly improves all 6 workloads.                                repeated executions of the generated plan. CPE is also op-
+                                                                      tional: disabling it returns the verified MPAS+DLR+Freeze
+   Table III(b) verifies the direction of the stage interfaces.       plan, while full LATTICE applies one deterministic seed and a
+Reusing the event and address plan generated for the MPAS             bounded four-candidate local search. This fixed optimization
+order after replacing that order with Stable causes the ver-          envelope provides a direct search-quality­compile-time knob
+ifier to identify 265,988 event-anchor, residency, backing-           while preserving the Stage-2 memory plan and its validity.
+state, capacity, or address errors across 6/6 plans. Optimiz-
+ing timing before materializing reuse constraints reproduces                                 VII. RELATED WORK
+the 36,399 unconstrained ownership handoffs. In contrast,
+MPASDLRCPE passes both replay layers on all six                          Memory-aware scheduling and planning. Prior work
+workloads. Once a memory plan has been materialized, later            reduces tensor residency through memory-aware graph or-
+ordering changes must therefore preserve its contract or trigger      dering and scheduling [1], [20], [26], [50], including hier-
+replanning.                                                           archical scheduling, capacity-aware block grouping, energy-
+                                                                      aware compilation, and pass orchestration [24], [33], [49],
+   The bottom of Figure 8 illustrates how CPE recovers valid          [51]. A complementary body of work addresses placement,
+overlap. On Conv-0, FA-0, and FA-1, it reduces makespan               spilling, offloading, and rematerialization [16], [19], [37], [38],
+by 6.0%, 28.2%, and 27.7%, respectively, by changing cross-           [48], while Moccasin, TelaMalloc, COSMA, and recent static
+pipeline alignment and local single-issue order. The be-              planners coordinate allocation with replacement or scheduling
+fore/after replay confirms identical placement, lifecycle and         decisions [2], [22], [27], [30], [41]. These studies establish
+spill/reload events, physical resident peak, DDR traffic, and         the upstream coupling between order and memory behavior.
+spill count. Thus, the shorter schedules capture the timing           LATTICE targets the downstream boundary: after a concrete
+
+                                                                  10
+                                              DLR address­time residency                                                     Logical residency       Unoccupied
+
+                           Tier / offset  L1
+
+                                          UB
+
+                                              0              0.5                 1.0            0              0.5           1.0  0                  0.5                1.0
+
+                                                             Conv-0                                           FA-0                                   MM-0
+
+                                              Freeze/CPE activity (x: cycle / Freeze makespan)                                    Compute       MTE
+
+   F: CUBE
+    F: FIXP
+F: VECTOR
+  F: MTE1
+  F: MTE2
+  F: MTE3
+
+   C: CUBE                                                   0.5                 1.0            0                    0.5     1.0  0                  0.5                1.0
+    C: FIXP
+C: VECTOR                                                                                                 FA-0: 28.2% lower
+  C: MTE1
+  C: MTE2
+  C: MTE3
+
+            0
+
+                                                 Conv-0: 6.0% lower                                                                                  FA-1: 27.7% lower
+
+Fig. 8. Materialized plans and timing refinement. Top: verified DLR address­time residency maps (blue: allocated residency; white: unoccupied space).
+Bottom: per-pipeline activity under Freeze and CPE on a common Freeze-normalized time axis (orange: compute; teal: MTE).
+
+                                                 MPAS Fixed graph Verifier                                    static intra-core command DAG and is complementary to these
+                                                                                                              higher-level mapping, batching, and runtime decisions.
+                                                 DLR         CPE
+                                                                                                                 Dependence-aware refinement. Compiler scheduling has
+Share of compile time (%)  100                   3.3s 434.6s 2.6s         21.3s       2.4s         27.5s      long represented anti- and output dependencies created by
+                                                                                                              storage reuse, while integrated schedulers enforce memory,
+                           80                                                                                 register, and resource constraints [10], [23], [28]. LATTICE
+                                                                                                              applies this principle to explicitly managed NPU memories: it
+                           60                                                                                 derives reuse dependencies from a tiered spill plan, propagates
+                                                                                                              them across MPAS/DLR/CPE, and distinguishes infeasible
+                           40                                                                                 overlap from plan-preserving timing refinement through the
+                                                                                                              Ignore, Freeze, and CPE comparisons.
+                           20
+                                                                                                                                       VIII. CONCLUSION
+                                          0
+
+                                              Conv-0 Conv-1       FA-0    FA-1 MM-0 MM-1
+
+                           Fig. 9. Compiler-time composition; totals appear above the bars.
+
+layout and spill plan have been materialized, their reuse-                                                       LATTICE treats a static NPU memory plan as a first-
+induced constraints become legality conditions for subsequent                                                 class scheduling contract. MPAS shapes order-dependent life-
+pipeline refinement.                                                                                          times before address binding, DLR materializes placement,
+                                                                                                              spill/reload behavior, and plan-induced reuse constraints, and
+   ML/NPU compilation and execution. General ML com-                                                          CPE recovers pipeline parallelism while preserving the se-
+piler systems optimize graph lowering, tensor programs, oper-                                                 lected plan. Relative to the best evaluated external method for
+ator scheduling, and memory access [5], [6], [29], [39], [40],                                                each workload and metric, LATTICE reduces peak memory,
+[53], [55]. Timeloop and VTA provide architecture and map-                                                    extra DDR traffic, spill count, and modeled makespan by
+ping abstractions [32], [34], while Tensor Comprehensions,                                                    18.3% lower, 20.4% lower, 14.1% lower, and 16.3% lower,
+TASO, PET, Optimus, and learning-based optimization expand                                                    respectively; plan-preserving CPE further reduces makespan
+the transformation space [4], [7], [18], [45], [47]. Accelerator-                                             by 12.1% over Freeze while preserving every memory met-
+specific systems study PIM compilation, fused dataflows, and                                                  ric. The correctness diagnostics confirm that the propagated
+NPU layout mapping [25], [42], [43]. Inter-operator GPU                                                       memory constraints are necessary for executable timing. More
+and multi-NPU schedulers exploit coarser-grained concur-                                                      broadly, LATTICE suggests that compilers for architectures
+rency [12], [31], and NPU simulators, compiler-space studies,                                                 with explicitly managed memories and decoupled compute­
+platform benchmarks, and heterogeneous NPU­PIM inference                                                      transfer pipelines should export memory-planning decisions
+systems support broader architecture exploration [13]­[15],                                                   as execution semantics, allowing subsequent optimizations to
+[17], [21]. LATTICE operates after operator lowering on a                                                     proceed while retaining plan validity by construction.
+
+                                                                                                          11
+                             REFERENCES                                                     optimal tensor rematerialization," Proceedings of Machine Learning and
+                                                                                            Systems, vol. 2, pp. 497­511, 2020.
+ [1] B. H. Ahn, J. Lee, J. M. Lin, H.-P. Cheng, J. Hou, and H. Esmaeilzadeh,          [17] R. Jayanth, N. Gupta, and V. Prasanna, "Benchmarking edge ai platforms
+      "Ordering chaos: Memory-aware scheduling of irregularly wired neural                  for high-performance ml inference," in 2024 IEEE High Performance
+      networks for edge devices," Proceedings of Machine Learning and                       Extreme Computing Conference (HPEC). IEEE, 2024, pp. 1­7.
+      Systems, vol. 2, pp. 44­57, 2020.                                               [18] Z. Jia, O. Padon, J. Thomas, T. Warszawski, M. Zaharia, and A. Aiken,
+                                                                                            "Taso: optimizing deep learning computation with automatic generation
+ [2] B. Bartan, H. Li, H. Teague, C. Lott, and B. Dilkina, "Moccasin:                       of graph substitutions," in Proceedings of the 27th ACM Symposium on
+      efficient tensor rematerialization for neural networks," in International             Operating Systems Principles, 2019, pp. 47­62.
+      Conference on Machine Learning. PMLR, 2023, pp. 1826­1837.                      [19] M. Kirisame, S. Lyubomirsky, A. Haan, J. Brennan, M. He, J. Roesch,
+                                                                                            T. Chen, and Z. Tatlock, "Dynamic tensor rematerialization," in 9th
+ [3] T. Brown, B. Mann, N. Ryder, M. Subbiah, J. D. Kaplan, P. Dhariwal,                    International Conference on Learning Representations, ICLR 2021,
+      A. Neelakantan, P. Shyam, G. Sastry, A. Askell, S. Agarwal,                           Virtual Event, Austria, May 3-7, 2021. OpenReview.net, 2021.
+      A. Herbert-Voss, G. Krueger, T. Henighan, R. Child, A. Ramesh,                        [Online]. Available: https://openreview.net/forum?id=Vfs 2RnOD0H
+      D. Ziegler, J. Wu, C. Winter, C. Hesse, M. Chen, E. Sigler,                     [20] R. Kumar, M. Purohit, Z. Svitkina, E. Vee, and J. Wang, "Efficient
+      M. Litwin, S. Gray, B. Chess, J. Clark, C. Berner, S. McCandlish,                     rematerialization for deep networks," Advances in Neural Information
+      A. Radford, I. Sutskever, and D. Amodei, "Language models are                         Processing Systems, vol. 32, 2019.
+      few-shot learners," in Advances in Neural Information Processing                [21] C. Lai and W. Zhang, "gem5-nvdla: A simulation framework for
+      Systems, H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, and                        compiling, scheduling, and architecture evaluation on ai system-on-
+      H. Lin, Eds., vol. 33. Curran Associates, Inc., 2020, pp. 1877­                       chips," ACM Transactions on Design Automation of Electronic Systems,
+      1901. [Online]. Available: https://proceedings.neurips.cc/paper files/                vol. 29, no. 5, pp. 1­20, 2024.
+      paper/2020/file/1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf                      [22] C. Lamprakos, P. Xanthopoulos, M. Katsaragakis, S. Xydis, D. Soudris,
+                                                                                            and F. Catthoor, "Futureproof static memory planning," arXiv preprint
+ [4] X. Cai, Y. Wang, and L. Zhang, "Optimus: An operator fusion frame-                     arXiv:2504.04874, 2025.
+      work for deep neural networks," ACM Transactions on Embedded                    [23] I. Lamprou, Z. Zhang, J. de Juan, H. Yang, Y. Lai, E. Filhol, and
+      Computing Systems, vol. 22, no. 1, pp. 1­26, 2022.                                    C. Bastoul, "Safe optimized static memory allocation for parallel deep
+                                                                                            learning," in Proceedings of Machine Learning and Systems, D. Song,
+ [5] R. Chen, Z. Ding, S. Zheng, C. Zhang, J. Leng, X. Liu, and Y. Liang,                   M. Carbin, and T. Chen, Eds., vol. 5. Curan, 2023, pp. 305­324.
+      "Magis: Memory optimization via coordinated graph transformation and                  [Online]. Available: https://proceedings.mlsys.org/paper files/paper/
+      scheduling for dnn," in Proceedings of the 29th ACM International                     2023/file/676d8419c61f299feb88c28b40edd3b1-Paper-mlsys2023.pdf
+      Conference on Architectural Support for Programming Languages and               [24] S. Lee, Y. Lee, H. Kim, T. Kim, and Y. Park, "Block group scheduling:
+      Operating Systems, Volume 3, 2024, pp. 607­621.                                       A general precision-scalable npu scheduling technique with capacity-
+                                                                                            aware memory allocation," in 2023 Design, Automation & Test in Europe
+ [6] T. Chen, T. Moreau, Z. Jiang, L. Zheng, E. Yan, H. Shen, M. Cowan,                     Conference & Exhibition (DATE). IEEE, 2023, pp. 1­6.
+      L. Wang, Y. Hu, L. Ceze, C. Guestrin, and A. Krishnamurthy, "TVM: An            [25] S. Lee, B. Kim, Y. Choi, and H.-J. Lee, "Hopscotch: A holistic ap-
+      automated End-to-End optimizing compiler for deep learning," in 13th                  proach to data layout-aware mapping on npus for high-performance dnn
+      USENIX Symposium on Operating Systems Design and Implementation                       inference," ACM Transactions on Architecture and Code Optimization,
+      (OSDI 18). Carlsbad, CA: USENIX Association, Oct. 2018, pp. 578­                      vol. 22, no. 3, pp. 1­26, 2025.
+      594.                                                                            [26] M. Levental, "Memory planning for deep neural networks," arXiv
+                                                                                            preprint arXiv:2203.00448, 2022.
+ [7] T. Chen, L. Zheng, E. Yan, Z. Jiang, T. Moreau, L. Ceze, C. Guestrin,            [27] Y. Li, A. Gupta, and S. Malik, "Combined scheduling, memory allo-
+      and A. Krishnamurthy, "Learning to optimize tensor programs," Ad-                     cation and tensor replacement for minimizing off-chip data accesses of
+      vances in Neural Information Processing Systems, vol. 31, 2018.                       dnn accelerators," arXiv preprint arXiv:2311.18246, 2023.
+                                                                                      [28] R. C. Lozano, M. Carlsson, G. H. Blindell, and C. Schulte,
+ [8] T. Dao, "Flashattention-2: Faster attention with better parallelism and                "Combinatorial register allocation and instruction scheduling," ACM
+      work partitioning," arXiv preprint arXiv:2307.08691, 2023.                            Transactions on Programming Languages and Systems, vol. 41, no. 3,
+                                                                                            pp. 1­53, Jul. 2019. [Online]. Available: http://dx.doi.org/10.1145/
+ [9] T. Dao, D. Fu, S. Ermon, A. Rudra, and C. Re´, "Flashattention:                        3332373
+      Fast and memory-efficient exact attention with io-awareness," in                [29] L. Ma, Z. Xie, Z. Yang, J. Xue, Y. Miao, W. Cui, W. Hu, F. Yang,
+      Advances in Neural Information Processing Systems, S. Koyejo,                         L. Zhang, and L. Zhou, "Rammer: Enabling holistic deep learning
+      S. Mohamed, A. Agarwal, D. Belgrave, K. Cho, and A. Oh,                               compiler optimizations with rtasks," in 14th USENIX Symposium
+      Eds., vol. 35. Curran Associates, Inc., 2022, pp. 16 344­16 359.                      on Operating Systems Design and Implementation, OSDI 2020,
+      [Online]. Available: https://proceedings.neurips.cc/paper files/paper/                Virtual Event, November 4-6, 2020. USENIX Association, 2020,
+      2022/file/67d57c32e20fd0a7a302cb81d36e40d5-Paper-Conference.pdf                       pp. 881­897. [Online]. Available: https://www.usenix.org/conference/
+                                                                                            osdi20/presentation/ma
+[10] K. Desnos, M. Pelcat, J.-F. Nezan, and S. Aridhi, "Pre- and                      [30] M. Maas, U. Beaugnon, A. Chauhan, and B. Ilbeyi, "Telamalloc:
+      post-scheduling memory allocation strategies on mpsocs," in Electronic                Efficient on-chip memory allocation for production machine learning
+      System Level Synthesis Conference (ESLsyn). Austin, TX, USA: IEEE,                    accelerators," in Proceedings of the 28th ACM International Conference
+      2013, pp. 1­6. [Online]. Available: https://hal.archives-ouvertes.fr/hal-             on Architectural Support for Programming Languages and Operating
+      00868945/file/ESLSyn13.pdf                                                            Systems, Volume 1, 2022, pp. 123­137.
+                                                                                      [31] H. Min, J. Kwon, and B. Egger, "Flexer: Out-of-order scheduling
+[11] A. Gholami, Z. Yao, S. Kim, C. Hooper, M. W. Mahoney, and                              for multi-npus," in Proceedings of the 21st ACM/IEEE International
+      K. Keutzer, "Ai and memory wall," IEEE Micro, vol. 44, no. 3, pp.                     Symposium on Code Generation and Optimization, 2023, pp. 212­223.
+      33­39, 2024.                                                                    [32] T. Moreau, T. Chen, L. Vega, J. Roesch, E. Q. Yan, L. Zheng,
+                                                                                            J. Fromm, Z. Jiang, L. Ceze, C. Guestrin, and A. Krishnamurthy, "A
+[12] S. Guo, Z. Xu, J. Liu, J. Zhang, Q. Qi, H. Sun, J. Huang, J. Liao,                     hardware-software blueprint for flexible deep learning specialization,"
+      and J. Wang, "Efficient inter-operator scheduling for concurrent recom-               IEEE Micro, vol. 39, no. 5, pp. 8­16, 2019. [Online]. Available:
+      mendation model inference on gpu," in Proceedings of the Thirty-Fourth                https://doi.org/10.1109/MM.2019.2928962
+      International Joint Conference on Artificial Intelligence, 2025, pp. 2856­      [33] B. R. Pao, I.-C. Chen, E.-H. Chang, and T. T. Yeh, "Eda: Energy-efficient
+      2864.                                                                                 inter-layer model compilation for edge dnn inference acceleration," in
+                                                                                            2025 IEEE International Symposium on High Performance Computer
+[13] G. Heo, S. Lee, J. Cho, H. Choi, S. Lee, H. Ham, G. Kim, D. Ma-                        Architecture (HPCA). IEEE, 2025, pp. 563­576.
+      hajan, and J. Park, "Neupims: Npu-pim heterogeneous acceleration for            [34] A. Parashar, P. Raina, Y. S. Shao, Y. Chen, V. A. Ying, A. Mukkara,
+      batched llm inferencing," in Proceedings of the 29th ACM International                R. Venkatesan, B. Khailany, S. W. Keckler, and J. S. Emer,
+      Conference on Architectural Support for Programming Languages and
+      Operating Systems, Volume 3, 2024, pp. 722­737.
+
+[14] S. Hwang, S. Lee, J. Kim, H. Kim, and J. Huh, "mnpusim: Evaluating
+      the effect of sharing resources in multi-core npus," in 2023 IEEE In-
+      ternational Symposium on Workload Characterization (IISWC). IEEE,
+      2023, pp. 167­179.
+
+[15] F. Indirli, A. C. Ornstein, G. Desoli, A. Buschini, C. Silvano, and V. Za-
+      ccaria, "Layer-wise exploration of a neural processing unit compiler's
+      optimization space," in Proceedings of the 2024 10th International
+      Conference on Computer Technology Applications, 2024, pp. 20­26.
+
+[16] P. Jain, A. Jain, A. Nrusimha, A. Gholami, P. Abbeel, J. Gonzalez,
+      K. Keutzer, and I. Stoica, "Checkmate: Breaking the memory wall with
+
+                                                                                  12
+      "Timeloop: A systematic approach to DNN accelerator evaluation,"                     Programming, PPoPP 2018, Vienna, Austria, February 24-28, 2018,
+      in IEEE International Symposium on Performance Analysis of                           A. Krall and T. R. Gross, Eds. ACM, 2018, pp. 41­53. [Online].
+      Systems and Software, ISPASS 2019, Madison, WI, USA, March                           Available: https://doi.org/10.1145/3178487.3178491
+      24-26, 2019. IEEE, 2019, pp. 304­315. [Online]. Available:                     [49] Z. Wang, C. Wan, Y. Chen, Z. Lin, H. Jiang, and L. Qiao, "Hierarchical
+      https://doi.org/10.1109/ISPASS.2019.00042                                            memory-constrained operator scheduling of neural architecture search
+[35] M. Pei, G. Li, J. Si, Z. Zhu, Z. Mo, P. Wang, Z. Song, X. Liang,                      networks," in Proceedings of the 59th ACM/IEEE Design Automation
+      and J. Cheng, "GCC: A 3DGS inference architecture with gaussian-                     Conference, 2022, pp. 493­498.
+      wise and cross-stage conditional processing," in Proceedings of the 58th       [50] Y. Wen, A. Anderson, V. Radu, M. F. O'Boyle, and D. Gregg, "Taso:
+      IEEE/ACM International Symposium on Microarchitecture, 2025, pp.                     Time and space optimization for memory-constrained dnn inference,"
+      1824­1837.                                                                           in 2020 IEEE 32nd International Symposium on Computer Architecture
+[36] M. Pei, G. Li, Z. Zhu, S. Wang, J. Si, Z. Song, Y. Feng, F. Liu, X. Liang,            and High Performance Computing (SBAC-PAD). IEEE, 2020, pp. 199­
+      and J. Cheng, "DeGS: A scalable 3DGS architecture via decoupled                      208.
+      workload parsing and reorganization," arXiv preprint arXiv:2608.02099,         [51] Q. Yu, P. Nie, Z. Wang, C. Wan, Z. Lin, H. Jiang, J. Zhao, L. Qiao,
+      2026, accepted to the 59th IEEE/ACM International Symposium on                       L. Chen, and Y. Chen, "Orchestrating optimization passes of machine
+      Microarchitecture. [Online]. Available: https://arxiv.org/abs/2608.02099             learning compiler for reducing memory footprints of computation
+[37] X. Peng, X. Shi, H. Dai, H. Jin, W. Ma, Q. Xiong, F. Yang, and X. Qian,               graphs," Journal of Systems Architecture, vol. 173, p. 103694, Apr. 2026.
+      "Capuchin: Tensor-based GPU memory management for deep learning,"                    [Online]. Available: http://dx.doi.org/10.1016/j.sysarc.2026.103694
+      in ASPLOS '20: Architectural Support for Programming Languages                 [52] W. Zhang, Y. Shangguan, H. Xu, Y. Mai, Q. Wang, C. Chen,
+      and Operating Systems, Lausanne, Switzerland, March 16-20, 2020,                     Y. Li, Q. Chen, W. Ding, J. Zhao, and M. Guo, "Npumeter:
+      J. R. Larus, L. Ceze, and K. Strauss, Eds. ACM, 2020, pp. 891­905.                   Automatic operator optimization for ascend npu with accurate
+      [Online]. Available: https://doi.org/10.1145/3373376.3378505                         analytical performance models," ACM Transactions on Architecture
+[38] M. Rhu, N. Gimelshein, J. Clemons, A. Zulfiqar, and S. W. Keckler,                    and Code Optimization, vol. 23, no. 2, pp. 1­26, Jun. 2026. [Online].
+      "vdnn: Virtualized deep neural networks for scalable, memory-efficient               Available: http://dx.doi.org/10.1145/3820380
+      neural network design," in 49th Annual IEEE/ACM International                  [53] L. Zheng, C. Jia, M. Sun, Z. Wu, C. H. Yu, A. Haj-Ali,
+      Symposium on Microarchitecture, MICRO 2016, Taipei, Taiwan,                          Y. Wang, J. Yang, D. Zhuo, K. Sen, J. E. Gonzalez, and
+      October 15-19, 2016. IEEE Computer Society, 2016, pp. 18:1­18:13.                    I. Stoica, "Ansor: Generating high-performance tensor programs for
+      [Online]. Available: https://doi.org/10.1109/MICRO.2016.7783721                      deep learning," in 14th USENIX Symposium on Operating Systems
+[39] J. Roesch, S. Lyubomirsky, L. Weber, J. Pollock, M. Kirisame, T. Chen,                Design and Implementation, OSDI 2020, Virtual Event, November 4-6,
+      and Z. Tatlock, "Relay: A new ir for machine learning frameworks,"                   2020. USENIX Association, 2020, pp. 863­879. [Online]. Available:
+      in Proceedings of the 2nd ACM SIGPLAN international workshop on                      https://www.usenix.org/conference/osdi20/presentation/zheng
+      machine learning and programming languages, 2018, pp. 58­68.                   [54] Y. Zhou, Z. Wang, G. Liu, S. Li, X. Lin, Z. Wang, Y. Wang,
+[40] Y. Shi, Z. Yang, J. Xue, L. Ma, Y. Xia, Z. Miao, Y. Guo,                              F. Wei, J. Zhang, Z. Hu, Y. Liu, C. Li, Z. Zhang, Y. Wang,
+      F. Yang, and L. Zhou, "Welder: Scheduling deep learning memory                       B. Zhou, W. Dou, G. Chen, and C. Tian, "Squeezing operator
+      access via tile-graph," in 17th USENIX Symposium on Operating                        performance potential for the ascend architecture," in Proceedings
+      Systems Design and Implementation, OSDI 2023, Boston, MA,                            of the 30th ACM International Conference on Architectural Support
+      USA, July 10-12, 2023, R. Geambasu and E. Nightingale, Eds.                          for Programming Languages and Operating Systems, Volume 2, ser.
+      USENIX Association, 2023, pp. 701­718. [Online]. Available:                          ASPLOS '25. ACM, Mar. 2025, pp. 1156­1171. [Online]. Available:
+      https://www.usenix.org/conference/osdi23/presentation/shi                            http://dx.doi.org/10.1145/3676641.3716243
+[41] B. Steiner, M. Elhoushi, J. Kahn, and J. Hegarty, "Model: memory op-            [55] H. Zhu, R. Wu, Y. Diao, S. Ke, H. Li, C. Zhang, J. Xue,
+      timizations for deep learning," in International Conference on Machine               L. Ma, Y. Xia, W. Cui, F. Yang, M. Yang, L. Zhou, A. Cidon,
+      Learning. PMLR, 2023, pp. 32 618­32 632.                                             and G. Pekhimenko, "ROLLER: fast and efficient tensor compilation
+[42] X. Sun, X. Wang, W. Li, Y. Han, and X. Chen, "Pimcomp: an end-to-                     for deep learning," in 16th USENIX Symposium on Operating
+      end dnn compiler for processing-in-memory accelerators," IEEE Trans-                 Systems Design and Implementation, OSDI 2022, Carlsbad, CA,
+      actions on Computer-Aided Design of Integrated Circuits and Systems,                 USA, July 11-13, 2022, M. K. Aguilera and H. Weatherspoon,
+      vol. 44, no. 5, pp. 1745­1759, 2024.                                                 Eds. USENIX Association, 2022, pp. 233­248. [Online]. Available:
+[43] A. Symons, L. Mei, S. Colleman, P. Houshmand, S. Karl, and M. Ver-                    https://www.usenix.org/conference/osdi22/presentation/zhu
+      helst, "Stream: Design space exploration of layer-fused dnns on het-
+      erogeneous dataflow accelerators," IEEE Transactions on Computers,
+      vol. 74, no. 1, pp. 237­249, 2024.
+[44] Y. Tang and C.-l. Wang, "Performance modeling on davinci ai core,"
+      Journal of Parallel and Distributed Computing, vol. 175, pp. 134­149,
+      May 2023. [Online]. Available: http://dx.doi.org/10.1016/j.jpdc.2023.
+      01.008
+[45] N. Vasilache, O. Zinenko, T. Theodoridis, P. Goyal, Z. DeVito,
+      W. S. Moses, S. Verdoolaege, A. Adams, and A. Cohen, "Tensor
+      comprehensions: Framework-agnostic high-performance machine
+      learning abstractions," CoRR, vol. abs/1802.04730, 2018. [Online].
+      Available: http://arxiv.org/abs/1802.04730
+[46] A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N.
+      Gomez, L. u. Kaiser, and I. Polosukhin, "Attention is all you
+      need," in Advances in Neural Information Processing Systems,
+      I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus,
+      S. Vishwanathan, and R. Garnett, Eds., vol. 30. Curran Associates,
+      Inc., 2017. [Online]. Available: https://proceedings.neurips.cc/paper
+      files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
+[47] H. Wang, J. Zhai, M. Gao, Z. Ma, S. Tang, L. Zheng, Y. Li, K. Rong,
+      Y. Chen, and Z. Jia, "{PET}: Optimizing tensor programs with partially
+      equivalent transformations and automated corrections," in 15th USENIX
+      Symposium on Operating Systems Design and Implementation (OSDI
+      21), 2021, pp. 37­54.
+[48] L. Wang, J. Ye, Y. Zhao, W. Wu, A. Li, S. L. Song, Z. Xu,
+      and T. Kraska, "Superneurons: dynamic GPU memory management
+      for training deep neural networks," in Proceedings of the 23rd
+      ACM SIGPLAN Symposium on Principles and Practice of Parallel
+
+                                                                                 13
+

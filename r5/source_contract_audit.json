@@ -1,0 +1,929 @@
+{
+  "status": "PASS_WITH_COVERAGE_LIMITATIONS",
+  "source_graphs": [
+    {
+      "workload": "qwen_projection",
+      "bank_color": 0,
+      "work": {
+        "commands": 129,
+        "MACs": 655360,
+        "modeled_vector_ops": 1024,
+        "external_bytes": 1315840,
+        "local_read_bytes": 1321984,
+        "local_write_bytes": 1536
+      },
+      "rf_bytes_per_core": 66560,
+      "alias_pairs_ordered": 622,
+      "source_dimensions": {
+        "K": 2560,
+        "intermediate": 9216
+      },
+      "status": "PASS",
+      "address_payload_execution_proved": false
+    },
+    {
+      "workload": "flux_projection",
+      "bank_color": 0,
+      "work": {
+        "commands": 153,
+        "MACs": 25165824,
+        "modeled_vector_ops": 32768,
+        "external_bytes": 1769472,
+        "local_read_bytes": 1998848,
+        "local_write_bytes": 49152
+      },
+      "rf_bytes_per_core": 98304,
+      "alias_pairs_ordered": 890,
+      "source_dimensions": {
+        "K": 3072,
+        "intermediate": 9216
+      },
+      "status": "PASS",
+      "address_payload_execution_proved": false
+    },
+    {
+      "workload": "qwen_gdn_state",
+      "bank_color": 0,
+      "work": {
+        "commands": 26,
+        "MACs": 0,
+        "modeled_vector_ops": 917504,
+        "external_bytes": 131072,
+        "local_read_bytes": 524288,
+        "local_write_bytes": 524288
+      },
+      "rf_bytes_per_core": 73760,
+      "alias_pairs_ordered": 60,
+      "status": "PASS",
+      "state_RF_residency_over_four_tokens_fits_capacity": true,
+      "intermediate_SRAM_roundtrips_are_not_forced_by_capacity": true,
+      "address_payload_execution_proved": false
+    },
+    {
+      "workload": "qwen_projection",
+      "bank_color": 1,
+      "work": {
+        "commands": 129,
+        "MACs": 655360,
+        "modeled_vector_ops": 1024,
+        "external_bytes": 1315840,
+        "local_read_bytes": 1321984,
+        "local_write_bytes": 1536
+      },
+      "rf_bytes_per_core": 66560,
+      "alias_pairs_ordered": 622,
+      "source_dimensions": {
+        "K": 2560,
+        "intermediate": 9216
+      },
+      "status": "PASS",
+      "address_payload_execution_proved": false
+    },
+    {
+      "workload": "flux_projection",
+      "bank_color": 1,
+      "work": {
+        "commands": 153,
+        "MACs": 25165824,
+        "modeled_vector_ops": 32768,
+        "external_bytes": 1769472,
+        "local_read_bytes": 1998848,
+        "local_write_bytes": 49152
+      },
+      "rf_bytes_per_core": 98304,
+      "alias_pairs_ordered": 890,
+      "source_dimensions": {
+        "K": 3072,
+        "intermediate": 9216
+      },
+      "status": "PASS",
+      "address_payload_execution_proved": false
+    },
+    {
+      "workload": "qwen_gdn_state",
+      "bank_color": 1,
+      "work": {
+        "commands": 26,
+        "MACs": 0,
+        "modeled_vector_ops": 917504,
+        "external_bytes": 131072,
+        "local_read_bytes": 524288,
+        "local_write_bytes": 524288
+      },
+      "rf_bytes_per_core": 73760,
+      "alias_pairs_ordered": 60,
+      "status": "PASS",
+      "state_RF_residency_over_four_tokens_fits_capacity": true,
+      "intermediate_SRAM_roundtrips_are_not_forced_by_capacity": true,
+      "address_payload_execution_proved": false
+    },
+    {
+      "workload": "qwen_projection",
+      "bank_color": 3,
+      "work": {
+        "commands": 129,
+        "MACs": 655360,
+        "modeled_vector_ops": 1024,
+        "external_bytes": 1315840,
+        "local_read_bytes": 1321984,
+        "local_write_bytes": 1536
+      },
+      "rf_bytes_per_core": 66560,
+      "alias_pairs_ordered": 622,
+      "source_dimensions": {
+        "K": 2560,
+        "intermediate": 9216
+      },
+      "status": "PASS",
+      "address_payload_execution_proved": false
+    },
+    {
+      "workload": "flux_projection",
+      "bank_color": 3,
+      "work": {
+        "commands": 153,
+        "MACs": 25165824,
+        "modeled_vector_ops": 32768,
+        "external_bytes": 1769472,
+        "local_read_bytes": 1998848,
+        "local_write_bytes": 49152
+      },
+      "rf_bytes_per_core": 98304,
+      "alias_pairs_ordered": 890,
+      "source_dimensions": {
+        "K": 3072,
+        "intermediate": 9216
+      },
+      "status": "PASS",
+      "address_payload_execution_proved": false
+    },
+    {
+      "workload": "qwen_gdn_state",
+      "bank_color": 3,
+      "work": {
+        "commands": 26,
+        "MACs": 0,
+        "modeled_vector_ops": 917504,
+        "external_bytes": 131072,
+        "local_read_bytes": 524288,
+        "local_write_bytes": 524288
+      },
+      "rf_bytes_per_core": 73760,
+      "alias_pairs_ordered": 60,
+      "status": "PASS",
+      "state_RF_residency_over_four_tokens_fits_capacity": true,
+      "intermediate_SRAM_roundtrips_are_not_forced_by_capacity": true,
+      "address_payload_execution_proved": false
+    }
+  ],
+  "numeric_report_checks": [
+    {
+      "case": "qwen35_fullK_gateup_slice",
+      "seed": 51007,
+      "status": "REPORT_CONSISTENT_NOT_RERUN"
+    },
+    {
+      "case": "flux2_fullK_gateup_token_tile",
+      "seed": 51007,
+      "status": "REPORT_CONSISTENT_NOT_RERUN"
+    },
+    {
+      "case": "qwen35_gdn_two_value_heads_four_tokens",
+      "seed": 51007,
+      "status": "REPORT_CONSISTENT_NOT_RERUN"
+    },
+    {
+      "case": "qwen35_fullK_gateup_slice",
+      "seed": 51019,
+      "status": "REPORT_CONSISTENT_NOT_RERUN"
+    },
+    {
+      "case": "flux2_fullK_gateup_token_tile",
+      "seed": 51019,
+      "status": "REPORT_CONSISTENT_NOT_RERUN"
+    },
+    {
+      "case": "qwen35_gdn_two_value_heads_four_tokens",
+      "seed": 51019,
+      "status": "REPORT_CONSISTENT_NOT_RERUN"
+    },
+    {
+      "case": "qwen35_fullK_gateup_slice",
+      "seed": 51031,
+      "status": "REPORT_CONSISTENT_NOT_RERUN"
+    },
+    {
+      "case": "flux2_fullK_gateup_token_tile",
+      "seed": 51031,
+      "status": "REPORT_CONSISTENT_NOT_RERUN"
+    },
+    {
+      "case": "qwen35_gdn_two_value_heads_four_tokens",
+      "seed": 51031,
+      "status": "REPORT_CONSISTENT_NOT_RERUN"
+    }
+  ],
+  "observed_performance_summaries": {
+    "completed_summaries_at_audit": [
+      {
+        "file": "r5\\results\\atomic__flux_projection__ref_combined.json",
+        "sha256": "bebad29ec7aa4df21c974f500aaffb693ab8501ee79a7831c6914fd6e9751f98",
+        "backend": "atomic",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\atomic__flux_projection__ref_none.json",
+        "sha256": "c584b5326faf83c34ba1b08a3b482dbff2b9f82c43f95bd630020ca1bcea3dea",
+        "backend": "atomic",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\atomic__qwen_gdn_state__ref_combined.json",
+        "sha256": "bbd6c7504e01cdfbe67fc353805647ec59ac49ebe7e5d4b3a21f3d857c35e634",
+        "backend": "atomic",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\atomic__qwen_gdn_state__ref_none.json",
+        "sha256": "347962ab162c6fb36ca0803c1bbac7c730d6700a1962920c990a4778effa8dcc",
+        "backend": "atomic",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\atomic__qwen_projection__ref_combined.json",
+        "sha256": "04f0d484dadb46619cb42a07062ca7393d9039750d7ffd9e6684892f4083b8a7",
+        "backend": "atomic",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\atomic__qwen_projection__ref_none.json",
+        "sha256": "c47612174c9148486b4af66f08f469d75341aeddc480afe22fc6aee8999ece01",
+        "backend": "atomic",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__flux_projection__banks1_combined.json",
+        "sha256": "093b7f9ab3c9ae17df819d3105690352894a3fe84833a730f04e05db5937137d",
+        "backend": "request",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__flux_projection__fifo_combined.json",
+        "sha256": "a4a36a98f9bf9655d7bcbb0f03501de2052dd6a97203c731413cc65e7f337eb2",
+        "backend": "request",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__flux_projection__o1_combined.json",
+        "sha256": "56cbd59b33d8b635bb7adf019b9dd03dd679ee680d66fe7bc1f1c4d9bfc9a5d4",
+        "backend": "request",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__flux_projection__o32_combined.json",
+        "sha256": "10f5532789813fedcf505011c16d37a887ebcac79eaeec6a6d44638eb89e83ec",
+        "backend": "request",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__flux_projection__o4_combined.json",
+        "sha256": "affa097adf3485cff54467aafe0e74fd1343d4bfbc0893f78076454f94d4888a",
+        "backend": "request",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__flux_projection__r1_combined.json",
+        "sha256": "0a944008b086f7cae5b9d3c90ccfaa71e0bf47d2ac050b50c8372d515c7a2fca",
+        "backend": "request",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__flux_projection__r2_combined.json",
+        "sha256": "c132e4029b1930d250f088b9c67cb512e3baaa6dd8624a83fdb08245090559aa",
+        "backend": "request",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__flux_projection__ref_bank_background.json",
+        "sha256": "d6da34d00d5cd2f7c73eeeba921704075d47dfc82c62d3e82dcb7984cfe57045",
+        "backend": "request",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__flux_projection__ref_bus_background.json",
+        "sha256": "d3c41aff2d11743fcbd37c71e271fe192b1941e81db917dfea67572143995716",
+        "backend": "request",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__flux_projection__ref_combined.json",
+        "sha256": "06e997bcc263110f00a215b357ec8d9ce8eb1e5fe928644aa9d36679bc76147e",
+        "backend": "request",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__flux_projection__ref_latency.json",
+        "sha256": "64216c522ecd9c2d474fb1af91a02a0a9a81e7c093c2f6d0ac4530c04db9d548",
+        "backend": "request",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__flux_projection__ref_none.json",
+        "sha256": "449d9cfd6348dd2384085658b4c9ab4f550896b3676c0803a2a1b5d5fb597184",
+        "backend": "request",
+        "workload": "flux_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 153,
+          "MACs": 25165824,
+          "modeled_vector_ops": 32768,
+          "external_bytes": 1769472,
+          "local_read_bytes": 1998848,
+          "local_write_bytes": 49152
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_gdn_state__banks1_combined.json",
+        "sha256": "c541e4a8ecc0b418dfe7f5f8798612c7e3eaccdc82e25941bde0b06fd7fd4953",
+        "backend": "request",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_gdn_state__fifo_combined.json",
+        "sha256": "69413ece0183aeec5ec0afb6607375369aa5e90de677965632333b7efe56e23c",
+        "backend": "request",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_gdn_state__o1_combined.json",
+        "sha256": "2ca546a5adb2f6ae64046aeb88fac3d09ae45adb16cdde040dc90bc9e78a59ba",
+        "backend": "request",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_gdn_state__o32_combined.json",
+        "sha256": "b2cb405690fce4f1c1c82f2cdc8182b36b0d41c54a003e8db64e321f2bf44298",
+        "backend": "request",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_gdn_state__o4_combined.json",
+        "sha256": "3ef2abafe8fefe7b9cab7c6fdb48386657d54e89d04d4ac37f6117333e81f4c8",
+        "backend": "request",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_gdn_state__r1_combined.json",
+        "sha256": "a30c79028635d462772c7a13dcab237defa4caf1d770973b90f698458bb1edeb",
+        "backend": "request",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_gdn_state__r2_combined.json",
+        "sha256": "3f2eab351930a8f4de60d9f5a6fafba5b3e7ec56f4b7eeb3d312e65f01520635",
+        "backend": "request",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_gdn_state__ref_bank_background.json",
+        "sha256": "39bcda9c0856933df84c9bab2f4063f1ba574d7a48a1e8b868c2a67b93f5ff79",
+        "backend": "request",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_gdn_state__ref_bus_background.json",
+        "sha256": "4ed838e23b7236c28310668b970fabcbc5038cc8ed9ff845ca4bc0197ed0c77f",
+        "backend": "request",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_gdn_state__ref_combined.json",
+        "sha256": "f188fe367f36262cfd0b84bc25ffbe3eaadf32520f7b28c1dfa44fdfa89f1946",
+        "backend": "request",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_gdn_state__ref_latency.json",
+        "sha256": "176abfbd5f58ab3784b1f7912be359d7869c0a36764d5ba6d92ddb19492ab1e1",
+        "backend": "request",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_gdn_state__ref_none.json",
+        "sha256": "92aa2e9110ec87b283aad0fdcc8d9184427cffb4f9ce6bcd390388f19d8bb96f",
+        "backend": "request",
+        "workload": "qwen_gdn_state",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 26,
+          "MACs": 0,
+          "modeled_vector_ops": 917504,
+          "external_bytes": 131072,
+          "local_read_bytes": 524288,
+          "local_write_bytes": 524288
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_projection__banks1_combined.json",
+        "sha256": "515fff3e64daca4555c9e1356398c531849f0bcf8706210168e9c6d7182b8d6f",
+        "backend": "request",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_projection__fifo_combined.json",
+        "sha256": "4e16765150022a32c7b632801bb790958b929d6671b3a4db2534c4b8ada023bf",
+        "backend": "request",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_projection__o1_combined.json",
+        "sha256": "75f3f2086572bbbce6027d6b6ca893138f88236a3c36b83487888c0693e837ed",
+        "backend": "request",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_projection__o32_combined.json",
+        "sha256": "cd5bc11398d5da217633ced2b998a4cccb65c36fbd84592f8f64e54c430f7910",
+        "backend": "request",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_projection__o4_combined.json",
+        "sha256": "4b20fa92c4e02f76f1ac04826c40d82aa4efa0e72ac7a8872c6380385c7e2a5f",
+        "backend": "request",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_projection__r1_combined.json",
+        "sha256": "5359e373e9cd0c6512576b6482776f4b75b69c58c080337da2ab419476b84b81",
+        "backend": "request",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_projection__r2_combined.json",
+        "sha256": "a9835558d3687a5abda08dea2e4b28aff9bdc4e6ea6dbe138db36f4f910ff118",
+        "backend": "request",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_projection__ref_bank_background.json",
+        "sha256": "bc2eb58f6c142bc5b3d9e8e9d6044eec11fe6df2350fe82861a74f775a09a2c6",
+        "backend": "request",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_projection__ref_bus_background.json",
+        "sha256": "9e15d62e60ce43ace9cf6f19b3dd532dd0629c4bfdbb311df59bab59c6071728",
+        "backend": "request",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_projection__ref_combined.json",
+        "sha256": "3974ac202881235fd64ddf1a39841f4dae3a3300c8c8e0887ee91d889678bc37",
+        "backend": "request",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_projection__ref_latency.json",
+        "sha256": "f5224ea43de089f07b28c519892f151f503ae73c2cce3a9eb5d3261e0feb4084",
+        "backend": "request",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      },
+      {
+        "file": "r5\\results\\request__qwen_projection__ref_none.json",
+        "sha256": "bd2ed7438cb3c861ccc367e50f9c2180519ed0a9b639a1feb08dd883a7edd929",
+        "backend": "request",
+        "workload": "qwen_projection",
+        "policy_seed_rows": 36,
+        "work_signature": {
+          "commands": 129,
+          "MACs": 655360,
+          "modeled_vector_ops": 1024,
+          "external_bytes": 1315840,
+          "local_read_bytes": 1321984,
+          "local_write_bytes": 1536
+        },
+        "status": "PASS"
+      }
+    ],
+    "completeness_claim": "snapshot only; main experiment may still be running",
+    "equal_coarse_request_work_claim": "all observed backends match source graph bytes/MACs; latency/resources differ by design",
+    "not_asserted": [
+      "equal latency",
+      "same bank addresses across independently selected layouts",
+      "timed execution of numerical payloads"
+    ]
+  },
+  "limitations": [
+    "Projection preserves source full K and 64 gate+64 up/core, but excludes FFN down, norm/modulation producers, residual, attention/CFG and complete block/model.",
+    "Projection shared input is externally loaded once, then read once per core; weights each transfer exactly once per Kstep, not whole-tensor repeated loads.",
+    "Projection drain->SRAM->VPU read is an explicit engine-interface assumption; source mathematics alone does not require this traffic.",
+    "GDN q/k/v/beta/g and four-token outputs are prepared/resident in private RF; their production, new-token timing and external transfer costs are excluded.",
+    "GDN state begins external and pays one initial DMA; this is not a measured steady-state state-spill requirement.",
+    "GDN RF budget 73760B/core permits keeping S across four tokens; modeled intermediate SRAM roundtrips are not forced by capacity, so baseline is bounded by this fixed lowering.",
+    "Prepared four-token GDN inputs exclude real autoregressive inter-token execution and RF occupation by other layers; a four-token residency control is not a full-model decode claim.",
+    "SwiGLU 8ops/element and MXU fill32cycles are performance-model conventions, not exact source operation costs or device calibration.",
+    "Graph alias/RF lifetime proof and numerical math checks are separate; no numerical payload is executed by the timing model, and no official trained framework/production compiler/device acceptance is claimed."
+  ],
+  "audited_file_sha256": {
+    "r5\\model.py": "201c39b5073f7e1f4b7f0e3e6d269ea4cdcf32908bf9237db6e01ea011fd849a",
+    "r5\\full_width_specs.json": "89d82dc0415a8bab588d344f9734d85ba2f5fb5d980663d6a1094a398f5b58b4",
+    "r5\\numerical_checks.json": "edc9b924f451acacdf8a073cc5a290e28135a78fff6b89394930b85375af5f7c",
+    "r5\\numerical.py": "7548b48dbe452da64bbe3fd237dfe5a0fb09c8f5fc02c0e3c60d352fa1a3366b",
+    "r5\\coarse_sim.py": "8c07084e6b0e4a6971409f2edece63f7a453fa5f5e9a5d68939eab477f0b2f6b",
+    "r5\\resource_sim.py": "37059ffd422dfb42fe2bb630c309411e293c56c2c6382a5d5326617f37986ad1",
+    "r5\\source_contract_audit.py": "ed701766d7e112c4b17f35b959fee81a91fda342508c70e17be244d581aed9ec"
+  }
+}

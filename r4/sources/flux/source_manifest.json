@@ -1,0 +1,251 @@
+{
+  "retrieved_utc": "2026-09-05T05:04:35.840044+00:00",
+  "weight_downloads": false,
+  "revisions": {
+    "black-forest-labs/FLUX.2-klein-4B": "e7b7dc27f91deacad38e78976d1f2b499d76a294",
+    "black-forest-labs/FLUX.2-klein-base-4B": "a3b4f4849157f664bdbc776fd7453c2783562f4d",
+    "black-forest-labs/flux2": "50fe5162777813d869182b139e83b10743caef15",
+    "huggingface/diffusers": "c5469b7ceb606edd7ba6570dcd17d38590a18db6",
+    "ARM-software/CMSIS-Ethos-U": "79d0fccfe59cab7fd0cab97c65050d2824c5269f"
+  },
+  "files": [
+    {
+      "path": "FLUX.2-klein-4B/api_model.json",
+      "url": "https://huggingface.co/api/models/black-forest-labs/FLUX.2-klein-4B/revision/e7b7dc27f91deacad38e78976d1f2b499d76a294",
+      "bytes": 5521,
+      "sha256": "fc7cad1d2ece54a803301d970aa0c8c07cec1c8b49d9405d44581aa5c193f7f5",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-4B/README.md",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/e7b7dc27f91deacad38e78976d1f2b499d76a294/README.md",
+      "bytes": 9991,
+      "sha256": "bd447051cf2db4bf67b992e563d89c35ebf1123f009c063361a222ab14e1c4f7",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-4B/LICENSE.md",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/e7b7dc27f91deacad38e78976d1f2b499d76a294/LICENSE.md",
+      "bytes": 9584,
+      "sha256": "ca02bc51900ab07789d1b70283329e7137f5af98f5161c23a1c81fc38a4af1fe",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-4B/model_index.json",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/e7b7dc27f91deacad38e78976d1f2b499d76a294/model_index.json",
+      "bytes": 446,
+      "sha256": "51a76cb1cf3ed37423a1128c79c22faee8e6fbe7f5aaeb737f0a258930dbaac0",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-4B/transformer/config.json",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/e7b7dc27f91deacad38e78976d1f2b499d76a294/transformer/config.json",
+      "bytes": 541,
+      "sha256": "09733c74a3da6d17dd0a0472a091a8950c7c6935889c32c16cc800ede05029de",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-4B/text_encoder/config.json",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/e7b7dc27f91deacad38e78976d1f2b499d76a294/text_encoder/config.json",
+      "bytes": 1536,
+      "sha256": "214b4c29a0d975e9fddf9994a5673f22cb2c4c5750352f9227c2c3251ebeab40",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-4B/text_encoder/model.safetensors.index.json",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/e7b7dc27f91deacad38e78976d1f2b499d76a294/text_encoder/model.safetensors.index.json",
+      "bytes": 32855,
+      "sha256": "06b3d5319b6d76d1a4a2433419180016cfd54ed62d086a5e6567a809f8c82634",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-4B/vae/config.json",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/e7b7dc27f91deacad38e78976d1f2b499d76a294/vae/config.json",
+      "bytes": 821,
+      "sha256": "0d6dfb69ae95a5e2ac9836284bbb63d8b38ce67b25ba2dff380752b2a10ab948",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-4B/scheduler/scheduler_config.json",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/e7b7dc27f91deacad38e78976d1f2b499d76a294/scheduler/scheduler_config.json",
+      "bytes": 486,
+      "sha256": "067afb012cef64553a763447d1efd93daeffcc0123ca7e25b09f8de20b90762e",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-base-4B/api_model.json",
+      "url": "https://huggingface.co/api/models/black-forest-labs/FLUX.2-klein-base-4B/revision/a3b4f4849157f664bdbc776fd7453c2783562f4d",
+      "bytes": 4186,
+      "sha256": "4b132fbdef7756aef2d8fc26d41d6d79098d8ac66c7d8b05a92e374604dd7eb6",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-base-4B/README.md",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B/resolve/a3b4f4849157f664bdbc776fd7453c2783562f4d/README.md",
+      "bytes": 10084,
+      "sha256": "728ef6804ff3f38528c24ab9e3d168d579e77d57342c30ea01310eaa70e95016",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-base-4B/LICENSE.md",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B/resolve/a3b4f4849157f664bdbc776fd7453c2783562f4d/LICENSE.md",
+      "bytes": 9584,
+      "sha256": "ca02bc51900ab07789d1b70283329e7137f5af98f5161c23a1c81fc38a4af1fe",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-base-4B/model_index.json",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B/resolve/a3b4f4849157f664bdbc776fd7453c2783562f4d/model_index.json",
+      "bytes": 422,
+      "sha256": "de1fef01845f0af3e1e2f2581cd5e86f2dfa4a4776f7f0b26b4c77feac4ee70f",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-base-4B/transformer/config.json",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B/resolve/a3b4f4849157f664bdbc776fd7453c2783562f4d/transformer/config.json",
+      "bytes": 531,
+      "sha256": "c8a88c1433f24e52c01f46766c9f519e76d91d1c00bfb43fe0db2e4ed3c84d70",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-base-4B/text_encoder/config.json",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B/resolve/a3b4f4849157f664bdbc776fd7453c2783562f4d/text_encoder/config.json",
+      "bytes": 1536,
+      "sha256": "214b4c29a0d975e9fddf9994a5673f22cb2c4c5750352f9227c2c3251ebeab40",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-base-4B/text_encoder/model.safetensors.index.json",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B/resolve/a3b4f4849157f664bdbc776fd7453c2783562f4d/text_encoder/model.safetensors.index.json",
+      "bytes": 32855,
+      "sha256": "06b3d5319b6d76d1a4a2433419180016cfd54ed62d086a5e6567a809f8c82634",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-base-4B/vae/config.json",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B/resolve/a3b4f4849157f664bdbc776fd7453c2783562f4d/vae/config.json",
+      "bytes": 821,
+      "sha256": "0d6dfb69ae95a5e2ac9836284bbb63d8b38ce67b25ba2dff380752b2a10ab948",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "FLUX.2-klein-base-4B/scheduler/scheduler_config.json",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B/resolve/a3b4f4849157f664bdbc776fd7453c2783562f4d/scheduler/scheduler_config.json",
+      "bytes": 486,
+      "sha256": "067afb012cef64553a763447d1efd93daeffcc0123ca7e25b09f8de20b90762e",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "black-forest-labs__flux2/git_revision.json",
+      "url": "https://github.com/black-forest-labs/flux2.git",
+      "bytes": 179,
+      "sha256": "851bd6cb921fdb77700f56ac6aa1a0aa60978c9706072915e05515fa556848d0",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "black-forest-labs__flux2/README.md",
+      "url": "https://raw.githubusercontent.com/black-forest-labs/flux2/50fe5162777813d869182b139e83b10743caef15/README.md",
+      "bytes": 8466,
+      "sha256": "435753749320bbb395c15983e63e3dc73936c03f0f1870c628e7bf922c55eef7",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "black-forest-labs__flux2/LICENSE.md",
+      "url": "https://raw.githubusercontent.com/black-forest-labs/flux2/50fe5162777813d869182b139e83b10743caef15/LICENSE.md",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "black-forest-labs__flux2/src/flux2/model.py",
+      "url": "https://raw.githubusercontent.com/black-forest-labs/flux2/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py",
+      "bytes": 28031,
+      "sha256": "e062691d789ec80a04a5fbc421b09d3b7e264305be1dfcb6da65d68c259e18c1",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "black-forest-labs__flux2/src/flux2/util.py",
+      "url": "https://raw.githubusercontent.com/black-forest-labs/flux2/50fe5162777813d869182b139e83b10743caef15/src/flux2/util.py",
+      "bytes": 7080,
+      "sha256": "ab39e974b1f696f9d51cb64eef9d82086c683771ac63e7ef14b30cced4b089e0",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "black-forest-labs__flux2/src/flux2/sampling.py",
+      "url": "https://raw.githubusercontent.com/black-forest-labs/flux2/50fe5162777813d869182b139e83b10743caef15/src/flux2/sampling.py",
+      "bytes": 13418,
+      "sha256": "f1a1e89651d450c05ab87840ed65011a2d25b83d811c61853ec6ed38e938d640",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "black-forest-labs__flux2/src/flux2/text_encoder.py",
+      "url": "https://raw.githubusercontent.com/black-forest-labs/flux2/50fe5162777813d869182b139e83b10743caef15/src/flux2/text_encoder.py",
+      "bytes": 14981,
+      "sha256": "72b1f9aa95dbefac5a0fdd2217d7be5b7e7a42966a4c9370ba4adb00c89b4761",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "black-forest-labs__flux2/src/flux2/autoencoder.py",
+      "url": "https://raw.githubusercontent.com/black-forest-labs/flux2/50fe5162777813d869182b139e83b10743caef15/src/flux2/autoencoder.py",
+      "bytes": 11139,
+      "sha256": "bb578f78d097a88f6e7e8aa01032c10f55659729b85203ae2d5852a7889ac96a",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "black-forest-labs__flux2/scripts/cli.py",
+      "url": "https://raw.githubusercontent.com/black-forest-labs/flux2/50fe5162777813d869182b139e83b10743caef15/scripts/cli.py",
+      "bytes": 27129,
+      "sha256": "d9953c082102e35187e19fb1f0604b036ee9849d95c369d1445a5ae20803d688",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "huggingface__diffusers/git_revision.json",
+      "url": "https://github.com/huggingface/diffusers.git",
+      "bytes": 177,
+      "sha256": "80cd01f817967382303c2056f7463d007250f797d5ce3199b93bad04b5d469da",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "huggingface__diffusers/src/diffusers/models/transformers/transformer_flux2.py",
+      "url": "https://raw.githubusercontent.com/huggingface/diffusers/c5469b7ceb606edd7ba6570dcd17d38590a18db6/src/diffusers/models/transformers/transformer_flux2.py",
+      "bytes": 59751,
+      "sha256": "88cbc0569409698efbdaa5cd25403b78fb6607b9cf1b15855bc392b2ad0c1607",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "huggingface__diffusers/src/diffusers/pipelines/flux2/pipeline_flux2_klein.py",
+      "url": "https://raw.githubusercontent.com/huggingface/diffusers/c5469b7ceb606edd7ba6570dcd17d38590a18db6/src/diffusers/pipelines/flux2/pipeline_flux2_klein.py",
+      "bytes": 41381,
+      "sha256": "8a57a8a7f1c22fc0c5bc5d3fd1bd9bc76c17c1f4d6644cc73370651dd955358e",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "ARM-software__CMSIS-Ethos-U/git_revision.json",
+      "url": "https://github.com/ARM-software/CMSIS-Ethos-U.git",
+      "bytes": 182,
+      "sha256": "636761d816f340d55a4d475ab964eff4f84c81d5cf28f63f0a7273ec0d6b1346",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "ARM-software__CMSIS-Ethos-U/source/README.md",
+      "url": "https://raw.githubusercontent.com/ARM-software/CMSIS-Ethos-U/79d0fccfe59cab7fd0cab97c65050d2824c5269f/source/README.md",
+      "bytes": 25715,
+      "sha256": "9a77c718d17f8fcf5a77c6df825a2be1712aab14e054cca093223586205fb035",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "hardware/ethos_u85_newsroom.html",
+      "url": "https://newsroom.arm.com/blog/ethos-u85",
+      "bytes": 646352,
+      "sha256": "093d7f9bb7cfbc195c2e4008d56ee41942b911b6c853d7d8bf64e4581b86a51a",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    },
+    {
+      "path": "hardware/ethos_u85_product.html",
+      "url": "https://www.arm.com/products/silicon-ip-cpu/ethos/ethos-u85",
+      "bytes": 487970,
+      "sha256": "e7f490efd389ce5e23f42743a178c62f68c8ce738b4d46ab29623cc7e2857c78",
+      "retrieved_utc": "2026-09-05T05:04:35.840044+00:00"
+    }
+  ]
+}

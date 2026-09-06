@@ -1,0 +1,520 @@
+{
+  "date": "2026-09-05",
+  "evidence_level": "uncalibrated synthetic event model",
+  "source": "r2-ooo-npu/toy-sim/r4sim.py",
+  "source_sha256": "97329f8ac75116053a35effa8c18f5798919a795d853df60ff98f149f1636c6d",
+  "source_unchanged": true,
+  "r2_table_b1_reproduction": [
+    {
+      "streams": 4,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0,
+      "couple": false,
+      "reuse": 0,
+      "dma_only": true,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 2030.1441081301707,
+      "lane_ST": 2017.107810235371,
+      "SA": 2017.107810235371,
+      "latency_reduction_vs_ST_percent": 0.6421365775263365,
+      "latency_reduction_vs_lane_percent": 0.0
+    },
+    {
+      "streams": 4,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0,
+      "couple": false,
+      "reuse": 0.5,
+      "dma_only": true,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 2097.9075091341265,
+      "lane_ST": 2090.8712551424824,
+      "SA": 2090.8712551424824,
+      "latency_reduction_vs_ST_percent": 0.3353939085021057,
+      "latency_reduction_vs_lane_percent": 0.0
+    },
+    {
+      "streams": 4,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0,
+      "couple": false,
+      "reuse": 1,
+      "dma_only": true,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 2097.9075091341265,
+      "lane_ST": 2090.8712551424824,
+      "SA": 2090.8712551424824,
+      "latency_reduction_vs_ST_percent": 0.3353939085021057,
+      "latency_reduction_vs_lane_percent": 0.0
+    },
+    {
+      "streams": 4,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0.05,
+      "couple": false,
+      "reuse": 0,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 2783.456644077211,
+      "lane_ST": 2570.90567407361,
+      "SA": 2570.90567407361,
+      "latency_reduction_vs_ST_percent": 7.636223486932277,
+      "latency_reduction_vs_lane_percent": 0.0
+    },
+    {
+      "streams": 4,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0.05,
+      "couple": false,
+      "reuse": 0.5,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 2815.686130356476,
+      "lane_ST": 2661.4097868151975,
+      "SA": 2661.4097868151975,
+      "latency_reduction_vs_ST_percent": 5.479174041381755,
+      "latency_reduction_vs_lane_percent": 0.0
+    },
+    {
+      "streams": 4,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0.05,
+      "couple": false,
+      "reuse": 1,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 2815.686130356476,
+      "lane_ST": 2661.4097868151975,
+      "SA": 2661.4097868151975,
+      "latency_reduction_vs_ST_percent": 5.479174041381755,
+      "latency_reduction_vs_lane_percent": 0.0
+    },
+    {
+      "streams": 4,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0,
+      "couple": true,
+      "reuse": 0,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 2313.6583712963416,
+      "lane_ST": 2259.7813099948394,
+      "SA": 2259.7813099948394,
+      "latency_reduction_vs_ST_percent": 2.3286524047763755,
+      "latency_reduction_vs_lane_percent": 0.0
+    },
+    {
+      "streams": 4,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0,
+      "couple": true,
+      "reuse": 0.5,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 2400.0424309032414,
+      "lane_ST": 2341.0553313760856,
+      "SA": 2313.9142770292865,
+      "latency_reduction_vs_ST_percent": 3.5886096331030752,
+      "latency_reduction_vs_lane_percent": 1.1593512542416275
+    },
+    {
+      "streams": 4,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0,
+      "couple": true,
+      "reuse": 1,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 2399.7590279522274,
+      "lane_ST": 2341.9881832636474,
+      "SA": 2315.6339856849772,
+      "latency_reduction_vs_ST_percent": 3.5055620704982235,
+      "latency_reduction_vs_lane_percent": 1.1252916546293013
+    },
+    {
+      "streams": 4,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0.05,
+      "couple": true,
+      "reuse": 0,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 2843.4986957182696,
+      "lane_ST": 2743.91850582301,
+      "SA": 2743.91850582301,
+      "latency_reduction_vs_ST_percent": 3.5020304403588103,
+      "latency_reduction_vs_lane_percent": 0.0
+    },
+    {
+      "streams": 4,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0.05,
+      "couple": true,
+      "reuse": 0.5,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 2928.2231755090747,
+      "lane_ST": 2837.1202791082537,
+      "SA": 2804.572046254406,
+      "latency_reduction_vs_ST_percent": 4.222735831368862,
+      "latency_reduction_vs_lane_percent": 1.1472278103090567
+    },
+    {
+      "streams": 4,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0.05,
+      "couple": true,
+      "reuse": 1,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 2927.2620683274254,
+      "lane_ST": 2844.2164176498395,
+      "SA": 2805.14214727305,
+      "latency_reduction_vs_ST_percent": 4.171813735971791,
+      "latency_reduction_vs_lane_percent": 1.373814950729962
+    },
+    {
+      "streams": 8,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0.05,
+      "couple": true,
+      "reuse": 0,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 4974.221327113035,
+      "lane_ST": 4772.484939986936,
+      "SA": 4772.484939986936,
+      "latency_reduction_vs_ST_percent": 4.055637533185188,
+      "latency_reduction_vs_lane_percent": 0.0
+    },
+    {
+      "streams": 8,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0.05,
+      "couple": true,
+      "reuse": 0.5,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 5298.642236864647,
+      "lane_ST": 5141.642445245428,
+      "SA": 4909.206080416952,
+      "latency_reduction_vs_ST_percent": 7.349734876196039,
+      "latency_reduction_vs_lane_percent": 4.52066372377592
+    },
+    {
+      "streams": 8,
+      "cores": 2,
+      "shared_dma": true,
+      "cov": 0.6,
+      "tail_probability": 0.05,
+      "couple": true,
+      "reuse": 1,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 5257.597045070941,
+      "lane_ST": 5084.194774153604,
+      "SA": 4946.555631084261,
+      "latency_reduction_vs_ST_percent": 5.916037522850572,
+      "latency_reduction_vs_lane_percent": 2.7071965017755746
+    },
+    {
+      "streams": 32,
+      "cores": 8,
+      "shared_dma": false,
+      "cov": 0.6,
+      "tail_probability": 0,
+      "couple": false,
+      "reuse": 0,
+      "dma_only": true,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 3100.8254576597683,
+      "lane_ST": 3100.8254576597683,
+      "SA": 3100.8254576597683,
+      "latency_reduction_vs_ST_percent": 0.0,
+      "latency_reduction_vs_lane_percent": 0.0
+    },
+    {
+      "streams": 32,
+      "cores": 8,
+      "shared_dma": false,
+      "cov": 0.6,
+      "tail_probability": 0,
+      "couple": false,
+      "reuse": 0.5,
+      "dma_only": true,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 3307.4498958691397,
+      "lane_ST": 3307.4498958691397,
+      "SA": 3303.261906045593,
+      "latency_reduction_vs_ST_percent": 0.12662292567990752,
+      "latency_reduction_vs_lane_percent": 0.12662292567990752
+    },
+    {
+      "streams": 32,
+      "cores": 8,
+      "shared_dma": false,
+      "cov": 0.6,
+      "tail_probability": 0,
+      "couple": false,
+      "reuse": 1,
+      "dma_only": true,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 3366.276648150957,
+      "lane_ST": 3366.276648150957,
+      "SA": 3366.276648150957,
+      "latency_reduction_vs_ST_percent": 0.0,
+      "latency_reduction_vs_lane_percent": 0.0
+    },
+    {
+      "streams": 32,
+      "cores": 8,
+      "shared_dma": false,
+      "cov": 0.6,
+      "tail_probability": 0.05,
+      "couple": true,
+      "reuse": 0,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 4597.023036459006,
+      "lane_ST": 4597.023036459006,
+      "SA": 4597.023036459006,
+      "latency_reduction_vs_ST_percent": 0.0,
+      "latency_reduction_vs_lane_percent": 0.0
+    },
+    {
+      "streams": 32,
+      "cores": 8,
+      "shared_dma": false,
+      "cov": 0.6,
+      "tail_probability": 0.05,
+      "couple": true,
+      "reuse": 0.5,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 4874.28671114997,
+      "lane_ST": 4874.28671114997,
+      "SA": 4701.190012007714,
+      "latency_reduction_vs_ST_percent": 3.551221120134265,
+      "latency_reduction_vs_lane_percent": 3.551221120134265
+    },
+    {
+      "streams": 32,
+      "cores": 8,
+      "shared_dma": false,
+      "cov": 0.6,
+      "tail_probability": 0.05,
+      "couple": true,
+      "reuse": 1,
+      "dma_only": false,
+      "trials": 200,
+      "latency_seed": 1,
+      "reuse_graph_seed": 7,
+      "ST": 4980.308800199391,
+      "lane_ST": 4980.308800199391,
+      "SA": 4787.127919179472,
+      "latency_reduction_vs_ST_percent": 3.8788936343100837,
+      "latency_reduction_vs_lane_percent": 3.8788936343100837
+    }
+  ],
+  "no_reuse_bounded_uncertainty": {
+    "task_count": 4,
+    "buffer_aliasing": false,
+    "physical_address_reassignment": false,
+    "dma_cov": 0.2,
+    "dma_mean": 100,
+    "dma_distribution": "two-point bounded, anticorrelated",
+    "scenarios": [
+      {
+        "durations": {
+          "0": 80,
+          "1": 120,
+          "2": 20,
+          "3": 20
+        },
+        "probability": 0.5,
+        "vpu_order": [
+          2,
+          3
+        ],
+        "fixed_makespan": 140.0,
+        "completion_ready_makespan": 140.0
+      },
+      {
+        "durations": {
+          "0": 80,
+          "1": 120,
+          "2": 20,
+          "3": 20
+        },
+        "probability": 0.5,
+        "vpu_order": [
+          3,
+          2
+        ],
+        "fixed_makespan": 160.0,
+        "completion_ready_makespan": 140.0
+      },
+      {
+        "durations": {
+          "0": 120,
+          "1": 80,
+          "2": 20,
+          "3": 20
+        },
+        "probability": 0.5,
+        "vpu_order": [
+          2,
+          3
+        ],
+        "fixed_makespan": 160.0,
+        "completion_ready_makespan": 140.0
+      },
+      {
+        "durations": {
+          "0": 120,
+          "1": 80,
+          "2": 20,
+          "3": 20
+        },
+        "probability": 0.5,
+        "vpu_order": [
+          3,
+          2
+        ],
+        "fixed_makespan": 140.0,
+        "completion_ready_makespan": 140.0
+      }
+    ],
+    "fixed_order_expectations": [
+      {
+        "vpu_order": [
+          2,
+          3
+        ],
+        "expected_fixed_makespan": 150.0
+      },
+      {
+        "vpu_order": [
+          3,
+          2
+        ],
+        "expected_fixed_makespan": 150.0
+      }
+    ],
+    "optimal_fixed_expected_makespan": 150,
+    "ready_expected_makespan": 140,
+    "latency_reduction_percent": 6.666666666666667,
+    "speedup": 1.0714285714285714,
+    "significance": "Existence counterexample; not a measured workload or NPU benefit."
+  },
+  "simultaneous_completion_id_bias": [
+    {
+      "high_priority_parent_has_lower_id": false,
+      "original_dynamic_makespan": 220.0,
+      "original_static_list_order": {
+        "p0": [
+          0
+        ],
+        "p1": [
+          1
+        ],
+        "X": [
+          2,
+          3
+        ],
+        "Y": [
+          4
+        ]
+      },
+      "feasible_batch_completion_order_makespan": 120.0
+    },
+    {
+      "high_priority_parent_has_lower_id": true,
+      "original_dynamic_makespan": 120.0,
+      "original_static_list_order": {
+        "p0": [
+          0
+        ],
+        "p1": [
+          1
+        ],
+        "X": [
+          3,
+          2
+        ],
+        "Y": [
+          4
+        ]
+      },
+      "feasible_batch_completion_order_makespan": 120.0
+    }
+  ]
+}

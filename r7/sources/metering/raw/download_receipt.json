@@ -1,0 +1,72 @@
+[
+  {
+    "path": "src/runtime_src/core/pcie/windows/alveo/perf.cpp",
+    "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/perf.cpp",
+    "sha256": "1032a870279e4d6701a8803743a3041b28398df63724044c33b622e1c1a50aa3",
+    "bytes": 2985
+  },
+  {
+    "path": "src/runtime_src/core/pcie/windows/alveo/shim.cpp",
+    "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/shim.cpp",
+    "sha256": "d0b698b48fef1924c31df8248fbab89f63b8fc71a3326a3a8919fae90384e273",
+    "bytes": 65971
+  },
+  {
+    "path": "src/runtime_src/core/common/config_reader.h",
+    "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/config_reader.h",
+    "sha256": "7d6d363b46c4bdd96daa928dcdcc2f9d380febe75087625bf46bca998961cd4e",
+    "bytes": 23994
+  },
+  {
+    "path": "src/runtime_src/core/common/config_reader.cpp",
+    "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/config_reader.cpp",
+    "sha256": "56c04cdf29d7cfa7b1bd2155c84e2f2ef2934e7558f0853aa9fea83276f1123d",
+    "bytes": 6752
+  },
+  {
+    "path": "src/runtime_src/core/common/api/xrt_ini.cpp",
+    "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_ini.cpp",
+    "sha256": "6a757d994e3b797ab4733c16c5fcbea6652ee7cc0f72e006ae7e65193ab0d9bd",
+    "bytes": 2020
+  },
+  {
+    "path": "src/runtime_src/core/common/api/xrt_profile.cpp",
+    "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_profile.cpp",
+    "sha256": "7c4a1cd6923c102283779508cd7a011637b380df53044fb93866a627619f028d",
+    "bytes": 4621
+  },
+  {
+    "path": "src/runtime_src/xdp/profile/plugin/native/CMakeLists.txt",
+    "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/native/CMakeLists.txt",
+    "sha256": "2dbe918c6f80b615b1ce5e4abfe2e25ed98dc7d82eaee4034e98c80d49e6eb35",
+    "bytes": 934
+  },
+  {
+    "path": "src/runtime_src/xdp/profile/plugin/CMakeLists.txt",
+    "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/CMakeLists.txt",
+    "sha256": "aa797add69adc59ce654dda494cafdb34b0dcbcd2d7497aeff5b85fe3ce87735",
+    "bytes": 1455
+  },
+  {
+    "path": "src/runtime_src/xdp/profile/plugin/aie_profile/CMakeLists.txt",
+    "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/CMakeLists.txt",
+    "sha256": "281e3210ef340964ceae70e0efa05d7646bc52c1763c357168bca09b0c0441f5",
+    "bytes": 2824
+  },
+  {
+    "path": "src/runtime_src/xdp/profile/plugin/aie_trace/CMakeLists.txt",
+    "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/CMakeLists.txt",
+    "sha256": "78ab9a8a45d3b9f33605ee9412e48782322af160318ea6388d85eff0bce866a8",
+    "bytes": 2144
+  },
+  {
+    "path": "src/runtime_src/xdp/profile/native/native_profile.cpp",
+    "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/native/native_profile.cpp",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "path": "src/runtime_src/core/include/xrt/experimental/xrt_profile.h",
+    "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/experimental/xrt_profile.h",
+    "error": "HTTP Error 404: Not Found"
+  }
+]

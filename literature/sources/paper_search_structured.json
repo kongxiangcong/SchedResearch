@@ -1,0 +1,932 @@
+{
+  "arxiv": [
+    {
+      "title": "Neural Channel Knowledge Map Assisted Scheduling Optimization of Active IRSs in Multi-User Systems",
+      "authors": [
+        "Xintong Chen",
+        "Zhenyu Jiang",
+        "Jiangbin Lyu",
+        "Liqun Fu"
+      ],
+      "year": 2025,
+      "abstract": "Intelligent Reflecting Surfaces (IRSs) have potential for significant performance gains in next-generation wireless networks but face key challenges, notably severe double-pathloss and complex multi-user scheduling due to hardware constraints. Active IRSs partially address pathloss but still require efficient scheduling in cell-level multi-IRS multi-user systems, whereby the overhead/delay of channel state acquisition and the scheduling complexity both rise dramatically as the user density and channel dimensions increase. Motivated by these challenges, this paper proposes a novel scheduling framework based on neural Channel Knowledge Map (CKM), designing Transformer-based deep neural networks (DNNs) to predict ergodic spectral efficiency (SE) from historical channel/throughput measurements tagged with user positions. Specifically, two cascaded networks, LPS-Net and SE-Net, are designed to predict link power statistics (LPS) and ergodic SE accurately. We further propose a low-complexity Stable Matching-Iterative Balancing (SM-IB) scheduling algorithm. Numerical evaluations verify that the proposed neural CKM significantly enhances prediction accuracy and computational efficiency, while the SM-IB algorithm effectively achieves near-optimal max-min throughput with greatly reduced complexity.",
+      "url": "http://arxiv.org/abs/2508.07009v1",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2025-08-09",
+      "source": "arxiv",
+      "doi": null,
+      "arxiv_id": "2508.07009"
+    },
+    {
+      "title": "From Principles to Practice: A Systematic Study of LLM Serving on Multi-core NPUs",
+      "authors": [
+        "Tianhao Zhu",
+        "Dahu Feng",
+        "Erhu Feng",
+        "Yubin Xia"
+      ],
+      "year": 2025,
+      "abstract": "With the widespread adoption of Large Language Models (LLMs), the demand for high-performance LLM inference services continues to grow. To meet this demand, a growing number of AI accelerators have been proposed, such as Google TPU, Huawei NPU, Graphcore IPU, and Cerebras WSE, etc. Most of these accelerators adopt multi-core architectures to achieve enhanced scalability, but lack the flexibility of SIMT architectures. Therefore, without careful configuration of the hardware architecture, as well as deliberate design of tensor parallelism and core placement strategies, computational resources may be underutilized, resulting in suboptimal inference performance.\n  To address these challenges, we first present a multi-level simulation framework with both transaction-level and performance-model-based simulation for multi-core NPUs. Using this simulator, we conduct a systematic analysis and further propose the optimal solutions for tensor parallelism strategies, core placement policies, memory management methods, as well as the selection between PD-disaggregation and PD-fusion on multi-core NPUs. We conduct comprehensive experiments on representative LLMs and various NPU configurations. The evaluation results demonstrate that, our solution can achieve 1.32x-6.03x speedup compared to SOTA designs for multi-core NPUs across different hardware configurations. As for LLM serving, our work offers guidance on designing optimal hardware architectures and serving strategies for multi-core NPUs across various LLM workloads.",
+      "url": "http://arxiv.org/abs/2510.05632v1",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2025-10-07",
+      "source": "arxiv",
+      "doi": null,
+      "arxiv_id": "2510.05632"
+    },
+    {
+      "title": "ONNXim: A Fast, Cycle-level Multi-core NPU Simulator",
+      "authors": [
+        "Hyungkyu Ham",
+        "Wonhyuk Yang",
+        "Yunseon Shin",
+        "Okkyun Woo",
+        "Guseul Heo",
+        "Sangyeop Lee",
+        "Jongse Park",
+        "Gwangsun Kim"
+      ],
+      "year": 2024,
+      "abstract": "As DNNs are widely adopted in various application domains while demanding increasingly higher compute and memory requirements, designing efficient and performant NPUs (Neural Processing Units) is becoming more important. However, existing architectural NPU simulators lack support for high-speed simulation, multi-core modeling, multi-tenant scenarios, detailed DRAM/NoC modeling, and/or different deep learning frameworks. To address these limitations, this work proposes ONNXim, a fast cycle-level simulator for multi-core NPUs in DNN serving systems. It takes DNN models represented in the ONNX graph format generated from various deep learning frameworks for ease of simulation. In addition, based on the observation that typical NPU cores process tensor tiles from on-chip scratchpad memory with deterministic compute latency, we forgo a detailed modeling for the computation while still preserving simulation accuracy. ONNXim also preserves dependencies between compute and tile DMAs. Meanwhile, the DRAM and NoC are modeled in cycle-level to properly model contention among multiple cores that can execute different DNN models for multi-tenancy. Consequently, ONNXim is significantly faster than existing simulators (e.g., by up to 384x over Accel-sim) and enables various case studies, such as multi-tenant NPUs, that were previously impractical due to slow speed and/or lack of functionalities. ONNXim is publicly available at https://github.com/PSAL-POSTECH/ONNXim.",
+      "url": "http://arxiv.org/abs/2406.08051v1",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2024-06-12",
+      "source": "arxiv",
+      "doi": null,
+      "arxiv_id": "2406.08051"
+    },
+    {
+      "title": "HyperParallel-MoE: Multi-Core Interleaved Scheduling for Fast MoE Training on Ascend NPUs",
+      "authors": [
+        "Zewen Jin",
+        "Congkun Ai",
+        "Guangpeng Zhang",
+        "Hanbo Zhang",
+        "Haoran Wang",
+        "Shihan Xiao",
+        "Da Lei",
+        "Xuefeng Jin",
+        "Teng Su",
+        "Cheng Li"
+      ],
+      "year": 2026,
+      "abstract": "Modern Mixture-of-Experts (MoE) models increasingly rely on large-scale AI accelerator clusters for efficient training. Ascend NPUs expose heterogeneous on-chip compute resources, including matrix-oriented AIC units and vector-oriented AIV units with explicit cross-queue synchronization support. However, existing training frameworks largely execute MoE operators in a serialized kernel-by-kernel manner, leaving substantial heterogeneous parallelism underutilized.\n  This paper presents HyperParallel-MoE, a compilation and scheduling framework for MoE training on Ascend NPUs. HyperParallel-MoE transforms operator-level MoE execution into a statically scheduled tile-level heterogeneous taskflow spanning AIC and AIV resources. It introduces AIV-driven one-sided communication to eliminate host-side collective synchronization, dependency-preserving tile task generation to unify communication and computation under a common task abstraction, and event-driven static scheduling to coordinate cross-queue execution with low runtime overhead. HyperParallel-MoE further executes the compiled taskflow within a unified runtime that concurrently drives AIC and AIV workers inside a single kernel launch, enabling fine-grained overlap among communication, matrix computation, and vector computation while preserving existing optimized operators. We implement HyperParallel-MoE in the MindSpore and MindFormers stack and evaluate it using DeepSeek-style MoE models on Ascend A3 clusters. Across multiple expert-parallel configurations, HyperParallel-MoE reduces Dispatch-to-Combine MoE-FFN latency by up to 1.58x, demonstrating that tile-level heterogeneous scheduling can substantially improve MoE training efficiency on modern NPUs. The source code is available at https://gitcode.com/mindspore/hyper-parallel/tree/master/hyper_parallel/core/multicore",
+      "url": "http://arxiv.org/abs/2605.23764v2",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2026-05-22",
+      "source": "arxiv",
+      "doi": null,
+      "arxiv_id": "2605.23764"
+    },
+    {
+      "title": "Supporting Dynamic Control-Flow Execution for Runtime Reconfigurable Processors",
+      "authors": [
+        "Hassan Nassar",
+        "Rafik Youssef",
+        "Lars Bauer",
+        "Jörg Henkel"
+      ],
+      "year": 2026,
+      "abstract": "As the need for more computing power grows, traditional methods are hitting limits. To boost performance, we're expanding Central Processing Unit (CPU) capabilities and using specialized hardware accelerators. For example, mobile devices usually have cameras, video encoding, and audio accelerators. To perform the different tasks, these accelerators execute microcode programs. These accelerators, however, take up space and often sit idle. Reconfigurable processors offer a solution. They have a normal core connected to several accelerator slots. These accelerator slots can be filled during runtime to accommodate the application running. Once one application finishes and another application is running, the accelerators can be switched. For example, playing music after using the camera.\n  In this work, we introduce dynamic control-flow execution for the microcode of runtime reconfigurable processors, i.e., support for loops, conditional jumps, and exception handling. We benchmark using four different applications from four domains (object detection, ocean movement simulation, artificial intelligence and security) that all are compute-intensive and would require the dynamic control-flow when executed on reconfigurable processors. We show that the dynamic control-flow allows different applications to be executed with significant speedup in comparison with execution on general-purpose processors.",
+      "url": "http://arxiv.org/abs/2605.21203v1",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2026-05-20",
+      "source": "arxiv",
+      "doi": "10.1109/ICM60448.2023.10378905",
+      "arxiv_id": "2605.21203"
+    },
+    {
+      "title": "Applications of Particle Accelerators",
+      "authors": [
+        "Suzie Sheehy"
+      ],
+      "year": 2024,
+      "abstract": "Of the tens of thousands of particle accelerators in operation worldwide, the vast majority are not used for particle physics, but instead for applications. Some applications such as radiotherapy for cancer treatment are well-known, while others are more surprising: food irradiation using electron beams, or the hardening of road tarmac. The uses of particle beams are constantly growing in number including in medicine, industry, security, environment, and cultural heritage preservation. This lecture aims to give a broad sweep of the many uses of particle accelerators, covering technologies ranging in size from a few centimetres for industrial electron linacs through to large synchrotron light sources of hundreds of metres circumference operating as national and international facilities. We finish by discussing some of the challenges facing accelerators used in wider society.",
+      "url": "http://arxiv.org/abs/2407.10216v1",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2024-07-14",
+      "source": "arxiv",
+      "doi": null,
+      "arxiv_id": "2407.10216"
+    },
+    {
+      "title": "Multilayer Dataflow: Orchestrate Butterfly Sparsity to Accelerate Attention Computation",
+      "authors": [
+        "Haibin Wu",
+        "Wenming Li",
+        "Kai Yan",
+        "Zhihua Fan",
+        "Peiyang Wu",
+        "Yuqun Liu",
+        "Yanhuan Liu",
+        "Ziqing Qiang",
+        "Meng Wu",
+        "Kunming Liu",
+        "Xiaochun Ye",
+        "Dongrui Fan"
+      ],
+      "year": 2024,
+      "abstract": "Recent neural networks (NNs) with self-attention exhibit competitiveness across different AI domains, but the essential attention mechanism brings massive computation and memory demands. To this end, various sparsity patterns are introduced to reduce the quadratic computation complexity, among which the structured butterfly sparsity has been proven efficient in computation reduction while maintaining model accuracy. However, its complicated data accessing pattern brings utilization degradation and makes parallelism hard to exploit in general block-oriented architecture like GPU. Since the reconfigurable dataflow architecture is known to have better data reusability and architectural flexibility in general NN-based acceleration, we want to apply it to the butterfly sparsity for acquiring better computational efficiency for attention workloads. We first propose a hybrid butterfly-sparsity network to obtain better trade-offs between attention accuracy and performance. Next, we propose a scalable multilayer dataflow method supported by coarse-grained streaming parallelism designs, to orchestrate the butterfly sparsity computation on the dataflow array. The experiments show that compared with Jetson Xavier NX, our design has a speedup of up to $14.34\\times$ ($9.29\\times$ on average) as well as $11.14\\times$ energy efficiency advancement in attention workloads. In comparison with SOTA attention accelerators of the same peak performance, our dataflow architecture acquires $2.38\\times$-$4.7\\times$ efficiency improvement as well as $6.60\\times$-$15.37\\times$ energy reduction with butterfly sparsity optimization.",
+      "url": "http://arxiv.org/abs/2411.00734v2",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2024-11-01",
+      "source": "arxiv",
+      "doi": null,
+      "arxiv_id": "2411.00734"
+    },
+    {
+      "title": "Accelerator Complex Evolution at Fermilab",
+      "authors": [
+        "M. Convery"
+      ],
+      "year": 2026,
+      "abstract": "The largest hadron accelerator facility in the US is undergoing radical changes and the undertaking of new HEP-driven neutrino research. This talk will discuss the wide-ranging projects and impacts to the accelerator community taking place at FNAL.",
+      "url": "http://arxiv.org/abs/2606.25159v1",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2026-06-23",
+      "source": "arxiv",
+      "doi": null,
+      "arxiv_id": "2606.25159"
+    },
+    {
+      "title": "SegFold: Accelerating Sparse GEMM with a Fine-Grained Dynamic Dataflow",
+      "authors": [
+        "Xinrui Wu",
+        "Hanyu Wang",
+        "Jason Cong",
+        "Tony Nowatzki"
+      ],
+      "year": 2026,
+      "abstract": "Generalized sparse matrix-matrix multiplication (SpGEMM) is critical in many domains. Existing CPUs and GPUs, as well as specialized accelerators, rely on static dataflows (e.g., inner product, outer product, Gustavson, etc.). Each static dataflow sacrifices some data reuse opportunities and imposes constraints on load balance.\n  To address this inefficiency, we extend the typical SpGEMM dataflows by considering dynamism. Specifically, we add fine-grained dynamic scheduling to optimize reuse and reduce resource contention. We also develop dynamic remapping of partially completed work to improve load balance and parallelism. These ideas are formalized into a specific dataflow called Segment. To demonstrate Segment, we codesign a SpGEMM accelerator called SegFold. SegFold includes a memory controller that identifies fine-grained reuse opportunities in a local window of the stationary input array and exploits them through dynamic work assignment. It also incorporates a merge network that routes inputs to appropriate processing elements (PEs) for computation while dynamically remapping the work assigned to each PE to balance load.\n  Across diverse densities and matrix sizes, SegFold achieves a geometric-mean $1.95\\times$ speedup over state-of-the-art SpGEMM accelerators and $5.3\\times$ over the best static dataflow configuration, demonstrating that adding dynamism to the dataflow design space unlocks reuse and load-balance gains that no static scheduling choice can achieve in isolation.",
+      "url": "http://arxiv.org/abs/2606.26701v1",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2026-06-25",
+      "source": "arxiv",
+      "doi": null,
+      "arxiv_id": "2606.26701"
+    },
+    {
+      "title": "Consideration of REBCO rapid-cycling diploe magnet for staged muon acceleration",
+      "authors": [
+        "Henryk Piekarz"
+      ],
+      "year": 2025,
+      "abstract": "A possible application of the HTS (ReBCO) rapid-cycling dipole magnet [1] in the first stages of muon acceleration consisting of Recirculating Linear Accelerator (RLA) and followed-up first Rapid Cycling Synchrotron (RCS-1) is presented. The projected ReBCO magnet hysteresis loss is discussed in terms of the liquid helium coolant choice and the option with the striated ReBCO conductor for the further significant reduction of the hysteresis power loss.",
+      "url": "http://arxiv.org/abs/2509.14410v1",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2025-09-17",
+      "source": "arxiv",
+      "doi": null,
+      "arxiv_id": "2509.14410"
+    },
+    {
+      "title": "Hiring for An Uncertain Task: Joint Design of Information and Contracts",
+      "authors": [
+        "Matteo Castiglioni",
+        "Junjie Chen"
+      ],
+      "year": 2024,
+      "abstract": "In this paper, we initiate the computational problem of jointly designing information and contracts. We consider three possible classes of contracts with decreasing flexibility and increasing simplicity: ambiguous contracts, menus of explicit contracts and explicit single contract. Ambiguous contracts allow the principal to conceal the applied payment schemes through a contract that depends on the unknown state of nature, while explicit contracts reveal the contract prior to the agent's decision. Our results show a trade-off between the simplicity of the contracts and the computational complexity of the joint design. Indeed, we show that an approximately-optimal mechanism with ambiguous contracts can be computed in polynomial time. However, they are convoluted mechanisms and not well-suited for some real-world scenarios. Conversely, explicit menus of contracts and single contracts are simpler mechanisms, but they cannot be computed efficiently. In particular, we show that computing the optimal mechanism with explicit menus of contracts and single contracts is APX-Hard. We also characterize the structure of optimal mechanisms. Interestingly, direct mechanisms are optimal for both the most flexible ambiguous contracts and the least flexible explicit single contract, but they are suboptimal for that with menus of contracts. Finally, motivated by our hardness results, we turn our attention to menus of linear contracts and single linear contracts. We show that both the problem of computing the optimal mechanism with an explicit menu of linear contracts and an explicit single linear contract admits an FPTAS.",
+      "url": "http://arxiv.org/abs/2407.05459v1",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2024-07-07",
+      "source": "arxiv",
+      "doi": null,
+      "arxiv_id": "2407.05459"
+    },
+    {
+      "title": "Generation of Compiler Backends from Formal Models of Hardware",
+      "authors": [
+        "Gus Henry Smith"
+      ],
+      "year": 2024,
+      "abstract": "Compilers convert between representations -- usually, from higher-level, human writable code to lower-level, machine-readable code. A compiler backend is the portion of the compiler containing optimizations and code generation routines for a specific hardware target. In this dissertation, I advocate for a specific way of building compiler backends: namely, by automatically generating them from explicit, formal models of hardware using automated reasoning algorithms. I describe how automatically generating compilers from formal models of hardware leads to increased optimization ability, stronger correctness guarantees, and reduced development time for compiler backends. As evidence, I present two case studies: first, Glenside, which uses equality saturation to increase the 3LA compiler's ability to offload operations to machine learning accelerators, and second, Lakeroad, a technology mapper for FPGAs which uses program synthesis and semantics extracted from Verilog to map hardware designs to complex, programmable hardware primitives.",
+      "url": "http://arxiv.org/abs/2408.15429v1",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2024-08-27",
+      "source": "arxiv",
+      "doi": null,
+      "arxiv_id": "2408.15429"
+    },
+    {
+      "title": "Finding Missed Code Size Optimizations in Compilers using LLMs",
+      "authors": [
+        "Davide Italiano",
+        "Chris Cummins"
+      ],
+      "year": 2024,
+      "abstract": "Compilers are complex, and significant effort has been expended on testing them. Techniques such as random program generation and differential testing have proved highly effective and have uncovered thousands of bugs in production compilers. The majority of effort has been expended on validating that a compiler produces correct code for a given input, while less attention has been paid to ensuring that the compiler produces performant code.\n  In this work we adapt differential testing to the task of identifying missed optimization opportunities in compilers. We develop a novel testing approach which combines large language models (LLMs) with a series of differential testing strategies and use them to find missing code size optimizations in C / C++ compilers.\n  The advantage of our approach is its simplicity. We offload the complex task of generating random code to an off-the-shelf LLM, and use heuristics and analyses to identify anomalous compiler behavior. Our approach requires fewer than 150 lines of code to implement. This simplicity makes it extensible. By simply changing the target compiler and initial LLM prompt we port the approach from C / C++ to Rust and Swift, finding bugs in both. To date we have reported 24 confirmed bugs in production compilers, and conclude that LLM-assisted testing is a promising avenue for detecting optimization bugs in real world compilers.",
+      "url": "http://arxiv.org/abs/2501.00655v1",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2024-12-31",
+      "source": "arxiv",
+      "doi": null,
+      "arxiv_id": "2501.00655"
+    },
+    {
+      "title": "TCL: Enabling Fast and Efficient Cross-Hardware Tensor Program Optimization via Continual Learning",
+      "authors": [
+        "Chaoyao Shen",
+        "Linfeng Jiang",
+        "Yixian Shen",
+        "Tao Xu",
+        "Guoqing Li",
+        "Anuj Pathania",
+        "Andy D. Pimentel",
+        "Meng Zhang"
+      ],
+      "year": 2026,
+      "abstract": "Deep learning (DL) compilers rely on cost models and auto-tuning to optimize tensor programs for target hardware. However, existing approaches depend on large offline datasets, incurring high collection costs and offering suboptimal transferability across platforms. In this paper, we introduce TCL, a novel efficient and transferable compiler framework for fast tensor program optimization across diverse hardware platforms to address these challenges. Specifically, TCL is built on three core enablers: (1) the RDU Sampler, a data-efficient active learning strategy that selects only 10% of tensor programs by jointly optimizing Representativeness, Diversity, and Uncertainty, substantially reducing data collection costs while maintaining near-original model accuracy; (2) a new Mamba-based cost model that efficiently captures long-range schedule dependencies while achieving a favorable trade-off between prediction accuracy and computational cost through reduced parameterization and lightweight sequence modeling; and (3) a continuous knowledge distillation framework that effectively and progressively transfers knowledge across multiple hardware platforms while avoiding the parameter explosion and data dependency issues typically caused by traditional multi-task learning. Extensive experiments validate the effectiveness of each individual enabler and the holistic TCL framework. When optimizing a range of mainstream DL models on both CPU and GPU platforms, TCL achieves, on average, 16.8x and 12.48x faster tuning time, and 1.20x and 1.13x lower inference latency, respectively, compared to Tenset-MLP.",
+      "url": "http://arxiv.org/abs/2604.12891v1",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2026-04-14",
+      "source": "arxiv",
+      "doi": null,
+      "arxiv_id": "2604.12891"
+    },
+    {
+      "title": "LLM4SecHW: Leveraging Domain Specific Large Language Model for Hardware Debugging",
+      "authors": [
+        "Weimin Fu",
+        "Kaichen Yang",
+        "Raj Gautam Dutta",
+        "Xiaolong Guo",
+        "Gang Qu"
+      ],
+      "year": 2024,
+      "abstract": "This paper presents LLM4SecHW, a novel framework for hardware debugging that leverages domain specific Large Language Model (LLM). Despite the success of LLMs in automating various software development tasks, their application in the hardware security domain has been limited due to the constraints of commercial LLMs and the scarcity of domain specific data. To address these challenges, we propose a unique approach to compile a dataset of open source hardware design defects and their remediation steps, utilizing version control data. This dataset provides a substantial foundation for training machine learning models for hardware. LLM4SecHW employs fine tuning of medium sized LLMs based on this dataset, enabling the identification and rectification of bugs in hardware designs. This pioneering approach offers a reference workflow for the application of fine tuning domain specific LLMs in other research areas. We evaluate the performance of our proposed system on various open source hardware designs, demonstrating its efficacy in accurately identifying and correcting defects. Our work brings a new perspective on automating the quality control process in hardware design.",
+      "url": "http://arxiv.org/abs/2401.16448v1",
+      "venue": "arXiv",
+      "citation_count": 0,
+      "publication_date": "2024-01-28",
+      "source": "arxiv",
+      "doi": "10.1109/AsianHOST59942.2023.10409307",
+      "arxiv_id": "2401.16448"
+    }
+  ],
+  "dblp": [],
+  "open_alex": [
+    {
+      "title": "ONNXim: A Fast, Cycle-Level Multi-Core NPU Simulator",
+      "authors": [
+        "Hyungkyu Ham",
+        "Won-Hyuk Yang",
+        "Yunseon Shin",
+        "Okkyun Woo",
+        "Guseul Heo",
+        "Sangyeop Lee",
+        "Jongse Park",
+        "Gwangsun Kim"
+      ],
+      "year": 2024,
+      "abstract": "As DNNs (Deep Neural Networks) demand increasingly higher compute and memory requirements, designing efficient and performant NPUs (Neural Processing Units) has become more important. However, existing architectural NPU simulators lack support for high-speed simulation, multi-core modeling, multi-tenant scenarios, detailed DRAM/NoC modeling, and/or different deep learning frameworks. To address these limitations, this work proposesONNXim, a fast cycle-level simulator for multi-core NPUs in DNN serving systems. For ease of simulation, it takes DNN models in the ONNX graph format generated from various deep learning frameworks. In addition, based on the observation that typical NPU cores process tensor tiles from SRAM withdeterministiccompute latency, we model computation accurately with an event-driven approach, avoiding the overhead of modeling cycle-level activities. ONNXim also preserves dependencies between compute and tile DMAs. Meanwhile, the DRAM and NoC are modeled in cycle-level to properly model contention among multiple cores that can execute different DNN models for multi-tenancy. Consequently, ONNXim is significantly faster than existing simulators (e.g., by up to 365× over Accel-sim) and enables various case studies, such as multi-tenant NPUs, that were previously impractical due to slow speed and/or lack of functionalities.",
+      "url": "https://doi.org/10.1109/lca.2024.3484648",
+      "venue": "IEEE Computer Architecture Letters",
+      "citation_count": 19,
+      "publication_date": "2024-07-01",
+      "source": "open_alex",
+      "doi": "10.1109/lca.2024.3484648",
+      "arxiv_id": null
+    },
+    {
+      "title": "Partitioned Scheduling and Parallelism Assignment for Real-Time DNN Inference Tasks on Multi-TPU",
+      "authors": [
+        "Binqi Sun",
+        "Tomasz Kloda",
+        "Chu‐ge Wu",
+        "Marco Caccamo"
+      ],
+      "year": 2024,
+      "abstract": "Pipelining on Edge Tensor Processing Units (TPUs) optimizes the deep neural network (DNN) inference by breaking it down into multiple stages processed concurrently on multiple accelerators. Such DNN inference tasks can be modeled as sporadic non-preemptive gangs with execution times that vary with their parallelism levels. This paper proposes a strict partitioning strategy for deploying DNN inferences in real-time systems. The strategy determines tasks' parallelism levels and assigns tasks to disjoint processor partitions. Configuring the tasks in the same partition with a uniform parallelism level avoids scheduling anomalies and enables schedulability verification using well-understood uniprocessor analyses. Evaluation using real-world Edge TPU benchmarks demonstrated that the proposed method achieves a higher schedulability ratio than state-of-the-art gang scheduling techniques.",
+      "url": "https://doi.org/10.1145/3649329.3655979",
+      "venue": "",
+      "citation_count": 8,
+      "publication_date": "2024-06-23",
+      "source": "open_alex",
+      "doi": "10.1145/3649329.3655979",
+      "arxiv_id": null
+    },
+    {
+      "title": "WITHDRAWN: Non-work conserving dynamic scheduling of moldable gang tasks on multicore systems",
+      "authors": [
+        "Tomoki Shimizu",
+        "Hiroki Nishikawa",
+        "Xiangbo Kong",
+        "Hiroyuki Tomiyama"
+      ],
+      "year": 2024,
+      "abstract": "In the realm of cyber-physical systems, the prevalence of multicore/many-core systems equipped with multiple or numerous cores is evident. To efficiently handle these systems, multicore task scheduling techniques are imperative. Particularly in recent cyber-physical systems, the dynamism of these systems renders task scheduling a complex endeavor. In this paper, we introduce a dynamic scheduling algorithm for moldable gang tasks on multicore systems. Our proposed algorithm determines when and with how many cores a task should be executed, especially for tasks with uncertain arrival times. In our experiments, we evaluate whether our algorithm reduces the makespan compared to the latest dynamic scheduling algorithms for moldable gang tasks. We demonstrate that, given a sufficient number of cores relative to the number of incoming tasks, our algorithm can reduce the makespan by approximately 10%.",
+      "url": "https://doi.org/10.1016/j.iotcps.2024.03.001",
+      "venue": "Internet of Things and Cyber-Physical Systems",
+      "citation_count": 0,
+      "publication_date": "2024-03-01",
+      "source": "open_alex",
+      "doi": "10.1016/j.iotcps.2024.03.001",
+      "arxiv_id": null
+    },
+    {
+      "title": "Predictive Age-Aware Runtime Remapping for Many-Core Systems",
+      "authors": [
+        "Naijia Liu",
+        "Gianluca Tempesti"
+      ],
+      "year": 2024,
+      "abstract": "Transistor scaling has enabled the development of many-core architectures, allowing significant advancements in computational capabilities. However, this progress has introduced critical challenges related to system reliability, as uneven core and communication channel usage can accelerate aging and degrade performance. In this paper, we propose a predictive thermaland traffic-aware aging management strategy that operates at runtime to remap tasks when a core is detected to exceed a predetermined temperature threshold or when communication channels experience overload. By balancing the usage of cores and communication channels, the strategy improves system reliability and longevity. The experimental results demonstrate that our remapping algorithm fits runtime and scalability requirements and effectively mitigates circuit aging compared to systems without this strategy, mitigating circuit aging and enhancing the reliability of many-core systems. This confirms the feasibility of maintaining long-term system reliability through proactive runtime task remapping.",
+      "url": "https://doi.org/10.1109/icsrs63046.2024.10927459",
+      "venue": "",
+      "citation_count": 0,
+      "publication_date": "2024-11-20",
+      "source": "open_alex",
+      "doi": "10.1109/icsrs63046.2024.10927459",
+      "arxiv_id": null
+    },
+    {
+      "title": "Dynamic Tuning of Core Counts to Maximize Performance in Object-Based Runtime Systems",
+      "authors": [
+        "Kavitha Chandrasekar",
+        "Laxmikant V. Kalé"
+      ],
+      "year": 2024,
+      "abstract": "",
+      "url": "https://doi.org/10.1007/978-3-031-61763-8_9",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 0,
+      "publication_date": "2024-01-01",
+      "source": "open_alex",
+      "doi": "10.1007/978-3-031-61763-8_9",
+      "arxiv_id": null
+    },
+    {
+      "title": "InSS: An Intelligent Scheduling Orchestrator for Multi-GPU Inference With Spatio-Temporal Sharing",
+      "authors": [
+        "Ziyi Han",
+        "Ruiting Zhou",
+        "Chengzhong Xu",
+        "Yifan Zeng",
+        "Renli Zhang"
+      ],
+      "year": 2024,
+      "abstract": "As the applications of AI proliferate, it is critical to increase the throughput of online DNN inference services. Multi-process service (MPS) improves the utilization rate of GPU resources by spatial-sharing, but it also brings unique challenges. First, interference between co-located DNN models deployed on the same GPU must be accurately modeled. Second, inference tasks arrive dynamically online, and each task needs to be served within a bounded time to meet the service-level objective (SLO). Third, the problem of fragments has become more serious. To address the above three challenges, we propose anIntelligentScheduling orchestrator for multi-GPU inference servers with spatio-temporalSharing (InSS), aiming to maximize the system throughput.InSSexploits two key innovations: i) An interference-aware latency analytical model which estimates the task latency. ii) A two-stage intelligent scheduler is tailored to jointly optimize the model placement, GPU resource allocation and adaptively decides batch size by coupling the latency analytical model. Our prototype implementation on four NVIDIA A100 GPUs shows thatInSScan improve the throughput by up to 86% compared to the state-of-the-art GPU schedulers, while satisfying SLOs. We further show the scalability ofInSSon 64 GPUs.",
+      "url": "https://doi.org/10.1109/tpds.2024.3430063",
+      "venue": "IEEE Transactions on Parallel and Distributed Systems",
+      "citation_count": 24,
+      "publication_date": "2024-07-18",
+      "source": "open_alex",
+      "doi": "10.1109/tpds.2024.3430063",
+      "arxiv_id": null
+    },
+    {
+      "title": "FusionFrame: A Fusion Dataflow Scheduling Framework for DNN Accelerators via Analytical Modeling",
+      "authors": [
+        "Liutao Zheng",
+        "Huiying Lan",
+        "Xiang Liu",
+        "Linshan Jiang",
+        "Xuehai Zhou"
+      ],
+      "year": 2025,
+      "abstract": "",
+      "url": "https://doi.org/10.1007/978-981-96-1551-3_21",
+      "venue": "Lecture notes in computer science",
+      "citation_count": 0,
+      "publication_date": "2025-01-01",
+      "source": "open_alex",
+      "doi": "10.1007/978-981-96-1551-3_21",
+      "arxiv_id": null
+    },
+    {
+      "title": "Survival of the Fastest: Enabling More Out-of-Order Execution in Dataflow Circuits",
+      "authors": [
+        "Ayatallah Elakhras",
+        "Andrea Guerrieri",
+        "Lana Josipović",
+        "Paolo Ienne"
+      ],
+      "year": 2024,
+      "abstract": "Dynamically scheduled HLS, through dataflow circuit generation, has proven successful at exploiting operation-level parallelism in several important situations where statically scheduled HLS fails. Yet, although existing dataflow circuits support out-of-order execution of different operations, they strictly confine successive instances of the same operation to execute sequentially in program order, which drastically affects the circuit's performance in the presence of a long-latency operation. This is in stark contrast with the reordering freedom customary in superscalar processors that naturally exploit qualitatively more parallelism in a broad class of applications. The goal of this work is to produce dataflow circuits that have reordering capabilities closer to those of out-of-order superscalar processors. This can bring dramatic improvements in some practically important cases, including when outer iterations in nested loops are independent and the inner loop execution has an unavoidable large initiation interval. In various cases, our technique increases throughput by a factor dependent on the initiation interval of the kernel, at a comparatively modest area cost.",
+      "url": "https://doi.org/10.1145/3626202.3637556",
+      "venue": "",
+      "citation_count": 8,
+      "publication_date": "2024-04-01",
+      "source": "open_alex",
+      "doi": "10.1145/3626202.3637556",
+      "arxiv_id": null
+    },
+    {
+      "title": "Towards Scheduling of Pipelined Dataflow Graphs in MLIR",
+      "authors": [
+        "Gabriel Rodriguez‐Canal",
+        "Nícolas Bohm Agostini",
+        "Ankur Limaye",
+        "Vito Giovanni Castellana",
+        "Joseph Manzano",
+        "Antonino Tumeo",
+        "Maurice Jamieson",
+        "Nick Brown"
+      ],
+      "year": 2026,
+      "abstract": "We present an MLIR flow that partitions neural networks and schedules them as software-driven macro-dataflow pipelines for low-latency streaming on CPU–FPGA SoCs. A new dataflow dialect and token-based scheduler pipeline even cyclic graphs with external memory, overcoming HLS limits. On an AlphaData ADM-PA101 (Versal VM1802) we demonstrate low-latency streaming; to our knowledge this is the first HLS flow to pipeline cyclic NN graphs.",
+      "url": "https://doi.org/10.1145/3748173.3779568",
+      "venue": "",
+      "citation_count": 0,
+      "publication_date": "2026-02-05",
+      "source": "open_alex",
+      "doi": "10.1145/3748173.3779568",
+      "arxiv_id": null
+    },
+    {
+      "title": "Slark: A Performance Robust Decentralized Inter-Datacenter Deadline-Aware Coflows Scheduling Framework With Local Information",
+      "authors": [
+        "Xiaodong Dong",
+        "Lihai Nie",
+        "Zheli Liu",
+        "Yang Xiang"
+      ],
+      "year": 2024,
+      "abstract": "Inter-datacenter network applications generate massive coflows for purposes, e.g., backup, synchronization, and analytics, with deadline requirements. Decentralized coflow scheduling frameworks are desirable for their scalability in cross-domain deployment but grappling with the challenge of information agnosticism for lack of cross-domain privileges. Current information-agnostic coflow scheduling methods are incompatible with decentralized frameworks for relying on centralized controllers to continuously monitor and learn from coflow global transmission states to infer global coflow information. Alternative methods propose mechanisms for decentralized global coflow information gathering and synchronization. However, they require dedicated physical hardware or control logic, which could be impractical for incremental deployment. This article proposes Slark, a decentralized deadline-aware coflow scheduling framework, which meets coflows’ soft and hard deadline requirements using only local traffic information. It eschews requiring global coflow transmission states and dedicated hardware or control logic by leveraging multiple software-implemented scheduling agents working independently on each node and integrating such information agnosticism into node-specific bandwidth allocation by modeling it as a robust optimization problem with flow information on the other nodes represented as uncertain parameters. Subsequently, we validate the performance robustness of Slark by investigating how perturbations in the optimal objective function value and the associated optimal solution are affected by uncertain parameters. Finally, we propose a firebug-swarm-optimization-based heuristic algorithm to tackle the non-convexity in our problem. Experimental results demonstrate that Slark can significantly enhance transmission revenue and increase soft and hard deadline guarantee ratios by 10.52% and 7.99% on average.",
+      "url": "https://doi.org/10.1109/tpds.2024.3508275",
+      "venue": "IEEE Transactions on Parallel and Distributed Systems",
+      "citation_count": 3,
+      "publication_date": "2024-11-28",
+      "source": "open_alex",
+      "doi": "10.1109/tpds.2024.3508275",
+      "arxiv_id": null
+    },
+    {
+      "title": "Icarus: Trustworthy Just-In-Time Compilers with Symbolic Meta-Execution",
+      "authors": [
+        "Naomi Smith",
+        "A.K.Sharma Dr. A.K.Sharma",
+        "John W. Renner",
+        "David Thien",
+        "Fraser Brown",
+        "Hovav Shacham",
+        "Ranjit Jhala",
+        "Deian Stefan"
+      ],
+      "year": 2024,
+      "abstract": "Just-in-time (JIT) compilers make JavaScript run efficiently by replacing slow JavaScript interpreter code with fast machine code. However, this efficiency comes at a cost: bugs in JIT compilers can completely subvert all language-based (memory) safety guarantees, and thereby introduce catastrophic exploitable vulnerabilities. We present Icarus: a new framework for implementing JIT compilers that are automatically, formally verified to be safe, and which can then be converted to C++ that can be linked into browser runtimes. Crucially, we show how to build a JIT with Icarus such that verifying the JIT implementation statically ensures the security of all possible programs that the JIT could ever generate at run-time, via a novel technique called symbolic meta-execution that encodes the behaviors of all possible JIT-generated programs as a single Boogie meta-program which can be efficiently verified by SMT solvers. We evaluate Icarus by using it to re-implement components of Firefox's JavaScript JIT. We show that Icarus can scale up to expressing complex JITs, quickly detects real-world JIT bugs and verifies fixed versions, and yields C++ code that is as fast as hand-written code.",
+      "url": "https://doi.org/10.1145/3694715.3695949",
+      "venue": "",
+      "citation_count": 17,
+      "publication_date": "2024-11-04",
+      "source": "open_alex",
+      "doi": "10.1145/3694715.3695949",
+      "arxiv_id": null
+    },
+    {
+      "title": "MHRC-Bench: A Multilingual Hardware Repository-Level Code Completion benchmark",
+      "authors": [
+        "Qingyun Zou",
+        "Jiahao Cui",
+        "Nuo Chen",
+        "Bingsheng He",
+        "Weng-Fai Wong"
+      ],
+      "year": 2026,
+      "abstract": "Large language models (LLMs) have achieved strong performance on code completion tasks in general-purpose programming languages. However, existing repository-level code completion benchmarks focus almost exclusively on software code and largely overlook hardware description languages. In this work, we present \\textbf{MHRC-Bench}, consisting of \\textbf{MHRC-Bench-Train} and \\textbf{MHRC-Bench-Eval}, the first benchmark designed for multilingual hardware code completion at the repository level. Our benchmark targets completion tasks and covers three major hardware design coding styles. Each completion target is annotated with code-structure-level and hardware-oriented semantic labels derived from concrete syntax tree analysis. We conduct a comprehensive evaluation of models on MHRC-Bench-Eval. Comprehensive evaluation results and analysis demonstrate the effectiveness of MHRC-Bench.",
+      "url": "https://doi.org/10.48550/arxiv.2601.03708",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 0,
+      "publication_date": "2026-01-07",
+      "source": "open_alex",
+      "doi": "10.48550/arxiv.2601.03708",
+      "arxiv_id": null
+    },
+    {
+      "title": "MHRC-Bench: A Multilingual Hardware Repository-Level Code Completion benchmark",
+      "authors": [
+        "Qingyun Zou",
+        "Jiahao Cui",
+        "Nuo Chen",
+        "Bingsheng He",
+        "Weng-Fai Wong"
+      ],
+      "year": 2026,
+      "abstract": "Large language models (LLMs) have achieved strong performance on code completion tasks in general-purpose programming languages. However, existing repository-level code completion benchmarks focus almost exclusively on software code and largely overlook hardware description languages. In this work, we present \\textbf{MHRC-Bench}, consisting of \\textbf{MHRC-Bench-Train} and \\textbf{MHRC-Bench-Eval}, the first benchmark designed for multilingual hardware code completion at the repository level. Our benchmark targets completion tasks and covers three major hardware design coding styles. Each completion target is annotated with code-structure-level and hardware-oriented semantic labels derived from concrete syntax tree analysis. We conduct a comprehensive evaluation of models on MHRC-Bench-Eval. Comprehensive evaluation results and analysis demonstrate the effectiveness of MHRC-Bench.",
+      "url": "https://openalex.org/W7119557185",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 0,
+      "publication_date": "2026-01-07",
+      "source": "open_alex",
+      "doi": null,
+      "arxiv_id": null
+    },
+    {
+      "title": "Seal5: Semi-Automated LLVM Support for RISC-V ISA Extensions Including Autovectorization",
+      "authors": [
+        "Philipp van Kempen",
+        "Mathis Salmen",
+        "Daniel Mueller-Gritschneder",
+        "Ulf Schlichtmann"
+      ],
+      "year": 2024,
+      "abstract": "The RISC-V instruction set architecture (ISA) is popular for its extensibility, allowing easy integration of custom vendor-defined instructions tailored to specific applications. However, a quick exploration of instruction candidates fails due to the lack of tools to auto-generate embedded software toolchain support. In particular, exploiting SIMD instructions to accelerate typical DSP and machine learning workloads needs specialized integration. This work establishes a semi-automated flow to generate LLVM compiler support for custom instructions based on a C-style ISA description language. The implemented Seal5 tool is capable of generating support for functionalities ranging from baseline assembler-level support, over builtin functions to compiler code generation patterns for scalar as well as vector instructions, while requiring no deeper compiler know-how. This paper focuses primarily on a novel pattern generator approach for the optimized code generation for SIMD instructions, including support for autovectorization. The auto generated LLVM toolchain reduces development times drastically while performing similarly or better compared to the existing, manually implemented Core-V reference LLVM toolchain on a wide variety of benchmarks. Seal5 further allows the addition of compiler code generation support for the Core-VSIMD instructions, which is not yet available in the reference toolchain. Additionally, Seal5 facilitates a quick exploration of custom instruction candidates as demonstrated for a cryptography extension.",
+      "url": "https://doi.org/10.1109/dsd64264.2024.00052",
+      "venue": "",
+      "citation_count": 6,
+      "publication_date": "2024-08-28",
+      "source": "open_alex",
+      "doi": "10.1109/dsd64264.2024.00052",
+      "arxiv_id": null
+    },
+    {
+      "title": "Tawa: Automatic Warp Specialization for Modern GPUs with Asynchronous References",
+      "authors": [
+        "Chen, Hongzheng",
+        "Fan, Bin",
+        "Collins, Alexander",
+        "Hagedorn, Bastian",
+        "Gaburov, Evghenii",
+        "Masuda, Masahiro",
+        "Brookhart, Matthew",
+        "Sullivan, Chris",
+        "Knight, Jason",
+        "Zhang, Zhiru",
+        "Grover, Vinod"
+      ],
+      "year": 2025,
+      "abstract": "Modern GPUs feature specialized hardware units that enable high-performance, asynchronous dataflow execution. However, the conventional SIMT programming model is fundamentally misaligned with this task-parallel hardware, creating a significant programmability gap. While hardware-level warp specialization is the key to unlocking peak performance, it forces developers to manually orchestrate complex, low-level communication and software pipelines--a process that is labor-intensive, error-prone, and unsustainable. To address this challenge, we present Tawa, an automated compiler that systematically generates high-performance, warp-specialized code from a high-level, tile-based program. Central to our approach is a novel IR abstraction, asynchronous references (aref), which expresses warp-level communication without exposing low-level hardware details. Using this abstraction, Tawa automatically partitions programs into producer-consumer roles and manages the intricate dataflow pipeline, relieving developers of invasive kernel rewriting. Evaluation on NVIDIA H100 GPUs across representative LLM kernels shows that Tawa delivers high hardware utilization, achieving up to 1.1$\\times$ speedup over highly optimized cuBLAS GEMM kernels. For attention workloads, Tawa attains 1.2$\\times$ speedup over Triton and matches the performance of the hand-optimized CUTLASS C++ FlashAttention-3 kernel with far less programming effort.",
+      "url": "https://doi.org/10.48550/arxiv.2510.14719",
+      "venue": "arXiv (Cornell University)",
+      "citation_count": 0,
+      "publication_date": "2025-10-16",
+      "source": "open_alex",
+      "doi": "10.48550/arxiv.2510.14719",
+      "arxiv_id": null
+    }
+  ],
+  "openreview": [],
+  "semantic_scholar": [
+    {
+      "title": "Design of Dynamic Scheduling Algorithm for Parallel Data Processing in Multi-Core Chips",
+      "authors": [
+        "Boce Kang",
+        "Yu Cheng",
+        "Zihe Hao",
+        "Zhen Tian"
+      ],
+      "year": 2025,
+      "abstract": "Multi-core processors are widely used in modern distributed systems, but traditional scheduling algorithms face challenges in task response time and resource utilization under high-load scenarios. This paper aims to optimize task scheduling efficiency in multi-core environments through a novel dynamic scheduling approach. We design a dynamic scheduling algorithm based on multi-factor evaluation, which integrates three key components: a task priority evaluation model using weighted calculations of task urgency, resource demands, and dependency relationships; an improved minimum completion time (IMCT) strategy for load balancing; and an adaptive resource allocation method with threshold control mechanism. The experimental evaluation is conducted on the Intel i712700 K processor platform using the PARSEC benchmark suite. Results demonstrate significant performance improvements: system throughput increases by $35.7 \\%$, CPU utilization reaches $87.6 \\%$, and average task response time reduces by $42.3 \\%$ compared to traditional scheduling algorithms. In high-load environments, the algorithm exhibits excellent scalability, maintaining scheduling overhead within 0.8 ms while processing 1000 concurrent tasks. The proposed algorithm provides an effective solution for task scheduling optimization in large-scale distributed systems, particularly suitable for scenarios with dynamic workload characteristics.",
+      "url": "https://www.semanticscholar.org/paper/e7cf30bd43deb8aec5ba762bbf4f8580176a13b7",
+      "venue": "2025 2nd International Conference on Intelligent Computing and Robotics (ICICR)",
+      "citation_count": 0,
+      "publication_date": "2025-05-16",
+      "source": "semantic_scholar",
+      "doi": "10.1109/ICICR65456.2025.00081",
+      "arxiv_id": null
+    },
+    {
+      "title": "FR-EAHTS: federated reinforcement learning for enhanced task scheduling with hierarchical load balancing and dynamic power adjustment in multi-core systems",
+      "authors": [
+        "Mohd Farooq",
+        "Aasim Zafar",
+        "Abdus Samad"
+      ],
+      "year": 2025,
+      "abstract": "",
+      "url": "https://www.semanticscholar.org/paper/98d9ddb8b4bdcbff97c1feea5fc12f57e8580f34",
+      "venue": "Telecommunications Systems",
+      "citation_count": 6,
+      "publication_date": "2025-04-03",
+      "source": "semantic_scholar",
+      "doi": "10.1007/s11235-025-01276-0",
+      "arxiv_id": null
+    },
+    {
+      "title": "Dynamic Multi-Core Task Scheduling for Real-Time Hybrid Simulation Model in Power Grid: A Deep Reinforcement Learning-Based Method",
+      "authors": [
+        "Dingyu Hu",
+        "Zhi Wang",
+        "Qitao Liu",
+        "Jianbing Xu",
+        "Lu Zhang",
+        "Bo Shen"
+      ],
+      "year": 2025,
+      "abstract": "With the increasing scale and complexity of power systems, the Security and Stability Control System (SSCS) plays a vital role in ensuring the safe operation of the grid. However, existing SSCS implementations still face many limitations in cross-regional coordination, control precision, and risk prediction. Establishing the digital simulation model is an effective way to verify the control policy of SSCS. This paper proposes a neural heuristic task scheduling method based on deep reinforcement learning (DRL) to schedule the simulation tasks. It models the task dependencies of SSCS as a directed acyclic graph (DAG) and then dynamically optimizes task priorities and resource allocation through deep reinforcement learning. The method introduces multi-head attention and heterogeneous attention mechanisms to effectively capture complex dependencies among tasks, enabling efficient multi-core task scheduling. Simulation results show that the proposed algorithm significantly outperforms traditional scheduling methods in terms of makespan, load balancing, and resource utilization. It can also adapt to dynamic changes under different task scales and multi-core environments, demonstrating strong robustness and scalability.",
+      "url": "https://www.semanticscholar.org/paper/c62346882ff331883f77cbac65ccae4c4885db30",
+      "venue": "Applied Sciences",
+      "citation_count": 0,
+      "publication_date": "2025-12-24",
+      "source": "semantic_scholar",
+      "doi": "10.3390/app16010192",
+      "arxiv_id": null
+    },
+    {
+      "title": "Energy efficient dynamic scheduling of dependent tasks for multi‐core real‐time systems using delay techniques",
+      "authors": [
+        "Kalyan Baital",
+        "Amlan Chakrabarti"
+      ],
+      "year": 2024,
+      "abstract": "Optimizing energy consumption and maximizing throughput in multi‐core real‐time architectures through dynamic task scheduling is a critical design challenge. While significant attention has been devoted to addressing this challenge in the domain of real‐time multi‐core scheduling, the focus has primarily centered on considering periodic tasks as independent. However, the existing literature notably lacks comprehensive study of scheduling methodologies on multi‐core systems that consider dependent tasks, though typical real‐time systems execute tasks that share resources. Earlier studies have predominantly examined scenarios involving random new tasks and task instances (jobs), which are executed in different power levels. Each task (and job) has distinct execution time corresponding to each power level. By considering these parameters (power levels and execution times of jobs), various combinations of energy signatures have been found to attain an optimum system state. Building upon this prior research, our paper extends the scope to encompass task scheduling in multi‐core systems with task dependencies. We introduce a novel approach that categorizes dependent tasks into ASAP (as soon as possible) and ALAP (as late as possible) groups, prioritizing task execution based on task mobility—defined as the disparity between the last cycle the task can be scheduled in and the current cycle. Furthermore, our model demonstrates an approach for efficient scheduling of sporadic and aperiodic tasks within this framework. Through experimental validation using randomized task sets, our results indicate that the proposed model achieves a minimum of 5% reduction in normalized total energy consumption compared to existing methodologies.",
+      "url": "https://www.semanticscholar.org/paper/f049740aeeadc9a4e285bd2eb9d2067c5f1e5511",
+      "venue": "Concurrency and Computation",
+      "citation_count": 1,
+      "publication_date": "2024-10-02",
+      "source": "semantic_scholar",
+      "doi": "10.1002/cpe.8267",
+      "arxiv_id": null
+    },
+    {
+      "title": "Dynamic Thermal-Aware Scheduling Using Physics-Informed POD-Galerkin Thermal Simulation Model for Multi-Core Processors : Invited Paper",
+      "authors": [
+        "Anthony Dowling",
+        "Ming-Cheng Cheng",
+        "Yu Liu"
+      ],
+      "year": 2024,
+      "abstract": "Handling heavy computing tasks in real-time systems requires substantial power, leading to significant heat generation. This can cause serious thermal problems like rising temperatures, high thermal gradients, and hot spots. These issues can reduce chip performance, accelerate device aging, and cause premature failure. Thermal-Aware Scheduling (TAS) optimizes heat management to maintain a safe temperature. In this work, we evaluate RT-TAS, an advanced TAS algorithm using a steady-state thermal model, and compare it with our proposed dynamic physics-informed POD-based TAS algorithm. POD-TAS utilizes a reduced order thermal model with a dynamic predictive approach, allowing precise temperature control during task scheduling. This reduces peak temperatures and thermal variations. Our tests on a multi-core processor demonstrate that POD-TAS significantly improves thermal performance. It reduces the average spatial thermal variance by 6.18%, the variance of the maximum CPU temperature over time by 59.68%, and the variance of the average temperature by 13.05% due to its ability to maintain the chip temperature within a set threshold.",
+      "url": "https://www.semanticscholar.org/paper/332883a6451a22113ad15f51bee5ebd0311cee97",
+      "venue": "International Green and Sustainable Computing Conference",
+      "citation_count": 0,
+      "publication_date": "2024-11-02",
+      "source": "semantic_scholar",
+      "doi": "10.1109/IGSC64514.2024.00028",
+      "arxiv_id": null
+    },
+    {
+      "title": "Dynamic Loop Fusion in High-Level Synthesis",
+      "authors": [
+        "Robert Szafarczyk",
+        "S. Nabi",
+        "W. Vanderbauwhede"
+      ],
+      "year": 2025,
+      "abstract": "Dynamic High-Level Synthesis (HLS) uses additional hardware to perform memory disambiguation at runtime, increasing loop throughput in irregular codes compared to static HLS. However, most irregular codes consist of multiple sibling loops, which currently have to be executed sequentially by all HLS tools. Static HLS performs loop fusion only on regular codes, while dynamic HLS relies on loops with dependencies to run to completion before the next loop starts. We present dynamic loop fusion for HLS, a compiler/hardware co-design approach that enables multiple loops to run in parallel, even if they contain unpredictable memory dependencies. Our only requirement is that memory addresses are monotonically non-decreasing in inner loops. We present a novel program-order schedule for HLS, inspired by polyhedral compilers, that together with our address monotonicity analysis enables dynamic memory disambiguation that does not require searching of address histories and sequential loop execution. Our evaluation shows an average speedup of 14× over static and 4× over dynamic HLS.",
+      "url": "https://www.semanticscholar.org/paper/a1ea5b916228bd88b391567eb2d57a5bf02dc6ff",
+      "venue": "Symposium on Field Programmable Gate Arrays",
+      "citation_count": 1,
+      "publication_date": "2025-01-24",
+      "source": "semantic_scholar",
+      "doi": "10.1145/3706628.3708871",
+      "arxiv_id": "2501.14631"
+    }
+  ],
+  "crossref": [
+    {
+      "title": "DFTS-MCS: Dynamic Fault-tolerant Scheduling for Mixed-criticality Systems on Heterogeneous Multi-core Processors",
+      "authors": [
+        "Mahin Moradiyan",
+        "Yasser Sedaghat"
+      ],
+      "year": null,
+      "abstract": "",
+      "url": "https://doi.org/10.2139/ssrn.5625286",
+      "venue": "",
+      "citation_count": 0,
+      "publication_date": null,
+      "source": "crossref",
+      "doi": "10.2139/ssrn.5625286",
+      "arxiv_id": null
+    },
+    {
+      "title": "Dynamic Task Scheduling for Heterogeneous Multi-core Baseband Processors in IIoT",
+      "authors": [
+        "Wei Chen",
+        "Jie Peng",
+        "Dake Liu"
+      ],
+      "year": 2026,
+      "abstract": "",
+      "url": "https://doi.org/10.1109/jiot.2026.3727005",
+      "venue": "IEEE Internet of Things Journal",
+      "citation_count": 0,
+      "publication_date": "2026",
+      "source": "crossref",
+      "doi": "10.1109/jiot.2026.3727005",
+      "arxiv_id": null
+    },
+    {
+      "title": "DMDP: A Dynamic Multi-Delta Prefetcher with Customizable Runtime Quality-Aware Feedback",
+      "authors": [
+        "Wuzhe Wang",
+        "Hao Li",
+        "Peiyong Zhang"
+      ],
+      "year": null,
+      "abstract": "<title>Abstract</title>\n        <p>Spatial data prefetchers exploit similarities in access patterns across memory regions to generate prefetch requests. Within these, delta-based approaches record in-order delta histories between adjacent accesses and predict a delta, and then build new patterns from the predicted delta for subsequent prediction rounds in a recursive manner. This process is known as lookahead. However, we show that existing lookahead mechanisms fail to either recognize both simple and complex delta patterns or look ahead deeper, leading to substantial missed opportunities for prefetching. Moreover, when dealing with various programs with distinct features and complexity of access patterns, they lack a comprehensive feedback mechanism that is aware of the quality of prefetching to dynamically maintain an optimal prefetching strategy. \nTo address these issues, we propose Dynamic Multi-Delta Prefetcher (DMDP), which employs delta patterns of varying lengths to collaboratively build the lookahead process for prefetching, covering much more potential cache misses. To keep high quality of prefetching simultaneously, DMDP integrates a customizable feedback framework to dynamically adjust the lookahead depth, incorporating prefetch accuracy, timeliness, and prefetch-caused cache pollution (PCCP) with different coefficients in the evaluation of prefetch quality. Results on extensive benchmark sets show that DMDP outperforms two state-of-the-art prefetchers, Bingo and PPF, by 16.0% and 2.4%, respectively, requiring 15× and 5× less storage overhead. Moreover, by customizing feedback coefficients for programs with distinct characteristics, DMDP achieves an additional performance improvement of up to 6.2%. The area and power analysis based on the register-transfer-level implementation and TSMC 5nm process also demonstrates DMDP can easily fit into modern processor designs, incurring only 0.35% area and less than 0.1% power overhead over a high-performance CPU class.</p>",
+      "url": "https://doi.org/10.21203/rs.3.rs-3853411/v1",
+      "venue": "",
+      "citation_count": 1,
+      "publication_date": null,
+      "source": "crossref",
+      "doi": "10.21203/rs.3.rs-3853411/v1",
+      "arxiv_id": null
+    },
+    {
+      "title": "Design of Dynamic Scheduling Algorithm for Parallel Data Processing in Multi-Core Chips",
+      "authors": [
+        "Boce Kang",
+        "Yu Cheng",
+        "Zihe Hao",
+        "Zhen Tian"
+      ],
+      "year": 2025,
+      "abstract": "",
+      "url": "https://doi.org/10.1109/icicr65456.2025.00081",
+      "venue": "2025 2nd International Conference on Intelligent Computing and Robotics (ICICR)",
+      "citation_count": 0,
+      "publication_date": "2025-05-16",
+      "source": "crossref",
+      "doi": "10.1109/icicr65456.2025.00081",
+      "arxiv_id": null
+    },
+    {
+      "title": "DFTS-MCS: Dynamic fault-tolerant scheduling for mixed-criticality systems on heterogeneous multi-core processors",
+      "authors": [
+        "Mahin Moradiyan",
+        "Yasser Sedaghat"
+      ],
+      "year": 2026,
+      "abstract": "",
+      "url": "https://doi.org/10.1016/j.sysarc.2026.103740",
+      "venue": "Journal of Systems Architecture",
+      "citation_count": 0,
+      "publication_date": "2026-06",
+      "source": "crossref",
+      "doi": "10.1016/j.sysarc.2026.103740",
+      "arxiv_id": null
+    },
+    {
+      "title": "ADS-CNN: Adaptive Dataflow Scheduling for lightweight CNN accelerator on FPGAs",
+      "authors": [
+        "Yi Wan",
+        "Xianzhong Xie",
+        "Junfan Chen",
+        "Kunpeng Xie",
+        "Dezhi Yi",
+        "Ye Lu",
+        "Keke Gai"
+      ],
+      "year": 2024,
+      "abstract": "",
+      "url": "https://doi.org/10.1016/j.future.2024.04.038",
+      "venue": "Future Generation Computer Systems",
+      "citation_count": 13,
+      "publication_date": "2024-09",
+      "source": "crossref",
+      "doi": "10.1016/j.future.2024.04.038",
+      "arxiv_id": null
+    },
+    {
+      "title": "Dataflow-Reconfigurable CNN Accelerator Design",
+      "authors": [
+        "Alperen Kalay",
+        "Ozcan Ozturk"
+      ],
+      "year": 2026,
+      "abstract": "",
+      "url": "https://doi.org/10.1109/mm.2026.3671071",
+      "venue": "IEEE Micro",
+      "citation_count": 0,
+      "publication_date": "2026-05",
+      "source": "crossref",
+      "doi": "10.1109/mm.2026.3671071",
+      "arxiv_id": null
+    },
+    {
+      "title": "MTST: A Multi-Task Scheduling Transformer Accelerator for Edge Computing",
+      "authors": [
+        "Zongcheng Yue",
+        "Dongwei Yan",
+        "Ran Wu",
+        "Longyu Ma",
+        "Chiu-Wing Sham"
+      ],
+      "year": 2024,
+      "abstract": "",
+      "url": "https://doi.org/10.1109/gcce62371.2024.10760930",
+      "venue": "2024 IEEE 13th Global Conference on Consumer Electronics (GCCE)",
+      "citation_count": 4,
+      "publication_date": "2024-10-29",
+      "source": "crossref",
+      "doi": "10.1109/gcce62371.2024.10760930",
+      "arxiv_id": null
+    },
+    {
+      "title": "Feature-Stationary Dataflow Enabled Diffusion Transformer Accelerator",
+      "authors": [
+        "Haitong Wang"
+      ],
+      "year": 2025,
+      "abstract": "",
+      "url": "https://doi.org/10.1109/iccvdm66874.2025.11290078",
+      "venue": "2025 6th International Conference on Computer Vision and Data Mining (ICCVDM)",
+      "citation_count": 0,
+      "publication_date": "2025-09-12",
+      "source": "crossref",
+      "doi": "10.1109/iccvdm66874.2025.11290078",
+      "arxiv_id": null
+    },
+    {
+      "title": "An Algorithm-Hardware Co-Optimized Accelerator for Efficient Deep GCN Inference with Hybrid Dataflow and Dynamic Pruning",
+      "authors": [
+        "Shun Li",
+        "Yuanhang Li",
+        "Hao Zhou",
+        "Ming Ling"
+      ],
+      "year": null,
+      "abstract": "<jats:p>Graph Convolutional Networks (GCNs) have emerged as the fundamental infrastructure for modern multimedia systems, demonstrating significant potential in fields such as content analysis and personalized recommendation. However, when applied to deep architectures for processing massive, complex multimedia interaction graphs, GCNs often suffer from accuracy decline and increased computational complexity, while lacking hardware-level optimizations tailored for these latency-sensitive workloads.This paper introduces D-GCN, a dynamic pruning accelerator for deep GCNs with hybrid dataflow. The dynamic pruning mechanism enables early node convergence through distance computations, significantly reducing computational complexity and mitigating accuracy decline. Leveraging a hybrid dataflow to restructure the feature update process, D-GCN integrates distance computations directly into the feature update pipeline, enabling efficient dynamic pruning in hardware while reducing off-chip memory access. D-GCN effectively captures the benefits of deep-layer node convergence through dynamic pruning and achieves hardware-level optimizations tailored for deep GCNs, directly alleviating the backend computational bottlenecks in large-scale graph processing. Experimental results demonstrate that D-GCN achieves a $1.3\\times$ speedup and $1.2\\times$ energy efficiency improvement over the state-of-the-art GCN accelerator. Compared to GPUs, D-GCN achieves an average of $15.9\\times$ speedup and $93.5\\times$ energy efficiency on deep GCNs, respectively, proving its high efficiency and potential for deployment in real-time multimedia recommendation infrastructures.</jats:p>",
+      "url": "https://doi.org/10.2139/ssrn.6749762",
+      "venue": "",
+      "citation_count": 0,
+      "publication_date": null,
+      "source": "crossref",
+      "doi": "10.2139/ssrn.6749762",
+      "arxiv_id": null
+    },
+    {
+      "title": "TT-QEC: An Open-Source Hardware-Native MLIR Compiler for Quantum Error Correction Decoding",
+      "authors": [
+        "Yash Desale"
+      ],
+      "year": null,
+      "abstract": "<jats:p>Fault-tolerant quantum computing with the surface code requires a classical decoder that returns a correction in less than one syndrome extraction round-a latency budget of approximately 1 µs on superconducting hardware that is below what software decoders achieve and at the edge of what FPGA and GPU implementations report. We present tt-qec-predecoder, an end-to-end pre-decoder system targeting this regime by mapping a selective-scan statespace model (Mamba/S6) onto the Tenstorrent Blackhole RISC-V tensor architecture, combined with a hardware-resident integrity and formal-verification pipeline. The decoder is a 16 Mparameter Sparse Mamba network whose recurrence has O(k) work in k, the number of non-trivial syndrome bits, executed as a tile-resident Tensix kernel with no host roundtrip. Around the kernel we build a Z3-based proof framework that discharges five abstract safety obligations (no NoC deadlock, no buffer overflow, worst-case latency bound, fixedpoint quantizer error bound, no-op safety), a BLAKE3 contentaddressed integrity chain (QCIVET) covering every artifact from training data to deployed weights, and a standardized benchmarking suite (qec-lego-bench) for like-for-like comparison against PyMatching (CPU), Micro Blossom (FPGA), and NVIDIA Ising (GPU) baselines at code distances d ∈ {3, 5, 7, 9, 13, 17, 21, 25, 32}. We describe the architecture, the kernel design and its hardware-aware Taylor-approximated discretization, the verification methodology and its current limitations, and the benchmarking framework. We additionally report a first round of experimental validation: measured CPU baselines on the FP32 dense reference model, Blackhole latencies projected from those baselines through a published scaling chain (INT4 quantization, tensor-core SIMD, Tenstorrent NoC streaming), an end-to-end decode run on the IBM Quantum cloud simulator, and-as a new empirical result-50,000 shots of raw complexvalued IQ syndrome data harvested from a real IBM Heron R2 processor (ibm_fez) via the IBM Quantum open plan. Realhardware Blackhole validation remains explicitly pending. Source code is available under AGPL-3.0-or-later.</jats:p>",
+      "url": "https://doi.org/10.2139/ssrn.6905503",
+      "venue": "",
+      "citation_count": 0,
+      "publication_date": null,
+      "source": "crossref",
+      "doi": "10.2139/ssrn.6905503",
+      "arxiv_id": null
+    },
+    {
+      "title": "NektarIR: A Domain-Specific Compiler for High-Order Finite Element Operations on Heterogeneous Hardware",
+      "authors": [
+        "Edward Erasmie-Jones"
+      ],
+      "year": null,
+      "abstract": "<jats:p>The transition towards heterogeneous or GPU-dominated hardware in high-performance computing (HPC) infrastructure has highlighted the need for hardware-extensible implementations of HPC applications in scientific computing and AI. Ensuring that these implementations are optimized for the specific hardware target poses a significant challenge, as the optimization process requires specific hardware-level knowledge that is not only outside the scientific domain but also varies across different hardware types and vendors. While domain-specific languages (DSLs) have achieved considerable success in scientific computing due to the power of high-level, domain-specific abstractions, the difficulty of converting a high-level, domain-specific representation into efficient, low-level, and hardware-specific code reiterates the challenge of developing HPC applications for heterogeneous hardware landscapes.</jats:p>\n                <jats:p>An alternative approach, and the focus of this talk, is the development of a domain-specific compiler, wherein a high-level abstraction of domain-specific operations can be created as an intermediate representation (IR), which, through a series of compiler passes, is rewritten and lowered to a hardware-specific and highly optimized representation. The MLIR project provides tools for the development of reusable, extensible compiler infrastructure and, using LLVM, is able to facilitate code generation of kernels for a range of hardware types, including GPUs and CPUs.</jats:p>\n                <jats:p>We will present our experience when developing NektarIR, a domain-specific compiler for high-order finite element operations for use in the construction of differential operators for spectral/hp element method solvers in computational fluid dynamics (CFD). In particular, we will focus on the high-level abstraction the finite element operations as an intermediate representation and MLIR dialect, and the pipeline from our abstraction to just-in-time (JIT) compiled kernels on both CPUs and GPUs using LLVM. By facilitating the code generation of highly efficient kernels across hardware architectures, we aim to remove optimization concerns for domain scientists developing solvers for HPC applications or digital twins. We study the performance of our compiler by measuring the overhead contribution from both the time to convert our abstraction to LLVM and the time to compile to the specific hardware target for a range of operations used in the construction of differential operators. For runtime performance, we compare the throughput of our JIT-compiled kernels against kernels from the Nektar++ spectral/hp element framework on both CPUs and GPUs.</jats:p>\n                <jats:p>§ SHORT ABSTRACT\n\nThe transition towards heterogeneous or GPU-dominated hardware in high-performance computing (HPC) infrastructure has highlighted the need for hardware-extensible implementations of HPC applications in scientific computing and AI. Ensuring that these implementations are optimized for the specific hardware target poses a significant challenge, as the optimization process requires specific hardware-level knowledge that is not only outside the scientific domain but also varies across different hardware types and vendors. In this talk, we present NektarIR, a domain-specific compiler for high-order finite element operations on CPU and GPU hardwares. Using the MLIR project, we have created an intermediate representation of a high-level abstraction of the operations that is rewritten and lowered through a series of passes to optimized and hardware-specific kernels. These kernels are just-in-time (JIT) compiled for the specific hardware and architecture using LLVM and can be used in the construction of spectral/hp element solvers for computational fluid dynamics. We also present benchmarks for the overhead introduced by our compiler pipeline and a run-time performance comparison of our kernels against the Nektar++ spectral/hp element framework.</jats:p>",
+      "url": "https://doi.org/10.52843/cassyni.qrrjjy.3",
+      "venue": "",
+      "citation_count": 0,
+      "publication_date": null,
+      "source": "crossref",
+      "doi": "10.52843/cassyni.qrrjjy.3",
+      "arxiv_id": null
+    },
+    {
+      "title": "Differential Testing Solidity Compiler through Deep Contract Manipulation and Mutation",
+      "authors": [
+        "Zhenzhou Tian",
+        "Fanfan Wang",
+        "Yanping Chen",
+        "Lingwei Chen"
+      ],
+      "year": null,
+      "abstract": "<title>Abstract</title>\n        <p>Solidity, the language utilized for developing smart contracts, has been gainingincreased importance in blockchain system. Ensuring bug-free of its accompanying language compiler, which converts the contract source codes into executablesfinally deployed on the blockchain, is thus of paramount importance. This studypresents DeSCDT, a Deep learning-based Solidity Compiler Differential Testingapproach, to explore possible defects in solidity compiler. At the core lies a wellbehaving deep contract generator following the Transformer architecture andlearnt with diverse contract code. From an initial seed pool of contracts carefully picked through semantic encoding and clustering, the generator is capableof stably producing highly syntactic-valid and functional-rich smart contracts,with three meticulously formulated generation strategies and a set of mutationoperations. Subsequently, in the meantime of compiling these generated contractsto trigger compiler crashes, a differential testing environment is setup to exploremisoptimization bugs, by observing the inconsistencies between the outcomes and the aspects including gas consumption and opcode size of the optimized and nonoptimized bytecodes. For the experiments, the syntactic validity and diversity ofthe contracts generated with DeSCDT, as well as its ability in discovering compiler defects, are investigated. The findings indicate that DeSCDT can effectivelygenerate syntactically correct contracts with a pass rate of 90.8% alongside highdiversity. Among the contracts tested for a 24-hour running of DeSCDT, 37.4%of them expose inconsistencies across the optimized and non-optimized versionof the same contract. Six bugs that could trigger direct crashing of the compilerhave also detected.</p>",
+      "url": "https://doi.org/10.21203/rs.3.rs-3924118/v1",
+      "venue": "",
+      "citation_count": 0,
+      "publication_date": null,
+      "source": "crossref",
+      "doi": "10.21203/rs.3.rs-3924118/v1",
+      "arxiv_id": null
+    },
+    {
+      "title": "Completion of the works",
+      "authors": [],
+      "year": 2024,
+      "abstract": "",
+      "url": "https://doi.org/10.1680/fcmh.66526.135",
+      "venue": "FIDIC 2017: The Contract Manager’s Handbook",
+      "citation_count": 0,
+      "publication_date": "2024-01-01",
+      "source": "crossref",
+      "doi": "10.1680/fcmh.66526.135",
+      "arxiv_id": null
+    },
+    {
+      "title": "Service Dependency Intelligence for Contract-aware Agent Design in Enterprise Microservice Architectures",
+      "authors": [
+        "Papa Rao Avasarala"
+      ],
+      "year": null,
+      "abstract": "<jats:p>LLM-based coding agents designing solutions in enterprise microservice architectures must understand service dependencies, API contracts, and event topologies to produce correct, deployment-safe designs. We present a service dependency intelligence system that constructs and maintains a queryable dependency graph from static code and configuration analysis, enabling agents to perform contract-aware design. The system extracts over 3,200 dependency edges across 74 distinct detection signal types from approximately 900 repositories at a Fortune 50 retailer, queryable in under 500ms via a RediSearch index. Integrated into the agent's design workflow as a mandatory pre-modification step, the system enforces contractaware architecture rules: agents must enumerate all affected consumers, specify backward-compatible migration strategies, and define deployment ordering before proposing any API or event schema change. The dependency graph achieves 100% precision on detected edges (team-validated, zero false positives) with a 5-10% recall gap from scan depth limitations. With over 1,800 total interactions across a conversational AI assistant, catalog browser, and automated design pipelines, the system demonstrates that static dependency intelligence-without runtime instrumentation-provides sufficient context for agents to produce designs that respect the enterprise service topology.</jats:p>",
+      "url": "https://doi.org/10.2139/ssrn.6963023",
+      "venue": "",
+      "citation_count": 0,
+      "publication_date": null,
+      "source": "crossref",
+      "doi": "10.2139/ssrn.6963023",
+      "arxiv_id": null
+    }
+  ]
+}

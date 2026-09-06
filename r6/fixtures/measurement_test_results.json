@@ -1,0 +1,24 @@
+{
+  "evidence_level": "synthetic_schema_fixture",
+  "physical_hardware_runs": 0,
+  "generated_at": "2026-09-05T07:20:49.236704+00:00",
+  "command": [
+    "C:\\Users\\72449\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "D:\\dsh-proj\\SchedResarch\\r6\\test_measurements.py"
+  ],
+  "tests_returncode": 0,
+  "template_returncode": 0,
+  "template_require_mechanism_returncode": 2,
+  "test_count": 22,
+  "source_sha256": {
+    "validate_measurements.py": "8f2289a46bf5034bae3ac718049b1b675c95f9aa9b38c228f388a17dd059dc71",
+    "test_measurements.py": "58b9e5fb53c642b45833a2c28761a6cba9df6c4fe466dfb6558a1623d5a65ac3",
+    "measurement_template.json": "1948401db6cb0b6d0381a2ebe6bb24e4cede8ba4f9acb1fe50a276af0293dcb8",
+    "measurement_schema.md": "da411c480add155a98875b3f986b69ff4e043b0baed86fd99713319933fdb1b3"
+  },
+  "log_sha256": "c84793e1fa09a5ee4fbda09f152be6043681bdf0ce6086cf02e675b765858a2d",
+  "performance_gate_evaluated": false
+}

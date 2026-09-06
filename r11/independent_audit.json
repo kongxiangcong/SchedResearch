@@ -1,0 +1,2380 @@
+{
+  "status": "PASS",
+  "registration": {
+    "registered_utc": "2026-09-05T15:37:27.697357+00:00",
+    "phase": "before-performance-execution",
+    "files": {
+      "r11/experiment_plan.md": "30e3275b03338d67de48858a4e44afad1a87d6881c8924c6a8afbd18cc5ae9b5",
+      "r11/contract.json": "e159d1a7d248cbe286d1e37838d2ab1b659af66d2bcbac1fd70bd28d00b7fb93",
+      "r11/continuation_brief.md": "187225d6d10c71d524571fe4ed86589af5528e39482b86001807246697a0bc60",
+      "r11/reporting_addendum.md": "0bb196a17fc39625fd91168b2db154d498dbaab721d8b52e0dbe47a638198dc4",
+      "r5/sources/qwen/modeling_qwen3_5.py": "458360c8072e6130580639170ad3e645b975512dbabae31eab5f92de5f0f09ef",
+      "r5/sources/qwen/config.json": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670"
+    }
+  },
+  "source_formula": {
+    "dense_weight_payload_per_invocation": 84213760,
+    "dense_macs": 168427520,
+    "recurrent_state_bytes": 2097152,
+    "external_recurrent_state_payload": 4194304,
+    "baseline_local_recurrent_state_payload": 16777216,
+    "resident_local_recurrent_state_payload": 4194304,
+    "local_recurrent_state_payload_saved": 12582912,
+    "conv_state_bytes": 131072,
+    "module_output_bytes": 40960
+  },
+  "graph_audits": {
+    "baseline": {
+      "commands": 22346,
+      "traffic": {
+        "EXT": {
+          "state_load": 2097152,
+          "conv_load": 131072,
+          "parameter_load": 131840,
+          "hidden_load": 20480,
+          "input_projection_weight": 63242240,
+          "output_projection_weight": 20971520,
+          "state_store": 2097152,
+          "conv_store": 131072,
+          "module_output_store": 40960
+        },
+        "BARRIER": {
+          "module_inputs_visible": 0,
+          "input_projection_wave_visible": 0,
+          "prepared_visible": 0,
+          "recurrence_visible": 0,
+          "norm_visible": 0,
+          "output_projection_wave_visible": 0,
+          "module_return_and_RF_clobber": 0
+        },
+        "LOCAL": {
+          "input_projection_feed": 67194880,
+          "input_projection_output": 197632,
+          "prepare_read": 394496,
+          "prepare_write": 328704,
+          "state_read": 8388608,
+          "recurrence_operands": 329728,
+          "recurrence_output": 65536,
+          "state_write": 8388608,
+          "norm_read": 147456,
+          "norm_write": 65536,
+          "output_projection_feed": 23592960,
+          "output_projection_output": 40960
+        },
+        "VPU0": {
+          "input_projection_unpack": 0,
+          "prepare_compute": 0,
+          "recurrence_compute": 0,
+          "norm_compute": 0,
+          "output_projection_unpack": 0
+        },
+        "MXU0": {
+          "input_projection_mac": 0,
+          "output_projection_mac": 0
+        },
+        "VPU1": {
+          "input_projection_unpack": 0,
+          "prepare_compute": 0,
+          "recurrence_compute": 0,
+          "norm_compute": 0,
+          "output_projection_unpack": 0
+        },
+        "MXU1": {
+          "input_projection_mac": 0,
+          "output_projection_mac": 0
+        }
+      },
+      "work": {
+        "EXT": {
+          "macs": 0,
+          "ops": 0
+        },
+        "BARRIER": {
+          "macs": 0,
+          "ops": 0
+        },
+        "LOCAL": {
+          "macs": 0,
+          "ops": 0
+        },
+        "VPU0": {
+          "macs": 0,
+          "ops": 30134784
+        },
+        "MXU0": {
+          "macs": 84541440,
+          "ops": 0
+        },
+        "VPU1": {
+          "macs": 0,
+          "ops": 29960704
+        },
+        "MXU1": {
+          "macs": 83886080,
+          "ops": 0
+        }
+      },
+      "vmem_allocated_peak": 3013376
+    },
+    "resident": {
+      "commands": 21770,
+      "traffic": {
+        "EXT": {
+          "state_load": 2097152,
+          "conv_load": 131072,
+          "parameter_load": 131840,
+          "hidden_load": 20480,
+          "input_projection_weight": 63242240,
+          "output_projection_weight": 20971520,
+          "state_store": 2097152,
+          "conv_store": 131072,
+          "module_output_store": 40960
+        },
+        "BARRIER": {
+          "module_inputs_visible": 0,
+          "input_projection_wave_visible": 0,
+          "prepared_visible": 0,
+          "recurrence_visible": 0,
+          "norm_visible": 0,
+          "output_projection_wave_visible": 0,
+          "module_return_and_RF_clobber": 0
+        },
+        "LOCAL": {
+          "input_projection_feed": 67194880,
+          "input_projection_output": 197632,
+          "prepare_read": 394496,
+          "prepare_write": 328704,
+          "state_read": 2097152,
+          "recurrence_operands": 329728,
+          "recurrence_output": 65536,
+          "state_write": 2097152,
+          "norm_read": 147456,
+          "norm_write": 65536,
+          "output_projection_feed": 23592960,
+          "output_projection_output": 40960
+        },
+        "VPU0": {
+          "input_projection_unpack": 0,
+          "prepare_compute": 0,
+          "recurrence_compute": 0,
+          "norm_compute": 0,
+          "output_projection_unpack": 0
+        },
+        "MXU0": {
+          "input_projection_mac": 0,
+          "output_projection_mac": 0
+        },
+        "VPU1": {
+          "input_projection_unpack": 0,
+          "prepare_compute": 0,
+          "recurrence_compute": 0,
+          "norm_compute": 0,
+          "output_projection_unpack": 0
+        },
+        "MXU1": {
+          "input_projection_mac": 0,
+          "output_projection_mac": 0
+        }
+      },
+      "work": {
+        "EXT": {
+          "macs": 0,
+          "ops": 0
+        },
+        "BARRIER": {
+          "macs": 0,
+          "ops": 0
+        },
+        "LOCAL": {
+          "macs": 0,
+          "ops": 0
+        },
+        "VPU0": {
+          "macs": 0,
+          "ops": 30134784
+        },
+        "MXU0": {
+          "macs": 84541440,
+          "ops": 0
+        },
+        "VPU1": {
+          "macs": 0,
+          "ops": 29960704
+        },
+        "MXU1": {
+          "macs": 83886080,
+          "ops": 0
+        }
+      },
+      "vmem_allocated_peak": 3013376
+    }
+  },
+  "traces": {
+    "count": 122,
+    "audited": 122,
+    "results": [
+      {
+        "variant": "baseline",
+        "group": "quiet",
+        "seed": 111000,
+        "condition": "quiet",
+        "elapsed": 3448328.125,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "quiet",
+        "seed": 111000,
+        "condition": "quiet",
+        "elapsed": 3448868.5,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111000,
+        "condition": "background",
+        "elapsed": 4278310.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111000,
+        "condition": "background",
+        "elapsed": 4302886.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111001,
+        "condition": "background",
+        "elapsed": 4259963.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111001,
+        "condition": "background",
+        "elapsed": 4284539.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111002,
+        "condition": "background",
+        "elapsed": 4261022.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111002,
+        "condition": "background",
+        "elapsed": 4285598.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111003,
+        "condition": "background",
+        "elapsed": 4279352.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111003,
+        "condition": "background",
+        "elapsed": 4303928.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111004,
+        "condition": "background",
+        "elapsed": 4279454.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111004,
+        "condition": "background",
+        "elapsed": 4306210.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111005,
+        "condition": "background",
+        "elapsed": 4258779.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111005,
+        "condition": "background",
+        "elapsed": 4287451.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111006,
+        "condition": "background",
+        "elapsed": 4278940.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111006,
+        "condition": "background",
+        "elapsed": 4305696.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111007,
+        "condition": "background",
+        "elapsed": 4279062.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111007,
+        "condition": "background",
+        "elapsed": 4305818.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111008,
+        "condition": "background",
+        "elapsed": 4258317.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111008,
+        "condition": "background",
+        "elapsed": 4285073.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111009,
+        "condition": "background",
+        "elapsed": 4258226.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111009,
+        "condition": "background",
+        "elapsed": 4282802.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111010,
+        "condition": "background",
+        "elapsed": 4278917.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111010,
+        "condition": "background",
+        "elapsed": 4303493.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111011,
+        "condition": "background",
+        "elapsed": 4279498.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111011,
+        "condition": "background",
+        "elapsed": 4304074.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111012,
+        "condition": "background",
+        "elapsed": 4278558.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111012,
+        "condition": "background",
+        "elapsed": 4303718.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111013,
+        "condition": "background",
+        "elapsed": 4278847.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111013,
+        "condition": "background",
+        "elapsed": 4305603.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111014,
+        "condition": "background",
+        "elapsed": 4279546.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111014,
+        "condition": "background",
+        "elapsed": 4305483.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111015,
+        "condition": "background",
+        "elapsed": 4258887.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111015,
+        "condition": "background",
+        "elapsed": 4284824.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111016,
+        "condition": "background",
+        "elapsed": 4278739.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111016,
+        "condition": "background",
+        "elapsed": 4303315.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111017,
+        "condition": "background",
+        "elapsed": 4279819.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111017,
+        "condition": "background",
+        "elapsed": 4305658.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111018,
+        "condition": "background",
+        "elapsed": 4276903.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111018,
+        "condition": "background",
+        "elapsed": 4301479.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111019,
+        "condition": "background",
+        "elapsed": 4279059.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111019,
+        "condition": "background",
+        "elapsed": 4303635.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111020,
+        "condition": "background",
+        "elapsed": 4259649.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111020,
+        "condition": "background",
+        "elapsed": 4286405.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111021,
+        "condition": "background",
+        "elapsed": 4277620.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111021,
+        "condition": "background",
+        "elapsed": 4304376.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111022,
+        "condition": "background",
+        "elapsed": 4276600.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111022,
+        "condition": "background",
+        "elapsed": 4301176.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111023,
+        "condition": "background",
+        "elapsed": 4277839.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111023,
+        "condition": "background",
+        "elapsed": 4303776.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111024,
+        "condition": "background",
+        "elapsed": 4278535.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111024,
+        "condition": "background",
+        "elapsed": 4307207.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111025,
+        "condition": "background",
+        "elapsed": 4259522.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111025,
+        "condition": "background",
+        "elapsed": 4284098.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111026,
+        "condition": "background",
+        "elapsed": 4278024.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111026,
+        "condition": "background",
+        "elapsed": 4303961.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111027,
+        "condition": "background",
+        "elapsed": 4278683.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111027,
+        "condition": "background",
+        "elapsed": 4303259.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111028,
+        "condition": "background",
+        "elapsed": 4257752.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111028,
+        "condition": "background",
+        "elapsed": 4282328.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "A",
+        "seed": 111029,
+        "condition": "background",
+        "elapsed": 4276758.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "A",
+        "seed": 111029,
+        "condition": "background",
+        "elapsed": 4301334.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112000,
+        "condition": "background",
+        "elapsed": 4249545.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112000,
+        "condition": "background",
+        "elapsed": 4274676.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112001,
+        "condition": "background",
+        "elapsed": 4278478.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112001,
+        "condition": "background",
+        "elapsed": 4303054.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112002,
+        "condition": "background",
+        "elapsed": 4249798.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112002,
+        "condition": "background",
+        "elapsed": 4277664.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112003,
+        "condition": "background",
+        "elapsed": 4246149.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112003,
+        "condition": "background",
+        "elapsed": 4271280.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112004,
+        "condition": "background",
+        "elapsed": 4279462.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112004,
+        "condition": "background",
+        "elapsed": 4305399.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112005,
+        "condition": "background",
+        "elapsed": 4280011.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112005,
+        "condition": "background",
+        "elapsed": 4306767.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112006,
+        "condition": "background",
+        "elapsed": 4259486.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112006,
+        "condition": "background",
+        "elapsed": 4286242.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112007,
+        "condition": "background",
+        "elapsed": 4257824.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112007,
+        "condition": "background",
+        "elapsed": 4282400.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112008,
+        "condition": "background",
+        "elapsed": 4279650.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112008,
+        "condition": "background",
+        "elapsed": 4305587.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112009,
+        "condition": "background",
+        "elapsed": 4279447.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112009,
+        "condition": "background",
+        "elapsed": 4304023.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112010,
+        "condition": "background",
+        "elapsed": 4259173.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112010,
+        "condition": "background",
+        "elapsed": 4283749.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112011,
+        "condition": "background",
+        "elapsed": 4280186.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112011,
+        "condition": "background",
+        "elapsed": 4306942.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112012,
+        "condition": "background",
+        "elapsed": 4279938.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112012,
+        "condition": "background",
+        "elapsed": 4305875.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112013,
+        "condition": "background",
+        "elapsed": 4278676.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112013,
+        "condition": "background",
+        "elapsed": 4303252.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112014,
+        "condition": "background",
+        "elapsed": 4279428.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112014,
+        "condition": "background",
+        "elapsed": 4306184.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112015,
+        "condition": "background",
+        "elapsed": 4245012.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112015,
+        "condition": "background",
+        "elapsed": 4270143.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112016,
+        "condition": "background",
+        "elapsed": 4245339.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112016,
+        "condition": "background",
+        "elapsed": 4270470.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112017,
+        "condition": "background",
+        "elapsed": 4258220.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112017,
+        "condition": "background",
+        "elapsed": 4284976.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112018,
+        "condition": "background",
+        "elapsed": 4248786.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112018,
+        "condition": "background",
+        "elapsed": 4276582.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112019,
+        "condition": "background",
+        "elapsed": 4279084.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112019,
+        "condition": "background",
+        "elapsed": 4305840.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112020,
+        "condition": "background",
+        "elapsed": 4257563.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112020,
+        "condition": "background",
+        "elapsed": 4282139.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112021,
+        "condition": "background",
+        "elapsed": 4278245.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112021,
+        "condition": "background",
+        "elapsed": 4302821.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112022,
+        "condition": "background",
+        "elapsed": 4278961.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112022,
+        "condition": "background",
+        "elapsed": 4307633.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112023,
+        "condition": "background",
+        "elapsed": 4278353.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112023,
+        "condition": "background",
+        "elapsed": 4302929.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112024,
+        "condition": "background",
+        "elapsed": 4278487.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112024,
+        "condition": "background",
+        "elapsed": 4303063.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112025,
+        "condition": "background",
+        "elapsed": 4256956.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112025,
+        "condition": "background",
+        "elapsed": 4283712.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112026,
+        "condition": "background",
+        "elapsed": 4256306.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112026,
+        "condition": "background",
+        "elapsed": 4284978.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112027,
+        "condition": "background",
+        "elapsed": 4278142.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112027,
+        "condition": "background",
+        "elapsed": 4304898.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112028,
+        "condition": "background",
+        "elapsed": 4260807.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112028,
+        "condition": "background",
+        "elapsed": 4285383.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "baseline",
+        "group": "B",
+        "seed": 112029,
+        "condition": "background",
+        "elapsed": 4279426.0,
+        "commands_replayed": 22346,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 872097.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      },
+      {
+        "variant": "resident",
+        "group": "B",
+        "seed": 112029,
+        "condition": "background",
+        "elapsed": 4304002.0,
+        "commands_replayed": 21770,
+        "port_and_compute_service_lower_bounds": {
+          "EXT": 3111539.0,
+          "BARRIER": 0,
+          "LOCAL": 772065.0,
+          "VPU0": 944444.0,
+          "MXU0": 167700.0,
+          "VPU1": 938984.0,
+          "MXU1": 166400.0
+        }
+      }
+    ]
+  },
+  "statistics": {
+    "A": {
+      "n": 30,
+      "mean": -0.5991742542426292,
+      "std": 0.029123389455174977,
+      "ci95_t": [
+        -0.6100491065876821,
+        -0.5882994018975762
+      ],
+      "min": -0.673244608372503,
+      "max": -0.5742729637915556
+    },
+    "B": {
+      "n": 30,
+      "mean": -0.605967307986141,
+      "std": 0.031060528205784126,
+      "ci95_t": [
+        -0.6175654998283763,
+        -0.5943691161439056
+      ],
+      "min": -0.6736357771269352,
+      "max": -0.5742798076480371
+    }
+  },
+  "quiet": {
+    "baseline_elapsed": 3448328.125,
+    "resident_elapsed": 3448868.5,
+    "gain_pct": -0.01567063749190467
+  },
+  "prefill_gate_recomputed": false,
+  "decode": {
+    "status": "EXCLUDED_NO_INTERVENTION",
+    "equal_commands": true,
+    "graph_sha256": "f33c25bc0d0f485db493974a4415a00fab8a3e1d96e51e1f3872811a0d16a0ea",
+    "metrics": {
+      "bytes_by_category": {
+        "state_load": 8388608,
+        "conv_load": 524288,
+        "parameter_load": 527360,
+        "hidden_load": 20480,
+        "module_inputs_visible": 0,
+        "input_projection_weight": 252968960,
+        "input_projection_feed": 256921600,
+        "input_projection_unpack": 0,
+        "input_projection_mac": 0,
+        "input_projection_output": 197632,
+        "input_projection_wave_visible": 0,
+        "prepare_read": 1181696,
+        "prepare_compute": 0,
+        "prepare_write": 721920,
+        "prepared_visible": 0,
+        "state_read": 8388608,
+        "recurrence_operands": 593920,
+        "recurrence_compute": 0,
+        "recurrence_output": 65536,
+        "state_write": 8388608,
+        "recurrence_visible": 0,
+        "norm_read": 196608,
+        "norm_compute": 0,
+        "norm_write": 65536,
+        "norm_visible": 0,
+        "output_projection_weight": 83886080,
+        "output_projection_feed": 86507520,
+        "output_projection_unpack": 0,
+        "output_projection_mac": 0,
+        "output_projection_output": 40960,
+        "output_projection_wave_visible": 0,
+        "state_store": 8388608,
+        "conv_store": 524288,
+        "module_output_store": 40960,
+        "module_return_and_RF_clobber": 0
+      },
+      "bytes_by_resource": {
+        "EXT": 355269632,
+        "BARRIER": 0,
+        "LOCAL": 363270144,
+        "VPU0": 0,
+        "MXU0": 0,
+        "VPU1": 0,
+        "MXU1": 0
+      },
+      "ops": 186416128,
+      "macs": 168427520,
+      "commands": 86824
+    },
+    "proof": "Four output-visible invocation boundaries; all RF/VMEM clobbered; every head state read and written each token. Other caller time is not modeled."
+  },
+  "scope": "independent command service, FIFO/dependency, capacity, state traffic and paired-statistics replay; no device acceptance"
+}

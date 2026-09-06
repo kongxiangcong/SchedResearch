@@ -1,0 +1,33 @@
+{
+  "command": [
+    "python",
+    "-X",
+    "utf8",
+    "-B",
+    "r7/c_api_probe.py",
+    "--load"
+  ],
+  "cwd": "D:\\dsh-proj\\SchedResarch",
+  "started_utc": "2026-09-05T07:34:06.757998+00:00",
+  "plan_sha256": "6bffc020a7213c64223a5196d08e01492be13081d2f4ec54be5367c2808e0f4f",
+  "artifact_sha256_before": {
+    "D:\\dsh-proj\\SchedResarch\\r7\\c_api_probe.py": "da1abe186f2fda1e9576de7c98323ff718799f0d6221b39ef13b7c454daf4f6b",
+    "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+    "C:\\Windows\\System32\\AMD\\validate_phx.xclbin": "c64c0d59dfab9f6a12e50252f302bdc8fb7e7b8183fd69d09e2bb796579c8de5"
+  },
+  "timeout_s": 90,
+  "host_process_elapsed_s": 0.20314070000313222,
+  "ended_utc": "2026-09-05T07:34:06.961956+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "raw_sha256": {
+    "stdout.bin": "159fc32388fa57f90bf8fc87814753f142e00d9b37ebe865b764ccee9129bed1",
+    "stderr.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "artifact_sha256_after": {
+    "D:\\dsh-proj\\SchedResarch\\r7\\c_api_probe.py": "da1abe186f2fda1e9576de7c98323ff718799f0d6221b39ef13b7c454daf4f6b",
+    "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+    "C:\\Windows\\System32\\AMD\\validate_phx.xclbin": "c64c0d59dfab9f6a12e50252f302bdc8fb7e7b8183fd69d09e2bb796579c8de5"
+  },
+  "artifacts_unchanged": true
+}

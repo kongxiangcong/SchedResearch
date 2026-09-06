@@ -1,0 +1,19 @@
+------------------------------------------------------------
+                        EARLY ACCESS                        
+        This release of xbutil contains early access        
+         experimental features which may have bugs.         
+------------------------------------------------------------
+Validate Device           : [0065:00:01.0]
+    Platform              : RyzenAI-Phoenix
+    SC Version            : 
+    Platform ID           : 0x0
+-------------------------------------------------------------------------------
+Verbose: Enabling Verbosity
+Test 1 [0065:00:01.0]     : verify 
+    Description           : Run 'Hello World' kernel test
+    Xclbin                : C:\Windows\System32\AMD\validate_phx.xclbin
+    Details               : Kernel name is 'DPU_PDI_0'
+    Test Status           : [PASSED]
+-------------------------------------------------------------------------------
+Validation completed
+Successfully wrote the JSON file: D:\dsh-proj\SchedResarch\r6\evidence\verify_report.json

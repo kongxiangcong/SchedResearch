@@ -1,0 +1,41 @@
+[
+  {
+    "name": "fixture",
+    "created_utc": "2026-09-05T07:40:05.119704+00:00",
+    "source": "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\verify_fixture.cpp",
+    "source_sha256": "0d425f07005af53a9b28ca8fe5ffacc65b59e8ea9e438dd5a3cc60849c0597a7",
+    "build_script": "D:\\dsh-proj\\SchedResarch\\r7\\sdk\\build_fixture.cmd",
+    "script_sha256": "32b17b9db8f91071135f0e930c78a03db42112cb1702837b474f749358de1f7f",
+    "exit_code": 0,
+    "artifact": "D:\\dsh-proj\\SchedResarch\\r7\\sdk\\verify_fixture.exe",
+    "artifact_sha256": "6fcf9de556b4e77dd42b2b9f35cf6b6b56f3e704108d36daf7aa59b80713e302",
+    "device_executed": false,
+    "build_log": "D:\\dsh-proj\\SchedResarch\\r7\\sdk\\build_fixture_output.txt"
+  },
+  {
+    "name": "copy",
+    "created_utc": "2026-09-05T07:44:03.992928+00:00",
+    "source": "D:\\dsh-proj\\SchedResarch\\r7\\copy_probe.cpp",
+    "source_sha256": "ed1e7319d1c190bfba402ae6921329b01a251cc4ca8ce750b6ab35d9f968efbb",
+    "build_script": "D:\\dsh-proj\\SchedResarch\\r7\\sdk\\build_copy.cmd",
+    "script_sha256": "f8860f3d4ceba66aafdc9f1b2172832d61bc545d47c7aeabe2ed475e7b354ca1",
+    "exit_code": 0,
+    "artifact": "D:\\dsh-proj\\SchedResarch\\r7\\bin\\copy_probe.exe",
+    "artifact_sha256": "0058423743ef252e8894ae994b3adccbd3198d49d26e5bf8433a323385da13aa",
+    "device_executed": false,
+    "build_log": "D:\\dsh-proj\\SchedResarch\\r7\\sdk\\build_copy_output.txt"
+  },
+  {
+    "name": "compute",
+    "created_utc": "2026-09-05T07:44:10.113335+00:00",
+    "source": "D:\\dsh-proj\\SchedResarch\\r7\\compute_probe.cpp",
+    "source_sha256": "35e0d729a9f7ff6f19a3ab2afca65dfa4c5cad04b1f89ad92b704a104f264701",
+    "build_script": "D:\\dsh-proj\\SchedResarch\\r7\\sdk\\build_compute.cmd",
+    "script_sha256": "bfdf90f47b820abf4fd666c4f9f8cfe43bf50552d6011b1455cef707a9925a84",
+    "exit_code": 0,
+    "artifact": "D:\\dsh-proj\\SchedResarch\\r7\\bin\\compute_probe.exe",
+    "artifact_sha256": "7bc668125bef7554a992f4122a3ad67e8301141de64297cfd094b96db511b3a8",
+    "device_executed": false,
+    "build_log": "D:\\dsh-proj\\SchedResarch\\r7\\sdk\\build_compute_output.txt"
+  }
+]

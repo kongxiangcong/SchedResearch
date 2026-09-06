@@ -1,0 +1,5 @@
+适用于 Linux 的 Windows 子系统没有已安装的分发。
+可通过安装包含以下说明的分发来解决此问题：
+
+使用“wsl.exe --list --online' ”列出可用的分发
+和 “wsl.exe --install <Distro>” 进行安装。

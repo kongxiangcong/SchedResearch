@@ -1,0 +1,273 @@
+{
+  "status": "PASS_WITH_EXPLICIT_EVIDENCE_LIMITS",
+  "date": "2026-09-05",
+  "scope": "Independent read-only source/receipt and in-memory negative-contract review; no device or historical simulator reruns.",
+  "checks": [
+    {
+      "name": "receipt_vendor_verify",
+      "status": "PASS",
+      "detail": {
+        "plan_hash_matches": true,
+        "raw_stream_hashes_match": true,
+        "returncode": 0,
+        "host_process_elapsed_s": 0.3972588999895379
+      }
+    },
+    {
+      "name": "receipt_vendor_df_bw",
+      "status": "PASS",
+      "detail": {
+        "plan_hash_matches": true,
+        "raw_stream_hashes_match": true,
+        "returncode": 0,
+        "host_process_elapsed_s": 5.666550399968401
+      }
+    },
+    {
+      "name": "receipt_report_all",
+      "status": "PASS",
+      "detail": {
+        "plan_hash_matches": true,
+        "raw_stream_hashes_match": true,
+        "returncode": 0,
+        "host_process_elapsed_s": 0.15181700000539422
+      }
+    },
+    {
+      "name": "checked_test_verify_passed_error",
+      "status": "PASS",
+      "detail": "Rejected in-memory negative control; no report changed."
+    },
+    {
+      "name": "checked_test_verify_failed",
+      "status": "PASS",
+      "detail": "Rejected in-memory negative control; no report changed."
+    },
+    {
+      "name": "checked_test_verify_duplicate",
+      "status": "PASS",
+      "detail": "Rejected in-memory negative control; no report changed."
+    },
+    {
+      "name": "checked_test_df-bw_passed_error",
+      "status": "PASS",
+      "detail": "Rejected in-memory negative control; no report changed."
+    },
+    {
+      "name": "checked_test_df-bw_failed",
+      "status": "PASS",
+      "detail": "Rejected in-memory negative control; no report changed."
+    },
+    {
+      "name": "checked_test_df-bw_duplicate",
+      "status": "PASS",
+      "detail": "Rejected in-memory negative control; no report changed."
+    },
+    {
+      "name": "vendor_source_semantics",
+      "status": "PASS",
+      "detail": {
+        "runtime_report_commit": "42cba83aee86b253c49eccd484646e91d062468d",
+        "logical_copy_bytes_each_direction": 1073741824,
+        "int32_values_compared": 268435456,
+        "host_launch_wait2_seconds": 0.35961,
+        "reported_rate": 2.780787,
+        "rate_formula": "1 GiB / host elapsed; not Gsample/s or measured bus bytes",
+        "device_elapsed_and_resource_counters": "unmeasured"
+      }
+    },
+    {
+      "name": "source_capacity_arithmetic",
+      "status": "PASS",
+      "detail": {
+        "linear_layers": 24,
+        "heads_per_layer": 32,
+        "state_bytes_per_head": 65536,
+        "state_bytes_per_layer": 2097152,
+        "all_gdn_state_MiB": 48,
+        "batch": 1,
+        "dtype": "conditional FP32 recurrent state",
+        "external_traffic_inference": false
+      }
+    },
+    {
+      "name": "fixture_never_hardware",
+      "status": "PASS",
+      "detail": [
+        "fixture or unclassified provenance cannot qualify"
+      ]
+    },
+    {
+      "name": "unchosen_dynamic_contract_rejected",
+      "status": "PASS",
+      "detail": [
+        "comparison recovery: dynamic contract is not the selected strong-static contract"
+      ]
+    },
+    {
+      "name": "unknown_request_observation_blocks",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "overflow_blocks",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "nan_elapsed_rejected",
+      "status": "PASS",
+      "detail": [
+        "run interference-moderate-0-0-baseline: elapsed_host_ns must be positive finite"
+      ]
+    },
+    {
+      "name": "dynamic_disjoint_residual_conditions_rejected",
+      "status": "PASS",
+      "detail": [
+        "comparison recovery/disjoint_high: matching selected-static residual test condition missing",
+        "comparison recovery/disjoint_moderate: matching selected-static residual test condition missing"
+      ]
+    },
+    {
+      "name": "new_source_manifest_file_hashes",
+      "status": "PASS",
+      "detail": {
+        "files_verified": 21,
+        "retained_access_failures": [
+          {
+            "path": "gemmini/tree.json",
+            "access": "failed",
+            "error": "HTTPError: HTTP Error 403: rate limit exceeded"
+          },
+          {
+            "path": "riallto/tree.json",
+            "access": "failed",
+            "error": "HTTPError: HTTP Error 403: rate limit exceeded"
+          },
+          {
+            "path": "arm/tree.json",
+            "access": "failed",
+            "error": "HTTPError: HTTP Error 403: rate limit exceeded"
+          },
+          {
+            "path": "arm/ethosu_pmu.h",
+            "access": "failed",
+            "error": "HTTPError: HTTP Error 404: Not Found"
+          },
+          {
+            "path": "xrt/device_windows.cpp",
+            "access": "failed",
+            "error": "HTTPError: HTTP Error 404: Not Found"
+          }
+        ]
+      }
+    },
+    {
+      "name": "parent_history_and_contiguous_progress",
+      "status": "PASS",
+      "detail": {
+        "R4_paths": 612,
+        "R5_paths_via_snapshot": 262,
+        "old_table_lines_preserved": 9,
+        "R6_rows": 2,
+        "table_contiguous": true,
+        "R5_snapshot_sha256": "3e9147e5c53781d9c82fc7da98306b18b689a82ef15fd392765681eaadda10c8",
+        "successor_sha256": "49b32d42362359d975e797b8d9eb8901950c42f548caddf8a73a3498232ad2c5"
+      }
+    },
+    {
+      "name": "inherited_source_hashes",
+      "status": "PASS",
+      "detail": {
+        "files": 8
+      }
+    },
+    {
+      "name": "fixture_receipt_and_template_cli",
+      "status": "PASS",
+      "detail": {
+        "fixture_test_count": 22,
+        "fixture_source_hashes_verified": true,
+        "template_require_mechanism_exit_code": 2,
+        "template_record_valid": true,
+        "mechanism_gate_eligible": false,
+        "performance_gate_evaluated": false
+      }
+    },
+    {
+      "name": "local_document_links",
+      "status": "PASS",
+      "detail": {
+        "missing": []
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "R6-1",
+      "severity": "resolved",
+      "finding": "Dynamic comparison initially was not tied to selected strong-static contract.",
+      "resolution": "Validator now checks dynamic baseline/candidate IDs and same-binary residual control; independent in-memory mutation rejected."
+    },
+    {
+      "id": "R6-2",
+      "severity": "resolved",
+      "finding": "Dynamic tested interference conditions should be covered by selected-static same-binary residual controls, not merely a disjoint environment.",
+      "resolution": "Validator now requires each non-isolated dynamic test condition in selected-contract fixed-binary controls; independent disjoint-condition mutation rejected."
+    },
+    {
+      "id": "R6-3",
+      "severity": "resolved",
+      "finding": "README advertised module unittest command fails because test imports validate_measurements as a same-directory module.",
+      "resolution": "README now uses python -X utf8 -B r6/test_measurements.py. Root independently reports 22 passing tests; frozen receipt source hashes match. Template --require-mechanism independently verified as Python exit 2."
+    }
+  ],
+  "scientific_verdict": {
+    "physical_npu_functional_probe": "SUPPORTED for one Phoenix vendor launch and copy selftest",
+    "fixed_binary_interference_matrix": "NOT_EXECUTED",
+    "strong_static_target_kernel": "NOT_ESTABLISHED",
+    "H1_residual_loss": "UNMEASURED; no negative performance result",
+    "H2_direct_R5_full_decode_extrapolation": "REJECTED by scope/lifetime mismatch; storage arithmetic only",
+    "H3_causal_paid_recovery": "NOT_TESTED; mechanism gate remains closed",
+    "next_decision": "Refine target kernel/compiler access and measurement semantics; retain R5 candidate rejection without a new architecture proposal"
+  },
+  "audited_hashes": {
+    "r6\\capture_probe.py": "daad7f25e1df812234e34591a4e56a89bae8886b2205a5b6758a342e8e0740a9",
+    "r6\\summarize_probes.py": "7ff025157826980b448dcfad0faf36c54a34c2b10124c73213e311a080aef5fa",
+    "r6\\validate_measurements.py": "766752309d2100488f8a951538327da08317326eadc8d09fb96a3a6580de221e",
+    "r6\\test_measurements.py": "58b9e5fb53c642b45833a2c28761a6cba9df6c4fe466dfb6558a1623d5a65ac3",
+    "r6\\device_probe_summary.json": "2f977d3bc2b752e691e27e610b164fac21066c1d78faeee6185852f2859a6135",
+    "r6\\residency_audit.py": "5535a2916c5816048c3359f9b494cd1803ce8a8bd1f76de9dd8e81fc074b5906",
+    "r6\\residency_audit.json": "56fe0c05b0cf9471dd6fa6d455de48128a2c31b9da7b1d3cb9573ebdd3f43029",
+    "r6\\experiment_plan.md": "ca7d781d072aeecd356d50d739d8b0479dc1efb01d1ec98b0dd9b7822f7bd79d",
+    "r6\\amendments.md": "27399236edbbff34c6cf49d25542bbbe5061ace71b2711e2f9c176279a468716",
+    "r6/validate_measurements.py": "8f2289a46bf5034bae3ac718049b1b675c95f9aa9b38c228f388a17dd059dc71",
+    "r6/test_measurements.py": "58b9e5fb53c642b45833a2c28761a6cba9df6c4fe466dfb6558a1623d5a65ac3",
+    "r6/source_evidence.md": "2dca3f3dee78bfc2597397cb615f276c02726bdf13a8f4cf66d4ff46527046c6",
+    "r6/experiment_report.md": "14e010aefbecf1664835010376583630ba8f6a5958570053a5e4ec043e7a5cf3",
+    "r6/measurement_schema.md": "da411c480add155a98875b3f986b69ff4e043b0baed86fd99713319933fdb1b3",
+    "r6/README.md": "ae376bebc729f52fddb4f7bc5fd69ceafc09edc3f7109f98f12c505598e84cc2",
+    "r6/sources/source_manifest.json": "5e6ac6989d2603786bfe8e035e1574d210c1d9a6852bc4a5f521d61867682151",
+    "r6/history_lineage.json": "8b59846d11376a994c26bc4582ebf005449e8cccb3b3e9e86fecfbd9b9d13ce6",
+    "r6/check_integrity.py": "7908224343a1e9d1fdb09ee17cdfa3b44557525eea7dedfe6e05006c9d3e1219",
+    "r6/measurement_template.json": "1948401db6cb0b6d0381a2ebe6bb24e4cede8ba4f9acb1fe50a276af0293dcb8",
+    "r6/fixtures/measurement_test_results.json": "aaeb628a39e286c4a7895ff4cba6c3d9e93f09ebd8556093b0ef6e88c9c88561",
+    "research_progress.md": "49b32d42362359d975e797b8d9eb8901950c42f548caddf8a73a3498232ad2c5"
+  },
+  "final_document_review": {
+    "status": "PASS",
+    "reviewed": [
+      "source_evidence.md",
+      "experiment_report.md",
+      "measurement_schema.md",
+      "README.md",
+      "research_progress.md",
+      "history_lineage.json",
+      "check_integrity.py"
+    ],
+    "scientific_claims": "Preserves unmeasured real residual and zero confirmation train/validation/test data; no strong-static/dynamic experiment; conditional 48MiB with no mandatory traffic claim; public RTL sources not target calibration.",
+    "history": "R4 original paths and R5 explicit snapshot substitution PASS; all historical table rows retained and new R6 rows contiguous.",
+    "remaining": "No blocking review findings. Independent hardware statistical/causal acceptance remains a future task requiring missing kernel/measurement interfaces."
+  }
+}

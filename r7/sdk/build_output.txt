@@ -1,0 +1,6 @@
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.22
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+  正在创建库 lib\xrt_coreutil.lib 和对象 lib\xrt_coreutil.exp
+xclbin_metadata.cpp

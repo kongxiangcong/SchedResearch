@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:\\Users\\72449\\AppData\\Roaming\\uv\\python\\cpython-3.11.15-windows-x86_64-none\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "r6\\python_capability_probe.py"
+  ],
+  "started_utc": "2026-09-05T07:12:22.875568+00:00",
+  "ended_utc": "2026-09-05T07:12:23.140988+00:00",
+  "host_process_elapsed_s": 0.2632464000489563,
+  "returncode": 0,
+  "timed_out": false,
+  "timeout_s": 120,
+  "evidence_level": "raw local diagnostic; not NPU kernel timing",
+  "plan_sha256": "ca7d781d072aeecd356d50d739d8b0479dc1efb01d1ec98b0dd9b7822f7bd79d",
+  "raw_sha256": {
+    "stdout.bin": "4f4904ba6d2ae6a6d5778efc49b2a9501447d96296c29e9bbd07f43f8a98562e",
+    "stderr.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

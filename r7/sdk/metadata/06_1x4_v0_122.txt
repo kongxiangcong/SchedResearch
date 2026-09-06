@@ -1,0 +1,19 @@
+loaded_xrt_coreutil "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll"
+xclbin "C:\\Windows\\System32\\AMD\\1x4_v0_122.xclbin"
+uuid 7ce24974-c0f3-a26a-4ad1-784e33da8549
+memory index=0 tag="HOST" size_kb=65536 type=2
+memory index=1 tag="SRAM" size_kb=49152 type=2
+kernel "vadd"
+  arg index=0 name="in1" type="void*" size=8 offset=16 memory_indices=0,
+  arg index=1 name="in2" type="void*" size=8 offset=28 memory_indices=0,
+  arg index=2 name="out_r" type="void*" size=8 offset=40 memory_indices=0,
+  arg index=3 name="size" type="unsigned int" size=4 offset=52 memory_indices=
+kernel "DPU_1x4"
+  arg index=0 name="opcode" type="uint64_t" size=8 offset=0 memory_indices=
+  arg index=1 name="ifm" type="char *" size=8 offset=8 memory_indices=0,
+  arg index=2 name="param" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="ofm" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="inter" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="instruct" type="char *" size=8 offset=40 memory_indices=1,
+  arg index=6 name="nistruct" type="uint32_t" size=4 offset=48 memory_indices=
+device_opened false

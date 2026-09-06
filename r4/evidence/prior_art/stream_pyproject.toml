@@ -1,0 +1,177 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["stream*"]  # only ship the stream package, not top-level scripts/outputs/plots dirs
+namespaces = true
+
+[tool.setuptools.package-data]
+# Ship the static hardware-description YAMLs so a pip-installed package can run
+# codegen without a checkout. (.py-only is the setuptools default; declare the
+# data files explicitly.) cores/ holds the per-tile descriptions referenced by
+# the top-level accelerator YAMLs. Test workloads/onnx fixtures are intentionally
+# NOT shipped.
+"stream" = [
+    "inputs/aie/hardware/*.yaml",
+    "inputs/aie/hardware/cores/*.yaml",
+    "inputs/examples/hardware/*.yaml",
+    "inputs/examples/hardware/cores/*.yaml",
+]
+
+[project]
+name = "stream-dse"
+version = "1.14.1"
+description = "Stream - Multi-core accelerator design space exploration with layer-fused scheduling"
+readme = "README.md"
+authors = [{ name = "Arne Symons", email = "arne.symons@kuleuven.be" }, { name = "Linyan Mei", email = "linyan.mei@kuleuven.be" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python",
+]
+keywords = ["stream", "multi-core", "accelerator", "layer-fused", "scheduling", "zigzag", "dse", "design-space-exploration", "machine-learning", "deep-learning", "mapping"]
+dependencies = [
+    "zigzag-dse==3.8.5",
+    "cerberus",
+    "ortools>=9.15",
+    "pydantic>=2.0,<2.12",
+    "xdsl>=0.29.1,<0.30",
+]
+requires-python = ">=3.12"
+
+
+[project.optional-dependencies]
+# NOTE: `[mcp]` does not resolve against the pinned `xdsl<0.30` today. fastmcp's transitive
+# deps (py-key-value-aio, mcp) need typing-extensions>=4.15 and pydantic>=2.12, but xdsl 0.29.1
+# caps typing-extensions<4.13 (and we cap pydantic<2.12), so a fresh `pip install .[mcp]` fails.
+# It installs only against a newer/git xdsl. Clean fix = bump xdsl (>=0.36 loosens the cap),
+# which first needs the AIE toolchain (xdsl-aie/snax-mlir) updated to that xdsl.
+mcp = ["fastmcp>=3.2.4"]
+# Gurobi is a commercial solver (license required at solve time); OR-Tools GSCIP is the
+# default, license-free backend, so gurobipy is opt-in rather than a base dependency.
+gurobi = ["gurobipy"]
+# Exact integer-set path for the affine access IR (stream/workload/affine_exact.py). Optional:
+# affine_access derives relevancy/footprint/dependencies without it; islpy only tightens
+# non-permutation dependency regions the affine box cannot represent.
+exact = ["islpy"]
+# torch.export frontend (stream/frontends/torch_export.py). Optional: the conversion is torch-free and
+# unit-tested without it; torch is only needed to lower a real ExportedProgram. Heavy, so opt-in.
+torch = ["torch>=2.4"]
+dev = ["bumpver", "pip-tools", "build", "twine", "pre-commit", "pytest", "pytest-timeout", "hypothesis"]
+# The AIE codegen dialects (xdsl-aie, snax-mlir) cannot be an extra: they are direct-reference
+# (git) installs that PyPI forbids in package metadata. Install them after `pip install stream-dse`
+# with the `stream-setup-aie` console script (see [project.scripts] below). It installs only those
+# pure-Python dialects by default; the platform-specific mlir_aie/llvm-aie wheels are opt-in
+# (`stream-setup-aie --with-mlir-aie`) and never overwrite a host that already provides them.
+
+[project.scripts]
+stream-setup-aie = "stream.aie_setup:main"
+
+# Plugin boundaries (Phase 2 moat seam): an out-of-tree private overlay registers its own workload
+# frontends and reference blocks through these entry-point groups -- no fork of the public repo. The
+# public package ships only the framework, interfaces, taxonomy, and toy/reference implementations.
+[project.entry-points."stream.frontends"]
+onnx = "stream.frontends.onnx:OnnxFrontend"
+torch_export = "stream.frontends.torch_export:TorchExportFrontend"
+
+# Namespace-specific MILP constraints: the entry-point name is the core namespace, its object a
+# NamespaceConstraints subclass. Instantiated via from_config whenever the accelerator contains a
+# core of that namespace, so an out-of-tree extension supplies constraints for its own hardware
+# namespace. The built-in aie2 strategy registers here too -- the public path is the plugin path.
+[project.entry-points."stream.constraints"]
+aie2 = "stream.opt.allocation.constraint_optimization.context:AIE2Constraints"
+
+# Core-cost estimator backends: the entry-point name is the backend's `name` (= metadata["backend"]),
+# its object a CoreCostBackend that `claims` the cores it models and `make`s the estimator. The engine's
+# own AIE and ZigZag backends register here -- the public path is the plugin path -- so an out-of-tree
+# extension supplies a cost backend for its own hardware namespace without editing the dispatch.
+[project.entry-points."stream.core_cost_backends"]
+aie = "stream.stages.estimation.core_cost_backends:AIE_BACKEND"
+zigzag = "stream.stages.estimation.core_cost_backends:ZIGZAG_BACKEND"
+
+# A plugin distribution declares itself here so it can be allowlisted (STREAM_ALLOWED_OVERLAYS) and
+# ordered by an OVERLAY_PRIORITY int on its module -- public entry points are priority 0, so a plugin
+# outranks a built-in of the same name. The value is the distribution's module.
+[project.entry-points."stream.overlays"]
+
+[project.entry-points."stream.workload_blocks"]
+# Built-in blocks register in-tree (stream.workload.blocks); overlays add their own entries here.
+
+# Proprietary parsers for higher-level ONNX ops (fused/masked attention, ...): the entry-point name is
+# the ONNX op_type, its object the parser class. An overlay's parser overrides the built-in table.
+[project.entry-points."stream.onnx_parsers"]
+# e.g. MaskedAttention = "stream_overlay.parsers:MaskedAttentionParser"  (declared by the overlay)
+
+# Affine sub-operator decomposers: the entry-point name is the op type, its object the node->Workload
+# decomposer. An overlay adds a decomposition (masked-attention block, ...) without a fork.
+[project.entry-points."stream.decompositions"]
+# e.g. MaskedAttentionBlock = "stream_overlay.decompose:decompose_masked_attention_block"
+
+[project.urls]
+Homepage = "https://github.com/KULeuven-MICAS/stream"
+
+[tool.bumpver]
+current_version = "1.14.1"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+    'version = "{version}"'
+]
+"stream/__init__.py" = ["{version}"]
+
+
+[tool.pytest.ini_options]
+addopts = "-m 'not slow'"
+markers = [
+    "slow: marks tests as slow (integration tests against real TETRA instances)",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+fix = true
+lint.select = ["E", "F", "W", "I", "PL", "N", "UP", "B"]
+# UP040: keep the explicit `X: TypeAlias = ...` idiom (used throughout); the py312 target would
+# otherwise push the PEP 695 `type X = ...` form, whose lazy TypeAliasType has different runtime
+# semantics (e.g. not usable in isinstance) — not a change we want to force here.
+lint.ignore = ["D401", "N806", "N802", "PLW1641", "UP040"]
+lint.pylint.max-args = 8
+lint.per-file-ignores."tests/**" = ["PLR2004", "PLC0415", "PLR0915", "N803"]
+lint.per-file-ignores."scripts/**" = ["PLR0913", "N803"]
+
+[tool.pyright]
+# Version-controlled Pylance/Pyright settings so every contributor gets the same,
+# signal-rich diagnostics regardless of their personal global VS Code setting.
+include = ["stream", "scripts", "tests"]
+typeCheckingMode = "standard"
+useLibraryCodeForTypes = true
+# KEPT ON (cheap, high-signal — catch real bugs): reportMissingImports,
+# reportUndefinedVariable, reportPossiblyUnbound, reportSelfClsParameterName,
+# reportRedeclaration, and all syntax errors (pyright defaults).
+# SILENCED below: deep type-inference rules dominated by untyped third-party code
+# (xDSL IRDL dialect ops, zigzag, gurobipy, numpy/matplotlib) and intentional dynamic
+# patterns (CoreCostEntry.__getattr__ delegation, StageContext.get() -> Any). These
+# produced ~470 non-actionable diagnostics. Re-enable selectively if adopting typing.
+reportArgumentType = "none"
+reportAttributeAccessIssue = "none"
+reportCallIssue = "none"
+reportOptionalMemberAccess = "none"
+reportOptionalCall = "none"
+reportOptionalOperand = "none"
+reportOptionalSubscript = "none"
+reportOptionalIterable = "none"
+reportIndexIssue = "none"
+reportReturnType = "none"
+reportAssignmentType = "none"
+reportGeneralTypeIssues = "none"
+reportIncompatibleMethodOverride = "none"
+reportIncompatibleVariableOverride = "none"
+reportOperatorIssue = "none"

@@ -1,0 +1,3950 @@
+[
+  {
+    "case": "flux2_klein4b_double_scaled",
+    "metadata": {
+      "model": "black-forest-labs/FLUX.2-klein-4B",
+      "revision": "e7b7dc27f91deacad38e78976d1f2b499d76a294",
+      "source_revision": "50fe5162777813d869182b139e83b10743caef15",
+      "kind": "double_stream",
+      "scope": "scaled single block; random-weight mathematical float64 check; no quality or official dtype rounding validation",
+      "actual_hidden_size": 3072,
+      "scaled_hidden_size": 64,
+      "actual_heads": 24,
+      "scaled_heads": 4,
+      "actual_head_dim": 128,
+      "scaled_head_dim": 16,
+      "actual_mlp_ratio": 3.0,
+      "actual_timestep_embedding_dim": 256,
+      "scaled_timestep_embedding_dim": 16,
+      "actual_axes_dims": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "scaled_axes_dims": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "rope_theta": 2000,
+      "conditioning": "step+guidance distilled; guidance_embed=False; one conditional invocation, CFG=1; time modulation explicit",
+      "reference_tokens": 0,
+      "persistent_kv": false,
+      "source_attention": "num_ref_tokens=0 makes txt+img full joint bidirectional attention; no text causal mask",
+      "dtype_numeric": "float64",
+      "dtype_model": "BF16",
+      "operation_counts": "MAC exact for selected dense shapes; vector_ops research estimates, not calibrated hardware instructions",
+      "fusion_scope": "pointwise norm/modulation and residual epilogues fused; all dense projections retained; no full attention score fusion assumed",
+      "full_pipeline_exclusions": [
+        "text encoder",
+        "VAE",
+        "other 24 transformer blocks",
+        "four-step denoising loop",
+        "image editing/ref-cache path"
+      ],
+      "layout": "activations BLH contiguous; QKV packed 3BHLD; attention BHLS; weight input-by-output for NumPy (transpose of torch Linear storage)",
+      "scaled_shapes": {
+        "image_tokens": 16,
+        "text_tokens": 8,
+        "input_image_channels": 16,
+        "input_context_channels": 96
+      },
+      "remaining_branches": [
+        "image/text input projection",
+        "image/text QKV preparation",
+        "query-row attention",
+        "image/text postattention and FFN"
+      ],
+      "source_input_channels": {
+        "image": 128,
+        "context": 7680
+      }
+    },
+    "tensors": [
+      {
+        "name": "timestep",
+        "shape": [
+          1
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8,
+        "logical_bf16_bytes_assumption": 2,
+        "writer": "initial",
+        "readers": [
+          "timestep_embedding"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "633938f09cacdbde4f646abc325ccf65e800705d587f09b4b5531321820893f8"
+      },
+      {
+        "name": "time_w1",
+        "shape": [
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "initial",
+        "readers": [
+          "time_linear1"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "e090b5400aed63b5cb8c87dca4044ab0dda0701c976090a23898a69180ae2893"
+      },
+      {
+        "name": "time_w2",
+        "shape": [
+          64,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 32768,
+        "logical_bf16_bytes_assumption": 8192,
+        "writer": "initial",
+        "readers": [
+          "time_linear2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "f77c560fc3a9d3b6d0dda5fed8fb61166dc52eee0fec4571ec2744c2cfd32d5b"
+      },
+      {
+        "name": "img_mod_weight",
+        "shape": [
+          64,
+          384
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 196608,
+        "logical_bf16_bytes_assumption": 49152,
+        "writer": "initial",
+        "readers": [
+          "img_modulation"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "f3215dcb794f2853f1aaa007883c43017e9b128f03e7817438ae5795b53c4e60"
+      },
+      {
+        "name": "txt_mod_weight",
+        "shape": [
+          64,
+          384
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 196608,
+        "logical_bf16_bytes_assumption": 49152,
+        "writer": "initial",
+        "readers": [
+          "txt_modulation"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "1d4b7dee505c6436995b836fe9f077c66165ce8042e039090abb795ca6afcb5c"
+      },
+      {
+        "name": "img_input",
+        "shape": [
+          1,
+          16,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 2048,
+        "logical_bf16_bytes_assumption": 512,
+        "writer": "initial",
+        "readers": [
+          "img_input_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "5c6b12381f3656a80c67d0f2ada8d99a88507eecd2850c85819c124de6951c05"
+      },
+      {
+        "name": "img_input_weight",
+        "shape": [
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "initial",
+        "readers": [
+          "img_input_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ea9d6a50db7fdd925b0545a85586ebc5f41275548f6ece8932d5440aaa8c682c"
+      },
+      {
+        "name": "img_ids",
+        "shape": [
+          1,
+          16,
+          4
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 512,
+        "logical_bf16_bytes_assumption": 128,
+        "writer": "initial",
+        "readers": [
+          "img_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "f61cddc23c834ccd55b555cce5f7a56f11d924d00c002926ac8c6c44332ee2ea"
+      },
+      {
+        "name": "img_qkv_weight",
+        "shape": [
+          64,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 98304,
+        "logical_bf16_bytes_assumption": 24576,
+        "writer": "initial",
+        "readers": [
+          "img_qkv_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "9371cf0e3649ac76ac3a33363a81816639bc01986dc157d35e19cdf9a482a9cf"
+      },
+      {
+        "name": "img_qk_scale",
+        "shape": [
+          2,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 256,
+        "logical_bf16_bytes_assumption": 64,
+        "writer": "initial",
+        "readers": [
+          "img_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "752195dbef7d469221d3deb5e9a7abed32cf22c1a976675c9c6732960d54129e"
+      },
+      {
+        "name": "img_proj_weight",
+        "shape": [
+          64,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 32768,
+        "logical_bf16_bytes_assumption": 8192,
+        "writer": "initial",
+        "readers": [
+          "img_attention_out"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "c5263924f6b405431658ca483d6e89423e29468cbec41fce1acdaf17e0fdb912"
+      },
+      {
+        "name": "img_mlp1_weight",
+        "shape": [
+          64,
+          384
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 196608,
+        "logical_bf16_bytes_assumption": 49152,
+        "writer": "initial",
+        "readers": [
+          "img_mlp_expand"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "46ef782dbda8269a58d64d0f94b1317b55002ce89a13b194a278085992b51390"
+      },
+      {
+        "name": "img_mlp2_weight",
+        "shape": [
+          192,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 98304,
+        "logical_bf16_bytes_assumption": 24576,
+        "writer": "initial",
+        "readers": [
+          "img_mlp_contract"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "2474601103c953be9dba154e7809e5272b6e6f017902a20bd81d281f6a26d93f"
+      },
+      {
+        "name": "txt_input",
+        "shape": [
+          1,
+          8,
+          96
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 6144,
+        "logical_bf16_bytes_assumption": 1536,
+        "writer": "initial",
+        "readers": [
+          "txt_input_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "8efe103ba223546f453db461ebb012ece70037d9d91af8d2c1a5656b47de3802"
+      },
+      {
+        "name": "txt_input_weight",
+        "shape": [
+          96,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 49152,
+        "logical_bf16_bytes_assumption": 12288,
+        "writer": "initial",
+        "readers": [
+          "txt_input_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "61d8614afa465f006ec1a24299cc8fc2a1190c2a12b220a844e6ea33892703d4"
+      },
+      {
+        "name": "txt_ids",
+        "shape": [
+          1,
+          8,
+          4
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 256,
+        "logical_bf16_bytes_assumption": 64,
+        "writer": "initial",
+        "readers": [
+          "txt_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "920d604128be8c6b4543b3b6c6ed3b17e8aaa27d4d59a38554bf0ef6d06745a3"
+      },
+      {
+        "name": "txt_qkv_weight",
+        "shape": [
+          64,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 98304,
+        "logical_bf16_bytes_assumption": 24576,
+        "writer": "initial",
+        "readers": [
+          "txt_qkv_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "a2039dc43f5f59cc91d37166c563f2455ef59b29a053fff0943b490c81ffc0ac"
+      },
+      {
+        "name": "txt_qk_scale",
+        "shape": [
+          2,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 256,
+        "logical_bf16_bytes_assumption": 64,
+        "writer": "initial",
+        "readers": [
+          "txt_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "5bdd06fd4629a0876043ea2777ab953062dbc54a9ae0045103f8cda6a8234685"
+      },
+      {
+        "name": "txt_proj_weight",
+        "shape": [
+          64,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 32768,
+        "logical_bf16_bytes_assumption": 8192,
+        "writer": "initial",
+        "readers": [
+          "txt_attention_out"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "963885015263872b75c13b153a7e1909a9346906050bbda6821e1f92b8e0220e"
+      },
+      {
+        "name": "txt_mlp1_weight",
+        "shape": [
+          64,
+          384
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 196608,
+        "logical_bf16_bytes_assumption": 49152,
+        "writer": "initial",
+        "readers": [
+          "txt_mlp_expand"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "873b7d75763ee18f06f19e5d4a8c3ced1d5691bcba3e52a2a5cc61d75fd060f8"
+      },
+      {
+        "name": "txt_mlp2_weight",
+        "shape": [
+          192,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 98304,
+        "logical_bf16_bytes_assumption": 24576,
+        "writer": "initial",
+        "readers": [
+          "txt_mlp_contract"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ebbb6c11b2c3f89f3523ae4db27dc6c3af3b17bdf7d13fcac4ea4ac36a58f9bf"
+      },
+      {
+        "name": "time_emb",
+        "shape": [
+          1,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 128,
+        "logical_bf16_bytes_assumption": 32,
+        "writer": "timestep_embedding",
+        "readers": [
+          "time_linear1"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "0275ea6c93f412bb026fa873c365adafbd228811fe37e3df32176c583072ba2e"
+      },
+      {
+        "name": "time_hidden",
+        "shape": [
+          1,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 512,
+        "logical_bf16_bytes_assumption": 128,
+        "writer": "time_linear1",
+        "readers": [
+          "time_silu1"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ba829d7197364dfadad0e56801141f39766b6617e97a0dcbf4b700e11b3639ce"
+      },
+      {
+        "name": "time_hidden_act",
+        "shape": [
+          1,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 512,
+        "logical_bf16_bytes_assumption": 128,
+        "writer": "time_silu1",
+        "readers": [
+          "time_linear2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ff1f9ea8bc4cb257a9ef61d7bba71d2c4e1281467da155ca2b8e06414f4337aa"
+      },
+      {
+        "name": "time_vec",
+        "shape": [
+          1,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 512,
+        "logical_bf16_bytes_assumption": 128,
+        "writer": "time_linear2",
+        "readers": [
+          "modulation_silu"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "9feb804313db1ac441cf847cc6d8e880043ea4f9f252fb863f76bce85b6eb519"
+      },
+      {
+        "name": "modulation_input",
+        "shape": [
+          1,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 512,
+        "logical_bf16_bytes_assumption": 128,
+        "writer": "modulation_silu",
+        "readers": [
+          "img_modulation",
+          "txt_modulation"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "5ec4e4c0a9a646ffcbb4ff47cb1c43400e4f1af3e87bbfce9d4b161b3f4c0ae4"
+      },
+      {
+        "name": "img_mod",
+        "shape": [
+          1,
+          1,
+          6,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 3072,
+        "logical_bf16_bytes_assumption": 768,
+        "writer": "img_modulation",
+        "readers": [
+          "img_norm_mod1",
+          "img_residual_norm2",
+          "img_residual2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "5757d122671613552be6df379e5a8740ff2c6530b7088ab3dabb67dd13cfc36a"
+      },
+      {
+        "name": "txt_mod",
+        "shape": [
+          1,
+          1,
+          6,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 3072,
+        "logical_bf16_bytes_assumption": 768,
+        "writer": "txt_modulation",
+        "readers": [
+          "txt_norm_mod1",
+          "txt_residual_norm2",
+          "txt_residual2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ae8259f75d81ec92e6a63896984254919a65d697b1dde4ea12e374bd4cc8485a"
+      },
+      {
+        "name": "img_state",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_input_projection",
+        "readers": [
+          "img_norm_mod1",
+          "img_residual_norm2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "a7aef69fd9bb39cb076a4c525a41158191c0412a6fe44de7c14db00578a4de9e"
+      },
+      {
+        "name": "img_normalized1",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_norm_mod1",
+        "readers": [
+          "img_qkv_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "1aaf505696e1944636ffe842bfc247fd4e8eee71ea1ccb051ba8c83d9a8b6c35"
+      },
+      {
+        "name": "img_linear",
+        "shape": [
+          1,
+          16,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 24576,
+        "logical_bf16_bytes_assumption": 6144,
+        "writer": "img_qkv_projection",
+        "readers": [
+          "img_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "3f07deebaef20ed414ccc30b2ecdb2acc1571966eb5a9dc38712a12932b00f7b"
+      },
+      {
+        "name": "img_qkv",
+        "shape": [
+          3,
+          1,
+          4,
+          16,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 24576,
+        "logical_bf16_bytes_assumption": 6144,
+        "writer": "img_qk_norm_rope",
+        "readers": [
+          "joint_kv",
+          "img_qk"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "42ffb6369fa4b1c78f8d11150eb74f2cea9fe2a0fa5443c7ca6ae2d8950bad02"
+      },
+      {
+        "name": "txt_state",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_input_projection",
+        "readers": [
+          "txt_norm_mod1",
+          "txt_residual_norm2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "144301d1f3162fea9a2f7103c529c74dbe7646514271054b6a0e31b4060495f2"
+      },
+      {
+        "name": "txt_normalized1",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_norm_mod1",
+        "readers": [
+          "txt_qkv_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "a90b18725c69a92c1d8c0b14955c92aadfbaafe81035da67003ab5c5203d2923"
+      },
+      {
+        "name": "txt_linear",
+        "shape": [
+          1,
+          8,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "txt_qkv_projection",
+        "readers": [
+          "txt_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "9e4e74c142acf9e0612a54cf20c08b8ad747b50005fe417e7146ea0c2b137e7e"
+      },
+      {
+        "name": "txt_qkv",
+        "shape": [
+          3,
+          1,
+          4,
+          8,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "txt_qk_norm_rope",
+        "readers": [
+          "joint_kv",
+          "txt_qk"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "8dd298dbdd636e1c5fa823dad1a5546709288bf9cbcb13519a3b2ebc9f277726"
+      },
+      {
+        "name": "joint_k",
+        "shape": [
+          1,
+          4,
+          24,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "joint_kv",
+        "readers": [
+          "img_qk",
+          "txt_qk"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ae17188b3a9f6c87680adbd34f6b23493391d8f815947e8cd19ee0c61a6929dd"
+      },
+      {
+        "name": "joint_v",
+        "shape": [
+          1,
+          4,
+          24,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "joint_kv",
+        "readers": [
+          "img_av",
+          "txt_av"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "71ba976a6d5d8b2ead1245bc26f9d49c376f7e4f613f5dadf12f63416b13eee9"
+      },
+      {
+        "name": "img_scores",
+        "shape": [
+          1,
+          4,
+          16,
+          24
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "img_qk",
+        "readers": [
+          "img_softmax"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "eb1e1907dc22cb9d51ab78cd726229ffb161bd048fcaefff6f0693aedd17f9bd"
+      },
+      {
+        "name": "img_prob",
+        "shape": [
+          1,
+          4,
+          16,
+          24
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "img_softmax",
+        "readers": [
+          "img_av"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "7cd3a39129454e2d87db4219474bd2309a019f6146e02a403b9895183f27cc90"
+      },
+      {
+        "name": "img_attn",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_av",
+        "readers": [
+          "img_attention_out"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "f28a2bcde88807c3d1fd70b047c6a3332552ab579353873b8cff2a83c90b22f9"
+      },
+      {
+        "name": "img_attn_proj",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_attention_out",
+        "readers": [
+          "img_residual_norm2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "dcadca9caff0782e36116a70efe9bce151a71572b127daa21b9a5ac954b499f0"
+      },
+      {
+        "name": "img_residual1",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_residual_norm2",
+        "readers": [
+          "img_residual2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "f9581f5e850eba2d03c3c95b403b50895a233deeb77cbc668e7ae3550a49880a"
+      },
+      {
+        "name": "img_normalized2",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_residual_norm2",
+        "readers": [
+          "img_mlp_expand"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ed2bdf251466550c62ee5943e9c538db13e9194cf425e4a181bb992f2a2d5dd5"
+      },
+      {
+        "name": "img_mlp_linear",
+        "shape": [
+          1,
+          16,
+          384
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 49152,
+        "logical_bf16_bytes_assumption": 12288,
+        "writer": "img_mlp_expand",
+        "readers": [
+          "img_swiglu"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "2b0dbd5a6fffcb874fd75de5139376ad4790126cbabbad6c50c279894a98fe7c"
+      },
+      {
+        "name": "img_mlp_act",
+        "shape": [
+          1,
+          16,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 24576,
+        "logical_bf16_bytes_assumption": 6144,
+        "writer": "img_swiglu",
+        "readers": [
+          "img_mlp_contract"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "b94b5eec8e5536858877d10c52fe3589d38c5110ffbbc90b6ade82f41b247f5e"
+      },
+      {
+        "name": "img_mlp_out",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_mlp_contract",
+        "readers": [
+          "img_residual2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "92ec5853f9d55f062034cd1312354d56172554cd605bf785d2606111c5d8bcae"
+      },
+      {
+        "name": "img_out",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_residual2",
+        "readers": [],
+        "release_condition": "external output consumer completes",
+        "sha256_numeric_payload": "d66772f208f0de29b5a21df0369696ed7f84adba1b55fca8e053d63dc9150ca0"
+      },
+      {
+        "name": "txt_scores",
+        "shape": [
+          1,
+          4,
+          8,
+          24
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 6144,
+        "logical_bf16_bytes_assumption": 1536,
+        "writer": "txt_qk",
+        "readers": [
+          "txt_softmax"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "018b0c927c418e849c3fe2a8e0b5fa46af9e2ae1c58ba146a6922f46bb8b4117"
+      },
+      {
+        "name": "txt_prob",
+        "shape": [
+          1,
+          4,
+          8,
+          24
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 6144,
+        "logical_bf16_bytes_assumption": 1536,
+        "writer": "txt_softmax",
+        "readers": [
+          "txt_av"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "5af0904ca3583a0bee42f49af58fad5329f8fdeda5561a4ec51ff21c47fbb21d"
+      },
+      {
+        "name": "txt_attn",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_av",
+        "readers": [
+          "txt_attention_out"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "1779a421e9566ffeecde2b25e13a7bf405fc48f5d34557018926ea0efcd605f1"
+      },
+      {
+        "name": "txt_attn_proj",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_attention_out",
+        "readers": [
+          "txt_residual_norm2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "358a9aa6acfce24f6d411766adcb25cc8b17c7e37aaa6ee8ffa396319e9fd16a"
+      },
+      {
+        "name": "txt_residual1",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_residual_norm2",
+        "readers": [
+          "txt_residual2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ae86211eeb893d9b1b9f703bc34ea14465bb3ffcec6ce140e42dd0f9fbef8222"
+      },
+      {
+        "name": "txt_normalized2",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_residual_norm2",
+        "readers": [
+          "txt_mlp_expand"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "1f26719d8dc8c9e18cd57e2b1a3fdc6a868678b80a2e816e0a9e0d36ccdeb767"
+      },
+      {
+        "name": "txt_mlp_linear",
+        "shape": [
+          1,
+          8,
+          384
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 24576,
+        "logical_bf16_bytes_assumption": 6144,
+        "writer": "txt_mlp_expand",
+        "readers": [
+          "txt_swiglu"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "324142fd1a428d435127de09feedd88772036ff7d30ca01d975b2fc0a738f63a"
+      },
+      {
+        "name": "txt_mlp_act",
+        "shape": [
+          1,
+          8,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "txt_swiglu",
+        "readers": [
+          "txt_mlp_contract"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "226758cbfbb63df2843b34be4aecad308e2cfb80e869d97edd0285b382d4dbf7"
+      },
+      {
+        "name": "txt_mlp_out",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_mlp_contract",
+        "readers": [
+          "txt_residual2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "2971163071a520e9aa257d6a48f8118996b884e5ecca45984056b2753edcbddc"
+      },
+      {
+        "name": "txt_out",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_residual2",
+        "readers": [],
+        "release_condition": "external output consumer completes",
+        "sha256_numeric_payload": "5f59d3b35b7f48332fe7e64c2305dca51dc16c1aa9fa00b24bd7df0c2397d99c"
+      }
+    ],
+    "nodes": [
+      {
+        "name": "timestep_embedding",
+        "engine": "VPU",
+        "reads": [
+          "timestep"
+        ],
+        "writes": [
+          "time_emb"
+        ],
+        "macs": 0,
+        "vector_ops": 128,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L707",
+        "fusion": "sinusoidal timestep embedding; scaled 16 channels",
+        "core": 0
+      },
+      {
+        "name": "time_linear1",
+        "engine": "MXU",
+        "reads": [
+          "time_emb",
+          "time_w1"
+        ],
+        "writes": [
+          "time_hidden"
+        ],
+        "macs": 1024,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L683",
+        "fusion": "bias-free MLP first projection",
+        "core": 0
+      },
+      {
+        "name": "time_silu1",
+        "engine": "VPU",
+        "reads": [
+          "time_hidden"
+        ],
+        "writes": [
+          "time_hidden_act"
+        ],
+        "macs": 0,
+        "vector_ops": 320,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L690",
+        "fusion": "SiLU",
+        "core": 0
+      },
+      {
+        "name": "time_linear2",
+        "engine": "MXU",
+        "reads": [
+          "time_hidden_act",
+          "time_w2"
+        ],
+        "writes": [
+          "time_vec"
+        ],
+        "macs": 4096,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L690",
+        "fusion": "bias-free MLP second projection",
+        "core": 0
+      },
+      {
+        "name": "modulation_silu",
+        "engine": "VPU",
+        "reads": [
+          "time_vec"
+        ],
+        "writes": [
+          "modulation_input"
+        ],
+        "macs": 0,
+        "vector_ops": 320,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L407",
+        "fusion": "shared SiLU reused by both stream modulation projections",
+        "core": 0
+      },
+      {
+        "name": "img_modulation",
+        "engine": "MXU",
+        "reads": [
+          "modulation_input",
+          "img_mod_weight"
+        ],
+        "writes": [
+          "img_mod"
+        ],
+        "macs": 24576,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L400",
+        "fusion": "one packed shift/scale/gate tensor; actual model reuses across all same-type blocks",
+        "core": 0
+      },
+      {
+        "name": "txt_modulation",
+        "engine": "MXU",
+        "reads": [
+          "modulation_input",
+          "txt_mod_weight"
+        ],
+        "writes": [
+          "txt_mod"
+        ],
+        "macs": 24576,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L400",
+        "fusion": "one packed shift/scale/gate tensor; actual model reuses across all same-type blocks",
+        "core": 1
+      },
+      {
+        "name": "img_input_projection",
+        "engine": "MXU",
+        "reads": [
+          "img_input",
+          "img_input_weight"
+        ],
+        "writes": [
+          "img_state"
+        ],
+        "macs": 16384,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L66",
+        "fusion": "bias-free input projection; source channels scaled",
+        "core": 0
+      },
+      {
+        "name": "img_norm_mod1",
+        "engine": "VPU",
+        "reads": [
+          "img_state",
+          "img_mod"
+        ],
+        "writes": [
+          "img_normalized1"
+        ],
+        "macs": 0,
+        "vector_ops": 12288,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L583",
+        "fusion": "LayerNorm eps1e-6 plus AdaLN affine",
+        "core": 0
+      },
+      {
+        "name": "img_qkv_projection",
+        "engine": "MXU",
+        "reads": [
+          "img_normalized1",
+          "img_qkv_weight"
+        ],
+        "writes": [
+          "img_linear"
+        ],
+        "macs": 196608,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L586",
+        "fusion": "QKV joint projection",
+        "core": 0
+      },
+      {
+        "name": "img_qk_norm_rope",
+        "engine": "VPU",
+        "reads": [
+          "img_linear",
+          "img_qk_scale",
+          "img_ids"
+        ],
+        "writes": [
+          "img_qkv"
+        ],
+        "macs": 0,
+        "vector_ops": 28672,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L646",
+        "fusion": "reshape plus head RMSNorm eps1e-6 and 4-axis RoPE; V passthrough",
+        "core": 0
+      },
+      {
+        "name": "txt_input_projection",
+        "engine": "MXU",
+        "reads": [
+          "txt_input",
+          "txt_input_weight"
+        ],
+        "writes": [
+          "txt_state"
+        ],
+        "macs": 49152,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L66",
+        "fusion": "bias-free input projection; source channels scaled",
+        "core": 1
+      },
+      {
+        "name": "txt_norm_mod1",
+        "engine": "VPU",
+        "reads": [
+          "txt_state",
+          "txt_mod"
+        ],
+        "writes": [
+          "txt_normalized1"
+        ],
+        "macs": 0,
+        "vector_ops": 6144,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L583",
+        "fusion": "LayerNorm eps1e-6 plus AdaLN affine",
+        "core": 1
+      },
+      {
+        "name": "txt_qkv_projection",
+        "engine": "MXU",
+        "reads": [
+          "txt_normalized1",
+          "txt_qkv_weight"
+        ],
+        "writes": [
+          "txt_linear"
+        ],
+        "macs": 98304,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L586",
+        "fusion": "QKV joint projection",
+        "core": 1
+      },
+      {
+        "name": "txt_qk_norm_rope",
+        "engine": "VPU",
+        "reads": [
+          "txt_linear",
+          "txt_qk_scale",
+          "txt_ids"
+        ],
+        "writes": [
+          "txt_qkv"
+        ],
+        "macs": 0,
+        "vector_ops": 14336,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L646",
+        "fusion": "reshape plus head RMSNorm eps1e-6 and 4-axis RoPE; V passthrough",
+        "core": 1
+      },
+      {
+        "name": "joint_kv",
+        "engine": "VPU",
+        "reads": [
+          "txt_qkv",
+          "img_qkv"
+        ],
+        "writes": [
+          "joint_k",
+          "joint_v"
+        ],
+        "macs": 0,
+        "vector_ops": 3072,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L600",
+        "fusion": "explicit joint KV gather; text then image layout",
+        "core": 0
+      },
+      {
+        "name": "img_qk",
+        "engine": "MXU",
+        "reads": [
+          "img_qkv",
+          "joint_k"
+        ],
+        "writes": [
+          "img_scores"
+        ],
+        "macs": 24576,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L756",
+        "fusion": "joint attention split by query stream; exact row independence",
+        "core": 0
+      },
+      {
+        "name": "img_softmax",
+        "engine": "VPU",
+        "reads": [
+          "img_scores"
+        ],
+        "writes": [
+          "img_prob"
+        ],
+        "macs": 0,
+        "vector_ops": 9216,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L756",
+        "fusion": "stable full-row softmax",
+        "core": 0
+      },
+      {
+        "name": "img_av",
+        "engine": "MXU",
+        "reads": [
+          "img_prob",
+          "joint_v"
+        ],
+        "writes": [
+          "img_attn"
+        ],
+        "macs": 24576,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L756",
+        "fusion": "attention weighted value plus head merge",
+        "core": 0
+      },
+      {
+        "name": "img_attention_out",
+        "engine": "MXU",
+        "reads": [
+          "img_attn",
+          "img_proj_weight"
+        ],
+        "writes": [
+          "img_attn_proj"
+        ],
+        "macs": 65536,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L626",
+        "fusion": "attention output projection",
+        "core": 0
+      },
+      {
+        "name": "img_residual_norm2",
+        "engine": "VPU",
+        "reads": [
+          "img_state",
+          "img_attn_proj",
+          "img_mod"
+        ],
+        "writes": [
+          "img_residual1",
+          "img_normalized2"
+        ],
+        "macs": 0,
+        "vector_ops": 14336,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L626",
+        "fusion": "gated residual then norm/AdaLN; first residual retained for final skip",
+        "core": 0
+      },
+      {
+        "name": "img_mlp_expand",
+        "engine": "MXU",
+        "reads": [
+          "img_normalized2",
+          "img_mlp1_weight"
+        ],
+        "writes": [
+          "img_mlp_linear"
+        ],
+        "macs": 393216,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L549",
+        "fusion": "packed gate/value projection",
+        "core": 0
+      },
+      {
+        "name": "img_swiglu",
+        "engine": "VPU",
+        "reads": [
+          "img_mlp_linear"
+        ],
+        "writes": [
+          "img_mlp_act"
+        ],
+        "macs": 0,
+        "vector_ops": 18432,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L390",
+        "fusion": "SiLU gate times value; not GELU",
+        "core": 0
+      },
+      {
+        "name": "img_mlp_contract",
+        "engine": "MXU",
+        "reads": [
+          "img_mlp_act",
+          "img_mlp2_weight"
+        ],
+        "writes": [
+          "img_mlp_out"
+        ],
+        "macs": 196608,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L552",
+        "fusion": "MLP contraction",
+        "core": 0
+      },
+      {
+        "name": "img_residual2",
+        "engine": "VPU",
+        "reads": [
+          "img_residual1",
+          "img_mlp_out",
+          "img_mod"
+        ],
+        "writes": [
+          "img_out"
+        ],
+        "macs": 0,
+        "vector_ops": 2048,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L627",
+        "fusion": "gated second residual",
+        "core": 0
+      },
+      {
+        "name": "txt_qk",
+        "engine": "MXU",
+        "reads": [
+          "txt_qkv",
+          "joint_k"
+        ],
+        "writes": [
+          "txt_scores"
+        ],
+        "macs": 12288,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L756",
+        "fusion": "joint attention split by query stream; exact row independence",
+        "core": 1
+      },
+      {
+        "name": "txt_softmax",
+        "engine": "VPU",
+        "reads": [
+          "txt_scores"
+        ],
+        "writes": [
+          "txt_prob"
+        ],
+        "macs": 0,
+        "vector_ops": 4608,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L756",
+        "fusion": "stable full-row softmax",
+        "core": 1
+      },
+      {
+        "name": "txt_av",
+        "engine": "MXU",
+        "reads": [
+          "txt_prob",
+          "joint_v"
+        ],
+        "writes": [
+          "txt_attn"
+        ],
+        "macs": 12288,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L756",
+        "fusion": "attention weighted value plus head merge",
+        "core": 1
+      },
+      {
+        "name": "txt_attention_out",
+        "engine": "MXU",
+        "reads": [
+          "txt_attn",
+          "txt_proj_weight"
+        ],
+        "writes": [
+          "txt_attn_proj"
+        ],
+        "macs": 32768,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L626",
+        "fusion": "attention output projection",
+        "core": 1
+      },
+      {
+        "name": "txt_residual_norm2",
+        "engine": "VPU",
+        "reads": [
+          "txt_state",
+          "txt_attn_proj",
+          "txt_mod"
+        ],
+        "writes": [
+          "txt_residual1",
+          "txt_normalized2"
+        ],
+        "macs": 0,
+        "vector_ops": 7168,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L626",
+        "fusion": "gated residual then norm/AdaLN; first residual retained for final skip",
+        "core": 1
+      },
+      {
+        "name": "txt_mlp_expand",
+        "engine": "MXU",
+        "reads": [
+          "txt_normalized2",
+          "txt_mlp1_weight"
+        ],
+        "writes": [
+          "txt_mlp_linear"
+        ],
+        "macs": 196608,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L549",
+        "fusion": "packed gate/value projection",
+        "core": 1
+      },
+      {
+        "name": "txt_swiglu",
+        "engine": "VPU",
+        "reads": [
+          "txt_mlp_linear"
+        ],
+        "writes": [
+          "txt_mlp_act"
+        ],
+        "macs": 0,
+        "vector_ops": 9216,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L390",
+        "fusion": "SiLU gate times value; not GELU",
+        "core": 1
+      },
+      {
+        "name": "txt_mlp_contract",
+        "engine": "MXU",
+        "reads": [
+          "txt_mlp_act",
+          "txt_mlp2_weight"
+        ],
+        "writes": [
+          "txt_mlp_out"
+        ],
+        "macs": 98304,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L552",
+        "fusion": "MLP contraction",
+        "core": 1
+      },
+      {
+        "name": "txt_residual2",
+        "engine": "VPU",
+        "reads": [
+          "txt_residual1",
+          "txt_mlp_out",
+          "txt_mod"
+        ],
+        "writes": [
+          "txt_out"
+        ],
+        "macs": 0,
+        "vector_ops": 1024,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L627",
+        "fusion": "gated second residual",
+        "core": 1
+      }
+    ]
+  },
+  {
+    "case": "flux2_klein4b_single_scaled",
+    "metadata": {
+      "model": "black-forest-labs/FLUX.2-klein-4B",
+      "revision": "e7b7dc27f91deacad38e78976d1f2b499d76a294",
+      "source_revision": "50fe5162777813d869182b139e83b10743caef15",
+      "kind": "single_stream",
+      "scope": "scaled single block; random-weight mathematical float64 check; no quality or official dtype rounding validation",
+      "actual_hidden_size": 3072,
+      "scaled_hidden_size": 64,
+      "actual_heads": 24,
+      "scaled_heads": 4,
+      "actual_head_dim": 128,
+      "scaled_head_dim": 16,
+      "actual_mlp_ratio": 3.0,
+      "actual_timestep_embedding_dim": 256,
+      "scaled_timestep_embedding_dim": 16,
+      "actual_axes_dims": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "scaled_axes_dims": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "rope_theta": 2000,
+      "conditioning": "step+guidance distilled; guidance_embed=False; one conditional invocation, CFG=1; time modulation explicit",
+      "reference_tokens": 0,
+      "persistent_kv": false,
+      "source_attention": "num_ref_tokens=0 makes txt+img full joint bidirectional attention; no text causal mask",
+      "dtype_numeric": "float64",
+      "dtype_model": "BF16",
+      "operation_counts": "MAC exact for selected dense shapes; vector_ops research estimates, not calibrated hardware instructions",
+      "fusion_scope": "pointwise norm/modulation and residual epilogues fused; all dense projections retained; no full attention score fusion assumed",
+      "full_pipeline_exclusions": [
+        "text encoder",
+        "VAE",
+        "other 24 transformer blocks",
+        "four-step denoising loop",
+        "image editing/ref-cache path"
+      ],
+      "layout": "activations BLH contiguous; QKV packed 3BHLD; attention BHLS; weight input-by-output for NumPy (transpose of torch Linear storage)",
+      "scaled_shapes": {
+        "image_tokens": 16,
+        "text_tokens": 8
+      },
+      "remaining_branches": [
+        "attention QK/softmax/AV and SiLU-gated MLP after fused linear1"
+      ],
+      "input_scope": "already-projected and concatenated text/image states at one single-block boundary"
+    },
+    "tensors": [
+      {
+        "name": "timestep",
+        "shape": [
+          1
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8,
+        "logical_bf16_bytes_assumption": 2,
+        "writer": "initial",
+        "readers": [
+          "timestep_embedding"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "633938f09cacdbde4f646abc325ccf65e800705d587f09b4b5531321820893f8"
+      },
+      {
+        "name": "time_w1",
+        "shape": [
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "initial",
+        "readers": [
+          "time_linear1"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "c295f5777ee0863b0c5c481c9e13eef72bd4dd0f2af0203276e57e1d336fe835"
+      },
+      {
+        "name": "time_w2",
+        "shape": [
+          64,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 32768,
+        "logical_bf16_bytes_assumption": 8192,
+        "writer": "initial",
+        "readers": [
+          "time_linear2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "6c4413858b1e355f6af71e37df057fd4f9313ff96374f606a1702a9cfc1d04b2"
+      },
+      {
+        "name": "single_mod_weight",
+        "shape": [
+          64,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 98304,
+        "logical_bf16_bytes_assumption": 24576,
+        "writer": "initial",
+        "readers": [
+          "single_modulation"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "b5f5dedf05b4103c6c30c62d272deb838d80a3665e012df56256e8bfa2147d75"
+      },
+      {
+        "name": "x",
+        "shape": [
+          1,
+          24,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "initial",
+        "readers": [
+          "single_norm_mod",
+          "single_residual"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "e56e258596bf49c609ecc2d81cce162e596567fc9eb6ba93a2380cd2f8588953"
+      },
+      {
+        "name": "ids",
+        "shape": [
+          1,
+          24,
+          4
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 768,
+        "logical_bf16_bytes_assumption": 192,
+        "writer": "initial",
+        "readers": [
+          "single_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "fb6c574df824b5e6e478e5c666fb5688fa459379c68a48418ebbadde981e2607"
+      },
+      {
+        "name": "linear1_weight",
+        "shape": [
+          64,
+          576
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 294912,
+        "logical_bf16_bytes_assumption": 73728,
+        "writer": "initial",
+        "readers": [
+          "single_linear1"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "0a494e7092bb64e9bf6f3790db13387ca2ed4188d813590ceaf083b0b31d27b0"
+      },
+      {
+        "name": "linear2_weight",
+        "shape": [
+          256,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 131072,
+        "logical_bf16_bytes_assumption": 32768,
+        "writer": "initial",
+        "readers": [
+          "single_join_project"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "5ee80a87aaec66739c8b6f9e188131c0f5b91cb168fc32dd8069a179e8af785a"
+      },
+      {
+        "name": "qk_scale",
+        "shape": [
+          2,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 256,
+        "logical_bf16_bytes_assumption": 64,
+        "writer": "initial",
+        "readers": [
+          "single_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "77eac3897805d97af7c6e662b7a46299b92bca9cf808c6b65810e95411bd6bd0"
+      },
+      {
+        "name": "time_emb",
+        "shape": [
+          1,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 128,
+        "logical_bf16_bytes_assumption": 32,
+        "writer": "timestep_embedding",
+        "readers": [
+          "time_linear1"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "0275ea6c93f412bb026fa873c365adafbd228811fe37e3df32176c583072ba2e"
+      },
+      {
+        "name": "time_hidden",
+        "shape": [
+          1,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 512,
+        "logical_bf16_bytes_assumption": 128,
+        "writer": "time_linear1",
+        "readers": [
+          "time_silu1"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "eb1acecbb487bbc942a2743d2d1c3ff28386b763e321197c169a3973f138d50e"
+      },
+      {
+        "name": "time_hidden_act",
+        "shape": [
+          1,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 512,
+        "logical_bf16_bytes_assumption": 128,
+        "writer": "time_silu1",
+        "readers": [
+          "time_linear2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "a76af0d9334a9032201fb892ef8a4159f9d2a90dfd21720080c28cce99d52bca"
+      },
+      {
+        "name": "time_vec",
+        "shape": [
+          1,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 512,
+        "logical_bf16_bytes_assumption": 128,
+        "writer": "time_linear2",
+        "readers": [
+          "modulation_silu"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "650198ab62d427b1b8031cd4d9f0ae38e9a7ec3308406b244af6672261ae13ae"
+      },
+      {
+        "name": "modulation_input",
+        "shape": [
+          1,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 512,
+        "logical_bf16_bytes_assumption": 128,
+        "writer": "modulation_silu",
+        "readers": [
+          "single_modulation"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "2d6bf6e5ac8b3580b4b5c7d98327ba7df1bad8e8aa5eea8b2f2b09c6e8e6f904"
+      },
+      {
+        "name": "single_mod",
+        "shape": [
+          1,
+          1,
+          3,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 1536,
+        "logical_bf16_bytes_assumption": 384,
+        "writer": "single_modulation",
+        "readers": [
+          "single_norm_mod",
+          "single_residual"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "8cf7155e58fefc8f3fe2aae9b1233401dc844184f2256e9895ae2833ebfb9bfd"
+      },
+      {
+        "name": "normalized",
+        "shape": [
+          1,
+          24,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "single_norm_mod",
+        "readers": [
+          "single_linear1"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "cf7b12369f9d8eddc1e864e164b694f2553328e90413b94de31a79d55415e2c3"
+      },
+      {
+        "name": "linear1",
+        "shape": [
+          1,
+          24,
+          576
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 110592,
+        "logical_bf16_bytes_assumption": 27648,
+        "writer": "single_linear1",
+        "readers": [
+          "single_qk_norm_rope",
+          "single_swiglu"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "46c3cebe3a7f82e0c288b8e28733bf6e0e0246d4dbf7c4ada6ccd2c6f7dc91e5"
+      },
+      {
+        "name": "qkv",
+        "shape": [
+          3,
+          1,
+          4,
+          24,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 36864,
+        "logical_bf16_bytes_assumption": 9216,
+        "writer": "single_qk_norm_rope",
+        "readers": [
+          "single_qk",
+          "single_av"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "f0dba10da7ab5e10e6f778976455cf79006b92898ed4cfe6769ad63eb96757a9"
+      },
+      {
+        "name": "mlp_act",
+        "shape": [
+          1,
+          24,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 36864,
+        "logical_bf16_bytes_assumption": 9216,
+        "writer": "single_swiglu",
+        "readers": [
+          "single_join_project"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "343367c568d582168190c3bc4ed9fdbf7f729a66a0cd807cffa506d2eefef68f"
+      },
+      {
+        "name": "scores",
+        "shape": [
+          1,
+          4,
+          24,
+          24
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 18432,
+        "logical_bf16_bytes_assumption": 4608,
+        "writer": "single_qk",
+        "readers": [
+          "single_softmax"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "0f876091b73f90c16eb3c6e09c30d83e3a8406b09b83b4f5a15febdd766c8b2d"
+      },
+      {
+        "name": "prob",
+        "shape": [
+          1,
+          4,
+          24,
+          24
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 18432,
+        "logical_bf16_bytes_assumption": 4608,
+        "writer": "single_softmax",
+        "readers": [
+          "single_av"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "7ba393c55d0e67f26577dd8e776aaff062c596fda8dd519537619301fdba0b0a"
+      },
+      {
+        "name": "attn",
+        "shape": [
+          1,
+          24,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "single_av",
+        "readers": [
+          "single_join_project"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "031d3619adf194f7c6420daedb7a117fa51a5028543ae52bb9b328e5848e6c08"
+      },
+      {
+        "name": "projected",
+        "shape": [
+          1,
+          24,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "single_join_project",
+        "readers": [
+          "single_residual"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ab70b7ec0e9cc70f6b7aaf5bb70dbe838797d78673e59813659e0c1ec816e0f7"
+      },
+      {
+        "name": "out",
+        "shape": [
+          1,
+          24,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "single_residual",
+        "readers": [],
+        "release_condition": "external output consumer completes",
+        "sha256_numeric_payload": "6ef44051e283e88debb7807a8b1c985c1ba3fe07459f2472d3315c4cd3d1895f"
+      }
+    ],
+    "nodes": [
+      {
+        "name": "timestep_embedding",
+        "engine": "VPU",
+        "reads": [
+          "timestep"
+        ],
+        "writes": [
+          "time_emb"
+        ],
+        "macs": 0,
+        "vector_ops": 128,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L707",
+        "fusion": "sinusoidal timestep embedding; scaled 16 channels",
+        "core": 0
+      },
+      {
+        "name": "time_linear1",
+        "engine": "MXU",
+        "reads": [
+          "time_emb",
+          "time_w1"
+        ],
+        "writes": [
+          "time_hidden"
+        ],
+        "macs": 1024,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L683",
+        "fusion": "bias-free MLP first projection",
+        "core": 0
+      },
+      {
+        "name": "time_silu1",
+        "engine": "VPU",
+        "reads": [
+          "time_hidden"
+        ],
+        "writes": [
+          "time_hidden_act"
+        ],
+        "macs": 0,
+        "vector_ops": 320,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L690",
+        "fusion": "SiLU",
+        "core": 0
+      },
+      {
+        "name": "time_linear2",
+        "engine": "MXU",
+        "reads": [
+          "time_hidden_act",
+          "time_w2"
+        ],
+        "writes": [
+          "time_vec"
+        ],
+        "macs": 4096,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L690",
+        "fusion": "bias-free MLP second projection",
+        "core": 0
+      },
+      {
+        "name": "modulation_silu",
+        "engine": "VPU",
+        "reads": [
+          "time_vec"
+        ],
+        "writes": [
+          "modulation_input"
+        ],
+        "macs": 0,
+        "vector_ops": 320,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L407",
+        "fusion": "shared SiLU reused by both stream modulation projections",
+        "core": 0
+      },
+      {
+        "name": "single_modulation",
+        "engine": "MXU",
+        "reads": [
+          "modulation_input",
+          "single_mod_weight"
+        ],
+        "writes": [
+          "single_mod"
+        ],
+        "macs": 12288,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L400",
+        "fusion": "one packed shift/scale/gate tensor; actual model reuses across all same-type blocks",
+        "core": 0
+      },
+      {
+        "name": "single_norm_mod",
+        "engine": "VPU",
+        "reads": [
+          "x",
+          "single_mod"
+        ],
+        "writes": [
+          "normalized"
+        ],
+        "macs": 0,
+        "vector_ops": 18432,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L465",
+        "fusion": "LayerNorm plus AdaLN",
+        "core": 0
+      },
+      {
+        "name": "single_linear1",
+        "engine": "MXU",
+        "reads": [
+          "normalized",
+          "linear1_weight"
+        ],
+        "writes": [
+          "linear1"
+        ],
+        "macs": 884736,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L454",
+        "fusion": "one actual fused QKV and gate/value projection",
+        "core": 0
+      },
+      {
+        "name": "single_qk_norm_rope",
+        "engine": "VPU",
+        "reads": [
+          "linear1",
+          "qk_scale",
+          "ids"
+        ],
+        "writes": [
+          "qkv"
+        ],
+        "macs": 0,
+        "vector_ops": 43008,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L491",
+        "fusion": "QKV slice view plus RMSNorm/RoPE",
+        "core": 0
+      },
+      {
+        "name": "single_swiglu",
+        "engine": "VPU",
+        "reads": [
+          "linear1"
+        ],
+        "writes": [
+          "mlp_act"
+        ],
+        "macs": 0,
+        "vector_ops": 27648,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L481",
+        "fusion": "independent MLP branch from same linear1 output",
+        "core": 1
+      },
+      {
+        "name": "single_qk",
+        "engine": "MXU",
+        "reads": [
+          "qkv"
+        ],
+        "writes": [
+          "scores"
+        ],
+        "macs": 36864,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L756",
+        "fusion": "full joint bidirectional QK",
+        "core": 0
+      },
+      {
+        "name": "single_softmax",
+        "engine": "VPU",
+        "reads": [
+          "scores"
+        ],
+        "writes": [
+          "prob"
+        ],
+        "macs": 0,
+        "vector_ops": 13824,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L756",
+        "fusion": "stable full-row softmax",
+        "core": 0
+      },
+      {
+        "name": "single_av",
+        "engine": "MXU",
+        "reads": [
+          "prob",
+          "qkv"
+        ],
+        "writes": [
+          "attn"
+        ],
+        "macs": 36864,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L756",
+        "fusion": "weighted V plus head merge",
+        "core": 0
+      },
+      {
+        "name": "single_join_project",
+        "engine": "MXU",
+        "reads": [
+          "attn",
+          "mlp_act",
+          "linear2_weight"
+        ],
+        "writes": [
+          "projected"
+        ],
+        "macs": 393216,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L481",
+        "fusion": "linear2 consumes attention and MLP slices; concatenation staging assumed fusible",
+        "core": 0
+      },
+      {
+        "name": "single_residual",
+        "engine": "VPU",
+        "reads": [
+          "x",
+          "projected",
+          "single_mod"
+        ],
+        "writes": [
+          "out"
+        ],
+        "macs": 0,
+        "vector_ops": 3072,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L483",
+        "fusion": "gated residual",
+        "core": 0
+      }
+    ]
+  },
+  {
+    "case": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident",
+    "metadata": {
+      "model": "black-forest-labs/FLUX.2-klein-4B",
+      "revision": "e7b7dc27f91deacad38e78976d1f2b499d76a294",
+      "source_revision": "50fe5162777813d869182b139e83b10743caef15",
+      "kind": "double_stream",
+      "scope": "scaled single block; random-weight mathematical float64 check; no quality or official dtype rounding validation",
+      "actual_hidden_size": 3072,
+      "scaled_hidden_size": 64,
+      "actual_heads": 24,
+      "scaled_heads": 4,
+      "actual_head_dim": 128,
+      "scaled_head_dim": 16,
+      "actual_mlp_ratio": 3.0,
+      "actual_timestep_embedding_dim": 256,
+      "scaled_timestep_embedding_dim": 16,
+      "actual_axes_dims": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "scaled_axes_dims": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "rope_theta": 2000,
+      "conditioning": "step+guidance distilled; guidance_embed=False; one conditional invocation, CFG=1; time modulation explicit",
+      "reference_tokens": 0,
+      "persistent_kv": false,
+      "source_attention": "num_ref_tokens=0 makes txt+img full joint bidirectional attention; no text causal mask",
+      "dtype_numeric": "float64",
+      "dtype_model": "BF16",
+      "operation_counts": "MAC exact for selected dense shapes; vector_ops research estimates, not calibrated hardware instructions",
+      "fusion_scope": "pointwise norm/modulation and residual epilogues fused; all dense projections retained; no full attention score fusion assumed",
+      "full_pipeline_exclusions": [
+        "text encoder",
+        "VAE",
+        "other 24 transformer blocks",
+        "four-step denoising loop",
+        "image editing/ref-cache path"
+      ],
+      "layout": "activations BLH contiguous; QKV packed 3BHLD; attention BHLS; weight input-by-output for NumPy (transpose of torch Linear storage)",
+      "scaled_shapes": {
+        "image_tokens": 16,
+        "text_tokens": 8,
+        "input_image_channels": 16,
+        "input_context_channels": 96
+      },
+      "remaining_branches": [
+        "image/text input projection",
+        "image/text QKV preparation",
+        "query-row attention",
+        "image/text postattention and FFN"
+      ],
+      "source_input_channels": {
+        "image": 128,
+        "context": 7680
+      },
+      "optimization_boundary": "aggregate attention and conditioning-resident single-block slice",
+      "conditioning_scope": "timestep/time-MLP/modulation computed once per denoising step outside this block; final modulation read loads remain; excluded producer costs must be charged once in any full-pipeline extrapolation",
+      "outside_boundary_nodes": [
+        "timestep_embedding",
+        "time_linear1",
+        "time_silu1",
+        "time_linear2",
+        "modulation_silu",
+        "img_modulation",
+        "txt_modulation"
+      ],
+      "outside_boundary_macs": 54272,
+      "outside_boundary_vector_ops_estimate": 768,
+      "internal_scratch": {
+        "img_qk_softmax_av_aggregate": {
+          "bytes": 6144,
+          "traffic_bytes": 12288,
+          "scope": "materialized engine-internal scratch, not online FlashAttention",
+          "tensors": [
+            "img_scores",
+            "img_prob"
+          ],
+          "dtype_assumption": "BF16; capacity conservatively sums scores and probability, internal read and write each counted once"
+        },
+        "txt_qk_softmax_av_aggregate": {
+          "bytes": 3072,
+          "traffic_bytes": 6144,
+          "scope": "materialized engine-internal scratch, not online FlashAttention",
+          "tensors": [
+            "txt_scores",
+            "txt_prob"
+          ],
+          "dtype_assumption": "BF16; capacity conservatively sums scores and probability, internal read and write each counted once"
+        }
+      },
+      "attention_fusion_scope": "exact numerical QK-softmax-AV composition, scratch lifetimes hidden; cost is summed stage service with full-duration atomic reservation of MXU+VPU+SRAM, not verified FlashAttention performance",
+      "base_case": "flux2_klein4b_double_scaled"
+    },
+    "tensors": [
+      {
+        "name": "img_input",
+        "shape": [
+          1,
+          16,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 2048,
+        "logical_bf16_bytes_assumption": 512,
+        "writer": "initial",
+        "readers": [
+          "img_input_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "5c6b12381f3656a80c67d0f2ada8d99a88507eecd2850c85819c124de6951c05"
+      },
+      {
+        "name": "img_input_weight",
+        "shape": [
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "initial",
+        "readers": [
+          "img_input_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ea9d6a50db7fdd925b0545a85586ebc5f41275548f6ece8932d5440aaa8c682c"
+      },
+      {
+        "name": "img_ids",
+        "shape": [
+          1,
+          16,
+          4
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 512,
+        "logical_bf16_bytes_assumption": 128,
+        "writer": "initial",
+        "readers": [
+          "img_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "f61cddc23c834ccd55b555cce5f7a56f11d924d00c002926ac8c6c44332ee2ea"
+      },
+      {
+        "name": "img_qkv_weight",
+        "shape": [
+          64,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 98304,
+        "logical_bf16_bytes_assumption": 24576,
+        "writer": "initial",
+        "readers": [
+          "img_qkv_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "9371cf0e3649ac76ac3a33363a81816639bc01986dc157d35e19cdf9a482a9cf"
+      },
+      {
+        "name": "img_qk_scale",
+        "shape": [
+          2,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 256,
+        "logical_bf16_bytes_assumption": 64,
+        "writer": "initial",
+        "readers": [
+          "img_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "752195dbef7d469221d3deb5e9a7abed32cf22c1a976675c9c6732960d54129e"
+      },
+      {
+        "name": "img_proj_weight",
+        "shape": [
+          64,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 32768,
+        "logical_bf16_bytes_assumption": 8192,
+        "writer": "initial",
+        "readers": [
+          "img_attention_out"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "c5263924f6b405431658ca483d6e89423e29468cbec41fce1acdaf17e0fdb912"
+      },
+      {
+        "name": "img_mlp1_weight",
+        "shape": [
+          64,
+          384
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 196608,
+        "logical_bf16_bytes_assumption": 49152,
+        "writer": "initial",
+        "readers": [
+          "img_mlp_expand"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "46ef782dbda8269a58d64d0f94b1317b55002ce89a13b194a278085992b51390"
+      },
+      {
+        "name": "img_mlp2_weight",
+        "shape": [
+          192,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 98304,
+        "logical_bf16_bytes_assumption": 24576,
+        "writer": "initial",
+        "readers": [
+          "img_mlp_contract"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "2474601103c953be9dba154e7809e5272b6e6f017902a20bd81d281f6a26d93f"
+      },
+      {
+        "name": "txt_input",
+        "shape": [
+          1,
+          8,
+          96
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 6144,
+        "logical_bf16_bytes_assumption": 1536,
+        "writer": "initial",
+        "readers": [
+          "txt_input_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "8efe103ba223546f453db461ebb012ece70037d9d91af8d2c1a5656b47de3802"
+      },
+      {
+        "name": "txt_input_weight",
+        "shape": [
+          96,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 49152,
+        "logical_bf16_bytes_assumption": 12288,
+        "writer": "initial",
+        "readers": [
+          "txt_input_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "61d8614afa465f006ec1a24299cc8fc2a1190c2a12b220a844e6ea33892703d4"
+      },
+      {
+        "name": "txt_ids",
+        "shape": [
+          1,
+          8,
+          4
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 256,
+        "logical_bf16_bytes_assumption": 64,
+        "writer": "initial",
+        "readers": [
+          "txt_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "920d604128be8c6b4543b3b6c6ed3b17e8aaa27d4d59a38554bf0ef6d06745a3"
+      },
+      {
+        "name": "txt_qkv_weight",
+        "shape": [
+          64,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 98304,
+        "logical_bf16_bytes_assumption": 24576,
+        "writer": "initial",
+        "readers": [
+          "txt_qkv_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "a2039dc43f5f59cc91d37166c563f2455ef59b29a053fff0943b490c81ffc0ac"
+      },
+      {
+        "name": "txt_qk_scale",
+        "shape": [
+          2,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 256,
+        "logical_bf16_bytes_assumption": 64,
+        "writer": "initial",
+        "readers": [
+          "txt_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "5bdd06fd4629a0876043ea2777ab953062dbc54a9ae0045103f8cda6a8234685"
+      },
+      {
+        "name": "txt_proj_weight",
+        "shape": [
+          64,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 32768,
+        "logical_bf16_bytes_assumption": 8192,
+        "writer": "initial",
+        "readers": [
+          "txt_attention_out"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "963885015263872b75c13b153a7e1909a9346906050bbda6821e1f92b8e0220e"
+      },
+      {
+        "name": "txt_mlp1_weight",
+        "shape": [
+          64,
+          384
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 196608,
+        "logical_bf16_bytes_assumption": 49152,
+        "writer": "initial",
+        "readers": [
+          "txt_mlp_expand"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "873b7d75763ee18f06f19e5d4a8c3ced1d5691bcba3e52a2a5cc61d75fd060f8"
+      },
+      {
+        "name": "txt_mlp2_weight",
+        "shape": [
+          192,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 98304,
+        "logical_bf16_bytes_assumption": 24576,
+        "writer": "initial",
+        "readers": [
+          "txt_mlp_contract"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ebbb6c11b2c3f89f3523ae4db27dc6c3af3b17bdf7d13fcac4ea4ac36a58f9bf"
+      },
+      {
+        "name": "img_mod",
+        "shape": [
+          1,
+          1,
+          6,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 3072,
+        "logical_bf16_bytes_assumption": 768,
+        "writer": "initial",
+        "readers": [
+          "img_norm_mod1",
+          "img_residual_norm2",
+          "img_residual2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "5757d122671613552be6df379e5a8740ff2c6530b7088ab3dabb67dd13cfc36a"
+      },
+      {
+        "name": "txt_mod",
+        "shape": [
+          1,
+          1,
+          6,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 3072,
+        "logical_bf16_bytes_assumption": 768,
+        "writer": "initial",
+        "readers": [
+          "txt_norm_mod1",
+          "txt_residual_norm2",
+          "txt_residual2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ae8259f75d81ec92e6a63896984254919a65d697b1dde4ea12e374bd4cc8485a"
+      },
+      {
+        "name": "img_state",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_input_projection",
+        "readers": [
+          "img_norm_mod1",
+          "img_residual_norm2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "a7aef69fd9bb39cb076a4c525a41158191c0412a6fe44de7c14db00578a4de9e"
+      },
+      {
+        "name": "img_normalized1",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_norm_mod1",
+        "readers": [
+          "img_qkv_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "1aaf505696e1944636ffe842bfc247fd4e8eee71ea1ccb051ba8c83d9a8b6c35"
+      },
+      {
+        "name": "img_linear",
+        "shape": [
+          1,
+          16,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 24576,
+        "logical_bf16_bytes_assumption": 6144,
+        "writer": "img_qkv_projection",
+        "readers": [
+          "img_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "3f07deebaef20ed414ccc30b2ecdb2acc1571966eb5a9dc38712a12932b00f7b"
+      },
+      {
+        "name": "img_qkv",
+        "shape": [
+          3,
+          1,
+          4,
+          16,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 24576,
+        "logical_bf16_bytes_assumption": 6144,
+        "writer": "img_qk_norm_rope",
+        "readers": [
+          "joint_kv",
+          "img_qk_softmax_av_aggregate"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "42ffb6369fa4b1c78f8d11150eb74f2cea9fe2a0fa5443c7ca6ae2d8950bad02"
+      },
+      {
+        "name": "txt_state",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_input_projection",
+        "readers": [
+          "txt_norm_mod1",
+          "txt_residual_norm2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "144301d1f3162fea9a2f7103c529c74dbe7646514271054b6a0e31b4060495f2"
+      },
+      {
+        "name": "txt_normalized1",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_norm_mod1",
+        "readers": [
+          "txt_qkv_projection"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "a90b18725c69a92c1d8c0b14955c92aadfbaafe81035da67003ab5c5203d2923"
+      },
+      {
+        "name": "txt_linear",
+        "shape": [
+          1,
+          8,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "txt_qkv_projection",
+        "readers": [
+          "txt_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "9e4e74c142acf9e0612a54cf20c08b8ad747b50005fe417e7146ea0c2b137e7e"
+      },
+      {
+        "name": "txt_qkv",
+        "shape": [
+          3,
+          1,
+          4,
+          8,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "txt_qk_norm_rope",
+        "readers": [
+          "joint_kv",
+          "txt_qk_softmax_av_aggregate"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "8dd298dbdd636e1c5fa823dad1a5546709288bf9cbcb13519a3b2ebc9f277726"
+      },
+      {
+        "name": "joint_k",
+        "shape": [
+          1,
+          4,
+          24,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "joint_kv",
+        "readers": [
+          "img_qk_softmax_av_aggregate",
+          "txt_qk_softmax_av_aggregate"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ae17188b3a9f6c87680adbd34f6b23493391d8f815947e8cd19ee0c61a6929dd"
+      },
+      {
+        "name": "joint_v",
+        "shape": [
+          1,
+          4,
+          24,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "joint_kv",
+        "readers": [
+          "img_qk_softmax_av_aggregate",
+          "txt_qk_softmax_av_aggregate"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "71ba976a6d5d8b2ead1245bc26f9d49c376f7e4f613f5dadf12f63416b13eee9"
+      },
+      {
+        "name": "img_attn",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_qk_softmax_av_aggregate",
+        "readers": [
+          "img_attention_out"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "f28a2bcde88807c3d1fd70b047c6a3332552ab579353873b8cff2a83c90b22f9"
+      },
+      {
+        "name": "img_attn_proj",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_attention_out",
+        "readers": [
+          "img_residual_norm2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "dcadca9caff0782e36116a70efe9bce151a71572b127daa21b9a5ac954b499f0"
+      },
+      {
+        "name": "img_residual1",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_residual_norm2",
+        "readers": [
+          "img_residual2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "f9581f5e850eba2d03c3c95b403b50895a233deeb77cbc668e7ae3550a49880a"
+      },
+      {
+        "name": "img_normalized2",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_residual_norm2",
+        "readers": [
+          "img_mlp_expand"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ed2bdf251466550c62ee5943e9c538db13e9194cf425e4a181bb992f2a2d5dd5"
+      },
+      {
+        "name": "img_mlp_linear",
+        "shape": [
+          1,
+          16,
+          384
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 49152,
+        "logical_bf16_bytes_assumption": 12288,
+        "writer": "img_mlp_expand",
+        "readers": [
+          "img_swiglu"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "2b0dbd5a6fffcb874fd75de5139376ad4790126cbabbad6c50c279894a98fe7c"
+      },
+      {
+        "name": "img_mlp_act",
+        "shape": [
+          1,
+          16,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 24576,
+        "logical_bf16_bytes_assumption": 6144,
+        "writer": "img_swiglu",
+        "readers": [
+          "img_mlp_contract"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "b94b5eec8e5536858877d10c52fe3589d38c5110ffbbc90b6ade82f41b247f5e"
+      },
+      {
+        "name": "img_mlp_out",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_mlp_contract",
+        "readers": [
+          "img_residual2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "92ec5853f9d55f062034cd1312354d56172554cd605bf785d2606111c5d8bcae"
+      },
+      {
+        "name": "img_out",
+        "shape": [
+          1,
+          16,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 8192,
+        "logical_bf16_bytes_assumption": 2048,
+        "writer": "img_residual2",
+        "readers": [],
+        "release_condition": "external output consumer completes",
+        "sha256_numeric_payload": "d66772f208f0de29b5a21df0369696ed7f84adba1b55fca8e053d63dc9150ca0"
+      },
+      {
+        "name": "txt_attn",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_qk_softmax_av_aggregate",
+        "readers": [
+          "txt_attention_out"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "1779a421e9566ffeecde2b25e13a7bf405fc48f5d34557018926ea0efcd605f1"
+      },
+      {
+        "name": "txt_attn_proj",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_attention_out",
+        "readers": [
+          "txt_residual_norm2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "358a9aa6acfce24f6d411766adcb25cc8b17c7e37aaa6ee8ffa396319e9fd16a"
+      },
+      {
+        "name": "txt_residual1",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_residual_norm2",
+        "readers": [
+          "txt_residual2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ae86211eeb893d9b1b9f703bc34ea14465bb3ffcec6ce140e42dd0f9fbef8222"
+      },
+      {
+        "name": "txt_normalized2",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_residual_norm2",
+        "readers": [
+          "txt_mlp_expand"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "1f26719d8dc8c9e18cd57e2b1a3fdc6a868678b80a2e816e0a9e0d36ccdeb767"
+      },
+      {
+        "name": "txt_mlp_linear",
+        "shape": [
+          1,
+          8,
+          384
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 24576,
+        "logical_bf16_bytes_assumption": 6144,
+        "writer": "txt_mlp_expand",
+        "readers": [
+          "txt_swiglu"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "324142fd1a428d435127de09feedd88772036ff7d30ca01d975b2fc0a738f63a"
+      },
+      {
+        "name": "txt_mlp_act",
+        "shape": [
+          1,
+          8,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "txt_swiglu",
+        "readers": [
+          "txt_mlp_contract"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "226758cbfbb63df2843b34be4aecad308e2cfb80e869d97edd0285b382d4dbf7"
+      },
+      {
+        "name": "txt_mlp_out",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_mlp_contract",
+        "readers": [
+          "txt_residual2"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "2971163071a520e9aa257d6a48f8118996b884e5ecca45984056b2753edcbddc"
+      },
+      {
+        "name": "txt_out",
+        "shape": [
+          1,
+          8,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 4096,
+        "logical_bf16_bytes_assumption": 1024,
+        "writer": "txt_residual2",
+        "readers": [],
+        "release_condition": "external output consumer completes",
+        "sha256_numeric_payload": "5f59d3b35b7f48332fe7e64c2305dca51dc16c1aa9fa00b24bd7df0c2397d99c"
+      }
+    ],
+    "nodes": [
+      {
+        "name": "img_input_projection",
+        "engine": "MXU",
+        "reads": [
+          "img_input",
+          "img_input_weight"
+        ],
+        "writes": [
+          "img_state"
+        ],
+        "macs": 16384,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L66",
+        "fusion": "bias-free input projection; source channels scaled",
+        "core": 0
+      },
+      {
+        "name": "img_norm_mod1",
+        "engine": "VPU",
+        "reads": [
+          "img_state",
+          "img_mod"
+        ],
+        "writes": [
+          "img_normalized1"
+        ],
+        "macs": 0,
+        "vector_ops": 12288,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L583",
+        "fusion": "LayerNorm eps1e-6 plus AdaLN affine",
+        "core": 0
+      },
+      {
+        "name": "img_qkv_projection",
+        "engine": "MXU",
+        "reads": [
+          "img_normalized1",
+          "img_qkv_weight"
+        ],
+        "writes": [
+          "img_linear"
+        ],
+        "macs": 196608,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L586",
+        "fusion": "QKV joint projection",
+        "core": 0
+      },
+      {
+        "name": "img_qk_norm_rope",
+        "engine": "VPU",
+        "reads": [
+          "img_linear",
+          "img_qk_scale",
+          "img_ids"
+        ],
+        "writes": [
+          "img_qkv"
+        ],
+        "macs": 0,
+        "vector_ops": 28672,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L646",
+        "fusion": "reshape plus head RMSNorm eps1e-6 and 4-axis RoPE; V passthrough",
+        "core": 0
+      },
+      {
+        "name": "txt_input_projection",
+        "engine": "MXU",
+        "reads": [
+          "txt_input",
+          "txt_input_weight"
+        ],
+        "writes": [
+          "txt_state"
+        ],
+        "macs": 49152,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L66",
+        "fusion": "bias-free input projection; source channels scaled",
+        "core": 1
+      },
+      {
+        "name": "txt_norm_mod1",
+        "engine": "VPU",
+        "reads": [
+          "txt_state",
+          "txt_mod"
+        ],
+        "writes": [
+          "txt_normalized1"
+        ],
+        "macs": 0,
+        "vector_ops": 6144,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L583",
+        "fusion": "LayerNorm eps1e-6 plus AdaLN affine",
+        "core": 1
+      },
+      {
+        "name": "txt_qkv_projection",
+        "engine": "MXU",
+        "reads": [
+          "txt_normalized1",
+          "txt_qkv_weight"
+        ],
+        "writes": [
+          "txt_linear"
+        ],
+        "macs": 98304,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L586",
+        "fusion": "QKV joint projection",
+        "core": 1
+      },
+      {
+        "name": "txt_qk_norm_rope",
+        "engine": "VPU",
+        "reads": [
+          "txt_linear",
+          "txt_qk_scale",
+          "txt_ids"
+        ],
+        "writes": [
+          "txt_qkv"
+        ],
+        "macs": 0,
+        "vector_ops": 14336,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L646",
+        "fusion": "reshape plus head RMSNorm eps1e-6 and 4-axis RoPE; V passthrough",
+        "core": 1
+      },
+      {
+        "name": "joint_kv",
+        "engine": "VPU",
+        "reads": [
+          "txt_qkv",
+          "img_qkv"
+        ],
+        "writes": [
+          "joint_k",
+          "joint_v"
+        ],
+        "macs": 0,
+        "vector_ops": 3072,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L600",
+        "fusion": "explicit joint KV gather; text then image layout",
+        "core": 0
+      },
+      {
+        "name": "img_qk_softmax_av_aggregate",
+        "engine": "MXU+VPU",
+        "reads": [
+          "img_qkv",
+          "joint_k",
+          "joint_v"
+        ],
+        "writes": [
+          "img_attn"
+        ],
+        "macs": 49152,
+        "vector_ops": 9216,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L756",
+        "fusion": "QK -> softmax -> AV aggregate; summed stage service; atomic MXU+VPU+SRAM reservation; internal scores/probability scratch abstracted, not a FlashAttention kernel",
+        "core": 0
+      },
+      {
+        "name": "img_attention_out",
+        "engine": "MXU",
+        "reads": [
+          "img_attn",
+          "img_proj_weight"
+        ],
+        "writes": [
+          "img_attn_proj"
+        ],
+        "macs": 65536,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L626",
+        "fusion": "attention output projection",
+        "core": 0
+      },
+      {
+        "name": "img_residual_norm2",
+        "engine": "VPU",
+        "reads": [
+          "img_state",
+          "img_attn_proj",
+          "img_mod"
+        ],
+        "writes": [
+          "img_residual1",
+          "img_normalized2"
+        ],
+        "macs": 0,
+        "vector_ops": 14336,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L626",
+        "fusion": "gated residual then norm/AdaLN; first residual retained for final skip",
+        "core": 0
+      },
+      {
+        "name": "img_mlp_expand",
+        "engine": "MXU",
+        "reads": [
+          "img_normalized2",
+          "img_mlp1_weight"
+        ],
+        "writes": [
+          "img_mlp_linear"
+        ],
+        "macs": 393216,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L549",
+        "fusion": "packed gate/value projection",
+        "core": 0
+      },
+      {
+        "name": "img_swiglu",
+        "engine": "VPU",
+        "reads": [
+          "img_mlp_linear"
+        ],
+        "writes": [
+          "img_mlp_act"
+        ],
+        "macs": 0,
+        "vector_ops": 18432,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L390",
+        "fusion": "SiLU gate times value; not GELU",
+        "core": 0
+      },
+      {
+        "name": "img_mlp_contract",
+        "engine": "MXU",
+        "reads": [
+          "img_mlp_act",
+          "img_mlp2_weight"
+        ],
+        "writes": [
+          "img_mlp_out"
+        ],
+        "macs": 196608,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L552",
+        "fusion": "MLP contraction",
+        "core": 0
+      },
+      {
+        "name": "img_residual2",
+        "engine": "VPU",
+        "reads": [
+          "img_residual1",
+          "img_mlp_out",
+          "img_mod"
+        ],
+        "writes": [
+          "img_out"
+        ],
+        "macs": 0,
+        "vector_ops": 2048,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L627",
+        "fusion": "gated second residual",
+        "core": 0
+      },
+      {
+        "name": "txt_qk_softmax_av_aggregate",
+        "engine": "MXU+VPU",
+        "reads": [
+          "txt_qkv",
+          "joint_k",
+          "joint_v"
+        ],
+        "writes": [
+          "txt_attn"
+        ],
+        "macs": 24576,
+        "vector_ops": 4608,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L756",
+        "fusion": "QK -> softmax -> AV aggregate; summed stage service; atomic MXU+VPU+SRAM reservation; internal scores/probability scratch abstracted, not a FlashAttention kernel",
+        "core": 1
+      },
+      {
+        "name": "txt_attention_out",
+        "engine": "MXU",
+        "reads": [
+          "txt_attn",
+          "txt_proj_weight"
+        ],
+        "writes": [
+          "txt_attn_proj"
+        ],
+        "macs": 32768,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L626",
+        "fusion": "attention output projection",
+        "core": 1
+      },
+      {
+        "name": "txt_residual_norm2",
+        "engine": "VPU",
+        "reads": [
+          "txt_state",
+          "txt_attn_proj",
+          "txt_mod"
+        ],
+        "writes": [
+          "txt_residual1",
+          "txt_normalized2"
+        ],
+        "macs": 0,
+        "vector_ops": 7168,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L626",
+        "fusion": "gated residual then norm/AdaLN; first residual retained for final skip",
+        "core": 1
+      },
+      {
+        "name": "txt_mlp_expand",
+        "engine": "MXU",
+        "reads": [
+          "txt_normalized2",
+          "txt_mlp1_weight"
+        ],
+        "writes": [
+          "txt_mlp_linear"
+        ],
+        "macs": 196608,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L549",
+        "fusion": "packed gate/value projection",
+        "core": 1
+      },
+      {
+        "name": "txt_swiglu",
+        "engine": "VPU",
+        "reads": [
+          "txt_mlp_linear"
+        ],
+        "writes": [
+          "txt_mlp_act"
+        ],
+        "macs": 0,
+        "vector_ops": 9216,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L390",
+        "fusion": "SiLU gate times value; not GELU",
+        "core": 1
+      },
+      {
+        "name": "txt_mlp_contract",
+        "engine": "MXU",
+        "reads": [
+          "txt_mlp_act",
+          "txt_mlp2_weight"
+        ],
+        "writes": [
+          "txt_mlp_out"
+        ],
+        "macs": 98304,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L552",
+        "fusion": "MLP contraction",
+        "core": 1
+      },
+      {
+        "name": "txt_residual2",
+        "engine": "VPU",
+        "reads": [
+          "txt_residual1",
+          "txt_mlp_out",
+          "txt_mod"
+        ],
+        "writes": [
+          "txt_out"
+        ],
+        "macs": 0,
+        "vector_ops": 1024,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L627",
+        "fusion": "gated second residual",
+        "core": 1
+      }
+    ]
+  },
+  {
+    "case": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident",
+    "metadata": {
+      "model": "black-forest-labs/FLUX.2-klein-4B",
+      "revision": "e7b7dc27f91deacad38e78976d1f2b499d76a294",
+      "source_revision": "50fe5162777813d869182b139e83b10743caef15",
+      "kind": "single_stream",
+      "scope": "scaled single block; random-weight mathematical float64 check; no quality or official dtype rounding validation",
+      "actual_hidden_size": 3072,
+      "scaled_hidden_size": 64,
+      "actual_heads": 24,
+      "scaled_heads": 4,
+      "actual_head_dim": 128,
+      "scaled_head_dim": 16,
+      "actual_mlp_ratio": 3.0,
+      "actual_timestep_embedding_dim": 256,
+      "scaled_timestep_embedding_dim": 16,
+      "actual_axes_dims": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "scaled_axes_dims": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "rope_theta": 2000,
+      "conditioning": "step+guidance distilled; guidance_embed=False; one conditional invocation, CFG=1; time modulation explicit",
+      "reference_tokens": 0,
+      "persistent_kv": false,
+      "source_attention": "num_ref_tokens=0 makes txt+img full joint bidirectional attention; no text causal mask",
+      "dtype_numeric": "float64",
+      "dtype_model": "BF16",
+      "operation_counts": "MAC exact for selected dense shapes; vector_ops research estimates, not calibrated hardware instructions",
+      "fusion_scope": "pointwise norm/modulation and residual epilogues fused; all dense projections retained; no full attention score fusion assumed",
+      "full_pipeline_exclusions": [
+        "text encoder",
+        "VAE",
+        "other 24 transformer blocks",
+        "four-step denoising loop",
+        "image editing/ref-cache path"
+      ],
+      "layout": "activations BLH contiguous; QKV packed 3BHLD; attention BHLS; weight input-by-output for NumPy (transpose of torch Linear storage)",
+      "scaled_shapes": {
+        "image_tokens": 16,
+        "text_tokens": 8
+      },
+      "remaining_branches": [
+        "attention QK/softmax/AV and SiLU-gated MLP after fused linear1"
+      ],
+      "input_scope": "already-projected and concatenated text/image states at one single-block boundary",
+      "optimization_boundary": "aggregate attention and conditioning-resident single-block slice",
+      "conditioning_scope": "timestep/time-MLP/modulation computed once per denoising step outside this block; final modulation read loads remain; excluded producer costs must be charged once in any full-pipeline extrapolation",
+      "outside_boundary_nodes": [
+        "timestep_embedding",
+        "time_linear1",
+        "time_silu1",
+        "time_linear2",
+        "modulation_silu",
+        "single_modulation"
+      ],
+      "outside_boundary_macs": 17408,
+      "outside_boundary_vector_ops_estimate": 768,
+      "internal_scratch": {
+        "single_qk_softmax_av_aggregate": {
+          "bytes": 9216,
+          "traffic_bytes": 18432,
+          "scope": "materialized engine-internal scratch, not online FlashAttention",
+          "tensors": [
+            "scores",
+            "prob"
+          ],
+          "dtype_assumption": "BF16; capacity conservatively sums scores and probability, internal read and write each counted once"
+        }
+      },
+      "attention_fusion_scope": "exact numerical QK-softmax-AV composition, scratch lifetimes hidden; cost is summed stage service with full-duration atomic reservation of MXU+VPU+SRAM, not verified FlashAttention performance",
+      "base_case": "flux2_klein4b_single_scaled"
+    },
+    "tensors": [
+      {
+        "name": "x",
+        "shape": [
+          1,
+          24,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "initial",
+        "readers": [
+          "single_norm_mod",
+          "single_residual"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "e56e258596bf49c609ecc2d81cce162e596567fc9eb6ba93a2380cd2f8588953"
+      },
+      {
+        "name": "ids",
+        "shape": [
+          1,
+          24,
+          4
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 768,
+        "logical_bf16_bytes_assumption": 192,
+        "writer": "initial",
+        "readers": [
+          "single_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "fb6c574df824b5e6e478e5c666fb5688fa459379c68a48418ebbadde981e2607"
+      },
+      {
+        "name": "linear1_weight",
+        "shape": [
+          64,
+          576
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 294912,
+        "logical_bf16_bytes_assumption": 73728,
+        "writer": "initial",
+        "readers": [
+          "single_linear1"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "0a494e7092bb64e9bf6f3790db13387ca2ed4188d813590ceaf083b0b31d27b0"
+      },
+      {
+        "name": "linear2_weight",
+        "shape": [
+          256,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 131072,
+        "logical_bf16_bytes_assumption": 32768,
+        "writer": "initial",
+        "readers": [
+          "single_join_project"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "5ee80a87aaec66739c8b6f9e188131c0f5b91cb168fc32dd8069a179e8af785a"
+      },
+      {
+        "name": "qk_scale",
+        "shape": [
+          2,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 256,
+        "logical_bf16_bytes_assumption": 64,
+        "writer": "initial",
+        "readers": [
+          "single_qk_norm_rope"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "77eac3897805d97af7c6e662b7a46299b92bca9cf808c6b65810e95411bd6bd0"
+      },
+      {
+        "name": "single_mod",
+        "shape": [
+          1,
+          1,
+          3,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 1536,
+        "logical_bf16_bytes_assumption": 384,
+        "writer": "initial",
+        "readers": [
+          "single_norm_mod",
+          "single_residual"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "8cf7155e58fefc8f3fe2aae9b1233401dc844184f2256e9895ae2833ebfb9bfd"
+      },
+      {
+        "name": "normalized",
+        "shape": [
+          1,
+          24,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "single_norm_mod",
+        "readers": [
+          "single_linear1"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "cf7b12369f9d8eddc1e864e164b694f2553328e90413b94de31a79d55415e2c3"
+      },
+      {
+        "name": "linear1",
+        "shape": [
+          1,
+          24,
+          576
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 110592,
+        "logical_bf16_bytes_assumption": 27648,
+        "writer": "single_linear1",
+        "readers": [
+          "single_qk_norm_rope",
+          "single_swiglu"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "46c3cebe3a7f82e0c288b8e28733bf6e0e0246d4dbf7c4ada6ccd2c6f7dc91e5"
+      },
+      {
+        "name": "qkv",
+        "shape": [
+          3,
+          1,
+          4,
+          24,
+          16
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 36864,
+        "logical_bf16_bytes_assumption": 9216,
+        "writer": "single_qk_norm_rope",
+        "readers": [
+          "single_qk_softmax_av_aggregate"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "f0dba10da7ab5e10e6f778976455cf79006b92898ed4cfe6769ad63eb96757a9"
+      },
+      {
+        "name": "mlp_act",
+        "shape": [
+          1,
+          24,
+          192
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 36864,
+        "logical_bf16_bytes_assumption": 9216,
+        "writer": "single_swiglu",
+        "readers": [
+          "single_join_project"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "343367c568d582168190c3bc4ed9fdbf7f729a66a0cd807cffa506d2eefef68f"
+      },
+      {
+        "name": "attn",
+        "shape": [
+          1,
+          24,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "single_qk_softmax_av_aggregate",
+        "readers": [
+          "single_join_project"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "031d3619adf194f7c6420daedb7a117fa51a5028543ae52bb9b328e5848e6c08"
+      },
+      {
+        "name": "projected",
+        "shape": [
+          1,
+          24,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "single_join_project",
+        "readers": [
+          "single_residual"
+        ],
+        "release_condition": "all listed readers complete",
+        "sha256_numeric_payload": "ab70b7ec0e9cc70f6b7aaf5bb70dbe838797d78673e59813659e0c1ec816e0f7"
+      },
+      {
+        "name": "out",
+        "shape": [
+          1,
+          24,
+          64
+        ],
+        "numeric_dtype": "float64",
+        "numeric_bytes": 12288,
+        "logical_bf16_bytes_assumption": 3072,
+        "writer": "single_residual",
+        "readers": [],
+        "release_condition": "external output consumer completes",
+        "sha256_numeric_payload": "6ef44051e283e88debb7807a8b1c985c1ba3fe07459f2472d3315c4cd3d1895f"
+      }
+    ],
+    "nodes": [
+      {
+        "name": "single_norm_mod",
+        "engine": "VPU",
+        "reads": [
+          "x",
+          "single_mod"
+        ],
+        "writes": [
+          "normalized"
+        ],
+        "macs": 0,
+        "vector_ops": 18432,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L465",
+        "fusion": "LayerNorm plus AdaLN",
+        "core": 0
+      },
+      {
+        "name": "single_linear1",
+        "engine": "MXU",
+        "reads": [
+          "normalized",
+          "linear1_weight"
+        ],
+        "writes": [
+          "linear1"
+        ],
+        "macs": 884736,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L454",
+        "fusion": "one actual fused QKV and gate/value projection",
+        "core": 0
+      },
+      {
+        "name": "single_qk_norm_rope",
+        "engine": "VPU",
+        "reads": [
+          "linear1",
+          "qk_scale",
+          "ids"
+        ],
+        "writes": [
+          "qkv"
+        ],
+        "macs": 0,
+        "vector_ops": 43008,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L491",
+        "fusion": "QKV slice view plus RMSNorm/RoPE",
+        "core": 0
+      },
+      {
+        "name": "single_swiglu",
+        "engine": "VPU",
+        "reads": [
+          "linear1"
+        ],
+        "writes": [
+          "mlp_act"
+        ],
+        "macs": 0,
+        "vector_ops": 27648,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L481",
+        "fusion": "independent MLP branch from same linear1 output",
+        "core": 1
+      },
+      {
+        "name": "single_qk_softmax_av_aggregate",
+        "engine": "MXU+VPU",
+        "reads": [
+          "qkv"
+        ],
+        "writes": [
+          "attn"
+        ],
+        "macs": 73728,
+        "vector_ops": 13824,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L756",
+        "fusion": "QK -> softmax -> AV aggregate; summed stage service; atomic MXU+VPU+SRAM reservation; internal scores/probability scratch abstracted, not a FlashAttention kernel",
+        "core": 0
+      },
+      {
+        "name": "single_join_project",
+        "engine": "MXU",
+        "reads": [
+          "attn",
+          "mlp_act",
+          "linear2_weight"
+        ],
+        "writes": [
+          "projected"
+        ],
+        "macs": 393216,
+        "vector_ops": 0,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L481",
+        "fusion": "linear2 consumes attention and MLP slices; concatenation staging assumed fusible",
+        "core": 0
+      },
+      {
+        "name": "single_residual",
+        "engine": "VPU",
+        "reads": [
+          "x",
+          "projected",
+          "single_mod"
+        ],
+        "writes": [
+          "out"
+        ],
+        "macs": 0,
+        "vector_ops": 3072,
+        "source": "https://github.com/black-forest-labs/flux2/blob/50fe5162777813d869182b139e83b10743caef15/src/flux2/model.py#L483",
+        "fusion": "gated residual",
+        "core": 0
+      }
+    ]
+  }
+]

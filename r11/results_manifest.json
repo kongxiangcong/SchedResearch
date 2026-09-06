@@ -1,0 +1,44 @@
+{
+  "round": "R11",
+  "status": "PASS_INDEPENDENT_AUDIT",
+  "decision": {
+    "prefill": "本轮未获支持，方向关闭",
+    "strict_decode": "本轮未获支持，方向关闭"
+  },
+  "counts": {
+    "prefill_numeric_blocks": 76,
+    "decode_numeric_blocks": 4,
+    "timing_traces": 122,
+    "heldout_pairs": 61,
+    "timing_graphs": 2
+  },
+  "artifact_patterns": [
+    "results/*_baseline.json.gz",
+    "results/*_resident.json.gz",
+    "numerical_data/prefill_*.npz",
+    "numerical_data/decode_*.npz"
+  ],
+  "core_sha256": {
+    "experiment_plan.md": "30e3275b03338d67de48858a4e44afad1a87d6881c8924c6a8afbd18cc5ae9b5",
+    "contract.json": "e159d1a7d248cbe286d1e37838d2ab1b659af66d2bcbac1fd70bd28d00b7fb93",
+    "implementation_semantics.md": "6424fa591b55843d0212ae1e7d63e2fe4dc069ed192d898800dc75424c9e9139",
+    "model.py": "69e21c9c30bf15309d93653ceae0c00beb390e26c6744c08e0b94e10b6b8ed00",
+    "simulator.py": "3f6b21ff593c4e158b7b17767540e1ab697095b5f77e1d958cf54bb266eb0322",
+    "run_experiments.py": "7b49fa8112742bf6f90ec6e6bbc65cda622e230d890f47d9bd37eeb1d5c33c47",
+    "numerical.py": "dea4aecbb3d386d49d5d7a7b600ca0028fc27cfb876b91b24b3a2eeb38bd4112",
+    "independent_audit.py": "a7220b08fb07f326b2152d7d0e5b98ee0f0b15082c299f3997f058bc5a06d809",
+    "qualification_results.json": "140a27f34bc387bd73fd89ac7aa6d187fa043cbb4809549bcff5a7f6acfb0755",
+    "selection.json": "ddc78021deb9f50a777c040b3b702ffe451691aaba113822c37152b139de4a8f",
+    "results.json": "7f3d8b86a01831730dcbd4257f2f05ae5165f2988344011ca6a4cfc5bdc20c25",
+    "numerical_results.json": "e8c6fd1529aba7a40ed81252aa318af50d90d83fdb47bc728d1378f39eeca8d5",
+    "independent_audit.json": "488b6e42785b10bbc317a9183b9c131e8c4243a44ad2ace2def4e5771dcd2d4a",
+    "experiment_report.md": "863cad75d331c0c83b85896399291207be21a9948ce0eaf73b7d699d7ec56904",
+    "successor_research_progress.md": "d72219fb06f7f39c3cb0f49c5ab46ed58a31fe25dd4c7e29121a0d43410279f9",
+    "history_lineage_final.json": "62970707be8500ae2996008ba362998a9b4191c705853b288eaec5339d8cd453",
+    "source_independent_review.md": "3644b807fedfecdd7ed2acefc95e03b5d2ab2faf9836b898df152a8f1fdbe582",
+    "history_verification.json": "9f685d1f9e6641ead7e701569eba586115f0d2f3e3ee3b55e270a3a9b739237d"
+  },
+  "audit": "independent_audit.json",
+  "report": "experiment_report.md",
+  "scope": "reference-model evidence; no target-device, RTL, PPA or full-model acceptance"
+}

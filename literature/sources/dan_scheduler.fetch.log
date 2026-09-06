@@ -1,0 +1,2 @@
+ok: extractor=pdftotext -layout pdf_bytes=1113219 txt_bytes=101984 txt_lines=993
+D:/dsh-proj/SchedResarch/literature/sources/papers/dan_scheduler.txt

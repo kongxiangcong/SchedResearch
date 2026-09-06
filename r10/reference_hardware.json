@@ -1,0 +1,50 @@
+{
+  "schema": "r9.reference-hardware.v1",
+  "status": "agent-selected research reference; no current TARS or silicon calibration",
+  "path_name": "shared-EXT-cluster-DMA-VMEM",
+  "units": "bytes and reference cycles; no GHz or wall-time claim",
+  "clusters": 2,
+  "cores_per_cluster": 2,
+  "geometry": [32, 32, 32],
+  "macs_per_core_cycle": 1024,
+  "compute_startup_cycles": 8,
+  "core_operand_bytes_per_cycle": 128,
+  "reduction_adds_per_cycle": 64,
+  "vmem_bytes_per_core": 4194304,
+  "vmem_reserved_bytes_per_core": 65536,
+  "external_bytes_per_cycle": 64,
+  "cluster_dma_bytes_per_cycle": 64,
+  "dma_channels_per_cluster": 1,
+  "dma_command_slots_per_cluster": 8,
+  "dma_outstanding_per_cluster": 4,
+  "packet_bytes": 4096,
+  "bus_beat_bytes": 32,
+  "request_latency_cycles": 12,
+  "visibility_cycles": 4,
+  "transport_slots_per_cluster": 4,
+  "transport_bytes_per_slot": 8192,
+  "external_scratch_bytes": 16384,
+  "workload": {"M": 32, "K": 9216, "N": 128, "input_bytes": 2, "weight_bytes": 2, "partial_output_bytes": 4},
+  "origin": {
+    "geometry_vmem_topology": "Historical inspiration only: r1-base/live_evidence_audit.md and r8/source_contract_audit.md. 32-multiple geometry, private 4 MiB, conservative 64 KiB reservation, shared cluster DMA. Two clusters are a new reference choice.",
+    "all_rates_latencies_queues": "Pure research choices, not measured or vendor specifications. 1024 MAC/cycle is an ideal 32x32 lane throughput assumption. All exposed numeric performance fields are replaceable here.",
+    "source_shape": "Frozen official Qwen config and MLP source already hash-verified in R8; M32 and N128 slice, FP32 outputs are research choices."
+  },
+  "capabilities": {
+    "input_multicast": "Optional intra-cluster only. One external X read delivered to two private VMEM destinations; local DMA charges twice the payload, both destinations reserved, credit held through both visible. No inter-cluster multicast.",
+    "partial_route": "External staging only: source VMEM -> same shared EXT scratch -> destination VMEM. Separate write and read, scratch held to receiver last-read. Direct peer excluded: no extra link or bandwidth.",
+    "layout": "Common external X[M,K] and W[N,K] row-major initial arrays. gather uses a research 2D gather DMA that packs at most packet_bytes logical bytes per request; row layout stops packets at source-row boundaries. Both enumerate exact source spans, beat-rounded bytes, and compact VMEM destinations. No free prepacked external inputs.",
+    "local_ports": "Dedicated core operand port and separate cluster DMA port. Compute duration is max(MAC throughput, operand bytes/core port) plus startup. No bank conflict, cache, refresh, retry, or NoC; such effects are outside this reference.",
+    "numerical": "Explicitly admit two FP32 algorithms for this timing research: N-shard ascending-K accumulation; K-shard ascending-K in each half, then P0+P1 rounded to FP32. Tiling preserves within-shard ascending order. No bitwise equivalence or model-quality claim; R8 cancellation witness remains valid.",
+    "static": "C2N/C2K and separate C1N control; Ktile256/512/1024 or full; full-X residency optional; one/two input slots; prefetch depth1/2 bounded by slots; X-before-W or W-before-X; core forward/reverse; gather/row packetization; outstanding1/2/4. Fixed ready-command priority and round-robin packet service are existing work-conserving arbitration.",
+    "completion": "Reserve source/destination and transport credit at request acceptance. Reads: latency -> EXT -> cluster DMA -> visibility. Writes: latency -> cluster DMA source-last-read -> EXT -> visibility. Consumers wait for all request destinations visible; alias refill waits for every compute reader to finish. All events at one time committed before new arbitration. End is all disjoint external Y stores visible."
+  },
+  "sensitivity": {
+    "external_bytes_per_cycle": [32, 64, 128],
+    "cluster_dma_bytes_per_cycle": [32, 64, 128],
+    "macs_per_core_cycle": [512, 1024, 2048],
+    "request_latency_cycles": [4, 12, 36],
+    "vmem_usable_bytes": [262144, 4128768],
+    "note": "One field at a time, not jointly tuned for a positive result. Sensitivity supports scope only; independent confirmation needed for a newly proposed mechanism."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "record_type": "retrospective record of observed tool outputs",
+  "api_tree_attempts": [
+    {
+      "repository": "AMDResearch/Riallto",
+      "outcome": "HTTPError 403 rate limit exceeded"
+    },
+    {
+      "repository": "amd/RyzenAI-SW",
+      "outcome": "HTTPError 403 rate limit exceeded"
+    },
+    {
+      "repository": "amd/DynamicDispatch",
+      "outcome": "HTTPError 403 rate limit exceeded"
+    }
+  ],
+  "recovery": "shallow no-checkout source-only git clones at fixed revisions, then selected git-show and raw URL downloads; see source_manifest.json",
+  "no_device_execution_by_source_subtask": true
+}

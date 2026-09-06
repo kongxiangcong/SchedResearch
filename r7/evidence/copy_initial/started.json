@@ -1,0 +1,36 @@
+{
+  "command": [
+    "D:\\dsh-proj\\SchedResarch\\r7\\bin\\copy_probe.exe",
+    "C:\\Windows\\System32\\AMD\\validate_phx.xclbin",
+    "C:\\Windows\\System32\\AMD\\DPU_Sequence\\df_bw_dpu.txt",
+    "1"
+  ],
+  "cwd": "D:\\dsh-proj\\SchedResarch\\r7",
+  "started_utc": "2026-09-05T07:44:42.868131+00:00",
+  "plan_sha256": "6bffc020a7213c64223a5196d08e01492be13081d2f4ec54be5367c2808e0f4f",
+  "artifact_sha256_before": {
+    "D:\\dsh-proj\\SchedResarch\\r7\\copy_probe.cpp": "ed1e7319d1c190bfba402ae6921329b01a251cc4ca8ce750b6ab35d9f968efbb",
+    "D:\\dsh-proj\\SchedResarch\\r7\\bin\\copy_probe.exe": "0058423743ef252e8894ae994b3adccbd3198d49d26e5bf8433a323385da13aa",
+    "D:\\dsh-proj\\SchedResarch\\r7\\run_calibration.py": "649077b1199579fa5ca8437a4207644a2bc1ef3b5b481da2bafbe2e3fc9abb31",
+    "D:\\dsh-proj\\SchedResarch\\r7\\compute_addendum.md": "784396d1adbe922ba6544608ea6841271f62dc704638f182fdd771b2c2eca61b",
+    "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+    "C:\\Windows\\System32\\AMD\\xrt_core.dll": "7876729ce1229eea8bc49c1f4be188dfb3dc4abb8633c8f16b92d5da7d4d641a",
+    "C:\\Windows\\System32\\AMD\\amd_xrt_core.dll": "0f0602a57c2dceec0c08f9eceb0c7901814a0a89259ba56565310558a292317a",
+    "C:\\Windows\\System32\\AMD\\validate_phx.xclbin": "c64c0d59dfab9f6a12e50252f302bdc8fb7e7b8183fd69d09e2bb796579c8de5",
+    "C:\\Windows\\System32\\AMD\\DPU_Sequence\\df_bw_dpu.txt": "0b08d06fefbe999495d8d65d1c9ee32244b9364e111d2598641d5e7f8e960125",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\metering\\configs\\host_screening_off.ini": "13d383b2e98599daaf60e7c66af98e0cf6d3e8d224d09156c533f3135349675a"
+  },
+  "timeout_s": 90,
+  "child_path_prepend": "C:\\Windows\\System32\\AMD",
+  "capture_sha256": "932204c7b72e373f220332f2f7429ec3f3c64bd6d4aa06829d7573c9f732b2b9",
+  "xrt_environment": {
+    "XCL_EMULATION_MODE": null,
+    "XILINX_XRT": null,
+    "XRT_INI_PATH": "D:\\dsh-proj\\SchedResarch\\r7\\sources\\metering\\configs\\host_screening_off.ini",
+    "Debug.native_xrt_trace": null,
+    "Debug.aie_profile": null,
+    "Debug.ml_timeline": null,
+    "Debug.profile": null,
+    "Debug.timeline_trace": null
+  }
+}

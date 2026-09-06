@@ -1,0 +1,16 @@
+{
+  "python": "C:\\Python314\\python.exe",
+  "version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "packages": {
+    "numpy": "C:\\Users\\72449\\AppData\\Roaming\\Python\\Python314\\site-packages\\numpy\\__init__.py",
+    "onnx": "C:\\Users\\72449\\AppData\\Roaming\\Python\\Python314\\site-packages\\onnx\\__init__.py",
+    "onnxruntime": null,
+    "torch": null,
+    "openvino": null,
+    "tvm": null,
+    "vai_q_onnx": null,
+    "npu": null,
+    "pyxrt": null,
+    "pytest": "C:\\Users\\72449\\AppData\\Roaming\\Python\\Python314\\site-packages\\pytest\\__init__.py"
+  }
+}

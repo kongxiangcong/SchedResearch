@@ -1,0 +1,95 @@
+{
+  "captured_utc": "2026-09-05T07:36:07.476882+00:00",
+  "scope": "only named roots and patterns; no whole-machine absence claim",
+  "environment": {
+    "XILINX_XRT": null,
+    "XRT_INI_PATH": null,
+    "XCL_EMULATION_MODE": null
+  },
+  "scans": [
+    {
+      "root": "C:\\Windows\\System32\\AMD",
+      "pattern": "xdp*.dll",
+      "matches": []
+    },
+    {
+      "root": "C:\\Windows\\System32\\AMD",
+      "pattern": "*xaiengine*",
+      "matches": []
+    },
+    {
+      "root": "C:\\Windows\\System32\\AMD",
+      "pattern": "aie_control_config.json",
+      "matches": []
+    },
+    {
+      "root": "C:\\Windows\\System32\\AMD",
+      "pattern": "xrt.ini",
+      "matches": []
+    },
+    {
+      "root": "C:\\Windows\\System32\\AMD",
+      "pattern": "*WPRP",
+      "matches": []
+    },
+    {
+      "root": "D:\\riallto\\ipu_stack_rel_silicon_prod",
+      "pattern": "xdp*.dll",
+      "matches": []
+    },
+    {
+      "root": "D:\\riallto\\ipu_stack_rel_silicon_prod",
+      "pattern": "*xaiengine*",
+      "matches": []
+    },
+    {
+      "root": "D:\\riallto\\ipu_stack_rel_silicon_prod",
+      "pattern": "aie_control_config.json",
+      "matches": []
+    },
+    {
+      "root": "D:\\riallto\\ipu_stack_rel_silicon_prod",
+      "pattern": "xrt.ini",
+      "matches": []
+    },
+    {
+      "root": "D:\\riallto\\ipu_stack_rel_silicon_prod",
+      "pattern": "*WPRP",
+      "matches": [
+        "D:\\riallto\\ipu_stack_rel_silicon_prod\\rml\\tools\\tracelogging.WPRP"
+      ]
+    },
+    {
+      "root": "D:\\riallto\\ipu_stack_rel_silicon_1.0",
+      "pattern": "xdp*.dll",
+      "matches": []
+    },
+    {
+      "root": "D:\\riallto\\ipu_stack_rel_silicon_1.0",
+      "pattern": "*xaiengine*",
+      "matches": []
+    },
+    {
+      "root": "D:\\riallto\\ipu_stack_rel_silicon_1.0",
+      "pattern": "aie_control_config.json",
+      "matches": []
+    },
+    {
+      "root": "D:\\riallto\\ipu_stack_rel_silicon_1.0",
+      "pattern": "xrt.ini",
+      "matches": []
+    },
+    {
+      "root": "D:\\riallto\\ipu_stack_rel_silicon_1.0",
+      "pattern": "*WPRP",
+      "matches": [
+        "D:\\riallto\\ipu_stack_rel_silicon_1.0\\rml\\tools\\tracelogging.WPRP"
+      ]
+    }
+  ],
+  "copied_RML_profile": {
+    "source": "D:\\riallto\\ipu_stack_rel_silicon_prod\\rml\\tools\\tracelogging.WPRP",
+    "sha256": "b1d311bf1213db210ae24be5e1072c9bafa5c8503731c08b7309f29c6d39ac72",
+    "bytes": 1646
+  }
+}

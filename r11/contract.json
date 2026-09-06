@@ -1,0 +1,40 @@
+{
+  "contract_id": "R11-reference-staged-GDN-v1",
+  "classification": "uncalibrated reference simulation and synthetic numerical fixtures; not TARS or Phoenix acceptance",
+  "source": {
+    "implementation": "r5/sources/qwen/modeling_qwen3_5.py",
+    "config": "r5/sources/qwen/config.json",
+    "implementation_revision": "f62dc9bf2c90353b442a56e74391fbb8c689b55e",
+    "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
+  },
+  "shape": {"batch": 1, "tokens": 4, "hidden": 2560, "qk_heads": 16, "value_heads": 32, "key_dim": 128, "value_dim": 128, "conv_kernel": 4, "eps": 0.000001},
+  "hardware": {
+    "cores": 2, "rf_bytes_per_core": 131072, "vmem_bytes": 4194304,
+    "ext_bytes_per_cycle": 32, "local_bytes_per_cycle": 128,
+    "ext_setup_cycles": 64, "local_setup_cycles": 2,
+    "fp32_macs_per_cycle_per_core": 1024, "vpu_ops_per_cycle_per_core": 32,
+    "descriptor_cycles": 1, "projection_fill_cycles": 32,
+    "projection_K_tile": 128, "projection_N_tile": 64,
+    "special_function_op_equivalents": 16,
+    "provenance": "RF/VMEM capacity and scalar EXT/VPU rates anchored to R5 Hardware; new explicitly simplified single-server EXT/local ports with command-level visibility; FP32 and BF16-unpack capabilities independently assumed, no claim of R5 request/credit-model reproduction. No R9 parameter import.",
+    "resource_semantics": "one nonpreemptive command per EXT or local port; compute server per core; background pauses payload service on EXT/local only. A command's descriptor+setup is also charged service. No unbounded issued commands or return buffers: capacity is one serving command per port; queued commands own only declared ping-pong slots. Transfer visible at completion. Existing RF allocation may survive only within a recurrence phase."
+  },
+  "numeric": {
+    "external_dense_weight_dtype": "BF16 lossless encoding of generated BF16-representable values",
+    "external_hidden_dtype": "BF16",
+    "rf_weights_activations_accumulation_state_output_dtype": "FP32",
+    "permission": "Source-semantic FP32 research execution, FP32 intermediate projections/conv/norm. BF16 packed weights expanded exactly to FP32; 1 VPU op per converted element is charged. No source dtype-bitwise/official optimized chunk-kernel equivalence or trained-checkpoint claim.",
+    "fp32_reference_tolerance": {"atol": 0.00002, "rtol": 0.0002},
+    "same_lowering_tolerance": {"atol": 0.000002, "rtol": 0.00002},
+    "weights_seed": 110001
+  },
+  "lifecycle": {
+    "prefill": "four hidden input vectors of a known continuation block available in EXT at module entry; prior conv/recurrent cache in EXT. Full dense input projection and causal conv/gates/norm paid before prepared vectors are consumed. Store prepared FP32 vectors and z in shared VMEM, process state head waves. All per-token module outputs and final state/conv cache returned EXT.",
+    "decode": "only one hidden vector available per invocation; next vector release depends on previous final EXT output and state visibility plus caller boundary that clobbers RF/VMEM. No timed other-layer interval is invented. Four invocations are work accounting only; no tokens/s claim.",
+    "weights": "all dense weights cold in EXT each module invocation, streamed through identical two-slot VMEM/RF buffers; prefill uses four rows per loaded weight tile, decode one. Other model weights excluded, no persistent weight cache assumed.",
+    "common_stage_barriers": ["input projections", "conv and prepared operands", "recurrence", "gated norm", "output projection", "final outputs/cache visible"]
+  },
+  "splits": {"train_start": 110100, "train_n": 8, "validation_start": 110200, "validation_n": 8, "test_A_start": 111000, "test_B_start": 112000, "test_n_per_group": 30},
+  "background": {"period_cycles": 4096, "blocked_cycles": 819, "ports": ["EXT", "LOCAL"], "phase": "independent seeded uniform integer on [0,4096) per port, paired between variants"},
+  "gate": {"gain_pct": 5, "confidence": 0.95, "t_critical_df29": 2.045229642, "conditions": "quiet >=5; each background group mean>=5 and CI lower>0; all audits pass"}
+}

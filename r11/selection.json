@@ -1,0 +1,1979 @@
+{
+  "frozen_before_test_utc": "2026-09-05T15:49:54.259679+00:00",
+  "variants": {
+    "baseline": {
+      "train_ranking": [
+        {
+          "plan": {
+            "variant": "baseline",
+            "tile": 64,
+            "depth": 2,
+            "order": "head",
+            "name": "baseline-v64-p2-head"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4257249.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4277491.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4250829.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4277659.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4278037.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4278931.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4248955.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4279035.0
+            }
+          ],
+          "train_mean": 3858425.6875
+        },
+        {
+          "plan": {
+            "variant": "baseline",
+            "tile": 64,
+            "depth": 2,
+            "order": "token",
+            "name": "baseline-v64-p2-token"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4257249.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4277491.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4250829.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4277659.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4278037.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4278931.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4248955.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4279035.0
+            }
+          ],
+          "train_mean": 3858425.6875
+        },
+        {
+          "plan": {
+            "variant": "baseline",
+            "tile": 32,
+            "depth": 2,
+            "order": "head",
+            "name": "baseline-v32-p2-head"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4281825.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4303428.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4275405.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4302235.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4302613.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4303507.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4273531.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4303611.0
+            }
+          ],
+          "train_mean": 3870605.25
+        },
+        {
+          "plan": {
+            "variant": "baseline",
+            "tile": 32,
+            "depth": 2,
+            "order": "token",
+            "name": "baseline-v32-p2-token"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4281825.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4303428.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4275405.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4302235.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4302613.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4303507.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4273531.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4303611.0
+            }
+          ],
+          "train_mean": 3870605.25
+        },
+        {
+          "plan": {
+            "variant": "baseline",
+            "tile": 128,
+            "depth": 1,
+            "order": "head",
+            "name": "baseline-v128-p1-head"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4437598.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4854991.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4412516.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4855195.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4855537.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4856431.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4412795.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4856535.0
+            }
+          ],
+          "train_mean": 4138376.875
+        },
+        {
+          "plan": {
+            "variant": "baseline",
+            "tile": 128,
+            "depth": 1,
+            "order": "token",
+            "name": "baseline-v128-p1-token"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4437598.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4854991.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4412516.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4855195.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4855537.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4856431.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4412795.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3584054.0
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4856535.0
+            }
+          ],
+          "train_mean": 4138376.875
+        },
+        {
+          "plan": {
+            "variant": "baseline",
+            "tile": 64,
+            "depth": 1,
+            "order": "head",
+            "name": "baseline-v64-p1-head"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4466270.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4883663.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4441188.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4883867.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4884209.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4885103.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4439567.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4885207.0
+            }
+          ],
+          "train_mean": 4153814.125
+        },
+        {
+          "plan": {
+            "variant": "baseline",
+            "tile": 64,
+            "depth": 1,
+            "order": "token",
+            "name": "baseline-v64-p1-token"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4466270.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4883663.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4441188.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4883867.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4884209.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4885103.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4439567.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3586494.0
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4885207.0
+            }
+          ],
+          "train_mean": 4153814.125
+        },
+        {
+          "plan": {
+            "variant": "baseline",
+            "tile": 32,
+            "depth": 1,
+            "order": "head",
+            "name": "baseline-v32-p1-head"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4468880.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4887759.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4441425.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4883867.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4888305.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4889199.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4438193.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4889303.0
+            }
+          ],
+          "train_mean": 4157370.1875
+        },
+        {
+          "plan": {
+            "variant": "baseline",
+            "tile": 32,
+            "depth": 1,
+            "order": "token",
+            "name": "baseline-v32-p1-token"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4468880.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4887759.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4441425.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4883867.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4888305.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4889199.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4438193.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3591374.0
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4889303.0
+            }
+          ],
+          "train_mean": 4157370.1875
+        }
+      ],
+      "validation": [
+        {
+          "plan": {
+            "variant": "baseline",
+            "tile": 64,
+            "depth": 2,
+            "order": "head",
+            "name": "baseline-v64-p2-head"
+          },
+          "validation": [
+            {
+              "seed": 110200,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110200,
+              "condition": "background",
+              "elapsed": 4259160.0
+            },
+            {
+              "seed": 110201,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110201,
+              "condition": "background",
+              "elapsed": 4279315.0
+            },
+            {
+              "seed": 110202,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110202,
+              "condition": "background",
+              "elapsed": 4279564.0
+            },
+            {
+              "seed": 110203,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110203,
+              "condition": "background",
+              "elapsed": 4279005.0
+            },
+            {
+              "seed": 110204,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110204,
+              "condition": "background",
+              "elapsed": 4277714.0
+            },
+            {
+              "seed": 110205,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110205,
+              "condition": "background",
+              "elapsed": 4250445.0
+            },
+            {
+              "seed": 110206,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110206,
+              "condition": "background",
+              "elapsed": 4249372.0
+            },
+            {
+              "seed": 110207,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110207,
+              "condition": "background",
+              "elapsed": 4259009.0
+            }
+          ],
+          "mean": 3857513.0625
+        },
+        {
+          "plan": {
+            "variant": "baseline",
+            "tile": 64,
+            "depth": 2,
+            "order": "token",
+            "name": "baseline-v64-p2-token"
+          },
+          "validation": [
+            {
+              "seed": 110200,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110200,
+              "condition": "background",
+              "elapsed": 4259160.0
+            },
+            {
+              "seed": 110201,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110201,
+              "condition": "background",
+              "elapsed": 4279315.0
+            },
+            {
+              "seed": 110202,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110202,
+              "condition": "background",
+              "elapsed": 4279564.0
+            },
+            {
+              "seed": 110203,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110203,
+              "condition": "background",
+              "elapsed": 4279005.0
+            },
+            {
+              "seed": 110204,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110204,
+              "condition": "background",
+              "elapsed": 4277714.0
+            },
+            {
+              "seed": 110205,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110205,
+              "condition": "background",
+              "elapsed": 4250445.0
+            },
+            {
+              "seed": 110206,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110206,
+              "condition": "background",
+              "elapsed": 4249372.0
+            },
+            {
+              "seed": 110207,
+              "condition": "quiet",
+              "elapsed": 3448328.125
+            },
+            {
+              "seed": 110207,
+              "condition": "background",
+              "elapsed": 4259009.0
+            }
+          ],
+          "mean": 3857513.0625
+        },
+        {
+          "plan": {
+            "variant": "baseline",
+            "tile": 32,
+            "depth": 2,
+            "order": "head",
+            "name": "baseline-v32-p2-head"
+          },
+          "validation": [
+            {
+              "seed": 110200,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110200,
+              "condition": "background",
+              "elapsed": 4283736.0
+            },
+            {
+              "seed": 110201,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110201,
+              "condition": "background",
+              "elapsed": 4303891.0
+            },
+            {
+              "seed": 110202,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110202,
+              "condition": "background",
+              "elapsed": 4304140.0
+            },
+            {
+              "seed": 110203,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110203,
+              "condition": "background",
+              "elapsed": 4303581.0
+            },
+            {
+              "seed": 110204,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110204,
+              "condition": "background",
+              "elapsed": 4302290.0
+            },
+            {
+              "seed": 110205,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110205,
+              "condition": "background",
+              "elapsed": 4275021.0
+            },
+            {
+              "seed": 110206,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110206,
+              "condition": "background",
+              "elapsed": 4273948.0
+            },
+            {
+              "seed": 110207,
+              "condition": "quiet",
+              "elapsed": 3447941.125
+            },
+            {
+              "seed": 110207,
+              "condition": "background",
+              "elapsed": 4283585.0
+            }
+          ],
+          "mean": 3869607.5625
+        }
+      ],
+      "selected": {
+        "variant": "baseline",
+        "tile": 64,
+        "depth": 2,
+        "order": "head",
+        "name": "baseline-v64-p2-head"
+      }
+    },
+    "resident": {
+      "train_ranking": [
+        {
+          "plan": {
+            "variant": "resident",
+            "tile": 64,
+            "depth": 2,
+            "order": "head",
+            "name": "resident-v64-p2-head"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4281825.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4303428.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4277030.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4304415.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4303974.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4304768.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4277072.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4304850.0
+            }
+          ],
+          "train_mean": 3871769.375
+        },
+        {
+          "plan": {
+            "variant": "resident",
+            "tile": 32,
+            "depth": 2,
+            "order": "head",
+            "name": "resident-v32-p2-head"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4285921.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4306163.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4279501.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4306331.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4306709.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4307603.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4278433.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4307707.0
+            }
+          ],
+          "train_mean": 3873029.75
+        },
+        {
+          "plan": {
+            "variant": "resident",
+            "tile": 128,
+            "depth": 1,
+            "order": "head",
+            "name": "resident-v128-p1-head"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4314718.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4732111.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4289318.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4732315.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4732657.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4733551.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4289376.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4733655.0
+            }
+          ],
+          "train_mean": 4027299.3125
+        },
+        {
+          "plan": {
+            "variant": "resident",
+            "tile": 64,
+            "depth": 1,
+            "order": "head",
+            "name": "resident-v64-p1-head"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3486462.0
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4327006.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3486462.0
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4744399.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3486462.0
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4299426.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3486462.0
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4740507.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3486462.0
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4744945.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3486462.0
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4745839.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3486462.0
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4298107.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3486462.0
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4745943.0
+            }
+          ],
+          "train_mean": 4033616.75
+        },
+        {
+          "plan": {
+            "variant": "resident",
+            "tile": 32,
+            "depth": 1,
+            "order": "head",
+            "name": "resident-v32-p1-head"
+          },
+          "train": [
+            {
+              "seed": 110100,
+              "condition": "quiet",
+              "elapsed": 3489614.0
+            },
+            {
+              "seed": 110100,
+              "condition": "background",
+              "elapsed": 4374672.0
+            },
+            {
+              "seed": 110101,
+              "condition": "quiet",
+              "elapsed": 3489614.0
+            },
+            {
+              "seed": 110101,
+              "condition": "background",
+              "elapsed": 4793551.0
+            },
+            {
+              "seed": 110102,
+              "condition": "quiet",
+              "elapsed": 3489614.0
+            },
+            {
+              "seed": 110102,
+              "condition": "background",
+              "elapsed": 4348023.0
+            },
+            {
+              "seed": 110103,
+              "condition": "quiet",
+              "elapsed": 3489614.0
+            },
+            {
+              "seed": 110103,
+              "condition": "background",
+              "elapsed": 4793755.0
+            },
+            {
+              "seed": 110104,
+              "condition": "quiet",
+              "elapsed": 3489614.0
+            },
+            {
+              "seed": 110104,
+              "condition": "background",
+              "elapsed": 4794097.0
+            },
+            {
+              "seed": 110105,
+              "condition": "quiet",
+              "elapsed": 3489614.0
+            },
+            {
+              "seed": 110105,
+              "condition": "background",
+              "elapsed": 4794991.0
+            },
+            {
+              "seed": 110106,
+              "condition": "quiet",
+              "elapsed": 3489614.0
+            },
+            {
+              "seed": 110106,
+              "condition": "background",
+              "elapsed": 4347259.0
+            },
+            {
+              "seed": 110107,
+              "condition": "quiet",
+              "elapsed": 3489614.0
+            },
+            {
+              "seed": 110107,
+              "condition": "background",
+              "elapsed": 4795095.0
+            }
+          ],
+          "train_mean": 4059897.1875
+        }
+      ],
+      "validation": [
+        {
+          "plan": {
+            "variant": "resident",
+            "tile": 64,
+            "depth": 2,
+            "order": "head",
+            "name": "resident-v64-p2-head"
+          },
+          "validation": [
+            {
+              "seed": 110200,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110200,
+              "condition": "background",
+              "elapsed": 4287832.0
+            },
+            {
+              "seed": 110201,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110201,
+              "condition": "background",
+              "elapsed": 4305252.0
+            },
+            {
+              "seed": 110202,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110202,
+              "condition": "background",
+              "elapsed": 4305501.0
+            },
+            {
+              "seed": 110203,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110203,
+              "condition": "background",
+              "elapsed": 4304942.0
+            },
+            {
+              "seed": 110204,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110204,
+              "condition": "background",
+              "elapsed": 4302290.0
+            },
+            {
+              "seed": 110205,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110205,
+              "condition": "background",
+              "elapsed": 4275576.0
+            },
+            {
+              "seed": 110206,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110206,
+              "condition": "background",
+              "elapsed": 4277238.0
+            },
+            {
+              "seed": 110207,
+              "condition": "quiet",
+              "elapsed": 3448868.5
+            },
+            {
+              "seed": 110207,
+              "condition": "background",
+              "elapsed": 4287681.0
+            }
+          ],
+          "mean": 3871078.75
+        },
+        {
+          "plan": {
+            "variant": "resident",
+            "tile": 32,
+            "depth": 2,
+            "order": "head",
+            "name": "resident-v32-p2-head"
+          },
+          "validation": [
+            {
+              "seed": 110200,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110200,
+              "condition": "background",
+              "elapsed": 4287832.0
+            },
+            {
+              "seed": 110201,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110201,
+              "condition": "background",
+              "elapsed": 4307987.0
+            },
+            {
+              "seed": 110202,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110202,
+              "condition": "background",
+              "elapsed": 4308236.0
+            },
+            {
+              "seed": 110203,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110203,
+              "condition": "background",
+              "elapsed": 4307677.0
+            },
+            {
+              "seed": 110204,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110204,
+              "condition": "background",
+              "elapsed": 4306386.0
+            },
+            {
+              "seed": 110205,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110205,
+              "condition": "background",
+              "elapsed": 4279117.0
+            },
+            {
+              "seed": 110206,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110206,
+              "condition": "background",
+              "elapsed": 4279418.0
+            },
+            {
+              "seed": 110207,
+              "condition": "quiet",
+              "elapsed": 3448763.5
+            },
+            {
+              "seed": 110207,
+              "condition": "background",
+              "elapsed": 4287681.0
+            }
+          ],
+          "mean": 3872152.625
+        },
+        {
+          "plan": {
+            "variant": "resident",
+            "tile": 128,
+            "depth": 1,
+            "order": "head",
+            "name": "resident-v128-p1-head"
+          },
+          "validation": [
+            {
+              "seed": 110200,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110200,
+              "condition": "background",
+              "elapsed": 4732080.0
+            },
+            {
+              "seed": 110201,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110201,
+              "condition": "background",
+              "elapsed": 4733935.0
+            },
+            {
+              "seed": 110202,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110202,
+              "condition": "background",
+              "elapsed": 4734184.0
+            },
+            {
+              "seed": 110203,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110203,
+              "condition": "background",
+              "elapsed": 4733625.0
+            },
+            {
+              "seed": 110204,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110204,
+              "condition": "background",
+              "elapsed": 4434397.0
+            },
+            {
+              "seed": 110205,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110205,
+              "condition": "background",
+              "elapsed": 4287864.0
+            },
+            {
+              "seed": 110206,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110206,
+              "condition": "background",
+              "elapsed": 4285430.0
+            },
+            {
+              "seed": 110207,
+              "condition": "quiet",
+              "elapsed": 3484886.0
+            },
+            {
+              "seed": 110207,
+              "condition": "background",
+              "elapsed": 4736061.0
+            }
+          ],
+          "mean": 4034791.5
+        }
+      ],
+      "selected": {
+        "variant": "resident",
+        "tile": 64,
+        "depth": 2,
+        "order": "head",
+        "name": "resident-v64-p2-head"
+      }
+    }
+  },
+  "selected": {
+    "baseline": {
+      "variant": "baseline",
+      "tile": 64,
+      "depth": 2,
+      "order": "head",
+      "name": "baseline-v64-p2-head"
+    },
+    "resident": {
+      "variant": "resident",
+      "tile": 64,
+      "depth": 2,
+      "order": "head",
+      "name": "resident-v64-p2-head"
+    }
+  }
+}

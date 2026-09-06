@@ -1,0 +1,1101 @@
+TaskStream: Accelerating Task-Parallel Workloads by
+               Recovering Program Structure
+
+                        Vidushi Dadu                                                             Tony Nowatzki
+
+                       vidushi.dadu@cs.ucla.edu                                                       tjn@cs.ucla.edu
+                University of California, Los Angeles                                    University of California, Los Angeles
+
+                                    USA                                                                      USA
+
+ABSTRACT                                                                      1 INTRODUCTION
+
+Reconfigurable accelerators, like CGRAs and dataflow architectures,           With improvements to general purpose processors slowing, recon-
+have come to prominence for addressing data-processing problems.              figurable accelerators (aka. dataflow accelerators [30, 41, 43, 45, 61
+However, they are largely limited to workloads with regular par-              63], or CGRAs [16, 17, 26, 34, 35, 57, 60]) have become an increas-
+allelism, precluding their applicability to prevalent task-parallel           ingly favorable option for meeting the needs of data-processing
+workloads. Reconfigurable architectures and task parallelism seem             workloads. Recently, multicore versions of these designs have seen
+to be at odds, as the former requires repetitive and simple program           commercial traction, particularly for use in datacenters (e.g. [4, 5,
+structure, and the latter breaks program structure to create small,           39, 68, 69]). The key attraction is their broad applicability across
+individually scheduled program units.                                         workloads, due to their general computation datapaths and memory
+                                                                              access patterns.
+   Our insight is that if tasks and their potential for communication
+structure are first-class primitives in the hardware, it is possible             While promising for generality, most reconfigurable architec-
+to recover program structure with extremely low overhead. We                  tures remain fairly limited to regular computations. While many
+propose a task execution model for accelerators called TaskStream,            forms of irregularity can be supported1, we focus on irregular paral-
+which annotates task dependences with information sufficient to               lelism, also known as task parallelism: this occurs when a program's
+recover inter-task structure. TaskStream enables work-aware load              work is created and scheduled to execution resources dynamically,
+balancing, recovery of pipelined inter-task dependences, and recov-           based on runtime computations.
+ery of inter-task read sharing through multicasting.
+                                                                                 There are at least three clear benefits to supporting task paral-
+   We apply TaskStream to a reconfigurable dataflow architecture,             lelism in reconfigurable accelerators. First, many workloads have
+creating a seamless hierarchical dataflow model for task-parallel             inherent data-dependences in forming parallel work (e.g. create
+workloads. We compare our accelerator, Delta, with an equivalent              tasks for all outgoing edges of a graph's vertex), so this enables
+static-parallel design. Overall, we find that our execution model can         broader applicability. Second, sometimes the amount of work per
+improve performance by 2.2× with only 3.6% area overhead, while               task can only be determined at runtime (e.g. number of elements
+alleviating the programming burden of managing task distribution.             matched in a join), so dynamic assignment can balance load. Third,
+                                                                              many irregular workloads have multiple task types, where each
+CCS CONCEPTS                                                                  type stresses the system differently in terms of compute, memory,
+                                                                              network, or other resources (e.g. memory-bound graph aggregation
+· Computer systems organization  Reconfigurable com-                          and compute-bound multiplication in Graph Convolution Networks
+puting; Data flow architectures; Heterogeneous (hybrid)                       - GCNs); running different task types in parallel can balance shared
+systems.                                                                      resource usage.
+
+KEYWORDS                                                                         Yet task parallelism is generally not supported on reconfigurable
+                                                                              accelerators, and instead, resources are assigned at coarse grain.
+Irregularity, tasks, load-balance, accelerators, generality, dataflow,        This is understandable, as such architectures are designed to ex-
+reconfigurable, streaming                                                     ploit structure  i.e. patterns in the execution that occur through
+                                                                              time (temporal structure) or across units simultaneously (spatial
+ACM Reference Format:                                                         structure). For example, configuring a dedicated communication
+Vidushi Dadu, Tony Nowatzki. 2022. TaskStream: Accelerating Task-Parallel     path between two instructions exploits the temporal structure of
+Workloads by Recovering Program Structure. In Proceedings of the 27th         repeated communication; a vector operation exploits spatial struc-
+ACM International Conference on Architectural Support for Programming         ture. However, because tasks are traditionally assigned to resources
+Languages and Operating Systems (ASPLOS '22), February 28  March 4,           independently, the structure across tasks is lost, leading to severe
+2022, Lausanne, Switzerland. ACM, New York, NY, USA, 13 pages. https:         overheads: naïvely assigning tasks to cores would cause excess
+//doi.org/10.1145/3503222.3507706                                             reconfiguration; relying on traditional shared-memory inter-task
+                                                                              communication incurs high latency and traffic overheads.
+This work is licensed under a Creative Commons Attribution 4.0 Interna-
+tional License.                                                                  Our goal is to enable efficient task parallelism on reconfigurable
+                                                                              accelerators. In principle, the information required to optimize
+ASPLOS '22, February 28  March 4, 2022, Lausanne, Switzerland                 task-parallel programs to avoid inter-task communication could be
+© 2022 Copyright held by the owner/author(s).
+ACM ISBN 978-1-4503-9205-1/22/02.                                             1E.g. supporting irregular memory [19, 48], or irregular control [62, 67].
+https://doi.org/10.1145/3503222.3507706
+
+                                                                           1
+ASPLOS '22, February 28  March 4, 2022, Lausanne, Switzerland                                                                                                         Vidushi Dadu, Tony Nowatzki
+
+made available: tasks could be annotated with information that de-          Examplea. Variable-size Tasks                        b. Coarse-grained                        c. Coarse-grained
+scribes which data they use, and the hardware could take advantage                                                                 Pipeline Reuse                            Read Reuse
+of structured communication patterns, like pipelining and multi-                    B[N] = {3,2,4,8,7,6}
+casting. Performing this analysis in software would likely not be                   for i: 0 to N:                               for i: 0 to tiles:                   B[6] = {0,1,2,0,1,1}
+profitable, especially in an accelerator system where tasks are short.                                                              for j: tstart[i]                  for i: 1 to 6:
+Our solution is to expose task-management and structured-access                        M[i] = i*2;                                             to tend[j]:
+as first-class primitives of the hardware's execution model.                           for j: 0 to B[i]:                               X += M[j]*A[j]                    for j: B[i] to B[i+N]:
+                                                                                                                                                                            A[Bi] = M[Bi]+1
+TaskStream Model: With these insights, we propose the                                      A[j] += M[i]
+TaskStream execution model, which augments a reconfigurable
+accelerator's ISA with primitives for dynamic task management and           Conventional Task        Core 0   Core 1             Core 0 Core 1                        Core 0  Core 1     Cache
+structured access. In TaskStream, tasks and their dependences are              Parallel Impl.                 (i=0,3)                                                                 (data: M[1])
+represented in a graph, and edges are annotated with opportunities                                                     Cache     Core 2 Core 3                         B[1]    B[4]
+for structure recovery. Overall, TaskStream provides reconfigurable                                           Work=11             Multiple memory reads/      Cache
+accelerators with efficient support for tasks through three key                                                                                            (data: X)
+features: First, it provides a high-throughput task creation interface                               Core 2   Core 3                     writes to X[i]
+from instructions in the datapath. Second, it provides load balance                                  (i=1,4)  (i=2,5)                                                 Core 2  Core 3
+support, informed by programmer's knowledge of task type
+distribution and task size (work-per-task). Third, it supports                                       Work=9 Work=10                                                            B[5]
+dynamic data streaming to recover inter-task communication
+structure, and dynamic task batching of reused inputs to recover                                     M[i] uniformly distributes                                       Multiple accesses to the
+temporal and spatial locality structure.                                                              tasks ­ load imbalance.                                         same memory -- traffic
+
+Implementation and Evaluation: To implement TaskStream, we                  Exploiting or            Core 0   Core 1             Core 0 Core 1                        Core 0  Core 1     Cache
+augment a decoupled-spatial reconfigurable accelerator [66] with               recovering structure           (i=0,4)                                                                 (data: M[1])
+TaskStream abstractions in software and hardware (called Delta).                                                       Cache     Core 2 Core 3                Cache    B[1]    B[4]
+Programmers express their programs with a hierarchical dataflow                                               Work=10                  Pipeline reuse of X (data: X)
+representation, where TaskStream nodes are coarse grain tasks,
+each containing dataflow instructions that define the task semantics.                                Core 2   Core 3              ­ eliminate memory access           Core 2  Core 3
+We evaluate performance with a cycle-level simulator.                                                (i=1,3)  (i=2,5)
+                                                                                                                                                                               B[5]
+   We chose five challenging task-parallel workloads with unique                                     Work=10 Work=10
+opportunities for structured communication: K-nearest neighbor                                       Size-aware task schedule                                         Batching of duplicate requests
+(kNN), an ML-oriented database query, sparse matrix-multiply,                                                                                                         ­ redundant loads to multicast
+Cholesky decomposition and Graph Convolution Networks (GCN).                                           ­ better load balance.
+
+   Overall, we achieve 81.3× speedup over multicore CPUs. Over                                       Figure 1: Opportunities in Naïve Task Parallelism
+an efficient static-parallel CGRA baseline (without TaskStream),
+we achieve 2.2× speedup, with load-balancing optimizations alone            2 TASKSTREAM EXECUTION MODEL
+yielding only 1.3× performance.
+                                                                            We first motivate the principles of TaskStream by discussing op-
+Contributions:                                                              portunities to exploit certain forms of program structure. Then, we
+  · Novel model for task parallelism for reconfigurable accelerators,       will present our proposed TaskStream model, abstract from any
+     which enables a new class of structure-recovery optimizations.         particular architecture implementation.
+  · Hardware/software co-design to support three different classes
+     of communication patterns efficiently: 1. lightweight task cre-        2.1 Opportunities for Structure Recovery
+     ation, 2. inter-task streaming dependences with co-scheduling
+     of dependent tasks, 3. inter-task reuse by exploiting spatial or       The context for our proposed system is a tiled multicore architec-
+     temporal structure with batching.                                      ture, in which a task scheduler assigns tasks to cores. We assume
+  · Evaluation against static and naïve task-parallel models, demon-        a mesh-based network on chip (NoC), but optimizations apply to
+     strating the value of structure recovery in irregular workloads.       other topologies. To elaborate our optimizations, we discuss three
+                                                                            program idioms from Figure 1, where locality structure is lost due
+Paper Organization: We first motivate and describe TaskStream               to exploiting task parallelism.
+in Section 2. In Section 3, we apply TaskStream to a dataflow accel-
+erator to create a hierarchical dataflow representation, describe the       Variable-sized Tasks: A variety of task-parallel workloads have
+mapping of our evaluated workloads, and discuss limitations and             task types2 whose amount of work is either data-dependent or
+possible extensions. Section 4 describes the accelerator hardware           progressively changing over its instances. Figure 1a shows an ex-
+implementation, and then Sections 5 and 6 provide methodology               ample where inner loop tasks have a data-dependent length, based
+and evaluation. Finally, section 7 describes the relationship to exist-     on B[i]. A naive task parallel model would assign the inner loop
+ing software and hardware systems that optimize for task locality.          tasks irrespective of the work involved in a task. Work-stealing is
+                                                                            possible, but requires extra inter-core communication latency and
+                                                                            bandwidth.
+
+                                                                               The opportunity here is to distribute tasks with the knowledge
+                                                                            of the work involved. In the example, core 1 gets the smallest and
+                                                                            second-largest task (i.e. with total work = 3+7 = 10), so that all cores
+                                                                            get similar total work. This model is synergistic with accelerators,
+                                                                            which have quite predictable execution times.
+
+                                                                            Coarse-grain Pipeline Reuse: A common behavior in data pro-
+                                                                            cessing algorithms is ordered dependences between one task and
+                                                                            another, for example where one task produces an array which the
+                                                                            other uses in the same order. Figure 1b demonstrates a global re-
+                                                                            duction example where each core gets a tile of data. In the NSAïve
+                                                                            task parallel implementation, all cores need to perform updates on
+                                                                            the reduction variable through memory.
+
+                                                                            2A ltask typez is the static definition of a task, including computation and memory
+                                                                            accesses, while the dynamic instantiation of a task is a task instance.
+
+                                                                         2
+TaskStream: Accelerating Task-Parallel Workloads by Recovering Program Structure                                                       ASPLOS '22, February 28  March 4, 2022, Lausanne, Switzerland
+
+   The opportunity here is to identify the ordered reuse, and                        2. TaskStream Graph 1. Example   a. Task Creation          b. Task Streaming                           c. Task Batching
+pipeline or stream the data from a producer to one or more
+consumer tasks. This transforms the memory traffic into direct                                                       B[N] = {3,2,9,8}          for i: 0 to tiles:                      B[6] = {0,1,2,0,1,1}
+network traffic, reduces shared-memory overhead from coherence,                                                      for i: 0 to N:               for j: tstart[i]                     for i: 1 to 6:
+and also allows overlapped execution of tasks for more concurrency.                                                                                         to tend[j]:
+In the example, the pipelined reduction can be performed without                                                        M[i] = i*2;                  X += M[j]*A[j]                       for Bi: B[i] to B[i+N]:
+accessing memory (except for writing the final value).                                                                  for j: 0 to B[i]:                                                    MBi = M[Bi]
+                                                                                                                                                                                             A[Bi] = MBi+1
+Coarse-grain Read Reuse: Another common idiom is when dif-                                                                      A[j] += M[i]
+ferent subsets of tasks read the same data. If such tasks are not
+scheduled together in time or space, the opportunity to exploit                                                                Output from parent task-instance                        Input to parent task-instance
+this form of reuse can be lost. Figure 1c demonstrates this with
+an algorithm that traverses and modifies a compressed sparse row                                                     coreMask       M[i],B[i]              X                           B[i]               Unique Multicast
+(CSR)-like data structure, and is representative of common algo-
+rithms that rely on range-based indirection. Here the duplicates                                                     M                 6,8                 2                           1     M= reqs locations
+in B are expected to create multiple tasks with shared read data,
+providing an opportunity for reuse. A naïve task parallel model                                                                M= 4,9                      7                           1     111
+schedules tasks without respecting locality, so tasks that access the
+same data may not be scheduled on the same core or at the same                                                                 001 2,2                     3                           0                  2,N T2
+time. The reuse cannot be exploited to save network traffic and
+cache/memory bandwidth.                                                                                                                0,3                 1        M=                 2     Batch+ 1,N T1 T4 T5
+                                                                                                                                                                    111
+   Such coarse-grain reuse can be exploited by identifying tasks                                                                                                         Stream        1     Stream 0,N T0 T3
+that access the same data, and reordering them to execute at the
+same time on different cores; the responses can then be multicast to                                                 core 1         core 2                 X                           0                  Tasks assigned to:
+significantly reduce network traffic and memory bandwidth usage.
+We call this optimization task batching.                                                                             6,8       M=      4,9                 2        Stream Edge Args:        M=           core1 core2 core3
+                                                                                                                     0,3       110     2,2                 7          child TaskID,
+   An alternate opportunity, used in a variety of other contexts [6,                                                                                       3         stream Bytes,           111
+12, 18, 25, 27, 74], is to use a lspatial hintz to assign tasks that access
+the same data to the same cores. While this reduces memory access                                                            Sizehint                            1  depDistance = 1     Batch Edge Args:  T1 T4 T5
+for data that fits in private cache, it also restricts the allowed sched-                                                      = B[i]       Input to child                                child TaskID,   T0 T3 T2
+uling locations, which could restrict load balancing optimizations.
+We compare against spatialhint in evaluation.                                                                                               task-instance                              DataID = B[i],     (contains MBi)
+                                                                                                                                                                                           Bytes = N
+2.2 TaskStream Model
+                                                                                                 Figure 2: TaskStream Graph Abstractions
+TaskStream is a task-parallel execution model that adds sufficient
+information to identify and exploit structure-recovery opportuni-                    mapping locations. Some task types can be co-located on the same
+ties. In principle, TaskStream can be an extension for a variety of                  core, provided there are sufficient resources. Tasks that are not yet
+architectures, but its simplicity and approach to load balance makes                 ready to execute may be waiting on streaming or batched data, and
+it well-suited to reconfigurable accelerators (Section 3 discusses in-               we call these tasks pending.
+tegration with a dataflow-based accelerator model). We first discuss
+the basics, and then cover how each optimization is applied.                            One phase of the program completes when all tasks are com-
+                                                                                     pleted. A program may consist of multiple phases. Examples of a
+TaskStream Basics: A program in TaskStream is represented as                         TaskStream program phase are shown in Figure 2, where task types
+a set of nodes, one for each task type, and edges for inter-task                     are distinguished by color (and shading), and we discuss next.
+dependences. Edges are typed, and each type indicates the potential
+for structure-recovery: creation (standard), streaming (for pipeline                 Task Creation & Work-aware Load Balance: Figure 2a demon-
+reuse), and batching (read reuse). Tasks can be in one of three states:              strates the basics, as well as annotations for load balancing. A single
+1. Created: the arguments for a task instance are constructed on                     task creation edge connects the outer-loop multiplication task, and
+the originating core; 2. Scheduled: the task is bound to execution                   inner-loop accumulation. When two task nodes are connected by a
+resources, 3. Executing: task computation is in progress.                            task creation edge, it means that some outputs from the source node
+                                                                                     task are used to activate the creation edge and will be inputs to the
+   Tasks are created when they receive a set of values for all in-                   destination node task. In Figure 2, the interface for activations is
+coming creation (standard) edges. Next, a task is scheduled to stor-                 represented by task buffers, and the data order indicates the order
+age/execution resources (e.g. buffer/core), after which it is assigned               of producing and receiving tasks. The outer-loop task gets core
+a TaskID that represents this location; the TaskID may be returned                   1 (coreMask:001) while accumulation gets the remaining 2 cores
+to the parent if a streaming communication will be established.                      (coreMask:110) because it has a ratio of B[i] times more work
+Tasks may only be scheduled to a core which is configured for its                    compared to the outer-loop.
+task type. To convey the configuration information, each task node
+is annotated with a coreMask: a bitmap that describes the legal                         TaskStream provides annotations to aid load balancing at task
+                                                                                     scheduling time. Task creation edges may be annotated with a
+                                                                                     sizehint, which is a task argument that describes the relative
+                                                                                     amount of work for the task. This enables a simple size-aware
+                                                                                     scheduling policy, where a new task is assigned to the core with
+                                                                                     the least cumulative work. In the example, B[i] is the number of
+                                                                                     iterations of the inner loop, and is therefore used for that task's
+                                                                                     sizehint. The scheduler could then assign tasks of size 3, 8 to core
+                                                                                     1 and tasks of size 2, 9 to core 2, resulting in a balanced load.
+
+                                                                                     Task Streaming: To facilitate dynamic pipelining between tasks,
+                                                                                     edges may be of task streaming type. When two nodes are connected
+                                                                                     by such an edge, the output at the source node task triggers a
+                                                                                     streaming communication with the assigned children (stored as
+                                                                                     child TaskID). For a streaming edge, the programmer can specify
+                                                                                     a dependence distance (depDistance), which allows developing a
+                                                                                     streaming relationship between task-instances separated by a fixed
+                                                                                     number of tasks. In the example, the depDistance is 1. To close
+                                                                                     the communication, an end-of-stream message is sent when the
+                                                                                     required number of bytes have been streamed in, this parameter
+                                                                                     must be specified by the producer. To set up the communication,
+                                                                                     start-of-stream handshaking messages are exchanged to ensure
+                                                                                     that the children are ready, and producers have their scheduling
+                                                                                     information. The data is streamed in between these messages.
+
+                                                                                  3
+ASPLOS '22, February 28  March 4, 2022, Lausanne, Switzerland                                                                                                     Vidushi Dadu, Tony Nowatzki
+
+Pseudo code TaskStream Dataflow Graphs                                                         41, 45, 62]). We provide a simplified description here.
+                        Graph                                                                     In this model, computation and memory instructions are rep-
+
+for i: 1 to 6:           Task   T1                  B[i:i+N] Bi                                resented as nodes, edges represent ordered dependences between
+   for Bi: B[i] to       Edges    Bi                                                           instructions, and nodes fire on data arrival. Memory nodes are re-
+              B[i+N]:                                                     Producer             ferred to as memory streams, as they encode patterns of memory
+      MBi = M[Bi]         Bi    T2                                          ports              access (e.g. A[i] for i = 0 to N). Computation is decoupled from mem-
+      A[Bi] = MBi+1               MBi                                                          ory to allow for efficient prefetching, and memory and compute
+                                             Bi M[Bi:Bi+N] MBi                                 nodes communicate with each other through lportsz. Ports are anal-
+                                T3                                                             ogous to registers in a VonNeumann architecture, but have FIFO
+                                              Bi       ++ St A[Bi:Bi+N]                        semantics. Instruction nodes and ports are scheduled to dedicated
+                                             MBi                                               hardware resources by the compiler.
+                                       Consumer Compute Memory
+                                                                                                  To execute a computation, the memory and compute nodes are
+                                             ports Node streams                                first configured. Execution begins when inputs are supplied through
+                                                                                               ports, which can be consumed by memory nodes as parameters of
+Task protocol                                                                                  streams, or as inputs to the computation nodes.
+
+    Origin Core (T1)            Core for T2  7. Data       Core(s) for T3                      Hierarchical Integration: TaskStream can be integrated on top of
+1. Creation T2                       T2      8. Close                                          dataflow abstractions: each task is represented as a set of instruction-
+                                                                                   Batched     level dataflow nodes, and edges between tasks carry TaskStream
+               T3                                                                    tasks     semantics (i.e. creation, streaming, batching). Figure 3 depicts this
+                                                                                               hierarchical approach for an example program.
+                                                                 T3 6. Execution
+                                                                                                  When a task is scheduled, its inputs are delivered to correspond-
+                                             5. Ack resp.                                      ing ports, which triggers instruction-level execution. Tasks are then
+                                                                                               executed in pipelined fashion in the order they are scheduled. The
+Control Messages in Red  4. Scheduled & Ready              Task state changes in blue          instructions and memory prefetching of different tasks is inter-
+                                                                                               leaved, which is possible because of the tight composition of the
+Figure 3: TaskStream + Dataflow (T2 state changes omitted.)                                    instruction and task-level dataflow. Streaming inter-task commu-
+                                                                                               nication also uses ports (shown as triangles in Figure 3); producer
+   Figure 2b demonstrates the task streaming edge: here the depen-                             ports at the parent deliver data to the consumer ports at the child
+dent instances of the reduction task type are scheduled in mutually                            task. A consumer port must be lacquiredz by a parent task before
+exclusive locations  this is required to ensure that tasks involved in                         communication can begin, as explained later.
+streaming are concurrently scheduled. When data is available at the
+parent task, the start-of-stream message is sent to the destination                               Figure 3 shows an example streaming communication, where
+node and data will be streamed in. When finished, end-of-stream                                the output port from the T1 task, B[i], can trigger the M[j] load
+messages will free resources.                                                                  and the addition task (T2 and T3). The task arguments can be re-
+                                                                                               ordered along the TaskStream edge using the spatial and temporal
+Task Batching: To enable multicasting of shared reads, we im-                                  scheduling policy, and hardware resource limitations will limit the
+plement a task batching edge. This edge requires three parameters                              maximum reordering distance.
+when it is activated: DataID indicates whether the reads are to the
+same data, TaskID indicates the dependent dynamic task, and bytes                              Task Protocol: Figure 3 also shows the task protocol for the exam-
+indicates the length of these reads. The task scheduler can use this                           ple, demonstrating all three task operations: scheduling, streaming
+information to record which tasks are dependent on the same reads,                             and batching. We refer to the figure as we detail the protocol.
+and reorder them to schedule them together. The advantage is that
+data can be multicast to all co-scheduled tasks.                                                  Task Protocol  Scheduling: After a task is created, it is sched-
+                                                                                               uled both spatially and temporally (step 1 and 2 in Figure 3). For
+   Figure 2c demonstrates the task batching edge: here we split                                spatial scheduling, TaskStream checks whether any task argument
+the program into a CSR-traversal task and an addition task type.                               is annotated with sizehint, and the task is sent to the core with
+The outputs from B[i] are batched, resulting in only 3 unique                                  the least cumulative work until now, and this value is incremented.
+requests instead of 6. For each unique request, the TaskIDs of the                             If no argument is annotated as sizehint, round-robin ordering
+corresponding batched tasks are shown in the lMulticast locationsz                             is used. To minimize the response traffic, tasks which only access
+table. We are able to perform this reordering by exploiting the fact                           memory (e.g. T2 in Figure 3) are scheduled differently; they are
+that the addition tasks are commutative and can be executed in any                             instead scheduled where the data is located (e.g. by determining
+order without affecting correctness.                                                           the shared cache bank of the start address).
+
+3 TASKSTREAM FOR RECONFIGURABLE                                                                   Task instances (identified by their arguments) may either be
+                                                                                               held in a ready state if all arguments are available, or in a pending
+    ACCELERATORS                                                                               state otherwise. For example, in Figure 3, the T2 task is ready after
+                                                                                               receiving B[i], however the T3 task will be in the pending state, as
+Applying TaskStream to a reconfigurable accelerator naturally                                  it is still waiting on M[j]. In the pending case, the producer must
+creates a hierarchical-dataflow representation: one higher-level                               provide an explicit lacknowledgmentz (ack) of data readiness to
+dataflow of task management and communication, and one lower-                                  trigger the task.
+level dataflow of instruction execution. Here we describe the in-
+tegrated abstractions of such a representation, the process of pro-
+gramming, and mapping of evaluated workloads. Finally, we discuss
+the limitations and possible extensions of our programming model.
+
+3.1 Hierarchical TaskStream Dataflow
+
+Decoupled Dataflow Background: We integrate TaskStream
+with a decoupled-dataflow model for accelerators (e.g. [18, 19, 30,
+
+                                                                                            4
+TaskStream: Accelerating Task-Parallel Workloads by Recovering Program Structure                         ASPLOS '22, February 28  March 4, 2022, Lausanne, Switzerland
+
+   Task Protocol  Streaming: Whenever there is data at the producer                  a. Original source code                                       d. Mapping to Delta
+port of a task streaming edge, an ack is sent to the child tasks
+along with the producer port information (Figure 3, step 3). This                    for (k=0; k<n; ++k)                                                              Delta     Memory Controller        Delta
+ack should trigger a check as to whether the child task can be                                                                                                        core        Delta Delta            core
+concurrently scheduled; this requires that the current task has                      inv = 1/a[k,k]                        Task:                   Memory Controller              core core                     Memory Controller
+finished and the consumer port is free. When both conditions are                                                                                                      Delta                              Delta
+met: the child task is set ready and scheduled (Figure 3, step 4), the               invsqr = 1/sqrt(a[k,k]) 1x1 data                                                 core        Delta Delta            core
+consumer port is set busy (i.e. it is acquired), and the ack response is                                                                                                          core core
+sent back to start streaming (Figure 3, step 4, 5). After the last data              for (j=k; j<n; ++j)                    Task:       Virtual                       Delta                              Delta
+is sent, the producer sends another ack to close the communication                    l[j,i] = a[i,j]*invsqr               1xT tiles   partition                      core        Delta Delta            core
+and free the remote port (Figure 3, step 8).                                                                                                                                      core core
+                                                                                            for (j=k+1; j<n; ++j)             Task:    to avoid                       Delta                              Delta
+   Task Protocol  Batching: Batched tasks will be held temporarily,                                                        TxT square                                 core        Delta Delta            core
+and those identified to have the same DataID will be scheduled                               for  (i=j;  i<n;  ++i)                    deadlock                                   core core
+simultaneously across multiple cores; the responses of batched
+requests are multicast to all co-scheduled tasks. Batched requests                           a[j,i] -=                     TxT triag. during                                    Memory Controller
+also supply a bytes argument that indicates the length of the data                                                                     streaming
+to be streamed. In Figure 3, step 3, ready acks are sent to all batched                           a[k,i]*a[k,j]*inv
+tasks, which will then be scheduled on different cores (step 4). Then,
+after the ack response is received from all cores and the tasks are                  mask=   b. TaskStream                             c. Dataflow Graphs                                        A[k,k:n] inv
+set for execution (step 5, 6), data will be multicast in step 7, before              0001
+the communication is closed (step 8).                                                             Graph                    (cons-                                     A[k,k:n] invsqrt                          (consumer)
+                                                                                      Point
+Deadlock Prevention: During streaming inter-task communica-                                          Creation (val,        umer) A[k,k]                                              (consumer)         X A[k,k:n]
+tion, the ports involved must be acquired before data is sent, and                                                 new_k)
+held until the stream is complete. This ensures that data for multiple
+streams is not interleaved. Port acquisition has deadlock hazards,                   Creation Creation         Barrier                 / sqrt
+which we describe, along with solutions, as follows:
+                                                                                     (val,   (val, k,                                                                 X
+   Self-loop in the TaskStream Graph: Consider the scenario when
+the parent and child tasks, setup for streaming communication,                       k)      tile_info,                        inv     /                              L[k:n,k]     Matrix                X A[k:n,j:n]
+are scheduled for execution on the same core. The child task may                                                           (producer)                                               task                 -
+never be able to lock the consumer port if the parent is already                       Vect  dep_info) Mat-tile Stream
+using it, and the parent cannot release the producer port until the                     or
+streaming data is sent to the child, as it is waiting for the child to                                                                 invsqrt
+get lock of the consumer port. Our solution is to allocate a mutually
+exclusive set of resources/cores to the parent and child tasks. More                                           (depDist=               (producer)
+specifically, in the case that streaming exists within tasks of the
+same type, tasks can form a dependence chain. We create virtual                      mask=        mask = 1110 #tilesInK)                                                                         A[k,k]  A[k+1:n,j:n]
+partitions of the cores to divide the cores into a number of sets
+equal to a maximum dependence-chain length. A child is always                        0001 Sizehint = is_rect                           Point task                     Vector task  (point producer) (streaming producer)
+scheduled to a different virtual partition than any of its parents.
+                                                                                     Figure 4: Cholesky Implemented in TaskStream (for brevity,
+   Capturing multiple ports for multicast: For multicast, the parent                 only two outer loop iters. run in parallel in one program phase)
+task needs to acquire multiple ports, one for each core. Here we
+break the possibility of cyclic deadlock by ensuring the ports are                              Table 1: Node properties in Task Graph
+acquired in the order of core ID (a unique ID assigned to each core).
+                                                                                                    Description of Node Property
+3.2 Programming
+                                                                                     coreMask Bitmask indicating cores a task may be assigned to.
+One of the key advantages of programming in TaskStream is that                       sizehint Task argument that indicates relative task length.
+it manages task scheduling at high performance, with only mod-                       spatialhint Task argument indicating a preferred core (for locality)
+est programmer help. The process to port a C/C++ workload to
+TaskStream programming model involves three steps: 1. Defining                       locality behavior. For example, two computations may either be
+task types and their functionality, 2. Determining the dependencies                  combined into a single task so that the task granularity is higher or
+among task types to form a task graph, and 3. Managing the start                     may be split if the data associated with two computations are not
+and stop of a program phase. We will discuss each of these in detail                 expected to have similar locality behavior.
+below, using Cholesky as an example, as depicted in Figure 4.
+                                                                                        For each task type, the programmer first defines the instruction-
+Defining Task Types: When porting a program, a code region                           level dataflow graphs. The programmer assigns certain cores to that
+should be assigned to a new task type if it performs different com-                  task type using the coreMask, and may also define a task argument
+putations, the same computations at a different rate, or has different               as a sizehint or spatialhint. The node characteristics are as
+                                                                                     defined in Table 1.
+
+                                                                                        For the example in Figure 4a, Cholesky has three task types, one
+                                                                                     for each loop nesting degree: 1. Point: performs only one inverse
+                                                                                     and square root for every outer loop iteration. 2. Vector: performs
+                                                                                     O(n) multiplication operations. 3. Matrix: performs O(n×n) multi-
+                                                                                     plication and subtraction operations. Since the work required for
+                                                                                     Point and Vector is much smaller than Matrix, the coreMask is set
+                                                                                     to assign one core to both Point and Vector, while all other cores
+                                                                                     are assigned to the matrix task. Figure 4d shows the mapping of
+                                                                                     Cholesky to our accelerator, called Delta, which will be explained
+                                                                                     in the next section.
+
+                                                                                        Task granularity is also a significant choice. Smaller tasks may
+                                                                                     suffer task management overheads, while larger ones are more
+                                                                                     difficult to load balance. If the task-size distribution is too wide,
+                                                                                     even the size-hint optimization may not be sufficient. Cholesky
+                                                                                     is challenging to tile into tasks, because the iteration domain is
+                                                                                     triangular. Therefore, we split the task into square and triangle
+                                                                                     tiles (along the diagonal); these are still of relatively different sizes.
+                                                                                     The new task types are Point, Vector-tile, and Matrix-tile. The tile
+                                                                                     information is passed as arguments on the Point-to-Matrix edge.
+
+                                                                                     Defining the TaskStream Graph: Next, the programmer uses
+                                                                                     algorithmic knowledge to identify edges among task type nodes.
+
+                                                                                  5
+ASPLOS '22, February 28  March 4, 2022, Lausanne, Switzerland                                                                                                            Vidushi Dadu, Tony Nowatzki
+
+                          Table 2: Edge properties in Task Graph                                            a. k-nearest Neighbors                             b. Graph Convolutional Networks
+
+                                                                                                                      mask = 0001                 mask = 1111  mask = 0001              mask = 1111
+                                                                                                            (new_node,
+                                                                                                                                                   Ld          Sizehint = deg(vid) Spatial = dst_id
+                                                                                                              queryC)reationTnroedee-  Creation leaf
+                                       Description of Edge Property                                                                                            (vid) Acce    (dst_id)   Upda
+                                                                                                                                                                         ss   Creation    te
+                                       Either Creation, Streaming, or Batching
+Hardware Program Program  Edge_type    Interfaces for TaskStream I/O                                        (leaf_id,  Creation        Batch+  (leaf_id,       (wgt_addr,               Creation
+   Managed Hints Exposed  Producer &                                                                          query)                   Stream    bytes,              N)
+                          consumer     By comparing the distance (port), it identifies a task as paren-                                                                      Creation   (vid)
+                          ports        t/child.                                                                                                                          Ld
+                                       ID used to batch shared-read data/requests                                                              ptr)                     wgt  Batch+
+                          depDistance  Either used as size for streaming or meta-data for batching                                                                           Stream
+                                                                                                                                                                                        Mult
+                          DataID       Stores location where a task is buffered
+                          Bytes        Ack buffer maintains TaskIDs of tasks whose ready signal is                     Search                                                           mask = 1110
+                                       waiting to be served                                                                      mask = 1110
+                          TaskID       Stores TaskIDs of child tasks, as identified using depDistance
+                          Ack          Stores TaskIDs of parent tasks, as identified using depDistance                                                         mask = 0001
+
+                          Sched                                                                             c. Database + Machine Learning                     d. Sparse Matrix-matrix Multiply
+                          SchedParent
+                                                                                                                                       Join mask = 0011        Dum mask = 0001          Ld mask = 1111
+                                                                                                            Sort                                                             Creation   M1
+                                                                                                                                                               my
+                                                                                                                         Barrier
+
+                                                                                                            mask = 1111                Creation (match)        Creation                   (col_id,
+                                                                                                                                                                             Batch+ bytes, ptr)
+                                                                                                                                                                             Stream
+
+                                                                                                                            Kmeans/                                                                mask = 1110
+                                                                                                            mask = 1100 Groupby
+                                                                                                                                                               M1col*M2row-tile Sizehint =
+
+                                                                                                                                                                                               len(M2row-tile)
+
+                                                                                                            Figure 5: TaskStream Graphs for Evaluated Workloads
+
+These include determining whether any task computation is trig-                                             Graph Convolution Network (GCN): Figure 5b shows the
+gering another computation (task creation), whether the tasks have                                          TaskStream graph for GCN. Every vertex accumulates its feature
+pipelined reuse among them, and whether there is shared read-data                                           vectors into its outgoing neighbors, and when all the incoming
+among tasks. Another important component is to decide the task                                              feature vectors are received, the accumulated vector is multiplied
+arguments for a type and then create an edge interface from pro-                                            with a weight matrix. To enable flexible load distribution, we define
+ducer ports at the source task to consumer ports at the destination                                         three task types: graph access, feature vector updates (together
+task. The list of supported edge characteristics is defined in Table 2;                                     performing aggregation) and matrix-vector multiplication. As
+we list hardware managed aspects as well, to make it clear what                                             updates involve irregular accesses, we use spatialhint based
+the programmer needs to reason about.                                                                       scheduling for atomic updates to ensure that remote accesses are
+                                                                                                            minimized. For accesses to the vertices with varying degrees, we
+   In the Cholesky example in Figure 4c, there is a creation edge                                           use sizehint based scheduling. For matrix-vector multiplication,
+from Point to Vector and Matrix-tile. There exists data dependencies                                        different graph vertices access the common weight matrix, creating
+among multiple matrix tasks, hence there is a streaming edge from                                           an opportunity for batching reuse (shown by the weight load task
+the Matrix-tile task to itself. The dependence distance is the number                                       and the Batch+Streaming edge). We store the weight matrix in the
+of matrix-tiles in the kth iteration of the outermost loop.                                                 private scratchpad, and multicast from there.
+
+   Finally, we need to limit the number of recursive tasks created                                          Database + Machine Learning: Figure 5c shows the TaskStream
+by the self-loop in Matrix-tile task  this is done by setting the                                           for a Database/Machine Learning kernel from Gorgon [62], specif-
+maximum dependence-chain length, determined based on hardware                                               ically query 2. We define three task types: 1. Sort: Sort requires
+resource limitations (the sensitivity to this length is studied in                                          sufficient work to utilize all resources. Moreover, it reuses its out-
+Section 6). The program phase will end, shown as lbarrierz in the                                           puts as inputs to the next iteration of sort, and therefore, its output
+figure, after all dynamic tasks are complete.                                                               cannot form pipelined communication with other dependent task
+                                                                                                            types. Hence, we treat the subsequent computation as another
+Managing a Program Phase: A program phase starts when the                                                   phase, executed after a task barrier. 2. Join: requires O(n) compari-
+programmer pushes an explicit task of any type. The phase is com-                                           son operations. 3. kmeans-groupby: requires O(#matched-rows*d)
+plete when all tasks have finished execution. Cholesky is initiated                                         operations to find the minimum distance. Since the work required
+by creating a task for the outer-loop point task.                                                           among Join and kmeans-groupby may be highly different depending
+                                                                                                            on the number of matched rows and the number of dimensions, we
+3.3 Workload Mapping                                                                                        assign 2 cores to Join and the rest to the kmeans-groupby task type.
+                                                                                                            These tasks are connected by the creation edge.
+Here we discuss how we implemented each of the four additional
+evaluated workloads. Figure 5 shows examples (with only a                                                   Sparse matrix multiply: Figure 5d shows the TaskStream for
+coreMask for 4 cores, for simplicity).                                                                      sparse matrix-sparse matrix multiply. Here we use a tiled outer
+                                                                                                            product implementation (similar to SCNN [44]). We define a task
+k-nearest neighbors: Figure 5a shows the TaskStream graph for                                               type as the product of a column of matrix 1 and a tile of matrix 2's
+kNN search. For every query, a binary kd-tree is searched. When                                             corresponding row. Since different tiles of matrix 2's row access a
+the leaf node is reached, data associated with the leaf is accessed to                                      common column, there is an opportunity of batching reuse (shown
+perform linear search (similar to Tigris [71]). We define two task                                          by lLd M1z and the Batch+Streaming edge). Moreover, we store
+types: 1. Tree node: A tree traversal. Since each traversal will incur                                      copies of matrix 2's row and partial sums in the private scratch-
+long latencies to access pointers, we split it into small tasks that                                        pad, and use spatialhint based scheduling to ensure that a task is
+compares with the current node and outputs the next tree node.                                              scheduled where its data is stored.
+2. Leaf search: Here the query is searched linearly in a long vector
+associated with the leaf. Many queries may search in the same leaf,
+generating coarse-grained reuse. Hence, we separate the leaf load
+task and add a Batch+streaming edge to the leaf search task.
+
+                                                                                                         6
+TaskStream: Accelerating Task-Parallel Workloads by Recovering Program Structure             ASPLOS '22, February 28  March 4, 2022, Lausanne, Switzerland
+
+3.4 Discussion of Limitations and Extensions                                         DRAM            Ctrl core  Shared cache           Address  Memory
+                                                                                     Router                          bank                       streams
+Our Programming Experience: After identifying tasks and de-
+pendences, writing TaskStream code is not overly complex. For                                                      Banked
+programming TaskStream, we use a unified graph domain-specific                                                   scratchpad
+language for both the TaskStream and dataflow graphs. For refer-
+ence, tiled-Cholesky on a static-parallel accelerator (REVEL [67]) is                                                                  generator table
+163 lines of code, and the TaskStream version is 210 lines.
+                                                                                       Reordering               Task stream table      Memory Stream controller
+Adapting Task-parallel Programs: While we focus on special-                          circular queue
+ized implementations, it is somewhat straightforward to adapt pro-                                                Task creation        Input Vector Port Interface
+grams from languages with fork-join parallelism like Cilk [10]. The                   Task batching
+essential idea is that whenever a child synchronizes with a par-                                                DataID Arg1 Arg2 Arg3         Coarse-grained
+ent task using backward dependence in Cilk, in TaskStream, the                       DataID Byte1 TaskID Byte2    0                       Reconfigurable array
+parent-task can create a successor task, and the child tasks will                      5                          1
+now have a forward dependence to the successor task. This is pos-                      0                          2                                (CGRA)
+sible because TaskStream allows pending tasks, where tasks are                         7
+waiting on arguments from dependent tasks. The child tasks can                                                                             Output Vector Port
+communicate with the successor task using TaskID. Because this is                    FIFO    CAM    Free        FIFO Ack Free                    Interface
+implemented in hardware, it puts a limit on the number of in-flight                  sched  search  list        sched port list
+tasks. In addition, various dataflow-inspired programming mod-                        uler                       uler
+els [23, 28, 52, 59, 70] also rely on static inter-task dependencies.
+These could be a natural fit for expressing TaskStream programs.                            To input port       Task controller
+                                                                                              interface
+A Hypothetical Compiler: It is future work to automate the intu-
+ition above to construct a high-level-language compiler. In addition                        Network             Storage                Queues   Compute
+to the above, such a compiler would need to identify some program
+structure to apply the optimizations we consider: The sizehint                                   Figure 6: Single Tile of Delta Accelerator
+could be determined by estimating loop trip counts and instruc-
+tion counts. The coreMask can be determined by balancing load,                       difficult to manage. Therefore, Delta has a shared cache, and the
+based on the relative ratio of average per-task work, and this could                 reuse across tasks is exploited using task batching. 3. Streaming
+be calculated similarly. For structure-recovery edges with simple                    data with no reuse: This data can bypass the cache hierarchy and
+nested-loop programs, loop dependence analysis could be sufficient                   will be directly streamed from memory.
+(e.g. Cholesky). Workloads with dynamic dependencies, like sparse-
+matrix-multiply and kNN, may require programmer help (e.g. a                         Memory Stream Controller: The memory stream controller is
+loop annotation indicating dependencies).                                            designed to generate memory addresses using the access patterns
+                                                                                     and size determined by task type and arguments. Along with an
+4 DELTA: A TASKSTREAM ACCELERATOR                                                    address generator, the memory stream controller also has a stream
+                                                                                     table that holds their running state. For each stream in the task
+Delta is our proposed multicore accelerator, which implements the                    dataflow program, we reserve some number of entries in this stream
+TaskStream execution model. Delta tiles are interconnected with a                    table so that forward progress can always be guaranteed (otherwise
+mesh-based NoC, and Figure 6 overviews a single tile.                                streams for a single port could fully occupy the table, and streams
+                                                                                     for another port could not be scheduled).
+   The computation unit is a coarse-grained reconfigurable array,
+connected via hardware ports (vector ports). The stream controller                   Task Creation Unit: This unit holds tasks until all of their ar-
+generates memory requests from stream access patterns, and the                       guments have been received. This unit includes a free list, task
+responses are sent to the port interface for further communication.                  argument buffer, dedicated acknowledgment buffer, and a FIFO
+                                                                                     scheduler (see Figure 6). The task argument buffer is a simple SRAM
+   The novel aspect of the hardware is for task management, partic-                  memory that stores task arguments sequentially, and the free list
+ularly the task-creation unit (used for storing arguments for ready                  queue maintains free entries in this buffer.
+and pending tasks), and the task-batching unit (used for detecting
+and scheduling tasks that read the same data). We next describe the                     When data at producer ports is available, if the free list has
+design and operation of these components.                                            space, the arguments are pushed in the task creation buffer, and
+                                                                                     a unique TaskID is assigned (using current core and task buffer
+Memory Hierarchy: Each core has a small private scratchpad,                          location information). When a task is ready (i.e. does not require an
+and all cores share access to a shared, distributed on-chip cache.                   explicit acknowledgment or already has one), the address location
+To explain the rationale for this design, we consider the three pre-                 of the current task (TaskID) is pushed to the FIFO scheduler. When
+dominant forms of reuse for memory access: 1. Small, read-only                       all consumer ports have sufficient space, the FIFO scheduler will
+data shared among tasks: This data should be cached on-chip dur-                     release the task arguments to the input ports in the given order. At
+ing the entire algorithm. Therefore, each core has a small private                   that time, the resulting entry will be pushed into the free list.
+scratchpad. 2. Shared data across a subset of tasks: Here the use
+of scratchpad would require software coherence, and would be                         Task Batch Buffer: This unit enables dynamic batching of tasks.
+                                                                                     Similarly to the creation unit, this unit also has a free list, batching
+                                                                                     buffer, a small CAM and a FIFO scheduler. The batching buffer is
+                                                                                     a banked SRAM memory; the difference here is that the free list
+                                                                                     maintains TaskIDs of a lbatchz of task arguments instead of just
+                                                                                     one, as in the task creation unit. Also, here all the task arguments
+                                                                                     are annotated, which includes bytes and TaskID of the dependent
+                                                                                     tasks, as shown in Figure 6. When the data at the producer ports
+
+                                                                                  7
+ASPLOS '22, February 28  March 4, 2022, Lausanne, Switzerland                                                      Vidushi Dadu, Tony Nowatzki
+
+Table 3: Datasets Used in this Work                                                         StaticParallel         Delta-TaskStream
+
+Workload  Dataset-size               Workload Parameters                 Norm Speedup  101  Delta-OnlyTasks
+kNN                                  kd-tree-depth=8
+          Queries=512                leaf-size=2048                                    100
+SpMM      Queries=1024
+DB-ML     Queries=2048               density=0.10                        10-1               knn512knn1kknn2spkmm5sp1m2 ms1pkmmd2bk-mdl.b5-Mmld.1b0-Mml.1c5hMo.12c8ho.2g5c6n.cogracn.csr GM
+Cholesky
+GCN       M1=M2=512x512              join=0.10                                              Figure 7: Overall Performance Comparison
+          M1=M2=1k*1k                tile-size=32
+          M1=M2=4k*4k                feat-len=64
+
+          T1=T2=10M
+          T1=T2=15M
+
+          N=128
+          N=256
+
+          cora (V=2708, E=10556)
+          citeseer (V=3243, E=4536)
+
+is ready, the CAM is searched for the current DataID entry. If the       · Delta+OnlyTasks: In this version, Delta tasks are scheduled
+entry is found, the new task arguments are stored at this DataID's         dynamically in hardware using size-hint scheduling policy.
+next empty entry. Otherwise, a new entry is popped from the free
+list for this purpose. The CAM is filled whenever a new entry is         · Delta-TaskStream: This includes both load balance and
+assigned to the task batching buffer, and is cleared whenever a task       locality/structure-recovery optimizations within TaskStream.
+batch is full or served by the data response. The usage of free list
+and FIFO scheduler is similar to the task creation unit.                 Datasets: We use synthetic         Table 4: Arch. Parameters
+                                                                         datasets with varying sizes and
+Task Stream Table: This table maintains the streams associated           natural skewness; GCN uses         Characteristics Value
+with TaskStream edges. These include the streams that transfer data:     popular real-world graphs. Ta-
+1. from producer ports to the corresponding task creation/batch-         ble 3 shows the dataset sizes and  Cores     16
+ing buffer, 2. from task creation/batching buffer to corresponding       workload parameters.
+consumer ports, 3. Any streams for streaming data to remote cores.                                          FP Units  1024
+                                                                         Parameters: Table 4 shows the
+Communication Protocol: For managing streaming communica-                common hardware parameters         Task buf. entries 16 64-byte
+tion with low network overhead, we use a coarse-grained credit-          of Delta and baselines.
+based flow control. The consumer core sends credits to the producer                                         Memory b/w 256 GB/s
+core when some number of entries become free in the consumer
+port (we find 8 keeps traffic low).                                                                         Shared Cache 2 MB
+
+   Also, during streaming communication, handshaking messages                                               Private Scratch 256 kB
+are exchanged to schedule the parent and child tasks. Here, we
+need to reorder messages so that the correct parents are matched                                            Network   64-byte mesh
+to the correct children, which we accomplish using the lreordering
+circular queuez. Space in this queue is allocated when a message is      6 EVALUATION
+sent. At responses, the router messages are passed via this queue,
+then finally pushed to the vector port interface in order. Finally,      Broadly, the goal of our evaluation is to analyze whether our Delta
+we use a separate virtual channel for inter-accelerator messages to      proposal is able to recover locality structure while retaining the
+avoid deadlock. Round-robin scheduling is used for fairness.             benefits of task parallelism. First we compare against a CPU and
+                                                                         an equivalent static parallel design. Then we give insight into per-
+                                                                         formance benefits with stream recovery (i.e. inter-task streaming/-
+                                                                         batching) by examining network traffic and core utilization over
+                                                                         time. Then, we explore sensitivity to the task scheduling strategy
+                                                                         and pipelining depth. We conclude by discussing area overheads.
+
+5 METHODOLOGY                                                            Overall Performance: First, we validate that Delta provides
+                                                                         accelerator-like performance over existing multicore CPUs. Table 5
+Delta Power/Area: We implemented Delta's CGRA by extending               below shows the speedup over a 24-core baseline CPU. Cholesky
+the Chisel-based DSAGEN [40, 66] framework. Components were              has the least speedup, as Delta exhausts all the parallelism in
+synthesized using a 28nm UMC library. We use Cacti 7.0 [37] for          this workload at the evaluated array size. The other workloads
+estimating the overhead of the SRAM buffers and CAM within the           have more data-parallelism: kNN during linear search, DB-ML for
+task creation and batching units.                                        performing kmeans search on many data points, spmspm and GCN
+                                                                         for matrix multiply. Thus, they achieve higher speedup, as the
+Baseline Architectures: For reference, we compare against a 24-          data-parallel resources of the accelerator can be fully realized.
+core SKL CPU running optimized libraries: MKL [2] for Cholesky
+and SpMSpM, and MADLib [1] for DB-ML. For kNN, we use the                                   Table 5: Speedup over 24-core SKL CPU
+popular FLANN [36] library. For GCN, we use the PyG library [3].
+                                                                         Wkld Knn Cholesky DB-ML Spmspm GCN GM
+   We developed a simulator for Delta and integrated it with
+gem5 [9, 47, 58], using a RISCV ISA [8] for the control core. For        Speedup 43.2       6.9 1729.2                65.3 105.4 81.3
+accelerator comparison points, we evaluated three designs:
+                                                                         Benefit of Tasks: Figure 7 shows that Delta-OnlyTasks achieves
+  · Static Parallel: Work is partitioned statically to each core by      1.3× speedup against the static reconfigurable accelerator that rep-
+     the programmer, and data is tiled into each core's scratchpad.      resents the state-of-the-art. Delta-OnlyTasks improve speedup for
+                                                                         kNN and DB-ML by enabling better distribution of work irrespec-
+                                                                         tive of where the kmean's input (or leaf in kNN) is mapped statically,
+
+                                                                      8
+TaskStream: Accelerating Task-Parallel Workloads by Recovering Program Structure                                                ASPLOS '22, February 28  March 4, 2022, Lausanne, Switzerland
+
+1.50  Ratio of unoptimized memory traffic converted to network traffic                                   Utilization  1.00         kNN Delta-OnlyTasks (avg. util: 0.09)
+1.25  Ratio of unoptimized memory traffic remaining                                                                   0.75
+1.00                                                                                                                  0.50   Core0-tree Core1-search Core2-search Core3-search
+                                                                                                                      0.25
+0.75                                                                                                                  0.00        kNN Delta-TaskStream (avg. util: 0.23)
+                                                                                                                      1.00
+0.50                                                                                                                  0.75
+                                                                                                                      0.50
+0.25                                                                                                                  0.25
+                                                                                                                      0.000
+0.00  knn512knn1k knn2kspmm51s2pmm1skpmm2dkb-ml.5dMb-ml.1d0bM-ml.15cMho.128cho.25g6cn.coragcn.csr AM     Utilization
+
+      Figure 8: Traffic-breakdown with Stream Recovery
+
+while it would matter in the static parallel implementation. For                                                                5       10      15          20          25         30
+SpMSpM, the speedup comes from increased parallelism from over-                                                                         Time (1 unit = 10k cycles)
+lapping execution of task types as data becomes available. Cholesky
+does not benefit due to low parallelism in both static-parallel and                                                             DB-ML Static-parallel (avg. util: 0.05)
+OnlyTasks without the stream-recovery optimization. GCN is an
+exception where there is a slowdown, as consecutive requests to                                                       1.0    Core0-join Core1-kmeans Core2-kmeans Core3-kmeans
+access the weight matrix will create a hotspot in the network.
+                                                                                                         Utilization  0.5
+Benefit of Structure Recovery: Figure 7 also shows that with
+stream-recovery optimizations, the speedup increases to 2.2× over                                        Utilization  0.0
+the static-parallel accelerator. SpMSpM does not benefit from
+stream-recovery, as it is not bottlenecked by communication; in                                                                      DB-ML Delta-TaskStream (avg. util: 0.43)
+the outer-product implementation, the batched column of the first
+matrix has high reuse  each element in the column is multiplied                                                       1.0
+with each of the elements in the second matrix's corresponding row.
+However, kNN and GCN have less reuse, and batching tasks can                                                          0.5
+reduce memory traffic by nearly an order of magnitude. Cholesky
+benefits from explicit communication among dependent tasks,                                                           0.00      20          40      60              80             100
+which alleviates the overheads of shared memory synchronization.                                                                        Time (1 unit = 10k cycles)
+DB-ML does not have opportunity for stream recovery.
+                                                                                                                    1.5      Cholesky Delta-OnlyTasks (avg. util: 0.06)
+Memory Traffic Reduction: To explain the source of performance
+improvement using stream recovery, Figure 8 demonstrates what                                                                Core0-pnt/vec Core1-matrix Core2-matrix Core3-matrix
+percentage of memory traffic is converted into network traffic in
+Delta-TaskStream. In most cases, more than 50% of the memory                                             Utilization1.0
+traffic is converted, with even fewer packets due to multicast.
+                                                                                                                    0.5
+Fine-grained Core-wise Throughput Comparison: TaskStream
+optimizations improve the core utilization3 by alleviating commu-                                        0.0                 Cholesky Delta-TaskStream (avg. util: 0.32)
+nication bottlenecks, while providing load balance. We give insight
+into its capabilities by showing the per-workload utilization over                                                  1.5
+time in Figures 9/10 and discuss below. Note that we only plot for
+a subset of cores for clarity; also, core 0 is used for lower-rate (or                                   Utilization1.0
+less compute intensive) tasks, therefore is generally under-utilized.
+The title shows the average utilization across all cores.                                                           0.5
+
+  · kNN: Tasks enable overlap of the tree search tasks, improving                                                   0.00     5      10  15      20      25          30         35  40
+     utilization of Core 0, which is executing tree tasks. With stream                                                                  Time (1 unit = 10k cycles)
+     batching optimization, the accesses to the leaf data are batched
+     and multicast to co-scheduled tasks. This increases effective                                       Figure 9: Utilization Comparison with Stream Recovery.
+     bandwidth and improves utilization (see Core 1, 2, 3).
+                                                                                                           compare static parallel and Delta-OnlyTasks. The Delta imple-
+  · DB-ML: Also in Figure 9, the legend lists the task-to-core map-                                        mentation dynamically distributes the lkmeansz tasks that are
+     ping in our implementation. Sort is performed in a separate                                           created by ljoinz and hence is able to balance load much better
+     phase for both implementations, hence we omit from this figure.                                       (see how static-parallel Core 1 and 2 are heavily under-utilized
+     Stream recovery opportunities do not exist in DB-ML, hence we                                         in some phases).
+                                                                                                         · Cholesky: For Cholesky, we show 12 outer-loop iterations
+3Utilization is defined as the percentage of functional units (FUs) fired in each cycle.                   (1 phase in TaskStream). In Delta-OnlyTasks, only one outer-
+                                                                                                           loop iteration can be performed at a time due to inter-loop
+                                                                                                           dependencies. This both reduces the available parallelism and
+                                                                                                           introduces barrier overheads. Delta allows many more parallel
+                                                                                                           tasks with the support for chained streaming. It further ensures
+                                                                                                           balanced execution by distributing load based on sizehint.
+
+                                                                                                      9
+ASPLOS '22, February 28  March 4, 2022, Lausanne, Switzerland                                                                 Vidushi Dadu, Tony Nowatzki
+
+             1.5  Spmspm Delta-OnlyTasks (avg. util: 0.86)
+
+                  Core0-dummy/mm Core1-mm Core2-mm Core3-mm                              3
+
+Utilization  1.0                                                             Norm Speedup          Round-robin                Spatial-hint
+
+             0.5                                                                         2         Random                     Size-hint
+
+             0.0  Spmspm Delta-TaskStream (avg. util: 0.85)
+
+             1.5                                                                         1
+
+Utilization  1.0
+
+             0.5                                                                0 knn51k2nn1kknns2pkmms5p1m2msp1mk mdb2-kmdlb.5-mMdl.b1-0mMl.c1h5oM.1c2h8o.2g5c6n.cogrcan.csrGM
+                                                                                   Figure 11: Sensitivity to Load Balancing Strategies
+            0.00  10  20      30                  40             50
+                      Time (1 unit = 10k cycles)                             not benefit much, as it restricts scheduling for load balancing
+           1.00                                                              without surpassing the locality benefits of stream recovery.
+           0.75   GCN Delta-OnlyTasks (avg. util: 0.06)
+           0.50                                                              Sensitivity to the Depth of Pipeline Parallelism: TaskStream
+           0.25   Core0-agg Core1-agg Core2-matrix Core3-matrix              gives control to programmers on how to expand different facets
+           0.00                                                              of parallelism. We elucidate with an experiment on Cholesky, by
+Utilization1.00                                                              varying the depth of streaming dependence chain (i.e. how many
+           0.75                                                              tasks are allowed to chain), and the results are below in Table 6.
+           0.50   GCN Delta-TaskStream (avg. util: 0.40)                     Higher depth improves available parallelism at the cost of extra
+           0.25                                                              streaming network traffic, and the optimal point for these array
+Utilization0.000                                                             sizes occurs at a depth of 12. At higher depths, latency stalls to set
+                                                                             up the pipeline streaming communication are more compared to
+                  10  20  30      40                  50             60      the benefits of improved concurrency. One interesting finding is
+                      Time (1 unit = 10k cycles)                             the pathological case at a depth of 10; performance drops because
+                                                                             on our 16-core 4x4 mesh, around half of the cores are sending data
+Figure 10: Utilization Comparison with Stream Recovery                       to the next half, causing much of the communication to be on a few
+                                                                             bisecting links. Detecting and mitigating this is future work.
+  · Sparse matrix-multiply: Now referring to Figure 10, due to
+     the outer-product implementation of sparse matrix-multiply,                            Table 6: Sensitivity to Dependence Chain Depth
+     there is high reuse available. Therefore, the utilization of task-
+     parallel versions are nearly ideal, and there is not much poten-                       depth  1 2 6 8 10 12 14
+     tial left for task batching.
+                                                                                            Cholesky-256 1 1.8 3.1 5.6 3.6 7.7 7.5
+  · Graph Convolution Networks: Stream-recovery signifi-                                    Cholesky-128 1 2.0 2.4 2.6 3.1 3.6 3.4
+     cantly improves the throughput of the matrix-multiply cores,
+     as batched reads of the shared weight matrix enables higher             Area Overhead: Table 7 shows the area breakdown of Delta, within
+     effective network bandwidth. Since 13/16 cores work on the              and across cores. The only additional components required over the
+     matrix-multiply, this improves the average utilization by 6.6×.         static architecture are the task management units, which consume
+                                                                             3.6% of the total on chip area.
+Comparing Task Scheduling Strategies: Figure 11 com-
+pares four scheduling policies on Delta: round-robin, random,                              Table 7: Area and Power breakdown for Delta (28nm)
+spatialhint, and sizehint. For kNN, spatialhint schedules
+tasks with the same leaf_id to the same core, so multicasting be-                           Control Cores         Area (mm2)  Power (mW)
+comes irrelevant. For Cholesky, sizehint gains 1.63× performance                            Task Creation             0.053         11.5
+over the baseline round-robin due to distributing square and                                Task Batching              0.01         4.76
+triangular tiles better. For DB-ML, kmeans on all data items takes a                        scratchpad+ctrl           0.033          10
+similar amount of time, so load balance is less important, except                           CGRA (4x5)                 0.08         11.2
+that spatialhint restricts scheduling, thereby aggravating load                             1 Delta-Core               0.21          80
+imbalance. For SpMSpM, only spatialhint applies, as we are using                            4x4 64 byte mesh (1)      0.386       117.46
+an outer product, where partial sums are maintained in scratchpads,                         Shared cache                0.2         44.7
+and we only allow tiles to be scheduled near their partial sums. This                       Delta Total               12.39        2280
+is because scheduling elsewhere would introduce excess remote                                                         18.77       4203.7
+fine-grained atomic update traffic, hurting performance. In GCN,
+the scheduling policy affects the vertex-access ordering. sizehint
+can balance load better by intelligently distributing vertices with
+varying degree. In conclusion, sizehint consistently outperforms
+the simpler random and round-robin policies. Spatialhint does
+
+                                                                         10
+TaskStream: Accelerating Task-Parallel Workloads by Recovering Program Structure                                                       ASPLOS '22, February 28  March 4, 2022, Lausanne, Switzerland
+
+7 RELATED WORK                                                                                                                         Table 8: Related work comparison
+
+Table 8 compares Delta and prior works based on three critical                                                                                           Sched-flex Mem-sched    Inter-task-
+factors: 1. Sched-flex: Flexibility to schedule work spatially across                                                                                                            comm
+cores, which can help balance locality and load. 2. Mem-sched:                        Reconfigurable Accel-assisted S/w  CPU           Splicing* [31]    High        Read-reuse
+Ability to exploit shared read-reuse among tasks. 3. Inter-task-comm:                                                                  Gramps* [50]      High        Read-reuse  Memory
+Write-read dependencies among tasks may be resolved via shared                                                           Accelerators                                            Memory
+memory synchronization or explicit communication. No prior work                                                                        Stream-           High        Near-data
+simultaneously supports hardware task scheduling flexibility and                                                                       floating* [65]                            Memory
+memory scheduling, and none supports read-reuse with task-based                                                                        Carbon [29]       High        Read-reuse
+parallelism. The remainder of this section discusses in further detail.                                                                ADM [51]          High        Near-data   Memory
+                                                                                                                                       Minnow [76]       High        Near-data   Memory
+Locality in Task-Runtimes: An inspiration for our work is the                                                                          Spatial-          Low         Read-reuse  Memory
+study of locality-enhancing techniques for software-only thread-                                                                       Hints [27]                                Memory
+ing and task-parallel systems [7, 13, 22, 32, 56, 75]. A prevailing                                                                                      High
+mechanism is work-stealing [7, 22, 32, 49, 75], which lends itself to                                                                  ParallelXL [14]   High                    Memory
+locality by keeping parent and child tasks together. This is effective                                                                 Centaur [42]      Restricted              Explicit
+in divide-and-conquer algorithms, but does not guarantee locality                                                                      Plasticine* [45]  Restricted              Explicit
+in general, and task stealing may incur non-negligible latency on                                                                      PolyGraph [18]    High                    Memory
+the critical path (especially when ported to accelerated systems).                                                                     Aurochs [61]      Restricted              Memory
+                                                                                                                                       Fifer [38]        Medium                  Memory
+   Of particular note are techniques which recover program struc-                                                                      Delta (ours)                              Explicit
+ture. One approach is to annotate tasks with the dataset they
+may access, and use this to schedule tasks near-data. This has                        * Uses traditional threads for parallelism; no hardware support for tasks.
+been explored in task-parallel languages [12], speculative parallel
+models [27, 74], and partitioned global address space (PGAS) sys-                     is baked into the hardware. One example is multicasting in
+tems [25]. Another approach is Splicing [31], which is a compiler                     sparse matrix/DNN accelerators [15, 24, 44, 46, 73, 77, 78]. Other
+optimization for recursive task-parallel programs that interleaves                    specialized architectures perform load balance optimizations while
+tasks with locality to optimize for locality.                                         exploiting various forms of reuse in hardware, like SparTen [20],
+                                                                                      BARISTA [21] and GraphDynS [72]. MTP [11] hides memory
+Accelerating Task Parallel Codes: Task management is a signif-                        latency for database selections by using concurrent fine-grained
+icant overhead that has been mitigated by hardware based [29, 76],                    accelerator threads. Centaur [42] exploits streaming locality in
+or hardware assisted schedulers [51]. Anton2 [55] uses a hardware-                    databases by combining multiple pipelined SQL operators.
+assisted task runtime for geometry processing.
+                                                                                         In summary, our work is the first to demonstrate techniques
+   Prior work has also explored accelerating task parallel work-                      for exploiting structured communication in general task-parallel
+loads in reconfigurable hardware. TAPAS [33] is a high level syn-                     accelerators.
+thesis (HLS) toolchain that leverages the Tapir IR [53] to create
+application-specific hardware for task-parallel workloads. IR [54]                    8 CONCLUSION
+is a hardware design IR, also useful in the context of HLS, that
+supports task-parallel constructs. ParallelXL [14] is a framework                     For reconfigurable accelerators, task-parallelism is both a blessing
+that enables building custom hardware accelerators using task-                        and a curse: while it bestows dynamic parallelism and load balance
+parallel execution and work stealing. Chronos [6] is a framework                      capabilities, it also breaks and hides program structure that such
+to build task-parallel accelerators for applications with speculative                 architectures are designed to exploit. We discovered that this struc-
+parallelism. Three recent works address flexible parallelism for re-                  ture can be recovered dynamically, provided that the hardware's
+configurable accelerators: Aurochs [61] proposes a threading model                    execution model is rich enough to express inter-task communica-
+for reconfigurable dataflow architectures. PolyGraph [18] similarly                   tion patterns. The potential gains are significant, and the costs are
+adds an integrated task/dataflow model for a reconfigurable accel-                    little: mean 2.2× speedup for this class of workloads, with only
+erator. Fifer [38] temporally reorders fine-grained tasks for load                    3.6% area overhead. While the programmer/compiler does have
+balancing. TaskStream's structure-recovery optimizations can be                       to identify the potential for structure, they are also relieved from
+applied to any of the above systems.                                                  the difficult job of task scheduling, which is especially challenging
+                                                                                      for accelerators with heterogeneous memories and reconfiguration
+Exploiting & Recovering Streaming Structure: In the context                           overheads.
+of general-purpose processing, stream floating [65] has a lconflu-
+encez optimization that dynamically combines prefetching streams                         Finally, this work contributes to a broader effort to enable recon-
+from different cores (confluence). Near-stream computing [64] can                     figurable accelerators to be efficient on increasingly irregular and
+pipeline data between tasks offloaded to the last-level cache. Several                challenging workloads; this is important if we want accelerators to
+prior reconfigurable accelerators [19, 67, 79] have primitives for                    not only crunch though data at high throughput, but also to do so
+multicast, but they are suitable for only for regular programs.                       using algorithmically-efficient irregular algorithms.
+
+   Prior domain-specific accelerators can exploit batching and                        ACKNOWLEDGMENTS
+pipelining in irregular programs, but the expected structure
+                                                                                      This work was supported by NSF awards CCF-1751400 and CCF-
+                                                                                      1937599, as well as gift funding from VMware.
+
+                                                                                  11
+ASPLOS '22, February 28  March 4, 2022, Lausanne, Switzerland                                                                                                  Vidushi Dadu, Tony Nowatzki
+
+REFERENCES                                                                                         locality-aware adaptive work-stealing scheduler. In 2010 IEEE International Sym-
+                                                                                                   posium on Parallel Distributed Processing (IPDPS). 112. https://doi.org/10.1109/
+ [1] [n.d.]. Apache MADlib: Big Data Machine Learning in SQL. https://madlib.                      IPDPS.2010.5470425
+      apache.org/.                                                                           [23] Gagan Gupta and Gurindar S Sohi. 2011. Dataflow execution of sequential
+                                                                                                   imperative programs on multicore architectures. In 2011 44th Annual IEEE/ACM
+ [2] [n.d.]. Intel Math Kernel library. http://software.intel.com/en-us/intel-mkl.                 International Symposium on Microarchitecture (MICRO). IEEE, 5970. https:
+ [3] [n.d.]. PyTorch Geometric. https://www.pyg.org/.                                              //doi.org/10.1145/2155620.2155628
+ [4] 2021. Accelerated Computing with a Reconfigurable Dataflow Architecture.                [24] Song Han, Xingyu Liu, Huizi Mao, Jing Pu, Ardavan Pedram, Mark A. Horowitz,
+                                                                                                   and William J. Dally. 2016. EIE: Efficient Inference Engine on Compressed Deep
+      (2021). https://sambanova.ai/wp-content/uploads/2021/06/SambaNova_RDA_                       Neural Network. SIGARCH Comput. Archit. News 44, 3 (June 2016), 243254.
+      Whitepaper_English.pdf .                                                                     https://doi.org/10.1145/3007787.3001163
+ [5] 2021. Cerebras Systems: Achieving Industry Best AI Performance Through A                [25] Brandon Holt, Preston Briggs, Luis Ceze, and Mark Oskin. 2014. Alembic: Au-
+      Systems Approach. (2021). https://cerebras.net/wp-content/uploads/2021/04/                   tomatic Locality Extraction via Migration. In Proceedings of the 2014 ACM In-
+      Cerebras- CS- 2- Whitepaper.pdf .
+ [6] Maleen Abeydeera and Daniel Sanchez. 2020. Chronos: Efficient Speculative                     ternational Conference on Object Oriented Programming Systems Languages &
+      Parallelism for Accelerators (ASPLOS '20). Association for Computing Machinery,              Applications (OOPSLA '14). Association for Computing Machinery, New York,
+      New York, NY, USA, 12471262. https://doi.org/10.1145/3373376.3378454                         NY, USA, 879894. https://doi.org/10.1145/2660193.2660194
+ [7] Umut A. Acar, Guy E. Blelloch, and Robert D. Blumofe. 2000. The Data Locality of        [26] Yuanjie Huang, Paolo Ienne, Olivier Temam, Yunji Chen, and Chengyong Wu.
+      Work Stealing. In Proceedings of the Twelfth Annual ACM Symposium on Parallel                2013. Elastic CGRAs. In Proceedings of the ACM/SIGDA International Symposium
+      Algorithms and Architectures (SPAA '00). Association for Computing Machinery,                on Field Programmable Gate Arrays (FPGA '13). Association for Computing Ma-
+      New York, NY, USA, 112. https://doi.org/10.1145/341800.341801                                chinery, New York, NY, USA, 171180. https://doi.org/10.1145/2435264.2435296
+ [8] Krste Asanovi and David A Patterson. 2014. Instruction sets should be free: The         [27] Mark C. Jeffrey, Suvinay Subramanian, Maleen Abeydeera, Joel Emer, and Daniel
+      case for risc-v. EECS Department, University of California, Berkeley, Tech. Rep.             Sanchez. 2016. Data-Centric Execution of Speculative Parallel Programs. In
+      UCB/EECS-2014-146 (2014). https://riscv.org/publications/
+ [9] Nathan Binkert, Bradford Beckmann, Gabriel Black, Steven K. Reinhardt, Ali                    Proceedings of the 49th annual IEEE/ACM international symposium on Microarchi-
+      Saidi, Arkaprava Basu, Joel Hestness, Derek R. Hower, Tushar Krishna, Somayeh                tecture (MICRO-49). https://doi.org/10.1109/micro.2016.7783708
+      Sardashti, Rathijit Sen, Korey Sewell, Muhammad Shoaib, Nilay Vaish, Mark D.           [28] Maria Kotsifakou, Prakalp Srivastava, Matthew D Sinclair, Rakesh Komuravelli,
+      Hill, and David A. Wood. 2011. The gem5 simulator. SIGARCH Comput. Archit.                   Vikram Adve, and Sarita Adve. 2018. Hpvm: Heterogeneous parallel virtual
+      News (2011). https://doi.org/10.1145/2024716.2024718                                         machine. In Proceedings of the 23rd ACM SIGPLAN Symposium on Principles and
+[10] Robert D Blumofe, Christopher F Joerg, Bradley C Kuszmaul, Charles E Leiserson,               Practice of Parallel Programming. 6880. https://doi.org/10.1145/3178487.3178493
+      Keith H Randall, and Yuli Zhou. 1996. Cilk: An efficient multithreaded runtime         [29] Sanjeev Kumar, Christopher J. Hughes, and Anthony Nguyen. 2007. Carbon:
+      system. Journal of parallel and distributed computing 37, 1 (1996), 5569. https:             Architectural Support for Fine-grained Parallelism on Chip Multiprocessors.
+      //doi.org/10.1145/209936.209958                                                              SIGARCH Comput. Archit. News 35, 2 (June 2007), 162173. https://doi.org/10.
+[11] Prerna Budhkar, Ildar Absalyamov, Vasileios Zois, Skyler Windh, Walid A Najjar,               1145/1273440.1250683
+      and Vassilis J Tsotras. 2019. Accelerating in-memory database selections using         [30] Hyoukjun Kwon, Ananda Samajdar, and Tushar Krishna. 2018. MAERI: Enabling
+      latency masking hardware threads. ACM Transactions on Architecture and Code                  Flexible Dataflow Mapping over DNN Accelerators via Reconfigurable Intercon-
+      Optimization (TACO) 16, 2 (2019), 128. https://doi.org/10.1145/3310229                       nects. In ASPLOS (ASPLOS '18). Association for Computing Machinery, New York,
+[12] Rohit Chandra, Anoop Gupta, and John L. Hennessy. 1993. Data Locality and                     NY, USA, 461475. https://doi.org/10.1145/3173162.3173176
+      Load Balancing in COOL. In Proceedings of the Fourth ACM SIGPLAN Symposium             [31] Jonathan Lifflander and Sriram Krishnamoorthy. 2017. Cache Locality Opti-
+      on Principles and Practice of Parallel Programming (PPOPP '93). Association for              mization for Recursive Programs. In Proceedings of the 38th ACM SIGPLAN
+      Computing Machinery, New York, NY, USA, 249259. https://doi.org/10.1145/                     Conference on Programming Language Design and Implementation (PLDI 2017).
+      155332.155358                                                                                Association for Computing Machinery, New York, NY, USA, 116. https:
+[13] Shimin Chen, Phillip B Gibbons, Michael Kozuch, Vasileios Liaskovitis, Anastassia             //doi.org/10.1145/3062341.3062385
+      Ailamaki, Guy E Blelloch, Babak Falsafi, Limor Fix, Nikos Hardavellas, Todd C          [32] Jonathan Lifflander, Sriram Krishnamoorthy, and Laxmikant V. Kale. 2014. Opti-
+      Mowry, et al. 2007. Scheduling threads for constructive cache sharing on CMPs.               mizing Data Locality for Fork/Join Programs Using Constrained Work Stealing. In
+      In Proceedings of the nineteenth annual ACM symposium on Parallel algorithms
+      and architectures. 105115. https://doi.org/10.1145/1248377.1248396                           SC'14: Proceedings of the International Conference for High Performance Computing,
+[14] Tao Chen, Shreesha Srinath, Christopher Batten, and G. Edward Suh. 2018. An                   Networking, Storage and Analysis. 857868. https://doi.org/10.1109/SC.2014.75
+      Architectural Framework for Accelerating Dynamic Parallel Algorithms on Re-            [33] S. Margerm, A. Sharifian, A. Guha, A. Shriraman, and G. Pokam. 2018. TAPAS:
+      configurable Hardware. In Proceedings of the 51st Annual IEEE/ACM International              Generating Parallel Accelerators from Parallel Programs. In 2018 51st Annual
+      Symposium on Microarchitecture (MICRO-51). IEEE Press, Piscataway, NJ, USA,                  IEEE/ACM International Symposium on Microarchitecture (MICRO). 245257.
+      5567. https://doi.org/10.1109/MICRO.2018.00014                                               https://doi.org/10.1109/MICRO.2018.00028
+[15] Yu-Hsin Chen, Tien-Ju Yang, Joel Emer, and Vivienne Sze. 2019. Eyeriss v2:              [34] Bingfeng Mei, Serge Vernalde, Diederik Verkest, Hugo De Man, and Rudy Lauw-
+      A flexible accelerator for emerging deep neural networks on mobile devices.                  ereins. 2003. ADRES: An architecture with tightly coupled VLIW processor and
+      IEEE Journal on Emerging and Selected Topics in Circuits and Systems 9, 2 (2019),            coarse-grained reconfigurable matrix. In International Conference on Field Pro-
+      292308. https://doi.org/10.1109/jetcas.2019.2910232                                          grammable Logic and Applications. Springer, 6170. https://doi.org/10.1007/978-
+[16] S. Alexander Chin, Noriaki Sakamoto, Allan Rui, Jim Zhao, Jin Hee Kim, Yuko                   3- 540- 45234- 8_7
+      Hara-Azumi, and Jason Anderson. 2017. CGRA-ME: A unified framework for                 [35] Ethan Mirsky, Andre DeHon, et al. 1996. MATRIX: a reconfigurable computing
+      CGRA modelling and exploration. In 2017 IEEE 28th International Conference                   architecture with configurable instruction distribution and deployable resources..
+      on Application-specific Systems, Architectures and Processors (ASAP). 184189.                In FCCM, Vol. 96. 1719. https://doi.org/10.1109/fpga.1996.564808
+      https://doi.org/10.1109/ASAP.2017.7995277                                              [36] Marius Muja and David G Lowe. 2009. Fast approximate nearest neighbors
+[17] Jason Cong, Hui Huang, Chiyuan Ma, Bingjun Xiao, and Peipei Zhou. 2014. A                     with automatic algorithm configuration. VISAPP (1) 2, 331-340 (2009), 2. https:
+      fully pipelined and dynamically composable architecture of CGRA. In FCCM.                    //doi.org/10.5220/0001787803310340
+      IEEE, 916. https://doi.org/10.1109/fccm.2014.12                                        [37] Naveen Muralimanohar, Rajeev Balasubramonian, and Norman P Jouppi. 2009.
+[18] Vidushi Dadu, Sihao Liu, and Tony Nowatzki. 2021. PolyGraph: Exposing the                     CACTI 6.0: A tool to model large caches. HP Laboratories (2009), 2231. https:
+      Value of Flexibility for Graph Processing Accelerators. In 2021 ACM/IEEE 48th                //www.hpl.hp.com/techreports/2009/HPL- 2009- 85.html
+      Annual International Symposium on Computer Architecture (ISCA). 595608. https:         [38] Quan M Nguyen and Daniel Sanchez. 2021. Fifer: Practical Acceleration of
+      //doi.org/10.1109/ISCA52012.2021.00053                                                       Irregular Applications on Reconfigurable Architectures. In MICRO-54: 54th
+[19] Vidushi Dadu, Jian Weng, Sihao Liu, and Tony Nowatzki. 2019. Towards General                  Annual IEEE/ACM International Symposium on Microarchitecture. 10641077.
+      Purpose Acceleration by Exploiting Common Data-Dependence Forms (MICRO                       https://doi.org/10.1145/3466752.3480048
+      '52). ACM, New York, NY, USA, 924939. https://doi.org/10.1145/3352460.3358276          [39] Chris Nicol. 2017. A Coarse Grain Reconfigurable Array (CGRA) for
+[20] Ashish Gondimalla, Noah Chesnut, Mithuna Thottethodi, and T. N. Vijaykumar.                   Statically Scheduled Data Flow Computing. WaveComputing WhitePaper
+      2019. SparTen: A Sparse Tensor Accelerator for Convolutional Neural Networks.                (2017). http://www.silicon-russia.com/public_materials/2017_10_08_msu_
+      In Proceedings of the 52nd Annual IEEE/ACM International Symposium on Microar-               rountable/background/CGRA+Whitepaper.pdf
+      chitecture (MICRO '52). Association for Computing Machinery, New York, NY,             [40] Tony Nowatzki, Newsha Ardalani, Karthikeyan Sankaralingam, and Jian Weng.
+      USA, 151165. https://doi.org/10.1145/3352460.3358291                                         2018. Hybrid Optimization/Heuristic Instruction Scheduling for Programmable
+[21] Ashish Gondimalla, Sree Charan Gundabolu, T. N. Vijaykumar, and Mithuna Thot-                 Accelerator Codesign. In 27th PACT. https://doi.org/10.1145/3243176.3243212
+      tethodi. 2021. Barrier-Free Large-Scale Sparse Tensor Accelerator (BARISTA) For        [41] Tony Nowatzki, Vinay Gangadhar, Newsha Ardalani, and Karthikeyan Sankar-
+      Convolutional Neural Networks. CoRR abs/2104.08734 (2021). arXiv:2104.08734                  alingam. 2017. Stream-Dataflow Acceleration (ISCA '17). ACM, New York, NY,
+      https://arxiv.org/abs/2104.08734                                                             USA, 416429. https://doi.org/10.1145/3079856.3080255
+[22] Yi Guo, Jisheng Zhao, Vincent Cave, and Vivek Sarkar. 2010. SLAW: A scalable            [42] Muhsen Owaida, David Sidler, Kaan Kara, and Gustavo Alonso. 2017. Centaur: A
+
+                                                                                         12
+TaskStream: Accelerating Task-Parallel Workloads by Recovering Program Structure                       ASPLOS '22, February 28  March 4, 2022, Lausanne, Switzerland
+
+      framework for hybrid CPU-FPGA databases. In 2017 IEEE 25th Annual Interna-           [60] Christopher Torng, Peitian Pan, Yanghui Ou, Cheng Tan, and Christopher Batten.
+      tional Symposium on Field-Programmable Custom Computing Machines (FCCM).
+      IEEE, 211218. https://doi.org/10.1109/fccm.2017.37                                   2021. Ultra-Elastic CGRAs for Irregular Loop Specialization. In 2021 IEEE Interna-
+[43] Angshuman Parashar, Michael Pellauer, Michael Adler, Bushra Ahsan, Neal Crago,
+      Daniel Lustig, Vladimir Pavlov, Antonia Zhai, Mohit Gambhir, Aamer Jaleel,           tional Symposium on High-Performance Computer Architecture (HPCA). 412425.
+      Randy Allmon, Rachid Rayess, Stephen Maresh, and Joel Emer. 2013. Triggered
+      Instructions: A Control Paradigm for Spatially-programmed Architectures. In          https://doi.org/10.1109/HPCA51647.2021.00042
+
+      Proceedings of the 40th Annual International Symposium on Computer Architecture      [61] Matthew Vilim, Alexander Rucker, and Kunle Olukotun. 2021. Aurochs: An
+      (ISCA '13). ACM, New York, NY, USA, 142153. https://doi.org/10.1145/2485922.
+      2485935                                                                              Architecture for Dataflow Threads. In 2021 ACM/IEEE 48th Annual International
+[44] Angshuman Parashar, Minsoo Rhu, Anurag Mukkara, Antonio Puglielli, Rang-
+      harajan Venkatesan, Brucek Khailany, Joel Emer, Stephen W. Keckler, and              Symposium on Computer Architecture (ISCA). 402415. https://doi.org/10.1109/
+      William J. Dally. 2017. SCNN: An Accelerator for Compressed-sparse Convo-
+      lutional Neural Networks. In Proceedings of the 44th Annual International Sym-       ISCA52012.2021.00039
+      posium on Computer Architecture (ISCA '17). ACM, New York, NY, USA, 2740.
+      https://doi.org/10.1145/3079856.3080254                                              [62] Matthew Vilim, Alexander Rucker, Yaqi Zhang, Sophia Liu, and Kunle Olukotun.
+[45] Raghu Prabhakar, Yaqi Zhang, David Koeplinger, Matt Feldman, Tian Zhao,
+      Stefan Hadjis, Ardavan Pedram, Christos Kozyrakis, and Kunle Olukotun. 2017.         2020. Gorgon: Accelerating Machine Learning from Relational Data. In 2020
+      Plasticine: A Reconfigurable Architecture For Parallel Paterns (ISCA '17). ACM,
+      New York, NY, USA, 389402. https://doi.org/10.1145/3079856.3080256                   ACM/IEEE 47th Annual International Symposium on Computer Architecture (ISCA).
+[46] Eric Qin, Ananda Samajdar, Hyoukjun Kwon, Vineet Nadella, Sudarshan Srini-
+      vasan, Dipankar Das, Bharat Kaul, and Tushar Krishna. 2020. SIGMA: A Sparse          309321. https://doi.org/10.1109/ISCA45697.2020.00035
+      and Irregular GEMM Accelerator with Flexible Interconnects for DNN Training.
+      In 2020 IEEE International Symposium on High Performance Computer Architecture       [63] Dani Voitsechov and Yoav Etsion. 2014. Single-graph Multiple Flows: Energy
+      (HPCA). 5870. https://doi.org/10.1109/HPCA47549.2020.00015
+[47] Alec Roelke and Mircea R. Stan. 2017. RISC5: Implementing the RISC-V ISA              Efficient Design Alternative for GPGPUs. In Proceeding of the 41st Annual Interna-
+      in gem5. In Workshop on Computer Architecture Research with RISC-V (CARRV).
+      https://carrv.github.io/2017/papers/roelke- risc5- carrv2017.pdf                     tional Symposium on Computer Architecuture (ISCA '14). IEEE Press, Piscataway,
+[48] Alexander Rucker, Matthew Vilim, Tian Zhao, Yaqi Zhang, Raghu Prab-
+      hakar, and Kunle Olukotun. 2021. Capstan: A Vector RDA for Sparsity.                 NJ, USA, 205216. https://doi.org/10.1109/ISCA.2014.6853234
+      arXiv:cs.AR/2104.12760
+[49] Daniel Sanchez, David Lo, Richard M. Yoo, Jeremy Sugerman, and Christos               [64] Zhengrong Wang, Jian Weng, Sihao Liu, and Tony Nowatzki. 2022. Near-Stream
+      Kozyrakis. 2011. Dynamic Fine-Grain Scheduling of Pipeline Parallelism. In 2011
+      International Conference on Parallel Architectures and Compilation Techniques.       Computing: General and Transparent Near-Cache Acceleration. In HPCA. https:
+      2232. https://doi.org/10.1109/PACT.2011.9
+[50] Daniel Sanchez, David Lo, Richard M Yoo, Jeremy Sugerman, and Christos                //seanzw.github.io/pub/hpca2022- near- stream- computing.pdf
+      Kozyrakis. 2011. Dynamic fine-grain scheduling of pipeline parallelism. In 2011
+      International Conference on Parallel Architectures and Compilation Techniques.       [65] Zhengrong Wang, Jian Weng, Jason Lowe-Power, Jayesh Gaur, and Tony
+      IEEE, 2232. https://doi.org/10.1109/pact.2011.9
+[51] Daniel Sanchez, Richard M. Yoo, and Christos Kozyrakis. 2010. Flexible Archi-         Nowatzki. 2021. Stream Floating: Enabling Proactive and Decentralized Cache
+      tectural Support for Fine-grain Scheduling. SIGPLAN Not. 45, 3 (March 2010),
+      311322. https://doi.org/10.1145/1735971.1736055                                      Optimizations. In HPCA. https://doi.org/10.1109/hpca51647.2021.00060
+[52] Alina Sbîrlea, Yi Zou, Zoran Budimlic, Jason Cong, and Vivek Sarkar. 2012. Map-
+      ping a data-flow programming model onto heterogeneous platforms. ACM                 [66] Jian Weng, Sihao Liu, Vidushi Dadu, Zhengrong Wang, Preyas Shah, and Tony
+      SIGPLAN Notices 47, 5 (2012), 6170. https://doi.org/10.1145/2345141.2248428
+[53] Tao B. Schardl, William S. Moses, and Charles E. Leiserson. 2017. Tapir: Embed-       Nowatzki. 2020. DSAGEN: Synthesizing Programmable Spatial Accelerators. In
+      ding Fork-Join Parallelism into LLVM's Intermediate Representation (PPoPP
+      '17). Association for Computing Machinery, New York, NY, USA, 249265.                ISCA. IEEE, 268281. https://doi.org/10.1109/ISCA45697.2020.00032
+      https://doi.org/10.1145/3018743.3018758
+[54] Amirali Sharifian, Reza Hojabr, Navid Rahimi, Sihao Liu, Apala Guha, Tony             [67] Jian Weng, Sihao Liu, Zhengrong Wang, Vidushi Dadu, and Tony Nowatzki. 2020.
+      Nowatzki, and Arrvindh Shriraman. 2019. IR -An Intermediate Representation
+      for Transforming and Optimizing the Microarchitecture of Application Accelera-       A Hybrid Systolic-Dataflow Architecture for Inductive Matrix Algorithms. In
+      tors. In Proceedings of the 52nd Annual IEEE/ACM International Symposium on
+      Microarchitecture (MICRO-52). Association for Computing Machinery, New York,         2020 IEEE International Symposium on High Performance Computer Architecture
+      NY, USA, 940953. https://doi.org/10.1145/3352460.3358292
+[55] David E Shaw, JP Grossman, Joseph A Bank, Brannon Batson, J Adam Butts,               (HPCA). 703716. https://doi.org/10.1109/HPCA47549.2020.00063
+      Jack C Chao, Martin M Deneroff, Ron O Dror, Amos Even, Christopher H Fenton,
+      et al. 2014. Anton 2: raising the bar for performance and programmability in a       [68] Bob Wheeler. 2020. Growing AI Diversity and Complexity Demands Flexible
+      special-purpose molecular dynamics supercomputer. In SC'14: Proceedings of the
+                                                                                           Data-Center Accelerators. (2020). https://www.linleygroup.com/uploads/simple-
+      International Conference for High Performance Computing, Networking, Storage
+      and Analysis. IEEE, 4153. https://doi.org/10.1109/SC.2014.9                          machines- wp.pdf .
+[56] Harsha Vardhan Simhadri, Guy E. Blelloch, Jeremy T. Fineman, Phillip B. Gibbons,
+      and Aapo Kyrola. 2014. Experimental Analysis of Space-Bounded Schedulers.            [69] WikiChip. 2019.         Configurable Spatial Accelerator.
+      In Proceedings of the 26th ACM Symposium on Parallelism in Algorithms and
+      Architectures (SPAA '14). Association for Computing Machinery, New York, NY,         https://en.wikichip.org/wiki/intel/configurable_spatial_accelerator.
+      USA, 3041. https://doi.org/10.1145/2612669.2612678
+[57] Hartej Singh, Ming-Hau Lee, Guangming Lu, Nader Bagherzadeh, Fadi J. Kurdahi,         [70] Justin M Wozniak, Timothy G Armstrong, Michael Wilde, Daniel S Katz, Ewing
+      and Eliseu M. Chaves Filho. 2000. MorphoSys: An Integrated Reconfigurable
+      System for Data-Parallel and Computation-Intensive Applications. IEEE Trans.         Lusk, and Ian T Foster. 2013. Swift/t: Large-scale application composition via
+      Comput. 49, 5 (May 2000), 465481. https://doi.org/10.1109/12.859540
+[58] Tuan Ta, Lin Cheng, and Christopher Batten. 2018. Simulating Multi-Core RISC-V        distributed-memory dataflow processing. In 2013 13th IEEE/ACM International
+      Systems in gem5. (2018). https://carrv.github.io/2018/papers/CARRV_2018_
+      paper_3.pdf                                                                          Symposium on Cluster, Cloud, and Grid Computing. IEEE, 95102. https://doi.org/
+[59] Xubin Tan, Jaume Bosch, Miquel Vidal, Carlos Álvarez, Daniel Jiménez-González,
+      Eduard Ayguadé, and Mateo Valero. 2017. General purpose task-dependence              10.1109/ccgrid.2013.99
+      management hardware for task-based dataflow programming models. In 2017
+      IEEE International Parallel and Distributed Processing Symposium (IPDPS). IEEE,      [71] Tiancheng Xu, Boyuan Tian, and Yuhao Zhu. 2019. Tigris: Architecture and
+      244253. https://doi.org/10.1109/ipdps.2017.48
+                                                                                           algorithms for 3d perception in point clouds. In Proceedings of the 52nd Annual
+
+                                                                                           IEEE/ACM International Symposium on Microarchitecture. 629642. https://doi.
+
+                                                                                           org/10.1145/3352460.3358259
+
+                                                                                           [72] Mingyu Yan, Xing Hu, Shuangchen Li, Abanti Basak, Han Li, Xin Ma, Itir Akgun,
+
+                                                                                           Yujing Feng, Peng Gu, Lei Deng, Xiaochun Ye, Zhimin Zhang, Dongrui Fan,
+
+                                                                                           and Yuan Xie. 2019. Alleviating Irregularity in Graph Analytics Acceleration:
+
+                                                                                           A Hardware/Software Co-Design Approach (MICRO '52). ACM, New York, NY,
+
+                                                                                           USA, 615628. https://doi.org/10.1145/3352460.3358318
+
+                                                                                           [73] Dingqing Yang, Amin Ghasemazar, Xiaowei Ren, Maximilian Golub, Guy Lemieux,
+
+                                                                                           and Mieszko Lis. 2020. Procrustes: a dataflow and accelerator for sparse deep
+
+                                                                                           neural network training. In 2020 53rd Annual IEEE/ACM International Symposium
+
+                                                                                           on Microarchitecture (MICRO). IEEE, 711724. https://doi.org/10.1109/micro50266.
+
+                                                                                           2020.00064
+
+                                                                                           [74] Victor A Ying, Mark C Jeffrey, and Daniel Sanchez. 2020. T4: Compiling sequential
+
+                                                                                           code for effective speculative parallelization in hardware. In 2020 ACM/IEEE 47th
+
+                                                                                           Annual International Symposium on Computer Architecture (ISCA). IEEE, 159172.
+
+                                                                                           https://doi.org/10.1109/isca45697.2020.00024
+
+                                                                                           [75] Richard M. Yoo, Christopher J. Hughes, Changkyu Kim, Yen-Kuang Chen, and
+
+                                                                                           Christos Kozyrakis. 2013. Locality-Aware Task Management for Unstructured
+
+                                                                                           Parallelism: A Quantitative Limit Study. In Proceedings of the Twenty-Fifth An-
+
+                                                                                           nual ACM Symposium on Parallelism in Algorithms and Architectures (SPAA
+
+                                                                                           '13). Association for Computing Machinery, New York, NY, USA, 315325.
+
+                                                                                           https://doi.org/10.1145/2486159.2486175
+
+                                                                                           [76] Dan Zhang, Xiaoyu Ma, Michael Thomson, and Derek Chiou. 2018. Minnow:
+
+                                                                                           Lightweight Offload Engines for Worklist Management and Worklist-Directed
+
+                                                                                           Prefetching (ASPLOS '18). ACM, New York, NY, USA, 593607. https://doi.org/
+
+                                                                                           10.1145/3173162.3173197
+
+                                                                                           [77] Guowei Zhang, Nithya Attaluri, Joel S. Emer, and Daniel Sanchez. 2021. Gamma:
+
+                                                                                           Leveraging Gustavson's Algorithm to Accelerate Sparse Matrix Multiplication
+
+                                                                                           (ASPLOS 2021). Association for Computing Machinery, New York, NY, USA.
+
+                                                                                           https://doi.org/10.1145/3445814.3446702
+
+                                                                                           [78] Jie-Fang Zhang, Ching-En Lee, Chester Liu, Yakun Sophia Shao, Stephen W. Keck-
+
+                                                                                           ler, and Zhengya Zhang. 2021. SNAP: An Efficient Sparse Neural Acceleration
+
+                                                                                           Processor for Unstructured Sparse Deep Neural Network Inference. IEEE J. Solid
+
+                                                                                           State Circuits 56, 2 (2021), 636647. https://doi.org/10.1109/JSSC.2020.3043870
+
+                                                                                           [79] Yaqi Zhang, Alexander Rucker, Matthew Vilim, Raghu Prabhakar, William Hwang,
+
+                                                                                           and Kunle Olukotun. 2019. Scalable interconnects for reconfigurable spatial
+
+                                                                                           architectures. In 46th ISCA. https://doi.org/10.1145/3307650.3322249
+
+                                                                                       13
+

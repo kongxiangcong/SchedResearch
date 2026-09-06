@@ -1,0 +1,411 @@
+{
+  "recorded_utc": "2026-09-05T07:44:14.698737+00:00",
+  "scope": "SDK assembly, build and host metadata/CPU fixture evidence only",
+  "files": [
+    {
+      "path": "sdk/assemble_sdk.py",
+      "bytes": 4789,
+      "sha256": "215d62c6f8407d4069bef0afc6dda4a37d4b5a9afbd2a4d3f4e97cff628184c6"
+    },
+    {
+      "path": "sdk/build.cmd",
+      "bytes": 450,
+      "sha256": "cd82d7b37763c238ecabd33bba3067ae07db3733173a05e2162bbaac367fbd3e"
+    },
+    {
+      "path": "sdk/build_compute.cmd",
+      "bytes": 414,
+      "sha256": "bfdf90f47b820abf4fd666c4f9f8cfe43bf50552d6011b1455cef707a9925a84"
+    },
+    {
+      "path": "sdk/build_compute_output.txt",
+      "bytes": 274,
+      "sha256": "cc6b8534a76cb4aec5a86b230297893563b78fb2c63c1be6471b6206ab831a54"
+    },
+    {
+      "path": "sdk/build_copy.cmd",
+      "bytes": 405,
+      "sha256": "f8860f3d4ceba66aafdc9f1b2172832d61bc545d47c7aeabe2ed475e7b354ca1"
+    },
+    {
+      "path": "sdk/build_copy_output.txt",
+      "bytes": 271,
+      "sha256": "796172bf0fc714dd37f03971b7689ccbe1f913530a4328af327cbea34be34dd5"
+    },
+    {
+      "path": "sdk/build_fixture.cmd",
+      "bytes": 344,
+      "sha256": "32b17b9db8f91071135f0e930c78a03db42112cb1702837b474f749358de1f7f"
+    },
+    {
+      "path": "sdk/build_fixture_output.txt",
+      "bytes": 275,
+      "sha256": "1aa6ca76c3cae1a87f4389ebb4f513d62d05085060d913ada8c9a59c229beca3"
+    },
+    {
+      "path": "sdk/build_history/68293e5be0e639dc/build_compute_output.txt",
+      "bytes": 274,
+      "sha256": "cc6b8534a76cb4aec5a86b230297893563b78fb2c63c1be6471b6206ab831a54"
+    },
+    {
+      "path": "sdk/build_history/68293e5be0e639dc/build_copy_output.txt",
+      "bytes": 271,
+      "sha256": "796172bf0fc714dd37f03971b7689ccbe1f913530a4328af327cbea34be34dd5"
+    },
+    {
+      "path": "sdk/build_history/68293e5be0e639dc/build_fixture_output.txt",
+      "bytes": 275,
+      "sha256": "1aa6ca76c3cae1a87f4389ebb4f513d62d05085060d913ada8c9a59c229beca3"
+    },
+    {
+      "path": "sdk/build_history/68293e5be0e639dc/build_receipt.json",
+      "bytes": 2173,
+      "sha256": "68293e5be0e639dce1fb26171e8d24980b240acdc15c5e327bc859a5b3f81abc"
+    },
+    {
+      "path": "sdk/build_history/68293e5be0e639dc/compute_source_at_build.cpp",
+      "bytes": 6583,
+      "sha256": "5ed7b17aa92c78484bd144f656c0cf00fa87832004eb8ada581c9871ab605629"
+    },
+    {
+      "path": "sdk/build_history/68293e5be0e639dc/copy_source_at_build.cpp",
+      "bytes": 6237,
+      "sha256": "ef2cfe2548411cd2060f27d82f1f3d58de055f4a37ffa06ad15e27f36b822cb4"
+    },
+    {
+      "path": "sdk/build_history/68293e5be0e639dc/fixture_source_at_build.cpp",
+      "bytes": 2753,
+      "sha256": "0d425f07005af53a9b28ca8fe5ffacc65b59e8ea9e438dd5a3cc60849c0597a7"
+    },
+    {
+      "path": "sdk/build_output.txt",
+      "bytes": 339,
+      "sha256": "a85b3dc00de29697bc1807d01cfa34d23ffba306e1212a13d6667d7f25a06b94"
+    },
+    {
+      "path": "sdk/build_qualification.py",
+      "bytes": 2601,
+      "sha256": "a1bf49df84044bdbe2814203e73d08d96462732ca25bd7946c7dd08ec911d411"
+    },
+    {
+      "path": "sdk/build_receipt.json",
+      "bytes": 2173,
+      "sha256": "57910ad279d50a6d1583049dbc3a70fe4e71c877b082d6bc8b0bb30c44676746"
+    },
+    {
+      "path": "sdk/compute_source_at_build.cpp",
+      "bytes": 6738,
+      "sha256": "35e0d729a9f7ff6f19a3ab2afca65dfa4c5cad04b1f89ad92b704a104f264701"
+    },
+    {
+      "path": "sdk/copy_source_at_build.cpp",
+      "bytes": 6396,
+      "sha256": "ed1e7319d1c190bfba402ae6921329b01a251cc4ca8ce750b6ab35d9f968efbb"
+    },
+    {
+      "path": "sdk/finalize_receipts.py",
+      "bytes": 1764,
+      "sha256": "b75209641b7a8eb337ae64f2cfbc4e90f7dab0f9c563c513b0e4007ea3e3ee79"
+    },
+    {
+      "path": "sdk/fixture_source_at_build.cpp",
+      "bytes": 2753,
+      "sha256": "0d425f07005af53a9b28ca8fe5ffacc65b59e8ea9e438dd5a3cc60849c0597a7"
+    },
+    {
+      "path": "sdk/fixture_verification_output.txt",
+      "bytes": 133,
+      "sha256": "cbced0fad785ce998f2a76294075dde281547e9ff6b63af5849398ce8df7e926"
+    },
+    {
+      "path": "sdk/fixture_verification_receipt.json",
+      "bytes": 1747,
+      "sha256": "630099553005405758beaaec9fd98b7fce7fb28f915e633f984f0350dd471f1f"
+    },
+    {
+      "path": "sdk/generation_sources/src/CMake/config/version.h.in",
+      "bytes": 2398,
+      "sha256": "e7a5263566e43cb2a5812265de7294bb1f5c4664846c2aca3e1a32d416d0bcd6"
+    },
+    {
+      "path": "sdk/generation_sources/src/CMakeLists.txt",
+      "bytes": 4099,
+      "sha256": "2cf74b3d83cb6f8dbad17867d52761a0fb057006c790522cff820a85b4db237c"
+    },
+    {
+      "path": "sdk/include/deprecated/xcl_app_debug.h",
+      "bytes": 8043,
+      "sha256": "8fd2ec2fe3a5f7eb79140c114e694ccab1587389f0711d3c9ca4db59ac503303"
+    },
+    {
+      "path": "sdk/include/deprecated/xclperf.h",
+      "bytes": 21049,
+      "sha256": "759546c8a577bd40e948f24ed63d25fe0461e4f5f5dcce91b3180383cce60583"
+    },
+    {
+      "path": "sdk/include/deprecated/xrt.h",
+      "bytes": 26235,
+      "sha256": "6555c56c08c02d8dfc1c1d0fb037fe9dc1cd389b74866d60e4c6a640a1317c79"
+    },
+    {
+      "path": "sdk/include/ert.h",
+      "bytes": 33960,
+      "sha256": "66024290af38aa9895b461f3417cabb48999a113dd331c1948ec1e2c86f1d264"
+    },
+    {
+      "path": "sdk/include/experimental/xrt_exception.h",
+      "bytes": 784,
+      "sha256": "6f853d65353d9c6939276d5e20435431f6e9f443039bc4c8fdc29ff84b50c2e1"
+    },
+    {
+      "path": "sdk/include/experimental/xrt_fence.h",
+      "bytes": 6195,
+      "sha256": "28aebd905802a1827ff4612d580648c996cd6b09c34b6e3efbbbff2e496521a7"
+    },
+    {
+      "path": "sdk/include/experimental/xrt_hw_context.h",
+      "bytes": 143,
+      "sha256": "aa1c09831e872940a76b10a698c6f70cebc7bbf73b952456d7c3b11a04131595"
+    },
+    {
+      "path": "sdk/include/experimental/xrt_xclbin.h",
+      "bytes": 26221,
+      "sha256": "fc5c60bd6cd36b7f700a554908c0e3f81eade5d4bec97596680b10bf0a2546af"
+    },
+    {
+      "path": "sdk/include/version.h",
+      "bytes": 428,
+      "sha256": "d480a87c506836e8d85bc381d88f8f82c65211ccce3ffcc4fdba116b4a1a5a4e"
+    },
+    {
+      "path": "sdk/include/windows/types.h",
+      "bytes": 747,
+      "sha256": "cac0d0094bd2a5858bc86a37560ceb7e437743b7df180a9dc563d01eac05ac22"
+    },
+    {
+      "path": "sdk/include/windows/uuid.h",
+      "bytes": 2647,
+      "sha256": "96355a6869c6bd2a50165fea3d04d397414a4e9d88d7ddffcd34fa40a2bd4db8"
+    },
+    {
+      "path": "sdk/include/xclbin.h",
+      "bytes": 27099,
+      "sha256": "d837a0393cd3fbfa825a774935bb3e1a98d3c6cc7693fa90a78dd0604aa0d6ea"
+    },
+    {
+      "path": "sdk/include/xclerr.h",
+      "bytes": 3180,
+      "sha256": "f7531cf46a8cf492d0f5fdab2f0a6308d5680eba3ab4b27f1f1078fe2569988d"
+    },
+    {
+      "path": "sdk/include/xclhal2_mem.h",
+      "bytes": 726,
+      "sha256": "102853a74c53a4afac8b4040115a6fd8b9daa6e88cffd548d18a60cce89d8c83"
+    },
+    {
+      "path": "sdk/include/xrt/detail/abi.h",
+      "bytes": 989,
+      "sha256": "12e01f4e5873cf08690f7edb6734f8c3571d2fd09876cc30e31daadd838de17e"
+    },
+    {
+      "path": "sdk/include/xrt/detail/any.h",
+      "bytes": 848,
+      "sha256": "3b154a16052b6723f9717b314a25c60437d7a491ef26d3beee38f246044247e9"
+    },
+    {
+      "path": "sdk/include/xrt/detail/config.h",
+      "bytes": 617,
+      "sha256": "08478a5707b393d725065f5e5b072e05d00de6010b07fe282990b8b27c678a91"
+    },
+    {
+      "path": "sdk/include/xrt/detail/param_traits.h",
+      "bytes": 1628,
+      "sha256": "eca3d9f9809736a94d83d127c1783e82991e1a65eb93eaf4e89ffd073913172e"
+    },
+    {
+      "path": "sdk/include/xrt/detail/pimpl.h",
+      "bytes": 1516,
+      "sha256": "c1fd14e644a258d20db03eb6363fcee463399068a4959d5cb316bef6bf013559"
+    },
+    {
+      "path": "sdk/include/xrt/xrt_bo.h",
+      "bytes": 24969,
+      "sha256": "a41ff6217e9fcf3fa327b7b76088a26faeb14ffc9679a68898bda936d742899d"
+    },
+    {
+      "path": "sdk/include/xrt/xrt_device.h",
+      "bytes": 14431,
+      "sha256": "d784f5d940614476786db0faf45bc8c88dd79a22ee2e7a175d07d48e94cd18ec"
+    },
+    {
+      "path": "sdk/include/xrt/xrt_hw_context.h",
+      "bytes": 4400,
+      "sha256": "5f0b5d7664fac47f517319ddc1316936c136a4f76ca824f72500bbfc072a3428"
+    },
+    {
+      "path": "sdk/include/xrt/xrt_kernel.h",
+      "bytes": 30646,
+      "sha256": "67faaf27e524f712363d4248dbc7aadd97e2a512532464b3b2715aa71d854cc7"
+    },
+    {
+      "path": "sdk/include/xrt/xrt_uuid.h",
+      "bytes": 4633,
+      "sha256": "a17fe06087f56f4fbf971d951ae25e2f13a32e616f45c6495c0e6aa76fed49cc"
+    },
+    {
+      "path": "sdk/include/xrt.h",
+      "bytes": 812,
+      "sha256": "eb5f8d2b03c8ac06498c4dd60800e0cae40ee76217e2350d8015a5111e2042fd"
+    },
+    {
+      "path": "sdk/include/xrt_mem.h",
+      "bytes": 4008,
+      "sha256": "a2ec65ecb5d7cba1b21caa1ff252f5671056d1870ead4ee420fd48cfa80bc12b"
+    },
+    {
+      "path": "sdk/lib/xrt_coreutil.def",
+      "bytes": 30170,
+      "sha256": "c5867a1d8b01fe374c95128f33d2bd11d9b1535abc0eac090530539bae9e6966"
+    },
+    {
+      "path": "sdk/lib/xrt_coreutil.exp",
+      "bytes": 118849,
+      "sha256": "6c18c8169915eac5551700cf2451343052ab56152bae463d7094a74e14b25a56"
+    },
+    {
+      "path": "sdk/lib/xrt_coreutil.lib",
+      "bytes": 199436,
+      "sha256": "920c5f8937b3a79f73e915a66cfe6aba0010411a9ef6e724abefad839537a777"
+    },
+    {
+      "path": "sdk/metadata/00_1x4.txt",
+      "bytes": 4883,
+      "sha256": "cf16867a454bd4b11c1d3ea7e8df799349a4a50672bdfc73861150602def08e4"
+    },
+    {
+      "path": "sdk/metadata/01_1x4_2.5.0.189-1.txt",
+      "bytes": 4895,
+      "sha256": "ff1bddbff83b48b490b042c1f3e88d39344392242f7087ccca9786ba397fd524"
+    },
+    {
+      "path": "sdk/metadata/02_1x4_2.5.0.259-365.txt",
+      "bytes": 3413,
+      "sha256": "f8b15abfa73d469cee32c067811639302d17165ec689129395b9cc16d5506ab8"
+    },
+    {
+      "path": "sdk/metadata/03_1x4_3.5.0.0-1505.txt",
+      "bytes": 10496,
+      "sha256": "285ce1dfa85885b3544c69e2574dfe92f535bce9fb725b054fe12bb994c92493"
+    },
+    {
+      "path": "sdk/metadata/04_1x4_3.5.0.0-1562.txt",
+      "bytes": 10496,
+      "sha256": "0d043420529bbe79438d6ea9bf6778aaef433acc8af73abc70cb7f2890ac3147"
+    },
+    {
+      "path": "sdk/metadata/05_1x4_3.5.0.0-949.txt",
+      "bytes": 7914,
+      "sha256": "555f801a1f14aca4d420f2afd134fd60871cf5bea68990db0a382362c7a27dbd"
+    },
+    {
+      "path": "sdk/metadata/06_1x4_v0_122.txt",
+      "bytes": 1180,
+      "sha256": "e5d0d25634e41e6e6ce9a33ae6207b15c1da2e3eaf8e493c8e2c6704cd7a2484"
+    },
+    {
+      "path": "sdk/metadata/07_4x4_3.5.0.0-1506.txt",
+      "bytes": 8345,
+      "sha256": "eb5ce8b8392d1c95d8262dd2fecee35ffc5499f160a7c5628f1183b76c38b178"
+    },
+    {
+      "path": "sdk/metadata/08_4x4_3.5.0.0-1561.txt",
+      "bytes": 8345,
+      "sha256": "f8743805bf89116637aee7d31050a822f9c5bf68f4d7f54a2f08058e57f9976a"
+    },
+    {
+      "path": "sdk/metadata/09_5x4_3.5.0.0-950.txt",
+      "bytes": 5763,
+      "sha256": "07cdeaf46fc207bafbe422283ae904c87b9f857a0522279f44591570847ed9c7"
+    },
+    {
+      "path": "sdk/metadata/10_aieml_gemm_asr.txt",
+      "bytes": 1262,
+      "sha256": "c3ca4023d24f98bd56047b8ba8782f2db7902f7aa5d096c7258c1f47d6e8b3c6"
+    },
+    {
+      "path": "sdk/metadata/11_aieml_gemm_asr_qdq.txt",
+      "bytes": 1266,
+      "sha256": "059ed42ab9ce0b689f3595ba07de1708f4af342f299c7f5b3a9df313fb98587a"
+    },
+    {
+      "path": "sdk/metadata/12_aieml_gemm_vm_phx_4x4.txt",
+      "bytes": 1269,
+      "sha256": "aec7c0f130249437551c921003293b0ed789e0d5b9c294ccfa3e1d0149728f97"
+    },
+    {
+      "path": "sdk/metadata/13_aieml_gemm_vm_phx_4x4_bf16.txt",
+      "bytes": 1274,
+      "sha256": "e1d6d897c535a0bc63a31af233fc9f0457d6138f8dd0893edbb9cf1e7574d44a"
+    },
+    {
+      "path": "sdk/metadata/14_validate_phx.txt",
+      "bytes": 7911,
+      "sha256": "3d02782b8b38f6420615ac4b6556cbd69cc4b8a0c6e05407c1e85bce7d43ef9c"
+    },
+    {
+      "path": "sdk/metadata/15_gemm_4x4.txt",
+      "bytes": 1322,
+      "sha256": "ccdaf8cc68beb9205ac9948f8ec94b74a955a7268800d66908d74cc65ff5f63f"
+    },
+    {
+      "path": "sdk/metadata_batch_output.txt",
+      "bytes": 11842,
+      "sha256": "42ab874724cf2bc0a4e6ff760bfdf892cde06b24054ee9e231fe2e7da1eabe5d"
+    },
+    {
+      "path": "sdk/metadata_receipt.json",
+      "bytes": 12753,
+      "sha256": "a3a415a0d2e311151f4255a199cfd78aa188d6d0110ea663fc979b343772183a"
+    },
+    {
+      "path": "sdk/qualify_metadata.py",
+      "bytes": 2229,
+      "sha256": "b26e1b5b592b7240db317aae57c30da7fa4bb91cf6565a47e05a0fc9b589e8f1"
+    },
+    {
+      "path": "sdk/source_manifest.json",
+      "bytes": 11265,
+      "sha256": "28e5ddc38200b15b4f66ebcfd9fa735314294bc1de2119fa91d1dc10116c6b7a"
+    },
+    {
+      "path": "sdk/verify_fixture.exe",
+      "bytes": 36864,
+      "sha256": "6fcf9de556b4e77dd42b2b9f35cf6b6b56f3e704108d36daf7aa59b80713e302"
+    },
+    {
+      "path": "sdk/verify_fixture.obj",
+      "bytes": 182098,
+      "sha256": "586d60dc67b68ed59611c7e0d5133bcbb94fbb2fe45cf1cdadd1fa0fb0851c9e"
+    },
+    {
+      "path": "sdk/xclbin_metadata.cpp",
+      "bytes": 1929,
+      "sha256": "294145e55f26fef2daf332df5e9305aeda2abdf8e384b30545ded97527aad55e"
+    },
+    {
+      "path": "sdk/xclbin_metadata.exe",
+      "bytes": 24576,
+      "sha256": "dcb0bb2958a93db8af807e3dc72014e44a96348ed197a4b61c094a0f9876fcb9"
+    },
+    {
+      "path": "sdk/xclbin_metadata.obj",
+      "bytes": 150319,
+      "sha256": "39ef8b3da7edadd841d1c7eb0211c7752935eb39fe9aa1bcbd6fb96de229190e"
+    },
+    {
+      "path": "sdk_build_report.md",
+      "bytes": 6579,
+      "sha256": "c4811e52060031d4bf7eaa4eb5571cebc226ac3f395e7217f1827e135a840fbe"
+    }
+  ]
+}

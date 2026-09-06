@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:\\ProgramData\\anaconda3\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "r6\\python_capability_probe.py"
+  ],
+  "started_utc": "2026-09-05T07:12:22.990399+00:00",
+  "ended_utc": "2026-09-05T07:12:23.338463+00:00",
+  "host_process_elapsed_s": 0.3459471999667585,
+  "returncode": 0,
+  "timed_out": false,
+  "timeout_s": 120,
+  "evidence_level": "raw local diagnostic; not NPU kernel timing",
+  "plan_sha256": "ca7d781d072aeecd356d50d739d8b0479dc1efb01d1ec98b0dd9b7822f7bd79d",
+  "raw_sha256": {
+    "stdout.bin": "6ff6b561c540095d1ecc8c8f7a741e5fa2378404d719e8e6bf669c6a41226c09",
+    "stderr.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

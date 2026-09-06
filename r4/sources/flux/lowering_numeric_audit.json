@@ -1,0 +1,399 @@
+{
+  "evidence": "scaled random-weight NumPy float64 mathematical lowering only; official PyTorch/BF16 not executed",
+  "checks": [
+    {
+      "case": "flux2_klein4b_double_scaled",
+      "seed": 7,
+      "errors": {
+        "img_out": 1.1102230246251565e-16,
+        "txt_out": 1.1102230246251565e-16
+      },
+      "reordered_errors": {
+        "img_out": 1.1102230246251565e-16,
+        "txt_out": 1.1102230246251565e-16
+      },
+      "order": [
+        "timestep_embedding",
+        "txt_input_projection",
+        "img_input_projection",
+        "time_linear1",
+        "time_silu1",
+        "time_linear2",
+        "modulation_silu",
+        "txt_modulation",
+        "img_modulation",
+        "img_norm_mod1",
+        "img_qkv_projection",
+        "img_qk_norm_rope",
+        "txt_norm_mod1",
+        "txt_qkv_projection",
+        "txt_qk_norm_rope",
+        "joint_kv",
+        "txt_qk",
+        "img_qk",
+        "txt_softmax",
+        "img_softmax",
+        "img_av",
+        "img_attention_out",
+        "img_residual_norm2",
+        "txt_av",
+        "img_mlp_expand",
+        "img_swiglu",
+        "img_mlp_contract",
+        "txt_attention_out",
+        "txt_residual_norm2",
+        "txt_mlp_expand",
+        "img_residual2",
+        "txt_swiglu",
+        "txt_mlp_contract",
+        "txt_residual2"
+      ]
+    },
+    {
+      "case": "flux2_klein4b_single_scaled",
+      "seed": 7,
+      "errors": {
+        "out": 1.1102230246251565e-16
+      },
+      "reordered_errors": {
+        "out": 1.1102230246251565e-16
+      },
+      "order": [
+        "timestep_embedding",
+        "time_linear1",
+        "time_silu1",
+        "time_linear2",
+        "modulation_silu",
+        "single_modulation",
+        "single_norm_mod",
+        "single_linear1",
+        "single_qk_norm_rope",
+        "single_qk",
+        "single_softmax",
+        "single_av",
+        "single_swiglu",
+        "single_join_project",
+        "single_residual"
+      ]
+    },
+    {
+      "case": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident",
+      "seed": 7,
+      "errors": {
+        "img_out": 1.1102230246251565e-16,
+        "txt_out": 1.1102230246251565e-16
+      },
+      "reordered_errors": {
+        "img_out": 1.1102230246251565e-16,
+        "txt_out": 1.1102230246251565e-16
+      },
+      "order": [
+        "img_input_projection",
+        "txt_input_projection",
+        "txt_norm_mod1",
+        "txt_qkv_projection",
+        "img_norm_mod1",
+        "img_qkv_projection",
+        "img_qk_norm_rope",
+        "txt_qk_norm_rope",
+        "joint_kv",
+        "img_qk_softmax_av_aggregate",
+        "txt_qk_softmax_av_aggregate",
+        "img_attention_out",
+        "txt_attention_out",
+        "img_residual_norm2",
+        "img_mlp_expand",
+        "img_swiglu",
+        "img_mlp_contract",
+        "txt_residual_norm2",
+        "img_residual2",
+        "txt_mlp_expand",
+        "txt_swiglu",
+        "txt_mlp_contract",
+        "txt_residual2"
+      ]
+    },
+    {
+      "case": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident",
+      "seed": 7,
+      "errors": {
+        "out": 1.1102230246251565e-16
+      },
+      "reordered_errors": {
+        "out": 1.1102230246251565e-16
+      },
+      "order": [
+        "single_norm_mod",
+        "single_linear1",
+        "single_qk_norm_rope",
+        "single_qk_softmax_av_aggregate",
+        "single_swiglu",
+        "single_join_project",
+        "single_residual"
+      ]
+    },
+    {
+      "case": "flux2_klein4b_double_scaled",
+      "seed": 19,
+      "errors": {
+        "img_out": 1.1102230246251565e-16,
+        "txt_out": 1.1102230246251565e-16
+      },
+      "reordered_errors": {
+        "img_out": 1.1102230246251565e-16,
+        "txt_out": 1.1102230246251565e-16
+      },
+      "order": [
+        "timestep_embedding",
+        "txt_input_projection",
+        "time_linear1",
+        "time_silu1",
+        "img_input_projection",
+        "time_linear2",
+        "modulation_silu",
+        "img_modulation",
+        "txt_modulation",
+        "txt_norm_mod1",
+        "img_norm_mod1",
+        "txt_qkv_projection",
+        "img_qkv_projection",
+        "txt_qk_norm_rope",
+        "img_qk_norm_rope",
+        "joint_kv",
+        "img_qk",
+        "txt_qk",
+        "txt_softmax",
+        "img_softmax",
+        "img_av",
+        "txt_av",
+        "img_attention_out",
+        "txt_attention_out",
+        "txt_residual_norm2",
+        "img_residual_norm2",
+        "txt_mlp_expand",
+        "img_mlp_expand",
+        "txt_swiglu",
+        "img_swiglu",
+        "txt_mlp_contract",
+        "img_mlp_contract",
+        "img_residual2",
+        "txt_residual2"
+      ]
+    },
+    {
+      "case": "flux2_klein4b_single_scaled",
+      "seed": 19,
+      "errors": {
+        "out": 2.220446049250313e-16
+      },
+      "reordered_errors": {
+        "out": 2.220446049250313e-16
+      },
+      "order": [
+        "timestep_embedding",
+        "time_linear1",
+        "time_silu1",
+        "time_linear2",
+        "modulation_silu",
+        "single_modulation",
+        "single_norm_mod",
+        "single_linear1",
+        "single_qk_norm_rope",
+        "single_qk",
+        "single_swiglu",
+        "single_softmax",
+        "single_av",
+        "single_join_project",
+        "single_residual"
+      ]
+    },
+    {
+      "case": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident",
+      "seed": 19,
+      "errors": {
+        "img_out": 1.1102230246251565e-16,
+        "txt_out": 1.1102230246251565e-16
+      },
+      "reordered_errors": {
+        "img_out": 1.1102230246251565e-16,
+        "txt_out": 1.1102230246251565e-16
+      },
+      "order": [
+        "img_input_projection",
+        "txt_input_projection",
+        "img_norm_mod1",
+        "img_qkv_projection",
+        "txt_norm_mod1",
+        "img_qk_norm_rope",
+        "txt_qkv_projection",
+        "txt_qk_norm_rope",
+        "joint_kv",
+        "img_qk_softmax_av_aggregate",
+        "txt_qk_softmax_av_aggregate",
+        "img_attention_out",
+        "txt_attention_out",
+        "img_residual_norm2",
+        "txt_residual_norm2",
+        "img_mlp_expand",
+        "txt_mlp_expand",
+        "txt_swiglu",
+        "img_swiglu",
+        "img_mlp_contract",
+        "txt_mlp_contract",
+        "img_residual2",
+        "txt_residual2"
+      ]
+    },
+    {
+      "case": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident",
+      "seed": 19,
+      "errors": {
+        "out": 2.220446049250313e-16
+      },
+      "reordered_errors": {
+        "out": 2.220446049250313e-16
+      },
+      "order": [
+        "single_norm_mod",
+        "single_linear1",
+        "single_qk_norm_rope",
+        "single_qk_softmax_av_aggregate",
+        "single_swiglu",
+        "single_join_project",
+        "single_residual"
+      ]
+    },
+    {
+      "case": "flux2_klein4b_double_scaled",
+      "seed": 31,
+      "errors": {
+        "img_out": 1.1102230246251565e-16,
+        "txt_out": 1.1102230246251565e-16
+      },
+      "reordered_errors": {
+        "img_out": 1.1102230246251565e-16,
+        "txt_out": 1.1102230246251565e-16
+      },
+      "order": [
+        "txt_input_projection",
+        "timestep_embedding",
+        "time_linear1",
+        "img_input_projection",
+        "time_silu1",
+        "time_linear2",
+        "modulation_silu",
+        "img_modulation",
+        "img_norm_mod1",
+        "img_qkv_projection",
+        "img_qk_norm_rope",
+        "txt_modulation",
+        "txt_norm_mod1",
+        "txt_qkv_projection",
+        "txt_qk_norm_rope",
+        "joint_kv",
+        "img_qk",
+        "txt_qk",
+        "img_softmax",
+        "txt_softmax",
+        "txt_av",
+        "txt_attention_out",
+        "img_av",
+        "txt_residual_norm2",
+        "txt_mlp_expand",
+        "txt_swiglu",
+        "img_attention_out",
+        "img_residual_norm2",
+        "txt_mlp_contract",
+        "txt_residual2",
+        "img_mlp_expand",
+        "img_swiglu",
+        "img_mlp_contract",
+        "img_residual2"
+      ]
+    },
+    {
+      "case": "flux2_klein4b_single_scaled",
+      "seed": 31,
+      "errors": {
+        "out": 2.220446049250313e-16
+      },
+      "reordered_errors": {
+        "out": 2.220446049250313e-16
+      },
+      "order": [
+        "timestep_embedding",
+        "time_linear1",
+        "time_silu1",
+        "time_linear2",
+        "modulation_silu",
+        "single_modulation",
+        "single_norm_mod",
+        "single_linear1",
+        "single_swiglu",
+        "single_qk_norm_rope",
+        "single_qk",
+        "single_softmax",
+        "single_av",
+        "single_join_project",
+        "single_residual"
+      ]
+    },
+    {
+      "case": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident",
+      "seed": 31,
+      "errors": {
+        "img_out": 1.1102230246251565e-16,
+        "txt_out": 1.1102230246251565e-16
+      },
+      "reordered_errors": {
+        "img_out": 1.1102230246251565e-16,
+        "txt_out": 1.1102230246251565e-16
+      },
+      "order": [
+        "txt_input_projection",
+        "img_input_projection",
+        "img_norm_mod1",
+        "txt_norm_mod1",
+        "img_qkv_projection",
+        "txt_qkv_projection",
+        "txt_qk_norm_rope",
+        "img_qk_norm_rope",
+        "joint_kv",
+        "txt_qk_softmax_av_aggregate",
+        "img_qk_softmax_av_aggregate",
+        "txt_attention_out",
+        "img_attention_out",
+        "txt_residual_norm2",
+        "txt_mlp_expand",
+        "txt_swiglu",
+        "img_residual_norm2",
+        "txt_mlp_contract",
+        "txt_residual2",
+        "img_mlp_expand",
+        "img_swiglu",
+        "img_mlp_contract",
+        "img_residual2"
+      ]
+    },
+    {
+      "case": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident",
+      "seed": 31,
+      "errors": {
+        "out": 2.220446049250313e-16
+      },
+      "reordered_errors": {
+        "out": 2.220446049250313e-16
+      },
+      "order": [
+        "single_norm_mod",
+        "single_linear1",
+        "single_swiglu",
+        "single_qk_norm_rope",
+        "single_qk_softmax_av_aggregate",
+        "single_join_project",
+        "single_residual"
+      ]
+    }
+  ],
+  "lowering_sha256": "bf92514ea2537877b80144d95f42ca4acecd911cb8ba29c95f91a185a26a4ff2"
+}

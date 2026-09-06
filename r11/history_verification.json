@@ -1,0 +1,117 @@
+{
+  "status": "PASS",
+  "started_at": "2026-09-05T23:32:52+0800",
+  "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "commands": [
+    {
+      "command": "python -B -X utf8 r10/check_results.py",
+      "returncode": 0,
+      "stdout": "{\"status\": \"PASS\", \"named_artifacts\": 1148, \"R9_artifacts_preserved\": 648, \"new_progress_rows\": 3, \"A_pairs\": 360, \"B_pairs\": 360, \"total_detailed_traces\": 1104, \"scope\": \"reference-model evidence; residual dynamic space unresolved; no hardware acceptance\"}",
+      "stderr": "",
+      "seconds": 0.954,
+      "parsed_stdout": {
+        "status": "PASS",
+        "named_artifacts": 1148,
+        "R9_artifacts_preserved": 648,
+        "new_progress_rows": 3,
+        "A_pairs": 360,
+        "B_pairs": 360,
+        "total_detailed_traces": 1104,
+        "scope": "reference-model evidence; residual dynamic space unresolved; no hardware acceptance"
+      }
+    },
+    {
+      "command": "python -B -X utf8 r9/check_results.py",
+      "returncode": 0,
+      "stdout": "{\"status\": \"PASS\", \"named_files\": 648, \"handoff_files\": 3, \"historical_rows_preserved\": 17, \"actual_R9_rows\": 2, \"scope\": \"R9 frozen reference-model evidence and lineage, not real-target acceptance\"}",
+      "stderr": "",
+      "seconds": 0.481,
+      "parsed_stdout": {
+        "status": "PASS",
+        "named_files": 648,
+        "handoff_files": 3,
+        "historical_rows_preserved": 17,
+        "actual_R9_rows": 2,
+        "scope": "R9 frozen reference-model evidence and lineage, not real-target acceptance"
+      }
+    },
+    {
+      "command": "python -B -X utf8 r8/check_history.py",
+      "returncode": 0,
+      "stdout": "{\"status\": \"PASS\", \"historical_paths\": {\"r7\": 686, \"r6\": 89, \"r5\": 262, \"r4\": 612}, \"handoff_files\": 5, \"historical_rows_preserved\": 12, \"current_root_is_handoff\": false, \"scope\": \"history and scope-alignment handoff, not R8 experimental acceptance\"}",
+      "stderr": "",
+      "seconds": 0.938,
+      "parsed_stdout": {
+        "status": "PASS",
+        "historical_paths": {
+          "r7": 686,
+          "r6": 89,
+          "r5": 262,
+          "r4": 612
+        },
+        "handoff_files": 5,
+        "historical_rows_preserved": 12,
+        "current_root_is_handoff": false,
+        "scope": "history and scope-alignment handoff, not R8 experimental acceptance"
+      }
+    },
+    {
+      "command": "python -B -X utf8 r8/check_results.py",
+      "returncode": 0,
+      "stdout": "{\"status\": \"PASS\", \"listed_artifacts\": 34, \"historical_rows_preserved\": 13, \"actual_R8_rows\": 2, \"root_is_this_successor\": false, \"scope\": \"listed R8 structural evidence and lineage; future additions allowed; no target/performance acceptance\"}",
+      "stderr": "",
+      "seconds": 0.252,
+      "parsed_stdout": {
+        "status": "PASS",
+        "listed_artifacts": 34,
+        "historical_rows_preserved": 13,
+        "actual_R8_rows": 2,
+        "root_is_this_successor": false,
+        "scope": "listed R8 structural evidence and lineage; future additions allowed; no target/performance acceptance"
+      }
+    }
+  ],
+  "named_manifest_and_handoff_digests_before": {
+    "r10/results_manifest.json": "1d3117758434a3442d365118d243aab7cb5f614ae43860060be9323abdd28032",
+    "r9/results_manifest.json": "17abc2891f51392e210275f672fca15ba20b1433de07d78eab100af023d15a0b",
+    "r8/artifact_integrity.json": "d81ff0230bbfcb5461b28932831ab14bd38c4a87fd14edc73cba9ce67f40daf2",
+    "r8/handoff_integrity.json": "ec14e29e06f4617bdd11f675095bd23a92a9ba25a7abbf0d70e80f28affbdd1e",
+    "r7/artifact_integrity.json": "08e1f7c12453caa5b1cfad2f86cf54392eb2dbae6d52bd56ab27a841d33be71f",
+    "r6/artifact_integrity.json": "6b52b291434c8c569b378e52b6859d5d4d53d94a14276c49794a07264e4a82ad",
+    "r5/artifact_integrity.json": "88e6728e4979745201a81137ba4a98941706c2efa532cf6212a2a817e6998e58",
+    "experiments/results/r4/artifact_integrity.json": "28d3d8b9588a5cc2510da004ee58c7ca86d31167a99c37af69370869adf67e6c",
+    "r11/handoff_integrity.json": "2e6b96f69f0c7e0b9844e94ea4745110b55114c9363bec5cec2d5c61177744bb",
+    "r11/history_lineage.json": "7042d83cfcf12f779786fb7a3ffa8cb49231303bdeef4ffaefb759489eaac97d",
+    "r11/continuation_brief.md": "187225d6d10c71d524571fe4ed86589af5528e39482b86001807246697a0bc60",
+    "r11/prepare_handoff.py": "bb026e88eed01f6aa6d5dce83364ab2e0920b5f1dfd7f595872f3baeba08e370",
+    "r11/history/r10_research_progress.md": "df99c7045682658680a28105114b68c6fa521ca1311460322fd9b99d6394c7d4",
+    "r11/history/aligned_research_progress.md": "436d346261e9e5df1f6e0aed0ed08262e2274c15befff2586f23675bd46dd5a1"
+  },
+  "named_manifest_and_handoff_digests_after": {
+    "r10/results_manifest.json": "1d3117758434a3442d365118d243aab7cb5f614ae43860060be9323abdd28032",
+    "r9/results_manifest.json": "17abc2891f51392e210275f672fca15ba20b1433de07d78eab100af023d15a0b",
+    "r8/artifact_integrity.json": "d81ff0230bbfcb5461b28932831ab14bd38c4a87fd14edc73cba9ce67f40daf2",
+    "r8/handoff_integrity.json": "ec14e29e06f4617bdd11f675095bd23a92a9ba25a7abbf0d70e80f28affbdd1e",
+    "r7/artifact_integrity.json": "08e1f7c12453caa5b1cfad2f86cf54392eb2dbae6d52bd56ab27a841d33be71f",
+    "r6/artifact_integrity.json": "6b52b291434c8c569b378e52b6859d5d4d53d94a14276c49794a07264e4a82ad",
+    "r5/artifact_integrity.json": "88e6728e4979745201a81137ba4a98941706c2efa532cf6212a2a817e6998e58",
+    "experiments/results/r4/artifact_integrity.json": "28d3d8b9588a5cc2510da004ee58c7ca86d31167a99c37af69370869adf67e6c",
+    "r11/handoff_integrity.json": "2e6b96f69f0c7e0b9844e94ea4745110b55114c9363bec5cec2d5c61177744bb",
+    "r11/history_lineage.json": "7042d83cfcf12f779786fb7a3ffa8cb49231303bdeef4ffaefb759489eaac97d",
+    "r11/continuation_brief.md": "187225d6d10c71d524571fe4ed86589af5528e39482b86001807246697a0bc60",
+    "r11/prepare_handoff.py": "bb026e88eed01f6aa6d5dce83364ab2e0920b5f1dfd7f595872f3baeba08e370",
+    "r11/history/r10_research_progress.md": "df99c7045682658680a28105114b68c6fa521ca1311460322fd9b99d6394c7d4",
+    "r11/history/aligned_research_progress.md": "436d346261e9e5df1f6e0aed0ed08262e2274c15befff2586f23675bd46dd5a1"
+  },
+  "manifest_and_handoff_unchanged": true,
+  "four_named_handoff_files_verified": {
+    "r11/continuation_brief.md": "187225d6d10c71d524571fe4ed86589af5528e39482b86001807246697a0bc60",
+    "r11/prepare_handoff.py": "bb026e88eed01f6aa6d5dce83364ab2e0920b5f1dfd7f595872f3baeba08e370",
+    "r11/history/r10_research_progress.md": "df99c7045682658680a28105114b68c6fa521ca1311460322fd9b99d6394c7d4",
+    "r11/history/aligned_research_progress.md": "436d346261e9e5df1f6e0aed0ed08262e2274c15befff2586f23675bd46dd5a1"
+  },
+  "parent_bytes_prefix_of_aligned": true,
+  "aligned_bytes_prefix_of_current_root_progress": true,
+  "current_root_progress_sha256_at_check": "436d346261e9e5df1f6e0aed0ed08262e2274c15befff2586f23675bd46dd5a1",
+  "scope": "Read-only historical integrity verification of frozen R1-R10 evidence and R11 handoff; no R11 numerical or performance validation."
+}

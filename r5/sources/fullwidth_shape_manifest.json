@@ -1,0 +1,436 @@
+{
+  "evidence_level": "source-derived formulas only, no model quality or hardware latency claim",
+  "shape_scope": "full reduction/state dimensions, selected output tiles/heads, not complete model/layer",
+  "source_sha256": {
+    "qwen\\config.json": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+    "qwen\\modeling_qwen3_5.py": "458360c8072e6130580639170ad3e645b975512dbabae31eab5f92de5f0f09ef",
+    "flux\\config.json": "09733c74a3da6d17dd0a0472a091a8950c7c6935889c32c16cc800ede05029de",
+    "flux\\model.py": "e062691d789ec80a04a5fbc421b09d3b7e264305be1dfcb6da65d68c259e18c1"
+  },
+  "projection_tiles": [
+    {
+      "name": "qwen_gate_or_up",
+      "K": 2560,
+      "N_tile": 128,
+      "full_N": 9216,
+      "weight_shape": [
+        128,
+        2560
+      ],
+      "weight_dtype": "BF16",
+      "weight_bytes": 655360,
+      "weight_bytes_formula": "2*K*N_tile; full K, selected output columns only",
+      "arithmetic": {
+        "1": {
+          "M": 1,
+          "MACs": 327680,
+          "FLOPs_MAC2_convention": 655360,
+          "input_bytes_BF16": 5120,
+          "output_bytes_BF16": 256,
+          "accumulator_bytes_FP32": 512
+        },
+        "16": {
+          "M": 16,
+          "MACs": 5242880,
+          "FLOPs_MAC2_convention": 10485760,
+          "input_bytes_BF16": 81920,
+          "output_bytes_BF16": 4096,
+          "accumulator_bytes_FP32": 8192
+        },
+        "64": {
+          "M": 64,
+          "MACs": 20971520,
+          "FLOPs_MAC2_convention": 41943040,
+          "input_bytes_BF16": 327680,
+          "output_bytes_BF16": 16384,
+          "accumulator_bytes_FP32": 32768
+        }
+      }
+    },
+    {
+      "name": "qwen_gqa_q_plus_gate",
+      "K": 2560,
+      "N_tile": 128,
+      "full_N": 8192,
+      "weight_shape": [
+        128,
+        2560
+      ],
+      "weight_dtype": "BF16",
+      "weight_bytes": 655360,
+      "weight_bytes_formula": "2*K*N_tile; full K, selected output columns only",
+      "arithmetic": {
+        "1": {
+          "M": 1,
+          "MACs": 327680,
+          "FLOPs_MAC2_convention": 655360,
+          "input_bytes_BF16": 5120,
+          "output_bytes_BF16": 256,
+          "accumulator_bytes_FP32": 512
+        },
+        "16": {
+          "M": 16,
+          "MACs": 5242880,
+          "FLOPs_MAC2_convention": 10485760,
+          "input_bytes_BF16": 81920,
+          "output_bytes_BF16": 4096,
+          "accumulator_bytes_FP32": 8192
+        },
+        "64": {
+          "M": 64,
+          "MACs": 20971520,
+          "FLOPs_MAC2_convention": 41943040,
+          "input_bytes_BF16": 327680,
+          "output_bytes_BF16": 16384,
+          "accumulator_bytes_FP32": 32768
+        }
+      }
+    },
+    {
+      "name": "qwen_gqa_k_or_v",
+      "K": 2560,
+      "N_tile": 128,
+      "full_N": 1024,
+      "weight_shape": [
+        128,
+        2560
+      ],
+      "weight_dtype": "BF16",
+      "weight_bytes": 655360,
+      "weight_bytes_formula": "2*K*N_tile; full K, selected output columns only",
+      "arithmetic": {
+        "1": {
+          "M": 1,
+          "MACs": 327680,
+          "FLOPs_MAC2_convention": 655360,
+          "input_bytes_BF16": 5120,
+          "output_bytes_BF16": 256,
+          "accumulator_bytes_FP32": 512
+        },
+        "16": {
+          "M": 16,
+          "MACs": 5242880,
+          "FLOPs_MAC2_convention": 10485760,
+          "input_bytes_BF16": 81920,
+          "output_bytes_BF16": 4096,
+          "accumulator_bytes_FP32": 8192
+        },
+        "64": {
+          "M": 64,
+          "MACs": 20971520,
+          "FLOPs_MAC2_convention": 41943040,
+          "input_bytes_BF16": 327680,
+          "output_bytes_BF16": 16384,
+          "accumulator_bytes_FP32": 32768
+        }
+      }
+    },
+    {
+      "name": "qwen_gqa_o",
+      "K": 4096,
+      "N_tile": 128,
+      "full_N": 2560,
+      "weight_shape": [
+        128,
+        4096
+      ],
+      "weight_dtype": "BF16",
+      "weight_bytes": 1048576,
+      "weight_bytes_formula": "2*K*N_tile; full K, selected output columns only",
+      "arithmetic": {
+        "1": {
+          "M": 1,
+          "MACs": 524288,
+          "FLOPs_MAC2_convention": 1048576,
+          "input_bytes_BF16": 8192,
+          "output_bytes_BF16": 256,
+          "accumulator_bytes_FP32": 512
+        },
+        "16": {
+          "M": 16,
+          "MACs": 8388608,
+          "FLOPs_MAC2_convention": 16777216,
+          "input_bytes_BF16": 131072,
+          "output_bytes_BF16": 4096,
+          "accumulator_bytes_FP32": 8192
+        },
+        "64": {
+          "M": 64,
+          "MACs": 33554432,
+          "FLOPs_MAC2_convention": 67108864,
+          "input_bytes_BF16": 524288,
+          "output_bytes_BF16": 16384,
+          "accumulator_bytes_FP32": 32768
+        }
+      }
+    },
+    {
+      "name": "qwen_ffn_down",
+      "K": 9216,
+      "N_tile": 128,
+      "full_N": 2560,
+      "weight_shape": [
+        128,
+        9216
+      ],
+      "weight_dtype": "BF16",
+      "weight_bytes": 2359296,
+      "weight_bytes_formula": "2*K*N_tile; full K, selected output columns only",
+      "arithmetic": {
+        "1": {
+          "M": 1,
+          "MACs": 1179648,
+          "FLOPs_MAC2_convention": 2359296,
+          "input_bytes_BF16": 18432,
+          "output_bytes_BF16": 256,
+          "accumulator_bytes_FP32": 512
+        },
+        "16": {
+          "M": 16,
+          "MACs": 18874368,
+          "FLOPs_MAC2_convention": 37748736,
+          "input_bytes_BF16": 294912,
+          "output_bytes_BF16": 4096,
+          "accumulator_bytes_FP32": 8192
+        },
+        "64": {
+          "M": 64,
+          "MACs": 75497472,
+          "FLOPs_MAC2_convention": 150994944,
+          "input_bytes_BF16": 1179648,
+          "output_bytes_BF16": 16384,
+          "accumulator_bytes_FP32": 32768
+        }
+      }
+    },
+    {
+      "name": "flux_double_gate_or_up",
+      "K": 3072,
+      "N_tile": 128,
+      "full_N": 9216,
+      "weight_shape": [
+        128,
+        3072
+      ],
+      "weight_dtype": "BF16",
+      "weight_bytes": 786432,
+      "weight_bytes_formula": "2*K*N_tile; full K, selected output columns only",
+      "arithmetic": {
+        "1": {
+          "M": 1,
+          "MACs": 393216,
+          "FLOPs_MAC2_convention": 786432,
+          "input_bytes_BF16": 6144,
+          "output_bytes_BF16": 256,
+          "accumulator_bytes_FP32": 512
+        },
+        "16": {
+          "M": 16,
+          "MACs": 6291456,
+          "FLOPs_MAC2_convention": 12582912,
+          "input_bytes_BF16": 98304,
+          "output_bytes_BF16": 4096,
+          "accumulator_bytes_FP32": 8192
+        },
+        "64": {
+          "M": 64,
+          "MACs": 25165824,
+          "FLOPs_MAC2_convention": 50331648,
+          "input_bytes_BF16": 393216,
+          "output_bytes_BF16": 16384,
+          "accumulator_bytes_FP32": 32768
+        }
+      }
+    },
+    {
+      "name": "flux_double_down",
+      "K": 9216,
+      "N_tile": 128,
+      "full_N": 3072,
+      "weight_shape": [
+        128,
+        9216
+      ],
+      "weight_dtype": "BF16",
+      "weight_bytes": 2359296,
+      "weight_bytes_formula": "2*K*N_tile; full K, selected output columns only",
+      "arithmetic": {
+        "1": {
+          "M": 1,
+          "MACs": 1179648,
+          "FLOPs_MAC2_convention": 2359296,
+          "input_bytes_BF16": 18432,
+          "output_bytes_BF16": 256,
+          "accumulator_bytes_FP32": 512
+        },
+        "16": {
+          "M": 16,
+          "MACs": 18874368,
+          "FLOPs_MAC2_convention": 37748736,
+          "input_bytes_BF16": 294912,
+          "output_bytes_BF16": 4096,
+          "accumulator_bytes_FP32": 8192
+        },
+        "64": {
+          "M": 64,
+          "MACs": 75497472,
+          "FLOPs_MAC2_convention": 150994944,
+          "input_bytes_BF16": 1179648,
+          "output_bytes_BF16": 16384,
+          "accumulator_bytes_FP32": 32768
+        }
+      }
+    },
+    {
+      "name": "flux_single_linear1",
+      "K": 3072,
+      "N_tile": 128,
+      "full_N": 27648,
+      "weight_shape": [
+        128,
+        3072
+      ],
+      "weight_dtype": "BF16",
+      "weight_bytes": 786432,
+      "weight_bytes_formula": "2*K*N_tile; full K, selected output columns only",
+      "arithmetic": {
+        "1": {
+          "M": 1,
+          "MACs": 393216,
+          "FLOPs_MAC2_convention": 786432,
+          "input_bytes_BF16": 6144,
+          "output_bytes_BF16": 256,
+          "accumulator_bytes_FP32": 512
+        },
+        "16": {
+          "M": 16,
+          "MACs": 6291456,
+          "FLOPs_MAC2_convention": 12582912,
+          "input_bytes_BF16": 98304,
+          "output_bytes_BF16": 4096,
+          "accumulator_bytes_FP32": 8192
+        },
+        "64": {
+          "M": 64,
+          "MACs": 25165824,
+          "FLOPs_MAC2_convention": 50331648,
+          "input_bytes_BF16": 393216,
+          "output_bytes_BF16": 16384,
+          "accumulator_bytes_FP32": 32768
+        }
+      }
+    },
+    {
+      "name": "flux_single_linear2",
+      "K": 12288,
+      "N_tile": 128,
+      "full_N": 3072,
+      "weight_shape": [
+        128,
+        12288
+      ],
+      "weight_dtype": "BF16",
+      "weight_bytes": 3145728,
+      "weight_bytes_formula": "2*K*N_tile; full K, selected output columns only",
+      "arithmetic": {
+        "1": {
+          "M": 1,
+          "MACs": 1572864,
+          "FLOPs_MAC2_convention": 3145728,
+          "input_bytes_BF16": 24576,
+          "output_bytes_BF16": 256,
+          "accumulator_bytes_FP32": 512
+        },
+        "16": {
+          "M": 16,
+          "MACs": 25165824,
+          "FLOPs_MAC2_convention": 50331648,
+          "input_bytes_BF16": 393216,
+          "output_bytes_BF16": 4096,
+          "accumulator_bytes_FP32": 8192
+        },
+        "64": {
+          "M": 64,
+          "MACs": 100663296,
+          "FLOPs_MAC2_convention": 201326592,
+          "input_bytes_BF16": 1572864,
+          "output_bytes_BF16": 16384,
+          "accumulator_bytes_FP32": 32768
+        }
+      }
+    }
+  ],
+  "qwen_recurrent_states": [
+    {
+      "value_heads": 1,
+      "state_shape": [
+        1,
+        1,
+        128,
+        128
+      ],
+      "state_dtype": "FP32",
+      "state_bytes": 65536,
+      "minimum_spilled_state_read_write_bytes_per_token": 131072,
+      "core_scalar_add_multiply_count_per_token": 114688,
+      "operation_count_excludes": [
+        "exp",
+        "q/k l2norm",
+        "query scale",
+        "sigmoid/softplus",
+        "conv",
+        "RMSNorm gated",
+        "projections"
+      ],
+      "spill_is_assumed_not_mandatory": true
+    },
+    {
+      "value_heads": 2,
+      "state_shape": [
+        1,
+        2,
+        128,
+        128
+      ],
+      "state_dtype": "FP32",
+      "state_bytes": 131072,
+      "minimum_spilled_state_read_write_bytes_per_token": 262144,
+      "core_scalar_add_multiply_count_per_token": 229376,
+      "operation_count_excludes": [
+        "exp",
+        "q/k l2norm",
+        "query scale",
+        "sigmoid/softplus",
+        "conv",
+        "RMSNorm gated",
+        "projections"
+      ],
+      "spill_is_assumed_not_mandatory": true
+    },
+    {
+      "value_heads": 32,
+      "state_shape": [
+        1,
+        32,
+        128,
+        128
+      ],
+      "state_dtype": "FP32",
+      "state_bytes": 2097152,
+      "minimum_spilled_state_read_write_bytes_per_token": 4194304,
+      "core_scalar_add_multiply_count_per_token": 3670016,
+      "operation_count_excludes": [
+        "exp",
+        "q/k l2norm",
+        "query scale",
+        "sigmoid/softplus",
+        "conv",
+        "RMSNorm gated",
+        "projections"
+      ],
+      "spill_is_assumed_not_mandatory": true
+    }
+  ],
+  "qwen_two_value_heads_share_one_key_query_head": true,
+  "bytes_do_not_include_padding_compression_or_quantization_metadata": true
+}

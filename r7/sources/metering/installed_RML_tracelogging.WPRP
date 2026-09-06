@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<WindowsPerformanceRecorder Version="1.0" Author="Microsoft Corporation" Copyright="Microsoft Corporation" Company="Microsoft Corporation">
+  <Profiles>
+    <EventCollector Id="EventCollector_RMLTraceLoggingProvider" Name="RMLTraceLoggingProvider">
+      <BufferSize Value="128" />
+      <Buffers Value="64" />
+    </EventCollector>
+
+    <EventProvider Id="EventProvider_RMLTraceLoggingProvider" Name="2369df2f-8be2-4f72-b258-187ef2ade4fe" />
+
+    <Profile Id="RMLTraceLoggingProvider.Verbose.File" Name="RMLTraceLoggingProvider" Description="RMLTraceLoggingProvider" LoggingMode="File" DetailLevel="Verbose">
+      <Collectors>
+        <EventCollectorId Value="EventCollector_RMLTraceLoggingProvider">
+          <EventProviders>
+            <EventProviderId Value="EventProvider_RMLTraceLoggingProvider" />
+          </EventProviders>
+        </EventCollectorId>
+      </Collectors>
+    </Profile>
+
+    <Profile Id="RMLTraceLoggingProvider.Light.File" Name="RMLTraceLoggingProvider" Description="RMLTraceLoggingProvider" Base="RMLTraceLoggingProvider.Verbose.File" LoggingMode="File" DetailLevel="Light" />
+    <Profile Id="RMLTraceLoggingProvider.Verbose.Memory" Name="RMLTraceLoggingProvider" Description="RMLTraceLoggingProvider" Base="RMLTraceLoggingProvider.Verbose.File" LoggingMode="Memory" DetailLevel="Verbose" />
+    <Profile Id="RMLTraceLoggingProvider.Light.Memory" Name="RMLTraceLoggingProvider" Description="RMLTraceLoggingProvider" Base="RMLTraceLoggingProvider.Verbose.File" LoggingMode="Memory" DetailLevel="Light" />
+
+  </Profiles>
+</WindowsPerformanceRecorder>

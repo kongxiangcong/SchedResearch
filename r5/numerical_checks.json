@@ -1,0 +1,788 @@
+{
+  "status": "PASS",
+  "python": "3.14.0",
+  "numpy": "2.3.5",
+  "source_sha256": "7548b48dbe452da64bbe3fd237dfe5a0fb09c8f5fc02c0e3c60d352fa1a3366b",
+  "specs_sha256": "89d82dc0415a8bab588d344f9734d85ba2f5fb5d980663d6a1094a398f5b58b4",
+  "checks": [
+    {
+      "case": "qwen35_fullK_gateup_slice",
+      "seed": 51007,
+      "projection": {
+        "status": "PASS",
+        "atol": 1e-05,
+        "rtol": 5e-05,
+        "elements": 256,
+        "max_abs_error": 1.0989606380462646e-07,
+        "rms_error": 2.9900641431658246e-08,
+        "max_error_over_allowed": 0.009984247615622482
+      },
+      "swiglu": {
+        "status": "PASS",
+        "atol": 1e-05,
+        "rtol": 5e-05,
+        "elements": 128,
+        "max_abs_error": 7.450580596923828e-09,
+        "rms_error": 1.9084551240198753e-09,
+        "max_error_over_allowed": 0.0007073828144611566
+      },
+      "inputs_unchanged": true,
+      "bf16_rounding_max_abs_input": 0.0038514137268066406,
+      "bf16_rounding_max_abs_weight": 8.494406938552856e-05,
+      "tensors": {
+        "x": {
+          "shape": [
+            1,
+            2560
+          ],
+          "storage_dtype": "BF16",
+          "logical_storage_bytes": 5120,
+          "numpy_container_bytes": 10240,
+          "sha256_little_endian_payload": "78828a51158e9eefff2a80703a4ee97e4c2ba43b523db668437af9faf4adf2bb"
+        },
+        "packed_weight": {
+          "shape": [
+            2,
+            2560,
+            128
+          ],
+          "storage_dtype": "BF16",
+          "logical_storage_bytes": 1310720,
+          "numpy_container_bytes": 2621440,
+          "sha256_little_endian_payload": "3c8ccc65fcffd6192a658e0f559401d0b95d50d280a8a1be9fac7c51606146d6"
+        },
+        "projection_fp32": {
+          "shape": [
+            2,
+            1,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 1024,
+          "numpy_container_bytes": 1024,
+          "sha256_little_endian_payload": "261df6ad3ac3c202f482bb034bac696135263898f4f7c01c345c2ce2bb83a333"
+        },
+        "swiglu_fp32": {
+          "shape": [
+            2,
+            1,
+            64
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 512,
+          "numpy_container_bytes": 512,
+          "sha256_little_endian_payload": "60fffd0af26a27c0405eaa07b4cf69dcbaf452a61178687f4972895b922942f8"
+        }
+      }
+    },
+    {
+      "case": "flux2_fullK_gateup_token_tile",
+      "seed": 51007,
+      "projection": {
+        "status": "PASS",
+        "atol": 1e-05,
+        "rtol": 5e-05,
+        "elements": 8192,
+        "max_abs_error": 1.7881393432617188e-07,
+        "rms_error": 1.9882634394797725e-08,
+        "max_error_over_allowed": 0.00925137603039706
+      },
+      "swiglu": {
+        "status": "PASS",
+        "atol": 1e-05,
+        "rtol": 5e-05,
+        "elements": 4096,
+        "max_abs_error": 1.4901161193847656e-08,
+        "rms_error": 1.5199793582088643e-09,
+        "max_error_over_allowed": 0.0013288260726744578
+      },
+      "inputs_unchanged": true,
+      "bf16_rounding_max_abs_input": 0.003893613815307617,
+      "bf16_rounding_max_abs_weight": 6.102956831455231e-05,
+      "tensors": {
+        "x": {
+          "shape": [
+            32,
+            3072
+          ],
+          "storage_dtype": "BF16",
+          "logical_storage_bytes": 196608,
+          "numpy_container_bytes": 393216,
+          "sha256_little_endian_payload": "8d07aaa349780449252d683ba5029c5e25fd3fe415e6e71ae6ccb1f956e79e1c"
+        },
+        "packed_weight": {
+          "shape": [
+            2,
+            3072,
+            128
+          ],
+          "storage_dtype": "BF16",
+          "logical_storage_bytes": 1572864,
+          "numpy_container_bytes": 3145728,
+          "sha256_little_endian_payload": "2eef603c92f396ad61e2e08d0894674d329fdf1c8344e3803ea09ac8495a69c6"
+        },
+        "projection_fp32": {
+          "shape": [
+            2,
+            32,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 32768,
+          "numpy_container_bytes": 32768,
+          "sha256_little_endian_payload": "74bb946eeb61a502a5c110689375cacad71bdd4861c9e5c8786fbfc3b30de6fe"
+        },
+        "swiglu_fp32": {
+          "shape": [
+            2,
+            32,
+            64
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 16384,
+          "numpy_container_bytes": 16384,
+          "sha256_little_endian_payload": "53b9d0b7051c956df327c462527c082ce3a10677b82e9a5082cdc4fc64212777"
+        }
+      }
+    },
+    {
+      "case": "qwen35_gdn_two_value_heads_four_tokens",
+      "seed": 51007,
+      "o_all_tokens": {
+        "status": "PASS",
+        "atol": 2e-06,
+        "rtol": 2e-05,
+        "elements": 1024,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "max_error_over_allowed": 0.0
+      },
+      "S_every_token": {
+        "status": "PASS",
+        "atol": 2e-06,
+        "rtol": 2e-05,
+        "elements": 131072,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "max_error_over_allowed": 0.0
+      },
+      "inputs_unchanged": true,
+      "tensors": {
+        "q_prepared": {
+          "shape": [
+            4,
+            2,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 4096,
+          "numpy_container_bytes": 4096,
+          "sha256_little_endian_payload": "efb466e06b1ac60f3bcdd23915f74bd880b288fe46a15162152265b301d9e423"
+        },
+        "k_prepared": {
+          "shape": [
+            4,
+            2,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 4096,
+          "numpy_container_bytes": 4096,
+          "sha256_little_endian_payload": "2855bc59bda610ff9ee5868c6741b7cca550a0db59e9eda0c2891c9c73bd2643"
+        },
+        "v_prepared": {
+          "shape": [
+            4,
+            2,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 4096,
+          "numpy_container_bytes": 4096,
+          "sha256_little_endian_payload": "720c250bfe5d2315888753f7e81985123577465186103cf828838fe222787c93"
+        },
+        "beta_prepared": {
+          "shape": [
+            4,
+            2
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 32,
+          "numpy_container_bytes": 32,
+          "sha256_little_endian_payload": "4eb7308dbcd630c745f499495c3acbab8ceaab305b23ec317cb9e99f699c2d69"
+        },
+        "g_prepared": {
+          "shape": [
+            4,
+            2
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 32,
+          "numpy_container_bytes": 32,
+          "sha256_little_endian_payload": "9d60b9e10cb8dd389fc333c21cbf127e66455f313b1a9efe9025d60cdaae4163"
+        },
+        "S_initial": {
+          "shape": [
+            2,
+            128,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 131072,
+          "numpy_container_bytes": 131072,
+          "sha256_little_endian_payload": "d09bf64b17f9930c8d8413f8cd2a93d2e8e8b7972a6e4743a20be608b10906af"
+        },
+        "o_all_tokens": {
+          "shape": [
+            4,
+            2,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 4096,
+          "numpy_container_bytes": 4096,
+          "sha256_little_endian_payload": "c20ca198bbe3ecae6dafb1eb92b91c8aa4c81cc44616a6634969d6269202be21"
+        },
+        "S_final": {
+          "shape": [
+            2,
+            128,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 131072,
+          "numpy_container_bytes": 131072,
+          "sha256_little_endian_payload": "dd15fdb1f209e89fc96f08d81bd33b8d54e15d323d2fc7f8dfde3490bb999cbe"
+        }
+      }
+    },
+    {
+      "case": "qwen35_fullK_gateup_slice",
+      "seed": 51019,
+      "projection": {
+        "status": "PASS",
+        "atol": 1e-05,
+        "rtol": 5e-05,
+        "elements": 256,
+        "max_abs_error": 1.7881393432617188e-07,
+        "rms_error": 3.581967456697621e-08,
+        "max_error_over_allowed": 0.00925802211319317
+      },
+      "swiglu": {
+        "status": "PASS",
+        "atol": 1e-05,
+        "rtol": 5e-05,
+        "elements": 128,
+        "max_abs_error": 1.4901161193847656e-08,
+        "rms_error": 2.587597444972834e-09,
+        "max_error_over_allowed": 0.001361550231956931
+      },
+      "inputs_unchanged": true,
+      "bf16_rounding_max_abs_input": 0.0038607120513916016,
+      "bf16_rounding_max_abs_weight": 6.103515625e-05,
+      "tensors": {
+        "x": {
+          "shape": [
+            1,
+            2560
+          ],
+          "storage_dtype": "BF16",
+          "logical_storage_bytes": 5120,
+          "numpy_container_bytes": 10240,
+          "sha256_little_endian_payload": "de6988a6f7ac8b63ad104ea7e9b0a7dc652cd7a6e7663281204efb1d1d3fa83f"
+        },
+        "packed_weight": {
+          "shape": [
+            2,
+            2560,
+            128
+          ],
+          "storage_dtype": "BF16",
+          "logical_storage_bytes": 1310720,
+          "numpy_container_bytes": 2621440,
+          "sha256_little_endian_payload": "e962ec36a8c6a18a638912305b98c97c5f2525a263b7237bfdf8ad27f1cf8740"
+        },
+        "projection_fp32": {
+          "shape": [
+            2,
+            1,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 1024,
+          "numpy_container_bytes": 1024,
+          "sha256_little_endian_payload": "574b1f4c88fc37db07b16d4d55790b52d58dbe5e547562584ee05e8c971ecec5"
+        },
+        "swiglu_fp32": {
+          "shape": [
+            2,
+            1,
+            64
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 512,
+          "numpy_container_bytes": 512,
+          "sha256_little_endian_payload": "75095afbb0475753a67b266b942b4c32a3dabd80ac21d6057fa4f3d0414d2bcb"
+        }
+      }
+    },
+    {
+      "case": "flux2_fullK_gateup_token_tile",
+      "seed": 51019,
+      "projection": {
+        "status": "PASS",
+        "atol": 1e-05,
+        "rtol": 5e-05,
+        "elements": 8192,
+        "max_abs_error": 8.940696716308594e-08,
+        "rms_error": 1.967986921090503e-08,
+        "max_error_over_allowed": 0.00572880983650398
+      },
+      "swiglu": {
+        "status": "PASS",
+        "atol": 1e-05,
+        "rtol": 5e-05,
+        "elements": 4096,
+        "max_abs_error": 1.1175870895385742e-08,
+        "rms_error": 1.5321063097238653e-09,
+        "max_error_over_allowed": 0.0009850558134758202
+      },
+      "inputs_unchanged": true,
+      "bf16_rounding_max_abs_input": 0.0038770437240600586,
+      "bf16_rounding_max_abs_weight": 6.103515625e-05,
+      "tensors": {
+        "x": {
+          "shape": [
+            32,
+            3072
+          ],
+          "storage_dtype": "BF16",
+          "logical_storage_bytes": 196608,
+          "numpy_container_bytes": 393216,
+          "sha256_little_endian_payload": "f2711860447cf9fca04bc5ec0c8aee40be848431258c5134f4b31cf8791f202e"
+        },
+        "packed_weight": {
+          "shape": [
+            2,
+            3072,
+            128
+          ],
+          "storage_dtype": "BF16",
+          "logical_storage_bytes": 1572864,
+          "numpy_container_bytes": 3145728,
+          "sha256_little_endian_payload": "6fc4a1448cf2f345fab2ed84216f1315c3a910a4e3e3693970e77d519847b43a"
+        },
+        "projection_fp32": {
+          "shape": [
+            2,
+            32,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 32768,
+          "numpy_container_bytes": 32768,
+          "sha256_little_endian_payload": "ed1195845f14227b478f981d7ea3a5ef334e9bad4f900516ced490458a31ec0e"
+        },
+        "swiglu_fp32": {
+          "shape": [
+            2,
+            32,
+            64
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 16384,
+          "numpy_container_bytes": 16384,
+          "sha256_little_endian_payload": "25be4c6290bfcaa53258f810147b842fc6952ce15b2b631d27ea539e5b301df6"
+        }
+      }
+    },
+    {
+      "case": "qwen35_gdn_two_value_heads_four_tokens",
+      "seed": 51019,
+      "o_all_tokens": {
+        "status": "PASS",
+        "atol": 2e-06,
+        "rtol": 2e-05,
+        "elements": 1024,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "max_error_over_allowed": 0.0
+      },
+      "S_every_token": {
+        "status": "PASS",
+        "atol": 2e-06,
+        "rtol": 2e-05,
+        "elements": 131072,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "max_error_over_allowed": 0.0
+      },
+      "inputs_unchanged": true,
+      "tensors": {
+        "q_prepared": {
+          "shape": [
+            4,
+            2,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 4096,
+          "numpy_container_bytes": 4096,
+          "sha256_little_endian_payload": "77cd81f80fcef7cf4e195d9b7f1e656e0af61daf96c3958821c04c0e4bbbd40b"
+        },
+        "k_prepared": {
+          "shape": [
+            4,
+            2,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 4096,
+          "numpy_container_bytes": 4096,
+          "sha256_little_endian_payload": "a47e63237e6bc90620889338ac21554b83d27c54eb0775a9f3e9d2ed7093321e"
+        },
+        "v_prepared": {
+          "shape": [
+            4,
+            2,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 4096,
+          "numpy_container_bytes": 4096,
+          "sha256_little_endian_payload": "2b2c19ec89ef060ceeed689063b514d3fcc692eadaf0bec535607f0d82fdc305"
+        },
+        "beta_prepared": {
+          "shape": [
+            4,
+            2
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 32,
+          "numpy_container_bytes": 32,
+          "sha256_little_endian_payload": "c220a2b3fd618cf65b70f60e1a4cac38d2b1c230b696396abf7ce577e78ac34d"
+        },
+        "g_prepared": {
+          "shape": [
+            4,
+            2
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 32,
+          "numpy_container_bytes": 32,
+          "sha256_little_endian_payload": "1f07d68909428a49f34b05e6e9e620e2b7fc1d4be9f8250697057be4dc36f9b5"
+        },
+        "S_initial": {
+          "shape": [
+            2,
+            128,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 131072,
+          "numpy_container_bytes": 131072,
+          "sha256_little_endian_payload": "ac67733d80e32c386e8f1e63a1535711f6734856f9f0e5b64ef38fcc04c9b9f4"
+        },
+        "o_all_tokens": {
+          "shape": [
+            4,
+            2,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 4096,
+          "numpy_container_bytes": 4096,
+          "sha256_little_endian_payload": "d2b8459c15a995e048354e0aa5bff3cfbfaf3a357e4ec04b854ed40e40d0003f"
+        },
+        "S_final": {
+          "shape": [
+            2,
+            128,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 131072,
+          "numpy_container_bytes": 131072,
+          "sha256_little_endian_payload": "53f8cbd6f2803122c7009ecc503b14b251f5ac968354d0972d10247c33f09dbf"
+        }
+      }
+    },
+    {
+      "case": "qwen35_fullK_gateup_slice",
+      "seed": 51031,
+      "projection": {
+        "status": "PASS",
+        "atol": 1e-05,
+        "rtol": 5e-05,
+        "elements": 256,
+        "max_abs_error": 1.7881393432617188e-07,
+        "rms_error": 3.382160945854328e-08,
+        "max_error_over_allowed": 0.008446699538030292
+      },
+      "swiglu": {
+        "status": "PASS",
+        "atol": 1e-05,
+        "rtol": 5e-05,
+        "elements": 128,
+        "max_abs_error": 1.4901161193847656e-08,
+        "rms_error": 2.757147759024155e-09,
+        "max_error_over_allowed": 0.001361393289509028
+      },
+      "inputs_unchanged": true,
+      "bf16_rounding_max_abs_input": 0.002330183982849121,
+      "bf16_rounding_max_abs_weight": 7.109344005584717e-05,
+      "tensors": {
+        "x": {
+          "shape": [
+            1,
+            2560
+          ],
+          "storage_dtype": "BF16",
+          "logical_storage_bytes": 5120,
+          "numpy_container_bytes": 10240,
+          "sha256_little_endian_payload": "b321493948267efbd86ae4c2a048c55feff009e954e5aba99ff5e48e1dc31c2a"
+        },
+        "packed_weight": {
+          "shape": [
+            2,
+            2560,
+            128
+          ],
+          "storage_dtype": "BF16",
+          "logical_storage_bytes": 1310720,
+          "numpy_container_bytes": 2621440,
+          "sha256_little_endian_payload": "67d28862c3ea4ae868c85801cc0d0385e02c443a4a8122b3f8d2095d014d2fd8"
+        },
+        "projection_fp32": {
+          "shape": [
+            2,
+            1,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 1024,
+          "numpy_container_bytes": 1024,
+          "sha256_little_endian_payload": "bef38d1061314c7ba756a5080344e306f1aaa29da7f621202b54accb369576bf"
+        },
+        "swiglu_fp32": {
+          "shape": [
+            2,
+            1,
+            64
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 512,
+          "numpy_container_bytes": 512,
+          "sha256_little_endian_payload": "a2ec7531aa7a24b8a52c7018cf723c49d1051a464c27341a8904ea75cd1d08eb"
+        }
+      }
+    },
+    {
+      "case": "flux2_fullK_gateup_token_tile",
+      "seed": 51031,
+      "projection": {
+        "status": "PASS",
+        "atol": 1e-05,
+        "rtol": 5e-05,
+        "elements": 8192,
+        "max_abs_error": 1.1920928955078125e-07,
+        "rms_error": 2.010759989249749e-08,
+        "max_error_over_allowed": 0.007123317254908299
+      },
+      "swiglu": {
+        "status": "PASS",
+        "atol": 1e-05,
+        "rtol": 5e-05,
+        "elements": 4096,
+        "max_abs_error": 1.4901161193847656e-08,
+        "rms_error": 1.526652711149037e-09,
+        "max_error_over_allowed": 0.0013606905914319385
+      },
+      "inputs_unchanged": true,
+      "bf16_rounding_max_abs_input": 0.0038483142852783203,
+      "bf16_rounding_max_abs_weight": 6.102211773395538e-05,
+      "tensors": {
+        "x": {
+          "shape": [
+            32,
+            3072
+          ],
+          "storage_dtype": "BF16",
+          "logical_storage_bytes": 196608,
+          "numpy_container_bytes": 393216,
+          "sha256_little_endian_payload": "81ef5f45a421fe265dd84b8d62934cce145f3569fcc06df2c31a4ea1ff9dc51f"
+        },
+        "packed_weight": {
+          "shape": [
+            2,
+            3072,
+            128
+          ],
+          "storage_dtype": "BF16",
+          "logical_storage_bytes": 1572864,
+          "numpy_container_bytes": 3145728,
+          "sha256_little_endian_payload": "fb78c96f6b8578ff4f1c46afc2432d612f6d76f3074c574180b30fd65b7dd6c4"
+        },
+        "projection_fp32": {
+          "shape": [
+            2,
+            32,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 32768,
+          "numpy_container_bytes": 32768,
+          "sha256_little_endian_payload": "eee180d7aba59126cca9c71b1a069bf9aa7f193c4a9cf04e85dbb7e8bed3c129"
+        },
+        "swiglu_fp32": {
+          "shape": [
+            2,
+            32,
+            64
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 16384,
+          "numpy_container_bytes": 16384,
+          "sha256_little_endian_payload": "aa8d366eafe53125627d16942fb83a76a45c4df3c1d8c6b605d08e9f4eafe8f9"
+        }
+      }
+    },
+    {
+      "case": "qwen35_gdn_two_value_heads_four_tokens",
+      "seed": 51031,
+      "o_all_tokens": {
+        "status": "PASS",
+        "atol": 2e-06,
+        "rtol": 2e-05,
+        "elements": 1024,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "max_error_over_allowed": 0.0
+      },
+      "S_every_token": {
+        "status": "PASS",
+        "atol": 2e-06,
+        "rtol": 2e-05,
+        "elements": 131072,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "max_error_over_allowed": 0.0
+      },
+      "inputs_unchanged": true,
+      "tensors": {
+        "q_prepared": {
+          "shape": [
+            4,
+            2,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 4096,
+          "numpy_container_bytes": 4096,
+          "sha256_little_endian_payload": "4b2b0bf70af765d787e6ca20a04163d66ae9ccb3db896d56d8d46127cc71b3ce"
+        },
+        "k_prepared": {
+          "shape": [
+            4,
+            2,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 4096,
+          "numpy_container_bytes": 4096,
+          "sha256_little_endian_payload": "37593b033611e84ffc557c4dc089d602ab8091e01a61ae83ea6ed48da9548e69"
+        },
+        "v_prepared": {
+          "shape": [
+            4,
+            2,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 4096,
+          "numpy_container_bytes": 4096,
+          "sha256_little_endian_payload": "32b4260e433c9300469e2012ace135a7c97bb4c1b1359e517bdf969b0994b5fa"
+        },
+        "beta_prepared": {
+          "shape": [
+            4,
+            2
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 32,
+          "numpy_container_bytes": 32,
+          "sha256_little_endian_payload": "432db8dae497588ed5378781c649429a1484890a553d58b8b83193e77007149e"
+        },
+        "g_prepared": {
+          "shape": [
+            4,
+            2
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 32,
+          "numpy_container_bytes": 32,
+          "sha256_little_endian_payload": "032a7981d00e4c9817a6e19d62ee40fed22d0e8424ca589fb008ea475350f3a9"
+        },
+        "S_initial": {
+          "shape": [
+            2,
+            128,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 131072,
+          "numpy_container_bytes": 131072,
+          "sha256_little_endian_payload": "c2a01a510d46f2e3a17ecceb81038dad0c49185ec847ee1f0a21ac99098e038d"
+        },
+        "o_all_tokens": {
+          "shape": [
+            4,
+            2,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 4096,
+          "numpy_container_bytes": 4096,
+          "sha256_little_endian_payload": "deaa79cb700c611d098dda2c057f658c2994be00ff9adf5537b518af2929ed4b"
+        },
+        "S_final": {
+          "shape": [
+            2,
+            128,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_storage_bytes": 131072,
+          "numpy_container_bytes": 131072,
+          "sha256_little_endian_payload": "200f11b99e59e980ef324fc978e60591d2546cf14614a9090dd9b8214896fcc0"
+        }
+      }
+    }
+  ],
+  "datasets": 9,
+  "comparisons": 18,
+  "max_abs_error": 1.7881393432617188e-07,
+  "BF16_RNE_probe": {
+    "status": "PASS",
+    "cases": 6,
+    "scope": "positive/negative halfway ties and signed zero; finite fixture converter"
+  },
+  "tolerance_policy": {
+    "projection_and_SwiGLU": {
+      "atol": 1e-05,
+      "rtol": 5e-05
+    },
+    "recurrent_state_and_output": {
+      "atol": 2e-06,
+      "rtol": 2e-05
+    },
+    "interpretation": "fixed before runs; tests FP32 accumulation/reassociation on identical BF16-rounded projection inputs, and FP32 state recurrence. atol handles near zero; rtol handles scale. Does not bound BF16-vs-FP32 model error or trained-model quality."
+  },
+  "scope": "source-derived full-K output slices and real-dimensional recurrent heads, random numerical validation only",
+  "limitations": [
+    "No trained weights, full-model quality, official PyTorch/Transformers execution, production compiler or NPU validation",
+    "Full K/head dimensions do not mean full layer/model workload coverage",
+    "FP32 NumPy reduction order is not a claimed physical MXU implementation or bitwise official BF16 kernel match",
+    "Numerical payload hashes/specs are independent from request-level performance traces; no address/physical execution equivalence asserted"
+  ]
+}

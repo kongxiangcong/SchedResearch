@@ -1,0 +1,23 @@
+------------------------------------------------------------
+                        EARLY ACCESS                        
+        This release of xbutil contains early access        
+         experimental features which may have bugs.         
+------------------------------------------------------------
+Validate Device           : [0065:00:01.0]
+    Platform              : RyzenAI-Phoenix
+    SC Version            : 
+    Platform ID           : 0x0
+-------------------------------------------------------------------------------
+Verbose: Enabling Verbosity
+Running Test: .
+Test 1 [0065:00:01.0]     : df-bw 
+    Description           : Run bandwidth test on data fabric
+    Xclbin                : C:\Windows\System32\AMD\validate_phx.xclbin
+    Details               : Kernel name is 'DPU_PDI_0'
+    DPU-Sequence          : C:\Windows\System32\AMD\DPU_Sequence\df_bw_dpu.txt
+    Details               : Total duration: '0.359610's
+                            Average bandwidth per shim DMA: '2.780787' GS/s
+    Test Status           : [PASSED]
+-------------------------------------------------------------------------------
+Validation completed
+Successfully wrote the JSON file: D:\dsh-proj\SchedResarch\r6\evidence\df_bw_report.json

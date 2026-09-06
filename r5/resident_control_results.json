@@ -1,0 +1,1044 @@
+{
+  "status": "PASS",
+  "manifest": {
+    "classification": "post-red-team compiler residency control, not preregistered main architecture-positive evidence",
+    "train_seeds": [
+      3200,
+      3201
+    ],
+    "validation_seeds": [
+      3300,
+      3301
+    ],
+    "test_seeds": [
+      3400,
+      3401,
+      3402,
+      3403,
+      3404,
+      3405,
+      3406,
+      3407,
+      3408,
+      3409,
+      3410,
+      3411
+    ],
+    "configs": [
+      {
+        "label": "ref_none",
+        "hardware": {
+          "name": "request",
+          "granule": 256,
+          "dma_commands": 2,
+          "outstanding": 16,
+          "return_slots": 8,
+          "request_issue": 1,
+          "external_latency": 64,
+          "external_bw": 32,
+          "fabric_bw": 64,
+          "fabric_latency": 2,
+          "banks": 8,
+          "sram_bw": 128,
+          "local_outstanding": 8,
+          "mxu_macs_cycle": 1024,
+          "vpu_ops_cycle": 32,
+          "dispatch": 1,
+          "issue_cycle": 1,
+          "notification": 1,
+          "sram_capacity": 4194304,
+          "rf_capacity": 131072,
+          "bank_arbitration": "ready_bank"
+        },
+        "mode": "none"
+      },
+      {
+        "label": "ref_combined",
+        "hardware": {
+          "name": "request",
+          "granule": 256,
+          "dma_commands": 2,
+          "outstanding": 16,
+          "return_slots": 8,
+          "request_issue": 1,
+          "external_latency": 64,
+          "external_bw": 32,
+          "fabric_bw": 64,
+          "fabric_latency": 2,
+          "banks": 8,
+          "sram_bw": 128,
+          "local_outstanding": 8,
+          "mxu_macs_cycle": 1024,
+          "vpu_ops_cycle": 32,
+          "dispatch": 1,
+          "issue_cycle": 1,
+          "notification": 1,
+          "sram_capacity": 4194304,
+          "rf_capacity": 131072,
+          "bank_arbitration": "ready_bank"
+        },
+        "mode": "combined"
+      },
+      {
+        "label": "o1_combined",
+        "hardware": {
+          "name": "request",
+          "granule": 256,
+          "dma_commands": 2,
+          "outstanding": 1,
+          "return_slots": 8,
+          "request_issue": 1,
+          "external_latency": 64,
+          "external_bw": 32,
+          "fabric_bw": 64,
+          "fabric_latency": 2,
+          "banks": 8,
+          "sram_bw": 128,
+          "local_outstanding": 8,
+          "mxu_macs_cycle": 1024,
+          "vpu_ops_cycle": 32,
+          "dispatch": 1,
+          "issue_cycle": 1,
+          "notification": 1,
+          "sram_capacity": 4194304,
+          "rf_capacity": 131072,
+          "bank_arbitration": "ready_bank"
+        },
+        "mode": "combined"
+      },
+      {
+        "label": "r1_combined",
+        "hardware": {
+          "name": "request",
+          "granule": 256,
+          "dma_commands": 2,
+          "outstanding": 16,
+          "return_slots": 1,
+          "request_issue": 1,
+          "external_latency": 64,
+          "external_bw": 32,
+          "fabric_bw": 64,
+          "fabric_latency": 2,
+          "banks": 8,
+          "sram_bw": 128,
+          "local_outstanding": 8,
+          "mxu_macs_cycle": 1024,
+          "vpu_ops_cycle": 32,
+          "dispatch": 1,
+          "issue_cycle": 1,
+          "notification": 1,
+          "sram_capacity": 4194304,
+          "rf_capacity": 131072,
+          "bank_arbitration": "ready_bank"
+        },
+        "mode": "combined"
+      }
+    ],
+    "compiler_search": "six priorities x three colors x three spacings, deduplicated; up to64 same legal adjacent swaps; train then top3 validation; fresh heldout only",
+    "frozen_runtime_sha256": {
+      "model.py": "201c39b5073f7e1f4b7f0e3e6d269ea4cdcf32908bf9237db6e01ea011fd849a",
+      "resource_sim.py": "37059ffd422dfb42fe2bb630c309411e293c56c2c6382a5d5326617f37986ad1",
+      "coarse_sim.py": "8c07084e6b0e4a6971409f2edece63f7a453fa5f5e9a5d68939eab477f0b2f6b",
+      "static_plans.py": "b3402cf4955bb972f20603695b38670d1a03b15e41eefc2d0f995045e34f06ae",
+      "run_experiments.py": "1cbffc6e5286c65302ee8a59f1b201d9b02c6734a6626f89c9ca9fd1e73f955b",
+      "replay_audit.py": "419ac0573027d04c1c9d966be6f14fe299648dbb70389acb56e926ea195a1c76"
+    },
+    "control_source_sha256": "b9d0c270730b99f57705ae536228e787ca1451b04c39f77ef0febbab1552192c"
+  },
+  "cases": [
+    {
+      "configuration": "ref_none",
+      "source_work_equivalence": {
+        "status": "PASS",
+        "proof": "structural retained arithmetic and per-head update order; common initial/final state transfer and RF output budget; not numerical payload replay",
+        "ops_both": 917504,
+        "initial_external_bytes_both": 131072,
+        "local_bytes_original": 1048576,
+        "local_bytes_resident": 262144,
+        "rf_bytes_per_core_both": 73760,
+        "output_RF_liveout_bytes_both": 4096,
+        "numerical_liveout_contract": {
+          "scope": "authenticated existing mathematical oracle outputs; no timed tensor-payload execution",
+          "numerical_checks_sha256": "edc9b924f451acacdf8a073cc5a290e28135a78fff6b89394930b85375af5f7c",
+          "per_token_outputs": [
+            {
+              "producer": "delta0.0",
+              "output": "o0.0",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta0.1",
+              "output": "o0.1",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta0.2",
+              "output": "o0.2",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta0.3",
+              "output": "o0.3",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.0",
+              "output": "o1.0",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.1",
+              "output": "o1.1",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.2",
+              "output": "o1.2",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.3",
+              "output": "o1.3",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            }
+          ],
+          "final_state_shape": [
+            2,
+            128,
+            128
+          ],
+          "final_state_dtype": "FP32",
+          "verified_numerical_seeds": [
+            {
+              "seed": 51007,
+              "all_four_outputs_sha256": "c20ca198bbe3ecae6dafb1eb92b91c8aa4c81cc44616a6634969d6269202be21",
+              "final_state_sha256": "dd15fdb1f209e89fc96f08d81bd33b8d54e15d323d2fc7f8dfde3490bb999cbe"
+            },
+            {
+              "seed": 51019,
+              "all_four_outputs_sha256": "d2b8459c15a995e048354e0aa5bff3cfbfaf3a357e4ec04b854ed40e40d0003f",
+              "final_state_sha256": "53f8cbd6f2803122c7009ecc503b14b251f5ac968354d0972d10247c33f09dbf"
+            },
+            {
+              "seed": 51031,
+              "all_four_outputs_sha256": "deaa79cb700c611d098dda2c057f658c2994be00ff9adf5537b518af2929ed4b",
+              "final_state_sha256": "200f11b99e59e980ef324fc978e60591d2546cf14614a9090dd9b8214896fcc0"
+            }
+          ]
+        }
+      },
+      "mean_latency": {
+        "original": {
+          "S": 23318.0,
+          "B0": 23318.0,
+          "B2": 23350.0
+        },
+        "resident": {
+          "S": 19584.0,
+          "B0": 19584.0,
+          "B2": 19598.0
+        }
+      },
+      "effects": {
+        "static_compiler_residency_gain_pct": {
+          "mean_pct": 16.013380221288276,
+          "ci95_pct": [
+            16.01338022128828,
+            16.01338022128828
+          ],
+          "paired_seed_values_pct": [
+            16.013380221288276,
+            16.013380221288276,
+            16.013380221288276,
+            16.013380221288276,
+            16.013380221288276,
+            16.013380221288276,
+            16.013380221288276,
+            16.013380221288276,
+            16.013380221288276,
+            16.013380221288276,
+            16.013380221288276,
+            16.013380221288276
+          ]
+        },
+        "resident_B0_vs_resident_S_gain_pct": {
+          "mean_pct": 0.0,
+          "ci95_pct": [
+            0.0,
+            0.0
+          ],
+          "paired_seed_values_pct": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "resident_B2_vs_resident_S_gain_pct": {
+          "mean_pct": -0.07148692810456936,
+          "ci95_pct": [
+            -0.07148692810456936,
+            -0.07148692810456936
+          ],
+          "paired_seed_values_pct": [
+            -0.07148692810456936,
+            -0.07148692810456936,
+            -0.07148692810456936,
+            -0.07148692810456936,
+            -0.07148692810456936,
+            -0.07148692810456936,
+            -0.07148692810456936,
+            -0.07148692810456936,
+            -0.07148692810456936,
+            -0.07148692810456936,
+            -0.07148692810456936,
+            -0.07148692810456936
+          ]
+        },
+        "original_B0_vs_original_S_gain_pct": {
+          "mean_pct": 0.0,
+          "ci95_pct": [
+            0.0,
+            0.0
+          ],
+          "paired_seed_values_pct": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "executions_audited": 232
+    },
+    {
+      "configuration": "ref_combined",
+      "source_work_equivalence": {
+        "status": "PASS",
+        "proof": "structural retained arithmetic and per-head update order; common initial/final state transfer and RF output budget; not numerical payload replay",
+        "ops_both": 917504,
+        "initial_external_bytes_both": 131072,
+        "local_bytes_original": 1048576,
+        "local_bytes_resident": 262144,
+        "rf_bytes_per_core_both": 73760,
+        "output_RF_liveout_bytes_both": 4096,
+        "numerical_liveout_contract": {
+          "scope": "authenticated existing mathematical oracle outputs; no timed tensor-payload execution",
+          "numerical_checks_sha256": "edc9b924f451acacdf8a073cc5a290e28135a78fff6b89394930b85375af5f7c",
+          "per_token_outputs": [
+            {
+              "producer": "delta0.0",
+              "output": "o0.0",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta0.1",
+              "output": "o0.1",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta0.2",
+              "output": "o0.2",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta0.3",
+              "output": "o0.3",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.0",
+              "output": "o1.0",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.1",
+              "output": "o1.1",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.2",
+              "output": "o1.2",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.3",
+              "output": "o1.3",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            }
+          ],
+          "final_state_shape": [
+            2,
+            128,
+            128
+          ],
+          "final_state_dtype": "FP32",
+          "verified_numerical_seeds": [
+            {
+              "seed": 51007,
+              "all_four_outputs_sha256": "c20ca198bbe3ecae6dafb1eb92b91c8aa4c81cc44616a6634969d6269202be21",
+              "final_state_sha256": "dd15fdb1f209e89fc96f08d81bd33b8d54e15d323d2fc7f8dfde3490bb999cbe"
+            },
+            {
+              "seed": 51019,
+              "all_four_outputs_sha256": "d2b8459c15a995e048354e0aa5bff3cfbfaf3a357e4ec04b854ed40e40d0003f",
+              "final_state_sha256": "53f8cbd6f2803122c7009ecc503b14b251f5ac968354d0972d10247c33f09dbf"
+            },
+            {
+              "seed": 51031,
+              "all_four_outputs_sha256": "deaa79cb700c611d098dda2c057f658c2994be00ff9adf5537b518af2929ed4b",
+              "final_state_sha256": "200f11b99e59e980ef324fc978e60591d2546cf14614a9090dd9b8214896fcc0"
+            }
+          ]
+        }
+      },
+      "mean_latency": {
+        "original": {
+          "S": 28219.76141271858,
+          "B0": 28219.76141271858,
+          "B2": 28228.42987979637
+        },
+        "resident": {
+          "S": 21437.185679926573,
+          "B0": 21437.185679926573,
+          "B2": 21457.64093281474
+        }
+      },
+      "effects": {
+        "static_compiler_residency_gain_pct": {
+          "mean_pct": 24.027219089734125,
+          "ci95_pct": [
+            23.567669927689085,
+            24.450199536833118
+          ],
+          "paired_seed_values_pct": [
+            23.187017848492165,
+            23.82358205592856,
+            24.521593057383452,
+            24.398083505753664,
+            24.210994384571404,
+            23.658119497088435,
+            23.44254104248441,
+            22.21371659446224,
+            24.147786286279626,
+            24.930245438448175,
+            25.12720457273405,
+            24.66574479318333
+          ]
+        },
+        "resident_B0_vs_resident_S_gain_pct": {
+          "mean_pct": 0.0,
+          "ci95_pct": [
+            0.0,
+            0.0
+          ],
+          "paired_seed_values_pct": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "resident_B2_vs_resident_S_gain_pct": {
+          "mean_pct": -0.09540320310246024,
+          "ci95_pct": [
+            -0.15263161006988124,
+            -0.06144637083654545
+          ],
+          "paired_seed_values_pct": [
+            -0.0586840481776818,
+            -0.061702709930533395,
+            -0.08974769489069612,
+            -0.07894198208506786,
+            -0.05589937751158125,
+            -0.3914488380494463,
+            -0.03421783484609531,
+            -0.09323333263280276,
+            -0.08384254212183695,
+            -0.0756376411712445,
+            -0.055942782092732735,
+            -0.06553965371980386
+          ]
+        },
+        "original_B0_vs_original_S_gain_pct": {
+          "mean_pct": 0.0,
+          "ci95_pct": [
+            0.0,
+            0.0
+          ],
+          "paired_seed_values_pct": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "executions_audited": 232
+    },
+    {
+      "configuration": "o1_combined",
+      "source_work_equivalence": {
+        "status": "PASS",
+        "proof": "structural retained arithmetic and per-head update order; common initial/final state transfer and RF output budget; not numerical payload replay",
+        "ops_both": 917504,
+        "initial_external_bytes_both": 131072,
+        "local_bytes_original": 1048576,
+        "local_bytes_resident": 262144,
+        "rf_bytes_per_core_both": 73760,
+        "output_RF_liveout_bytes_both": 4096,
+        "numerical_liveout_contract": {
+          "scope": "authenticated existing mathematical oracle outputs; no timed tensor-payload execution",
+          "numerical_checks_sha256": "edc9b924f451acacdf8a073cc5a290e28135a78fff6b89394930b85375af5f7c",
+          "per_token_outputs": [
+            {
+              "producer": "delta0.0",
+              "output": "o0.0",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta0.1",
+              "output": "o0.1",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta0.2",
+              "output": "o0.2",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta0.3",
+              "output": "o0.3",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.0",
+              "output": "o1.0",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.1",
+              "output": "o1.1",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.2",
+              "output": "o1.2",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.3",
+              "output": "o1.3",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            }
+          ],
+          "final_state_shape": [
+            2,
+            128,
+            128
+          ],
+          "final_state_dtype": "FP32",
+          "verified_numerical_seeds": [
+            {
+              "seed": 51007,
+              "all_four_outputs_sha256": "c20ca198bbe3ecae6dafb1eb92b91c8aa4c81cc44616a6634969d6269202be21",
+              "final_state_sha256": "dd15fdb1f209e89fc96f08d81bd33b8d54e15d323d2fc7f8dfde3490bb999cbe"
+            },
+            {
+              "seed": 51019,
+              "all_four_outputs_sha256": "d2b8459c15a995e048354e0aa5bff3cfbfaf3a357e4ec04b854ed40e40d0003f",
+              "final_state_sha256": "53f8cbd6f2803122c7009ecc503b14b251f5ac968354d0972d10247c33f09dbf"
+            },
+            {
+              "seed": 51031,
+              "all_four_outputs_sha256": "deaa79cb700c611d098dda2c057f658c2994be00ff9adf5537b518af2929ed4b",
+              "final_state_sha256": "200f11b99e59e980ef324fc978e60591d2546cf14614a9090dd9b8214896fcc0"
+            }
+          ]
+        }
+      },
+      "mean_latency": {
+        "original": {
+          "S": 80340.45291005402,
+          "B0": 80340.45291005402,
+          "B2": 80411.34832485247
+        },
+        "resident": {
+          "S": 74590.70650153054,
+          "B0": 74590.70650153054,
+          "B2": 74601.99091989336
+        }
+      },
+      "effects": {
+        "static_compiler_residency_gain_pct": {
+          "mean_pct": 7.155082725712636,
+          "ci95_pct": [
+            6.862467451467417,
+            7.4792965574415495
+          ],
+          "paired_seed_values_pct": [
+            7.102727871050984,
+            7.296325171843554,
+            8.313919520579894,
+            6.384793124107846,
+            7.043760343164296,
+            6.661954663452341,
+            6.747193752353664,
+            6.424196116438752,
+            7.732805470182402,
+            7.330368338459293,
+            7.6369183298450665,
+            7.186030007073541
+          ]
+        },
+        "resident_B0_vs_resident_S_gain_pct": {
+          "mean_pct": 0.0,
+          "ci95_pct": [
+            0.0,
+            0.0
+          ],
+          "paired_seed_values_pct": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "resident_B2_vs_resident_S_gain_pct": {
+          "mean_pct": -0.015133532229560931,
+          "ci95_pct": [
+            -0.01754951607328854,
+            -0.012607376031881223
+          ],
+          "paired_seed_values_pct": [
+            -0.005395756767367921,
+            -0.016183527621715932,
+            -0.021532347738517643,
+            -0.016031041239350508,
+            -0.013186283999400139,
+            -0.011533790859097337,
+            -0.013393888887747174,
+            -0.021462233965552358,
+            -0.016205380928058233,
+            -0.016209459696647777,
+            -0.019781682696828895,
+            -0.010686992354447256
+          ]
+        },
+        "original_B0_vs_original_S_gain_pct": {
+          "mean_pct": 0.0,
+          "ci95_pct": [
+            0.0,
+            0.0
+          ],
+          "paired_seed_values_pct": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "executions_audited": 232
+    },
+    {
+      "configuration": "r1_combined",
+      "source_work_equivalence": {
+        "status": "PASS",
+        "proof": "structural retained arithmetic and per-head update order; common initial/final state transfer and RF output budget; not numerical payload replay",
+        "ops_both": 917504,
+        "initial_external_bytes_both": 131072,
+        "local_bytes_original": 1048576,
+        "local_bytes_resident": 262144,
+        "rf_bytes_per_core_both": 73760,
+        "output_RF_liveout_bytes_both": 4096,
+        "numerical_liveout_contract": {
+          "scope": "authenticated existing mathematical oracle outputs; no timed tensor-payload execution",
+          "numerical_checks_sha256": "edc9b924f451acacdf8a073cc5a290e28135a78fff6b89394930b85375af5f7c",
+          "per_token_outputs": [
+            {
+              "producer": "delta0.0",
+              "output": "o0.0",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta0.1",
+              "output": "o0.1",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta0.2",
+              "output": "o0.2",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta0.3",
+              "output": "o0.3",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.0",
+              "output": "o1.0",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.1",
+              "output": "o1.1",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.2",
+              "output": "o1.2",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            },
+            {
+              "producer": "delta1.3",
+              "output": "o1.3",
+              "shape": [
+                128
+              ],
+              "dtype": "FP32",
+              "bytes": 512,
+              "residence": "private RF pinned through slice end"
+            }
+          ],
+          "final_state_shape": [
+            2,
+            128,
+            128
+          ],
+          "final_state_dtype": "FP32",
+          "verified_numerical_seeds": [
+            {
+              "seed": 51007,
+              "all_four_outputs_sha256": "c20ca198bbe3ecae6dafb1eb92b91c8aa4c81cc44616a6634969d6269202be21",
+              "final_state_sha256": "dd15fdb1f209e89fc96f08d81bd33b8d54e15d323d2fc7f8dfde3490bb999cbe"
+            },
+            {
+              "seed": 51019,
+              "all_four_outputs_sha256": "d2b8459c15a995e048354e0aa5bff3cfbfaf3a357e4ec04b854ed40e40d0003f",
+              "final_state_sha256": "53f8cbd6f2803122c7009ecc503b14b251f5ac968354d0972d10247c33f09dbf"
+            },
+            {
+              "seed": 51031,
+              "all_four_outputs_sha256": "deaa79cb700c611d098dda2c057f658c2994be00ff9adf5537b518af2929ed4b",
+              "final_state_sha256": "200f11b99e59e980ef324fc978e60591d2546cf14614a9090dd9b8214896fcc0"
+            }
+          ]
+        }
+      },
+      "mean_latency": {
+        "original": {
+          "S": 41193.80764720058,
+          "B0": 41193.80764720058,
+          "B2": 41209.47431386724
+        },
+        "resident": {
+          "S": 36310.30764719974,
+          "B0": 36310.30764719974,
+          "B2": 36331.30764719974
+        }
+      },
+      "effects": {
+        "static_compiler_residency_gain_pct": {
+          "mean_pct": 11.852688237796313,
+          "ci95_pct": [
+            11.607289790577454,
+            12.09752393654805
+          ],
+          "paired_seed_values_pct": [
+            11.21970903212528,
+            11.599648248862914,
+            11.794241101717862,
+            12.578870756198857,
+            12.086164186208581,
+            12.334814460398336,
+            12.388340264299558,
+            11.346671339280523,
+            11.377215032567278,
+            11.568198336208512,
+            11.804863157672528,
+            12.133522938015528
+          ]
+        },
+        "resident_B0_vs_resident_S_gain_pct": {
+          "mean_pct": 0.0,
+          "ci95_pct": [
+            0.0,
+            0.0
+          ],
+          "paired_seed_values_pct": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "resident_B2_vs_resident_S_gain_pct": {
+          "mean_pct": -0.0578196865341607,
+          "ci95_pct": [
+            -0.07664442009896512,
+            -0.042680498661402944
+          ],
+          "paired_seed_values_pct": [
+            -0.03856289737547147,
+            -0.05513328497783743,
+            -0.04412964483346826,
+            -0.03857593053695485,
+            -0.1377528900203151,
+            -0.10438773813172819,
+            -0.0659722808901364,
+            -0.060580100616203225,
+            -0.03858505508924637,
+            -0.03304797772145651,
+            -0.04399321810348855,
+            -0.033115220113622
+          ]
+        },
+        "original_B0_vs_original_S_gain_pct": {
+          "mean_pct": 0.0,
+          "ci95_pct": [
+            0.0,
+            0.0
+          ],
+          "paired_seed_values_pct": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "executions_audited": 232
+    }
+  ],
+  "total_executions_audited": 928,
+  "elapsed_seconds": 59.6271071434021,
+  "evidence_scope": "source arithmetic/order/liveout structural equivalence plus independent timed request replay; no timed numerical payload execution",
+  "limitations": [
+    "Post-hoc falsification control with fresh splits; does not reopen main architecture-positive gate.",
+    "Prepared four-token inputs and RF output residency remain assumptions; no token/s or full-layer claim.",
+    "Other layers do not occupy RF in this micrograph; real autoregressive inter-token execution through other layers is excluded. Four-token residency gains cannot be extrapolated to full-model decode.",
+    "Residency is plausible under declared private RF capacity; real MXU/VPU ISA/RF accessibility and PPA are not verified.",
+    "Reduced local traffic is a static compiler change, not recovery from dynamic uncertainty."
+  ]
+}

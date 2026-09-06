@@ -1,0 +1,320 @@
+{
+  "collected_utc": "2026-09-05T07:10:31.8493900Z",
+  "scope": "PATH, PnP, known software directories and conda environment registry; no whole-machine absence claim",
+  "cpu": [
+    {
+      "Name": "AMD Ryzen 7 7840H with Radeon 780M Graphics    ",
+      "NumberOfCores": 8,
+      "NumberOfLogicalProcessors": 16
+    }
+  ],
+  "video": [
+    {
+      "Name": "AMD Radeon 780M Graphics",
+      "DriverVersion": "31.0.22028.3001"
+    }
+  ],
+  "npu": [
+    {
+      "Name": "AMD IPU Device",
+      "Status": "OK",
+      "PNPClass": "System",
+      "DeviceID": "PCI\\VEN_1022&DEV_1502&SUBSYS_381B17AA&REV_00\\4&A70AC54&0&0142"
+    },
+    {
+      "Name": "Logitech USB Input Device",
+      "Status": "OK",
+      "PNPClass": "HIDClass",
+      "DeviceID": "USB\\VID_046D&PID_C548&MI_00\\7&916A869&0&0000"
+    },
+    {
+      "Name": "Microsoft Input Configuration Device",
+      "Status": "OK",
+      "PNPClass": "HIDClass",
+      "DeviceID": "HID\\ELAN06FA&COL04\\4&1B43D2AC&0&0003"
+    }
+  ],
+  "npu_driver": [
+    {
+      "DeviceName": "AMD IPU Device",
+      "DriverVersion": "10.1109.8.110",
+      "DriverDate": "2023-12-14T08:00:00+08:00",
+      "InfName": "oem95.inf"
+    }
+  ],
+  "commands": [
+    {
+      "name": "python",
+      "source": [
+        "C:\\Python314\\python.exe"
+      ],
+      "found": true
+    },
+    {
+      "name": "py",
+      "source": [
+        "C:\\Windows\\py.exe"
+      ],
+      "found": true
+    },
+    {
+      "name": "uv",
+      "source": [
+        "C:\\Users\\72449\\.local\\bin\\uv.exe"
+      ],
+      "found": true
+    },
+    {
+      "name": "git",
+      "source": [
+        "C:\\Program Files\\Git\\cmd\\git.exe"
+      ],
+      "found": true
+    },
+    {
+      "name": "wsl",
+      "source": [
+        "C:\\Windows\\system32\\wsl.exe"
+      ],
+      "found": true
+    },
+    {
+      "name": "docker",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "nvidia-smi",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "clinfo",
+      "source": [
+        "C:\\Windows\\system32\\clinfo.exe"
+      ],
+      "found": true
+    },
+    {
+      "name": "rocminfo",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "xrt-smi",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "xbutil",
+      "source": [
+        "C:\\Windows\\System32\\AMD\\xbutil.exe"
+      ],
+      "found": true
+    },
+    {
+      "name": "benchmark_app",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "verilator",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "iverilog",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "yosys",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "sbt",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "java",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "cmake",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "ninja",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "conda",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "xclbinutil",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "v++",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "aiecompiler",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "clang",
+      "source": [
+        null
+      ],
+      "found": false
+    },
+    {
+      "name": "cl",
+      "source": [
+        null
+      ],
+      "found": false
+    }
+  ],
+  "known_sdk_roots": [
+    {
+      "path": "D:\\riallto\\ipu_stack_rel_silicon_prod",
+      "exists": true
+    },
+    {
+      "path": "D:\\riallto\\ipu_stack_rel_silicon_1.0",
+      "exists": true
+    },
+    {
+      "path": "C:\\RyzenAI",
+      "exists": false
+    },
+    {
+      "path": "C:\\Program Files\\RyzenAI",
+      "exists": false
+    },
+    {
+      "path": "C:\\Xilinx",
+      "exists": false
+    },
+    {
+      "path": "C:\\Program Files\\Xilinx",
+      "exists": false
+    },
+    {
+      "path": "D:\\Xilinx",
+      "exists": false
+    }
+  ],
+  "conda_environments": [
+    "C:\\ProgramData\\anaconda3"
+  ],
+  "driver_artifacts": [
+    {
+      "path": "C:\\Windows\\System32\\AMD\\xbutil.exe",
+      "size": 2011072,
+      "sha256": "6ef589f4fca94be2a040772cfbd2e46735f3add611d76de394a372ef83aa8175",
+      "file_version": null
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\xrt_core.dll",
+      "size": 486336,
+      "sha256": "7876729ce1229eea8bc49c1f4be188dfb3dc4abb8633c8f16b92d5da7d4d641a",
+      "file_version": null
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "size": 1784360,
+      "sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "file_version": null
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\amd_xrt_core.dll",
+      "size": 432064,
+      "sha256": "0f0602a57c2dceec0c08f9eceb0c7901814a0a89259ba56565310558a292317a",
+      "file_version": null
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\onnxruntime.dll",
+      "size": 11699248,
+      "sha256": "9a4c2747d4bacefa018b77ee5a8756b858fb429754296d133f18c6e184f35b12",
+      "file_version": "Internal Build"
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\onnxruntime_vitisai_ep.dll",
+      "size": 59108392,
+      "sha256": "8f6241c6ce5dd12cf7599e05332ad18371fda28e4b5e854e5dc2cbe327e16a10",
+      "file_version": null
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\validate_phx.xclbin",
+      "size": 819889,
+      "sha256": "c64c0d59dfab9f6a12e50252f302bdc8fb7e7b8183fd69d09e2bb796579c8de5",
+      "file_version": null
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\DPU_Sequence\\df_bw_dpu.txt",
+      "size": 1916,
+      "sha256": "0b08d06fefbe999495d8d65d1c9ee32244b9364e111d2598641d5e7f8e960125",
+      "file_version": null
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\aieml_gemm_vm_phx_4x4_bf16.xclbin",
+      "size": 1491595,
+      "sha256": "29d66a1678a365783d77eff97f18e5ae4775fe981c8e31dc8cc7cc2621e95d66",
+      "file_version": null
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\aieml_gemm_vm_phx_4x4_bf16.json",
+      "size": 46094,
+      "sha256": "f3cfba6cbb997366ed5cefb4fbbcf556097cb14a733a35c20271f5ba961b0862",
+      "file_version": null
+    }
+  ],
+  "power_scheme": [
+    "电源方案 GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (平衡)"
+  ]
+}

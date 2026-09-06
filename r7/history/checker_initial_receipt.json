@@ -1,0 +1,31 @@
+{
+  "checked_at_utc": "2026-09-05T07:49:52.096104+00:00",
+  "scope": "historical hashes and checker stop gate only; no experiment reruns",
+  "items": [
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "r7/check_integrity.py",
+        "--verify-history"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS\", \"operation\": \"verify-history\", \"r6_logical_paths_via_explicit_snapshot\": 89, \"r5_logical_paths_via_r6_snapshot\": 262, \"r4_original_paths\": 612, \"historical_table_rows_preserved_in_order\": 10, \"successor_status\": \"pending_not_performance_accepted\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "r7/check_integrity.py",
+        "--freeze-r7"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "FAIL: R7 successor not recorded; complete root table, then --record-successor\n"
+    }
+  ],
+  "premature_freeze_refused_without_creating_manifest": true
+}

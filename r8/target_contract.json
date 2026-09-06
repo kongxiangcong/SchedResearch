@@ -1,0 +1,93 @@
+{
+  "schema": "r8.target-contract.v1",
+  "status": "research contract with explicit unresolved target fields; not implementation acceptance",
+  "scope": "two clusters, two cores per cluster; one-cluster/two-core local control",
+  "source_registry": "r8/source_contract_audit.md",
+  "derived_ledger": "r8/results/resource_payload_ledger.json",
+  "ledger_evidence": "derived logical bytes, proposed disjoint spans and CPU arithmetic; no device measurement",
+  "selected_resource_question": "If the target must stage cross-cluster FP32 partials through shared external memory/DMA, does a target-admitted, selected static mapping still suffer observable service variation with actionable alternatives? First establish whether that staging is required at all.",
+  "topology": {
+    "target_checkout": null,
+    "current_target_revision": null,
+    "cluster_count_research": 2,
+    "cores_per_cluster": 2,
+    "core_engines_historical_anchor": ["MXU", "VPU", "TMU"],
+    "private_VMEM_research_bound_bytes": 4194304,
+    "actual_usable_VMEM_bytes": null,
+    "DMA_role": "one shared cluster DMA role per cluster, inherited as a research anchor; current channels/outstanding and extension not certified",
+    "controller_role": "one cluster control role; cross-cluster authority not implemented here",
+    "shared_external_memory_ports": null,
+    "shared_external_memory_bandwidth": null,
+    "bank_mapping_and_ports": null,
+    "input_multicast_support": null,
+    "direct_peer_payload_support": null,
+    "cross_cluster_event_support": null,
+    "route_alternatives": [
+      {"name": "external_staging", "payload_path": "source VMEM -> external partial slot -> destination VMEM", "status": "research candidate, both write and read counted; not current TARS certification"},
+      {"name": "direct_peer", "payload_path": "source VMEM -> destination VMEM", "status": "conditional alternative, no free link assumed"}
+    ],
+    "chiplet_or_NoP_model": false
+  },
+  "workload": {
+    "source": "frozen Qwen3.5-4B MLP down projection",
+    "source_full_shape": {"K": 9216, "N": 2560},
+    "slice": {"M": [1, 32], "K": 9216, "N_range_half_open": [0, 128]},
+    "initial_location": "one prepared X and one W slice in shared external storage",
+    "final_location": "all disjoint Y slices visible in the same external output; no extra cluster0 gather",
+    "storage": "BF16 X/W; research FP32 partials and output",
+    "mapping_variants": ["C1N", "C2N", "C2K"],
+    "numerical_admission": null,
+    "M1_native_admission": "not admitted by historical 32-multiple MXU geometry; logical slice only",
+    "M32_native_admission": "historical geometry matches only; compiler/RTL/dtype pending",
+    "padding_MACs_and_bytes": null,
+    "reduction_order": "N-shard retains explicit ascending K CPU reduction; K-shard uses ascending K within each half then P0+P1",
+    "full_model_or_autoregressive_acceptance": false
+  },
+  "residency_and_layout": {
+    "cold_weight_policy": "one logical weight delivery per coefficient per slice invocation",
+    "proposed_allocations": "per-core disjoint packed X/W/P and incoming-P buffers in ledger, full resident or Ktile 128/512 with one/two input buffer slots",
+    "tiled_execution_status": "live-set alternatives only; no tile-expanded descriptors/transfers bound to X0/W0 slots or executed; transfer ledger names full-resident buffers",
+    "physical_layout_admission": "pending DMA striding/packing, VMEM reserved region and bank checks; logical element count does not imply bus bytes",
+    "cross_invocation_or_cross_layer_residency": "unverified",
+    "external_staging_capacity": "sum of two remote partial payloads; counted separately from private VMEM",
+    "transport_capacity": null,
+    "alias_rule": "tile refill only after its last reader; local P0 reduction in-place after both partials visible; incoming partial released only after reduction last-read"
+  },
+  "completion_contract": {
+    "full_path_required_events": ["input_external_visible", "input_local_visible", "projection_partial_local_visible", "transfer_accepted", "transfer_source_last_read", "transfer_destination_visible", "reduction_last_read_and_output_visible", "output_external_visible"],
+    "semantic_rule": "consumer reads only after its named payload is visible; source and destination reuse wait for their respective last readers",
+    "implementation_forms_allowed": ["explicit event/fence", "blocking copy", "any target-proven equivalent happens-before"],
+    "E2_verified_scope": "single sentinel partial already produced in source; one accepted transfer, transport capture, remote visibility, consumer read and one overwrite of each buffer; all seven-event linear extensions",
+    "E2_not_verified": ["producer-to-DMA visibility", "two concurrent partial transfers", "entire reduction graph", "final output-store visibility", "credits/backpressure", "retries/errors", "event ID reuse/generations", "target RTL"],
+    "event_order_counts_are_not_probabilities": true
+  },
+  "strong_static_obligations": [
+    {"action": "output/K mapping and reduction placement", "evidence": "source algebra only; K reassociation requires numerical permission"},
+    {"action": "fusion/residency across source graph", "evidence": "not optimized in this down-only prepared-input boundary"},
+    {"action": "tiling/layout/packing/padding", "evidence": "logical live-set enumerated; native support pending"},
+    {"action": "input multicast/replication", "evidence": "alternative path contracts; no assumed support"},
+    {"action": "buffering/prefetch/order/outstanding", "evidence": "space counted only; no timing search or configured limit"},
+    {"action": "self-timed waits plus existing work-conserving arbitration", "evidence": "must be allowed when target supports; not a new scheduler"}
+  ],
+  "fair_budget": {
+    "within_C2_mapping_comparison": "same four cores, same VMEM bounds and external/DMA/link capacities once known; mapping changes X delivery and reduction work, explicitly ledgered",
+    "C1_control": "two cores only; no equal-compute performance claim against C2",
+    "separate_resource_categories": ["global external payload bytes", "core input deliveries", "peer payload bytes", "local reduction read/write bytes", "MACs", "extra reduction adds", "resident bytes"],
+    "excluded_unknown_costs": ["actual bus beats", "padding", "packet headers", "descriptor traffic", "retries", "pack/unpack operations", "issue/wakeup overhead", "frequency/PPA"],
+    "no_scheduler_state_or_bandwidth_grant": true
+  },
+  "observability": {
+    "required_minimum": ["device elapsed", "actual bytes", "per-engine active", "defined request/limit/latency observation"],
+    "causal_transfer_trace": ["named span/transfer ID", "accepted", "source last-read", "destination visible", "consumer start/last-read"],
+    "Phoenix_R7_applicability": "host elapsed and fixed copy/INT8 GEMM functional access cannot resolve selected BF16 split-K/shared-path/remote-visible question; no new profiler/SDK work in R8",
+    "new_target_runs": 0,
+    "new_Phoenix_runs": 0,
+    "confirmed_paired_blocks": 0
+  },
+  "decision": {
+    "accept": "source-grounded logical ledger and single-payload safety certificate under declared assumptions",
+    "refine": "target-admitted mapping, actual data path and completion binding before residual measurement",
+    "reject": "inference from structural examples to a required new scheduler, real performance gain or target bug",
+    "mechanism_gate_open": false
+  }
+}

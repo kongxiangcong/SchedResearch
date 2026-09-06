@@ -1,0 +1,309 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-09-05T09:14:55.215909+00:00",
+  "independent_checker_sha256": "efc809cc30d1453841126751fefe99b27b5a98598b21a66dffcb492f1d6b86bb",
+  "main_receipt_sha256": "bbbd065f1130125111e38295538d3d848c464b984350f19ad49d6d1d28e0d688",
+  "evidence_level": "independent CPU and finite contract recheck only; no target admission, timing or mechanism acceptance",
+  "checks": {
+    "source_ledger": {
+      "cases": 6,
+      "cores": 20,
+      "layouts": 100,
+      "details": [
+        {
+          "mapping": "C1N",
+          "M": 1,
+          "verified_accounting": {
+            "logical_MACs": 1179648,
+            "additional_reduction_adds": 0,
+            "weight_ingress_bytes": 2359296,
+            "private_X_delivery_bytes": 36864,
+            "unique_X_external_read_lower_bound_bytes": 18432,
+            "final_Y_write_bytes": 512,
+            "peer_partial_bytes_direct": 0,
+            "external_bytes_private_unicast_direct": 2396672,
+            "external_bytes_private_unicast_staged": 2396672,
+            "external_partial_stage_live_bytes": 0,
+            "reduction_local_read_bytes": 0,
+            "reduction_local_write_bytes": 0
+          }
+        },
+        {
+          "mapping": "C2N",
+          "M": 1,
+          "verified_accounting": {
+            "logical_MACs": 1179648,
+            "additional_reduction_adds": 0,
+            "weight_ingress_bytes": 2359296,
+            "private_X_delivery_bytes": 73728,
+            "unique_X_external_read_lower_bound_bytes": 18432,
+            "final_Y_write_bytes": 512,
+            "peer_partial_bytes_direct": 0,
+            "external_bytes_private_unicast_direct": 2433536,
+            "external_bytes_private_unicast_staged": 2433536,
+            "external_partial_stage_live_bytes": 0,
+            "reduction_local_read_bytes": 0,
+            "reduction_local_write_bytes": 0
+          }
+        },
+        {
+          "mapping": "C2K",
+          "M": 1,
+          "verified_accounting": {
+            "logical_MACs": 1179648,
+            "additional_reduction_adds": 128,
+            "weight_ingress_bytes": 2359296,
+            "private_X_delivery_bytes": 36864,
+            "unique_X_external_read_lower_bound_bytes": 18432,
+            "final_Y_write_bytes": 512,
+            "peer_partial_bytes_direct": 512,
+            "external_bytes_private_unicast_direct": 2396672,
+            "external_bytes_private_unicast_staged": 2397696,
+            "external_partial_stage_live_bytes": 512,
+            "reduction_local_read_bytes": 1024,
+            "reduction_local_write_bytes": 512
+          }
+        },
+        {
+          "mapping": "C1N",
+          "M": 32,
+          "verified_accounting": {
+            "logical_MACs": 37748736,
+            "additional_reduction_adds": 0,
+            "weight_ingress_bytes": 2359296,
+            "private_X_delivery_bytes": 1179648,
+            "unique_X_external_read_lower_bound_bytes": 589824,
+            "final_Y_write_bytes": 16384,
+            "peer_partial_bytes_direct": 0,
+            "external_bytes_private_unicast_direct": 3555328,
+            "external_bytes_private_unicast_staged": 3555328,
+            "external_partial_stage_live_bytes": 0,
+            "reduction_local_read_bytes": 0,
+            "reduction_local_write_bytes": 0
+          }
+        },
+        {
+          "mapping": "C2N",
+          "M": 32,
+          "verified_accounting": {
+            "logical_MACs": 37748736,
+            "additional_reduction_adds": 0,
+            "weight_ingress_bytes": 2359296,
+            "private_X_delivery_bytes": 2359296,
+            "unique_X_external_read_lower_bound_bytes": 589824,
+            "final_Y_write_bytes": 16384,
+            "peer_partial_bytes_direct": 0,
+            "external_bytes_private_unicast_direct": 4734976,
+            "external_bytes_private_unicast_staged": 4734976,
+            "external_partial_stage_live_bytes": 0,
+            "reduction_local_read_bytes": 0,
+            "reduction_local_write_bytes": 0
+          }
+        },
+        {
+          "mapping": "C2K",
+          "M": 32,
+          "verified_accounting": {
+            "logical_MACs": 37748736,
+            "additional_reduction_adds": 4096,
+            "weight_ingress_bytes": 2359296,
+            "private_X_delivery_bytes": 1179648,
+            "unique_X_external_read_lower_bound_bytes": 589824,
+            "final_Y_write_bytes": 16384,
+            "peer_partial_bytes_direct": 16384,
+            "external_bytes_private_unicast_direct": 3555328,
+            "external_bytes_private_unicast_staged": 3588096,
+            "external_partial_stage_live_bytes": 16384,
+            "reduction_local_read_bytes": 32768,
+            "reduction_local_write_bytes": 16384
+          }
+        }
+      ]
+    },
+    "numerics": {
+      "fixtures": 6,
+      "comparisons": 18,
+      "max_reference_disagreement": 0.0,
+      "details": [
+        {
+          "M": 1,
+          "seed": 8107,
+          "mapping": "C1N",
+          "different_from_serial": 0
+        },
+        {
+          "M": 1,
+          "seed": 8107,
+          "mapping": "C2N",
+          "different_from_serial": 0
+        },
+        {
+          "M": 1,
+          "seed": 8107,
+          "mapping": "C2K",
+          "different_from_serial": 126
+        },
+        {
+          "M": 1,
+          "seed": 8119,
+          "mapping": "C1N",
+          "different_from_serial": 0
+        },
+        {
+          "M": 1,
+          "seed": 8119,
+          "mapping": "C2N",
+          "different_from_serial": 0
+        },
+        {
+          "M": 1,
+          "seed": 8119,
+          "mapping": "C2K",
+          "different_from_serial": 124
+        },
+        {
+          "M": 1,
+          "seed": 8131,
+          "mapping": "C1N",
+          "different_from_serial": 0
+        },
+        {
+          "M": 1,
+          "seed": 8131,
+          "mapping": "C2N",
+          "different_from_serial": 0
+        },
+        {
+          "M": 1,
+          "seed": 8131,
+          "mapping": "C2K",
+          "different_from_serial": 121
+        },
+        {
+          "M": 32,
+          "seed": 8107,
+          "mapping": "C1N",
+          "different_from_serial": 0
+        },
+        {
+          "M": 32,
+          "seed": 8107,
+          "mapping": "C2N",
+          "different_from_serial": 0
+        },
+        {
+          "M": 32,
+          "seed": 8107,
+          "mapping": "C2K",
+          "different_from_serial": 3874
+        },
+        {
+          "M": 32,
+          "seed": 8119,
+          "mapping": "C1N",
+          "different_from_serial": 0
+        },
+        {
+          "M": 32,
+          "seed": 8119,
+          "mapping": "C2N",
+          "different_from_serial": 0
+        },
+        {
+          "M": 32,
+          "seed": 8119,
+          "mapping": "C2K",
+          "different_from_serial": 3877
+        },
+        {
+          "M": 32,
+          "seed": 8131,
+          "mapping": "C1N",
+          "different_from_serial": 0
+        },
+        {
+          "M": 32,
+          "seed": 8131,
+          "mapping": "C2N",
+          "different_from_serial": 0
+        },
+        {
+          "M": 32,
+          "seed": 8131,
+          "mapping": "C2K",
+          "different_from_serial": 3885
+        }
+      ],
+      "cancellation": {
+        "ordered": 1.0,
+        "split": 0.0,
+        "fp64": 2.0
+      }
+    },
+    "events": {
+      "extensions": 70,
+      "incorrect": 37,
+      "every_record_reexecuted": true,
+      "details": {
+        "safe": {
+          "extensions": 5,
+          "incorrect": 0,
+          "independent_witness": null
+        },
+        "early_event": {
+          "extensions": 40,
+          "incorrect": 26,
+          "independent_witness": {
+            "order": [
+              "A",
+              "E",
+              "C",
+              "D",
+              "R",
+              "S",
+              "V"
+            ],
+            "observed": -7
+          }
+        },
+        "early_source_reuse": {
+          "extensions": 6,
+          "incorrect": 1,
+          "independent_witness": {
+            "order": [
+              "A",
+              "S",
+              "R",
+              "V",
+              "E",
+              "C",
+              "D"
+            ],
+            "observed": 97
+          }
+        },
+        "early_destination_reuse": {
+          "extensions": 15,
+          "incorrect": 10,
+          "independent_witness": {
+            "order": [
+              "A",
+              "R",
+              "S",
+              "V",
+              "D",
+              "E",
+              "C"
+            ],
+            "observed": 53
+          }
+        },
+        "conservative_source_release": {
+          "extensions": 4,
+          "incorrect": 0,
+          "independent_witness": null
+        }
+      }
+    }
+  }
+}

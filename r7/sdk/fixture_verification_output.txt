@@ -1,0 +1,1 @@
+PASS CPU-only source-header check: MLKernelParams=40 GemmInstr=60 GemmSeq=200 packed_weight_bytes=4194304 exact_oracle_outputs=2048

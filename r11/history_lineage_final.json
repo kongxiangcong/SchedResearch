@@ -1,0 +1,20 @@
+{
+  "parent_round": "R10",
+  "successor_round": "R11",
+  "parent_snapshot": "r11/history/r10_research_progress.md",
+  "parent_sha256": "df99c7045682658680a28105114b68c6fa521ca1311460322fd9b99d6394c7d4",
+  "aligned_snapshot": "r11/history/aligned_research_progress.md",
+  "aligned_sha256": "436d346261e9e5df1f6e0aed0ed08262e2274c15befff2586f23675bd46dd5a1",
+  "successor_snapshot": "r11/successor_research_progress.md",
+  "successor_sha256": "d72219fb06f7f39c3cb0f49c5ab46ed58a31fe25dd4c7e29121a0d43410279f9",
+  "phase": "completed-reference-experiment",
+  "decision": {"prefill": "本轮未获支持，方向关闭", "strict_decode": "本轮未获支持，方向关闭"},
+  "evidence": {
+    "report": "r11/experiment_report.md",
+    "results": "r11/results.json",
+    "audit": "r11/independent_audit.json",
+    "numerical": "r11/numerical_results.json",
+    "manifest": "r11/results_manifest.json"
+  },
+  "note": "R1-R10 and the four named handoff files are preserved; the root progress update is append-only. This is reference-model evidence, not device acceptance."
+}

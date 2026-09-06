@@ -1,0 +1,149 @@
+loaded_xrt_coreutil "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll"
+xclbin "C:\\Windows\\System32\\AMD\\1x4_3.5.0.0-1562.xclbin"
+uuid 73bcc6b9-bcd8-e17e-b276-eb2c3f2c4026
+memory index=0 tag="HOST" size_kb=65536 type=2
+memory index=1 tag="SRAM" size_kb=49152 type=2
+kernel "vadd"
+  arg index=0 name="in1" type="void*" size=8 offset=16 memory_indices=0,
+  arg index=1 name="in2" type="void*" size=8 offset=28 memory_indices=0,
+  arg index=2 name="out_r" type="void*" size=8 offset=40 memory_indices=0,
+  arg index=3 name="size" type="unsigned int" size=4 offset=52 memory_indices=
+kernel "DPU_PDI_0"
+  arg index=0 name="opcode" type="uint64_t" size=8 offset=0 memory_indices=
+  arg index=1 name="ifm" type="char *" size=8 offset=8 memory_indices=0,
+  arg index=2 name="param" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="ofm" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="inter" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="instruct" type="char *" size=8 offset=40 memory_indices=1,
+  arg index=6 name="nistruct" type="uint32_t" size=4 offset=48 memory_indices=
+  arg index=7 name="mc" type="char *" size=8 offset=52 memory_indices=0,
+kernel "DPU_PDI_1"
+  arg index=0 name="opcode" type="uint64_t" size=8 offset=0 memory_indices=
+  arg index=1 name="ifm" type="char *" size=8 offset=8 memory_indices=0,
+  arg index=2 name="param" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="ofm" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="inter" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="instruct" type="char *" size=8 offset=40 memory_indices=1,
+  arg index=6 name="nistruct" type="uint32_t" size=4 offset=48 memory_indices=
+  arg index=7 name="mc" type="char *" size=8 offset=52 memory_indices=0,
+kernel "DPU_PDI_2"
+  arg index=0 name="opcode" type="uint64_t" size=8 offset=0 memory_indices=
+  arg index=1 name="ifm" type="char *" size=8 offset=8 memory_indices=0,
+  arg index=2 name="param" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="ofm" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="inter" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="instruct" type="char *" size=8 offset=40 memory_indices=1,
+  arg index=6 name="nistruct" type="uint32_t" size=4 offset=48 memory_indices=
+  arg index=7 name="mc" type="char *" size=8 offset=52 memory_indices=0,
+kernel "DPU_PDI_3"
+  arg index=0 name="opcode" type="uint64_t" size=8 offset=0 memory_indices=
+  arg index=1 name="ifm" type="char *" size=8 offset=8 memory_indices=0,
+  arg index=2 name="param" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="ofm" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="inter" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="instruct" type="char *" size=8 offset=40 memory_indices=1,
+  arg index=6 name="nistruct" type="uint32_t" size=4 offset=48 memory_indices=
+  arg index=7 name="mc" type="char *" size=8 offset=52 memory_indices=0,
+kernel "DPU_PDI_4"
+  arg index=0 name="opcode" type="uint64_t" size=8 offset=0 memory_indices=
+  arg index=1 name="ifm" type="char *" size=8 offset=8 memory_indices=0,
+  arg index=2 name="param" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="ofm" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="inter" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="instruct" type="char *" size=8 offset=40 memory_indices=1,
+  arg index=6 name="nistruct" type="uint32_t" size=4 offset=48 memory_indices=
+  arg index=7 name="mc" type="char *" size=8 offset=52 memory_indices=0,
+kernel "DPU_PDI_5"
+  arg index=0 name="opcode" type="uint64_t" size=8 offset=0 memory_indices=
+  arg index=1 name="ifm" type="char *" size=8 offset=8 memory_indices=0,
+  arg index=2 name="param" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="ofm" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="inter" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="instruct" type="char *" size=8 offset=40 memory_indices=1,
+  arg index=6 name="nistruct" type="uint32_t" size=4 offset=48 memory_indices=
+  arg index=7 name="mc" type="char *" size=8 offset=52 memory_indices=0,
+kernel "DPU_PDI_6"
+  arg index=0 name="opcode" type="uint64_t" size=8 offset=0 memory_indices=
+  arg index=1 name="ifm" type="char *" size=8 offset=8 memory_indices=0,
+  arg index=2 name="param" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="ofm" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="inter" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="instruct" type="char *" size=8 offset=40 memory_indices=1,
+  arg index=6 name="nistruct" type="uint32_t" size=4 offset=48 memory_indices=
+  arg index=7 name="mc" type="char *" size=8 offset=52 memory_indices=0,
+kernel "DPU_PDI_7"
+  arg index=0 name="opcode" type="uint64_t" size=8 offset=0 memory_indices=
+  arg index=1 name="ifm" type="char *" size=8 offset=8 memory_indices=0,
+  arg index=2 name="param" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="ofm" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="inter" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="instruct" type="char *" size=8 offset=40 memory_indices=1,
+  arg index=6 name="nistruct" type="uint32_t" size=4 offset=48 memory_indices=
+  arg index=7 name="mc" type="char *" size=8 offset=52 memory_indices=0,
+kernel "DPU_PDI_8"
+  arg index=0 name="opcode" type="uint64_t" size=8 offset=0 memory_indices=
+  arg index=1 name="ifm" type="char *" size=8 offset=8 memory_indices=0,
+  arg index=2 name="param" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="ofm" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="inter" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="instruct" type="char *" size=8 offset=40 memory_indices=1,
+  arg index=6 name="nistruct" type="uint32_t" size=4 offset=48 memory_indices=
+  arg index=7 name="mc" type="char *" size=8 offset=52 memory_indices=0,
+kernel "DPU_PDI_9"
+  arg index=0 name="opcode" type="uint64_t" size=8 offset=0 memory_indices=
+  arg index=1 name="ifm" type="char *" size=8 offset=8 memory_indices=0,
+  arg index=2 name="param" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="ofm" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="inter" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="instruct" type="char *" size=8 offset=40 memory_indices=1,
+  arg index=6 name="nistruct" type="uint32_t" size=4 offset=48 memory_indices=
+  arg index=7 name="mc" type="char *" size=8 offset=52 memory_indices=0,
+kernel "DPU_PDI_10"
+  arg index=0 name="opcode" type="uint64_t" size=8 offset=0 memory_indices=
+  arg index=1 name="ifm" type="char *" size=8 offset=8 memory_indices=0,
+  arg index=2 name="param" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="ofm" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="inter" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="instruct" type="char *" size=8 offset=40 memory_indices=1,
+  arg index=6 name="nistruct" type="uint32_t" size=4 offset=48 memory_indices=
+  arg index=7 name="mc" type="char *" size=8 offset=52 memory_indices=0,
+kernel "XDP_KERNEL"
+  arg index=0 name="opcode" type="uint64_t" size=8 offset=0 memory_indices=
+  arg index=1 name="instruct" type="char *" size=8 offset=8 memory_indices=1,
+  arg index=2 name="nistruct" type="uint32_t" size=4 offset=16 memory_indices=
+  arg index=3 name="argv0" type="uint64_t" size=8 offset=20 memory_indices=
+  arg index=4 name="argv1" type="uint64_t" size=8 offset=28 memory_indices=
+  arg index=5 name="argv2" type="uint64_t" size=8 offset=36 memory_indices=
+  arg index=6 name="argv3" type="uint64_t" size=8 offset=44 memory_indices=
+  arg index=7 name="argv4" type="uint64_t" size=8 offset=52 memory_indices=
+kernel "PP_KERNEL_0"
+  arg index=0 name="instr" type="char *" size=8 offset=0 memory_indices=1,
+  arg index=1 name="ninstr" type="uint64_t" size=8 offset=8 memory_indices=
+  arg index=2 name="arg1" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="arg2" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="arg3" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="arg4" type="char *" size=8 offset=40 memory_indices=0,
+  arg index=6 name="arg5" type="char *" size=8 offset=48 memory_indices=0,
+  arg index=7 name="arg6" type="char *" size=8 offset=56 memory_indices=0,
+  arg index=8 name="arg7" type="char *" size=8 offset=64 memory_indices=0,
+kernel "PP_KERNEL_1"
+  arg index=0 name="instr" type="char *" size=8 offset=0 memory_indices=1,
+  arg index=1 name="ninstr" type="uint64_t" size=8 offset=8 memory_indices=
+  arg index=2 name="arg1" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="arg2" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="arg3" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="arg4" type="char *" size=8 offset=40 memory_indices=0,
+  arg index=6 name="arg5" type="char *" size=8 offset=48 memory_indices=0,
+  arg index=7 name="arg6" type="char *" size=8 offset=56 memory_indices=0,
+  arg index=8 name="arg7" type="char *" size=8 offset=64 memory_indices=0,
+kernel "PP_KERNEL_2"
+  arg index=0 name="instr" type="char *" size=8 offset=0 memory_indices=1,
+  arg index=1 name="ninstr" type="uint64_t" size=8 offset=8 memory_indices=
+  arg index=2 name="arg1" type="char *" size=8 offset=16 memory_indices=0,
+  arg index=3 name="arg2" type="char *" size=8 offset=24 memory_indices=0,
+  arg index=4 name="arg3" type="char *" size=8 offset=32 memory_indices=0,
+  arg index=5 name="arg4" type="char *" size=8 offset=40 memory_indices=0,
+  arg index=6 name="arg5" type="char *" size=8 offset=48 memory_indices=0,
+  arg index=7 name="arg6" type="char *" size=8 offset=56 memory_indices=0,
+  arg index=8 name="arg7" type="char *" size=8 offset=64 memory_indices=0,
+device_opened false

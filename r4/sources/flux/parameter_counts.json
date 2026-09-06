@@ -1,0 +1,35 @@
+{
+  "main_transformer": {
+    "parameters": 3875544576,
+    "parts": {
+      "image_projection": 393216,
+      "text_projection": 23592960,
+      "timestep_mlp": 10223616,
+      "double_blocks": 1226836480,
+      "single_blocks": 2453672960,
+      "shared_modulation": 141557760,
+      "final_layer": 19267584
+    },
+    "verification": "matches frozen HF safetensors API total"
+  },
+  "text_encoder": {
+    "parameters": 4022468096,
+    "per_layer": 100930816,
+    "verification": "matches frozen sharded index total_parameters",
+    "tied_embedding_counted_once": true
+  },
+  "vae": {
+    "parameters": 84046115,
+    "encoder": 34425856,
+    "decoder": 49620259,
+    "nontrainable_buffer_elements": 257,
+    "verification": "formula derived from frozen BFL autoencoder.py; weights not loaded; not a tensor-header count"
+  },
+  "pipeline_trainable_parameters": 7982058787,
+  "bf16_weight_only_bytes": {
+    "main_transformer": 7751089152,
+    "main_plus_text": 15796025344,
+    "all_bf16_hypothetical": 15964117574
+  },
+  "memory_warning": "Parameter bytes omit activation/KV/scratch/allocator and do not prescribe residency. Official BFL reference loads Qwen3-4B-FP8; HF pipeline text config/index are BF16; VAE upcast stages exist."
+}

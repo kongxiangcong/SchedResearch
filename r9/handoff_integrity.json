@@ -1,0 +1,19 @@
+{
+  "schema": "r9.scope-handoff.v1",
+  "created_utc": "2026-09-05T10:07:25.662529+00:00",
+  "evidence_level": "user-authorized reference-hardware modeling plan; no R9 experiment",
+  "parent_r8_manifest_sha256": "d81ff0230bbfcb5461b28932831ab14bd38c4a87fd14edc73cba9ce67f40daf2",
+  "progress_lineage": {
+    "parent_snapshot": "r9/history/r8_research_progress.md",
+    "parent_sha256": "a2c65faeb440f9f140fd75780cacfa8e06ebf2cb9425fe71c866c5117d0482a0",
+    "successor_snapshot": "r9/history/aligned_research_progress.md",
+    "successor_sha256": "9a7bfc60f27edfff2794dd5542426f13b6cf174ce494b92beb45f14562503fd3"
+  },
+  "handoff_files": {
+    "r9/history/r8_research_progress.md": "a2c65faeb440f9f140fd75780cacfa8e06ebf2cb9425fe71c866c5117d0482a0",
+    "r9/history/aligned_research_progress.md": "9a7bfc60f27edfff2794dd5542426f13b6cf174ce494b92beb45f14562503fd3",
+    "r9/continuation_brief.md": "6425dd79fd2ec4277b3d98e419b7808c01902cb7c952ee2b026a28b7c9324406"
+  },
+  "added_plan_row": "| R8→R9：自主研究规格（计划） | 缺少当前TARS参数时，能否先以明确参考硬件完成共享资源残差研究？ | 两cluster各两核的自主规格可支持条件性架构判别；真实性与迁移性后续由TARS替换校准。 | 用户明确授权agent建模并在新任务开始实施；保存R8父快照与R9交接，待冻结参数、strong-static和判别实验。 | 推进边界已变更：TARS路径不再阻塞参考模型；规格/能力/参数均显式假设，不冒充目标事实；尚无R9实验结果。 | **Accept自主规格与实施范围；R9研究假设待测。** | 参考硬件参数敏感性、合法静态空间、供给与可恢复损失分解、后续真实目标迁移。 | 新任务直接建立数值合同、实现最小资源路径、训练强静态并运行判别实验；不继续环境搭建，不预设新scheduler。 |",
+  "future_rule": "Only named handoff files frozen; add new R9 implementation/results and append progress under new lineage. Preserve R1-R8 and all existing rows."
+}

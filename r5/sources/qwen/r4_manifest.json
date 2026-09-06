@@ -1,0 +1,72 @@
+{
+  "model_repo": "Qwen/Qwen3.5-4B",
+  "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "transformers_revision": "f62dc9bf2c90353b442a56e74391fbb8c689b55e",
+  "retrieved_utc": "2026-09-05T04:57:25.175913+00:00",
+  "tensor_payloads_downloaded": false,
+  "files": [
+    {
+      "file": "model_api.json",
+      "url": "https://huggingface.co/api/models/Qwen/Qwen3.5-4B/revision/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "resolved_url": "https://huggingface.co/api/models/Qwen/Qwen3.5-4B/revision/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "sha256": "be997e96cf0f91ea9be449b1a9f49e51c327668efc74be1a28473abc84bc6d43",
+      "bytes": 20830
+    },
+    {
+      "file": "config.json",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/config.json",
+      "resolved_url": "https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/config.json?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fconfig.json=&etag=%22557d961b205319c6a7da5f757f565b69b3967b7d%22",
+      "sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+      "bytes": 3161
+    },
+    {
+      "file": "README.md",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/README.md",
+      "resolved_url": "https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/README.md?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2FREADME.md=&etag=%227950a3aadf378cd13758097bc52f0ed849a59007%22",
+      "sha256": "1406be1b6b8fd8a6545870da516912804756593628a1d0fb0a7965211e82a7bb",
+      "bytes": 77661
+    },
+    {
+      "file": "LICENSE",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/LICENSE",
+      "resolved_url": "https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/LICENSE?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2FLICENSE=&etag=%22f938136e3adacfd92be087f6e113b5d6d97f678f%22",
+      "sha256": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a",
+      "bytes": 11544
+    },
+    {
+      "file": "model.safetensors.index.json",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors.index.json",
+      "resolved_url": "https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors.index.json?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fmodel.safetensors.index.json=&etag=%22fddda6039f7c1d17260c9e923b8a72fd025d9a86%22",
+      "sha256": "cf3f798ee02ba45f9622aa8892a47369ab667d0afbf154ee7c2212de42e6302d",
+      "bytes": 76196
+    },
+    {
+      "file": "preprocessor_config.json",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/preprocessor_config.json",
+      "resolved_url": "https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/preprocessor_config.json?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fpreprocessor_config.json=&etag=%222ea84a437d448ff71b08df68fdd949d5cc4ebb64%22",
+      "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+      "bytes": 390
+    },
+    {
+      "file": "modeling_qwen3_5.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/f62dc9bf2c90353b442a56e74391fbb8c689b55e/src/transformers/models/qwen3_5/modeling_qwen3_5.py",
+      "resolved_url": "https://raw.githubusercontent.com/huggingface/transformers/f62dc9bf2c90353b442a56e74391fbb8c689b55e/src/transformers/models/qwen3_5/modeling_qwen3_5.py",
+      "sha256": "458360c8072e6130580639170ad3e645b975512dbabae31eab5f92de5f0f09ef",
+      "bytes": 95578
+    },
+    {
+      "file": "modular_qwen3_5.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/f62dc9bf2c90353b442a56e74391fbb8c689b55e/src/transformers/models/qwen3_5/modular_qwen3_5.py",
+      "resolved_url": "https://raw.githubusercontent.com/huggingface/transformers/f62dc9bf2c90353b442a56e74391fbb8c689b55e/src/transformers/models/qwen3_5/modular_qwen3_5.py",
+      "sha256": "cdbc31aadf5a8380f094716d7991343fcfa8c128e6595e6f5463d97d7a8cb1ac",
+      "bytes": 28483
+    },
+    {
+      "file": "configuration_qwen3_5.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/f62dc9bf2c90353b442a56e74391fbb8c689b55e/src/transformers/models/qwen3_5/configuration_qwen3_5.py",
+      "resolved_url": "https://raw.githubusercontent.com/huggingface/transformers/f62dc9bf2c90353b442a56e74391fbb8c689b55e/src/transformers/models/qwen3_5/configuration_qwen3_5.py",
+      "sha256": "19966c3200cee92cc4bccaef5f94550c56d731dbf03858a9bd2ed6aebcc3f7da",
+      "bytes": 8395
+    }
+  ]
+}

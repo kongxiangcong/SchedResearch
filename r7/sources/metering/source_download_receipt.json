@@ -1,0 +1,11 @@
+{
+  "url": "https://codeload.github.com/Xilinx/XRT/tar.gz/42cba83aee86b253c49eccd484646e91d062468d",
+  "sha256": "971e612a83c0d8c848ab1f5a78e03db53f5a1568bb96b1553150f387c78a1d3d",
+  "bytes": 16673799,
+  "retrieved_utc": "2026-09-05T07:33:19.468625+00:00",
+  "files_extracted": 452,
+  "failed_prior_request": {
+    "url": "https://api.github.com/repos/Xilinx/XRT/git/trees/42cba83aee86b253c49eccd484646e91d062468d?recursive=1",
+    "result": "HTTP 403 rate limit exceeded"
+  }
+}

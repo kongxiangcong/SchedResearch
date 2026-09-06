@@ -1,0 +1,45 @@
+{
+  "command": [
+    "D:\\dsh-proj\\SchedResarch\\r7\\bin\\compute_probe.exe",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\xclbin\\phx\\gemm_4x4.xclbin",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\int8_fixture",
+    "1",
+    "D:\\dsh-proj\\SchedResarch\\r7\\evidence\\compute_initial_outputs"
+  ],
+  "cwd": "D:\\dsh-proj\\SchedResarch\\r7",
+  "started_utc": "2026-09-05T07:44:55.079778+00:00",
+  "plan_sha256": "6bffc020a7213c64223a5196d08e01492be13081d2f4ec54be5367c2808e0f4f",
+  "artifact_sha256_before": {
+    "D:\\dsh-proj\\SchedResarch\\r7\\compute_probe.cpp": "35e0d729a9f7ff6f19a3ab2afca65dfa4c5cad04b1f89ad92b704a104f264701",
+    "D:\\dsh-proj\\SchedResarch\\r7\\bin\\compute_probe.exe": "7bc668125bef7554a992f4122a3ad67e8301141de64297cfd094b96db511b3a8",
+    "D:\\dsh-proj\\SchedResarch\\r7\\run_calibration.py": "649077b1199579fa5ca8437a4207644a2bc1ef3b5b481da2bafbe2e3fc9abb31",
+    "D:\\dsh-proj\\SchedResarch\\r7\\compute_addendum.md": "784396d1adbe922ba6544608ea6841271f62dc704638f182fdd771b2c2eca61b",
+    "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+    "C:\\Windows\\System32\\AMD\\xrt_core.dll": "7876729ce1229eea8bc49c1f4be188dfb3dc4abb8633c8f16b92d5da7d4d641a",
+    "C:\\Windows\\System32\\AMD\\amd_xrt_core.dll": "0f0602a57c2dceec0c08f9eceb0c7901814a0a89259ba56565310558a292317a",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\xclbin\\phx\\gemm_4x4.xclbin": "ab6cef19acf6e7d0f8f1e8e064c69deb01a94a4a180468e68cf4ff28dc28f648",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\int8_fixture\\a_rowmajor_int8.bin": "dc31cbb7248bbe829757915493a4bfe6281edeaf0261a7d2049cda55c23ec569",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\int8_fixture\\a_with_super_sequence.bin": "ee1a7f3c3fe5c6d6629fd9e7838ea9aa932318cdd7916ff8da1cf6909437afa5",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\int8_fixture\\expected_rowmajor_int32.bin": "2da121a2e7db4df976d9266d5d0af0d0fa460ca0e58d0a6034ef4e8197fd2158",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\int8_fixture\\instructions_uint32.bin": "cb113e14256fa97ff5dc475c7b6677e9b115673ea817199c7775bb21f00084c0",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\int8_fixture\\super_sequence.bin": "95b27369061bb8464467b563742455f4ffa09671205e8dfa8e9d07a7a1378804",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\int8_fixture\\weights_packed_int8.bin": "dff4f7759fc5067e782be5454e8ed19d348b77b7db420ff601543f838e3a9330",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\int8_fixture\\weights_rowmajor_int8.bin": "8dbdc0f4aedb8b6bfa38d165d67cbc38d141aae89770f6be5fc8971321b2b0a7",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\int8_fixture\\fixture_manifest.json": "ad219e47e3496dad878ef58d2f7e7398eec6c89c54cb8618c2e6229eebf7293f",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sdk\\fixture_verification_output.txt": "cbced0fad785ce998f2a76294075dde281547e9ff6b63af5849398ce8df7e926",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\metering\\configs\\host_screening_off.ini": "13d383b2e98599daaf60e7c66af98e0cf6d3e8d224d09156c533f3135349675a"
+  },
+  "timeout_s": 90,
+  "child_path_prepend": "C:\\Windows\\System32\\AMD",
+  "capture_sha256": "932204c7b72e373f220332f2f7429ec3f3c64bd6d4aa06829d7573c9f732b2b9",
+  "xrt_environment": {
+    "XCL_EMULATION_MODE": null,
+    "XILINX_XRT": null,
+    "XRT_INI_PATH": "D:\\dsh-proj\\SchedResarch\\r7\\sources\\metering\\configs\\host_screening_off.ini",
+    "Debug.native_xrt_trace": null,
+    "Debug.aie_profile": null,
+    "Debug.ml_timeline": null,
+    "Debug.profile": null,
+    "Debug.timeline_trace": null
+  }
+}

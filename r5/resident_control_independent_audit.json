@@ -1,0 +1,277 @@
+{
+  "status": "PASS",
+  "configurations": 4,
+  "all_run_audit_count_checked": 928,
+  "saved_traces_replayed": 24,
+  "request_events_replayed": 73728,
+  "control_hash": "b9d0c270730b99f57705ae536228e787ca1451b04c39f77ef0febbab1552192c",
+  "configuration_results": {
+    "ref_none": {
+      "structural_arithmetic_lifetime": "PASS",
+      "static_gain_pct": 16.013380221288276,
+      "resident_B0_gain_pct": 0.0,
+      "resident_B2_gain_pct": -0.07148692810456936
+    },
+    "ref_combined": {
+      "structural_arithmetic_lifetime": "PASS",
+      "static_gain_pct": 24.027219089734125,
+      "resident_B0_gain_pct": 0.0,
+      "resident_B2_gain_pct": -0.09540320310246024
+    },
+    "o1_combined": {
+      "structural_arithmetic_lifetime": "PASS",
+      "static_gain_pct": 7.155082725712636,
+      "resident_B0_gain_pct": 0.0,
+      "resident_B2_gain_pct": -0.015133532229560931
+    },
+    "r1_combined": {
+      "structural_arithmetic_lifetime": "PASS",
+      "static_gain_pct": 11.852688237796313,
+      "resident_B0_gain_pct": 0.0,
+      "resident_B2_gain_pct": -0.0578196865341607
+    }
+  },
+  "traces": [
+    {
+      "file": "ref_none__original__3400__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "ref_none__original__3400__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "ref_none__original__3400__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "ref_none__resident__3400__S.json.gz",
+      "status": "PASS",
+      "commands": 14,
+      "requests": 1536,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "ref_none__resident__3400__B0.json.gz",
+      "status": "PASS",
+      "commands": 14,
+      "requests": 1536,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "ref_none__resident__3400__B2.json.gz",
+      "status": "PASS",
+      "commands": 14,
+      "requests": 1536,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "ref_combined__original__3400__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "ref_combined__original__3400__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "ref_combined__original__3400__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "ref_combined__resident__3400__S.json.gz",
+      "status": "PASS",
+      "commands": 14,
+      "requests": 1536,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "ref_combined__resident__3400__B0.json.gz",
+      "status": "PASS",
+      "commands": 14,
+      "requests": 1536,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "ref_combined__resident__3400__B2.json.gz",
+      "status": "PASS",
+      "commands": 14,
+      "requests": 1536,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "o1_combined__original__3400__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "o1_combined__original__3400__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "o1_combined__original__3400__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "o1_combined__resident__3400__S.json.gz",
+      "status": "PASS",
+      "commands": 14,
+      "requests": 1536,
+      "external_bytes": 131072,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "o1_combined__resident__3400__B0.json.gz",
+      "status": "PASS",
+      "commands": 14,
+      "requests": 1536,
+      "external_bytes": 131072,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "o1_combined__resident__3400__B2.json.gz",
+      "status": "PASS",
+      "commands": 14,
+      "requests": 1536,
+      "external_bytes": 131072,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "r1_combined__original__3400__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "r1_combined__original__3400__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "r1_combined__original__3400__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "r1_combined__resident__3400__S.json.gz",
+      "status": "PASS",
+      "commands": 14,
+      "requests": 1536,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "r1_combined__resident__3400__B0.json.gz",
+      "status": "PASS",
+      "commands": 14,
+      "requests": 1536,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "r1_combined__resident__3400__B2.json.gz",
+      "status": "PASS",
+      "commands": 14,
+      "requests": 1536,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    }
+  ],
+  "scope": "posthoc compiler residency control with fresh seeds; structural equivalence and timed request replay; no new numerical payload execution or full-model RF residency claim"
+}

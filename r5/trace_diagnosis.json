@@ -1,0 +1,177 @@
+{
+  "case": "request__flux_projection__ref_none",
+  "status": "trace-supported diagnosis; not an intervention",
+  "inputs": {
+    "S": {
+      "file": "r5/results/request__flux_projection__ref_none__2000__S.json.gz",
+      "sha256": "3e290ea7c8644651bd7055cac169b437973cee1ee7aae44bc165feec5f46d91b"
+    },
+    "B0": {
+      "file": "r5/results/request__flux_projection__ref_none__2000__B0.json.gz",
+      "sha256": "bb12261137f38d2ebe4ae5e028983d4339739ae54d669848e76f6ec9f3bbdd67"
+    }
+  },
+  "latency": {
+    "S": 57575.0,
+    "B0": 57879.0
+  },
+  "late_cycles": 304.0,
+  "first_order_difference_index": 3,
+  "first_order_difference": {
+    "S": {
+      "task": "feed.c0.k00",
+      "kind": "read",
+      "engine": "feed0",
+      "core": 0,
+      "dispatch": 8280.0,
+      "start": 8281.0,
+      "sequence": 3,
+      "finish": 8615.0,
+      "visible": 8616.0
+    },
+    "B0": {
+      "task": "load.c1.k00",
+      "kind": "dma",
+      "engine": "dma",
+      "core": 1,
+      "dispatch": 5375.0,
+      "start": 5376.0,
+      "sequence": 3,
+      "finish": 7551.0,
+      "visible": 7552.0
+    }
+  },
+  "tracked_commands": {
+    "input": {
+      "S": {
+        "task": "input",
+        "kind": "dma",
+        "engine": "dma",
+        "core": 0,
+        "dispatch": 0.0,
+        "start": 1.0,
+        "sequence": 0,
+        "finish": 8279.0,
+        "visible": 8280.0
+      },
+      "B0": {
+        "task": "input",
+        "kind": "dma",
+        "engine": "dma",
+        "core": 0,
+        "dispatch": 0.0,
+        "start": 1.0,
+        "sequence": 0,
+        "finish": 10327.0,
+        "visible": 10328.0
+      }
+    },
+    "load.c1.k00": {
+      "S": {
+        "task": "load.c1.k00",
+        "kind": "dma",
+        "engine": "dma",
+        "core": 1,
+        "dispatch": 31145.0,
+        "start": 31146.0,
+        "sequence": 71,
+        "finish": 32256.0,
+        "visible": 32257.0
+      },
+      "B0": {
+        "task": "load.c1.k00",
+        "kind": "dma",
+        "engine": "dma",
+        "core": 1,
+        "dispatch": 5375.0,
+        "start": 5376.0,
+        "sequence": 3,
+        "finish": 7551.0,
+        "visible": 7552.0
+      }
+    },
+    "load.c1.k01": {
+      "S": {
+        "task": "load.c1.k01",
+        "kind": "dma",
+        "engine": "dma",
+        "core": 1,
+        "dispatch": 32169.0,
+        "start": 32170.0,
+        "sequence": 74,
+        "finish": 33282.0,
+        "visible": 33283.0
+      },
+      "B0": {
+        "task": "load.c1.k01",
+        "kind": "dma",
+        "engine": "dma",
+        "core": 1,
+        "dispatch": 7551.0,
+        "start": 7552.0,
+        "sequence": 4,
+        "finish": 9727.0,
+        "visible": 9728.0
+      }
+    },
+    "feed.c0.k00": {
+      "S": {
+        "task": "feed.c0.k00",
+        "kind": "read",
+        "engine": "feed0",
+        "core": 0,
+        "dispatch": 8280.0,
+        "start": 8281.0,
+        "sequence": 3,
+        "finish": 8615.0,
+        "visible": 8616.0
+      },
+      "B0": {
+        "task": "feed.c0.k00",
+        "kind": "read",
+        "engine": "feed0",
+        "core": 0,
+        "dispatch": 10328.0,
+        "start": 10329.0,
+        "sequence": 5,
+        "finish": 10967.0,
+        "visible": 10968.0
+      }
+    },
+    "out1": {
+      "S": {
+        "task": "out1",
+        "kind": "write",
+        "engine": "feed1",
+        "core": 1,
+        "dispatch": 57495.0,
+        "start": 57496.0,
+        "sequence": 152,
+        "finish": 57574.0,
+        "visible": 57575.0
+      },
+      "B0": {
+        "task": "out1",
+        "kind": "write",
+        "engine": "feed1",
+        "core": 1,
+        "dispatch": 57799.0,
+        "start": 57800.0,
+        "sequence": 152,
+        "finish": 57878.0,
+        "visible": 57879.0
+      }
+    }
+  },
+  "external_payload_bytes": {
+    "S": 1769472,
+    "B0": 1769472
+  },
+  "external_service_cycles": {
+    "S": 55296.0,
+    "B0": 55296.0
+  },
+  "order_opportunity_union": 3239.0,
+  "claim": "With deterministic service, the ready policy starts two core1 weight DMA commands before the still-running shared input load completes. Input completion is 2048 cycles later, and the whole slice is304 cycles slower despite3239 cycles of legal order-wait opportunities. Extra early work competes for the same saturated external service; legal early issue is not guaranteed end-to-end recovery.",
+  "limit": "This paired trace identifies request-pressure and changed progress. It does not quantify independent causal contributions of each changed command or prove a different scheduler impossible."
+}

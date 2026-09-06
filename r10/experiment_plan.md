@@ -1,0 +1,19 @@
+# R10 pre-registration — before new performance runs
+
+Research Question: distinguish loose bounds, inadequate static optimization and causal recoverable elapsed in shared-EXT-cluster-DMA-VMEM.
+
+Hypotheses: Hbound, blackout starvation under finite credit explains much of the R9 sensitivity gap; Hstatic, joint static parameters remove further elapsed; Haction, only any remaining space warrants a bounded charged causal action. These explanations can coexist.
+
+Hardware: byte-identical R9 base contract, with two separate overrides: EXT128=(EXT128,DMA64), DMA32=(EXT64,DMA32). Not a joint bandwidth sweep. Two clusters/two cores; C1N is control only. All numerical, addressing, staging, multicast, visibility and no-real-hardware limitations persist. No simulator semantic changes in stage A. model.py is copied byte-for-byte from R9; new lower bounds are separate.
+
+Strong Baseline: reproduce the R9 sensitivity selected configurations on NEW phase blocks. Independently retrain an expanded Cartesian pool: C2N/C2K × Ktile256/512/1024 × multicast on/off × (buffers,prefetch)=(1,1)/(2,1)/(2,2) × resident X on/off × gather/row × xw/wx × outstanding1/2/4. Add R9 main pool (including full-K and reverse probes, and C1N controls); deduplicate by canonical config hash. No extra credits, memory or hidden bandwidth. Residency/layout/window interactions distinguish static inadequacy from unavoidable supply. This remains finite search, not a global optimum proof.
+
+Train/validation: 8/8 fresh phases, seeds 1010000/1020000. Union top4 per mapping/multicast/condition enters validation; choose by validation mean then canonical ID. Conditions quiet/20%/35% with R9 absolute periodic supply. Test uses independent seeds 1030000/1040000, each 30 paired blocks per condition/hardware. Never use test to select statics. Save every selected-static detailed trace and paired R9 baseline elapsed; first block baseline/control detailed traces. Backgrounds and endogenous events rerun for every graph.
+
+Bounds: max of R9 resource bound, graph critical-path relaxation, finite-credit residence-work bound, and blackout local-service bound. Proof and independent computation required before result interpretation. Each bound is per graph, not a cross-mapping universal minimum. Report old/new upper bounds separately on old static and new static, and actual static elapsed gain; do not add percentages with different denominators.
+
+Discriminative Experiment: Stage A strengthens bounds and static jointly without adding mechanism. Close named additional EXT-selection candidate only if each of two backgrounds, both sessions, ALL measured blocks has new upper <5%. Report 35% phase-boundary failures explicitly. If static beats old on independent tests, label actual gain compiler optimization even if residual remains. If any bound gap remains >=5%, Stage B must be separately pre-registered before its runs, using NEW train/validation/test phases, one bounded observable charged action; no hindsight policy and no copied endogenous delay traces.
+
+Mechanism gate: >=5% mean net elapsed gain, paired 95% t CI lower>0 in both sessions and both nonextreme backgrounds, >=30 independent paired blocks per condition/session, quiet regression <=1%; charge observation/decision/action work. Any acceptance is simulated only; actual target plus PPA still required. Failure rejects only tested action, not all scheduling.
+
+Red-team: independent checker does not import model or runner; recompute phase streams, selection, paired statistics, bounds and audit saved trace payload/credits/visibility via frozen R9 independent checker. Add bound fixtures including phase starting before zero, writes during blackout and low credit, plus deliberate incorrect-bound rejection. Preserve all negative results and audit coverage limits. Historical R9 manifests and R1–R8 immutable; root progress append only after saved parent snapshot.

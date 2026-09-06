@@ -1,0 +1,4 @@
+{"stage": "dll_loaded"}
+{"stage": "device_open", "handle": 2040727099760, "errno": 0}
+{"stage": "load_xclbin_file", "returncode": 0, "errno": 0, "kernel_submitted": false}
+{"stage": "device_close", "returncode": 0}

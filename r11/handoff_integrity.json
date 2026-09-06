@@ -1,0 +1,11 @@
+{
+  "status": "ready-for-implementation",
+  "files": {
+    "r11/continuation_brief.md": "187225d6d10c71d524571fe4ed86589af5528e39482b86001807246697a0bc60",
+    "r11/prepare_handoff.py": "bb026e88eed01f6aa6d5dce83364ab2e0920b5f1dfd7f595872f3baeba08e370",
+    "r11/history/r10_research_progress.md": "df99c7045682658680a28105114b68c6fa521ca1311460322fd9b99d6394c7d4",
+    "r11/history/aligned_research_progress.md": "436d346261e9e5df1f6e0aed0ed08262e2274c15befff2586f23675bd46dd5a1"
+  },
+  "frozen_r10_manifest_sha256": "1d3117758434a3442d365118d243aab7cb5f614ae43860060be9323abdd28032",
+  "note": "Only these handoff files frozen; R11 implementation/results may be added; new final lineage must preserve parent and aligned snapshots"
+}

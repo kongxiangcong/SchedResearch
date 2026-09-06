@@ -1,0 +1,21 @@
+{
+  "command": [
+    "python",
+    "-X",
+    "utf8",
+    "-B",
+    "r6\\python_capability_probe.py"
+  ],
+  "started_utc": "2026-09-05T07:12:22.588923+00:00",
+  "ended_utc": "2026-09-05T07:12:22.747244+00:00",
+  "host_process_elapsed_s": 0.15538960008416325,
+  "returncode": 0,
+  "timed_out": false,
+  "timeout_s": 120,
+  "evidence_level": "raw local diagnostic; not NPU kernel timing",
+  "plan_sha256": "ca7d781d072aeecd356d50d739d8b0479dc1efb01d1ec98b0dd9b7822f7bd79d",
+  "raw_sha256": {
+    "stdout.bin": "969756047346383578cb3e82712c2e9b51b7c79afe2cc4afba03d40cd56e22fc",
+    "stderr.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

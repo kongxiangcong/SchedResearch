@@ -1,0 +1,257 @@
+
+per-source hits: arxiv=15, dblp=0, open_alex=15, openreview=0, semantic_scholar=0, crossref=15
+unique papers: 42 (3 cross-source duplicate records merged)
+============================================================
+  [1] (score 8) HyperParallel-MoE: Multi-Core Interleaved Scheduling for Fast MoE Training on Ascend NPUs
+      Authors: Zewen Jin, Congkun Ai, Guangpeng Zhang...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2605.23764
+      URL: http://arxiv.org/abs/2605.23764v2
+
+  [2] (score 6) Supporting Dynamic Control-Flow Execution for Runtime Reconfigurable Processors
+      Authors: Hassan Nassar, Rafik Youssef, Lars Bauer...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1109/ICM60448.2023.10378905 arXiv:2605.21203
+      URL: http://arxiv.org/abs/2605.21203v1
+
+  [3] (score 6) TCL: Enabling Fast and Efficient Cross-Hardware Tensor Program Optimization via Continual Learning
+      Authors: Chaoyao Shen, Linfeng Jiang, Yixian Shen...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2604.12891
+      URL: http://arxiv.org/abs/2604.12891v1
+
+  [4] (score 5) WITHDRAWN: Non-work conserving dynamic scheduling of moldable gang tasks on multicore systems
+      Authors: Tomoki Shimizu, Hiroki Nishikawa, Xiangbo Kong...
+      Year: 2024  Citations: 0  Venue: Internet of Things and Cyber-Physical Systems
+      Sources: open_alex  doi:10.1016/j.iotcps.2024.03.001
+      URL: https://doi.org/10.1016/j.iotcps.2024.03.001
+
+  [5] (score 5) SegFold: Accelerating Sparse GEMM with a Fine-Grained Dynamic Dataflow
+      Authors: Xinrui Wu, Hanyu Wang, Jason Cong...
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.26701
+      URL: http://arxiv.org/abs/2606.26701v1
+
+  [6] (score 5) Dynamic Task Scheduling for Heterogeneous Multi-core Baseband Processors in IIoT
+      Authors: Wei Chen, Jie Peng, Dake Liu
+      Year: 2026  Citations: 0  Venue: IEEE Internet of Things Journal
+      Sources: crossref  doi:10.1109/jiot.2026.3727005
+      URL: https://doi.org/10.1109/jiot.2026.3727005
+
+  [7] (score 5) An Algorithm-Hardware Co-Optimized Accelerator for Efficient Deep GCN Inference with Hybrid Dataflow and Dynamic Pruning
+      Authors: Shun Li, Yuanhang Li, Hao Zhou...
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6749762
+      URL: https://doi.org/10.2139/ssrn.6749762
+
+  [8] (score 4) InSS: An Intelligent Scheduling Orchestrator for Multi-GPU Inference With Spatio-Temporal Sharing
+      Authors: Ziyi Han, Ruiting Zhou, Chengzhong Xu...
+      Year: 2024  Citations: 24  Venue: IEEE Transactions on Parallel and Distributed Systems
+      Sources: open_alex  doi:10.1109/tpds.2024.3430063
+      URL: https://doi.org/10.1109/tpds.2024.3430063
+
+  [9] (score 4) Partitioned Scheduling and Parallelism Assignment for Real-Time DNN Inference Tasks on Multi-TPU
+      Authors: Binqi Sun, Tomasz Kloda, Chu‐ge Wu...
+      Year: 2024  Citations: 8  Venue: 
+      Sources: open_alex  doi:10.1145/3649329.3655979
+      URL: https://doi.org/10.1145/3649329.3655979
+
+  [10] (score 4) MTST: A Multi-Task Scheduling Transformer Accelerator for Edge Computing
+      Authors: Zongcheng Yue, Dongwei Yan, Ran Wu...
+      Year: 2024  Citations: 4  Venue: 2024 IEEE 13th Global Conference on Consumer Electronics (GCCE)
+      Sources: crossref  doi:10.1109/gcce62371.2024.10760930
+      URL: https://doi.org/10.1109/gcce62371.2024.10760930
+
+  [11] (score 4) MHRC-Bench: A Multilingual Hardware Repository-Level Code Completion benchmark
+      Authors: Qingyun Zou, Jiahao Cui, Nuo Chen...
+      Year: 2026  Citations: 0  Venue: arXiv (Cornell University)
+      Sources: open_alex  doi:10.48550/arxiv.2601.03708
+      URL: https://doi.org/10.48550/arxiv.2601.03708
+
+  [12] (score 4) Tawa: Automatic Warp Specialization for Modern GPUs with Asynchronous References
+      Authors: Chen, Hongzheng, Fan, Bin, Collins, Alexander...
+      Year: 2025  Citations: 0  Venue: arXiv (Cornell University)
+      Sources: open_alex  doi:10.48550/arxiv.2510.14719
+      URL: https://doi.org/10.48550/arxiv.2510.14719
+
+  [13] (score 4) From Principles to Practice: A Systematic Study of LLM Serving on Multi-core NPUs
+      Authors: Tianhao Zhu, Dahu Feng, Erhu Feng...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2510.05632
+      URL: http://arxiv.org/abs/2510.05632v1
+
+  [14] (score 4) DFTS-MCS: Dynamic Fault-tolerant Scheduling for Mixed-criticality Systems on Heterogeneous Multi-core Processors
+      Authors: Mahin Moradiyan, Yasser Sedaghat
+      Year: 2026  Citations: 0  Venue: Journal of Systems Architecture
+      Sources: crossref  doi:10.2139/ssrn.5625286
+      URL: https://doi.org/10.2139/ssrn.5625286
+
+  [15] (score 4) Design of Dynamic Scheduling Algorithm for Parallel Data Processing in Multi-Core Chips
+      Authors: Boce Kang, Yu Cheng, Zihe Hao...
+      Year: 2025  Citations: 0  Venue: 2025 2nd International Conference on Intelligent Computing and Robotics (ICICR)
+      Sources: crossref  doi:10.1109/icicr65456.2025.00081
+      URL: https://doi.org/10.1109/icicr65456.2025.00081
+
+  [16] (score 4) NektarIR: A Domain-Specific Compiler for High-Order Finite Element Operations on Heterogeneous Hardware
+      Authors: Edward Erasmie-Jones
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.52843/cassyni.qrrjjy.3
+      URL: https://doi.org/10.52843/cassyni.qrrjjy.3
+
+  [17] (score 3) ADS-CNN: Adaptive Dataflow Scheduling for lightweight CNN accelerator on FPGAs
+      Authors: Yi Wan, Xianzhong Xie, Junfan Chen...
+      Year: 2024  Citations: 13  Venue: Future Generation Computer Systems
+      Sources: crossref  doi:10.1016/j.future.2024.04.038
+      URL: https://doi.org/10.1016/j.future.2024.04.038
+
+  [18] (score 3) Slark: A Performance Robust Decentralized Inter-Datacenter Deadline-Aware Coflows Scheduling Framework With Local Information
+      Authors: Xiaodong Dong, Lihai Nie, Zheli Liu...
+      Year: 2024  Citations: 3  Venue: IEEE Transactions on Parallel and Distributed Systems
+      Sources: open_alex  doi:10.1109/tpds.2024.3508275
+      URL: https://doi.org/10.1109/tpds.2024.3508275
+
+  [19] (score 3) DMDP: A Dynamic Multi-Delta Prefetcher with Customizable Runtime Quality-Aware Feedback
+      Authors: Wuzhe Wang, Hao Li, Peiyong Zhang
+      Year: None  Citations: 1  Venue: 
+      Sources: crossref  doi:10.21203/rs.3.rs-3853411/v1
+      URL: https://doi.org/10.21203/rs.3.rs-3853411/v1
+
+  [20] (score 3) Predictive Age-Aware Runtime Remapping for Many-Core Systems
+      Authors: Naijia Liu, Gianluca Tempesti
+      Year: 2024  Citations: 0  Venue: 
+      Sources: open_alex  doi:10.1109/icsrs63046.2024.10927459
+      URL: https://doi.org/10.1109/icsrs63046.2024.10927459
+
+  [21] (score 3) Dynamic Tuning of Core Counts to Maximize Performance in Object-Based Runtime Systems
+      Authors: Kavitha Chandrasekar, Laxmikant V. Kalé
+      Year: 2024  Citations: 0  Venue: Lecture notes in computer science
+      Sources: open_alex  doi:10.1007/978-3-031-61763-8_9
+      URL: https://doi.org/10.1007/978-3-031-61763-8_9
+
+  [22] (score 3) FusionFrame: A Fusion Dataflow Scheduling Framework for DNN Accelerators via Analytical Modeling
+      Authors: Liutao Zheng, Huiying Lan, Xiang Liu...
+      Year: 2025  Citations: 0  Venue: Lecture notes in computer science
+      Sources: open_alex  doi:10.1007/978-981-96-1551-3_21
+      URL: https://doi.org/10.1007/978-981-96-1551-3_21
+
+  [23] (score 3) Neural Channel Knowledge Map Assisted Scheduling Optimization of Active IRSs in Multi-User Systems
+      Authors: Xintong Chen, Zhenyu Jiang, Jiangbin Lyu...
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2508.07009
+      URL: http://arxiv.org/abs/2508.07009v1
+
+  [24] (score 3) Multilayer Dataflow: Orchestrate Butterfly Sparsity to Accelerate Attention Computation
+      Authors: Haibin Wu, Wenming Li, Kai Yan...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2411.00734
+      URL: http://arxiv.org/abs/2411.00734v2
+
+  [25] (score 3) Generation of Compiler Backends from Formal Models of Hardware
+      Authors: Gus Henry Smith
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2408.15429
+      URL: http://arxiv.org/abs/2408.15429v1
+
+  [26] (score 3) TT-QEC: An Open-Source Hardware-Native MLIR Compiler for Quantum Error Correction Decoding
+      Authors: Yash Desale
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6905503
+      URL: https://doi.org/10.2139/ssrn.6905503
+
+  [27] (score 3) Differential Testing Solidity Compiler through Deep Contract Manipulation and Mutation
+      Authors: Zhenzhou Tian, Fanfan Wang, Yanping Chen...
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.21203/rs.3.rs-3924118/v1
+      URL: https://doi.org/10.21203/rs.3.rs-3924118/v1
+
+  [28] (score 3) Service Dependency Intelligence for Contract-aware Agent Design in Enterprise Microservice Architectures
+      Authors: Papa Rao Avasarala
+      Year: None  Citations: 0  Venue: 
+      Sources: crossref  doi:10.2139/ssrn.6963023
+      URL: https://doi.org/10.2139/ssrn.6963023
+
+  [29] (score 2) ONNXim: A Fast, Cycle-Level Multi-Core NPU Simulator
+      Authors: Hyungkyu Ham, Won-Hyuk Yang, Yunseon Shin...
+      Year: 2024  Citations: 19  Venue: IEEE Computer Architecture Letters
+      Sources: open_alex,arxiv  doi:10.1109/lca.2024.3484648 arXiv:2406.08051
+      URL: https://doi.org/10.1109/lca.2024.3484648
+
+  [30] (score 2) Icarus: Trustworthy Just-In-Time Compilers with Symbolic Meta-Execution
+      Authors: Naomi Smith, A.K.Sharma Dr. A.K.Sharma, John W. Renner...
+      Year: 2024  Citations: 17  Venue: 
+      Sources: open_alex  doi:10.1145/3694715.3695949
+      URL: https://doi.org/10.1145/3694715.3695949
+
+  [31] (score 2) Survival of the Fastest: Enabling More Out-of-Order Execution in Dataflow Circuits
+      Authors: Ayatallah Elakhras, Andrea Guerrieri, Lana Josipović...
+      Year: 2024  Citations: 8  Venue: 
+      Sources: open_alex  doi:10.1145/3626202.3637556
+      URL: https://doi.org/10.1145/3626202.3637556
+
+  [32] (score 2) Seal5: Semi-Automated LLVM Support for RISC-V ISA Extensions Including Autovectorization
+      Authors: Philipp van Kempen, Mathis Salmen, Daniel Mueller-Gritschneder...
+      Year: 2024  Citations: 6  Venue: 
+      Sources: open_alex  doi:10.1109/dsd64264.2024.00052
+      URL: https://doi.org/10.1109/dsd64264.2024.00052
+
+  [33] (score 2) Towards Scheduling of Pipelined Dataflow Graphs in MLIR
+      Authors: Gabriel Rodriguez‐Canal, Nícolas Bohm Agostini, Ankur Limaye...
+      Year: 2026  Citations: 0  Venue: 
+      Sources: open_alex  doi:10.1145/3748173.3779568
+      URL: https://doi.org/10.1145/3748173.3779568
+
+  [34] (score 2) Hiring for An Uncertain Task: Joint Design of Information and Contracts
+      Authors: Matteo Castiglioni, Junjie Chen
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2407.05459
+      URL: http://arxiv.org/abs/2407.05459v1
+
+  [35] (score 2) Finding Missed Code Size Optimizations in Compilers using LLMs
+      Authors: Davide Italiano, Chris Cummins
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2501.00655
+      URL: http://arxiv.org/abs/2501.00655v1
+
+  [36] (score 2) LLM4SecHW: Leveraging Domain Specific Large Language Model for Hardware Debugging
+      Authors: Weimin Fu, Kaichen Yang, Raj Gautam Dutta...
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  doi:10.1109/AsianHOST59942.2023.10409307 arXiv:2401.16448
+      URL: http://arxiv.org/abs/2401.16448v1
+
+  [37] (score 2) Dataflow-Reconfigurable CNN Accelerator Design
+      Authors: Alperen Kalay, Ozcan Ozturk
+      Year: 2026  Citations: 0  Venue: IEEE Micro
+      Sources: crossref  doi:10.1109/mm.2026.3671071
+      URL: https://doi.org/10.1109/mm.2026.3671071
+
+  [38] (score 2) Feature-Stationary Dataflow Enabled Diffusion Transformer Accelerator
+      Authors: Haitong Wang
+      Year: 2025  Citations: 0  Venue: 2025 6th International Conference on Computer Vision and Data Mining (ICCVDM)
+      Sources: crossref  doi:10.1109/iccvdm66874.2025.11290078
+      URL: https://doi.org/10.1109/iccvdm66874.2025.11290078
+
+  [39] (score 1) Applications of Particle Accelerators
+      Authors: Suzie Sheehy
+      Year: 2024  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2407.10216
+      URL: http://arxiv.org/abs/2407.10216v1
+
+  [40] (score 1) Accelerator Complex Evolution at Fermilab
+      Authors: M. Convery
+      Year: 2026  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2606.25159
+      URL: http://arxiv.org/abs/2606.25159v1
+
+  [41] (score 1) Consideration of REBCO rapid-cycling diploe magnet for staged muon acceleration
+      Authors: Henryk Piekarz
+      Year: 2025  Citations: 0  Venue: arXiv
+      Sources: arxiv  arXiv:2509.14410
+      URL: http://arxiv.org/abs/2509.14410v1
+
+  [42] (score 1) Completion of the works
+      Authors: 
+      Year: 2024  Citations: 0  Venue: FIDIC 2017: The Contract Manager’s Handbook
+      Sources: crossref  doi:10.1680/fcmh.66526.135
+      URL: https://doi.org/10.1680/fcmh.66526.135
+
+Total: 42 unique papers (ranked; surveys sunk to the bottom).

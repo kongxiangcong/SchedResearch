@@ -1,0 +1,15 @@
+# R7 E2 concrete compute contract, before device execution
+
+2026-09-05. This instantiates E2 of the unchanged experiment_plan.md after source discovery, not a new performance hypothesis.
+
+Candidate: AMD RyzenAI-SW release 1.0, frozen commit recorded in sources/kernel_access/source_manifest.json, `example/transformers/xclbin/phx/gemm_4x4.xclbin`, `mc_code_1_2k_2k.txt`, qlinear_2 host source and WgtMatrix/super_instr/ml_params helpers. These target Phoenix but were distributed with XRT 2.14 headers; **compatibility with the installed 2.17/.110 stack is unproven until this bounded run**. Only matching installed-runtime 2.17 headers are used for the R7 host harness. No driver/runtime files change.
+
+Mathematical work: one prepared row INT8[1,2048] × INT8[2048,2048] → INT32[1,2048], no bias, 4,194,304 logical MACs. This is not BF16, GDN, Qwen model execution, or compute-active counter calibration. Small varied signed inputs/weights in [-3,3] avoid INT32 overflow; CPU oracle is the full row-major dot product over original unpacked data, not the device packing interpretation.
+
+ABI: DPU(uint64 opcode=1, A_BO, W_BO, C_BO, dummy1_BO, instruction_BO, uint32 instruction_words=1663, dummy2_BO). A 2248 B = 2048 activation + 200 superkernel sequence; W 4,194,304 B source-specific packed layout; C 8192 B; instructions 6652 B; dummies 16 B each. Public helper byte-equivalence for the generated sequence and packed weights is required before run. Save all fixture binaries and hashes in sources/kernel_access/int8_fixture.
+
+Run one launch first with output initialized to 0xa5 and synced, 30-second wait2 timeout plus a bounded subprocess. Require COMPLETED, all 2048 INT32 outputs exactly equal, input/weight/instruction host mapping unchanged, full output file/hash. Save actual BO addresses and pre/post artifact hashes. Stop on any mismatch/error/timeout, retain logs. No guessed resizes/commands; compiler or layout fixes require an explicit follow-up record.
+
+If the first launch passes, a separate process may perform up to 9 further calibration launches with the same fixture. Their within-process BO addresses stay fixed; process restart may reallocate addresses and will be reported explicitly. They are unpaired access/calibration observations, not statistically independent confirmation blocks or independent-session performance evidence. No CI, speedup, TOPS, device cycles, bandwidth or mechanism gate is evaluated.
+
+Both copy and compute timing use host steady_clock around run creation/argument setup/launch through wait2, plus separately recorded output sync. The launch_to_output_sync interval is timed continuously from before run creation to after output sync, including the host state-check/timer gap. Setup, input sync, initialization, output poisoning, hashes, comparisons, file writes and teardown are outside this submit/wait interval. Whole-process time includes these costs. Host no-launch clock cost is not a device empty run. No instrumentation-on/off test is claimed when the required profiling plugin is absent.

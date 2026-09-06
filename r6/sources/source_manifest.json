@@ -1,0 +1,253 @@
+{
+  "captured_utc": "2026-09-05T07:14:12.094795+00:00",
+  "purpose": "R6 bounded source verification, no device or RTL execution",
+  "files": [
+    {
+      "path": "qwen/cache_utils.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/f62dc9bf2c90353b442a56e74391fbb8c689b55e/src/transformers/cache_utils.py",
+      "resolved_url": "https://raw.githubusercontent.com/huggingface/transformers/f62dc9bf2c90353b442a56e74391fbb8c689b55e/src/transformers/cache_utils.py",
+      "bytes": 104677,
+      "sha256": "702144bb44553f6339ea1bf23c8205a708bb5f8c7c09cb3a2db484182646743c",
+      "access": "download"
+    },
+    {
+      "path": "qwen/generation_utils.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/f62dc9bf2c90353b442a56e74391fbb8c689b55e/src/transformers/generation/utils.py",
+      "resolved_url": "https://raw.githubusercontent.com/huggingface/transformers/f62dc9bf2c90353b442a56e74391fbb8c689b55e/src/transformers/generation/utils.py",
+      "bytes": 231951,
+      "sha256": "84ec1a610091eea57ba0d5a672662054a22f0c2c7f6462f18cf5b3232f697594",
+      "access": "download"
+    },
+    {
+      "path": "qwen/config.json",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/config.json",
+      "resolved_url": "https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/config.json?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fconfig.json=&etag=%22557d961b205319c6a7da5f757f565b69b3967b7d%22",
+      "bytes": 3161,
+      "sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+      "access": "download"
+    },
+    {
+      "path": "qwen/modeling_qwen3_5.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/f62dc9bf2c90353b442a56e74391fbb8c689b55e/src/transformers/models/qwen3_5/modeling_qwen3_5.py",
+      "resolved_url": "https://raw.githubusercontent.com/huggingface/transformers/f62dc9bf2c90353b442a56e74391fbb8c689b55e/src/transformers/models/qwen3_5/modeling_qwen3_5.py",
+      "bytes": 95578,
+      "sha256": "458360c8072e6130580639170ad3e645b975512dbabae31eab5f92de5f0f09ef",
+      "access": "download"
+    },
+    {
+      "path": "gemmini/tree.json",
+      "url": "https://api.github.com/repos/ucb-bar/gemmini/git/trees/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca?recursive=1",
+      "access": "failed",
+      "error": "HTTPError: HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "path": "riallto/tree.json",
+      "url": "https://api.github.com/repos/AMDResearch/Riallto/git/trees/74a26aade2c2762e2854d5ab78f01d180eaeaead?recursive=1",
+      "access": "failed",
+      "error": "HTTPError: HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "path": "riallto/README.md",
+      "url": "https://raw.githubusercontent.com/AMDResearch/Riallto/74a26aade2c2762e2854d5ab78f01d180eaeaead/README.md",
+      "resolved_url": "https://raw.githubusercontent.com/AMDResearch/Riallto/74a26aade2c2762e2854d5ab78f01d180eaeaead/README.md",
+      "bytes": 4058,
+      "sha256": "a0ba4e061e28bfd4f03c88280448239b4a24752f75abd64f4631984b3a626a52",
+      "access": "download"
+    },
+    {
+      "path": "arm/tree.json",
+      "url": "https://api.github.com/repos/ARM-software/CMSIS-Ethos-U/git/trees/79d0fccfe59cab7fd0cab97c65050d2824c5269f?recursive=1",
+      "access": "failed",
+      "error": "HTTPError: HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "path": "riallto/faq.html",
+      "url": "https://riallto.ai/faq.html",
+      "resolved_url": "https://riallto.ai/faq.html",
+      "bytes": 34910,
+      "sha256": "08c69c65bbd404d7b87dd6345cdd7577b9efd63015af0fa349ff32f894a9c3c5",
+      "access": "download"
+    },
+    {
+      "path": "gemmini/CounterFile.scala",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/CounterFile.scala",
+      "resolved_url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/CounterFile.scala",
+      "bytes": 8719,
+      "sha256": "daa937f95ed94c0c085c64bb3d24ee71d3dcd251f839f1654468093690d72192",
+      "access": "download"
+    },
+    {
+      "path": "gemmini/ConfigsFP.scala",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/ConfigsFP.scala",
+      "resolved_url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/ConfigsFP.scala",
+      "bytes": 8591,
+      "sha256": "e86dcf518e9111c42df6725d1c2fb1ed6156a6b4fbce10ebef61926bb082872a",
+      "access": "download"
+    },
+    {
+      "path": "gemmini/ExecuteController.scala",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/ExecuteController.scala",
+      "resolved_url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/ExecuteController.scala",
+      "bytes": 45457,
+      "sha256": "59b068a79d6063d283561813f7fb65c3503e94d5923334e553ab5d42e2692e8c",
+      "access": "download"
+    },
+    {
+      "path": "gemmini/XactTracker.scala",
+      "url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/XactTracker.scala",
+      "resolved_url": "https://raw.githubusercontent.com/ucb-bar/gemmini/8c3f9923a44a2fe2c7930587be297d6d4f8c09ca/src/main/scala/gemmini/XactTracker.scala",
+      "bytes": 4282,
+      "sha256": "0e2152821780b0b6d91e33ecd06edcdd62eb7f30806aca880a3b2fc923b67803",
+      "access": "download"
+    },
+    {
+      "path": "riallto/apprunner.py",
+      "url": "https://raw.githubusercontent.com/AMDResearch/Riallto/74a26aade2c2762e2854d5ab78f01d180eaeaead/npu/runtime/apprunner.py",
+      "resolved_url": "https://raw.githubusercontent.com/AMDResearch/Riallto/74a26aade2c2762e2854d5ab78f01d180eaeaead/npu/runtime/apprunner.py",
+      "bytes": 24254,
+      "sha256": "919cbf50d914f949e01232f1ba9362e9d86daec05bae9531c7fccfbf129ab616",
+      "access": "download"
+    },
+    {
+      "path": "riallto/aie_host_utils.py",
+      "url": "https://raw.githubusercontent.com/AMDResearch/Riallto/74a26aade2c2762e2854d5ab78f01d180eaeaead/npu/runtime/aie_host_utils.py",
+      "resolved_url": "https://raw.githubusercontent.com/AMDResearch/Riallto/74a26aade2c2762e2854d5ab78f01d180eaeaead/npu/runtime/aie_host_utils.py",
+      "bytes": 1710,
+      "sha256": "f5f317632535171e341d365ff454a90390b9a5ddf56d0ade40b2508bdc6b3f75",
+      "access": "download"
+    },
+    {
+      "path": "riallto/kernelinstance.py",
+      "url": "https://raw.githubusercontent.com/AMDResearch/Riallto/74a26aade2c2762e2854d5ab78f01d180eaeaead/npu/runtime/kernelinstance.py",
+      "resolved_url": "https://raw.githubusercontent.com/AMDResearch/Riallto/74a26aade2c2762e2854d5ab78f01d180eaeaead/npu/runtime/kernelinstance.py",
+      "bytes": 500,
+      "sha256": "5c8ec44746b606760dd284d80aa81df6385c25164fd0a83dff8a07c50f0a7dd3",
+      "access": "download"
+    },
+    {
+      "path": "arm/ethosu_pmu.h",
+      "url": "https://raw.githubusercontent.com/ARM-software/CMSIS-Ethos-U/79d0fccfe59cab7fd0cab97c65050d2824c5269f/source/include/ethosu_pmu.h",
+      "access": "failed",
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "path": "xrt/TestDF_bandwidth.cpp",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/common/tests/TestDF_bandwidth.cpp",
+      "resolved_url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/common/tests/TestDF_bandwidth.cpp",
+      "bytes": 6289,
+      "sha256": "a3a343eac81443e414013bb552c017bc4a2678a1dfba02188d911c397176cb95",
+      "access": "download"
+    },
+    {
+      "path": "xrt/TestDF_bandwidth.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/common/tests/TestDF_bandwidth.h",
+      "resolved_url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/common/tests/TestDF_bandwidth.h",
+      "bytes": 470,
+      "sha256": "9a1278641562aab2f070b690ad85fff7e50cbff4c9be833f3fcfc9e0d5b16c3a",
+      "access": "download"
+    },
+    {
+      "path": "xrt/TestVerify.cpp",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/common/tests/TestVerify.cpp",
+      "resolved_url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/common/tests/TestVerify.cpp",
+      "bytes": 996,
+      "sha256": "a047c84a623be0cdddb643046b2adfd9f7f0fbca8fd8adb3c766adb43102ceec",
+      "access": "download"
+    },
+    {
+      "path": "xrt/TestVerify.h",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/common/tests/TestVerify.h",
+      "resolved_url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/common/tests/TestVerify.h",
+      "bytes": 364,
+      "sha256": "ef580f684702bcea5c6d2ceaffa1699188d2ac1ad0d0bca9bc8db24e8df4c3fa",
+      "access": "download"
+    },
+    {
+      "path": "xrt/TestIPU.cpp",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/common/tests/TestIPU.cpp",
+      "resolved_url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/common/tests/TestIPU.cpp",
+      "bytes": 3424,
+      "sha256": "c00abf24878d332d57b59ddb731f67f17ba7b9b57c9db4e52cd6673bde66ff7e",
+      "access": "download"
+    },
+    {
+      "path": "xrt/SubCmdValidate.cpp",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/xbutil2/SubCmdValidate.cpp",
+      "resolved_url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/xbutil2/SubCmdValidate.cpp",
+      "bytes": 26599,
+      "sha256": "92f5a5f1753895183fa8a2fcb07363721e518a00792d0cbdec25a9e0d77b9a8c",
+      "access": "download"
+    },
+    {
+      "path": "xrt/TestRunner.cpp",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/common/TestRunner.cpp",
+      "resolved_url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/tools/common/TestRunner.cpp",
+      "bytes": 18362,
+      "sha256": "f99e9cc8ed96c5eb09f677e016180ef35cbb7fae1f3e6b7d233ad14befc0f7f9",
+      "access": "download"
+    },
+    {
+      "path": "xrt/device_windows.cpp",
+      "url": "https://raw.githubusercontent.com/Xilinx/XRT/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/device_windows.cpp",
+      "access": "failed",
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "path": "xrt/installed_df_bw_dpu.txt",
+      "local_source": "C:\\Windows\\System32\\AMD\\DPU_Sequence\\df_bw_dpu.txt",
+      "bytes": 1916,
+      "sha256": "0b08d06fefbe999495d8d65d1c9ee32244b9364e111d2598641d5e7f8e960125",
+      "access": "local_driver_copy"
+    }
+  ],
+  "inherited_files_verified_without_modification": [
+    {
+      "path": "r4/sources/qwen/config.json",
+      "expected_sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+      "sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+      "matches": true
+    },
+    {
+      "path": "r4/sources/qwen/modeling_qwen3_5.py",
+      "expected_sha256": "458360c8072e6130580639170ad3e645b975512dbabae31eab5f92de5f0f09ef",
+      "sha256": "458360c8072e6130580639170ad3e645b975512dbabae31eab5f92de5f0f09ef",
+      "matches": true
+    },
+    {
+      "path": "r5/sources/gemmini/README.md",
+      "expected_sha256": "9c5977d88b6ffa0fb04e5a8f878eb984d2f4c8c329539b6c8b29b57f2d2c42b7",
+      "sha256": "9c5977d88b6ffa0fb04e5a8f878eb984d2f4c8c329539b6c8b29b57f2d2c42b7",
+      "matches": true
+    },
+    {
+      "path": "r5/sources/gemmini/src/main/scala/gemmini/DMA.scala",
+      "expected_sha256": "db6d9d61f8794f6d60508c5844a2b287ffab0cd795a662b84b970dd9615e5dc1",
+      "sha256": "db6d9d61f8794f6d60508c5844a2b287ffab0cd795a662b84b970dd9615e5dc1",
+      "matches": true
+    },
+    {
+      "path": "r5/sources/gemmini/src/main/scala/gemmini/Configs.scala",
+      "expected_sha256": "178c21ac741c89c08158efa71fb34da35d27b75bd50bde5116a5e19178f8391b",
+      "sha256": "178c21ac741c89c08158efa71fb34da35d27b75bd50bde5116a5e19178f8391b",
+      "matches": true
+    },
+    {
+      "path": "r5/sources/gemmini/src/main/scala/gemmini/Scratchpad.scala",
+      "expected_sha256": "e4d3a12c700fe9edaf5c2ce2f283ec5233a98bd103fb04054160e8097cb89a4f",
+      "sha256": "e4d3a12c700fe9edaf5c2ce2f283ec5233a98bd103fb04054160e8097cb89a4f",
+      "matches": true
+    },
+    {
+      "path": "r5/sources/arm/cmsis_source_README.md",
+      "expected_sha256": "9a77c718d17f8fcf5a77c6df825a2be1712aab14e054cca093223586205fb035",
+      "sha256": "9a77c718d17f8fcf5a77c6df825a2be1712aab14e054cca093223586205fb035",
+      "matches": true
+    },
+    {
+      "path": "r5/sources/arm/ethos_u85_trm_102685_0000_05_en.pdf",
+      "expected_sha256": "3fc6287d861b482e12f29ecd02103128fece6a78ffbe4656332ebb08aaffb8ca",
+      "sha256": "3fc6287d861b482e12f29ecd02103128fece6a78ffbe4656332ebb08aaffb8ca",
+      "matches": true
+    }
+  ]
+}

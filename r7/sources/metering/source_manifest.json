@@ -1,0 +1,3299 @@
+{
+  "frozen_utc": "2026-09-05T07:41:54.615110+00:00",
+  "source_revision": "42cba83aee86b253c49eccd484646e91d062468d",
+  "evidence_level": "primary source and static local binary inspection",
+  "device_calls": 0,
+  "profiling_enabled": false,
+  "exact_archive_verified_files": 462,
+  "files": [
+    {
+      "path": "configs/host_screening_off.ini",
+      "bytes": 291,
+      "sha256": "13d383b2e98599daaf60e7c66af98e0cf6d3e8d224d09156c533f3135349675a"
+    },
+    {
+      "path": "configs/native_trace_candidate.ini",
+      "bytes": 364,
+      "sha256": "eff70d601f10860ada556204373148072b1349dbb595972e8fbd80342e2576b2"
+    },
+    {
+      "path": "freeze_manifest.py",
+      "bytes": 1997,
+      "sha256": "11aec80938952075467d95e14dea9b479d9980c500b0ed65b1af4339a683b099"
+    },
+    {
+      "path": "inspect_pe_exports.py",
+      "bytes": 2899,
+      "sha256": "fcbe5aafad64da42781cc266c77de7f00ab03b08bb3dbffe6eafcbf09d193cf0"
+    },
+    {
+      "path": "installed_RML_tracelogging.WPRP",
+      "bytes": 1646,
+      "sha256": "b1d311bf1213db210ae24be5e1072c9bafa5c8503731c08b7309f29c6d39ac72"
+    },
+    {
+      "path": "local_pe_exports.json",
+      "bytes": 119971,
+      "sha256": "4623e1e583f6c1f56a147ba3dc908e5e16c7389ed439678ba78dc430a9b1a5c2"
+    },
+    {
+      "path": "local_plugin_scope.json",
+      "bytes": 2499,
+      "sha256": "1f49a32126acfb9bac1c3cc726971b340fb73c5d0e819417fdf2aba77900f991"
+    },
+    {
+      "path": "raw/download_receipt.json",
+      "bytes": 3890,
+      "sha256": "9f97a2e0aa2ce8524f904e5cce0bc5bb71a8fd5a265c07e22a3b0870ce11a2fc"
+    },
+    {
+      "path": "raw/src/runtime_src/core/common/api/xrt_ini.cpp",
+      "bytes": 2020,
+      "sha256": "6a757d994e3b797ab4733c16c5fcbea6652ee7cc0f72e006ae7e65193ab0d9bd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_ini.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "raw/src/runtime_src/core/common/api/xrt_profile.cpp",
+      "bytes": 4621,
+      "sha256": "7c4a1cd6923c102283779508cd7a011637b380df53044fb93866a627619f028d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_profile.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "raw/src/runtime_src/core/common/config_reader.cpp",
+      "bytes": 6752,
+      "sha256": "56c04cdf29d7cfa7b1bd2155c84e2f2ef2934e7558f0853aa9fea83276f1123d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/config_reader.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "raw/src/runtime_src/core/common/config_reader.h",
+      "bytes": 23994,
+      "sha256": "7d6d363b46c4bdd96daa928dcdcc2f9d380febe75087625bf46bca998961cd4e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/config_reader.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "raw/src/runtime_src/core/pcie/windows/alveo/perf.cpp",
+      "bytes": 2985,
+      "sha256": "1032a870279e4d6701a8803743a3041b28398df63724044c33b622e1c1a50aa3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/perf.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "raw/src/runtime_src/core/pcie/windows/alveo/shim.cpp",
+      "bytes": 65971,
+      "sha256": "d0b698b48fef1924c31df8248fbab89f63b8fc71a3326a3a8919fae90384e273",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/shim.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "raw/src/runtime_src/xdp/profile/plugin/aie_profile/CMakeLists.txt",
+      "bytes": 2824,
+      "sha256": "281e3210ef340964ceae70e0efa05d7646bc52c1763c357168bca09b0c0441f5",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "raw/src/runtime_src/xdp/profile/plugin/aie_trace/CMakeLists.txt",
+      "bytes": 2144,
+      "sha256": "78ab9a8a45d3b9f33605ee9412e48782322af160318ea6388d85eff0bce866a8",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "raw/src/runtime_src/xdp/profile/plugin/CMakeLists.txt",
+      "bytes": 1455,
+      "sha256": "aa797add69adc59ce654dda494cafdb34b0dcbcd2d7497aeff5b85fe3ce87735",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "raw/src/runtime_src/xdp/profile/plugin/native/CMakeLists.txt",
+      "bytes": 934,
+      "sha256": "2dbe918c6f80b615b1ce5e4abfe2e25ed98dc7d82eaee4034e98c80d49e6eb35",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/native/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "source_download_receipt.json",
+      "bytes": 488,
+      "sha256": "46513e8e9a6b1d123dfca615ea5688743bc363cc2071710fd12907a5a3890f36"
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/AlignedAllocator.h",
+      "bytes": 1341,
+      "sha256": "5b0eac006935b7621c021c2226534d2dafe62c9f35beaf215c0099ac752d9f56",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/AlignedAllocator.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/aie/xrt_graph.cpp",
+      "bytes": 19680,
+      "sha256": "2743cb4731122b8a5bfc27c299ab14c6c9a87a692e111f2e2a33f6c67e82b324",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/aie/xrt_graph.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/bo.h",
+      "bytes": 1216,
+      "sha256": "fd52c75b2fa0104988a96f9210b736d48e3bb80ce772ef02f9a528ef2a60f1fd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/bo.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/CMakeLists.txt",
+      "bytes": 793,
+      "sha256": "0933f5017f945eb7c8e49ee5b9967accbb3c04cebcd97428cf65362e3a84d93e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/command.h",
+      "bytes": 1756,
+      "sha256": "ce6b018b9df16a88802660fb7c4ad7fb7c180dcaa3eb6d9f349c05a00b1799b5",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/command.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/context_mgr.cpp",
+      "bytes": 5382,
+      "sha256": "21d49f2ffd84e373b4e474f556d873374312f827c17c3bda7706f3f27d7b4792",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/context_mgr.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/context_mgr.h",
+      "bytes": 2096,
+      "sha256": "f41bab1b8177ee241dd843ad00fee1bd2d6b275836264c30e30672c100b50f59",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/context_mgr.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/device_int.h",
+      "bytes": 884,
+      "sha256": "d2470baa7ff80137fec3e96cf6b4e3a8d50ed5e61177f5794db8f92d6f75ff86",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/device_int.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/elf_int.h",
+      "bytes": 786,
+      "sha256": "59c4e8b39a9327f99c819c0f4800d51e42ed2c220f5a71b950264a95918ca229",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/elf_int.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/error_int.h",
+      "bytes": 1104,
+      "sha256": "24a484afe599992311fbe0264287ee127f9a5cee731925031baa6dea865bb556",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/error_int.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/fence_int.h",
+      "bytes": 479,
+      "sha256": "403488c56eee3a5248ead16982f60a244f93c091e3ef2a52bb6bf059dffec7eb",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/fence_int.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/handle.h",
+      "bytes": 3469,
+      "sha256": "a8436c1c136e68eaae3ae8f3ceda6fb4630e52e0087a795433abfb9b454f7d29",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/handle.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/hw_context_int.h",
+      "bytes": 1739,
+      "sha256": "7d46d785e0403f6fb0fda74fd527ba7bf0506ba987721b123832371be7d672e5",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/hw_context_int.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/hw_queue.cpp",
+      "bytes": 26013,
+      "sha256": "efc7bbb9325f60eedffec49b1680603be9207a3aba8de30299fcd3faa77e76b8",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/hw_queue.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/hw_queue.h",
+      "bytes": 2573,
+      "sha256": "5392a90fbecd43669b7d539d591acf9039d426aff7a1c422f6711b4e0561fa66",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/hw_queue.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/kernel_int.h",
+      "bytes": 2659,
+      "sha256": "ebf09c87f5f184df43ca4885e42189668a5fa375b4a9cac4d376c5f607339609",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/kernel_int.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/module_int.h",
+      "bytes": 1122,
+      "sha256": "4410be1d3acfddc961ab23c9250d141e183344e9050b0e89ad72badd8c43202a",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/module_int.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/native_profile.cpp",
+      "bytes": 3271,
+      "sha256": "a8ef7f3e6fd8725e7bc4677603754d6aebf0856394a6dcfcd02269001239d895",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/native_profile.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/native_profile.h",
+      "bytes": 2762,
+      "sha256": "bbd791104f0765e36db765383f3dd47fcfb28a4f3a65536b080f041da7979e35",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/native_profile.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xclbin_int.h",
+      "bytes": 2210,
+      "sha256": "b6681a68ef2c2345fabfba7c8b7dd7eb6aaa7bbc3ad4dfd87ba7c3ae4e9ca9cc",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xclbin_int.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_bo.cpp",
+      "bytes": 54704,
+      "sha256": "87c679b7e42f06186cdcbac214af9fdfbb124ede5cd66ebb56487186b8ecf4b3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_bo.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_device.cpp",
+      "bytes": 17392,
+      "sha256": "dbbb293586601201fbd31a2727e15bbb1f798b8b82645669c03196bf41afb37a",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_device.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_elf.cpp",
+      "bytes": 2094,
+      "sha256": "b56c49ad7196935bce1a8f7d7a8883b7e3a424a6ef157cfe9cb5eabf6598c994",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_elf.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_error.cpp",
+      "bytes": 11102,
+      "sha256": "b80373ca323c7e24caf0094fea608f440b005eeac75d96b2c909714aa158e833",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_error.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_fence.cpp",
+      "bytes": 3941,
+      "sha256": "a438a8b3b1b6248cd857b161a8a3ff837a5cb2648a8de2ad30cfd355336e1a94",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_fence.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_hw_context.cpp",
+      "bytes": 6962,
+      "sha256": "5da49fcd6e912afa6a450a39d86c89abb079f2ab083a372af8006e8551f6e8da",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_hw_context.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_ini.cpp",
+      "bytes": 2020,
+      "sha256": "6a757d994e3b797ab4733c16c5fcbea6652ee7cc0f72e006ae7e65193ab0d9bd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_ini.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_ip.cpp",
+      "bytes": 10358,
+      "sha256": "d6abdfc363fe78d50381235cb8fad7f4771f36b20f4a031a5acb00b9be4c4fec",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_ip.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_kernel.cpp",
+      "bytes": 114878,
+      "sha256": "25e52fd1f3086a5c19a6183c1cb032716bef39b5ff91e8e5e63168b797da00ba",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_kernel.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_message.cpp",
+      "bytes": 903,
+      "sha256": "e4243d1918d811ad290241aab77575636dc8c5df35dca739edb067d58d9bfef1",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_message.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_module.cpp",
+      "bytes": 20791,
+      "sha256": "a091620835445a3a23b07d2df581dee72e16a00122153f1b84be1bb45194e9cb",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_module.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_profile.cpp",
+      "bytes": 4621,
+      "sha256": "7c4a1cd6923c102283779508cd7a011637b380df53044fb93866a627619f028d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_profile.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_queue.cpp",
+      "bytes": 2311,
+      "sha256": "803d96dce0f5dc2143924f1737adcdbd05620ef847226668f9cf07fef1234a5b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_queue.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_system.cpp",
+      "bytes": 739,
+      "sha256": "65c9cb759741137f5045354559915aac457d8d5c8bdc1175cedc90aa766ae0d4",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_system.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_version.cpp",
+      "bytes": 1462,
+      "sha256": "b1a8e8c0c6b3ba2dfc27bf54a552261136e9a0c06fd3b01f0dc0c18937e83894",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_version.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/api/xrt_xclbin.cpp",
+      "bytes": 47389,
+      "sha256": "8fc58422e944d2c3c7112640bbd6492819a80e61626712aed5ed2ff58b783fbd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/api/xrt_xclbin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/asd_parser.cpp",
+      "bytes": 29870,
+      "sha256": "da4e33d83ab5d6d2635379de654915f6547d7418df17fe05bff7a8a4d7d9d887",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/asd_parser.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/asd_parser.h",
+      "bytes": 10831,
+      "sha256": "6c4740f84cb6f3846b36b05019be48a9e41a3dc907305856e0b9e88d8ab46f1e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/asd_parser.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/bo_cache.h",
+      "bytes": 3053,
+      "sha256": "04883b34acbdbcd9a5f8688455ec10ce59a5cde725ddf4f77e77a6fd3f2ee241",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/bo_cache.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/CMakeLists.txt",
+      "bytes": 2981,
+      "sha256": "d6e309f57550fae3150cf45ef8401c88948bffd2fc30282cfdf1b4e03dafa6e8",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/config.h",
+      "bytes": 1338,
+      "sha256": "ace372fbe428e3b15e7a37d8027f9acdcb41367f4e7572a6e0019f89bd5bcd9d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/config.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/config_reader.cpp",
+      "bytes": 6752,
+      "sha256": "56c04cdf29d7cfa7b1bd2155c84e2f2ef2934e7558f0853aa9fea83276f1123d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/config_reader.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/config_reader.h",
+      "bytes": 23994,
+      "sha256": "7d6d363b46c4bdd96daa928dcdcc2f9d380febe75087625bf46bca998961cd4e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/config_reader.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/cuidx_type.h",
+      "bytes": 938,
+      "sha256": "141262f0fd90f4c805fe3a884712c46d4ed3363afdd3de96a5f21ff28eb62ae9",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/cuidx_type.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/debug.cpp",
+      "bytes": 985,
+      "sha256": "c850cfe8e8d87c85d22de6bdc61d2c9b00f2a7a51a67515a3ba49fec2e856b5f",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/debug.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/debug.h",
+      "bytes": 2755,
+      "sha256": "a5b1615070b6887d129951cc66d16b34483550ad56a1025ace0d961dd4cd4034",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/debug.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/debug_ip.cpp",
+      "bytes": 12510,
+      "sha256": "dfbd7369f26d34427929855e4fe0d748a4ce40e2cb1a75bf37c6e2c5b86465c4",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/debug_ip.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/debug_ip.h",
+      "bytes": 1536,
+      "sha256": "d7da39fff77ea86cf2a79cd38b2e7bf807bd0905d9554833f4de1cc967d84184",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/debug_ip.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/detail/linux/sysinfo.h",
+      "bytes": 2920,
+      "sha256": "d04672335886d84e95f78efc908f6be42e30f629f3a15d9e3e7d244713a96ed1",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/detail/linux/sysinfo.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/detail/linux/trace.h",
+      "bytes": 3218,
+      "sha256": "88d425eae5c8e01c54eb3f55c96e30d7284e2bb33190d82bf9a881706da0dcce",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/detail/linux/trace.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/detail/linux/trace_init.h",
+      "bytes": 962,
+      "sha256": "7530cc8717ed80c938c3535e19fdaf1c6ec743066772b10a8660f3fe09f5b6ed",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/detail/linux/trace_init.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/detail/linux/xilinx_xrt.h",
+      "bytes": 501,
+      "sha256": "f1b76251cb7275ad542fcea812ee61135cabf96b5e911ccd9728e2fb5ff5c796",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/detail/linux/xilinx_xrt.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/detail/sysinfo.h",
+      "bytes": 317,
+      "sha256": "8b5abca4b20ee9e9b92d6325ac32864433804d461e3f60787ba02b9998945b00",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/detail/sysinfo.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/detail/trace.h",
+      "bytes": 309,
+      "sha256": "995f2d56df4f9fd74b7608cd2be0ee853406077c5b7e3d05672b9b631b479d63",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/detail/trace.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/detail/trace_init.h",
+      "bytes": 329,
+      "sha256": "bb492ed17f56ed7de2155069db6130457399412c727ab4a9355be9429d69fd09",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/detail/trace_init.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/detail/windows/sysinfo.h",
+      "bytes": 4058,
+      "sha256": "5ec1304e74373bbe9cb17042c56a8566cb3da60032a6aba63b27bb6757bed1a1",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/detail/windows/sysinfo.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/detail/windows/trace.h",
+      "bytes": 4978,
+      "sha256": "6b408b52bfee1c05b1035ee2a7145ea0ae41e250022bb3e1ba89c2c51e5a6163",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/detail/windows/trace.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/detail/windows/trace_init.h",
+      "bytes": 1796,
+      "sha256": "4320f13c2893b109c500749f4b48f9342671db30fca51a1dea28f924ad9156aa",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/detail/windows/trace_init.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/detail/windows/xilinx_xrt.h",
+      "bytes": 8358,
+      "sha256": "3cb752f9c5d1b0d10598baa8bc6a77bb21cc0b6bcdaf9e5de3427340466c4aed",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/detail/windows/xilinx_xrt.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/detail/xilinx_xrt.h",
+      "bytes": 329,
+      "sha256": "ef9d0afbde6bc623cdfceff04830f73229c40bef83bbbf50d96b5fee4ab49633",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/detail/xilinx_xrt.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/device.cpp",
+      "bytes": 13186,
+      "sha256": "d55a463e1153b625b2dea19dc4a55f2b5c97c5c8f021d1d487742f1360a061aa",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/device.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/device.h",
+      "bytes": 17189,
+      "sha256": "4a9d96a546eafe345e2e8d0f6e37d6b71ec4d5d67ff084413bb2974e31287a23",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/device.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/dlfcn.h",
+      "bytes": 1793,
+      "sha256": "1189186a343891fcef6d66d0b5ec76c0cf9520a2656231e5ed938a2b708c9daa",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/dlfcn.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/drv/include/cu_xgq.h",
+      "bytes": 488,
+      "sha256": "a18abc39a23904bec2fb1d9c6b4ca6e6f99633635eb41376d825dba557f34395",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/drv/include/cu_xgq.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/drv/include/kds_client.h",
+      "bytes": 3789,
+      "sha256": "e4714befc9d4a7b3c591f0ff2901cad0e31c79cf57c25932ba79bce9c0a2ad4e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/drv/include/kds_client.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/drv/include/kds_command.h",
+      "bytes": 3452,
+      "sha256": "4306a98b2e2448352d94b5b5e4621cf0ad43b655e9b0b6fed0d42880b933ae4f",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/drv/include/kds_command.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/drv/include/kds_core.h",
+      "bytes": 8162,
+      "sha256": "86bc41cb77271660552c2b6530507d92964108fc4809826a78789f20121d58a9",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/drv/include/kds_core.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/drv/include/kds_ert_table.h",
+      "bytes": 1342,
+      "sha256": "13460b6d0d355e635c02cc90cd37e1755a36e04ea29113772d7f55df1b250246",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/drv/include/kds_ert_table.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/drv/include/kds_hwctx.h",
+      "bytes": 2559,
+      "sha256": "403ed97e493fa47408ed4df4875c32119ee0881c9bf5099c7c6e0816e578f0e2",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/drv/include/kds_hwctx.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/drv/include/kds_stat.h",
+      "bytes": 2049,
+      "sha256": "0e1e2045a94ae1a39af6b13a53de33093d365edd6be753dd5be155edcbe1a1cb",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/drv/include/kds_stat.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/drv/include/xgq_execbuf.h",
+      "bytes": 1107,
+      "sha256": "faabf6ee454a757167b29fae0259cd47849c49466b94b6505324a437b8b54b29",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/drv/include/xgq_execbuf.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/drv/include/xrt_cu.h",
+      "bytes": 14991,
+      "sha256": "0c12ed4e8560643951ca9032f4c838dc5ac53d9e9c8311809d3d2e1ba6b35b17",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/drv/include/xrt_cu.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/drv/include/xrt_drv.h",
+      "bytes": 1748,
+      "sha256": "e01f9550978fcb1568219d7dce46f7812863a0fa2ab7630bc7d4e0775b6eb52f",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/drv/include/xrt_drv.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/drv/include/xrt_ert.h",
+      "bytes": 1440,
+      "sha256": "6daa18161a8a1f41010fc3bf96201f36cbdd943bd2cc776025924262b79e8174",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/drv/include/xrt_ert.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/drv/include/xrt_xclbin.h",
+      "bytes": 2322,
+      "sha256": "c7f5e8e175736995b666b927230161fdb7f880a13dec26e2a0a2af95cf680152",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/drv/include/xrt_xclbin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/error.cpp",
+      "bytes": 1210,
+      "sha256": "fd651599b31fe9e7a5fad35ad58104baa9df9904bca5f76857e9e59137f615f3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/error.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/error.h",
+      "bytes": 3055,
+      "sha256": "0360c017392c7076312d8d062a35df200b6c8f72042ffe1cc8f62f6ed06b8b3e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/error.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/info_aie.cpp",
+      "bytes": 36513,
+      "sha256": "68926f8fb4358bf97827c956643ba47eb0c8e2ed1038bb96088e42bf9096f0ec",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/info_aie.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/info_aie.h",
+      "bytes": 1228,
+      "sha256": "0384f80082b6f709120949f517cbd32c6191db3d7a5fe8118e76b5625fbd40ce",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/info_aie.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/info_memory.cpp",
+      "bytes": 19443,
+      "sha256": "d40cfb3f59ba1182be5c0b774d3b1cdbfb3b125f8348c819c05ad6c1274e5b34",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/info_memory.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/info_memory.h",
+      "bytes": 956,
+      "sha256": "00c43fc0a7d661c0252ed493719dd7fc243f8fe72ce6062be7af9e91db86cf0e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/info_memory.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/info_platform.cpp",
+      "bytes": 14102,
+      "sha256": "e1a0be52bc1d85008643e8209e0839779078db1c6a5f65785bfb313a684029d1",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/info_platform.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/info_platform.h",
+      "bytes": 991,
+      "sha256": "3f65ee2a95820dad10d5ebcc01d2a7be872a93f207633fa92ed3778795e9b315",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/info_platform.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/info_vmr.cpp",
+      "bytes": 3284,
+      "sha256": "7117941cbe1e969134f64106bfbeed5852ff11fb3f92f5d19c3ff8d746feacf5",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/info_vmr.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/info_vmr.h",
+      "bytes": 569,
+      "sha256": "c89dea0f54fb8dcf60f200c4f114a3b332992a4c6a194aed1480b1d3aebfe51e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/info_vmr.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/ishim.h",
+      "bytes": 16607,
+      "sha256": "07f2639a4aa811df45590e64e93c5775bccb084d856fea20ee59cbcd62cfd2ed",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/ishim.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/memaccess.cpp",
+      "bytes": 8350,
+      "sha256": "f3942465bd1f19b1184edcea741d1efb330e5d72e17665abdea210f6d5f0949e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/memaccess.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/memaccess.h",
+      "bytes": 1803,
+      "sha256": "dbc1e57b964b2c552e13669bb2c4c7528fc9cbdb42642afa048a42e2bc58354e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/memaccess.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/memalign.h",
+      "bytes": 2893,
+      "sha256": "385d55360466782af2e8918e95773b6036ab3ece5cf860d3705a24d07df4fa46",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/memalign.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/message.cpp",
+      "bytes": 7753,
+      "sha256": "83733ac1f0d9f270efe965bd0ec9f8920a82c07254ab54f437668a6716f67c64",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/message.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/message.h",
+      "bytes": 1785,
+      "sha256": "e6e207e1421d2db74f61bf6c37a78437d64d9b9e3a49cb23bd3e50bd89d4cba3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/message.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/module_loader.cpp",
+      "bytes": 7277,
+      "sha256": "473bac11bed1d5d6e81c4c83e31028365823edfc14b9cc974eabb20450dd7cda",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/module_loader.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/module_loader.h",
+      "bytes": 3706,
+      "sha256": "d2ed52c1da02536081b1b879a455b082d5364b3c17a69b9977d5a055b7984870",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/module_loader.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/query.h",
+      "bytes": 4218,
+      "sha256": "592b492210f1a295554c75947eeb1bc796c97d2a09d244b19a73f62a00381bbc",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/query.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/query_requests.cpp",
+      "bytes": 6737,
+      "sha256": "eda58ea93eee5548dd5ba7806270e927db4aec6b45435a637fe3f20ee18c8e1e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/query_requests.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/query_requests.h",
+      "bytes": 72858,
+      "sha256": "f04d40cacd681444ef428eb766b605bfa7bc1708b9d3693f60332c20e4b13af2",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/query_requests.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/query_reset.h",
+      "bytes": 1865,
+      "sha256": "fc8021cea276230b6d60a1496f56007773dce920e6239ef95752c47950798505",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/query_reset.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/scheduler.cpp",
+      "bytes": 5595,
+      "sha256": "f0868d0ff9917161a39ff3039ff041a8668e93b0ce112a1953e5892e4545e3c1",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/scheduler.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/scheduler.h",
+      "bytes": 1214,
+      "sha256": "de5b8daf06f96783a38ed4fc6842564a97dce0c4c6e513a6a989cd279d18bade",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/scheduler.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/scope_guard.h",
+      "bytes": 1469,
+      "sha256": "b842588cc4c46e0c28176695634c203d0a935a4501119fd48eeafd7d510a752b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/scope_guard.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/sensor.cpp",
+      "bytes": 19149,
+      "sha256": "1b29c1a5d479aaa9a942aeafa5684603f9a9e90eb6fd1ab672efeefaec59ead0",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/sensor.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/sensor.h",
+      "bytes": 3247,
+      "sha256": "173263f7a0a85ae50fcf25362248796405f63733b8e1cbf82c00e9d4e20b1970",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/sensor.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/shim/buffer_handle.h",
+      "bytes": 1977,
+      "sha256": "ee87ba398df97492c5d1d137a997460a30bd941503cc2862ba1e25ed5a44f12b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/shim/buffer_handle.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/shim/fence_handle.h",
+      "bytes": 1720,
+      "sha256": "b4dfdff06a0a15dd8dd6723b9899646a9194226f0986ce1fdc6c5f00a4d85a3e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/shim/fence_handle.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/shim/hwctx_handle.h",
+      "bytes": 2987,
+      "sha256": "b19c68b6d353ca1b07a861d6958c125d6b899966f68f467c75723d3003c83a44",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/shim/hwctx_handle.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/shim/hwqueue_handle.h",
+      "bytes": 2076,
+      "sha256": "277fd39ff9ed1cd2f5dbd63f8ae806e58470f077e4bae607f69c79ff4b4ff553",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/shim/hwqueue_handle.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/shim/shared_handle.h",
+      "bytes": 1077,
+      "sha256": "af05c65da3b86ff8522c255172ee4a178cbca1dc536e6fda9a4f6998fc8fce7a",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/shim/shared_handle.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/sysinfo.cpp",
+      "bytes": 721,
+      "sha256": "dc447e51283b8b5b243b1240fec3ace501ba8a7a3185fb8f11590d24f88f63b9",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/sysinfo.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/sysinfo.h",
+      "bytes": 495,
+      "sha256": "a8176c4c9d3ed13bfb144adc91ef155ed161739be830288e408d3f6b13455868",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/sysinfo.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/system.cpp",
+      "bytes": 6204,
+      "sha256": "db4dce4aebaa1fa837f3817e32490e99abc8ad03147b361db49e45719802d44a",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/system.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/system.h",
+      "bytes": 7277,
+      "sha256": "5479e3879ec46be156a8075cf77d1d9ce0ddb31fd20c2727a35be6da8282bc63",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/system.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/task.h",
+      "bytes": 8471,
+      "sha256": "a5ef429da944bc8234b849c87739709b2fed1c47bcfa2e50d18f50f212e0d39d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/task.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/thread.cpp",
+      "bytes": 4075,
+      "sha256": "00eecad9c9d18fa65bec28fafd3fc6394732e2589d68be68c54e59b582b3a934",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/thread.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/thread.h",
+      "bytes": 1719,
+      "sha256": "216c0a9e5aa057e058286ab3b8b8bee6f393c53faa5b892467959e2f9b6995ee",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/thread.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/time.cpp",
+      "bytes": 1793,
+      "sha256": "fbd33874085550a1976dd20e6a99b036a11c540d23369de98387019db5a418bc",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/time.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/time.h",
+      "bytes": 1319,
+      "sha256": "25f3eed5579d749971ae87e221247d60a77260eb120d534a6f825b7b65c46ded",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/time.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/trace.cpp",
+      "bytes": 1186,
+      "sha256": "35858b4cec55487d3f5c56d1bc2d5a45547a172061778028adf7c6d460df10d5",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/trace.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/trace.h",
+      "bytes": 3533,
+      "sha256": "2b43b3351173eb10fc26be25e5c275f06c9bf5b05dfecab5bcf9b5f999fec8a4",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/trace.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/unistd.h",
+      "bytes": 1008,
+      "sha256": "d93cc3782b28465a7df5b50bed0f9df29144609a76d524d639565ce12968e28a",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/unistd.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/usage_metrics.cpp",
+      "bytes": 14562,
+      "sha256": "ff14f867149848a32393e65fad12513f81c5767042963f3a3ffc5689637997df",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/usage_metrics.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/usage_metrics.h",
+      "bytes": 2150,
+      "sha256": "079f55ddb4ffa37e5f020d36ea8e7c4ab438a0265193a07fdbf69a863de8e684",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/usage_metrics.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/utils.cpp",
+      "bytes": 7791,
+      "sha256": "68d1c37b15a7763b610d5693e5534bc0e97c57d25c7f158fce32d3e420cf67c7",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/utils.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/utils.h",
+      "bytes": 2869,
+      "sha256": "b9154365784f832416bcdcb899613e8e6d1855c5cba51d44da356ead408c9d27",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/utils.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/uuid.h",
+      "bytes": 772,
+      "sha256": "332a8d377714a54afac5ab7460ed044311920e3fe2643ae6a5eb92b79f37c9dd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/uuid.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/xclbin_parser.cpp",
+      "bytes": 34338,
+      "sha256": "6e5f996cfd1f4fa640f7074463d5414ec1e2b7a4bb6bb54e813d4dd63d3386cb",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/xclbin_parser.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/xclbin_parser.h",
+      "bytes": 10657,
+      "sha256": "d589f28c20fdd69373eed9e954ad338e19d5f532701feef5842ce946f2a19fff",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/xclbin_parser.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/xclbin_swemu.cpp",
+      "bytes": 6682,
+      "sha256": "ee8af0dabe839b3697be81e1546bc684abb7e4ef616a5b30eaf4b9a5a39707b1",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/xclbin_swemu.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/xclbin_swemu.h",
+      "bytes": 1479,
+      "sha256": "5fd8fd12f379b29c7d92085ab6b64383c32919e9dab90045df20bf2f433b194d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/xclbin_swemu.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/xdp/CMakeLists.txt",
+      "bytes": 435,
+      "sha256": "7a67e300d692a6ebcdf08e68079eff6b70edfd1ae9a3622f7b977bad40453ae3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/xdp/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/xdp/profile.cpp",
+      "bytes": 4431,
+      "sha256": "5fee542f2f6afa9de2bfae25f513ab2eb6c4f0f1e14ded3e9b97325bac688f20",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/xdp/profile.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/xdp/profile.h",
+      "bytes": 1030,
+      "sha256": "7c248f2b6c77136a4a1f80e832c4a4d7a0acce9373019843a79b71a6c2177a2e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/xdp/profile.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/common/xrt_profiling.h",
+      "bytes": 2402,
+      "sha256": "9bd06d17a45c1a61b9f8a9b914e4dac86fd65f4509aabb13b38dc8fb2b7616d2",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/common/xrt_profiling.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/CMakeLists.txt",
+      "bytes": 743,
+      "sha256": "2b1bf909116905e4c1d48c5557652837a7e315d74c727b269d1fc129cad02726",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/deprecated/CMakeLists.txt",
+      "bytes": 520,
+      "sha256": "b193c3a7f427eef87fe6daa585cb5724fb5ef4a9b200b890c9cc26a409ffe3a8",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/deprecated/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/deprecated/xcl_app_debug.h",
+      "bytes": 8043,
+      "sha256": "8fd2ec2fe3a5f7eb79140c114e694ccab1587389f0711d3c9ca4db59ac503303",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/deprecated/xcl_app_debug.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/deprecated/xcl_axi_checker_codes.h",
+      "bytes": 22277,
+      "sha256": "ac3c569a960b695c730556499eda0d9a58e7a3b50ccb7d21d83b2aa429d0a40c",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/deprecated/xcl_axi_checker_codes.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/deprecated/xclperf.h",
+      "bytes": 21049,
+      "sha256": "759546c8a577bd40e948f24ed63d25fe0461e4f5f5dcce91b3180383cce60583",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/deprecated/xclperf.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/deprecated/xrt.h",
+      "bytes": 26235,
+      "sha256": "6555c56c08c02d8dfc1c1d0fb037fe9dc1cd389b74866d60e4c6a640a1317c79",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/deprecated/xrt.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/ert.h",
+      "bytes": 33960,
+      "sha256": "66024290af38aa9895b461f3417cabb48999a113dd331c1948ec1e2c86f1d264",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/ert.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/ert_fa.h",
+      "bytes": 3521,
+      "sha256": "ba6dcfe7ac167ec4389596e502ee8d5de60eacc22eed3d2e882b5f7792b6d6ba",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/ert_fa.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/CMakeLists.txt",
+      "bytes": 624,
+      "sha256": "d54b900379a2ef10d0e9fc37f646ecb3f5c11c3693898ffa6c24216d9ab04d08",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xclbin-util.h",
+      "bytes": 770,
+      "sha256": "662e863b0c03e04bc1ac41c244f58ff7c9e029334fda3790c097825f550341e5",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xclbin-util.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xclbin_util.h",
+      "bytes": 1304,
+      "sha256": "68f4c3996bb306db80c3ce0d5001ae9ffa0288f2438271a7859b294242d11326",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xclbin_util.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt-next.h",
+      "bytes": 9580,
+      "sha256": "560383bb636e078ac27c62acc1b244080793cde6eebacddc36751f11232c3161",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt-next.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_aie.h",
+      "bytes": 683,
+      "sha256": "5cb9d59804b9d1c80adcb72b727fe35d628814bd977d66dcb58b7625b74a5708",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_aie.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_bo.h",
+      "bytes": 683,
+      "sha256": "6c849e8b03ac889e25c49a0cb4faf7e5c2cc8489e0bb191f786b0e0dcd86efb9",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_bo.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_device.h",
+      "bytes": 687,
+      "sha256": "bee459abc8e6e04d7ea290f10fe2ad674a214b831cc28bd4966b08da95245261",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_device.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_elf.h",
+      "bytes": 993,
+      "sha256": "aa55e13c147dd45fbb331d8801de0e129911631bfbffe877632aefcafc7407e8",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_elf.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_error.h",
+      "bytes": 3196,
+      "sha256": "f96fc490fd0a0e3a2091c62346432bb6cdc27c1c4aac2d8dd90c0ddc7efb3695",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_error.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_exception.h",
+      "bytes": 784,
+      "sha256": "6f853d65353d9c6939276d5e20435431f6e9f443039bc4c8fdc29ff84b50c2e1",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_exception.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_ext.h",
+      "bytes": 7999,
+      "sha256": "cb063e99949ddc105bfdbba8cf30bc28546719006c3d0eab4b6e176aa41915b1",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_ext.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_fence.h",
+      "bytes": 6195,
+      "sha256": "28aebd905802a1827ff4612d580648c996cd6b09c34b6e3efbbbff2e496521a7",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_fence.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_graph.h",
+      "bytes": 685,
+      "sha256": "f9c27d73f57415a691ad1aec35bd23131c6c990fe9d66da0ff074c76a496f891",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_graph.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_hw_context.h",
+      "bytes": 143,
+      "sha256": "aa1c09831e872940a76b10a698c6f70cebc7bbf73b952456d7c3b11a04131595",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_hw_context.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_ini.h",
+      "bytes": 2101,
+      "sha256": "29596152d7793ff6f625f513d67d4dd637f930932578f5932c020e53fcf0172b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_ini.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_ip.h",
+      "bytes": 5141,
+      "sha256": "f6733b1da355ca275884a951003e71ae1c823fae35ffd4bc917bc4ab4288a045",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_ip.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_kernel.h",
+      "bytes": 687,
+      "sha256": "19710e4592a2dc71428be93ef6df3ca74f428dde8a3e5fe50a4781f5a9de54e1",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_kernel.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_mailbox.h",
+      "bytes": 5342,
+      "sha256": "f1f6352483b951742a5d5e6d041820e853bc9f5260d6d4eddada7d01e6fd472a",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_mailbox.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_message.h",
+      "bytes": 3134,
+      "sha256": "2c52957b1e233bde8f6a61db3f9c89ab01e11f9452b05ca20ff7e7c599b5bb86",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_message.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_module.h",
+      "bytes": 3354,
+      "sha256": "d135edbd49c365e476f39c4189be990c64efc46bc5092ee3a5609d054bd30f1d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_module.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_profile.h",
+      "bytes": 7150,
+      "sha256": "d09c631718dd17d4386f81b4c7f9a7e649d1b403feb1e6ec7c005fc2fd68f3d4",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_profile.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_queue.h",
+      "bytes": 5795,
+      "sha256": "29ae4451a8dfb65e35f663649a74b616298f1a12b1fa166c7114d7a16fa4f82a",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_queue.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_system.h",
+      "bytes": 526,
+      "sha256": "6ad31353c532fc1d572eebf7f2981b9d4603dc6d3fddb4bfedd4408c31bcdf6b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_system.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_uuid.h",
+      "bytes": 685,
+      "sha256": "ce6f02ea5aefdb6831890fbc656d6fd181a9736da440b977af59000ddae10269",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_uuid.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_version.h",
+      "bytes": 2465,
+      "sha256": "370ceb1591d5a741a4bae3e51ec2f5534f0a2f967423953269b9f5a6d5fd2f63",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_version.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/experimental/xrt_xclbin.h",
+      "bytes": 26221,
+      "sha256": "fc5c60bd6cd36b7f700a554908c0e3f81eade5d4bec97596680b10bf0a2546af",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/experimental/xrt_xclbin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/ps_kernel.h",
+      "bytes": 1170,
+      "sha256": "232a9b59418aebecebe4616a4e2bab7a95b866a2d3244932e2968ab7fd6e5289",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/ps_kernel.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/shim_int.h",
+      "bytes": 3186,
+      "sha256": "1e52d719add6bf5215b1e94aa59aa7e471ef4b55ad864ec3bd667a6db15983d9",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/shim_int.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/stream.h",
+      "bytes": 1537,
+      "sha256": "6419f52a8301dee88d2a061043bb7892ae8c91883bb24f38b5e71cea8b675227",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/stream.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/types.h",
+      "bytes": 748,
+      "sha256": "926948f820e2dd87c84d5dd6aa6872578e746adfeef32214b96a54344bad3b64",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/types.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/unittests/CMakeLists.txt",
+      "bytes": 172,
+      "sha256": "b818b27523984d06240ce02c2e56686ab63cc51ce684aa0d3b6b3a17aa809acd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/unittests/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/unittests/xrt_c_compilation/CMakeLists.txt",
+      "bytes": 191,
+      "sha256": "094c32b9c4e919b270495a350806ae68ff9d4abdec32de1edefeafec25cd8c1d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/unittests/xrt_c_compilation/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/windows/CMakeLists.txt",
+      "bytes": 361,
+      "sha256": "89dfb2a444228f7214ce6379a5829a62fc7baa698078a73d2c83b54484f7e165",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/windows/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/windows/types.h",
+      "bytes": 747,
+      "sha256": "cac0d0094bd2a5858bc86a37560ceb7e437743b7df180a9dc563d01eac05ac22",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/windows/types.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/windows/uuid.h",
+      "bytes": 2647,
+      "sha256": "96355a6869c6bd2a50165fea3d04d397414a4e9d88d7ddffcd34fa40a2bd4db8",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/windows/uuid.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xbar_sys_parameters.h",
+      "bytes": 4019,
+      "sha256": "929005ed84a911b0d6d3c10f574db8010bac4ab0074ee444770111f70c90d277",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xbar_sys_parameters.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xcl_api_macros.h",
+      "bytes": 38314,
+      "sha256": "747cd649247ed5e27b40065cc0e94829d50dacc8c58411daf04e1df33840fbf3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xcl_api_macros.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xcl_app_debug.h",
+      "bytes": 900,
+      "sha256": "cb0c8004db08fcdad802fa9bfa8d04155acdf82223476e724d7cd9cd7df1e003",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xcl_app_debug.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xcl_axi_checker_codes.h",
+      "bytes": 942,
+      "sha256": "f9b735f5813285758de31af7cd8d0801e2bd0270d0ad27b07e6c85a3fa417212",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xcl_axi_checker_codes.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xcl_graph.h",
+      "bytes": 2412,
+      "sha256": "5ad3ab8ecf2f1fc255cd96f006362b95b89af5d4f0e8e7a03971f6a6f720c7cd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xcl_graph.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xcl_macros.h",
+      "bytes": 2420,
+      "sha256": "773be73049d4aa0b50382efe3c1e44cd79d7b8cb5cca1bf3904e0a3513dd84ed",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xcl_macros.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xclbin.h",
+      "bytes": 27099,
+      "sha256": "d837a0393cd3fbfa825a774935bb3e1a98d3c6cc7693fa90a78dd0604aa0d6ea",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xclbin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xclerr.h",
+      "bytes": 3180,
+      "sha256": "f7531cf46a8cf492d0f5fdab2f0a6308d5680eba3ab4b27f1f1078fe2569988d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xclerr.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xclerr_int.h",
+      "bytes": 2503,
+      "sha256": "7f995409050328127f448b8cd92509efd7bad0a6050a4b85b783f093a9ad033f",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xclerr_int.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xclfeatures.h",
+      "bytes": 5142,
+      "sha256": "f6bc96562f91fc44f5ec69d0eff22c76c2c7fc0bcf82ce9d6328b7c093da15d5",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xclfeatures.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xclhal2.h",
+      "bytes": 881,
+      "sha256": "d72488cae7622168b0b3862d56be9d72b97eb0772b46f8a4232ef0a22a58426c",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xclhal2.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xclhal2_mem.h",
+      "bytes": 726,
+      "sha256": "102853a74c53a4afac8b4040115a6fd8b9daa6e88cffd548d18a60cce89d8c83",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xclhal2_mem.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xclperf.h",
+      "bytes": 875,
+      "sha256": "3dbd94d7d76c3f98de883087c14ff41ba1f2948243076b679ce2a6a14721d5ee",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xclperf.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xdp/add.h",
+      "bytes": 1127,
+      "sha256": "68983327dc0695b4cae5838212571a0dcca4bbef4842f1182a2da4348ccf32fc",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xdp/add.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xdp/aim.h",
+      "bytes": 5307,
+      "sha256": "6a921c085fdd970d9237b25dfa61e414cabe475269622bc49e31b67438ea845d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xdp/aim.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xdp/am.h",
+      "bytes": 4498,
+      "sha256": "e82ac53de266e95d8c4074518af8006778a8fedde55235893b9980a0605d42cd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xdp/am.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xdp/app_debug.h",
+      "bytes": 3045,
+      "sha256": "6964c1d0ea2e46987440caa3543801690853b6d960bbc8466ecce0165b3a4499",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xdp/app_debug.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xdp/asm.h",
+      "bytes": 2146,
+      "sha256": "c3a0af3fa9c977f3bd79070d487e6d7b4fd70455671cefa90d9bcd525cd76f72",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xdp/asm.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xdp/axi_checker_codes.h",
+      "bytes": 18769,
+      "sha256": "920fed5fbf7ca711f1979bc8c667d187543f421588ec666065a5d3a1777e3d28",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xdp/axi_checker_codes.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xdp/common.h",
+      "bytes": 2136,
+      "sha256": "5d2bca76873b582610fc5cd22204d2ba870ab2d92baa561a51ddfc255864642f",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xdp/common.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xdp/counters.h",
+      "bytes": 2364,
+      "sha256": "64f599a8a0b05ba7fec98e0314659f4f1823f3dd34eb53d1a35606abe603712e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xdp/counters.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xdp/fifo.h",
+      "bytes": 1871,
+      "sha256": "e1942b6b7278fb1d752d2fefd04d10df0fcbecd2a458cc870cea680e7a6b5454",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xdp/fifo.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xdp/hal_api.h",
+      "bytes": 1626,
+      "sha256": "c2537389427bd90617b40ce3fcee0ab2ebd180f1d1894e4a382af79bc4cde94b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xdp/hal_api.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xdp/lapc.h",
+      "bytes": 2397,
+      "sha256": "82f113183d314d970654ddf8ee2319c637513d4bfdc70acd3667577ed02f1813",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xdp/lapc.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xdp/spc.h",
+      "bytes": 1696,
+      "sha256": "5c7905a8940a7300c5576a17e4e8f3b4fc8a59be390c8a8fea19589d860e4f60",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xdp/spc.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xdp/trace.h",
+      "bytes": 1834,
+      "sha256": "06581c713b14d06a9d3603e558e3ffc07af7762529bf10b94044139ef71007ab",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xdp/trace.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xgq_cmd_common.h",
+      "bytes": 10945,
+      "sha256": "80991401873f3826f0b7850d0147264c2c4a9d0730ffd971be6fe4a8394531ff",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xgq_cmd_common.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xgq_cmd_ert.h",
+      "bytes": 10232,
+      "sha256": "b9803eb5ee0b4a8f15caafd8389946a98dac0a449012e28d645ae5c085d8228e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xgq_cmd_ert.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xgq_cmd_vmr.h",
+      "bytes": 13155,
+      "sha256": "ee73e2fca7766a349c7dcd2d30e7a92e6bff4b625d18de1380afc0b60160ee35",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xgq_cmd_vmr.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xgq_impl.h",
+      "bytes": 18530,
+      "sha256": "4a6a43a949c9c10f3f124121ac8ced3666cd5dffa101acf3e3f048829cdb8806",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xgq_impl.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xgq_resp_parser.h",
+      "bytes": 3753,
+      "sha256": "320da4524084e31b8645e6d2882d9df0bd55739f55370866d58a6ae663bddfc5",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xgq_resp_parser.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/CMakeLists.txt",
+      "bytes": 673,
+      "sha256": "39bba02b32476013e621a16548ab0dd65ae9b0e4b27dc7bf21095161b7f37a70",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/detail/abi.h",
+      "bytes": 989,
+      "sha256": "12e01f4e5873cf08690f7edb6734f8c3571d2fd09876cc30e31daadd838de17e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/detail/abi.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/detail/any.h",
+      "bytes": 848,
+      "sha256": "3b154a16052b6723f9717b314a25c60437d7a491ef26d3beee38f246044247e9",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/detail/any.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/detail/bitmask.h",
+      "bytes": 1983,
+      "sha256": "4c70ac4bfdc15d49ab388c7e925d778fd9ef3bba4836204bcb98533b664aaf68",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/detail/bitmask.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/detail/config.h",
+      "bytes": 617,
+      "sha256": "08478a5707b393d725065f5e5b072e05d00de6010b07fe282990b8b27c678a91",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/detail/config.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/detail/param_traits.h",
+      "bytes": 1628,
+      "sha256": "eca3d9f9809736a94d83d127c1783e82991e1a65eb93eaf4e89ffd073913172e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/detail/param_traits.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/detail/pimpl.h",
+      "bytes": 1516,
+      "sha256": "c1fd14e644a258d20db03eb6363fcee463399068a4959d5cb316bef6bf013559",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/detail/pimpl.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/xrt_aie.h",
+      "bytes": 7159,
+      "sha256": "b6dbd5bdae45aed1c9930d06ef1aaa628757930b2d097d57e38a10770e034e66",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/xrt_aie.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/xrt_bo.h",
+      "bytes": 24969,
+      "sha256": "a41ff6217e9fcf3fa327b7b76088a26faeb14ffc9679a68898bda936d742899d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/xrt_bo.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/xrt_device.h",
+      "bytes": 14431,
+      "sha256": "d784f5d940614476786db0faf45bc8c88dd79a22ee2e7a175d07d48e94cd18ec",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/xrt_device.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/xrt_graph.h",
+      "bytes": 12338,
+      "sha256": "709474dfb60f0b2cdff869fd73398e6d7d31708882b06c1d54d5c66aca32e3ed",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/xrt_graph.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/xrt_hw_context.h",
+      "bytes": 4400,
+      "sha256": "5f0b5d7664fac47f517319ddc1316936c136a4f76ca824f72500bbfc072a3428",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/xrt_hw_context.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/xrt_kernel.h",
+      "bytes": 30646,
+      "sha256": "67faaf27e524f712363d4248dbc7aadd97e2a512532464b3b2715aa71d854cc7",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/xrt_kernel.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt/xrt_uuid.h",
+      "bytes": 4633,
+      "sha256": "a17fe06087f56f4fbf971d951ae25e2f13a32e616f45c6495c0e6aa76fed49cc",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt/xrt_uuid.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt.h",
+      "bytes": 812,
+      "sha256": "eb5f8d2b03c8ac06498c4dd60800e0cae40ee76217e2350d8015a5111e2042fd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt_error_code.h",
+      "bytes": 5330,
+      "sha256": "a774e1829621ba0adc71e59d3fc588ef8956e6104cd201dd4ff5291157dd0248",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt_error_code.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt_hwqueue.h",
+      "bytes": 386,
+      "sha256": "6757af88123bd45e0c0be270bdf9b20ce52b00a96df5cad51f9bbca7ab039328",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt_hwqueue.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xrt_mem.h",
+      "bytes": 4008,
+      "sha256": "a2ec65ecb5d7cba1b21caa1ff252f5671056d1870ead4ee420fd48cfa80bc12b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xrt_mem.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/include/xstream.h",
+      "bytes": 2879,
+      "sha256": "45ba84b984ac863074ca3f012fa3f47e085ca9924be5d7c3023428c875612f18",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/include/xstream.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/pcie/windows/alveo/CMakeLists.txt",
+      "bytes": 1486,
+      "sha256": "2b24ce77cbcaece9ff806b7f86f277b9dee0d3eb43da5884d85789070357ff1d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/pcie/windows/alveo/config.h",
+      "bytes": 759,
+      "sha256": "0431fbf7abf0dd5964f5f7748b27a2d7ba05278549d5cce4cc5c85e67452d1fd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/config.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/pcie/windows/alveo/device_windows.cpp",
+      "bytes": 54230,
+      "sha256": "98feb1175cd207d8c2999fbaceeef90c14baf6367502a4815461ffd6ddff92e3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/device_windows.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/pcie/windows/alveo/device_windows.h",
+      "bytes": 2213,
+      "sha256": "47def370c269e33690eb4a0603077b93d4dcaec4715bc73e1d7b6cc8eae948d6",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/device_windows.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/pcie/windows/alveo/mgmt.cpp",
+      "bytes": 18090,
+      "sha256": "51773bdd555a5ee49c1e354b2448e0faac35a136b0f4a92e1314b3feed67f535",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/mgmt.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/pcie/windows/alveo/mgmt.h",
+      "bytes": 1634,
+      "sha256": "000e8bf4cc42c6962827fc3c51ff56a56c1e6967548c37f154cec1715a35074b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/mgmt.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/pcie/windows/alveo/perf.cpp",
+      "bytes": 2985,
+      "sha256": "1032a870279e4d6701a8803743a3041b28398df63724044c33b622e1c1a50aa3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/perf.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/pcie/windows/alveo/shim.cpp",
+      "bytes": 65971,
+      "sha256": "d0b698b48fef1924c31df8248fbab89f63b8fc71a3326a3a8919fae90384e273",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/shim.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/pcie/windows/alveo/shim.h",
+      "bytes": 2402,
+      "sha256": "594f8406cab05cfcd11c498a9863aec3e66276a0d0c6752266d2606c94423181",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/shim.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/pcie/windows/alveo/system_windows.cpp",
+      "bytes": 4520,
+      "sha256": "119949b77e87bc6d2b7ad423ca4ee08be32155945d3a0271b13ac04492667475",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/system_windows.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/pcie/windows/alveo/system_windows.h",
+      "bytes": 1040,
+      "sha256": "0398e255e78fcf9efd61fb2ea06da7319654836c72efa5c5e16e564a82c3f59a",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/alveo/system_windows.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/core/pcie/windows/CMakeLists.txt",
+      "bytes": 128,
+      "sha256": "54f1a33a538a53593cc78308a9b06f818378cc8b25aaf47448556d4055ca0174",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/core/pcie/windows/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/doc/toc/xrt_ini.rst",
+      "bytes": 2385,
+      "sha256": "abb192f42e6b3bf876ba948025d56f2e0e7c693ce748293ee8df942b44435662",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/doc/toc/xrt_ini.rst",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/add.cpp",
+      "bytes": 1690,
+      "sha256": "3ee480db3c031ede28593b0d91de9b1199f4db2e31ea3df0e542604cf95263dd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/add.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/add.h",
+      "bytes": 2359,
+      "sha256": "ba617c60545102ec88c184c8aab21cdff2d1f0c02bb96e30158f0c677946bd0a",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/add.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/aie_trace/aie_trace_logger.h",
+      "bytes": 930,
+      "sha256": "e5576639beb4759bc83998b5519fa764ad10ddab1e94e38a5f2405ca5aed6167",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/aie_trace/aie_trace_logger.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/aie_trace/aie_trace_offload.cpp",
+      "bytes": 17507,
+      "sha256": "8c17e10686a10a13888d3a35a29b6c8efb1575e89c03a4f93ddc00266469a01e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/aie_trace/aie_trace_offload.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/aie_trace/aie_trace_offload.h",
+      "bytes": 4617,
+      "sha256": "41f901d28cbdcb4806c72424c1618bc7574dc624fa2b9c09efff18ffba2e8813",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/aie_trace/aie_trace_offload.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/aieTraceS2MM.cpp",
+      "bytes": 2532,
+      "sha256": "f8fc7b91026fe159563f5aa3a9f206ea63bad8be2075085ec76fd9e323009e86",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/aieTraceS2MM.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/aieTraceS2MM.h",
+      "bytes": 3152,
+      "sha256": "80ed6a76a5f528213d87b0ace9d33333cf822d9cd74402191362a01503c004e2",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/aieTraceS2MM.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/aim.cpp",
+      "bytes": 7746,
+      "sha256": "bea3ad1e4d35b8b70125f6f15e763d30bc617e6006ee07e29f52410ad606d51c",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/aim.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/aim.h",
+      "bytes": 2657,
+      "sha256": "f175d6a3ae4a93e6e8386d03a12227505e6a7b2d8763939a0ca1e9f890b2004e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/aim.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/am.cpp",
+      "bytes": 9233,
+      "sha256": "3c77a6eb70fb4b14e5b7258ad8c2ccf951866da0af2f9e94856ce68d7f371375",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/am.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/am.h",
+      "bytes": 2873,
+      "sha256": "4d711113ca2a38c6e8d6fe0e984a88fd41865b976c16307c8189e3d22e18fe4d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/am.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/asm.cpp",
+      "bytes": 4263,
+      "sha256": "d9bcd80027bbd059aeb20fd764076e90cea9a4452e893c5b7817fbda84a0b234",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/asm.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/asm.h",
+      "bytes": 2477,
+      "sha256": "0173c66ef5f57c72511943b9b2273b610178f7e17df25f80e448b81fe11d7c06",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/asm.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/device_intf.cpp",
+      "bytes": 34050,
+      "sha256": "6c3a4519c6e4a384aa5a2d13bea6d23f1d3dfba64a82391812dae91236a9b874",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/device_intf.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/device_intf.h",
+      "bytes": 7758,
+      "sha256": "4320ab8796d253efe74aa37ff1f7175aef6a484a17a9e55a1e79a40976404d50",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/device_intf.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/device_trace_logger.cpp",
+      "bytes": 34052,
+      "sha256": "f2f7bcb8cf68cd883be8ec6e8e26809f7e0d2abe149452781edeee079dcfbd91",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/device_trace_logger.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/device_trace_logger.h",
+      "bytes": 4948,
+      "sha256": "77ea443ac4e9dc150b4956da97edc6c966235ac6835b519371da5f823419a4a6",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/device_trace_logger.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/device_trace_offload.cpp",
+      "bytes": 14268,
+      "sha256": "29fdd376ecb48c95bdb7f9610f28561430b473d6ff00e745441e5ae90909e5c3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/device_trace_offload.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/device_trace_offload.h",
+      "bytes": 5169,
+      "sha256": "bf18ce6946a21da27b7e3a73f2b13c3ef2d6bca6ae2b8b0bac9dffcb3452e83e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/device_trace_offload.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/hal_device/xdp_hal_device.cpp",
+      "bytes": 6011,
+      "sha256": "37e2cd8bb404a63770571a976413c69d072b28016202fdd8d518df496c510901",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/hal_device/xdp_hal_device.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/hal_device/xdp_hal_device.h",
+      "bytes": 2643,
+      "sha256": "7714b4b7f10f9e47dc40dbea735c06ae0b093f7ff9de8794b9d7a9ab10f8a381",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/hal_device/xdp_hal_device.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_add.cpp",
+      "bytes": 2546,
+      "sha256": "1b69f63f1fd82f08618d51b5e4c0d84d8205ac1d36d047713fe540b2ddef76bf",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_add.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_add.h",
+      "bytes": 1537,
+      "sha256": "46e07ffa5003b483d7830da26a6369a5e41a17dca0afbe6fc1249c37ad923181",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_add.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_aieTraceS2MM.cpp",
+      "bytes": 3544,
+      "sha256": "86b168a6d5413b7b30a5bfc9bded42fb0daf7c033bf0cf7d1a6d027df7dd4f1d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_aieTraceS2MM.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_aieTraceS2MM.h",
+      "bytes": 1914,
+      "sha256": "65a09ebc3f834fb400c46d38bf33e489f73a1a9bef7ad37cababebf6443e461c",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_aieTraceS2MM.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_aim.cpp",
+      "bytes": 3630,
+      "sha256": "8c931bdc5a5fa98160c8311fe72d19effa26731e4867598e38dcc448d7b65719",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_aim.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_aim.h",
+      "bytes": 1754,
+      "sha256": "311844230d29ea4ead2fc9b8f940eeefd7075aacb271492bfb29761b758fa365",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_aim.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_am.cpp",
+      "bytes": 5831,
+      "sha256": "02cc036d177669842a92e7cd90e1cf549ab2e3dda30542019ade578444834b00",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_am.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_am.h",
+      "bytes": 1903,
+      "sha256": "69b40ebf5c865ab245b84b06dfcfc4d5ccae1689228865e544ff510eea12590f",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_am.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_asm.cpp",
+      "bytes": 4321,
+      "sha256": "32461c48dad625839335e696acfc18821cdd37f6386cf1554f4d23288f8f55eb",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_asm.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_asm.h",
+      "bytes": 1754,
+      "sha256": "e180816ea5e40fcf0c42ffdff6b67c89287fc4e21cc13fb8adc891d6ee826e5c",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_asm.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceFifoFull.cpp",
+      "bytes": 2437,
+      "sha256": "1006cf05e4d4b6180fec052584f26ad692edbde8abd57d60caecffbf93269988",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceFifoFull.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceFifoFull.h",
+      "bytes": 1467,
+      "sha256": "6f49360313d0adbf5d172180b5057df6771662c7cd06399395c90a0e126921fa",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceFifoFull.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceFifoLite.cpp",
+      "bytes": 2894,
+      "sha256": "36a06f1ae41bec5c4adeb439deeda9524970c847f8fd6fe1471737312c53013b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceFifoLite.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceFifoLite.h",
+      "bytes": 1550,
+      "sha256": "fc89d184efdd2592d14ec2300e8a947011a09996f8eeb35fec2837d1a736f811",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceFifoLite.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceFunnel.cpp",
+      "bytes": 2765,
+      "sha256": "b820a94321d9c8d0447120d650d157613ad9763f9569d6d6ec1b790b757fc8b5",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceFunnel.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceFunnel.h",
+      "bytes": 1640,
+      "sha256": "c466c3829d448492fec7a1ebb72d275fb641ad0940dbcbe42d4c5a234d7f22cf",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceFunnel.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceS2MM.cpp",
+      "bytes": 3291,
+      "sha256": "0dd87cec44381e39ee22027c6fa7f408656670252a1d6d635e98d50d4ac5a746",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceS2MM.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceS2MM.h",
+      "bytes": 1893,
+      "sha256": "83c2a454e8f6002e7dac789dd1f7c4b26d0dd256e1071dd334cbcb4ffa236962",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/ioctl_monitors/ioctl_traceS2MM.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_add.cpp",
+      "bytes": 2701,
+      "sha256": "3f2bceecfd29a6451241a6aca76d6618d2f0fff8c0109571026935e373d14791",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_add.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_add.h",
+      "bytes": 1520,
+      "sha256": "1d6d23f1b9674a5ab428ebe2f1fb1c4eefd8aadf913ffb97efa4edf2ee9e785b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_add.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_aieTraceS2MM.cpp",
+      "bytes": 2680,
+      "sha256": "2d06fad53642700518b23f3fad15878e2049060b388fbc8619ca8f3aff1dde22",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_aieTraceS2MM.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_aieTraceS2MM.h",
+      "bytes": 1622,
+      "sha256": "42a987d3e9290f236d8b75b955674ead0171355c6f178eed0671f857318e8586",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_aieTraceS2MM.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_aim.cpp",
+      "bytes": 2577,
+      "sha256": "b6b6a66d0ae146df765110dc7d5216a632b9683f541223f5117f97c6741ab4f2",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_aim.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_aim.h",
+      "bytes": 1523,
+      "sha256": "d5dc31cf8e9a3c5422fb12f021126e4d8b8ac3c2f18cdc8e57ef8c0c39bde8cc",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_aim.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_am.cpp",
+      "bytes": 2565,
+      "sha256": "d44e0072e3866e256aa6138df7709b7272c8e99a7c5bb1d5ac5959e81a443531",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_am.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_am.h",
+      "bytes": 1512,
+      "sha256": "8a6d05224166c5312b127175f6b044868a99a872a80db49a7651352fff66775f",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_am.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_asm.cpp",
+      "bytes": 2581,
+      "sha256": "38f743475ce5c2f184438faec55a28e06d9f684b98d80e85f7d3e82f71cd3a36",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_asm.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_asm.h",
+      "bytes": 1524,
+      "sha256": "9a5f33ec4bbf7a5e80f259cacac27af829e159319991b17c87b4d798ceefd3bc",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_asm.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceFifoFull.cpp",
+      "bytes": 2629,
+      "sha256": "c0c4bbd414c9b6071dc70e0fb9d744a7d6c6c777ca611dbb7435edd0c47202c0",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceFifoFull.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceFifoFull.h",
+      "bytes": 1532,
+      "sha256": "235e39501e38e718b45097b0465b041a738e93351d935ab9453a551f7cae5ef1",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceFifoFull.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceFifoLite.cpp",
+      "bytes": 2681,
+      "sha256": "94a450e8ed53e52e98abfa5d1d7de16f797a10ea088c646a857aff1492191a77",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceFifoLite.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceFifoLite.h",
+      "bytes": 1532,
+      "sha256": "85a8f01ca13506484836500b65cdf5db337e1792905279fccb175b6e5406a6b8",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceFifoLite.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceFunnel.cpp",
+      "bytes": 2682,
+      "sha256": "a62eb27defb39739ecd04f5077ac0576c700c697b2c0052ffebd8aa9f6d09999",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceFunnel.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceFunnel.h",
+      "bytes": 1625,
+      "sha256": "bbb84f6906fcc04eb26fd7c3df3bbd9b0e090d9e2c4880349f497b944f20333d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceFunnel.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceS2MM.cpp",
+      "bytes": 2650,
+      "sha256": "b2d26014ce0cfdb213cd1103b18a06b3d67211f1f83c250d683ce51dcd1cf37d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceS2MM.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceS2MM.h",
+      "bytes": 1596,
+      "sha256": "1ffa8df409239d6e38d584a4d256020289c98a4169618a4ef6cf08cee0095f34",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/mmapped_monitors/mmapped_traceS2MM.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/noc.cpp",
+      "bytes": 2294,
+      "sha256": "154c4c9280230f1d4203448fa4ff6a0169ce5a2a3d1f2cabc67c7bad6b2937f2",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/noc.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/noc.h",
+      "bytes": 2900,
+      "sha256": "3b086e9da9d47bc5d052f13a6cdd24eb43acc5ccb69686907ab9c12644c1649a",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/noc.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/profile_ip_access.cpp",
+      "bytes": 7052,
+      "sha256": "43a3c6120e6f1fc4a6e38f8078a906c5d44e249cf572a939bc6b45aba64c7a1c",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/profile_ip_access.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/profile_ip_access.h",
+      "bytes": 5934,
+      "sha256": "5f5dac636a1f1d191370246c2f0773959cceaa97b847ad935debf3ba2f3f6bb2",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/profile_ip_access.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/tracedefs.h",
+      "bytes": 6969,
+      "sha256": "22abee4a0225303d1b8d583ba7e6187a7cf1223058e53193f1a4b45910bf11c6",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/tracedefs.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/traceFifoFull.cpp",
+      "bytes": 2952,
+      "sha256": "2d6b5dcd9f51001bae2fbd304bc9cf53b9d9c18a256e01e904b9d028e23ce709",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/traceFifoFull.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/traceFifoFull.h",
+      "bytes": 2596,
+      "sha256": "2490038b660a4cf362a0d3611e275bb6e9a87364ad279fe704aab181203d223f",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/traceFifoFull.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/traceFifoLite.cpp",
+      "bytes": 2594,
+      "sha256": "675dc64143570651916a207c89731a8cb2580bca141504608a88848f21aa98f1",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/traceFifoLite.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/traceFifoLite.h",
+      "bytes": 2344,
+      "sha256": "1a158e01a50b8d20fa0ef680f7d6135f7d69c8c284f1af0b1f2365982689a608",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/traceFifoLite.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/traceFunnel.cpp",
+      "bytes": 3180,
+      "sha256": "a43c8da219e59a980201cf7cb5f1cadabaa4d5a7161a957e8332fc49e368ad0d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/traceFunnel.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/traceFunnel.h",
+      "bytes": 2366,
+      "sha256": "d924f3a1fc4b5f3b15205a8d0be875102b9ebdfeea18763dcd4d3921c55713ed",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/traceFunnel.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/traceS2MM.cpp",
+      "bytes": 9506,
+      "sha256": "11412c5a0794a3f2aa886d85ab98ab39dd3f307385fdcc2e0eff2a2fc6ba1c45",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/traceS2MM.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/traceS2MM.h",
+      "bytes": 4257,
+      "sha256": "d6b5cb140529626a0e2b59fd94ab38e5856b22da1d748667c262cb92ca6636a3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/traceS2MM.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/utility.cpp",
+      "bytes": 1084,
+      "sha256": "fb037bcc25f9148a6363c620bb5f06f5ecf22ef9e5bd40ae9e7bda7d6f812dbd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/utility.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/utility.h",
+      "bytes": 2247,
+      "sha256": "2dcb11cb82c20985f5a6fd0e2af6942a4ca21f3d8ae808c6780d3d9707942d08",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/utility.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/xdp_base_device.h",
+      "bytes": 2667,
+      "sha256": "624122bb9116c13a07c618cbbaa14eec298203f009fe1d1b8658fe1583669eff",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/xdp_base_device.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/xrtIP.cpp",
+      "bytes": 2252,
+      "sha256": "9d2c512d6a8be30d129940ac6e2a1bb5ad1dffc57ee7fce9d4f8ef5e88c634b3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/xrtIP.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/device/xrtIP.h",
+      "bytes": 1861,
+      "sha256": "e5630ea7df800c574eae28bfd3d19f5b23a0352f89b000bb3bf8fe37a707d333",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/device/xrtIP.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_debug/aie_debug_cb.cpp",
+      "bytes": 1267,
+      "sha256": "091e42725daab0bc5eaef92f3ceb150aaf1b603535bcdcf07abff52e4cb96974",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_debug/aie_debug_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_debug/aie_debug_cb.h",
+      "bytes": 860,
+      "sha256": "e242f4b41321ac40eeeff0cc5ddf36dfa8ecd7f4f6f82739945d8c78bbd1219c",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_debug/aie_debug_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_debug/aie_debug_plugin.cpp",
+      "bytes": 11742,
+      "sha256": "8b412505a599d8febe82f927451f92ce9c5a4ee5df77a4951ed901939c97c270",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_debug/aie_debug_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_debug/aie_debug_plugin.h",
+      "bytes": 2131,
+      "sha256": "f1e38aaf71e1b94c4c2f22c3dbe3f2453e77648f0a4ca3e4b620285090561139",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_debug/aie_debug_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_debug/CMakeLists.txt",
+      "bytes": 1277,
+      "sha256": "7975e336423813b320bbe38d54dd09169ff2b14c92ab65b435b7982f131168bd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_debug/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_debug/transactions/op_base.h",
+      "bytes": 736,
+      "sha256": "8d7d9c3764faca6ff01eb16468a0ab6ef5bddb830586583858c5a2ec73e3a19b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_debug/transactions/op_base.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_debug/transactions/op_buf.hpp",
+      "bytes": 964,
+      "sha256": "7d114e14bf8da1fe04eb8c8f03dff7864784abbfb01dc3a1040f22efc69412b8",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_debug/transactions/op_buf.hpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_debug/transactions/op_defs.h",
+      "bytes": 339,
+      "sha256": "277f21c1b3e1d0b97365745e377ee803ef4fe69d76a15ceec1d1b6cc1b70eb7b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_debug/transactions/op_defs.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_debug/transactions/op_init.hpp",
+      "bytes": 2064,
+      "sha256": "a573ce4cae9f51a04eab5757b4c47d2dba1c5224fa4733be4e55129ace14c40d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_debug/transactions/op_init.hpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_debug/transactions/op_types.h",
+      "bytes": 1037,
+      "sha256": "6b7fd88f3c6bb72d4b9b692a824e0eb8b2f7a8990ef8173aff2d3f2498a2bfd3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_debug/transactions/op_types.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_cb.cpp",
+      "bytes": 1272,
+      "sha256": "7bcd6ad33c1b034e96cd8c943a5e13f7d7236916a5b2ecd9d9b1b4b207e6a559",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_cb.h",
+      "bytes": 860,
+      "sha256": "5046b34d6808df506fd4105675bb524b8787a910c602b9e490d8e20946cd210b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_defs.h",
+      "bytes": 1827,
+      "sha256": "0cbd06198067d24c765d435f027b0f32db2ad203c386b88f5d459cea00155b9c",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_defs.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_impl.h",
+      "bytes": 1596,
+      "sha256": "1a2f48ef9ae17dfd2e28623bea08373173a3fd80ee626d06d1539a1c26cda0b6",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_impl.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_metadata.cpp",
+      "bytes": 34348,
+      "sha256": "e3b83af3ef5984917fa08aa4534d43b541233d4e8be61176c60ebaf58e57f556",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_metadata.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_metadata.h",
+      "bytes": 5473,
+      "sha256": "90cc9545e6c6673f93981e51cd51fdaf6cc4b0cdbc6940543f02a509c0acff8b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_metadata.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_plugin.cpp",
+      "bytes": 8506,
+      "sha256": "5f8907f40365287d069a000957d61e5c6eef6a8a113d8288824e9a7f71da2bf7",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_plugin.h",
+      "bytes": 1732,
+      "sha256": "51079c49529e9838a65ab781fbbe91b296547aa7e0f48c490c85f66904053796",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/aie_profile_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/CMakeLists.txt",
+      "bytes": 2824,
+      "sha256": "281e3210ef340964ceae70e0efa05d7646bc52c1763c357168bca09b0c0441f5",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/edge/aie_profile.cpp",
+      "bytes": 40190,
+      "sha256": "442c1f934ac8146d17c5f099d3c7c0e48d8c2ffefaf49e618f9d013d78390e63",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/edge/aie_profile.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/edge/aie_profile.h",
+      "bytes": 5192,
+      "sha256": "defd16c281fc5f8caaa6d38cb3715f66c813bf7ea294c8d4e80f3d3b0f0dfe97",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/edge/aie_profile.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/win/aie_profile.cpp",
+      "bytes": 26129,
+      "sha256": "34b50dd773cf463af9090d49bdfef7f3e310f86e794d938baaeed1e571404d6e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/win/aie_profile.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/win/aie_profile.h",
+      "bytes": 4195,
+      "sha256": "fb66537ec5da9cc566fcf32dfe46d6da16c5e34d62fccd0c34b9c238e9463a5f",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/win/aie_profile.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/win/transactions/op_base.h",
+      "bytes": 736,
+      "sha256": "8d7d9c3764faca6ff01eb16468a0ab6ef5bddb830586583858c5a2ec73e3a19b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/win/transactions/op_base.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/win/transactions/op_buf.hpp",
+      "bytes": 964,
+      "sha256": "7d114e14bf8da1fe04eb8c8f03dff7864784abbfb01dc3a1040f22efc69412b8",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/win/transactions/op_buf.hpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/win/transactions/op_defs.h",
+      "bytes": 339,
+      "sha256": "277f21c1b3e1d0b97365745e377ee803ef4fe69d76a15ceec1d1b6cc1b70eb7b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/win/transactions/op_defs.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/win/transactions/op_init.hpp",
+      "bytes": 2064,
+      "sha256": "a573ce4cae9f51a04eab5757b4c47d2dba1c5224fa4733be4e55129ace14c40d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/win/transactions/op_init.hpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/win/transactions/op_types.h",
+      "bytes": 1037,
+      "sha256": "6b7fd88f3c6bb72d4b9b692a824e0eb8b2f7a8990ef8173aff2d3f2498a2bfd3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/win/transactions/op_types.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/x86/aie_profile.cpp",
+      "bytes": 9239,
+      "sha256": "e342b071980082c54b33e1e1ae6b0b9463ebabc1e3358b95d9ab1c45e65b7b80",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/x86/aie_profile.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/x86/aie_profile.h",
+      "bytes": 1331,
+      "sha256": "9e9c1d30809e88edf50a813a476556768e7a07324b4ba6a2e446762a39d2f718",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/x86/aie_profile.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_profile/x86/aie_profile_kernel_config.h",
+      "bytes": 3208,
+      "sha256": "4503c88d750bbeab1ea2d49058ff8534caa808d837dc6897654e1acf9a7a875d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_profile/x86/aie_profile_kernel_config.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_status/aie_status_cb.cpp",
+      "bytes": 1427,
+      "sha256": "e7194be42a763dc387e60b0218a3ac46dd22b1a930aa0b3cba4a99538b2797bd",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_status/aie_status_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_status/aie_status_plugin.cpp",
+      "bytes": 16725,
+      "sha256": "ec149f83bc981bd6ffd218d3f26d336e837dbef44b08e5ac8312b1bb889a1197",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_status/aie_status_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_status/aie_status_plugin.h",
+      "bytes": 2202,
+      "sha256": "d22aff291ad944193abd0dc62a7fb51c566d7dbea61bdecf1f15ff5a99469c4f",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_status/aie_status_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_status/CMakeLists.txt",
+      "bytes": 1033,
+      "sha256": "51662940265484f4af1b00936d0a515f80450327decc2bc4727b1a3a6b7cd74c",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_status/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_cb.cpp",
+      "bytes": 1606,
+      "sha256": "936f7f9f775ad4552bca323e7079c7a6fe86db720241de097fadd1c8dd48692e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_cb.h",
+      "bytes": 905,
+      "sha256": "cb4a0017f4c8f86c66767145be6af358b5e734f3901b04c2015723bd5e31841d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_impl.h",
+      "bytes": 1935,
+      "sha256": "abb9d746a2a09b61bf2a8acd88b16e4108d4bed91167d5fa927c25ecbebe747b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_impl.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_metadata.cpp",
+      "bytes": 36614,
+      "sha256": "7372fad116208fb3c7a5f42753bca45f70d2a26c7f2ce7318ba4642caf64210e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_metadata.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_metadata.h",
+      "bytes": 5736,
+      "sha256": "4a64eed92b3ed52dd204433aba6e2083bf93399cb94f0ee165f19e9f34794c25",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_metadata.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_plugin.cpp",
+      "bytes": 13791,
+      "sha256": "6dd3eded38fdcf312464f90ab1ec278a2345022fc466c89d14dabd5cf7317dcb",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_plugin.h",
+      "bytes": 2071,
+      "sha256": "2df9a3f117154f629d647d9ae69eea94e00769d9fba7ee56f987cab3961e2b22",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/aie_trace_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_trace/CMakeLists.txt",
+      "bytes": 2144,
+      "sha256": "78ab9a8a45d3b9f33605ee9412e48782322af160318ea6388d85eff0bce866a8",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_trace/edge/aie_trace.cpp",
+      "bytes": 62451,
+      "sha256": "50a2f7b4e6d27a8a48fe35df447df7be34cec222122b41f63c18aaf94c2d089e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/edge/aie_trace.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_trace/edge/aie_trace.h",
+      "bytes": 5171,
+      "sha256": "02d2d55e8c6a2618ec963eddb6c6253a2663906383d17c583a6a5d90a22b9ec8",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/edge/aie_trace.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_trace/x86/aie_trace.cpp",
+      "bytes": 18755,
+      "sha256": "3c0fad5f51ed2e90e3beda8565d0d41021bac32c6ed5454c1be3ad45967c52b2",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/x86/aie_trace.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_trace/x86/aie_trace.h",
+      "bytes": 1483,
+      "sha256": "3bbdb20c39c24515540caa96bef4e05a42630817520d179ee0e0c172bff9bbbb",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/x86/aie_trace.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/aie_trace/x86/aie_trace_kernel_config.h",
+      "bytes": 5519,
+      "sha256": "cc897d00d951e15fe7e91247f4088383803cbaa909250a0f5410d239d51cfc2a",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/aie_trace/x86/aie_trace_kernel_config.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/CMakeLists.txt",
+      "bytes": 1455,
+      "sha256": "aa797add69adc59ce654dda494cafdb34b0dcbcd2d7497aeff5b85fe3ce87735",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/device_offload_plugin.cpp",
+      "bytes": 17159,
+      "sha256": "657c664817e84d73dc3190a4487657fb56742d357acd92a4f152766810d02d26",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/device_offload_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/device_offload_plugin.h",
+      "bytes": 3450,
+      "sha256": "a7bed373a920b2cb7426295ea456f5cede1a67364f8e7e48f63c5405a2acf392",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/device_offload_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/hal/CMakeLists.txt",
+      "bytes": 1321,
+      "sha256": "49c30bb7a163bf6f1855dda97339beee020cbe0611003bf361611a01bec08074",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/hal/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/hal/hal_device_offload_cb.cpp",
+      "bytes": 1361,
+      "sha256": "71a2eb82d6da138e250e93ca385ce96f43f1a8608c5d0bfed580bc9329166dff",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/hal/hal_device_offload_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/hal/hal_device_offload_cb.h",
+      "bytes": 943,
+      "sha256": "e1eb4b54c90fc6df01e21a4be81b74a7c6850e62b54f478fcb742244eccbfaeb",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/hal/hal_device_offload_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/hal/hal_device_offload_plugin.cpp",
+      "bytes": 6566,
+      "sha256": "e80d90499343111bac3eaa579f12735ca2a018f48ccbb23de4572ef34a952d33",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/hal/hal_device_offload_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/hal/hal_device_offload_plugin.h",
+      "bytes": 2004,
+      "sha256": "eaab411c9dfbb50d43700fe0a2a1016224ebbac28e743a58bd46696937acea4c",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/hal/hal_device_offload_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/hw_emu/CMakeLists.txt",
+      "bytes": 1512,
+      "sha256": "a1cab16d6342d22240e867de469d63726d183f83b91d39b88e1925fcb4f91653",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/hw_emu/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/hw_emu/hw_emu_device_offload_cb.cpp",
+      "bytes": 1120,
+      "sha256": "aed22e2a26708a75dcb32c113f88209a56238a51fd9e53de68fd675409770e60",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/hw_emu/hw_emu_device_offload_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/hw_emu/hw_emu_device_offload_cb.h",
+      "bytes": 955,
+      "sha256": "73702cf629c0896bc17ae1f34881c4b39d1b60486e7589e26306c73c187cbc6e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/hw_emu/hw_emu_device_offload_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/hw_emu/hw_emu_device_offload_plugin.cpp",
+      "bytes": 5694,
+      "sha256": "011b97869d644d72465ea5a2fcdf3bd3b3ef78130d4371dce2b8c918cf9bc709",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/hw_emu/hw_emu_device_offload_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/hw_emu/hw_emu_device_offload_plugin.h",
+      "bytes": 1645,
+      "sha256": "4b04917edbd8ab4e844d8cb6bc6a7890bcacd5e346608d946e05d166d0db9d5b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/hw_emu/hw_emu_device_offload_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/opencl/CMakeLists.txt",
+      "bytes": 1232,
+      "sha256": "e3e56701f5b6aad2db86ede5e5ae140754610b1cff0c90a80195e8522e8e9c53",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/opencl/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/opencl/opencl_device_info_cb.cpp",
+      "bytes": 1657,
+      "sha256": "b1529b81323a956e21f88b6a63a390376ecb060facbcb8e8a474563410b016bb",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/opencl/opencl_device_info_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/opencl/opencl_device_info_cb.h",
+      "bytes": 956,
+      "sha256": "9b54cf156b8d495373da9a6a8371fe9b52b19d82f3e6083285d552a3b78e02c2",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/opencl/opencl_device_info_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/opencl/opencl_device_info_plugin.cpp",
+      "bytes": 7735,
+      "sha256": "2a4a2a252a71db17d6d5a51d0419abd746a10749065e9cd6d3c189736c1cd327",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/opencl/opencl_device_info_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/device_offload/opencl/opencl_device_info_plugin.h",
+      "bytes": 2104,
+      "sha256": "b67ddcb263aa90c475550edbd21f744a1c8a8d69ccad0d58ef0cd98b7b2ca5c7",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/device_offload/opencl/opencl_device_info_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/hal/CMakeLists.txt",
+      "bytes": 899,
+      "sha256": "55c30f36e9ec136a1563cf4346ae2d859fb043e2c12a9177f5a926c21d0984d0",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/hal/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/hal/hal_plugin.cpp",
+      "bytes": 2508,
+      "sha256": "27f4530c45767f5ff8a36b659a86bfa993e6a04c095335cc12348c819d08f450",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/hal/hal_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/hal/hal_plugin.h",
+      "bytes": 1011,
+      "sha256": "3afec61f5a1ef2666a6496cc9b847098b53b3859546146aa894fe73a1d70d72b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/hal/hal_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/hal/xdp_hal_plugin.cpp",
+      "bytes": 5471,
+      "sha256": "0ed8f82d860665abfd33e7f69cf5e24ace1ceeb63bf41c20747c484bedf84079",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/hal/xdp_hal_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/hal/xdp_hal_plugin_interface.h",
+      "bytes": 1181,
+      "sha256": "ac0d5dbe5f735ba6af2d86fac2123012eff37d55ea76c1ba53c696c6d1f5143e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/hal/xdp_hal_plugin_interface.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/hal_api_interface/CMakeLists.txt",
+      "bytes": 1171,
+      "sha256": "43ced0affe2472277a478d1ab31b0453548cff2f7bf28f47758e5b44bc85fb0a",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/hal_api_interface/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/hal_api_interface/xdp_api_interface.cpp",
+      "bytes": 11697,
+      "sha256": "8b92d524a1afb015fe0176413e1ab380a5e974ab0b964dda64b04f977bbf9ded",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/hal_api_interface/xdp_api_interface.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/hal_api_interface/xdp_api_interface.h",
+      "bytes": 1876,
+      "sha256": "06d55ba7e98236d84e2d97e175d2e8a0523720a63a16ca258487ffa461bb7c0c",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/hal_api_interface/xdp_api_interface.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/hal_api_interface/xdp_api_interface_plugin.cpp",
+      "bytes": 3100,
+      "sha256": "717393a43e026bf050afa36194300c6ea9d0f13f0ac889abe0f1023682250d79",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/hal_api_interface/xdp_api_interface_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/hal_api_interface/xdp_api_interface_plugin.h",
+      "bytes": 1181,
+      "sha256": "cf57b2ecf0ae894f4278513017a9a8c0ad264c451fccf72770a14e415dc231a6",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/hal_api_interface/xdp_api_interface_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/lop/CMakeLists.txt",
+      "bytes": 903,
+      "sha256": "3b4f32ddcecfb2f6cd1fb712c56c1706ab2bca324c22d998e746e3a33083d32d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/lop/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/lop/lop_cb.cpp",
+      "bytes": 6094,
+      "sha256": "a50ddaecc5c778bf9c13cd6a582d56bd444035a33c01d383eed74a463c64de86",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/lop/lop_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/lop/lop_cb.h",
+      "bytes": 1506,
+      "sha256": "e1483b3ec10f63eb424f5b42c5ce3b6c3a1e25babbadc829543299013d3e1d7f",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/lop/lop_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/lop/lop_plugin.cpp",
+      "bytes": 5225,
+      "sha256": "a428b38566e21df7ec6e198d17260665d5904d3e5b7561ec9cd6b6a3c59b277e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/lop/lop_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/lop/lop_plugin.h",
+      "bytes": 1194,
+      "sha256": "56b8266ce044fa19eb478a1329c7319ecb0899fa2e755fca1e42dbdf57dfd8a8",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/lop/lop_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/ml_timeline/clientDev/ml_timeline.cpp",
+      "bytes": 4554,
+      "sha256": "3c4eb26c6a112e11be737d06a5310d362ce0f9e76f5cd7682fa99fd1d7d26af7",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/ml_timeline/clientDev/ml_timeline.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/ml_timeline/clientDev/ml_timeline.h",
+      "bytes": 1093,
+      "sha256": "91765f3f4acbd26b4a6dfd79e1b4ea32b7607dd68562536e66a2fbe0b5459109",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/ml_timeline/clientDev/ml_timeline.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/ml_timeline/CMakeLists.txt",
+      "bytes": 1183,
+      "sha256": "1bfb9ae8a5c8c8b40d56e1039f4878a0c3ac26f3a61865c5a30cc97c0e26f073",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/ml_timeline/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/ml_timeline/ml_timeline_cb.cpp",
+      "bytes": 1379,
+      "sha256": "3862e31f8b2225eedc104a552483f1f8cf9cacec514b0a7296fdf381650ebeda",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/ml_timeline/ml_timeline_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/ml_timeline/ml_timeline_cb.h",
+      "bytes": 868,
+      "sha256": "624a97b41e3083d1147a773e005d50ef026f02328e3df2d415a166ee938df284",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/ml_timeline/ml_timeline_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/ml_timeline/ml_timeline_impl.h",
+      "bytes": 1250,
+      "sha256": "f57d962ebffb93a04deeccb35a73f25a255651456d94696bf3694e5f6af3dd5d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/ml_timeline/ml_timeline_impl.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/ml_timeline/ml_timeline_plugin.cpp",
+      "bytes": 4416,
+      "sha256": "6b1240bb4047a4d6d025659fd926e81e984a254d7818ed5b496d0cfdece93989",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/ml_timeline/ml_timeline_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/ml_timeline/ml_timeline_plugin.h",
+      "bytes": 1480,
+      "sha256": "870fbd3484d34b75c3d1981015d3e6432b09e6abcfc9841109fe464ad21b2358",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/ml_timeline/ml_timeline_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/native/CMakeLists.txt",
+      "bytes": 934,
+      "sha256": "2dbe918c6f80b615b1ce5e4abfe2e25ed98dc7d82eaee4034e98c80d49e6eb35",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/native/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/native/native_cb.cpp",
+      "bytes": 7922,
+      "sha256": "6b6196593fd611e061fbb5e3c6a0296c5f2969f4f9233b999db69db4eab56775",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/native/native_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/native/native_cb.h",
+      "bytes": 1441,
+      "sha256": "690fe80cbf3943da329cd7d9ad308c51fb38688f70b6e8faaf8f7eb62df5441e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/native/native_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/native/native_plugin.cpp",
+      "bytes": 1760,
+      "sha256": "ad097f8b0198e848403d68d6340c28d196763406e02eb0c2966a95300fc9f44d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/native/native_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/native/native_plugin.h",
+      "bytes": 992,
+      "sha256": "34a0f32cc4b6fcf2098bc733fcd8a3b6a983fe7b8c5fbb99b739161567e32900",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/native/native_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/noc/CMakeLists.txt",
+      "bytes": 911,
+      "sha256": "a9cd3a66e6436272ccebd08c6a5e044a3692bf11a00d631cc520e47e238ed6d9",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/noc/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/noc/noc_cb.cpp",
+      "bytes": 866,
+      "sha256": "7da93a51c40737528835a6eb1cfe8f791656cda12af48dcbffac45474bbb45e3",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/noc/noc_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/noc/noc_plugin.cpp",
+      "bytes": 4984,
+      "sha256": "87571a09ccfff36b54199827847dd836f116bc9cb29b26bec269ba34b57e9baf",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/noc/noc_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/noc/noc_plugin.h",
+      "bytes": 1180,
+      "sha256": "09a717dafd6031dd49cbdcf20495b90ba766f02dcf414af3d6d5f32eddf02a2f",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/noc/noc_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/opencl/counters/CMakeLists.txt",
+      "bytes": 952,
+      "sha256": "18d92400a1959db6bd4818b931ca12a790512dc809d3ec43e14cd66586e77229",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/opencl/counters/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/opencl/counters/opencl_counters_cb.cpp",
+      "bytes": 14450,
+      "sha256": "06a210404abfbaa764d3736bb6de303b5147cf7d905adeecda5967eba560dd58",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/opencl/counters/opencl_counters_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/opencl/counters/opencl_counters_cb.h",
+      "bytes": 2954,
+      "sha256": "014e508b744a5da94cbb248695bd4e5dcbe6b2e915837837ef01319d96d2b7b4",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/opencl/counters/opencl_counters_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/opencl/counters/opencl_counters_plugin.cpp",
+      "bytes": 3192,
+      "sha256": "77f067d51958d3abe30cb5c5a886b69fddc025431236c6194d9c97c36bfc0f11",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/opencl/counters/opencl_counters_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/opencl/counters/opencl_counters_plugin.h",
+      "bytes": 1374,
+      "sha256": "0bb0b75b2a49cb4c743cb9e0d0cabb54318288b09ab44e499288fbe4ba2fc969",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/opencl/counters/opencl_counters_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/opencl/trace/CMakeLists.txt",
+      "bytes": 978,
+      "sha256": "7d0cd2f0cdf9787584905da8d21f99639e4a56edf05fa657d16831407d1b7d88",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/opencl/trace/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/opencl/trace/opencl_trace_cb.cpp",
+      "bytes": 12586,
+      "sha256": "3709fa2e43142659403576b58647f2fe50d5c43aa5d232c382d3746783fab494",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/opencl/trace/opencl_trace_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/opencl/trace/opencl_trace_cb.h",
+      "bytes": 2586,
+      "sha256": "88c89e9e30c199318200cf661b0b4fb88983976f3fde2aae0c0ed73d4f084f89",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/opencl/trace/opencl_trace_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/opencl/trace/opencl_trace_plugin.cpp",
+      "bytes": 2329,
+      "sha256": "9777b3105ac5ec32b54bc3115eda91d2bc82d62a9dc0dbe1e3b18c1a4d2bfa89",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/opencl/trace/opencl_trace_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/opencl/trace/opencl_trace_plugin.h",
+      "bytes": 1228,
+      "sha256": "101619770af1aa742012a4df3950d7abe68610aa488f732d10c2f894604137ac",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/opencl/trace/opencl_trace_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/pl_deadlock/CMakeLists.txt",
+      "bytes": 1876,
+      "sha256": "b58c072fe885fe33db5f92f940200a59ed40c6ec922fe4e260ee692a7dfda56e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/pl_deadlock/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/pl_deadlock/hw_emu/hw_emu_pl_deadlock_cb.cpp",
+      "bytes": 1064,
+      "sha256": "5e65cc1903f6a2538b5a2de797e869468a69f5d5efd8c490e1114c018dfc0b64",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/pl_deadlock/hw_emu/hw_emu_pl_deadlock_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/pl_deadlock/hw_emu/hw_emu_pl_deadlock_cb.h",
+      "bytes": 981,
+      "sha256": "627cd15769da5b6a12c88e2f89e1e22aa9485a8d967e510e48c7f09614e14a71",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/pl_deadlock/hw_emu/hw_emu_pl_deadlock_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/pl_deadlock/hw_emu/hw_emu_pl_deadlock_plugin.cpp",
+      "bytes": 1315,
+      "sha256": "9915f9245b88f7d7c86ad9dc1fba6ef3ed957ffa6aa66b79517682b750fc683e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/pl_deadlock/hw_emu/hw_emu_pl_deadlock_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/pl_deadlock/hw_emu/hw_emu_pl_deadlock_plugin.h",
+      "bytes": 1100,
+      "sha256": "bef8a6ecb06d6c47739f55a4caf79dcf155e32c18035a8206d81df68ed937ac6",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/pl_deadlock/hw_emu/hw_emu_pl_deadlock_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/pl_deadlock/pl_deadlock_cb.cpp",
+      "bytes": 1188,
+      "sha256": "18c3cbbfe99731a9917bcf3d1cb0257022f65f76fbedf83531cb60daf30fc820",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/pl_deadlock/pl_deadlock_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/pl_deadlock/pl_deadlock_cb.h",
+      "bytes": 947,
+      "sha256": "d44395722588748efa93086b8d034e0336e66e5e171be6158ed9ddde0b7d77a7",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/pl_deadlock/pl_deadlock_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/pl_deadlock/pl_deadlock_plugin.cpp",
+      "bytes": 5088,
+      "sha256": "31b8bf0f1b47a95df72078c65de8d48d789146cdcebb32f2b41711354627885f",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/pl_deadlock/pl_deadlock_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/pl_deadlock/pl_deadlock_plugin.h",
+      "bytes": 1475,
+      "sha256": "169e1590a044de975b9efa1f84fcf6f08875b5548e2f26857ad67471f0d407d4",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/pl_deadlock/pl_deadlock_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/power/CMakeLists.txt",
+      "bytes": 933,
+      "sha256": "f4e71f211791a4bdabc3dfb41185c5b0ba784512f8595e385d253e82578c44eb",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/power/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/power/power_cb.cpp",
+      "bytes": 877,
+      "sha256": "9b15c6088bcb5746c3ea6127ed201416ec3306e802a495187d59bf6ddb1e6ba1",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/power/power_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/power/power_plugin.cpp",
+      "bytes": 5242,
+      "sha256": "f825877e114f4adb7c93954dfa42afadeb101f7ad0be25ab0b8d41f8d988d8a5",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/power/power_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/power/power_plugin.h",
+      "bytes": 1348,
+      "sha256": "bb5242864fadcc466ca5a0f56052b7e26dcf97cebd0064bf922d4a1e970ef3f7",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/power/power_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/system_compiler/CMakeLists.txt",
+      "bytes": 847,
+      "sha256": "fd40f421e3f854bd8e10584521d7b4c44b284ca6ba6705904e30e8f6c7b0ee21",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/system_compiler/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/system_compiler/system_compiler_cb.cpp",
+      "bytes": 916,
+      "sha256": "37e56f1bb83876673ecae301620e12f10f0b1273e93ce5da0ae613eb3b5b5f3e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/system_compiler/system_compiler_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/system_compiler/system_compiler_plugin.cpp",
+      "bytes": 1126,
+      "sha256": "af9121732d6872a697c236cbc67714a807b0d9a105072fcbc0f1655cacc5cc73",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/system_compiler/system_compiler_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/system_compiler/system_compiler_plugin.h",
+      "bytes": 904,
+      "sha256": "75d177d2bd57624f9526411f71a3d9479f968ca39e3ec58b9425818b0394608c",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/system_compiler/system_compiler_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/user/CMakeLists.txt",
+      "bytes": 928,
+      "sha256": "c5f49e501aa7b3081e17a083eef315ecc2f6c67c6ead847a610995e314e1aa1b",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/user/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/user/user_cb.cpp",
+      "bytes": 4589,
+      "sha256": "b73b932d9efdbd845f1c5cf897d47ba265519927a73b48e69dcaa8495cf6919d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/user/user_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/user/user_cb.h",
+      "bytes": 1301,
+      "sha256": "0cb003dc406144558d0121c2f97a50b06b2723e538954ba0a03162078fc634d5",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/user/user_cb.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/user/user_plugin.cpp",
+      "bytes": 1731,
+      "sha256": "282930990e779afd125ad01d94de95fcb253c98e8447fcfdc8981f747d70c03a",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/user/user_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/user/user_plugin.h",
+      "bytes": 1213,
+      "sha256": "1477c94317caf74c645b877af81dc8366a0349ffc53ba8d0226b9b27a662e28d",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/user/user_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/vart/CMakeLists.txt",
+      "bytes": 857,
+      "sha256": "6fd81a5debb9b5bda577456ed94ac8e55f60c998752abfa732fecf80ba59b3ee",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/vart/CMakeLists.txt",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/vart/vart_cb.cpp",
+      "bytes": 852,
+      "sha256": "2d44069bcc29fde5dcfa896c7112644532b76d4b346669a303ade7b6f3410081",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/vart/vart_cb.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/vart/vart_plugin.cpp",
+      "bytes": 1783,
+      "sha256": "b733b97257f2b4fcd5f52f4c6b7c56303f60b3e43b00a3501ea744de0433d640",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/vart/vart_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/vart/vart_plugin.h",
+      "bytes": 878,
+      "sha256": "68254d2287983ee91f1571ae62ed5ba02e7d2368eb2077411ea11b0c7bec8c96",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/vart/vart_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/vp_base/info.h",
+      "bytes": 1413,
+      "sha256": "d3747f193d8916373c48546bc81f84665c386ef0398747fad23f430be774de47",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/vp_base/info.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/vp_base/utility.cpp",
+      "bytes": 4171,
+      "sha256": "60f6dfededc0671718807ed8a3425bb07ee6f36ba5bce46c4b7855bfb08d297c",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/vp_base/utility.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/vp_base/utility.h",
+      "bytes": 1708,
+      "sha256": "955f8e92364e176e3aa65853876b1394baf6513f54559fc0fd5d87d471870c4e",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/vp_base/utility.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/vp_base/vp_base_plugin.cpp",
+      "bytes": 4850,
+      "sha256": "fe001f581d855521f988c66c180b8d366ab79527f7f3272e73ec0440804c4ba1",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/vp_base/vp_base_plugin.cpp",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt/src/runtime_src/xdp/profile/plugin/vp_base/vp_base_plugin.h",
+      "bytes": 3020,
+      "sha256": "9794868f0cf5654ff6451f1417c1ee5a340357716d1db5d280621763c845a672",
+      "url": "https://github.com/Xilinx/XRT/blob/42cba83aee86b253c49eccd484646e91d062468d/src/runtime_src/xdp/profile/plugin/vp_base/vp_base_plugin.h",
+      "matches_exact_archive": true
+    },
+    {
+      "path": "xrt_archive_paths.txt",
+      "bytes": 127085,
+      "sha256": "c2eb7091d8a6d60303e3c516079ca8e857497e07c0bcf97e81d805252a88013b"
+    },
+    {
+      "path": "xrt_exact.tar.gz",
+      "bytes": 16673799,
+      "sha256": "971e612a83c0d8c848ab1f5a78e03db53f5a1568bb96b1553150f387c78a1d3d"
+    }
+  ]
+}

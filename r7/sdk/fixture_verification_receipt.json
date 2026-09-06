@@ -1,0 +1,47 @@
+{
+  "recorded_utc": "2026-09-05T07:44:14.698737+00:00",
+  "command": [
+    "D:\\dsh-proj\\SchedResarch\\r7\\sdk\\verify_fixture.exe",
+    "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\int8_fixture"
+  ],
+  "exit_code": 0,
+  "evidence_level": "CPU-only check using frozen original AMD C++ packing/sequence helpers plus independent INT64 oracle",
+  "stdout": {
+    "path": "sdk/fixture_verification_output.txt",
+    "bytes": 133,
+    "sha256": "cbced0fad785ce998f2a76294075dde281547e9ff6b63af5849398ce8df7e926"
+  },
+  "executable": {
+    "path": "sdk/verify_fixture.exe",
+    "bytes": 36864,
+    "sha256": "6fcf9de556b4e77dd42b2b9f35cf6b6b56f3e704108d36daf7aa59b80713e302"
+  },
+  "inputs": [
+    {
+      "path": "sources/kernel_access/int8_fixture/super_sequence.bin",
+      "bytes": 200,
+      "sha256": "95b27369061bb8464467b563742455f4ffa09671205e8dfa8e9d07a7a1378804"
+    },
+    {
+      "path": "sources/kernel_access/int8_fixture/weights_rowmajor_int8.bin",
+      "bytes": 4194304,
+      "sha256": "8dbdc0f4aedb8b6bfa38d165d67cbc38d141aae89770f6be5fc8971321b2b0a7"
+    },
+    {
+      "path": "sources/kernel_access/int8_fixture/weights_packed_int8.bin",
+      "bytes": 4194304,
+      "sha256": "dff4f7759fc5067e782be5454e8ed19d348b77b7db420ff601543f838e3a9330"
+    },
+    {
+      "path": "sources/kernel_access/int8_fixture/a_rowmajor_int8.bin",
+      "bytes": 2048,
+      "sha256": "dc31cbb7248bbe829757915493a4bfe6281edeaf0261a7d2049cda55c23ec569"
+    },
+    {
+      "path": "sources/kernel_access/int8_fixture/expected_rowmajor_int32.bin",
+      "bytes": 8192,
+      "sha256": "2da121a2e7db4df976d9266d5d0af0d0fa460ca0e58d0a6034ef4e8197fd2158"
+    }
+  ],
+  "device_executed": false
+}

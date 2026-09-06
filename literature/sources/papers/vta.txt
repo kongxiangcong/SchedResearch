@@ -1,0 +1,505 @@
+                                                                                                                                                                                                                                                                    1
+
+                                                 A Hardware-Software Blueprint for
+                                              Flexible Deep Learning Specialization
+
+                                        Thierry Moreau1, Tianqi Chen1, Luis Vega1, Jared Roesch1, Eddie Yan1, Lianmin Zheng2, Josh Fromm1, Ziheng Jiang1,
+                                                                                        Luis Ceze1, Carlos Guestrin1, Arvind Krishnamurthy1
+
+                                                                     1Paul G. Allen School of Computer Science & Engineering, University of Washington
+                                                                                                         2Shanghai Jiao Tong University
+
+                                                                                                             !
+
+arXiv:1807.04188v3 [cs.LG] 23 Apr 2019  Abstract--Specialized Deep Learning (DL) acceleration stacks, de-              customizing behavior of these accelerators, even when open-
+                                        signed for a specific set of frameworks, model architectures, operators,       sourced, is highly dependent on the availability of a transparent
+                                        and data types, offer the allure of high performance while sacrificing flexi-  and modular software stack.
+                                        bility. Changes in algorithms, models, operators, or numerical systems
+                                        threaten the viability of specialized hardware accelerators.                       A central challenge in prior work is linking innovations
+                                                                                                                       in specialization to the rapidly changing software of machine
+                                             We propose VTA, a programmable deep learning architecture tem-            learning. This challenge is not specific to computer architecture;
+                                        plate designed to be extensible in the face of evolving workloads. VTA         it is present at all levels of the stack. An end-to-end approach
+                                        achieves this flexibility via a parametrizable architecture, two-level ISA,    requires integration between frameworks, systems, compilers, and
+                                        and a JIT compiler. The two-level ISA is based on (1) a task-ISA that          architecture in order to execute state of the art machine learning
+                                        explicitly orchestrates concurrent compute and memory tasks and (2)            using hardware acceleration. Peak FLOPs only provide value if a
+                                        a microcode-ISA which implements a wide variety of operators with              programmer can access them.
+                                        single-cycle tensor-tensor operations. Next, we propose a runtime system
+                                        equipped with a JIT compiler for flexible code-generation and heteroge-            We present VTA (Versatile Tensor Accelerator): an explicitly
+                                        neous execution that enables effective use of the VTA architecture.            programmed architecture paired with a capable JIT compiler and
+                                                                                                                       runtime that can evolve in tandem with deep learning models
+                                             VTA is integrated and open-sourced into Apache TVM, a state-of-           without sacrificing the advantages of specialization. VTA makes
+                                        the-art deep learning compilation stack that provides flexibility for diverse  the following contributions:
+                                        models and divergent hardware backends. We propose a flow that
+                                        performs design space exploration to generate a customized hardware               · A programmable accelerator design that exposes a two-level
+                                        architecture and software operator library that can be leveraged by                  programming interface: a high-level task ISA to allow explicit
+                                        mainstream learning frameworks. We demonstrate our approach by                       task scheduling by the compiler stack, and a low-level mi-
+                                        deploying optimized deep learning models used for object classification              crocode ISA to provide software-defined operational flexibility.
+                                        and style transfer on edge-class FPGAs.                                              In addition the VTA architecture is fully parameterizable:
+                                                                                                                             the hardware intrinsics, memories, and data types can be
+                                        1 INTRODUCTION                                                                       customized to adapt to the hardware backend requirements.
+
+                                        Hardware specialization is a powerful way to accelerate a known                   · An extensible runtime system for heterogeneous execution that
+                                        set of applications and workloads. Unfortunately, deep learning is                   performs JIT compilation of microcoded kernels to provide
+                                        anything but a static field, and machine learning community rapidly                  operational flexibility. The VTA runtime has allowed us,
+                                        changes the software they use to write models, the architecture of                   for instance, to extend the functionality of VTA's original
+                                        models themselves, the operators used by said models, and the data                   computer vision-centric design to support operators found in
+                                        types they operate over.                                                             style transfer applications without requiring any modifications
+                                                                                                                             to the hardware.
+                                            The research community has primarily focused on two ap-
+                                        proaches for accelerator designs, fixed function accelerators and                 · A schedule auto-tuning platform that can optimize data access
+                                        programmable accelerators (also known as Domain-Specialized                          and data reuse in order to rapidly adapt to changes in the
+                                        Accelerators). Current solutions offer compelling peak performance,                  underlying hardware and changes in workload diversity.
+                                        but often fail to integrate into the evolving machine learning
+                                        landscape.                                                                         We demonstrate VTA's flexibility by adapting different work-
+                                                                                                                       loads for two edge FPGAs. Figure 1 presents how to map a
+                                            Fixed-model accelerators are commonly spatially and statically             workload to FPGAs using the VTA architecture and runtime. This
+                                        laid out, offering attractive performance for certain workloads.               process explores VTA hardware variants, and performs software
+                                        Unfortunately, the static nature of this approach rules out the reuse          autotuning for each candidate design. The resulting design and
+                                        of hardware resources, limiting support for larger or newer models.            customized software binaries can be easily integrated into a
+                                                                                                                       deep learning framework. Finally, we evaluate the full system,
+                                            In contrast, programmable accelerators [6] offer far more                  demonstrating VTA's ability to outperform edge GPUs with edge
+                                        flexibility by leveraging ISAs. Due to the programmable nature                 FPGAs on inference workloads.
+                                        of these accelerators, achieving peak performance requires a
+                                        competent deep learning compiler that can map a large number of
+                                        workloads onto a fixed set of hardware intrinsics. Consequently,
+{ } HW / SW Constraints                                                                       VTA Candidate Designs
+FPGA   # BRAMs                             VTA Design Space                                                                    throughputOperator Performance                              Deliverable
+       DRAM channels                                                                              #1 Design AAA @ 307GOPs                                                         customAutoTuning
+       logic resources  Architecture Knobs                                                        #2 Design BBB @ 307GOPs                                                                         Model
+                              GEMM Intrinsic: e.g. (1,32) x (32,32) vs. (4,16) x (16,16)          #3 Design CCC @ 307GOPs            307 GOPs
+Model  batch size             # of units in tensor ALU : e.g. 32 vs. 16                           #4 Design DDD @ 256GOPs            256 GOPs                                              Graph Optimizer
+                              BRAM allocation between buffers, register file, micro-op cache                                                                                              Tuned Operator Lib
+                                                                                                                                                                autotuning steps
+                        Circuit Knobs                                                                                                                                                      VTA Design BBB
+
+       data types       Circuit Pipelining: e.g. for GEMM core between [11, 20] stages        Needs to pass place & route                                                                          FPGA
+       channel width    PLL Frequency Sweeps: e.g. 250 vs. 300 vs. 333MHz                        and pass timing closure
+
+Fig. 1: VTA provides flexibility with respect to hardware targets and deep learning models. This flow diagram shows the steps in
+adapting a given model to a hardware backend by exploring VTA hardware configurations, and performing operator autotuning on the
+top hardware candidates. This process generates the pieces necessary to deploy VTA in any deep learning framework.
+
+       Deep Learning Frameworks                                                                                                      DRAM
+
+                                      - programming productivity
+                                      - development and training of new models
+
+                                                                                                                               INSTRUCTION FETCH MODULE
+
+               Model + Parameters     - data layout                                           LOAD                                                  COMPUTE               STORE
+              Relay Graph Optimizer   - operator fusion                                       CMD Q                                                 CMD Q                 CMD Q
+                                      - bit packing
+                        Relay IR                                                                    LDCMP Q                    COMPUTE MODULE                CMPST Q
+             TVM Operator Optimizer   - schedule transformations
+                                      - computation tiling                                                                     REGISTER MICRO-OP
+                        TVM IR        - virtual threading
+               JIT Compiler Runtime   - lower schedule to hardware intrinsics                                                  FILE        CACHE
+VTA
+                                      - produce platform-specific code                          LOAD                                                                                       STORE
+                         Binary       - flexibility to generate different kernels             MODULE                                                                                      MODULE
+           VTA Hardware Architecture
+                                      - energy efficient execution                                                    CMPLD Q  Tensor ALU                    STCMP Q
+                                      - expose knobs to allow for customization                                                GEMM Core
+
+                                                                                               INPUT BUFFER                                                  OUTPUT BUFFER
+                                                                                              WEIGHT BUFFER
+
+Fig. 2: Overview of the software stack built for VTA. We leverage                             Fig. 3: The VTA hardware organization. VTA is composed of
+the Apache TVM compiler stack to target VTA.                                                  modules that communicate via queues and SRAMs. This defines a
+                                                                                              task pipeline, which helps maximize compute resource utilization.
+
+2 VTA HARDWARE-SOFTWARE STACK OVERVIEW                                                              cess of scheduling workloads onto VTA accelerator variants.
+                                                                                                    Scheduling is important for multiple reasons. First, it tiles
+Running an end-to-end workload on VTA requires a complete                                           the computation to maximize data reuse. Second, it inserts
+software stack that can map high-level models down to the                                           thread parallelism that VTA's runtime can translate into
+programming interface exposed by VTA. We outline the layers of                                      task-level pipeline parallelism. Third, it partitions operators
+the VTA system stack below, which we built into the Apache TVM                                      into sub-computations which can be mapped to high-level
+deep learning compiler stack.                                                                       hardware intrinsics such as bulk DMA load or GEMM. TVM
+                                                                                                    incorporates AutoTVM [4], an automated schedule optimizer.
+Framework. Frameworks allow programmers to easily express                                          We rely upon AutoTVM to guide our hardware candidate
+      models in a declarative fashion and perform training at                                       exploration search for the best VTA candidates given a
+      scale on standard datasets. Frameworks like TensorFlow,                                      workload.
+      PyTorch, MxNet have gained widespread adoption, allowing                                JIT Compiler and Runtime. The runtime performs JIT compila-
+      the community to easily share, and deploy models. TVM's                                       tion of the accelerator binaries and manages heterogeneous
+      ability to ingest models from these popular frameworks,                                       execution between the CPU and VTA. The JIT compiler
+      enables generic compilation from frameworks to VTA.                                           abstracts binary compatibility by introducing one level of
+                                                                                                    indirection. We describe the runtime in more details in
+Relay Graph Optimizer. Relay [7] is TVM's high level program                                        Section 3.2.
+      representation. Relay generalizes the computation graphs used                           Hardware architecture. VTA is a parameterizable accelerator
+      by prior frameworks and deep learning compilers into a                                        that accelerates the bulk of the deep learning compute
+      full programming language. The Relay optimization pipeline                                    graph. VTA is explicitly programmed by the compiler stack
+      performs generic optimizations such as operator fusion and                                    using a two-level programming interface. The architecture is
+      partial evaluation. Relay's design is focused on extensibility,                               parameterized by the size of the GEMM core, the SRAM
+      a property we use to extend Relay with a set of optimizations                                 shapes, and data type widths. A parameterized hardware
+      specific to VTA. When targeting VTA we quantize inputs to                                     architecture makes it possible to retarget the same design
+      match VTA's low precision data types, transform data layout,                                  to devices with different hardware resources. We describe
+      maximize data reuse, and transform input and weight data                                     VTA in more details in Section 3.1.
+      layouts to utilize VTA's tensor intrinsics.
+
+TVM Operator Optimizer. TVM [3] automates the tedious pro-
+
+                                                                                   2
+LOAD, STORE                                                                                                                                       MEMOP_STRIDE_WIDTH
+                                                                                                            2 * MEMOP_SIZE_WIDTH
+OPCODE_WIDTH            4       MEMOP_ID_WIDTH MEMOP_SRAM_ADDR_WIDTH  MEMOP_DRAM_ADDR_WIDTH                                                                           4 * MEMOP_DRAM_ADDR_WIDTH
+
+           OPCODE       DEPT    BUFFER ID   SRAM BASE                 DRAM BASE              unused         Y SIZE    X SIZE         X STRIDE     Y PAD:                Y PAD:            X PAD:     X PAD:          unused
+                        FLAGS   (sram_mem)  (sram_base)               (dram_base)                             (y)       (x)         (x_stride)      TOP               BOTTOM               LEFT      RIGHT                        127
+         0                                                                                                                                                            (y_pad_1)         (x_pad_0)  (x_pad_1)
+                            4                                                                                                                   (y_pad_0)
+GEMM
+                                                                                                     63 64
+          OPCODE_WIDTH
+                                    1       2 * LOG_UOP_BUFF_DEPTH    2 * LOOP_ITER_WIDTH                   2 * LOG_ACC_BUFF_DEPTH  2 * LOG_INP_BUFF_DEPTH            2 * LOG_WGT_BUFF_DEPTH
+                                RESET
+                        DEPT                MICRO-OP MICRO-OP           LOOP      LOOP                  ACCUM IDX     ACCUM IDX     INPUT IDX   INPUT IDX             WEIGHT IDX WEIGHT IDX
+                        FLAGS                                         EXTENT 0  EXTENT 1                 FACTOR 0      FACTOR 1     FACTOR 0    FACTOR 1
+           OPCODE                           BEGIN  END                 (end0)    (end1)      unused                                                                   FACTOR 0 FACTOR 1            unused
+                             4                                                                                            (x1)         (y0)        (y1)                                                                     127
+         0                                  (uop_bgn) (uop_end)                                             (x0)                                                      (z0)              (z1)
+
+ALU                                                                                                  63 64
+
+          OPCODE_WIDTH               1      2 * LOG_UOP_BUFF_DEPTH    2 * LOOP_ITER_WIDTH                                                                             ALU_OPCODE_WIDTH  1          ALUOP_IMM_WIDTH
+                                RESET
+                                                                                                            2 * LOG_ACC_BUFF_DEPTH  2 * LOG_INP_BUFF_DEPTH
+
+                        DEPT                MICRO-OP MICRO-OP           LOOP      LOOP                       DST IDX   DST IDX       SRC IDX     SRC IDX                 ALU            USE_IMM IMMEDIATE
+                        FLAGS                                         EXTENT 0  EXTENT 1                    FACTOR 0  FACTOR 1      FACTOR 0    FACTOR 1              OPCODE                                  (IMM)
+   OPCODE                                   BEGIN  END                 (end0)    (end1)      unused                                                                                                                  unused
+0                                                                                                                        (x0)          (y0)        (y0)                 (OP)                                                      127
+                                            (uop_bgn) (uop_end)                                             (x0)
+
+                                                                                                     63 64
+
+Fig. 4: The VTA high-level instruction fields. LOAD and STORE instructions perform 2D strided DMA reads/writes between DRAM
+and SRAM. GEMM instructions are used to matrix multiplication, 2D convolutions, etc. while ALU instructions can perform a wide range
+of activation, normalization, and pooling tasks.
+
+3 VTA ARCHITECTURE AND JIT RUNTIME                                                                      results in memory latency hiding on compute-bound workloads
+                                                                                                        (e.g. 2d convolutions).
+A successful implementation of a flexible deep learning accelerator                                     Task-Level ISA. VTA supports a high-level task ISA that encodes
+requires co-design of the hardware with the software stack. We                                          multi-cycle compute and memory operations, including LOAD,
+describe at a high level two components that were co-designed to                                        GEMM, ALU, and STORE instructions described in Figure 4.
+achieve this goal: the VTA hardware architecture, and the VTA JIT                                       LOAD and STORE instructions describe how data from DRAM
+compiler and runtime.                                                                                   is loaded and stored into on-chip SRAMs. Strided memory access
+                                                                                                        is supported to load tensor tiles without modifying memory layout.
+3.1 Hardware Architecture                                                                               GEMM and ALU instructions invoke micro-coded kernels, based on
+                                                                                                        micro-op instructions, which describe the data-access patterns that
+Figure 3 gives a high-level overview of the VTA hardware                                                define a given deep learning operator.
+organization. VTA is composed of four modules: fetch, load,
+compute, and store. Together, these modules define a task                                                   We illustrate a simple execution pipeline in VTA below:
+pipeline, which enables high compute resource utilization on
+compute-bound workloads, and high memory bandwidth utilization                                          · The fetch module loads task instructions from DRAM and
+on memory-bound workloads. These modules communicate over                                                  dispatches them, according to the instruction type, to the
+command queues and on-chip shared memories (SRAMs) that act                                                corresponding command queues connected to load, compute,
+as uni-directional data channels. Accesses to these memories are                                           and store modules.
+synchronized via dependency queues to prevent data hazards such
+as Read After Write (RAW) and Write After Read (WAR). Finally,                                          · The load module loads input, weight, and bias tensor tiles from
+the 3-stage architecture (load-compute-store) can be used                                                  DRAM into on-chip memories.
+to build task pipelines of arbitrary depth as long as dependencies
+are properly managed.                                                                                   · The compute module loads a micro-coded kernel from DRAM
+Parameterizability. The VTA architecture is fully parameterizable:                                         into on-chip memory. Micro-coded kernels are based on micro-
+the shape of the GEMM tensor intrinsic can be modified to                                                  ops that describe data access patterns for inputs, weights, and
+influence the utilization of hardware resources. Modifying the                                             biases.
+shape of the input, weight, and accumulator tensors that feed the
+GEMM unit directly affects how many multipliers to instantiate                                          · The compute module executes the micro-coded kernel to
+and how wide SRAMs ports need to be. In addition, each data                                                perform either a dense linear algebra computation via the GEMM
+type can customized to a different integer precision: weight and                                           core or a pairwise arithmetic operations via the Tensor ALU.
+input types can be 8-bits or fewer, while the accumulation type
+can be 32-bits or fewer. Control of integer precision lets us scale                                     · The store module reads results processed by the compute
+arithmetic density on chip when resources are constrained.                                                 module and writes them to DRAM.
+Exposing Task-Level Pipeline Parallelism. Task-Level Pipeline
+Parallelism (TLPP) is an important feature in the VTA architecture,                                     Compute Module. Two functional units perform operations on
+because it enables simultaneous use of compute and memory                                               the register file: the tensor ALU and the GEMM core. The tensor
+resources to maximize their utilization. TLPP is based on the                                           ALU performs element-wise tensor operations such as addition,
+paradigm of access-execute decoupling [8]. To extract TLPP, we                                          activation, normalization, and pooling tasks. The GEMM core
+partition tasks into two mutually-exclusive execution contexts,                                         performs high-arithmetic intensity matrix multiplication over input
+so that concurrent load, compute, and store operations do not                                           and weight tensors to implement common deep learning operators
+interfere with one another. This partitioning is easily achieved in                                     such as 2D convolutions, or fully connected layers.
+TVM using virtual threads [3]. To guarantee timely and correct
+execution for decoupled access-execute instruction streams, we                                              The GEMM core performs matrix multiply operations at a
+encode dependency information into instructions. This effectively                                       pipelined rate of one input-weight matrix multiplication per cycle.
+                                                                                                        Its logic is implemented as parallel vector dot-product using
+                                                                                                        reduction trees, but can be substituted with other implementations
+                                                                                                        such as systolic arrays. The GEMM core defines a low-level tensor
+                                                                                                        hardware intrinsic which is exposed to the TVM compiler stack.
+                                                                                                        TVM uses tensorization [3]: an automated approach to mapping
+
+                                                                                                     3
+                               weight buffer     weight tensor
+                                              (stored transposed)
+   Data Types      wgt_idx     BATCH                                                     Bandwidth Derivation (bits per cycle)
+                                                            BLOCK_INBLOCK_OUT
+int<WEIGHT_WIDTH>                                                                           WEIGHT_WIDTH*BLOCK_OUT*BLOCK_IN
+int<INPUT_WIDTH>                                                                                                  BATCHGEMMINPUT_WIDTH*BATCH*BLOCK_IN
+int<ACCUM_WIDTH>                                     Core                                   ACCUM_WIDTH*BATCH*BLOCK_OUT
+
+         input buffer          input                                                     accumulator                     register file
+                               tensor                                                        tensor
+
+inp_idx
+
+                                                                                                                                        reg_idx
+
+                               BLOCK_IN                                                  BLOCK_OUT
+
+                               LOG_ACC_BUFF_DEPTH LOG_INP_BUFF_DEPTH LOG_WGT_BUFF_DEPTH
+
+GEMM Instruction Pseudo-Code:                                                                                                        micro-op buffer
+                                                                                                                         uop_bgn
+                                accumulator index (x)                   input index (y)  weight index (z)  unused
+                               0                                                                                   31    uop_idx
+for i0 in range(0, end0):                                               Micro-Op Fields                                  uop_end
+   for i1 in range(0, end1):
+
+for uop_idx in range (uop_bgn, uop_end):
+
+x, y, z = decode_gemm_indices(uop_buffer[upc])
+
+reg_idx = i0 * x0 + i1 * x1 + x
+
+inp_idx = i0 * y0 + i1 * y1 + y
+
+wgt_idx = i0 * z0 + i1 * z1 + z
+
+reg_file[reg_idx] += GEMM(inp_buff[inp_idx], wgt_buff[wgt_idx])
+
+Fig. 5: The GEMM core can perform one dense matrix multiplication over an input tensor and a weight tensor, and add the result into a
+register file tensor. The data addressing pattern is specified by a micro-coded sequence: this allows us to map different deep learning
+operators onto a single fixed-sized matrix-matrix multiplication intrinsic.
+
+deep learning operators such as 2d convolution down to fixed tensor        Compiler Design. By adding a level of indirection, code JIT-ting
+hardware intrinsics.                                                       eliminates the need to write compiler code-generation backends
+Microcode ISA. The compute core reads instructions from the                which can be tedious to maintain for different programmable
+micro-op cache, which describe how computation is performed over           accelerators. The JIT compiler exposes a high-level API to TVM
+data. Figure 5 details how the GEMM core performs computation              to lower schedules onto, abstracting away VTA variant-specific
+over data stored in the input, weight, and accumulator memories.           architectural details. This lets us extend the TVM compiler support
+These micro-ops provide no control flow. Therefore, instructions           we built for VTA to cover future variants of different shapes and
+need to be unrolled to express repeatable data access stencils. There      sizes.
+are two types of compute micro-ops: ALU and GEMM operations.
+To minimize the footprint of micro-op kernels while avoiding               Physical Limitations. The JIT runtime generates and manages
+the need for control-flow instructions, the compute core executes          micro-kernels on the fly. It controls when to load kernels from
+micro-op sequences inside a two-level nested loop that computes            DRAM into the accelerator limited micro-op cache. This eliminates
+the location of each tensor register via an affine function. This          micro-op memory physical limitations and lets us support large
+compression approach helps reduce the micro-ops footprint when             models, even if all micro-kernels for all layers do not fit in SRAM
+sent to the accelerator.                                                   all at once. It also lets us trade area used by the micro-op cache for
+                                                                           other resources such as data storage, or compute units.
+3.2 JIT Runtime System
+                                                                           Binary bloat. Delaying micro-kernel generation to the JIT compi-
+VTA's JIT runtime enables cooperative execution of deep learning           lation stage minimizes binary bloat. Since VTA's architecture has
+workloads between a CPU host and the accelerator. The JIT runtime          limited support for control flow, micro-kernels have to be unrolled
+design follows five objectives: (1) enable heterogeneous execution,        which can produce fairly large binaries. In addition, micro-kernel
+(2) lower compiler design complexity, (3) overcome physical                code JIT-ting expresses binaries for heterogeneous execution in a
+limitations, (4) reduce binary bloat, (5) future proofing.                 single-ISA: instead of shipping a hybrid binary, we just ship one
+Heterogeneous execution. One challenge present in fixed function           CPU binary that performs accelerator binary JIT-ting.
+accelerators is model evolution, because most of these accelerators
+are built for fixed models. Heterogeneous execution overcomes              Future proofing. Advancements in deep learning have outlined the
+this limitation by properly scheduling operators into targets (e.g.,       prevalence of dynamic neural network workloads that incorporate
+CPUs or VTA), depending on their affinity for different types of           control flow. Additionally, advances in systems show trends
+operators. For instance, it is well known that the first convolutional     towards heterogeneous multi-accelerator systems and scale-out
+layer in most CNNs contains operators with low arithmetic                  acceleration. Having a runtime that handles dynamic decisions
+intensity that perform well on CPUs. Another motivation behind             across heterogeneous platforms will keep the design of hardware
+heterogeneous execution is providing a fallback mechanism for              accelerators like VTA simple, and constrain support for future
+supporting emerging operators that are not yet supported by VTA.           models to being a mostly software-defined problem.
+
+                                                                        4
+Throughput on ResNet-18 conv2D operator (GOPS)250                                                            100Full ResNet-18 Network Optimization with Successive Halving
+                                                                                         Sum of Latency (s)
+200                                                                                                                                                                    VTA Design 0
+                                                                                                                                                                       VTA Design 1
+150                                                                                                                                                                    VTA Design 2
+                                                                                                                                                                       VTA Design 3
+                    VTA Design 0                                                                                                                                       VTA Design 4
+                                                                                                                                                                       VTA Design 5
+                                                                                                                                                                       VTA Design 6
+                                                                                                                                                                       VTA Design 7
+                                                                                                             10 1
+
+100                 VTA Design 1
+                    VTA Design 2
+                    VTA Design 3
+                    VTA Design 4
+50                  VTA Design 5
+                    VTA Design 6
+                    VTA Design 7
+00                                                                                                           10 2 1000
+     200  400  600  800                               1000                                                              2000  3000  4000  5000                           6000
+     The number of trials of XGBoost schedule search                                                                    Optimization Iterations (step size=1 iteration)
+
+Fig. 6: Schedule exploration with XGBoost for a single ResNet-18          Fig. 7: Example of hardware design exploration and schedule
+layer on Ultra-96. Eight VTA design candidates with (2,16)x(16,16)        autotuning on a complete ResNet-18 inference workload run
+and (8,8)x(8,8) GEMM intrinsic at W8A8 are considered. Layer              on Ultra96 FPGA. The exploration begins with promising VTA
+is conv2d: IC=256, OC=256, H=W=14, KW=KH=3, stride=(1,1),                 hardware variants and converges to the optimal hardware design
+padding=(0,0).                                                            while using a fraction of the optimization time required to
+                                                                          exhaustively evaluate each hardware design.
+
+4 VTA HIERARCHICAL OPTIMIZATION                                           bandwidth constrained. In these situations we are able to use task-
+                                                                          level pipeline parallelism to mitigate performance loss.
+4.1 Hardware Exploration for Varying FPGA Sizes
+                                                                          4.2 Schedule Exploration for Operator Autotuning
+One way to showcase VTA's architecture flexibility is to target
+different FPGA platforms. FPGAs are becoming more accessible              Schedule autotuning is the process by which an automated search
+than ever, with sub-$100 development boards, and FPGA cloud               algorithm attempts to optimize a given program or workload
+computing instances becoming ubiquitous.                                  towards peak hardware performance. We perform autotuning
+                                                                          by applying different memory tiling, loop transformations (e.g.
+    The VTA design offers multiple architectural customization            splitting, reordering, unrolling), vectorization/tensorization, and
+parameters that are listed in Figure 1. Architectural knobs include       parallelization strategies [4]. We then use the TVM compiler
+GEMM hardware intrinsic shape, data types, number of parallel             to express schedule templates for each operator (e.g. conv2d,
+arithmetic units in the tensor ALU, ALU operations, BRAM                  conv2d_transpose, group_conv2d, fc) we support in
+distribution between on-chip memories. Circuit knobs include              hardware. We use TVM's automated scheduling library to obtain
+degree of hardware pipelining to close timing at higher frequencies,      schedules that maximize performance for a given combination of
+and PLL frequency. These customization knobs define a hardware            operator, tensor shape, and hardware parameterization.
+design space with 100s to 1000s of individual designs. This design
+space can be exhaustively explored to find the best candidate for             Figure 6 shows the autotuning search process when optimizing
+a particular workload. We perform this exploration in a sequence          different VTA hardware candidates for a single ResNet layer. We
+of stratified steps. First we use a simple FPGA resource model            used the XGBoost [1] search algorithm to find the best schedules
+to prune infeasible VTA parameterizations. After pruning, each            for each hardware variant in a limited number of trials. Each
+candidate hardware design is compiled, placed, and routed. We             workload's layers are then tuned for each hardware candidate.
+pick the best feasible design for each { f pga × dtype × batch}           Aggregate inference time is used to select the VTA hardware
+combination, but typically our exploration returns a handful of           variant that is best for a given model.
+promising candidates ­ the rest of the designs either yield low peak
+performance or fail placement, routing, or timing closure. For this           It takes several hours to exhaustively tune a network on a single
+final set of designs, we generate optimized software, using operator      hardware variant. Given the large number of VTA hardware designs
+autotuning [4], and use this software to obtain the workload's            to test, and model architectures to support, autotuning search
+performance profile.                                                      quickly becomes intractable without careful design. Minimizing
+                                                                          full-network autotuning time across multiple hardware candidates
+    An analytical model of peak performance is used to initially fil-     introduces a hierarchical prioritization problem. We approach this
+ter hardware designs based on theoretical throughput and frequency        challenge by applying a hyperparameter optimization technique,
+assuming compute resources are 100% utilized. However, assuming           based on SuccessiveHalving [5]. Instead of choosing among
+100% utilization of compute resources by a particular operator is         hyperparameters that define a network architecture, we apply
+often inaccurate. For example, depending on the workload mix,             this technique to choose among VTA design candidates. We
+operators like conv2d with large window sizes may exhibit high            simultaneously inspect how the relative performance of each
+arithmetic intensity (measured in Op/Byte). Operations with high          hardware design evolves for a given workload, over each iteration
+arithmetic intensity translate to high utilization, and therefore are     of the optimization algorithm. Throughout optimization we use a
+close to peak performance. Operators which exhibit low arithmetic
+intensity, like conv2d, with a window size of 1, are memory
+
+                                                                       5
+round-robin policy to update latency estimates across all operators                               TVM Cortex A9
+for each hardware design.                                                                         VTA PynqZ1
+                                                                                                  TVM Cortex A53
+4.3 Full Network Optimization Case Study                                                    2000  ARMCL Mali-T860
+
+We show in Figure 7 an example of hierarchical optimization                                       VTA Ultra96
+for the ResNet-18 workload, based on the hardware exploration
+and schedule exploration techniques described before. We per-               Time cost (ms)  1500
+form these optimizations over a set VTA candidates generated
+using W8A8 (8-bit weights, 8-bit activations) data representa-                              1000
+tions. We select eight promising hardware candidates, and apply
+SuccessiveHalving to prune designs that do not appear                                       500
+promising. Similar to hyperparameter optimization for neural
+network training, this is a difficult task, as the relative performance            0 MobileNet ResNet-18 ResNet-34 ResNet-50 DCGAN
+differences between hardware designs may be small early on. After
+a moderate number of iterations, SuccessiveHalving is able                  Fig. 8: End to end performance evaluation over multiple CPU,
+to converge to the best candidate hardware design.                          GPU and FPGA-equipped edge systems. For comparable systems,
+                                                                            VTA provides a significant performance edge over conventional
+    This case study showcases VTA's ability to quickly navigate a           CPU and GPU-based inference.
+non-trivial space of accelerator configurations for a given workload.
+As accelerator configurations change, so does the software that
+programs it. This joint-optimization problem can only be solved
+with a flexible stack.
+
+5 EVALUATION                                                                etc.). For our GPU baseline, we use the ARM CL v18.03 and exploit
+                                                                            16-bit floating-point (FP16) library support. ARM CL is missing
+As the landscape of deep learning continues to evolve, it is                support conv2d transpose for DCGANs, demonstrating VTA's
+important to support emerging models. We evaluate VTA's ability             ability to stay ahead of the curve for unconventional workloads.
+to support two novel model architectures beyond standard deep
+convolution nets. First, we evaluate MobileNet, a recent model                  Figure 8 shows end-to-end results that can be discussed in two
+architecture that uses grouped convolution to reduce the total              groups of comparable devices in terms of cost: (1) VTA on the
+computation overhead of the network. We evaluate a variant                  Pynq vs. Cortex-A9 (sub-$100), and (2) VTA on Ultra96 vs. Cortex-
+of MobileNet we call MobileNetG that groups channels by the                 A53 and Mali-T860 GPU ($200-$250). First, VTA on the Pynq-Z1
+vector factor of the VTA's GEMM core. Second, we implement a                outperforms the Cortex-A9 CPU by 3.0×, 4.4×, 5.3× and 2.1×
+Generative Adversarial Network (DCGAN) model that is used for               on MobileNet, ResNet-18, ResNet-34 and DCGAN. Second, VTA
+image-to-image translation and generation.                                  on the Ultra-96 outperforms the Cortex-A53 by 2.5×, 4.7×, 6.0×,
+                                                                            3.8× and 11.5× on MobileNet, ResNet-18, ResNet-34, ResNet-50
+    Both models require non-trivial extensions to support new               and DCGAN. In addition, VTA on the Ultra-96 outperforms the
+operators. MobileNetG requires support for grouped convolutions             mobile-class Mali-T860 GPU by 2.1×, 2.5×, 3.2× and 2.1× on
+that exhibit block sparse patterns on channel groups. DCGAN                 MobileNet, ResNet-18, ResNet-34 and ResNet-50.
+requires support for 2D convolution transpose which has a
+spatial sparsity pattern. Accelerators must support these access                Overall, VTA demonstrates that the flexibility of the architec-
+patterns to avoid unnecessary computations and achieve maximum              ture can offer high performance while forming a evolutionary path
+performance. The runtime can readily make use of schedules to               forward for accelerating diverse workloads on various devices.
+generate micro-kernels that support these access patterns without
+changing the hardware.                                                      6 CONCLUSION
+
+    We integrated VTA into Apache TVM and evaluated a variety               In this paper, we present hardware-software blueprint for "flexible
+of deep learning models on a set of edge FPGA devices with                  specialization": the idea that efficiency gains from hardware
+different resource budgets. We imported all models from MxNet [2]           specialization is not mutually exclusive with workload flexibility.
+a deep learning framework used by Amazon. It is worth noting                We present VTA, a parametrizable deep learning architecture that
+Relay's model importers provide access to a wide variety of other           is explicitly programmed via a two-level ISA. We co-design the
+front-ends, and VTA is not limited to MxNet.                                accelerator with a runtime system that JIT compiles micro-kernels
+                                                                            to provide operational flexibility. With this approach, we support
+    Figure 8 shows a performance comparison across these models,            less conventional operators such as convolution transpose, and
+comparing VTA-accelerated execution against a highly optimized              grouped convolutions without needing to apply changes to the
+ARM CPU and GPU platforms that rely on industry-strength deep               hardware. We show in our evaluation that VTA can effectively target
+learning libraries: ARM ComputeLib (ARM CL) and TVM. The                    different FPGAs, multiple workloads, and leverage off the shelf
+ARM Cortex-A9, ARM Cortex-A53, and Mali-T860 GPU are taken                  deep learning compilers to quickly integrate optimized software
+from the Pynq-Z1 ($65), Ultra-96 ($250), and the Firefly-RK3399             with specialized hardware. Finally, we demonstrate that a well
+($200) boards. For the VTA hardware designs, we use an automated            integrated hardware and software stack lets us perform full stack
+8-bit integer scaling and translation pass from 32-bit floating-            optimization and exploration on FPGAs.
+point (FP32) with negligible accuracy degradation. For our CPU
+baselines, we use the TVM autotuner to obtain FP32 CPU kernels
+that take advantage of NEON vectorization, multi-threading and
+state of the art scheduling tricks (spatial tiling, Winograd transform
+
+                                                                         6
+REFERENCES
+
+[1] Tianqi Chen and Carlos Guestrin. Xgboost: A scalable tree boosting
+     system. In Proceedings of the 22nd acm sigkdd international conference
+     on knowledge discovery and data mining, pages 785­794. ACM, 2016.
+
+[2] Tianqi Chen, Mu Li, Yutian Li, Min Lin, Naiyan Wang, Minjie Wang,
+     Tianjun Xiao, Bing Xu, Chiyuan Zhang, and Zheng Zhang. MXNet: A
+     flexible and efficient machine learning library for heterogeneous distributed
+     systems. In Neural Information Processing Systems, Workshop on Machine
+     Learning Systems (LearningSys'15), 2015.
+
+[3] Tianqi Chen, Thierry Moreau, Ziheng Jiang, Lianmin Zheng, Eddie Yan,
+     Haichen Shen, Meghan Cowan, Leyuan Wang, Yuwei Hu, Luis Ceze,
+     et al. {TVM}: An automated end-to-end optimizing compiler for deep
+     learning. In 13th {USENIX} Symposium on Operating Systems Design and
+     Implementation ({OSDI} 18), pages 578­594, 2018.
+
+[4] Tianqi Chen, Lianmin Zheng, Eddie Yan, Ziheng Jiang, Thierry Moreau,
+     Luis Ceze, Carlos Guestrin, and Arvind Krishnamurthy. Learning to
+     optimize tensor programs. arXiv preprint arXiv:1805.08166, 2018.
+
+[5] Kevin Jamieson and Ameet Talwalkar. Non-stochastic best arm identi-
+     fication and hyperparameter optimization. In Artificial Intelligence and
+     Statistics, pages 240­248, 2016.
+
+[6] Norman P. Jouppi, Cliff Young, Nishant Patil, David Patterson, Gaurav
+     Agrawal, Raminder Bajwa, Sarah Bates, Suresh Bhatia, Nan Boden,
+     Al Borchers, Rick Boyle, Pierre-luc Cantin, Clifford Chao, Chris Clark,
+     Jeremy Coriell, Mike Daley, Matt Dau, Jeffrey Dean, Ben Gelb, Tara Vazir
+     Ghaemmaghami, Rajendra Gottipati, William Gulland, Robert Hagmann,
+     C. Richard Ho, Doug Hogberg, John Hu, Robert Hundt, Dan Hurt, Julian
+     Ibarz, Aaron Jaffey, Alek Jaworski, Alexander Kaplan, Harshit Khaitan,
+     Daniel Killebrew, Andy Koch, Naveen Kumar, Steve Lacy, James Laudon,
+     James Law, Diemthu Le, Chris Leary, Zhuyuan Liu, Kyle Lucke, Alan
+     Lundin, Gordon MacKean, Adriana Maggiore, Maire Mahony, Kieran
+     Miller, Rahul Nagarajan, Ravi Narayanaswami, Ray Ni, Kathy Nix, Thomas
+     Norrie, Mark Omernick, Narayana Penukonda, Andy Phelps, Jonathan Ross,
+     Matt Ross, Amir Salek, Emad Samadiani, Chris Severn, Gregory Sizikov,
+     Matthew Snelham, Jed Souter, Dan Steinberg, Andy Swing, Mercedes Tan,
+     Gregory Thorson, Bo Tian, Horia Toma, Erick Tuttle, Vijay Vasudevan,
+     Richard Walter, Walter Wang, Eric Wilcox, and Doe Hyun Yoon. In-
+     datacenter performance analysis of a tensor processing unit. In Proceedings
+     of the 44th Annual International Symposium on Computer Architecture,
+     ISCA '17, pages 1­12, New York, NY, USA, 2017. ACM.
+
+[7] Jared Roesch, Steven Lyubomirsky, Logan Weber, Josh Pollock, Marisa
+     Kirisame, Tianqi Chen, and Zachary Tatlock. Relay: a new ir for machine
+     learning frameworks. In Proceedings of the 2nd ACM SIGPLAN Inter-
+     national Workshop on Machine Learning and Programming Languages,
+     pages 58­68. ACM, 2018.
+
+[8] James E. Smith. Decoupled access/execute computer architectures. In
+     Proceedings of the 9th Annual Symposium on Computer Architecture,
+     ISCA '82, pages 112­119, Los Alamitos, CA, USA, 1982. IEEE Computer
+     Society Press.
+
+                                                                                 7
+

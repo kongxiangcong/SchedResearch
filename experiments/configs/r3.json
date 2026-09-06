@@ -1,0 +1,1355 @@
+{
+  "configs": [
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "chain_deterministic",
+      "pieces": 1,
+      "shape": "chain",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "chain_memory_cov06",
+      "pieces": 1,
+      "shape": "chain",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "fork_join_deterministic",
+      "pieces": 1,
+      "shape": "fork_join",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "fork_join_memory_cov06",
+      "pieces": 1,
+      "shape": "fork_join",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "diamond_deterministic",
+      "pieces": 1,
+      "shape": "diamond",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "diamond_memory_cov06",
+      "pieces": 1,
+      "shape": "diamond",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "critical_background_deterministic",
+      "pieces": 1,
+      "shape": "critical_background",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "critical_background_memory_cov06",
+      "pieces": 1,
+      "shape": "critical_background",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "pipeline_deterministic",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "pipeline_memory_cov06",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "llm_prefill_deterministic",
+      "pieces": 1,
+      "shape": "llm_prefill",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "llm_prefill_memory_cov06",
+      "pieces": 1,
+      "shape": "llm_prefill",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "llm_decode_deterministic",
+      "pieces": 1,
+      "shape": "llm_decode",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "llm_decode_memory_cov06",
+      "pieces": 1,
+      "shape": "llm_decode",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "dit_cfg_deterministic",
+      "pieces": 1,
+      "shape": "dit_cfg",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "dit_cfg_memory_cov06",
+      "pieces": 1,
+      "shape": "dit_cfg",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.1,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "uncertainty_0.1",
+      "pieces": 1,
+      "shape": "fork_join",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.3,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "uncertainty_0.3",
+      "pieces": 1,
+      "shape": "fork_join",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 1.0,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "uncertainty_1.0",
+      "pieces": 1,
+      "shape": "fork_join",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.3,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "heavy_tail",
+      "pieces": 1,
+      "shape": "fork_join",
+      "stages": 3,
+      "tail": 0.05,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 4,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "cores_4",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 8,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0.0,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 0.0,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "cores_8",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 2,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": false,
+        "issue_cycle": 2,
+        "issue_width": 2,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 2,
+        "window": 256
+      },
+      "name": "clusters_2_central",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 2,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": true,
+        "issue_cycle": 2,
+        "issue_width": 2,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 2,
+        "window": 256
+      },
+      "name": "clusters_2_local",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 2,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 8192,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": false,
+        "issue_cycle": 2,
+        "issue_width": 2,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 2,
+        "window": 32
+      },
+      "name": "equal_budget_clusters_2_central",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 2,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 4096,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": true,
+        "issue_cycle": 2,
+        "issue_width": 1,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 1,
+        "window": 16
+      },
+      "name": "equal_budget_clusters_2_local",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 4,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": false,
+        "issue_cycle": 2,
+        "issue_width": 2,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 2,
+        "window": 256
+      },
+      "name": "clusters_4_central",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 4,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": true,
+        "issue_cycle": 2,
+        "issue_width": 2,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 2,
+        "window": 256
+      },
+      "name": "clusters_4_local",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 4,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 16384,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": false,
+        "issue_cycle": 2,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 4,
+        "window": 64
+      },
+      "name": "equal_budget_clusters_4_central",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 4,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 4096,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": true,
+        "issue_cycle": 2,
+        "issue_width": 1,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 1,
+        "window": 16
+      },
+      "name": "equal_budget_clusters_4_local",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 2,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": false,
+        "issue_cycle": 2,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "chips_2_memory",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory"
+      ]
+    },
+    {
+      "chips": 2,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": false,
+        "issue_cycle": 2,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "chips_2_communication",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "communication"
+      ]
+    },
+    {
+      "chips": 2,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": false,
+        "issue_cycle": 2,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "chips_2_memory_communication",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 4,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": false,
+        "issue_cycle": 2,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "chips_4_memory",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory"
+      ]
+    },
+    {
+      "chips": 4,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": false,
+        "issue_cycle": 2,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "chips_4_communication",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "communication"
+      ]
+    },
+    {
+      "chips": 4,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": false,
+        "issue_cycle": 2,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "chips_4_memory_communication",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0,
+        "dispatch_latency": 0,
+        "distributed": false,
+        "issue_cycle": 0,
+        "issue_width": 1,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0,
+        "wakeup_width": 1,
+        "window": 256
+      },
+      "name": "grain_1_cost_0",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 2,
+        "dispatch_latency": 2,
+        "distributed": false,
+        "issue_cycle": 2,
+        "issue_width": 1,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 1,
+        "window": 256
+      },
+      "name": "grain_1_cost_2",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0,
+        "dispatch_latency": 0,
+        "distributed": false,
+        "issue_cycle": 0,
+        "issue_width": 1,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0,
+        "wakeup_width": 1,
+        "window": 256
+      },
+      "name": "grain_2_cost_0",
+      "pieces": 2,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 2,
+        "dispatch_latency": 2,
+        "distributed": false,
+        "issue_cycle": 2,
+        "issue_width": 1,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 1,
+        "window": 256
+      },
+      "name": "grain_2_cost_2",
+      "pieces": 2,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 0,
+        "dispatch_latency": 0,
+        "distributed": false,
+        "issue_cycle": 0,
+        "issue_width": 1,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0,
+        "wakeup_width": 1,
+        "window": 256
+      },
+      "name": "grain_4_cost_0",
+      "pieces": 4,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 2,
+        "dispatch_latency": 2,
+        "distributed": false,
+        "issue_cycle": 2,
+        "issue_width": 1,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 2,
+        "wakeup_width": 1,
+        "window": 256
+      },
+      "name": "grain_4_cost_2",
+      "pieces": 4,
+      "shape": "pipeline",
+      "stages": 2,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": false,
+        "issue_cycle": 1,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 1,
+        "wakeup_width": 4,
+        "window": 2
+      },
+      "name": "window_2",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": false,
+        "issue_cycle": 1,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 1,
+        "wakeup_width": 4,
+        "window": 8
+      },
+      "name": "window_8",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 1,
+        "dispatch_latency": 1,
+        "distributed": false,
+        "issue_cycle": 1,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 1,
+        "wakeup_width": 4,
+        "window": 32
+      },
+      "name": "window_32",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 4,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 2,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 1,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 4,
+        "wakeup_width": 1,
+        "window": 256
+      },
+      "name": "wakeup_1",
+      "pieces": 1,
+      "shape": "fork_join",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 4,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 2,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 1,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 4,
+        "wakeup_width": 2,
+        "window": 256
+      },
+      "name": "wakeup_2",
+      "pieces": 1,
+      "shape": "fork_join",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 4,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 65536,
+        "completion_latency": 2,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 1,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 4,
+        "wakeup_width": 8,
+        "window": 256
+      },
+      "name": "wakeup_8",
+      "pieces": 1,
+      "shape": "fork_join",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    },
+    {
+      "chips": 1,
+      "clusters": 1,
+      "cores": 2,
+      "cov": 0.6,
+      "hardware": {
+        "byte_window": 256,
+        "completion_latency": 1,
+        "dispatch_latency": 0.0,
+        "distributed": false,
+        "issue_cycle": 1,
+        "issue_width": 4,
+        "memory_capacity": 268435456,
+        "wakeup_cycle": 0.0,
+        "wakeup_width": 4,
+        "window": 256
+      },
+      "name": "byte_window_256",
+      "pieces": 1,
+      "shape": "pipeline",
+      "stages": 3,
+      "tail": 0.0,
+      "vary": [
+        "memory",
+        "communication"
+      ]
+    }
+  ],
+  "test_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "training_seeds": [
+    10000,
+    10001,
+    10002,
+    10003,
+    10004,
+    10005,
+    10006,
+    10007
+  ]
+}

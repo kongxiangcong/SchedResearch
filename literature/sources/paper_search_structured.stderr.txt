@@ -1,0 +1,10 @@
+[dblp] HTTP 500; retrying in 3s (attempt 2/2)
+[dblp] Error on query 'multi core NPU runtime dynamic scheduling': 503 Server Error: Service Unavailable for url: https://dblp.org/search/publ/api?q=multi+core+NPU+runtime+dynamic+scheduling&format=json&h=5&f=0
+[dblp] HTTP 503; retrying in 3s (attempt 2/2)
+[dblp] Error on query 'accelerator dataflow task scheduling': 503 Server Error: Service Unavailable for url: https://dblp.org/search/publ/api?q=accelerator+dataflow+task+scheduling&format=json&h=5&f=0
+[dblp] HTTP 503; retrying in 3s (attempt 2/2)
+[dblp] Error on query 'compiler dependency contract hardware completion dispatch': 503 Server Error: Service Unavailable for url: https://dblp.org/search/publ/api?q=compiler+dependency+contract+hardware+completion+dispatch&format=json&h=5&f=0
+[open_alex] HTTP 504; retrying in 3s (attempt 2/2)
+[semantic_scholar] HTTP 429; retrying in 3s (attempt 2/2)
+[semantic_scholar] Error on query 'accelerator dataflow task scheduling': 429 Client Error:  for url: https://api.semanticscholar.org/graph/v1/paper/search?query=accelerator+dataflow+task+scheduling&offset=0&limit=5&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2024-2026
+[semantic_scholar] HTTP 429; retrying in 3s (attempt 2/2)

@@ -1,0 +1,15 @@
+{
+  "schema": "r9.result-lineage.v1",
+  "created_utc": "2026-09-05T10:32:30.538712+00:00",
+  "parent_handoff_manifest": "r9/handoff_integrity.json",
+  "parent_handoff_sha256": "c7459a7396b4a2a1a755dd0be22f429fd0daf0ed47272fcf8718e72380939445",
+  "parent_snapshot": "r9/history/aligned_research_progress.md",
+  "parent_sha256": "9a7bfc60f27edfff2794dd5542426f13b6cf174ce494b92beb45f14562503fd3",
+  "successor_snapshot": "r9/history/successor_research_progress.md",
+  "successor_sha256": "7a422d2bda018016601847a51d05e7ac7a7e39b925d9f5e2ef3eb7424f24256b",
+  "added_rows": [
+    "| R9：参考硬件与共享供给 | 自主两cluster各两核的共享EXT路径中，强静态后的干扰损失属于供给还是新增改序空间？ | mapping/广播/tiling/并发先于机制；大变慢可与小可恢复空间并存。 | 冻结单路径数值合同；Qwen down M32/fullK9216/N128；204静态候选、独立8train/8validation、两组各30paired blocks/条件；608轨迹477312requests独立审计。 | 同一C2K/K256/双buffer方案在三环境均被选；quiet47776cycle，20%背景慢24.75%/25.31%，35%慢52.81%/53.01%；重训消除0；平均免费恢复上界约1.6%–1.9%。 | **Accept条件性供给与强静态证据；不是当前TARS或实机残差。** | 理想DMA/operand端口、固定绝对预留过程、有限静态池、数值与gather/广播的真实目标准入。 | 集中硬件合同可替换；保留真实校准门，不回到Phoenix SDK，不把供给损失当scheduler收益。 |",
+    "| R9：单动作筛查与失效范围 | 既有work-conserving仲裁外的一次合法DMA改序能否达到5%收费收益，能否统一关闭更广候选？ | 只有改变最终结束且收益足够的因果动作才值得新增机制；资源上界大只是未决。 | 2880次同合同单动作反事实，0/8cycle收费；tiny两序两相位exact、7故障fixture；9个事前单参数敏感性。 | 收费回看最佳均值最高0.0210%且CI跨0；35%条件为0；但35%免费恢复上界最大5.1579%，EXT128/DMA32敏感性最大19.8588%/15.8944%。 | **Reject已测动作族5%收益主张；Refine严格逐phase关闭门及带宽比例范围，不接受新机制。** | 回看选择非causal；上界松弛、有限credit串联服务与静态搜索不足尚未区分；大gap不是收益。 | 先在具名EXT/DMA比例范围加强串联资源下界与静态交互，再以新相位判别有限因果动作；不追极端参数、不外推关闭所有多cluster。 |"
+  ],
+  "rule": "Preserve parent rows and order; future root additions allowed; old manifests untouched."
+}

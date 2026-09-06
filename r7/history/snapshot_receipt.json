@@ -1,0 +1,12 @@
+{
+  "operation": "byte-exact snapshot before R7 successor edit",
+  "captured_at_utc": "2026-09-05T07:45:40.316572+00:00",
+  "source": "research_progress.md",
+  "snapshot": "r7/history/r6_research_progress.md",
+  "bytes": 10206,
+  "sha256": "49b32d42362359d975e797b8d9eb8901950c42f548caddf8a73a3498232ad2c5",
+  "r6_check_integrity_command": "python -X utf8 r6/check_integrity.py",
+  "r6_check_exit_code": 0,
+  "r6_check_stdout": "{\"status\": \"PASS\", \"operation\": \"verify\", \"r6_and_progress_paths\": 89, \"r4_paths\": 612, \"r5_paths_via_explicit_snapshot\": 262, \"historical_rows_preserved\": true}\n",
+  "r6_check_stderr": ""
+}

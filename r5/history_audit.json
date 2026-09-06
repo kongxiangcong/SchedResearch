@@ -1,0 +1,146 @@
+{
+  "status": "PASS",
+  "scope": "existing artifact integrity and summary recalculation only; no R5 performance experiment or real-device validation",
+  "hash_receipts": {
+    "R4_frozen_artifacts": 612,
+    "R3_snapshot_sources": 27,
+    "R3_prior_results": 257,
+    "R3_current_sources": 13,
+    "R1_R2_original_files": 7
+  },
+  "original_sha256": {
+    "r1-base/five_directions.md": "428bc9be7ffe089f37cd5582af424b2a7339a0bd41f7894bbf6f9d08ac0edcd7",
+    "r1-base/lit_search_registry.md": "d1703042a8eddc7dfc5488db6309c131149710ca9a0da950dea5f19317c3b499",
+    "r1-base/live_evidence_audit.md": "e91b8441c36f29df9c9bd7017b83fb0c4519dc53a86e3cf5fb9fff65c7b85871",
+    "r1-base/redteam_claim_frameworks.md": "0f161f03953f916344bfd77c8110437e7a6cc6ec92547e95c26c3d0573d3ed19",
+    "r2-ooo-npu/research.md": "cefe0edd53bf40fca7ba4676e916ffb0774fa53b757afa9d981c0317dff2f37b",
+    "r2-ooo-npu/literature-register.md": "1878ba7da89c911d74c8c391f38be1e467ba9f4320586d8f4e569a238ca066fa",
+    "r2-ooo-npu/toy-sim/r4sim.py": "97329f8ac75116053a35effa8c18f5798919a795d853df60ff98f149f1636c6d"
+  },
+  "r3": {
+    "configurations": 49,
+    "executions": 3920,
+    "B_vs_A2": {
+      "positive": 10,
+      "negative": 17,
+      "zero": 22
+    },
+    "C_mean_faster_than_B": 0,
+    "A2_mean_slower_than_A": 11
+  },
+  "r4": {
+    "main_executions": 13440,
+    "posthoc_priority_executions": 4480,
+    "summary_rows_recomputed": 560,
+    "common_environment_groups": 2240,
+    "policies": {
+      "B0": {
+        "positive": 3,
+        "negative": 64,
+        "zero": 3,
+        "best_config": "qwen35_full_decode__split_engine_ports__service",
+        "best_pct": 0.10466324096787008,
+        "best_ci95": [
+          0.07492397779168421,
+          0.13440250414405597
+        ],
+        "gate_count": 0
+      },
+      "B2": {
+        "positive": 0,
+        "negative": 70,
+        "zero": 0,
+        "best_config": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident__two_core__calendar",
+        "best_pct": -0.2229268018820206,
+        "best_ci95": [
+          -0.28427015352248286,
+          -0.16158345024155837
+        ],
+        "gate_count": 0
+      },
+      "B8": {
+        "positive": 0,
+        "negative": 70,
+        "zero": 0,
+        "best_config": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident__split_engine_ports__service",
+        "best_pct": -0.91975759652869,
+        "best_ci95": [
+          -0.9434325883655222,
+          -0.8960826046918579
+        ],
+        "gate_count": 0
+      },
+      "B_order0": {
+        "positive": 10,
+        "negative": 33,
+        "zero": 27,
+        "best_config": "flux2_klein4b_double_scaled__dma64__service",
+        "best_pct": 0.6864340039886325,
+        "best_ci95": [
+          0.2836677518101419,
+          1.089200256167123
+        ],
+        "gate_count": 0
+      },
+      "B_order2": {
+        "positive": 2,
+        "negative": 68,
+        "zero": 0,
+        "best_config": "flux2_klein4b_double_scaled__split_engine_ports__service",
+        "best_pct": 0.19679702605034707,
+        "best_ci95": [
+          -0.15224059608988336,
+          0.5458346481905775
+        ],
+        "gate_count": 0
+      },
+      "H2": {
+        "positive": 0,
+        "negative": 70,
+        "zero": 0,
+        "best_config": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident__two_core__calendar",
+        "best_pct": -0.2229268018820206,
+        "best_ci95": [
+          -0.28427015352248286,
+          -0.16158345024155837
+        ],
+        "gate_count": 0
+      },
+      "S": {
+        "positive": 0,
+        "negative": 0,
+        "zero": 70,
+        "best_config": "qwen35_full_decode__two_core__deterministic",
+        "best_pct": 0.0,
+        "best_ci95": [
+          0.0,
+          0.0
+        ],
+        "gate_count": 0
+      },
+      "S8": {
+        "positive": 1,
+        "negative": 50,
+        "zero": 19,
+        "best_config": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident__two_core__calendar",
+        "best_pct": 0.004288355779408142,
+        "best_ci95": [
+          -0.015178942454890609,
+          0.023755654013706894
+        ],
+        "gate_count": 0
+      }
+    },
+    "static_trace_count": 2240,
+    "static_with_opportunity": 1227,
+    "static_with_inversion": 2240,
+    "mean_opportunity_fraction_pct": 0.9170388918316366,
+    "counterfactual_counts": {
+      "positive": 16,
+      "negative": 84,
+      "zero": 20
+    },
+    "counterfactual_all_applied": true
+  },
+  "auditor_sha256": "4336b9eb6a419dbbfcd770243d31759a25ed271a685b880822745b59d785e263"
+}

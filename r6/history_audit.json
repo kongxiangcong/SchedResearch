@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "audit_date": "2026-09-05",
+  "scope": "Independent read-only verification of frozen R4/R5 hashes, saved selection/statistics, receipts and GDN graph structure; no performance experiment or hardware measurement rerun.",
+  "historical_integrity": {
+    "r5/artifact_integrity.json": {
+      "manifest_sha256": "88e6728e4979745201a81137ba4a98941706c2efa532cf6212a2a817e6998e58",
+      "paths_checked": 262,
+      "missing": [],
+      "changed": [],
+      "root_README_sha256": null,
+      "root_research_progress_sha256": "3e9147e5c53781d9c82fc7da98306b18b689a82ef15fd392765681eaadda10c8"
+    },
+    "experiments/results/r4/artifact_integrity.json": {
+      "manifest_sha256": "28d3d8b9588a5cc2510da004ee58c7ca86d31167a99c37af69370869adf67e6c",
+      "paths_checked": 612,
+      "missing": [],
+      "changed": [],
+      "root_README_sha256": "e3bb86187ac01e0446444a837a33dba5cb3e27f7a742a5d224db816cc8f33829",
+      "root_research_progress_sha256": null
+    }
+  },
+  "main_statistics": {
+    "configurations": 42,
+    "request_configurations": 36,
+    "executions_counted_from_saved_search_and_test_rows": 7094,
+    "held_out_policy_rows": 1512,
+    "training_validation_mean_checks": 2791,
+    "request_receipts_checked": 1296,
+    "request_events_in_receipts": 12886560,
+    "bootstrap": "paired seed percentages; 4096 resamples, numpy.default_rng(9417), quantiles .025/.975",
+    "policy_counts": {
+      "B0": {
+        "positive": 2,
+        "negative": 18,
+        "zero": 16,
+        "passes_5_percent_and_ci_lower_positive": 0,
+        "best_case": "request__qwen_projection__o1_combined",
+        "best_mean_gain_pct": 0.1649123189643766,
+        "best_ci95_pct": [
+          -0.025303823683185678,
+          0.3457724488768057
+        ]
+      },
+      "B2": {
+        "positive": 2,
+        "negative": 34,
+        "zero": 0,
+        "passes_5_percent_and_ci_lower_positive": 0,
+        "best_case": "request__qwen_projection__o1_combined",
+        "best_mean_gain_pct": 0.18213473079335962,
+        "best_ci95_pct": [
+          -0.00821187540325681,
+          0.3534214124989932
+        ]
+      }
+    },
+    "saved_trace_receipt": {
+      "saved_traces_replayed": 126,
+      "request_events_replayed": 1073880
+    },
+    "retrained_static_contrasts": [
+      {
+        "workload": "qwen_projection",
+        "retrained_static_penalty_pct": 33.14773985853214,
+        "same_selected_plan": false,
+        "boundary": "Both environments independently train and select static plans; not a fixed-binary real-device interference measurement."
+      },
+      {
+        "workload": "flux_projection",
+        "retrained_static_penalty_pct": 33.21874326598942,
+        "same_selected_plan": false,
+        "boundary": "Both environments independently train and select static plans; not a fixed-binary real-device interference measurement."
+      }
+    ]
+  },
+  "resident_control": {
+    "executions_counted_from_saved_rows": 928,
+    "splits_disjoint_from_main_and_each_other": true,
+    "graph_structural_arithmetic_and_lifetime": "PASS for all 4 configurations, original/resident saved S graphs",
+    "ops_both": 917504,
+    "external_bytes_both": 131072,
+    "local_state_bytes_original": 1048576,
+    "local_state_bytes_resident": 262144,
+    "rf_bytes_per_core_both": 73760,
+    "saved_trace_receipt": {
+      "traces": 24,
+      "requests": 73728
+    },
+    "effects": [
+      {
+        "configuration": "ref_none",
+        "static_gain_mean_pct": 16.013380221288276,
+        "static_gain_ci95_pct": [
+          16.01338022128828,
+          16.01338022128828
+        ],
+        "resident_B0_gain_pct": 0.0,
+        "resident_B2_gain_pct": -0.07148692810456936
+      },
+      {
+        "configuration": "ref_combined",
+        "static_gain_mean_pct": 24.027219089734125,
+        "static_gain_ci95_pct": [
+          23.567669927689085,
+          24.450199536833118
+        ],
+        "resident_B0_gain_pct": 0.0,
+        "resident_B2_gain_pct": -0.09540320310246024
+      },
+      {
+        "configuration": "o1_combined",
+        "static_gain_mean_pct": 7.155082725712636,
+        "static_gain_ci95_pct": [
+          6.862467451467417,
+          7.4792965574415495
+        ],
+        "resident_B0_gain_pct": 0.0,
+        "resident_B2_gain_pct": -0.015133532229560931
+      },
+      {
+        "configuration": "r1_combined",
+        "static_gain_mean_pct": 11.852688237796313,
+        "static_gain_ci95_pct": [
+          11.607289790577454,
+          12.09752393654805
+        ],
+        "resident_B0_gain_pct": 0.0,
+        "resident_B2_gain_pct": -0.0578196865341607
+      }
+    ],
+    "scope": "two 128x128 FP32 state heads, four prepared tokens; state/inputs/outputs fit declared RF and no other layer occupies RF; not full autoregressive decode or real ISA/RF support evidence"
+  },
+  "historical_versioning": {
+    "r4_root_readme_must_remain_unchanged": true,
+    "r5_manifest_must_remain_unchanged": true,
+    "original_progress_sha256": "3e9147e5c53781d9c82fc7da98306b18b689a82ef15fd392765681eaadda10c8",
+    "required_transition": [
+      "Byte-copy R5 root progress to an R6 history snapshot and verify its hash before root edits.",
+      "Keep R5 artifact_integrity and all R5 files unchanged.",
+      "Record original manifest digest, original logical path, snapshot physical path/digest and successor root digest.",
+      "Verify R5 immutable entries at original paths and original progress using the snapshot substitution; explicitly report current root progress as a successor.",
+      "Do not rerun r5/check_integrity.py --freeze or r4/check_artifacts.py to conceal history change."
+    ],
+    "post_update_checker_note": "The unchanged R5 checker compares the live root progress and should fail after an intentional successor edit; an R6 verifier must state the one recorded path substitution.",
+    "verified_transition": {
+      "schema_version": "r6.history-lineage.v1",
+      "date": "2026-09-05",
+      "operation": "append R6 and update current decision; preserve all R1-R5 table rows verbatim",
+      "parent_manifests": [
+        {
+          "path": "experiments/results/r4/artifact_integrity.json",
+          "sha256": "28d3d8b9588a5cc2510da004ee58c7ca86d31167a99c37af69370869adf67e6c"
+        },
+        {
+          "path": "r5/artifact_integrity.json",
+          "sha256": "88e6728e4979745201a81137ba4a98941706c2efa532cf6212a2a817e6998e58"
+        }
+      ],
+      "r5_progress_snapshot": {
+        "logical_path": "research_progress.md",
+        "path": "r6/history/r5_research_progress.md",
+        "sha256": "3e9147e5c53781d9c82fc7da98306b18b689a82ef15fd392765681eaadda10c8"
+      },
+      "successor_progress": {
+        "path": "research_progress.md",
+        "sha256": "49b32d42362359d975e797b8d9eb8901950c42f548caddf8a73a3498232ad2c5",
+        "parent_sha256": "3e9147e5c53781d9c82fc7da98306b18b689a82ef15fd392765681eaadda10c8"
+      },
+      "verification_rule": "Verify R5 frozen logical research_progress.md against the byte-identical snapshot; every other parent path stays original. Original R5 verifier is expected to flag live root progress as changed. Never rewrite the R5 manifest.",
+      "r4_frozen_root_readme_sha256": "e3bb86187ac01e0446444a837a33dba5cb3e27f7a742a5d224db816cc8f33829"
+    },
+    "transition_verification": {
+      "status": "PASS",
+      "R4_paths": 612,
+      "R5_paths_using_snapshot": 262,
+      "old_table_lines_preserved": 9,
+      "R6_rows_contiguous": true
+    }
+  },
+  "r6_review": {
+    "status": "PASS_WITH_EXPLICIT_EVIDENCE_LIMITS",
+    "report": "r6/redteam_report.md",
+    "receipt": "r6/redteam_audit.json",
+    "scope": "Functional device probe, source semantics, documentary negative controls and history lineage only; no target residual-loss performance or mechanism acceptance."
+  },
+  "method_reproduction": "Read JSON; independently count saved train/validation/test rows, recompute paired percentages and frozen bootstrap seeds, check selected plans by saved means, verify source/manifest SHA256, compare original/resident saved graph arithmetic and lifetime. Existing replay receipts authenticated; detailed event replay not repeated.",
+  "bounded_external_workspace_inventory": {
+    "scope": "Only D:/workspace/llmSched and D:/workspace/riscv_npu_alias plus their parent AGENTS paths; read-only. No external pipeline/test scripts were run. This is not a whole-machine absence claim.",
+    "agents_files": "No AGENTS.md found at D:/, D:/workspace/, the two roots, or recursive non-environment/non-git files.",
+    "llmSched": {
+      "head": "a07043dc1e2b2af42b5077182d1e20b03f34df0c",
+      "branch": "main",
+      "status": "User untracked work preserved; git status before/after identical",
+      "untracked_entries": [
+        ".runs/",
+        "GUIDE.pdf",
+        "docs/architecture-diagnosis/2026-03-23-architecture-diagnosis-design-spec.md",
+        "docs/architecture-diagnosis/2026-03-23-architecture-diagnosis-execution-plan.md",
+        "docs/superpowers/",
+        "execution_pipeline/",
+        "scripts/generate_schedule_timeline.py",
+        "scripts/plot_manual_timeline.py",
+        "scripts/plot_sdpa_timeline_from_run.py",
+        "src/llm_sched.egg-info/",
+        "tests/unit/tools/test_manual_timeline_plot.py",
+        "tests/unit/tools/test_sdpa_timeline_plot.py"
+      ],
+      "registered_worktrees": [
+        {
+          "path": "D:/workspace/llmSched/.worktrees/asset-baseline-restore",
+          "head": "382bf05ca0092f95b67aa9381f1246a194b3bd2e"
+        },
+        {
+          "path": "D:/workspace/llmSched/.worktrees/spec18-19-fitted-compare-consumption",
+          "head": "382bf05ca0092f95b67aa9381f1246a194b3bd2e"
+        }
+      ],
+      "inspected_file_count": 1139,
+      "excluded_directories": [
+        ".git",
+        ".venv",
+        ".worktrees",
+        "__pycache__",
+        ".pytest_cache"
+      ],
+      "saved_run_files": 456,
+      "rtl_and_target_binary_or_waveform_suffix_candidates": [],
+      "suffixes_checked": [
+        ".v",
+        ".sv",
+        ".vhd",
+        ".vhdl",
+        ".xclbin",
+        ".elf",
+        ".bin",
+        ".vcd",
+        ".fst"
+      ],
+      "runtime_dependency_probe": {
+        "executable": "D:/workspace/llmSched/.venv/Scripts/python.exe",
+        "command_flags": [
+          "-X",
+          "utf8",
+          "-B",
+          "-c"
+        ],
+        "only_imported": [
+          "sys",
+          "onnx",
+          "pydantic",
+          "typer"
+        ],
+        "returncode": 0,
+        "onnx": "1.20.1",
+        "pydantic": "2.12.5",
+        "typer": "0.24.1"
+      },
+      "existing_packed_artifact": {
+        "encoding_bits": 512,
+        "container_format": "aligned-flat-v1",
+        "stream_total_bytes": 227072,
+        "location": ".runs/04-decode-dual-core/runs/decode-dual-core/artifacts/packed_descriptor_bundle.json",
+        "boundary": "Compiler packed hex stream for modeled RISC-V/NPU; no authenticated target load/execute receipt or Phoenix compatibility evidence."
+      },
+      "performance_provenance": "performance_estimation.py invokes estimate_descriptor_analysis; schedule_duration.py estimates from profile shapes/lanes/bandwidth; diagnosis trace uses estimated_cycles and schedule slots, not measured hardware request events.",
+      "highest_evidence_established_here": "Live compiler environment availability plus saved offline planning/descriptor/performance-estimate artifacts; no new compiler performance run or RTL/hardware calibration.",
+      "evidence_sha256": {
+        "D:\\workspace\\llmSched\\README.md": "1c4241a139e275f01340cd202bfb8447ba852b4711d4b00d83d360902ddce783",
+        "D:\\workspace\\llmSched\\pyproject.toml": "5c6081b302957a7a35a7cd7a0fc085d88bd834bdc0f1d6dc1572d052c0aab0fe",
+        "D:\\workspace\\llmSched\\profiles\\targets\\riscv_npu_dual_core_v1.json": "e560829546a9cb0b148a594485db511793a6368b4b2c2935e0d264c61134fec1",
+        "D:\\workspace\\llmSched\\src\\llm_sched\\planning\\schedule_duration.py": "5d82506016bc334fc72efeaf29039c935307894ffaa405fa6c112264fff0539f",
+        "D:\\workspace\\llmSched\\src\\llm_sched\\analysis\\descriptor_estimator.py": "4861e5fa7f7762137f6387569f63e19778955eb1c3b37b62f690a6fc569cf9b1",
+        "D:\\workspace\\llmSched\\src\\llm_sched\\pipeline\\performance_estimation.py": "bb47007db05e06f2ac2b8cd04f5bb040ef2b2d611dc41c2c6986ea2a29d5f750",
+        "D:\\workspace\\llmSched\\src\\llm_sched\\contracts\\packed_descriptor_bundle.py": "028ecff24f16a007bbde598494ff4005eed4c0c98a0bc6fafa5397609b1bb7ef",
+        "D:\\workspace\\llmSched\\.runs\\04-decode-dual-core\\runs\\decode-dual-core\\manifest.json": "c197748048765fe71b18db9f1fb41ab3fc3fa41f4d90b784032be80ea36d470f",
+        "D:\\workspace\\llmSched\\.runs\\04-decode-dual-core\\runs\\decode-dual-core\\reports\\perf_summary_report.json": "60b60798314473afa0c3f7a09cae00ddb45a158b278dc3c3add96756a9228715",
+        "D:\\workspace\\llmSched\\.runs\\04-decode-dual-core\\runs\\decode-dual-core\\reports\\diagnosis\\trace\\performance_diagnostics_report.json": "26a5d57e4a534ffe6002c63776daad41ba0bd4c7c3f3cd4e7da199eda401716d",
+        "D:\\workspace\\llmSched\\.runs\\04-decode-dual-core\\runs\\decode-dual-core\\artifacts\\packed_descriptor_bundle.json": "39a4bc69d041c65f15c5097d125460d8404121619797fdc0ff745ea2edfc8184"
+      }
+    },
+    "riscv_npu_alias": {
+      "is_git_repository": false,
+      "file_count": 3,
+      "files": [
+        "3725843.3756054.pdf",
+        "3725843.3756054.txt",
+        "docs/plans/2026-03-06-riscv-npu-compiler-spec-design.md"
+      ],
+      "classification": "Paper plus extraction and draft compiler/runtime specification; no executable RTL/compiler test or hardware trace in this directory.",
+      "evidence_sha256": {
+        "D:\\workspace\\riscv_npu_alias\\3725843.3756054.pdf": "1092b0e057ddb137412f84f01288ddf90b520ac6ad94142a0614318bdea0ed4f",
+        "D:\\workspace\\riscv_npu_alias\\3725843.3756054.txt": "7f26ed989f8842b338fa6f8446f9d1104c4a76a302033bf5bbb46465914777f3",
+        "D:\\workspace\\riscv_npu_alias\\docs\\plans\\2026-03-06-riscv-npu-compiler-spec-design.md": "de8ff4f491e958023f4a071e8b8a016b50af1c4c1ab358fc6902d1fb219504cf"
+      }
+    },
+    "difference_from_R1": "R1 live_evidence_audit references src/llmSched/src/llm_sched/orchestrator, hardware_specs/tars, external/tars-npu-ctrl and inputs/descriptor_releases/active-release.json. None is present in this llmSched root. Its 128KiB VMEM profile and packed descriptor format cannot be equated with R1 TARS 4MiB VMEM and Descriptor0x8 authority. R1 TARS checkout location remains unestablished by this bounded inspection."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "python": "C:\\ProgramData\\anaconda3\\python.exe",
+  "version": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]",
+  "packages": {
+    "numpy": "C:\\ProgramData\\anaconda3\\Lib\\site-packages\\numpy\\__init__.py",
+    "onnx": null,
+    "onnxruntime": null,
+    "torch": null,
+    "openvino": null,
+    "tvm": null,
+    "vai_q_onnx": null,
+    "npu": null,
+    "pyxrt": null,
+    "pytest": "C:\\ProgramData\\anaconda3\\Lib\\site-packages\\pytest\\__init__.py"
+  }
+}

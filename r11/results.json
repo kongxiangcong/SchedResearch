@@ -1,0 +1,2732 @@
+{
+  "status": "PASS_INDEPENDENT_AUDIT",
+  "started_utc": "2026-09-05T15:49:38.739698+00:00",
+  "selected": {
+    "baseline": {
+      "variant": "baseline",
+      "tile": 64,
+      "depth": 2,
+      "order": "head",
+      "name": "baseline-v64-p2-head"
+    },
+    "resident": {
+      "variant": "resident",
+      "tile": 64,
+      "depth": 2,
+      "order": "head",
+      "name": "resident-v64-p2-head"
+    }
+  },
+  "quiet": {
+    "group": "quiet",
+    "seed": 111000,
+    "results": {
+      "baseline": {
+        "elapsed": 3448328.125,
+        "trace": "results/quiet_111000_baseline.json.gz",
+        "lower_bounds": {
+          "port_service_cycles": {
+            "EXT": 3111539.0,
+            "BARRIER": 0.0,
+            "LOCAL": 872097.0,
+            "VPU0": 944444.0,
+            "MXU0": 167700.0,
+            "VPU1": 938984.0,
+            "MXU1": 166400.0
+          },
+          "no_blackout_resource_bound": 3111539.0,
+          "ext_payload_bound": 2776984.0
+        }
+      },
+      "resident": {
+        "elapsed": 3448868.5,
+        "trace": "results/quiet_111000_resident.json.gz",
+        "lower_bounds": {
+          "port_service_cycles": {
+            "EXT": 3111539.0,
+            "BARRIER": 0.0,
+            "LOCAL": 772065.0,
+            "VPU0": 944444.0,
+            "MXU0": 167700.0,
+            "VPU1": 938984.0,
+            "MXU1": 166400.0
+          },
+          "no_blackout_resource_bound": 3111539.0,
+          "ext_payload_bound": 2776984.0
+        }
+      }
+    },
+    "gain_pct": -0.01567063749190467
+  },
+  "statistics": {
+    "A": {
+      "n": 30,
+      "mean_gain_pct": -0.5991742542426293,
+      "ci95_pct": [
+        -0.6100491065876821,
+        -0.5882994018975765
+      ],
+      "minimum_gain_pct": -0.673244608372503,
+      "maximum_gain_pct": -0.5742729637915556
+    },
+    "B": {
+      "n": 30,
+      "mean_gain_pct": -0.6059673079861408,
+      "ci95_pct": [
+        -0.6175654998283762,
+        -0.5943691161439055
+      ],
+      "minimum_gain_pct": -0.6736357771269352,
+      "maximum_gain_pct": -0.5742798076480371
+    }
+  },
+  "rows": [
+    {
+      "group": "quiet",
+      "seed": 111000,
+      "results": {
+        "baseline": {
+          "elapsed": 3448328.125,
+          "trace": "results/quiet_111000_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 3448868.5,
+          "trace": "results/quiet_111000_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.01567063749190467
+    },
+    {
+      "group": "A",
+      "seed": 111000,
+      "results": {
+        "baseline": {
+          "elapsed": 4278310.0,
+          "trace": "results/A_111000_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4302886.0,
+          "trace": "results/A_111000_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5744324277576984
+    },
+    {
+      "group": "A",
+      "seed": 111001,
+      "results": {
+        "baseline": {
+          "elapsed": 4259963.0,
+          "trace": "results/A_111001_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4284539.0,
+          "trace": "results/A_111001_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5769064191402551
+    },
+    {
+      "group": "A",
+      "seed": 111002,
+      "results": {
+        "baseline": {
+          "elapsed": 4261022.0,
+          "trace": "results/A_111002_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4285598.0,
+          "trace": "results/A_111002_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5767630394773793
+    },
+    {
+      "group": "A",
+      "seed": 111003,
+      "results": {
+        "baseline": {
+          "elapsed": 4279352.0,
+          "trace": "results/A_111003_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4303928.0,
+          "trace": "results/A_111003_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5742925564431234
+    },
+    {
+      "group": "A",
+      "seed": 111004,
+      "results": {
+        "baseline": {
+          "elapsed": 4279454.0,
+          "trace": "results/A_111004_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4306210.0,
+          "trace": "results/A_111004_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6252199462828623
+    },
+    {
+      "group": "A",
+      "seed": 111005,
+      "results": {
+        "baseline": {
+          "elapsed": 4258779.0,
+          "trace": "results/A_111005_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4287451.0,
+          "trace": "results/A_111005_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.673244608372503
+    },
+    {
+      "group": "A",
+      "seed": 111006,
+      "results": {
+        "baseline": {
+          "elapsed": 4278940.0,
+          "trace": "results/A_111006_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4305696.0,
+          "trace": "results/A_111006_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.625295049708563
+    },
+    {
+      "group": "A",
+      "seed": 111007,
+      "results": {
+        "baseline": {
+          "elapsed": 4279062.0,
+          "trace": "results/A_111007_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4305818.0,
+          "trace": "results/A_111007_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6252772219706104
+    },
+    {
+      "group": "A",
+      "seed": 111008,
+      "results": {
+        "baseline": {
+          "elapsed": 4258317.0,
+          "trace": "results/A_111008_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4285073.0,
+          "trace": "results/A_111008_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6283233493419971
+    },
+    {
+      "group": "A",
+      "seed": 111009,
+      "results": {
+        "baseline": {
+          "elapsed": 4258226.0,
+          "trace": "results/A_111009_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4282802.0,
+          "trace": "results/A_111009_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5771417487000496
+    },
+    {
+      "group": "A",
+      "seed": 111010,
+      "results": {
+        "baseline": {
+          "elapsed": 4278917.0,
+          "trace": "results/A_111010_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4303493.0,
+          "trace": "results/A_111010_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5743509397354574
+    },
+    {
+      "group": "A",
+      "seed": 111011,
+      "results": {
+        "baseline": {
+          "elapsed": 4279498.0,
+          "trace": "results/A_111011_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4304074.0,
+          "trace": "results/A_111011_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5742729637915556
+    },
+    {
+      "group": "A",
+      "seed": 111012,
+      "results": {
+        "baseline": {
+          "elapsed": 4278558.0,
+          "trace": "results/A_111012_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4303718.0,
+          "trace": "results/A_111012_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5880485902025834
+    },
+    {
+      "group": "A",
+      "seed": 111013,
+      "results": {
+        "baseline": {
+          "elapsed": 4278847.0,
+          "trace": "results/A_111013_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4305603.0,
+          "trace": "results/A_111013_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6253086403884112
+    },
+    {
+      "group": "A",
+      "seed": 111014,
+      "results": {
+        "baseline": {
+          "elapsed": 4279546.0,
+          "trace": "results/A_111014_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4305483.0,
+          "trace": "results/A_111014_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6060689615206893
+    },
+    {
+      "group": "A",
+      "seed": 111015,
+      "results": {
+        "baseline": {
+          "elapsed": 4258887.0,
+          "trace": "results/A_111015_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4284824.0,
+          "trace": "results/A_111015_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6090088795499771
+    },
+    {
+      "group": "A",
+      "seed": 111016,
+      "results": {
+        "baseline": {
+          "elapsed": 4278739.0,
+          "trace": "results/A_111016_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4303315.0,
+          "trace": "results/A_111016_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5743748333329135
+    },
+    {
+      "group": "A",
+      "seed": 111017,
+      "results": {
+        "baseline": {
+          "elapsed": 4279819.0,
+          "trace": "results/A_111017_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4305658.0,
+          "trace": "results/A_111017_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6037404852868855
+    },
+    {
+      "group": "A",
+      "seed": 111018,
+      "results": {
+        "baseline": {
+          "elapsed": 4276903.0,
+          "trace": "results/A_111018_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4301479.0,
+          "trace": "results/A_111018_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5746214024493934
+    },
+    {
+      "group": "A",
+      "seed": 111019,
+      "results": {
+        "baseline": {
+          "elapsed": 4279059.0,
+          "trace": "results/A_111019_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4303635.0,
+          "trace": "results/A_111019_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5743318799764197
+    },
+    {
+      "group": "A",
+      "seed": 111020,
+      "results": {
+        "baseline": {
+          "elapsed": 4259649.0,
+          "trace": "results/A_111020_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4286405.0,
+          "trace": "results/A_111020_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6281268714863675
+    },
+    {
+      "group": "A",
+      "seed": 111021,
+      "results": {
+        "baseline": {
+          "elapsed": 4277620.0,
+          "trace": "results/A_111021_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4304376.0,
+          "trace": "results/A_111021_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6254880050121425
+    },
+    {
+      "group": "A",
+      "seed": 111022,
+      "results": {
+        "baseline": {
+          "elapsed": 4276600.0,
+          "trace": "results/A_111022_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4301176.0,
+          "trace": "results/A_111022_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5746621147640685
+    },
+    {
+      "group": "A",
+      "seed": 111023,
+      "results": {
+        "baseline": {
+          "elapsed": 4277839.0,
+          "trace": "results/A_111023_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4303776.0,
+          "trace": "results/A_111023_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.606310803188248
+    },
+    {
+      "group": "A",
+      "seed": 111024,
+      "results": {
+        "baseline": {
+          "elapsed": 4278535.0,
+          "trace": "results/A_111024_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4307207.0,
+          "trace": "results/A_111024_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6701359226931602
+    },
+    {
+      "group": "A",
+      "seed": 111025,
+      "results": {
+        "baseline": {
+          "elapsed": 4259522.0,
+          "trace": "results/A_111025_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4284098.0,
+          "trace": "results/A_111025_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5769661478447485
+    },
+    {
+      "group": "A",
+      "seed": 111026,
+      "results": {
+        "baseline": {
+          "elapsed": 4278024.0,
+          "trace": "results/A_111026_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4303961.0,
+          "trace": "results/A_111026_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.606284583723693
+    },
+    {
+      "group": "A",
+      "seed": 111027,
+      "results": {
+        "baseline": {
+          "elapsed": 4278683.0,
+          "trace": "results/A_111027_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4303259.0,
+          "trace": "results/A_111027_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5743823508308488
+    },
+    {
+      "group": "A",
+      "seed": 111028,
+      "results": {
+        "baseline": {
+          "elapsed": 4257752.0,
+          "trace": "results/A_111028_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4282328.0,
+          "trace": "results/A_111028_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5772059997858126
+    },
+    {
+      "group": "A",
+      "seed": 111029,
+      "results": {
+        "baseline": {
+          "elapsed": 4276758.0,
+          "trace": "results/A_111029_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4301334.0,
+          "trace": "results/A_111029_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5746408845204609
+    },
+    {
+      "group": "B",
+      "seed": 112000,
+      "results": {
+        "baseline": {
+          "elapsed": 4249545.0,
+          "trace": "results/B_112000_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4274676.0,
+          "trace": "results/B_112000_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5913809596086228
+    },
+    {
+      "group": "B",
+      "seed": 112001,
+      "results": {
+        "baseline": {
+          "elapsed": 4278478.0,
+          "trace": "results/B_112001_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4303054.0,
+          "trace": "results/B_112001_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5744098719217439
+    },
+    {
+      "group": "B",
+      "seed": 112002,
+      "results": {
+        "baseline": {
+          "elapsed": 4249798.0,
+          "trace": "results/B_112002_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4277664.0,
+          "trace": "results/B_112002_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6557017533539211
+    },
+    {
+      "group": "B",
+      "seed": 112003,
+      "results": {
+        "baseline": {
+          "elapsed": 4246149.0,
+          "trace": "results/B_112003_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4271280.0,
+          "trace": "results/B_112003_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5918539363550357
+    },
+    {
+      "group": "B",
+      "seed": 112004,
+      "results": {
+        "baseline": {
+          "elapsed": 4279462.0,
+          "trace": "results/B_112004_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4305399.0,
+          "trace": "results/B_112004_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6060808578274512
+    },
+    {
+      "group": "B",
+      "seed": 112005,
+      "results": {
+        "baseline": {
+          "elapsed": 4280011.0,
+          "trace": "results/B_112005_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4306767.0,
+          "trace": "results/B_112005_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6251385802513054
+    },
+    {
+      "group": "B",
+      "seed": 112006,
+      "results": {
+        "baseline": {
+          "elapsed": 4259486.0,
+          "trace": "results/B_112006_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4286242.0,
+          "trace": "results/B_112006_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6281509083490455
+    },
+    {
+      "group": "B",
+      "seed": 112007,
+      "results": {
+        "baseline": {
+          "elapsed": 4257824.0,
+          "trace": "results/B_112007_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4282400.0,
+          "trace": "results/B_112007_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5771962392057572
+    },
+    {
+      "group": "B",
+      "seed": 112008,
+      "results": {
+        "baseline": {
+          "elapsed": 4279650.0,
+          "trace": "results/B_112008_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4305587.0,
+          "trace": "results/B_112008_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6060542334069385
+    },
+    {
+      "group": "B",
+      "seed": 112009,
+      "results": {
+        "baseline": {
+          "elapsed": 4279447.0,
+          "trace": "results/B_112009_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4304023.0,
+          "trace": "results/B_112009_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5742798076480371
+    },
+    {
+      "group": "B",
+      "seed": 112010,
+      "results": {
+        "baseline": {
+          "elapsed": 4259173.0,
+          "trace": "results/B_112010_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4283749.0,
+          "trace": "results/B_112010_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5770134249066583
+    },
+    {
+      "group": "B",
+      "seed": 112011,
+      "results": {
+        "baseline": {
+          "elapsed": 4280186.0,
+          "trace": "results/B_112011_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4306942.0,
+          "trace": "results/B_112011_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6251130207892919
+    },
+    {
+      "group": "B",
+      "seed": 112012,
+      "results": {
+        "baseline": {
+          "elapsed": 4279938.0,
+          "trace": "results/B_112012_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4305875.0,
+          "trace": "results/B_112012_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6060134515967208
+    },
+    {
+      "group": "B",
+      "seed": 112013,
+      "results": {
+        "baseline": {
+          "elapsed": 4278676.0,
+          "trace": "results/B_112013_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4303252.0,
+          "trace": "results/B_112013_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5743832905319213
+    },
+    {
+      "group": "B",
+      "seed": 112014,
+      "results": {
+        "baseline": {
+          "elapsed": 4279428.0,
+          "trace": "results/B_112014_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4306184.0,
+          "trace": "results/B_112014_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6252237448556297
+    },
+    {
+      "group": "B",
+      "seed": 112015,
+      "results": {
+        "baseline": {
+          "elapsed": 4245012.0,
+          "trace": "results/B_112015_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4270143.0,
+          "trace": "results/B_112015_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.592012460742164
+    },
+    {
+      "group": "B",
+      "seed": 112016,
+      "results": {
+        "baseline": {
+          "elapsed": 4245339.0,
+          "trace": "results/B_112016_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4270470.0,
+          "trace": "results/B_112016_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.591966860596993
+    },
+    {
+      "group": "B",
+      "seed": 112017,
+      "results": {
+        "baseline": {
+          "elapsed": 4258220.0,
+          "trace": "results/B_112017_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4284976.0,
+          "trace": "results/B_112017_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6283376622156611
+    },
+    {
+      "group": "B",
+      "seed": 112018,
+      "results": {
+        "baseline": {
+          "elapsed": 4248786.0,
+          "trace": "results/B_112018_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4276582.0,
+          "trace": "results/B_112018_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6542104026891371
+    },
+    {
+      "group": "B",
+      "seed": 112019,
+      "results": {
+        "baseline": {
+          "elapsed": 4279084.0,
+          "trace": "results/B_112019_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4305840.0,
+          "trace": "results/B_112019_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6252740072407947
+    },
+    {
+      "group": "B",
+      "seed": 112020,
+      "results": {
+        "baseline": {
+          "elapsed": 4257563.0,
+          "trace": "results/B_112020_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4282139.0,
+          "trace": "results/B_112020_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5772316228791041
+    },
+    {
+      "group": "B",
+      "seed": 112021,
+      "results": {
+        "baseline": {
+          "elapsed": 4278245.0,
+          "trace": "results/B_112021_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4302821.0,
+          "trace": "results/B_112021_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5744411551933171
+    },
+    {
+      "group": "B",
+      "seed": 112022,
+      "results": {
+        "baseline": {
+          "elapsed": 4278961.0,
+          "trace": "results/B_112022_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4307633.0,
+          "trace": "results/B_112022_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6700692060525926
+    },
+    {
+      "group": "B",
+      "seed": 112023,
+      "results": {
+        "baseline": {
+          "elapsed": 4278353.0,
+          "trace": "results/B_112023_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4302929.0,
+          "trace": "results/B_112023_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.574426654369109
+    },
+    {
+      "group": "B",
+      "seed": 112024,
+      "results": {
+        "baseline": {
+          "elapsed": 4278487.0,
+          "trace": "results/B_112024_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4303063.0,
+          "trace": "results/B_112024_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5744086636233714
+    },
+    {
+      "group": "B",
+      "seed": 112025,
+      "results": {
+        "baseline": {
+          "elapsed": 4256956.0,
+          "trace": "results/B_112025_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4283712.0,
+          "trace": "results/B_112025_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6285242318689654
+    },
+    {
+      "group": "B",
+      "seed": 112026,
+      "results": {
+        "baseline": {
+          "elapsed": 4256306.0,
+          "trace": "results/B_112026_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4284978.0,
+          "trace": "results/B_112026_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6736357771269352
+    },
+    {
+      "group": "B",
+      "seed": 112027,
+      "results": {
+        "baseline": {
+          "elapsed": 4278142.0,
+          "trace": "results/B_112027_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4304898.0,
+          "trace": "results/B_112027_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.6254116857271175
+    },
+    {
+      "group": "B",
+      "seed": 112028,
+      "results": {
+        "baseline": {
+          "elapsed": 4260807.0,
+          "trace": "results/B_112028_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4285383.0,
+          "trace": "results/B_112028_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5767921428968759
+    },
+    {
+      "group": "B",
+      "seed": 112029,
+      "results": {
+        "baseline": {
+          "elapsed": 4279426.0,
+          "trace": "results/B_112029_baseline.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 872097.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        },
+        "resident": {
+          "elapsed": 4304002.0,
+          "trace": "results/B_112029_resident.json.gz",
+          "lower_bounds": {
+            "port_service_cycles": {
+              "EXT": 3111539.0,
+              "BARRIER": 0.0,
+              "LOCAL": 772065.0,
+              "VPU0": 944444.0,
+              "MXU0": 167700.0,
+              "VPU1": 938984.0,
+              "MXU1": 166400.0
+            },
+            "no_blackout_resource_bound": 3111539.0,
+            "ext_payload_bound": 2776984.0
+          }
+        }
+      },
+      "gain_pct": -0.5742826257540079
+    }
+  ],
+  "metrics": {
+    "baseline": {
+      "bytes_by_category": {
+        "state_load": 2097152,
+        "conv_load": 131072,
+        "parameter_load": 131840,
+        "hidden_load": 20480,
+        "module_inputs_visible": 0,
+        "input_projection_weight": 63242240,
+        "input_projection_feed": 67194880,
+        "input_projection_unpack": 0,
+        "input_projection_mac": 0,
+        "input_projection_output": 197632,
+        "input_projection_wave_visible": 0,
+        "prepare_read": 394496,
+        "prepare_compute": 0,
+        "prepare_write": 328704,
+        "prepared_visible": 0,
+        "state_read": 8388608,
+        "recurrence_operands": 329728,
+        "recurrence_compute": 0,
+        "recurrence_output": 65536,
+        "state_write": 8388608,
+        "recurrence_visible": 0,
+        "norm_read": 147456,
+        "norm_compute": 0,
+        "norm_write": 65536,
+        "norm_visible": 0,
+        "output_projection_weight": 20971520,
+        "output_projection_feed": 23592960,
+        "output_projection_unpack": 0,
+        "output_projection_mac": 0,
+        "output_projection_output": 40960,
+        "output_projection_wave_visible": 0,
+        "state_store": 2097152,
+        "conv_store": 131072,
+        "module_output_store": 40960,
+        "module_return_and_RF_clobber": 0
+      },
+      "bytes_by_resource": {
+        "EXT": 88863488,
+        "BARRIER": 0,
+        "LOCAL": 109135104,
+        "VPU0": 0,
+        "MXU0": 0,
+        "VPU1": 0,
+        "MXU1": 0
+      },
+      "ops": 60095488,
+      "macs": 168427520,
+      "commands": 22346
+    },
+    "resident": {
+      "bytes_by_category": {
+        "state_load": 2097152,
+        "conv_load": 131072,
+        "parameter_load": 131840,
+        "hidden_load": 20480,
+        "module_inputs_visible": 0,
+        "input_projection_weight": 63242240,
+        "input_projection_feed": 67194880,
+        "input_projection_unpack": 0,
+        "input_projection_mac": 0,
+        "input_projection_output": 197632,
+        "input_projection_wave_visible": 0,
+        "prepare_read": 394496,
+        "prepare_compute": 0,
+        "prepare_write": 328704,
+        "prepared_visible": 0,
+        "state_read": 2097152,
+        "recurrence_operands": 329728,
+        "recurrence_compute": 0,
+        "recurrence_output": 65536,
+        "state_write": 2097152,
+        "recurrence_visible": 0,
+        "norm_read": 147456,
+        "norm_compute": 0,
+        "norm_write": 65536,
+        "norm_visible": 0,
+        "output_projection_weight": 20971520,
+        "output_projection_feed": 23592960,
+        "output_projection_unpack": 0,
+        "output_projection_mac": 0,
+        "output_projection_output": 40960,
+        "output_projection_wave_visible": 0,
+        "state_store": 2097152,
+        "conv_store": 131072,
+        "module_output_store": 40960,
+        "module_return_and_RF_clobber": 0
+      },
+      "bytes_by_resource": {
+        "EXT": 88863488,
+        "BARRIER": 0,
+        "LOCAL": 96552192,
+        "VPU0": 0,
+        "MXU0": 0,
+        "VPU1": 0,
+        "MXU1": 0
+      },
+      "ops": 60095488,
+      "macs": 168427520,
+      "commands": 21770
+    }
+  },
+  "capacity": {
+    "baseline": {
+      "plan": {
+        "variant": "baseline",
+        "tile": 64,
+        "depth": 2,
+        "order": "head",
+        "name": "baseline-v64-p2-head"
+      },
+      "mode": "prefill",
+      "vmem_peak": 3013376,
+      "rf_peak": 81984,
+      "state_bytes": 2097152,
+      "dense_weight_bytes_per_invocation": 84213760,
+      "output_bytes": 40960,
+      "evidence": "static shape/traffic graph, not timed tensor arithmetic"
+    },
+    "resident": {
+      "plan": {
+        "variant": "resident",
+        "tile": 64,
+        "depth": 2,
+        "order": "head",
+        "name": "resident-v64-p2-head"
+      },
+      "mode": "prefill",
+      "vmem_peak": 3013376,
+      "rf_peak": 81984,
+      "state_bytes": 2097152,
+      "dense_weight_bytes_per_invocation": 84213760,
+      "output_bytes": 40960,
+      "evidence": "static shape/traffic graph, not timed tensor arithmetic"
+    }
+  },
+  "prefill_performance_gate": false,
+  "decode": "EXCLUDED_NO_INTERVENTION_UNDER_REGISTERED_ABI",
+  "provisional_investment_decision": "\u672c\u8f6e\u672a\u83b7\u652f\u6301\uff0c\u65b9\u5411\u5173\u95ed",
+  "limitations": [
+    "Uncalibrated reference; cold weights and staged ABI only.",
+    "Timing is command-level execution; independent numerical tensors are not executed per timing trace.",
+    "No all-hardware or all-residency impossibility, no full decoder/model throughput."
+  ]
+}

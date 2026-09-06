@@ -1,0 +1,327 @@
+{
+  "created_utc": "2026-09-05T07:41:51.269355+00:00",
+  "executable_sha256": "dcb0bb2958a93db8af807e3dc72014e44a96348ed197a4b61c094a0f9876fcb9",
+  "environment_change": "PATH prepended C:/Windows/System32/AMD only in child subprocess environment",
+  "records": [
+    {
+      "path": "C:\\Windows\\System32\\AMD\\1x4.xclbin",
+      "sha256": "d1c2461996d9c087574a702197a1838baa0493b2d13f026219d12b231ae9bcc3",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/00_1x4.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU_1x4\"",
+        "kernel \"PP_FD_PRE\"",
+        "kernel \"PP_SSIM_PRE\"",
+        "kernel \"PP_EGC_PRE\"",
+        "kernel \"PP_EGC_POST\"",
+        "kernel \"PP_FD_POST\"",
+        "kernel \"PP_PIXELWISE_SELECT\"",
+        "kernel \"PP_BLENDING\"",
+        "kernel \"PP_ROW_FILTER\""
+      ],
+      "has_XDP_KERNEL": false
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\1x4_2.5.0.189-1.xclbin",
+      "sha256": "d1c2461996d9c087574a702197a1838baa0493b2d13f026219d12b231ae9bcc3",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/01_1x4_2.5.0.189-1.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU_1x4\"",
+        "kernel \"PP_FD_PRE\"",
+        "kernel \"PP_SSIM_PRE\"",
+        "kernel \"PP_EGC_PRE\"",
+        "kernel \"PP_EGC_POST\"",
+        "kernel \"PP_FD_POST\"",
+        "kernel \"PP_PIXELWISE_SELECT\"",
+        "kernel \"PP_BLENDING\"",
+        "kernel \"PP_ROW_FILTER\""
+      ],
+      "has_XDP_KERNEL": false
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\1x4_2.5.0.259-365.xclbin",
+      "sha256": "25d0676126c06923e40cfd7b47258c51735bf022b14aa3b2d62800cb9ddef7f5",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/02_1x4_2.5.0.259-365.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU_1x4\"",
+        "kernel \"PP_KERNEL_0\"",
+        "kernel \"PP_KERNEL_1\"",
+        "kernel \"PP_KERNEL_2\""
+      ],
+      "has_XDP_KERNEL": false
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\1x4_3.5.0.0-1505.xclbin",
+      "sha256": "40bce1b01194189d2af7be3b48e206aaf9fab4bd13935e3c303112c6a8b8d686",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/03_1x4_3.5.0.0-1505.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU_PDI_0\"",
+        "kernel \"DPU_PDI_1\"",
+        "kernel \"DPU_PDI_2\"",
+        "kernel \"DPU_PDI_3\"",
+        "kernel \"DPU_PDI_4\"",
+        "kernel \"DPU_PDI_5\"",
+        "kernel \"DPU_PDI_6\"",
+        "kernel \"DPU_PDI_7\"",
+        "kernel \"DPU_PDI_8\"",
+        "kernel \"DPU_PDI_9\"",
+        "kernel \"DPU_PDI_10\"",
+        "kernel \"XDP_KERNEL\"",
+        "kernel \"PP_KERNEL_0\"",
+        "kernel \"PP_KERNEL_1\"",
+        "kernel \"PP_KERNEL_2\""
+      ],
+      "has_XDP_KERNEL": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\1x4_3.5.0.0-1562.xclbin",
+      "sha256": "75c79274fa1f37728a43e79d61aff95f9257bf73ed0aa1c84bab088ae4a49a26",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/04_1x4_3.5.0.0-1562.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU_PDI_0\"",
+        "kernel \"DPU_PDI_1\"",
+        "kernel \"DPU_PDI_2\"",
+        "kernel \"DPU_PDI_3\"",
+        "kernel \"DPU_PDI_4\"",
+        "kernel \"DPU_PDI_5\"",
+        "kernel \"DPU_PDI_6\"",
+        "kernel \"DPU_PDI_7\"",
+        "kernel \"DPU_PDI_8\"",
+        "kernel \"DPU_PDI_9\"",
+        "kernel \"DPU_PDI_10\"",
+        "kernel \"XDP_KERNEL\"",
+        "kernel \"PP_KERNEL_0\"",
+        "kernel \"PP_KERNEL_1\"",
+        "kernel \"PP_KERNEL_2\""
+      ],
+      "has_XDP_KERNEL": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\1x4_3.5.0.0-949.xclbin",
+      "sha256": "c64c0d59dfab9f6a12e50252f302bdc8fb7e7b8183fd69d09e2bb796579c8de5",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/05_1x4_3.5.0.0-949.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU_PDI_0\"",
+        "kernel \"DPU_PDI_1\"",
+        "kernel \"DPU_PDI_2\"",
+        "kernel \"DPU_PDI_3\"",
+        "kernel \"DPU_PDI_4\"",
+        "kernel \"DPU_PDI_5\"",
+        "kernel \"DPU_PDI_6\"",
+        "kernel \"DPU_PDI_7\"",
+        "kernel \"PP_KERNEL_0\"",
+        "kernel \"PP_KERNEL_1\"",
+        "kernel \"PP_KERNEL_2\""
+      ],
+      "has_XDP_KERNEL": false
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\1x4_v0_122.xclbin",
+      "sha256": "35892156c190c83a3b6ee140a08611b9979224e494729359771244087a36c91a",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/06_1x4_v0_122.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU_1x4\""
+      ],
+      "has_XDP_KERNEL": false
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\4x4_3.5.0.0-1506.xclbin",
+      "sha256": "704918f143b156d34745dd8899a333e4e881078da77c017f912fd21dc25fe313",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/07_4x4_3.5.0.0-1506.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU_PDI_0\"",
+        "kernel \"DPU_PDI_1\"",
+        "kernel \"DPU_PDI_2\"",
+        "kernel \"DPU_PDI_3\"",
+        "kernel \"DPU_PDI_4\"",
+        "kernel \"DPU_PDI_5\"",
+        "kernel \"DPU_PDI_6\"",
+        "kernel \"DPU_PDI_7\"",
+        "kernel \"DPU_PDI_8\"",
+        "kernel \"DPU_PDI_9\"",
+        "kernel \"DPU_PDI_10\"",
+        "kernel \"XDP_KERNEL\""
+      ],
+      "has_XDP_KERNEL": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\4x4_3.5.0.0-1561.xclbin",
+      "sha256": "8c5e474ac9661851f77988a234e2589b2b0045dbbd3cfbb5886dcef0b8840e77",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/08_4x4_3.5.0.0-1561.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU_PDI_0\"",
+        "kernel \"DPU_PDI_1\"",
+        "kernel \"DPU_PDI_2\"",
+        "kernel \"DPU_PDI_3\"",
+        "kernel \"DPU_PDI_4\"",
+        "kernel \"DPU_PDI_5\"",
+        "kernel \"DPU_PDI_6\"",
+        "kernel \"DPU_PDI_7\"",
+        "kernel \"DPU_PDI_8\"",
+        "kernel \"DPU_PDI_9\"",
+        "kernel \"DPU_PDI_10\"",
+        "kernel \"XDP_KERNEL\""
+      ],
+      "has_XDP_KERNEL": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\5x4_3.5.0.0-950.xclbin",
+      "sha256": "ad853a2b26ba697895e3ab11492e3803ddddedb05b6d5af358dd5a5486cdb072",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/09_5x4_3.5.0.0-950.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU_PDI_0\"",
+        "kernel \"DPU_PDI_1\"",
+        "kernel \"DPU_PDI_2\"",
+        "kernel \"DPU_PDI_3\"",
+        "kernel \"DPU_PDI_4\"",
+        "kernel \"DPU_PDI_5\"",
+        "kernel \"DPU_PDI_6\"",
+        "kernel \"DPU_PDI_7\""
+      ],
+      "has_XDP_KERNEL": false
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\aieml_gemm_asr.xclbin",
+      "sha256": "18919f73ba7e833a5f337f1491e4bd4fadb802c76d314fd3e4414aa2dfe9ae3e",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/10_aieml_gemm_asr.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU\""
+      ],
+      "has_XDP_KERNEL": false
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\aieml_gemm_asr_qdq.xclbin",
+      "sha256": "e87c2213192794224d7ba07af55e416959d468d864e5631e6c7c2553384bbb52",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/11_aieml_gemm_asr_qdq.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU\""
+      ],
+      "has_XDP_KERNEL": false
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\aieml_gemm_vm_phx_4x4.xclbin",
+      "sha256": "d8b16adf18172cb3a5bfdd57328b49b05fa5ebc1e8ae9c86517920533c7bc032",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/12_aieml_gemm_vm_phx_4x4.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU\""
+      ],
+      "has_XDP_KERNEL": false
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\aieml_gemm_vm_phx_4x4_bf16.xclbin",
+      "sha256": "29d66a1678a365783d77eff97f18e5ae4775fe981c8e31dc8cc7cc2621e95d66",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/13_aieml_gemm_vm_phx_4x4_bf16.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU\""
+      ],
+      "has_XDP_KERNEL": false
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\validate_phx.xclbin",
+      "sha256": "c64c0d59dfab9f6a12e50252f302bdc8fb7e7b8183fd69d09e2bb796579c8de5",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/14_validate_phx.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU_PDI_0\"",
+        "kernel \"DPU_PDI_1\"",
+        "kernel \"DPU_PDI_2\"",
+        "kernel \"DPU_PDI_3\"",
+        "kernel \"DPU_PDI_4\"",
+        "kernel \"DPU_PDI_5\"",
+        "kernel \"DPU_PDI_6\"",
+        "kernel \"DPU_PDI_7\"",
+        "kernel \"PP_KERNEL_0\"",
+        "kernel \"PP_KERNEL_1\"",
+        "kernel \"PP_KERNEL_2\""
+      ],
+      "has_XDP_KERNEL": false
+    },
+    {
+      "path": "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\xclbin\\phx\\gemm_4x4.xclbin",
+      "sha256": "ab6cef19acf6e7d0f8f1e8e064c69deb01a94a4a180468e68cf4ff28dc28f648",
+      "exit_code": 0,
+      "device_opened": false,
+      "loaded_dll_path": "C:\\Windows\\System32\\AMD\\xrt_coreutil.dll",
+      "loaded_dll_sha256": "0ad76915287e229c61845279e4c089607254197b61f92f7fca411a7935aa4e94",
+      "output": "sdk/metadata/15_gemm_4x4.txt",
+      "kernel_lines": [
+        "kernel \"vadd\"",
+        "kernel \"DPU\""
+      ],
+      "has_XDP_KERNEL": false
+    }
+  ]
+}

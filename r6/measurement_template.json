@@ -1,0 +1,128 @@
+{
+  "schema_version": "r6.measurement.v1",
+  "purpose": "screening",
+  "fixture": false,
+  "evidence": {
+    "level": "unavailable",
+    "target": null,
+    "physical_npu_confirmed": null,
+    "execution_confirmed": false,
+    "unknown_reasons": {
+      "target": "Instantiate only after identifying the actual target device.",
+      "physical_npu_confirmed": "No physical NPU execution is asserted by this blank template."
+    },
+    "limitations": [
+      "Blank template. No device runs or performance evidence."
+    ]
+  },
+  "artifacts": [],
+  "instrumentation": [],
+  "contracts": [],
+  "preregistration": {
+    "sha256": "6d927d05aa923a75db9fae23a6958c71754ed403a18ad3e202f4e6bd18c1e935",
+    "data": {
+      "frozen_at": null,
+      "unknown_reasons": {
+        "frozen_at": "Freeze this instantiated target contract before any confirmation test."
+      },
+      "net_improvement_threshold_pct": 5.0,
+      "paired_ci_lower_bound_required_gt": 0,
+      "min_test_pairs_per_condition_per_session": 30,
+      "min_test_sessions": 2,
+      "min_non_extreme_interference_conditions": 2,
+      "isolated_max_regression_pct": 1.0,
+      "ci_method": "Predeclare paired-block resampling within each independent session; require the 95% CI lower bound above zero and mean net improvement at least 5% in each confirmation condition/session. Preserve within-pair dependence; never use individual requests as independent samples. No test-driven stopping or tuning.",
+      "seeds": {
+        "pilot": [],
+        "train": [],
+        "validation": [],
+        "test": []
+      }
+    }
+  },
+  "conditions": [],
+  "comparisons": [],
+  "strong_static": {
+    "selected_contract_id": null,
+    "selected_on": "validation",
+    "test_used_for_selection": false,
+    "selection_artifact_id": null,
+    "search_budget": null,
+    "unknown_reasons": {
+      "selected_contract_id": "No target-specific static search executed.",
+      "selection_artifact_id": "No selection evidence yet.",
+      "search_budget": "Freeze target-supported dimensions and budget before training search."
+    },
+    "dimensions": {}
+  },
+  "calibration": {},
+  "runs": [],
+  "run_template_NOT_AN_OBSERVATION": {
+    "id": null,
+    "status": null,
+    "contract_id": null,
+    "raw_artifact_id": null,
+    "numerical_pass": null,
+    "condition_id": null,
+    "comparison_id": null,
+    "session_id": null,
+    "split": "pilot",
+    "phase_seed": null,
+    "pair_id": null,
+    "arm": null,
+    "pair_order": null,
+    "captured_at": null,
+    "metrics": {
+      "elapsed_device_ns": {
+        "value": null,
+        "unknown_reason": "No device measurement."
+      },
+      "elapsed_host_ns": {
+        "value": null,
+        "unknown_reason": "No host measurement."
+      },
+      "traffic": {
+        "value": null,
+        "unknown_reason": "No actual per-port traffic interface mapped."
+      },
+      "compute_active": {
+        "value": null,
+        "unknown_reason": "No compute counter interface mapped."
+      },
+      "request_observation": {
+        "value": null,
+        "unknown_reason": "No defined request, limit or latency observation mapped."
+      }
+    },
+    "capture_quality": {
+      "dropped_records": null,
+      "overflow_count": null,
+      "unhandled_wraps": null,
+      "unknown_reasons": {
+        "dropped_records": "No capture.",
+        "overflow_count": "No capture.",
+        "unhandled_wraps": "No capture."
+      }
+    },
+    "actual_frequency_hz": {
+      "value": null,
+      "unknown_reason": "No actual frequency measurement."
+    },
+    "background_actual_bytes": {
+      "value": null,
+      "unknown_reason": "No background traffic measurement."
+    },
+    "environment": {
+      "temperature_c": null,
+      "power_mode": null,
+      "cpu_affinity": null,
+      "other_master_traffic": null,
+      "unknown_reasons": {
+        "temperature_c": "No measurement.",
+        "power_mode": "No target identified.",
+        "cpu_affinity": "No runner instantiated.",
+        "other_master_traffic": "No interface mapped."
+      }
+    }
+  }
+}

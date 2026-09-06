@@ -1,0 +1,26 @@
+{
+  "schema_version": "r8.scope-alignment-handoff.v1",
+  "created_utc": "2026-09-05T08:54:50.815727+00:00",
+  "evidence_level": "user-approved scope alignment, no R8 experiment",
+  "parent_manifests": {
+    "experiments/results/r4/artifact_integrity.json": "28d3d8b9588a5cc2510da004ee58c7ca86d31167a99c37af69370869adf67e6c",
+    "r5/artifact_integrity.json": "88e6728e4979745201a81137ba4a98941706c2efa532cf6212a2a817e6998e58",
+    "r6/artifact_integrity.json": "6b52b291434c8c569b378e52b6859d5d4d53d94a14276c49794a07264e4a82ad",
+    "r7/artifact_integrity.json": "08e1f7c12453caa5b1cfad2f86cf54392eb2dbae6d52bd56ab27a841d33be71f"
+  },
+  "handoff_files": {
+    "r8/continuation_brief.md": "39d724645bccb09533dca8f9a4c5186c47f8b921ea843b8ac262abddb459fc13",
+    "r8/check_history.py": "cf37ea283ee29dd00980ded4f6d6c545b4ed8217fde063af2b5c341937f0f8ef",
+    "r8/history/r7_research_progress.md": "d2696951b8613e2fa90be5b730b0be7328d5fa199e035155cad4e7745843f30e",
+    "r8/history/aligned_research_progress.md": "48e5861f4c7f5adac38202556453f13327972508658e6b19b4a601c5f122d1ff",
+    "r8/history/snapshot_receipt.json": "8e474ad894e0029af8faf9af850e8edcf12413df3aa3c587fb87ecad869f3fd4"
+  },
+  "progress_lineage": {
+    "logical_path": "research_progress.md",
+    "parent_snapshot": "r8/history/r7_research_progress.md",
+    "parent_sha256": "d2696951b8613e2fa90be5b730b0be7328d5fa199e035155cad4e7745843f30e",
+    "successor_snapshot": "r8/history/aligned_research_progress.md",
+    "successor_sha256": "48e5861f4c7f5adac38202556453f13327972508658e6b19b4a601c5f122d1ff"
+  },
+  "future_work_rule": "R8 results may add new r8 files and append live progress with new lineage; this manifest freezes only handoff artifacts. Preserve historical rows; never refreeze old manifests."
+}

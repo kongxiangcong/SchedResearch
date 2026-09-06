@@ -1,0 +1,846 @@
+Journal of King Saud University Computer and Information Sciences (2026) 38:114
+https://doi.org/10.1007/s44443-026-00513-z
+
+ RESEARCH
+
+A fully hardware-managed scheduling architecture for AI accelerators
+
+Libo Cheng1 · Liang Yang1 · Jian Shao1 · Xinyi Gu1 · Rong Qian1 · Xinwei Zhang1 · Donghao Li1 ·
+Hongbin Wang1 · Xiaoqi Xia1
+
+Received: 23 November 2025 / Accepted: 22 January 2026 / Published online: 5 February 2026
+© The Author(s) 2026
+
+Abstract
+The proliferation of AI applications across diverse domains has driven the evolution of AI accelerators toward higher perfor-
+mance and energy efficiency. This paper addresses the critical challenge of task scheduling in AI accelerators by introducing
+a fully hardware-managed scheduling system. Our approach leverages Operator Completion Status Registers (OCSRs) and
+a novel computation-scheduling instruction set to minimize software overhead and maximize execution parallelism. The co-
+designed hardware-software solution comprises: (1) a dedicated hardware scheduling unit with a complete instruction pipeline,
+(2) a compiler that maps operators to scheduling instructions while managing OCSR allocation, and (3) a lightweight run-
+time for efficient task dispatch. Experimental results demonstrate that our system significantly reduces scheduling latency
+and improves overall throughput, achieving an average performance gain of approximately 30% across multiple CNN mod-
+els while maintaining minimal area overhead of only 7.41%. The proposed architecture establishes a new paradigm for
+high-efficiency AI accelerator design.
+
+Keywords AI accelerators · Hardware-managed scheduling · OCSR · Computation-scheduling instructions · Scheduling
+latency · Throughput optimization · Neural network inference
+
+B Libo Cheng                                           1 Introduction
+
+     chenglb09@163.com                                 Artificial Intelligence (AI) has emerged as a transformative
+                                                       technology, reshaping methodologies and capabilities across
+B Liang Yang                                           numerous domains including healthcare, autonomous sys-
+                                                       tems, financial services, and industrial automation. Recent
+     yangliang1110@gmail.com                           advances in machine learning, deep learning, natural lan-
+                                                       guage processing, and computer vision have enabled AI
+     Jian Shao                                         systems to achieve unprecedented performance in critical
+     shaojian1008@126.com                              tasks such as pattern recognition (Lu et al. 2024b), predictive
+                                                       analytics (Dixon et al. 2024), and autonomous systems (Lu
+     Xinyi Gu                                          et al. 2024a). The exponential growth in model complexity
+     briskthrough@163.com                              and data volumes has created unprecedented computational
+                                                       demands, necessitating specialized hardware solutions that
+     Rong Qian                                         can deliver both high throughput and energy efficiency.
+     qianrong0316@126.com
+                                                          To enhance the inference performance of trained mod-
+     Xinwei Zhang                                      els in real-world deployments, substantial research efforts
+     powerxinwei@163.com                               have focused on three primary directions: algorithmic opti-
+                                                       mization (Zhou et al. 2018), software compilation tech-
+     Donghao Li                                        niques (Chen et al. 2018; Golin et al. 2024), and specialized
+     lli471426@gmail.com                               hardware acceleration. While algorithmic improvements
+
+     Hongbin Wang
+     whbwyf@qq.com
+
+     Xiaoqi Xia
+     natsuxiaxq@163.com
+
+1 China Electronics Technology Group Corporation 58th
+     Research Institute, Wuxi 214100, China
+
+                                                                                 123
+114 Page 2 of 16  Journal of King Saud University Computer and Information Sciences (2026) 38:114
+
+provide theoretical benefits, and compilation techniques opti-   leverage the parallel execution capabilities of modern AI
+mize software execution, it is the hardware acceleration that    accelerators. The system features three key components:
+ultimately determines the practical performance boundaries
+of AI systems in production environments.                         · Architecture: A computation-scheduling instruction set
+                                                                     employing Operator Completion Status Registers (OCSRs)
+   While conventional processors, including CPUs and                 as source/destination registers to establish explicit oper-
+GPUs, remain adequate for general-purpose computing, they            ator dependencies and enable fine-grained parallelism.
+fundamentally lack the architectural specialization required
+to execute AI workloads efficiently. This performance-            · Hardware Implementation: A dedicated execution
+energy efficiency dichotomy has catalyzed the rapid evolu-           pipeline (fetch-decode-issue-execute-writeback) for sch-
+tion of dedicated AI accelerator chips, transforming them            eduling instructions, enabling parallel operator execution
+from theoretical concepts into indispensable components of           through multi-issue support and out-of-order execution
+the AI revolution. The growing gap between computational             capabilities.
+demands of state-of-the-art models and the capabilities of
+general-purpose hardware has created an urgent need for           · Software Stack: Virtual OCSR allocation/reclamation
+domain-specific architectures optimized for neural network           mechanisms, computation-scheduling instruction map-
+computations.                                                        ping for model compilation and code generation, and a
+                                                                     lightweight runtime system that minimizes host proces-
+   Recent years have witnessed remarkable advances in AI             sor involvement.
+chip capabilities across multiple dimensions. Through inno-
+vations in parallel processing architectures (Chen et al. 2014;     Experimental results validate the superior performance of
+Jouppi et al. 2017), near-memory computation (Verma et al.       the proposed hardware scheduler across a range of AI work-
+2019), and advanced fabrication processes (Li et al. 2024;       loads. In comparison to conventional software-based sched-
+Chen et al. 2019), modern AI accelerators deliver orders-of-     ulers, the proposed design significantly reduces scheduling
+magnitude improvements in both computational throughput          latency and enhances effective chip throughput, setting new
+and operations-per-watt efficiency. Industry leaders (e.g.,      benchmarks in accelerator efficiency. These improvements
+TPUs, NPUs, and neuromorphic chips) alongside academic           are achieved with minimal area overhead, rendering the
+breakthroughs continue to push the boundaries of intelligent     architecture particularly suitable for AI applications where
+hardware design. However, most of these advancements have        computational efficiency and power consumption are critical.
+focused primarily on computational units and memory hier-
+archies, often overlooking the critical role of efficient task   2 Background and related work
+scheduling in overall system performance.
+                                                                 As AI technology permeates various industries and applica-
+   Although current research predominantly focuses on            tion scenarios, AI chips have evolved with distinct architec-
+enhancing computational (Malathi et al. 2024) and mem-           tural emphases tailored to specific deployment environments
+ory units (Tam et al. 2020; Gholami et al. 2024; Wang et al.     and computational patterns. From an application perspective,
+2024), task scheduling--a pivotal factor in overall system       AI chips can be broadly categorized into cloud-side deploy-
+efficiency--remains relatively unexplored despite its signifi-   ments (e.g., recommendation systems for e-commerce plat-
+cant impact on real-world performance. Efficient scheduling      forms, city-scale AI systems such as "City Brains," and large
+strategies can optimize computational resource utilization,      language model inference servers) and edge-side applica-
+reduce latency, hide memory access overhead, and signif-         tions (e.g., smartphones, security surveillance, autonomous
+icantly improve effective computation capability. In many        driving, and IoT devices). Each category presents unique
+practical deployments, inefficient scheduling can undermine      challenges: cloud-side deployments prioritize high through-
+the theoretical advantages of powerful computational units,      put and scalability, while edge-side applications emphasize
+leading to substantial underutilization of hardware resour-      power efficiency, latency sensitivity, and cost constraints.
+ces.
+                                                                    Architecturally, AI accelerators can be classified into sev-
+   To address this critical gap, we propose an innovative        eral distinct types based on their computational paradigms
+hardware-based scheduling solution designed around task          and execution models: Instruction Set Processors (e.g., Cam-
+scheduling optimization objectives. Our approach aims to         bricon MLU series products Liu et al. 2016) that extend
+minimize software scheduling overhead while enhancing            traditional processor architectures with AI-specific instruc-
+task execution parallelism and real-time responsiveness. The     tions, Dataflow Processors (Chen et al. 2019) that optimize
+co-designed hardware-software system represents a funda-         for data movement patterns in neural networks, In-Memory
+mental shift from traditional software-dominated scheduling
+paradigms to a hardware-managed approach that can fully
+
+123
+Journal of King Saud University Computer and Information Sciences (2026) 38:114  Page 3 of 16 114
+
+Computing Processors (Halawani et al. 2021) that reduce         application requirements while maintaining software com-
+data transfer overhead through processing-in-memory tech-       patibility through a consistent programming interface.
+niques, and Reconfigurable AI Processors (Li et al. 2024)
+that provide flexible computational fabrics adaptable to vary-     The NVDLA architecture, depicted in Fig. 1, incorporates
+ing model structures. Each architectural approach represents    several specialized processing units (Nvdla unit description
+different trade-offs between flexibility, efficiency, and pro-  2017) that work in concert to execute complete neural net-
+grammability.                                                   work models:
+
+   Our proposed fully hardware-scheduled system primar-          · Convolution Core: Optimized for high-performance
+ily targets edge-side applications and employs a streaming          convolutions utilizing Winograd transforms and sparse
+architecture for AI chips, focusing on minimizing control           weight compression techniques. The core employs sophis-
+overhead and maximizing hardware utilization. The NVIDIA            ticated data reuse strategies to minimize external memory
+Deep Learning Accelerator (NVDLA) serves as a represen-             accesses and maximize computational efficiency for the
+tative architecture for this approach due to its open-source        most common operation in convolutional neural net-
+nature, modular design, and widespread adoption in both             works.
+academic research and industrial applications. This sec-
+tion examines both NVDLA's architecture and its software         · Single Data Processor (SDP): Executes activation func-
+scheduling workflow to establish the baseline against which         tions (ReLU, sigmoid, tanh) and element-wise operations
+our improvements are measured.                                      including addition, multiplication, and scaling. The SDP
+                                                                    handles operations that require per-element processing
+2.1 NVDLA architecture overview                                     rather than spatial or channel-wise transformations.
+
+NVDLA represents an open-source, modular hardware archi-         · Planar Data Processor (PDP): Handles 2D pooling
+tecture designed to standardize and accelerate deep learning        operations (max/average pooling) for spatial dimension
+inference workloads (Nvdla hardware architectural specifi-          reduction. The processor efficiently implements various
+cation 2017). Released by NVIDIA in 2017, it provides a             pooling window sizes and stride configurations common
+scalable framework that bridges the gap between compu-              in modern network architectures.
+tational demands of modern neural networks and resource
+constraints across diverse platforms--ranging from cost-         · Channel Data Processor (CDP): Manages channel-
+sensitive IoT devices to high-performance edge systems. The         wise normalization operations (e.g., Local Response
+architecture's modularity enables customization for specific        Normalization, batch normalization) that are essential
+                                                                    for training stability and inference accuracy in deep net-
+                                                                    works.
+
+                                                                 · Reshape Engines (RUBIK/BDMA): Accelerate tensor
+                                                                    transformations (transpose, concatenation, splitting) and
+
+Fig. 1 NVDLA block diagram
+illustrating key computational
+units and memory interfaces.
+The architecture features
+specialized processors for
+different types of neural network
+operations
+
+                                                                                 123
+114 Page 4 of 16                 Journal of King Saud University Computer and Information Sciences (2026) 38:114
+
+    memory transfer operations. These units handle data lay-     clock frequency, potentially deviating significantly from
+    out transformations that are frequently required between     ASIC-grade implementations. To enable a meaningful ASIC-
+    different types of neural network layers.                    oriented comparison, we distill the three dominant runtime
+                                                                 operations identified in Veronesi et al. (2020) and summarize
+   To address bandwidth constraints that often bottleneck        them in Table 1.
+AI accelerator performance, NVDLA implements a sophis-
+ticated heterogeneous memory strategy:                              Network loading is a one-time overhead incurred at the
+                                                                 start of an inference session and does not recur across consec-
+ · Primary DBB Interface: Connects to system DRAM                utive inferences. In contrast, data preparation--comprising
+    shared with CPU and I/O subsystems, providing large-         image fetch and preprocessing--is inherent to any AI
+    capacity storage for model parameters, input data, and       pipeline, with latency governed by image resolution, main-
+    intermediate activations that exceed on-chip memory          memory bandwidth, and CPU performance. In high-perfor-
+    capacity.                                                    mance SoC deployments, this stage typically constitutes
+                                                                 only a minor fraction of total inference time, and its opti-
+ · Secondary DBB Interface (optional): Dedicated to              mization lies beyond the scope of NPU acceleration; thus,
+    high-bandwidth SRAM, significantly reducing latency          data preparation is excluded from further analysis in this
+    for weight and activation caching in large model deploy-     paper. On the other hand, the submit operation is invoked
+    ments. This interface enables efficient data reuse patterns  in every inference, and its latency critically governs sys-
+    and reduces contention with other system components.         tem throughput and end-to-end inference performance. This
+                                                                 operation can be decomposed into operator scheduling and
+   The combination of specialized processing units and           operator execution. While execution time is bounded by the
+a hierarchical memory architecture enables NVDLA to              peak capabilities of the hardware engines--offering lim-
+achieve high computational density while maintaining flexi-      ited optimization headroom--the scheduling path is entirely
+bility across diverse neural network models and deployment       software-controlled and remains amenable to improvement.
+scenarios.                                                       Consequently, this work focuses on enhancing operator-
+                                                                 scheduling strategies.
+2.2 Software scheduling in NVDLA
+                                                                    NVDLA's task scheduling typically employs a software-
+The NVDLA runtime consists of two cooperating drivers.           based approach (Nvdla software manual 2017) where the
+The user-mode driver (UMD) manages tensor formatting             host processor manages operator execution sequencing and
+and I/O preparation, while the kernel-mode driver (KMD)          dependency resolution. As illustrated in Fig. 2, the schedul-
+encapsulates the functional-unit scheduler and the hardware-     ing workflow involves runtime software sequentially pars-
+abstraction layer, thereby performing resource allocation        ing each operator of AI computing tasks and dispatching
+and command submission. A comprehensive runtime char-            them to corresponding execution units (Lyu et al. 2021).
+acterization is provided in Veronesi et al. (2020), which        This approach provides flexibility and programmability but
+systematically evaluates the performance and overhead of         introduces significant overhead that becomes increasingly
+NVDLA across diverse CNN workloads. However, the                 problematic as model complexity grows and operator sizes
+reported measurements were conducted on an FPGA plat-            decrease.
+form with limited main-memory bandwidth and reduced
+                                                                    However, this conventional approach overlooks the sub-
+                                                                 stantial impact of task scheduling mechanisms on system-
+                                                                 level efficiency. The operator-level task scheduling relies
+
+Table 1 Runtime operations and performance characteristics for NVDLA inference
+
+Runtime operation  Main actions                                                 Performance factors  Estimated latency
+                                                                                                     1 ms (ResNet-50)
+Network loading    Load .loadable file from storage                             Model size
+Data preparation   into main memory                                             DDR bandwidth        0.1 ms
+                   Image fetch from storage                                     Image size           (Image: 224×224×3)
+Submit operation   Data process (conversion, normal)                            DDR bandwidth
+                                                                                CPU performance      5 ms (ResNet-50)
+                   Schedule per-operation                                       Operation number
+                   Each operation execution                                     CPU-NPU scheduling
+                                                                                NPU capability
+
+123
+Journal of King Saud University Computer and Information Sciences (2026) 38:114  Page 5 of 16 114
+
+Fig. 2 Software scheduling
+architecture showing host CPU
+communication with AI
+accelerator. The diagram
+illustrates the frequent
+interactions between CPU and
+accelerator required for
+operator-by-operator scheduling
+in conventional systems
+
+heavily on CPU-side runtime driver software, revealing two     ering the architectural principles, hardware design, and
+fundamental limitations that become particularly severe in     software support that enable efficient task scheduling with-
+modern neural network architectures:                           out CPU intervention. Section 3.1 provides a comprehen-
+                                                               sive system architecture overview and contrasts the work-
+1. Each operator launch requires CPU-initiated control         flow differences between software and hardware scheduling
+    commands to the accelerator device, involving context      approaches, highlighting the key innovations that reduce
+    switching, driver invocation, and register programming     scheduling overhead. Section 3.2 presents the OCSR mecha-
+    overhead that accumulates across thousands of operators    nism and computation-scheduling instruction set design that
+    in typical inference tasks.                                form the foundation of our dependency management system.
+                                                               Section 3.3 describes the hardware architecture and paral-
+2. Post-execution operator completion necessitates interrupt-  lel execution capabilities that enable out-of-order execution
+    triggered CPU-device state synchronization, causing        while maintaining correctness. Finally, Section 3.4 outlines
+    additional context switches and cache pollution that fur-  the supporting software stack components that bridge the
+    ther degrade overall system performance.                   gap between high-level model descriptions and hardware-
+                                                               executable scheduling instructions.
+   This software-centric scheduling paradigm with frequent
+CPU-device interactions severely impacts performance, par-     3.1 System architecture overview
+ticularly for networks with high-frequency small operators
+(e.g., LayerNorm in Transformers, activation layers in mod-    Our fully hardware-managed scheduling system builds upon
+ern CNNs), where such interactions can consume 20%­40%         the openNVDLA architecture while fundamentally rearchi-
+of total task latency, substantially diminishing the chip's    tecting the scheduling mechanism to eliminate CPU involve-
+effective computational capability. As neural network archi-   ment in runtime task management. Unlike openNVDLA's
+tectures continue to evolve toward more complex graphs with    software-based approach, our system implements operator
+finer-grained operators, this scheduling overhead becomes      scheduling entirely through hardware-managed computation-
+increasingly dominant, limiting the practical performance of   scheduling instructions that encode both computational
+even the most powerful computational units.                    operations and their dependencies in a unified format. As
+                                                               illustrated in Fig. 3, the model deployment workflow begins
+3 Hardware-managed scheduling                                  with compiler optimization, where computational nodes are
+  architecture                                                 transformed into hardware-executable operations through a
+                                                               series of graph transformations, operator fusion, and memory
+This section provides a comprehensive description of our       layout optimizations. These operations are subsequently seri-
+hardware-managed scheduling system implementation, cov-
+
+                                                                                 123
+114 Page 6 of 16  Journal of King Saud University Computer and Information Sciences (2026) 38:114
+
+Fig. 3 End-to-end task compilation and execution workflow comparison between openNVDLA and our hardware-scheduled implementation
+
+alized into binary format through a code generator and loaded      _cnt, op_consumers} metadata that must be inter-
+into hardware via a lightweight runtime software layer that        preted by the driver software to determine execution
+handles only task-level management rather than per-operator        readiness.
+control.                                                       3. KMD polls operations in each queue, dispatching depen-
+                                                                   dency-satisfied operations (dependency count = 0) to
+   While maintaining compatibility with the openNVDLA              hardware via IOCTL interfaces that involve costly kernel-
+deployment pipeline to facilitate adoption and comparison,         user mode transitions and driver overhead.
+our system introduces a crucial modification at the code gen-  4. Hardware completion triggers interrupts to KMD, which
+eration stage: instead of conventional operation sequences         updates dependency counts for consumer operations and
+that require runtime interpretation, our compiler maps opti-       must perform additional scheduling decisions for newly
+mized operations into computation-scheduling instructions          enabled operations.
+directly executable by the hardware scheduler. This trans-     5. This polling-interrupt cycle continues until all operations
+formation occurs during compilation rather than runtime,           complete, with final status returned to UMD through
+moving complex dependency analysis and scheduling logic            additional mode transitions and data copying operations.
+from the critical path of inference execution to offline com-
+pilation where computational resources are more abundant          This software-intensive approach creates substantial over-
+and latency constraints are less severe.                       head that grows linearly with the number of operators in the
+                                                               computational graph, making it particularly inefficient for
+3.1.1 OpenNVDLA software scheduling workflow                   modern neural networks that may contain thousands of small
+                                                               operations.
+The conventional software scheduling mechanism in open-
+NVDLA operates through an iterative process that requires      3.1.2 Proposed hardware scheduling workflow
+continuous CPU involvement:
+                                                               Our optimized hardware-managed workflow eliminates per-
+1. Compiler-generated tasks are parsed by the User Mode        operator CPU involvement through a batch-oriented execu-
+    Driver (UMD) and forwarded to the Kernel Mode Driver       tion model:
+    (KMD), which queues operations according to proces-
+    sor types and maintains complex metadata structures for    1. Compiler-generated tasks undergo UMD-KMD pro-
+    dependency tracking.                                           cessing, with KMD delivering complete task packages
+
+2. Each operation is described through a descriptor structure
+    containing {op_config, op_index, op_dep
+
+123
+Journal of King Saud University Computer and Information Sciences (2026) 38:114  Page 7 of 16 114
+
+   directly to the hardware scheduler without interpreting       dependency enforcement through the OCSR mechanism,
+   individual operators or their dependencies.                   which provides a lightweight hardware primitive for tracking
+2. Operations are encoded as computation-scheduling instruc-     operator completion states without software intervention. As
+   tions, with dependencies managed through OCSRs that           illustrated in Fig. 4, the workflow comprises three key phases
+   are initialized by the compiler and tracked autonomously      that transform a computational graph into hardware-executable
+   by hardware.                                                  instructions with embedded dependency information:
+3. The hardware scheduler autonomously executes instruc-
+   tions through a complete pipeline: fetch-decode-emission-     1. Per-operator OCSR assignment: Each computation
+   execution-writeback, resolving dependencies dynami-               node receives a dedicated OCSR representing its exe-
+   cally without software intervention.                              cution state. Upon completion, the hardware scheduler
+4. Task completion triggers a single interrupt to KMD,               automatically sets the corresponding OCSR to `1', signal-
+   propagating status to UMD through a simplified com-               ing to dependent operations that their input dependencies
+   munication path that involves minimal data transfer and           have been satisfied. This automatic state update elim-
+   processing.                                                       inates the need for software tracking and notification
+                                                                     mechanisms that consume valuable CPU cycles and
+   The hardware-managed approach substantially reduces               introduce latency.
+NPU-CPU communication overhead by limiting interactions
+to task-level granularity. While software scheduling requires    2. Source-destination dependency chaining: The OCSR
+per-operator CPU involvement, our system minimizes inter-            serves as both destination register for current oper-
+rupt frequency according to the fundamental relationship:            ators and source registers for dependent operators,
+                                                                     intrinsically establishing execution ordering through
+Interrupt Reduction = 1 -  1                        (1)              hardware-managed data dependencies. This chaining
+                                                                     mechanism naturally captures the producer-consumer
+                           Nops                                      relationships in computational graphs without requiring
+                                                                     explicit software-managed dependency graphs or com-
+where Nops represents operators per task. This optimiza-             plex synchronization primitives.
+tion significantly enhances scheduling efficiency, particularly
+for models with numerous small operators where traditional       3. Computation-scheduling instruction generation: Each
+approaches suffer from amortizing fixed overhead costs               computation node translates into a corresponding instruc-
+across minimal computation. For typical neural networks              tion with opcode matching operator type, destination
+containing hundreds to thousands of operators, this reduction        register assigned to OCSR, and source registers corre-
+translates to 99.9% fewer interrupts and associated context          sponding to input dependencies. The compiler performs
+switching overhead.                                                  this transformation during code generation, embedding
+                                                                     the complete execution schedule directly into the instruc-
+   As shown in Table 2, the hardware scheduling approach             tion stream rather than relying on runtime decision-
+fundamentally changes the scaling characteristics of schedul-        making.
+ing overhead, making it constant rather than linear with
+respect to model complexity. This property becomes increas-      The computation-scheduling instructions employ a fixed 64-
+ingly valuable as neural network architectures evolve toward     bit format detailed in Table 3, comprising these key fields
+more complex graphs with finer-grained operations.               that encode both computation and dependency information
+                                                                 in a unified representation:
+3.2 OCSR and computation-scheduling instructions
+                                                                    Key instruction components include:
+
+Establishing precise dependencies between operators consti-      · Opcode: 5-bit encoding mapped to specific execution
+tutes a fundamental challenge in AI accelerator scheduling,         engines, enabling direct dispatch to specialized compu-
+particularly when enabling parallel execution across het-           tational units without runtime resource allocation deci-
+erogeneous computational units. Our solution implements             sions.
+
+Table 2 Communication overhead comparison between scheduling     · Configuration Data: Extended parameter fields includ-
+approaches                                                          ing memory offset and data size that support operations
+                                                                    with complex parameter sets exceeding the immediate
+Scheduling Method    Interrupts/Task  CPU Involvement               value capacity of the base instruction format.
+
+Software Scheduling  Nops             Per-operator               · Source Registers: Dual 6-bit OCSR addresses with
+                                      Task-level                    source count indicator that explicitly encode input depen-
+Hardware Scheduling  1                                              dencies, enabling the hardware scheduler to determine
+                                                                    execution readiness without software analysis.
+
+                                                                                 123
+114 Page 8 of 16                                          Journal of King Saud University Computer and Information Sciences (2026) 38:114
+
+Fig. 4 OCSR assignment and computation-scheduling instruction code generation workflow. The process shows how computational graph nodes
+are mapped to hardware instructions with explicit dependency encoding through source and destination OCSR specifications
+
+ · Destination Register: 6-bit OCSR address supporting 64    3.3 Hardware scheduler architecture
+    concurrent operations, providing sufficient parallelism
+    for most practical neural network inference scenarios    The proposed hardware architecture, illustrated in Fig. 5,
+    while maintaining manageable hardware complexity.        comprises two primary components: a set of neural network
+                                                             execution units and a dedicated hardware scheduling unit.
+   This instruction format represents a careful balance      The execution subsystem integrates specialized compute
+between expressive power and hardware complexity, provid-    engines inherited from the open NVDLA architecture (e.g.,
+ing sufficient information to encode complex computational   ConvCore, SDP, and PDP), which are responsible for per-
+graphs while maintaining a fixed-length format that simpli-  forming neural network computations. These engines retain
+fies instruction decoding and pipeline design.               their original design, with hardware structures fully consis-
+
+Table 3 Computation-scheduling instruction format
+
+Field  Name           Bits                         Width     Description
+                                                   5
+0      Opcode         [63:59]                                5'h0: illegal
+                                                             5'h1: ConvCore
+1      Config offset  [58:33]                      26        5'h2: SDP
+                                                             5'h3: PDP
+2      Config size    [32:23]                      10        5'h4: CDP
+                                                             5'h5: BDMA
+3      Source count   [22]                         1         Configuration register address offset for extended operation parameters
+                                                             Configuration data size in bytes for variable-length parameters
+4      Src1 register  [21:16]                      6         Number of source operands (1 or 2) for dependency specification
+                                                             Second source OCSR address for multi-input operations
+5      Src0 register  [15:10]                      6         First source OCSR address for primary input dependency
+                                                             Destination OCSR address for completion tracking
+6      Dest register  [9:4]                        6         Reserved for future extensions and special operations
+
+7      Reserved       [3:0]                        4
+
+123
+Journal of King Saud University Computer and Information Sciences (2026) 38:114  Page 9 of 16 114
+
+Fig. 5 Hardware architecture integrating dedicated scheduling unit with computational resources. The diagram shows the complete scheduling
+pipeline alongside specialized execution units
+
+tent with the baseline implementation. Consequently, their          OCSRs are ready, (2) a free slot is available in the reorder
+microarchitectural details are not elaborated here.                 buffer (ROB), and (3) the target computational unit is idle.
+                                                                    The module then programs the corresponding computa-
+   The scheduler implements a complete instruction pipeline         tional unit with the operation's configurations.
+that supports fetch, decode, issue, execute, and write-         3. Execution Trigger: The execution module obtains a free
+back operations for scheduling instructions. Specifically,          slot (rob_id) from the ROB and dispatches it, together with
+the pipeline incorporates an Instruction Buffer (IBUF) for          an enable signal, to the appropriate computational unit.
+prefetching scheduling instructions and a ReOrder Buffer        4. Completion and Writeback: After execution is com-
+(ROB) to enable out-of-order execution. The IBUF is sized           pleted, the computational unit returns a finish signal along
+at 8 KB, designed to hold over 1,000 instructions, which            with the rob_id to the ROB, writes the result back to the
+is sufficient for most edge-deployment workloads. More-             register file, and thereby concludes the scheduling process.
+over, because each instruction typically occupies the compute
+engine for an extended duration (thousands to over millions        Parallel operator execution presents significant challenges
+of clock cycles), even a modest IBUF can be replenished         in AI accelerator design due to the complex dependency
+from DDR without significantly degrading overall perfor-        patterns in neural network computational graphs. Variable
+mance. The ROB is configured with 32 entries, an empirically    execution latencies across operators prevent deterministic
+determined size that balances hardware cost and scheduling      completion ordering at compile time, complicating compiler
+flexibility. This design is appropriate because AI-operator-    optimizations such as memory reuse and static scheduling.
+level tasks are largely sequential with limited inherent        Contemporary systems typically employ sequential schedul-
+parallelism; furthermore, the long execution time of each       ing or complex multi-stream mechanisms (Zhang et al. 2021)
+instruction on its corresponding engine reduces the marginal    for limited parallelism, but these approaches either sacrifice
+performance benefit of a larger ROB.                            performance or introduce substantial software complexity
+                                                                that negates the benefits of hardware acceleration.
+   The scheduling pipeline operates through the following
+sequence of stages:                                                Our hardware scheduler, depicted in Fig. 6, enables par-
+                                                                allel execution while maintaining dependencies through two
+1. Fetch and Decode: Instructions are retrieved from the        key mechanisms:
+    instruction buffer and subsequently decoded by the
+    decode module.                                               · Parallel Issuing: Simultaneously dispatches dependency-
+                                                                    satisfied operators to heterogeneous compute units, max-
+2. Issue: The emission module issues an instruction once
+    all the following conditions are satisfied: (1) the source
+
+                                                                                 123
+114 Page 10 of 16  Journal of King Saud University Computer and Information Sciences (2026) 38:114
+
+Fig. 6 Out-of-order execution mechanism with in-order writeback maintaining dependency constraints. The diagram illustrates how multiple
+operators can execute concurrently while the reorder buffer (ROB) ensures correct completion ordering and dependency management
+
+    imizing hardware utilization by exploiting independent       · Computation Graph Optimization: Standard AI com-
+    computation paths within the neural network graph.              pilation techniques including graph fusion, operator
+ · Reorder Buffer (ROB): Ensures sequential commit                  splitting, tiling, and memory management that transform
+    order despite out-of-order execution, maintaining mem-          high-level model descriptions into hardware-friendly
+    ory consistency and enabling precise interrupt handling         operation sequences. These optimizations improve com-
+    for debugging and profiling purposes.                           putational efficiency and resource utilization while main-
+                                                                    taining mathematical equivalence with the original model.
+   This approach resolves compiler optimization constraints
+while establishing a scalable paradigm for parallel operator     · OCSR Management: Hardware-scheduled dependency
+computation. The hardware scheduler dynamically discov-             enforcement through OCSR allocation and reclamation
+ers available parallelism during execution rather than relying      that maps abstract data dependencies to concrete register
+on static compile-time analysis, adapting to runtime varia-         assignments. This component performs liveness analy-
+tions in operator execution time and resource availability.         sis and register allocation to maximize OCSR utilization
+This dynamic scheduling capability is particularly valuable         while ensuring correct dependency tracking.
+for modern neural networks that exhibit data-dependent exe-
+cution patterns and mixed precision operations with varying      · Instruction Generation: Mapping operators to comput-
+computational characteristics.                                      ation-scheduling instructions and generating hardware-
+                                                                    executable binaries that encode both computation and
+3.4 Software stack implementation                                   scheduling information. This transformation converts
+                                                                    optimized operation sequences into the instruction for-
+Our hardware-managed scheduling architecture is supported           mat understood by the hardware scheduler.
+by a dedicated AI software stack comprising compiler and
+runtime components that bridge the gap between high-level          The OCSR Management module performs critical regis-
+model descriptions and hardware-executable scheduling           ter allocation under 64-register constraints, requiring careful
+instructions. The compiler handles computation graph opti-      resource management to support complex computational
+mization and instruction generation, transforming abstract      graphs within finite hardware resources. The workflow, illus-
+computational graphs into concrete scheduling instructions,     trated in Fig. 7, comprises a three-phase process that ensures
+while the runtime manages task deployment and completion        efficient register utilization while maintaining correct depen-
+handling with minimal host processor involvement.               dency tracking:
+
+3.4.1 Compiler architecture                                     1. Liveness Analysis: Per-operator liveness analysis repre-
+                                                                    sented as {current_node_idx, last_consumer_node_idx}
+The compiler incorporates three core functional components          that determines the lifetime of each value in the com-
+that work in concert to generate efficient scheduling instruc-      putational graph, enabling precise register allocation and
+tions:                                                              early reclamation.
+
+                                                                2. Register Allocation: Global free-list management with
+                                                                    dynamic register assignment that allocates OCSRs to
+
+123
+Journal of King Saud University Computer and Information Sciences (2026) 38:114  Page 11 of 16 114
+
+                                                                    a dual-layer architecture that separates user-level conve-
+                                                                    nience from kernel-level efficiency:
+
+                                                                    · User Mode Driver (UMD): User interface handling ini-
+                                                                       tialization, device management, memory management,
+                                                                       and model inference with a focus on API compatibility
+                                                                       and ease of integration with existing AI frameworks. The
+                                                                       UMD maintains traditional workflows for application
+                                                                       compatibility while leveraging the hardware scheduling
+                                                                       capabilities for improved performance.
+
+                                                                    · Kernel Mode Driver (KMD): Kernel communication
+                                                                       with simplified responsibilities that focus on resource
+                                                                       management rather than operation scheduling:
+
+                                                                        ­ Dispatching pre-compiled tasks via IOCTL with min-
+                                                                           imal parameter validation and setup, leveraging the
+                                                                           hardware scheduler for detailed operation manage-
+                                                                           ment.
+
+                                                                        ­ Handling task completion interrupts and propagating
+                                                                           status to user space without intermediate processing
+                                                                           or scheduling decisions.
+
+Fig. 7 OCSR allocation and reclamation process during compilation.     This simplified runtime architecture reduces driver com-
+The diagram shows how registers are allocated to operations based   plexity, improves system stability, and minimizes host pro-
+on liveness analysis and reclaimed when no longer needed, enabling  cessor utilization during inference execution. The separation
+efficient use of limited hardware resources                         of concerns between hardware scheduling and runtime man-
+                                                                    agement creates a more robust and efficient system that can
+    operations based on their liveness properties, minimiz-         scale to complex models without increasing software com-
+    ing register pressure while avoiding conflicts.                 plexity or host resource requirements.
+3. Register Reclamation: Topology-based liveness analy-
+    sis with immediate dead register reclamation that returns       4 Experimental evaluation
+    OCSRs to the free pool as soon as their last consumer
+    has been scheduled, maximizing register reuse across the        4.1 Hardware platform and implementation
+    computational graph.
+                                                                    We present a System-on-Chip (SoC) based on the open-
+   This compile-time register management eliminates the             source NVDLA Large core (version 1.0), designed to rep-
+need for runtime resource allocation, reducing hardware             resent a typical edge AI accelerator. The hardware integrates
+complexity and ensuring deterministic behavior during infer-        a dual-core ARM Cortex-A53 CPU, a 2048-MAC array, and
+ence execution. The compiler's ability to precisely manage          a single-channel LPDDR4 interface delivering 25.6 GB/s of
+OCSR lifetimes enables support for complex computational            bandwidth. As summarized in Table 4, this configuration
+graphs within the constrained register file, making the archi-      strikes a balance between substantial computational capa-
+tecture suitable for modern neural networks with thousands          bility and power efficiency, making it suitable for embedded
+of operations.                                                      and edge deployment.
+
+3.4.2 Runtime system                                                   We synthesized the complete SoC design using 28 nm
+                                                                    technology to evaluate area efficiency and practical imple-
+Compared to NVDLA's runtime, our implementation achieves            mentation costs. Area analysis in Table 5 shows the hard-
+substantial complexity reduction by offloading operator             ware scheduler occupies 0.462 mm2 (7.41% of total area),
+scheduling to hardware, transforming the runtime from an            representing a modest hardware investment for the sub-
+active scheduler to a passive manager. The runtime maintains        stantial performance improvements achieved. Notably, the
+                                                                    absolute scheduler area remains constant across die sizes,
+                                                                    while its relative percentage decreases significantly in larger
+
+                                                                                 123
+114 Page 12 of 16                                    Journal of King Saud University Computer and Information Sciences (2026) 38:114
+
+Table 4 Key hardware              CPU                MAC Units   Conv Buffer  Clock  Performance               DDR Bandwidth
+implementation parameters         ARM-A53 dual-core  2048        512 KB       1 GHz  4 TOPS@int8               25.6 GB/s
+
+designs, making the approach increasingly attractive for             overhead is largely independent of operator complex-
+high-performance accelerators where area constraints are             ity, making it particularly problematic for networks with
+less severe.                                                         many small operations.
+                                                                  · Aggregate software overhead constitutes nearly 30%
+   We performed post-synthesis power estimation for the              of total execution time in aggregate measurements,
+complete SoC running the ResNet-18 workload. Using EDA               with proportionally higher impact in networks featuring
+tools for simulation and for power analysis under typical            smaller operators where computational time decreases
+operating conditions, we obtained the power breakdown sum-           while scheduling overhead remains constant. This over-
+marized for NPU Core in Table 6. The results show that               head represents a significant performance loss that cannot
+the dedicated hardware scheduling unit (sched_top) con-              be recovered through computational unit optimization
+sumes only 13 mW, representing a mere 1.75% of the total             alone.
+system power of 741 mW. This minimal overhead confirms
+the power efficiency of our hardware-managed scheduling          4.3 End-to-end model performance comparison
+architecture.
+                                                                 We further benchmarked ResNet-18, GoogleNetV1, ResNet-
+   We evaluated two configurations on hardware emula-            50, and YOLOv5s on both platforms to evaluate performance
+tion platform: reference NVDLA-Large and our hardware-           across diverse network architectures and computational pat-
+scheduled variant, using identical computational units and       terns. Results in Fig. 9 demonstrate consistent improvements
+memory systems to isolate the impact of scheduling improve-      across all tested models:
+ments.
+                                                                  · Significant performance improvements across all net-
+4.2 Analysis of scheduling overhead on OpenNVDLA                     works, with execution time reduction correlating with
+                                                                     software overhead elimination rather than computational
+To isolate and quantify scheduling overhead, we analyze              optimization. The consistent improvement pattern con-
+the execution of the YOLOv5s model in openNVDLA.                     firms that our approach specifically targets scheduling
+After pruning unsupported operators and partitioning it              overhead without altering fundamental computational
+into 7 compliant subgraphs, we evaluate its performance              capabilities.
+on the openNVDLA platform, as detailed in Fig. 8. The
+results reveal fundamental characteristics of software-driven     · Variation in improvement percentages: ResNet18 (29.4%),
+scheduling                                                           GoogleNet (44.5%), ResNet50 (26.4%), YOLOv5s (27.1
+                                                                     %) reflects architectural differences in operator compo-
+ · Per-operator software execution time remains consistent           sition and dependency structures. Networks with more
+    at approximately 0.015 ms across subgraphs, reflecting           parallelizable graphs and finer-grained operations show
+    fixed CPU-device interaction overhead that dominates             greater benefits from hardware scheduling.
+    scheduling cost regardless of computational characteris-
+    tics. This consistency indicates that software scheduling     · GoogleNet shows maximum acceleration due to exten-
+                                                                     sive 1x1 convolutions generating numerous small oper-
+Table 5 Post-synthesis area distribution by module                   ators where fixed software overhead dominates total
+
+Module                     Area (mm2)                Percentage
+
+ConvCore                   3.863                     62.08%      Table 6 Power and energy efficiency analysis  Value
+SDP                        0.813                     13.06%      Metric
+PDP                        0.795                     12.78%                                                    741 mW
+Rubik                      0.047                     0.76%       NPU Core Total Power (Average)                15 mW
+BDMA                       0.029                     0.47%       Scheduling Unit (sched_top) Power             1.75%
+Sched_top                  0.462                     7.41%       Scheduling Unit Power Ratio
+Other                      0.214                     3.44%                                                     4 TOPS
+                                                                 Peak Performance (INT8)                       1.87 W
+Total                      6.223                     100%        SoC System Power (Average)                    2.14 TOPS/W
+                                                                 Energy Efficiency
+
+123
+Journal of King Saud University Computer and Information Sciences (2026) 38:114  Page 13 of 16 114
+
+Fig. 8 Performance analysis of YOLOv5s subgraphs execution on             ators in the subgraph ­ subgraphs with more operators exhibit longer
+openNVDLA platform (averaged over 1,000 independent runs): (a)            software scheduling times. (c) Per-operation Scheduling Time: Average
+Hardware Execution Time: Accumulated processor computation time of        scheduling time per operator within each subgraph. The nearly constant
+hardware execution. The time varies primarily with workload types and     values across different subgraphs demonstrate that the scheduling time
+computational sizes. (b) Software Scheduling Time: Runtime overhead       for each operator is deterministic and consistent
+of the scheduling process. This time correlates with the number of oper-
+
+    execution time. The architecture's high operator count                    future evaluation with complex models like Transformers
+    and fine-grained parallelism make it particularly suitable                that exhibit different computational patterns and poten-
+    for hardware scheduling approaches.                                       tially greater parallelization opportunities.
+ · Limited benefits from multi-issue parallel execution in
+    tested networks due to sequential structures and data                    The experimental results demonstrate that our hardware-
+    dependencies that limit available parallelism, suggesting             managed scheduling approach effectively addresses the
+                                                                          performance limitations of software-based scheduling, par-
+Fig. 9 Performance comparison between openNVDLA and hardware-             ticularly for modern neural network architectures that feature
+scheduled implementation across CNN models, based on the average          numerous small operations and complex dependency pat-
+of 1,000 independent runs. The results show consistent performance        terns. The consistent performance improvements across
+improvements across diverse network architectures, with particularly      diverse models highlight the general applicability of our
+significant gains for models with many small operations                   approach, while the minimal area overhead makes it prac-
+                                                                          tical for real-world deployment especially in edge scenarios.
+
+                                                                             The prevalence of Transformer-based models presents a
+                                                                          fundamental challenge for the original NVDLA architecture,
+                                                                          which is optimized for convolutions and lacks native sup-
+                                                                          port for general matrix multiplication (GEMM). Retrofitting
+                                                                          GEMM into the openNVDLA framework would require
+                                                                          extensive modifications across both the hardware datapath
+                                                                          and software scheduling stack, rendering comprehensive per-
+                                                                          formance evaluation infeasible.
+
+                                                                             In contrast, the proposed hwSch-NVDLA architecture
+                                                                          fully offloads task scheduling to dedicated hardware. Conse-
+                                                                          quently, incorporating GEMM support requires only extend-
+                                                                          ing the computational datapath, while the software driver
+
+                                                                                 123
+114 Page 14 of 16                                         Journal of King Saud University Computer and Information Sciences (2026) 38:114
+
+Table 7 Performance evaluation  Parameter                 Value
+of transformer block            Model                     Qwen-1.5B transformer block (prefill)
+                                Token size                256
+                                Quantized precision       8-bit
+                                Compiled op number        132
+
+                                HW execution time         (a) Test configuration                 HwSch-NVDLA   Speed-up
+                                SW scheduling time                                               6.81 ms       ­
+                                Total time                OpenNVDLA (estimated)                  ­             ­
+                                                          6.81 ms                                7.23 ms       17.75%
+                                                          1.98 ms
+                                                          8.79 ms
+
+                                                          (b) Execution time comparison
+
+remains largely unaffected. To quantify this advantage, we     number of compiled operations. Results show that HwSch-
+enhanced our hardware design with GEMM capabilities            NVDLA achieves a total execution time of 7.23 ms, rep-
+and executed a representative Transformer block from the       resenting a 17.75 % reduction from the estimated 8.79 ms
+Qwen-1.5B model, recording both total execution time and       of OpenNVDLA. This improvement stems entirely from
+sub-engine utilization.                                        the elimination of software scheduling overhead 1.98 ms
+                                                               (132 × 0.015 ms), while hardware execution time remains
+   The runtime of a correspondingly modified openNVDLA         identical between the two systems. These findings underscore
+system can be estimated by decomposing the total execution     the advantage of hardware-managed scheduling in compute-
+time as:                                                       intensive transformer workloads.
+
+Ttotal = Thw + Tsw,                                            4.4 Comparison with state-of-the-art AI accelerators
+
+where Thw is derived directly from hardware execution          To provide a comprehensive evaluation of our hardware-
+traces in hwSch-NVDLA, and Tsw is estimated by scal-           managed scheduling architecture, we compare it with several
+ing the number of operators with the empirically measured      state-of-the-art NPUs and AI SoCs in both academic and
+per-operator software scheduling latency. This methodology     industrial domains. Table 8 summarizes key architectural
+offers a tractable first-order performance projection without  features and performance metrics across representative plat-
+necessitating a full hardware-software co-redesign.            forms. Our comparison focuses on three critical dimensions:
+                                                               scheduling methodology, energy efficiency, and architectural
+   Table 7 compares the execution performance of a trans-      flexibility.
+former block between an estimated OpenNVDLA base-
+line and our HwSch-NVDLA design. The test configu-                The comparison reveals a fundamental distinction in
+ration employs the prefill stage of a Qwen-1.5B (https://      scheduling methodologies. Most existing platforms, includ-
+huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.         ing Eyeriss v2 (Chen et al. 2019) and Diana (Houshmand
+5B) transformer block with a sequence length of 256            et al. 2022), rely on software-based scheduling where the
+tokens, which quantized to 8-bit precision and compiled        host CPU orchestrates operator execution. This approach
+into 132 operations. The software scheduling time for Open-    offers flexibility but introduces significant communication
+NVDLA is estimated by scaling the empirically measured         overhead, particularly for fine-grained operators.
+per-operation scheduling latency of 0.015 ms by the total
+
+Table 8 Comparison with state-of-the-art AI accelerators
+
+Platform                        Year  Process             Interface Granularity  Peak Perf. (TOPS)  Power (W)  TOPS/W
+
+Eyeriss v2 (Chen et al. 2019)   2019  65 nm               Layer level            0.154              -          -
+Vega (Rossi et al. 2021)        2021  22 nm               Layer level            0.0322             0.0247     1.3
+DIANA (Houshmand et al. 2022)   2022  16 nm               Layer level            -                  -          5.56
+Marsellus (Conti et al. 2023)   2023  22 nm               Layer level            0.091 (8×8-bit)    0.123      0.74
+Our Work                        2025  28 nm               Task level             4.0                1.87(SoC)  2.14
+
+123
+Journal of King Saud University Computer and Information Sciences (2026) 38:114  Page 15 of 16 114
+
+   In contrast, our architecture implements fully hardware-       mance improvements of 30% across diverse CNN workloads
+managed scheduling through dedicated scheduling units and         by eliminating software scheduling overhead that dominates
+OCSR-based dependency tracking. This approach compiles            execution time in many practical scenarios.
+the entire model into a single task package that can be
+directly off-loaded from software to hardware, eliminating           The experimental evaluation demonstrates that our appr-
+per-operator CPU intervention entirely and reducing host-         oach provides consistent benefits across different neural
+processor utilization by 98.2 % compared with software-           network architectures, with particularly significant improve-
+based alternatives, as measured in our experiments.               ments for models featuring numerous small operations where
+                                                                  software scheduling overhead constitutes a substantial por-
+   In terms of energy efficiency, our SoC achieves 2.14           tion of total execution time. The minimal area overhead
+TOPS/W (Averaging 1.87W @ 4 Tops by executing resnet18),          and maintained software compatibility make the architecture
+a competitive figure underpinned by the NVDLA's already-          suitable for practical deployment in modern AI accelerators
+efficient computational substrate. While the hardware sched-      where computational efficiency and power consumption are
+uler itself contributes minimally to this peak efficiency met-    critical concerns.
+ric, it critically enhances the real-world usable performance
+by eliminating software bottlenecks, reducing task-launch            Future work will focus on three primary directions to
+latency, and improving processing-element utilization. Thus,      extend the capabilities and applicability of our hardware-
+the primary value of our scheduler lies not in boosting peak      managed scheduling approach:
+TOPS/W, but in maximizing the delivered fraction of that
+peak performance during actual inference.                          · Expanding operator support for complex models (e.g.,
+                                                                      Transformers, graph neural networks) that exhibit dif-
+   Beyond efficiency metrics, our architecture maintains              ferent computational patterns and dependency structures
+superior flexibility compared to specialized accelerators. The        than conventional CNNs, requiring enhanced scheduling
+OCSR mechanism and computation-scheduling instruction                 capabilities and potentially extended instruction set fea-
+set enable support for diverse computational patterns beyond          tures.
+conventional CNNs. Unlike fixed-function accelerators opti-
+mized for specific operation types (e.g., matrix multiplication    · Enhancing parallel execution capabilities through
+in Eyeriss), our scheduling architecture can adapt to emerg-          more sophisticated dependency analysis and resource
+ing neural network structures through compiler mapping                management techniques that can exploit finer-grained
+rather than hardware redesign.                                        parallelism in emerging neural network architectures.
+
+   The comparison with specialized SoCs like Vega (target-         · Exploring dynamic scheduling optimizations for evolv-
+ing IoT endpoints) and Marsellus (optimized for multi-core            ing AI workloads that may benefit from adaptive schedul-
+RISC-V) demonstrates that our approach achieves competi-              ing policies based on runtime characteristics and quality-
+tive efficiency while maintaining broader applicability. The          of-service requirements.
+decoupled nature of our scheduling architecture allows it to
+be integrated with various computational backends, making            The hardware-managed scheduling paradigm represents
+it suitable for both edge inference and potentially larger-scale  a fundamental shift in AI accelerator design that prioritizes
+deployments through scalability mechanisms.                       end-to-end efficiency over peak computational performance,
+                                                                  addressing the growing importance of system-level opti-
+5 Conclusion and future work                                      mization in practical AI deployments. As neural network
+                                                                  architectures continue to evolve toward more complex and
+This paper introduces a novel fully hardware-managed              heterogeneous structures, efficient scheduling will become
+scheduling architecture for AI accelerators that addresses the    increasingly critical for realizing the full potential of spe-
+critical performance bottleneck of task scheduling in mod-        cialized AI hardware.
+ern neural network inference. Our contributions include a
+comprehensive computation-scheduling instruction set that         Acknowledgements The authors would like to thank the technical
+encodes both computation and dependencies in a unified            support team at CETC 58th Research Institute for their valuable assis-
+format, a pipelined hardware execution unit that enables          tance in the hardware implementation and testing. We also extend our
+out-of-order execution while maintaining correctness, and         gratitude to the anonymous reviewers for their insightful comments
+an optimized software stack that minimizes host proces-           and suggestions, which have significantly improved the quality of this
+sor involvement. The integrated system alleviates CPU-            manuscript.
+accelerator communication bottlenecks with minimal area
+overhead (approximately 7%), achieving average perfor-            Author Contributions Libo Cheng: Conceptualization, Methodology,
+                                                                  Software, Validation, Formal analysis, Investigation, Writing - Origi-
+                                                                  nal Draft, Writing - Review & Editing. Liang Yang: Conceptualization,
+                                                                  Methodology, Software, Investigation, Writing - Review & Editing. Jian
+                                                                  Shao: Software, Validation, Investigation, Data Curation. Xinyi Gu:
+
+                                                                                 123
+114 Page 16 of 16  Journal of King Saud University Computer and Information Sciences (2026) 38:114
+
+Software, Validation, Resources. Rong Qian: Resources, Data Cura-            Houshmand P, Sarda GM, Jain V et al (2022) Diana: An end-to-end
+tion. Xinwei Zhang: Resources, Visualization. Donghao Li: Resources,               hybrid digital and analog neural network soc for the edge. IEEE J
+Project administration. Hongbin Wang: Supervision, Project adminis-                Solid-State Circuits 58(1):203­215
+tration. Xiaoqi Xia: Supervision, Project administration.
+                                                                             Jouppi NP, Young C, Patil N, Patterson D, Agrawal G, Bajwa R, Bates
+Data Availability The datasets generated and/or analyzed during the                S, Bhatia S, Boden N, Borchers A et al (2017) In-datacenter perfor-
+current study are not publicly available due to patent considera-                  mance analysis of a tensor processing unit. In: Proceedings of the
+tions/confidential nature of the hardware design but are available from            44th annual international symposium on computer architecture, pp
+the corresponding author on reasonable request.                                    1­12
+
+Declarations                                                                 Li Z, Wijerathne D, Mitra T (2024) Coarse-grained reconfigurable array
+                                                                                   (cgra). Handbook Comput Architect 465­505
+Competing interests The authors declare no competing interests.
+                                                                             Liu S, Du Z, Tao J, Han D, Luo T, Xie Y, Chen Y, Chen T
+Open Access This article is licensed under a Creative Commons                      (2016) Cambricon: An instruction set architecture for neural net-
+Attribution-NonCommercial-NoDerivatives 4.0 International License,                 works. ACM SIGARCH Comput Architect News 44(3):393­
+which permits any non-commercial use, sharing, distribution and repro-             405
+duction in any medium or format, as long as you give appropriate credit
+to the original author(s) and the source, provide a link to the Creative     Lu J, Pan B, Chen J, Feng Y, Hu J, Peng Y, Chen W (2024a) Agentlens:
+Commons licence, and indicate if you modified the licensed mate-                   Visual analysis for agent behaviors in llm-based autonomous sys-
+rial. You do not have permission under this licence to share adapted               tems. IEEE Trans Visualiz Comput Graph
+material derived from this article or parts of it. The images or other
+third party material in this article are included in the article's Creative  Lu Q, Zhu L, Xu X, Whittle J, Zowghi D, Jacquet A (2024b) Respon-
+Commons licence, unless indicated otherwise in a credit line to the                sible ai pattern catalogue: A collection of best practices for
+material. If material is not included in the article's Creative Commons            ai governance and engineering. ACM Comput Surv 56(7):1­
+licence and your intended use is not permitted by statutory regula-                35
+tion or exceeds the permitted use, you will need to obtain permission
+directly from the copyright holder. To view a copy of this licence, visit    Lyu X, Zhang W, Wang J (2021) A comprehensive review on the run-
+http://creativecommons.org/licenses/by-nc-nd/4.0/.                                 time of nvidia deep learning accelerator. In: Proceedings of the 5th
+                                                                                   international conference on algorithms, computing and systems,
+References                                                                         pp 88­93
+
+Chen Y, Luo T, Liu S, Zhang S, He L, Wang J, Li L, Chen T, Xu Z,             Malathi D, Gautham S, Dineshkumar M, Balakrishnan K (2024)
+      Sun N et al (2014) Dadiannao: A machine-learning supercom-                   Design of convolution neural network for crack detection. In:
+      puter. In: 2014 47th Annual IEEE/ACM international symposium                 2024 7th International conference on devices, circuits and systems
+      on microarchitecture, pp 609­622. IEEE                                       (ICDCS), pp 60­66. IEEE
+
+Chen T, Moreau T, Jiang Z, Zheng L, Yan E, Shen H, Cowan M, Wang             Nvdla hardware architectural specification (2017). http://nvdla.org/hw/
+      L, Hu Y, Ceze L et al (2018) {TVM}: An automated {End-to-End}                v1/hwarch.html
+      optimizing compiler for deep learning. In: 13th USENIX Sympo-
+      sium on operating systems design and implementation (OSDI 18),         Nvdla software manual (2017). http://nvdla.org/sw/contents.html
+      pp 578­594                                                             Nvdla unit description (2017). http://nvdla.org/hw/v1/ias/unit_
+
+Chen Y-H, Yang T-J, Emer J, Sze V (2019) Eyeriss v2: A flexible accel-             description.html
+      erator for emerging deep neural networks on mobile devices. IEEE       Rossi D, Conti F, Eggiman M et al (2021) Vega: A ten-core soc for
+      J Emerg Sel Topics Circ Syst 9(2):292­308
+                                                                                   iot endnodes with dnn acceleration and cognitive wake-up from
+Conti F, Paulin G, Garofalo A et al (2023) Marsellus: A heteroge-                  mram-based state-retentive sleep mode. IEEE J Solid-State Cir-
+      neous risc-v ai-iot end-node soc with 2­8b dnn acceleration and              cuits 57(1):127­139
+      30%-boost adaptive body biasing. IEEE J Solid-State Circuits           Tam E, Jiang S, Duan P, Meng S, Pang Y, Huang C, Han Y, Xie J,
+      59(1):128­142                                                                Cui Y, Yu J et al (2020) Breaking the memory wall for ai chip
+                                                                                   with a new dimension. In: 2020 5th South-East Europe design
+Dixon D, Sattar H, Moros N, Kesireddy SR, Ahsan H, Lakkimsetti M,                  automation, computer engineering, computer networks and social
+      Fatima M, Doshi D, Sadhu K, Hassan MJ et al (2024) Unveil-                   media conference (SEEDA-CECNSM), pp 1­7. IEEE
+      ing the influence of ai predictive analytics on patient outcomes: a    Verma N, Jia H, Valavi H, Tang Y, Ozatay M, Chen L-Y, Zhang B,
+      comprehensive narrative review. Cureus 16(5)                                 Deaville P (2019) In-memory computing: Advances and prospects.
+                                                                                   IEEE Solid-State Circuits Mag 11(3):43­55
+Gholami A, Yao Z, Kim S, Hooper C, Mahoney MW, Keutzer K (2024)              Veronesi A, Bertozzi D, Krstic M (2020) Assessing the configuration
+      Ai and memory wall. IEEE Micro                                               space of the open source nvdla deep learning accelerator on a main-
+                                                                                   stream mpsoc platform. In: IFIP/IEEE International conference on
+Golin R, Chelini L, Siemieniuk A, Madhu K, Hasabnis N, Pabst H,                    very large scale integration-system on a chip, pp 87­112. Springer
+      Georganas E, Heinecke A (2024) Towards a high-performance ai           Wang X, Cheng J, Chang F, Zhu L, Chang H, Mei K (2024) A bandwidth
+      compiler with upstream mlir. arXiv:2404.15204                                enhancement method of vta based on paralleled memory access
+                                                                                   design. Integration 94:102102
+Halawani Y, Kilani D, Hassan E, Tesfai H, Saleh H, Mohammad B                Zhang F, Zhang C, Yang L, Zhang S, He B, Lu W, Du X (2021) Fine-
+      (2021) Rram-based cam combined with time-domain circuits for                 grained multi-query stream processing on integrated architectures.
+      hyperdimensional computing. Sci Rep 11(1):19848                              IEEE Trans Parallel Distrib Syst 32(9):2303­2320
+                                                                             Zhou Y, Moosavi-Dezfooli S-M, Cheung N-M, Frossard P (2018) Adap-
+                                                                                   tive quantization for deep neural network. In: Proceedings of the
+                                                                                   AAAI conference on artificial intelligence, vol 32
+
+                                                                             Publisher's Note Springer Nature remains neutral with regard to juris-
+                                                                             dictional claims in published maps and institutional affiliations.
+
+123
+

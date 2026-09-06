@@ -1,0 +1,41 @@
+[
+  {
+    "name": "lattice_v3.html",
+    "url": "https://arxiv.org/html/2607.17422v3",
+    "retrieved_utc": "2026-09-05T04:58:39.251535+00:00",
+    "bytes": 251639,
+    "sha256": "dc74fe71bdc9be320691421e27a9e7a1f9d1278051bc32ced4d8fc0509b6d6e7",
+    "status": "ok"
+  },
+  {
+    "name": "stream_v2.html",
+    "url": "https://arxiv.org/html/2212.10612v2",
+    "retrieved_utc": "2026-09-05T04:58:40.383189+00:00",
+    "bytes": 308547,
+    "sha256": "f267edf84b1520d6915f1b7e32baed7c7b94e8d30dcc404e5377172c01128e6e",
+    "status": "ok"
+  },
+  {
+    "name": "stream_README.md",
+    "url": "https://raw.githubusercontent.com/KULeuven-MICAS/stream/75748cc17e7c43add5a7d0d8f080841eb26531c4/README.md",
+    "retrieved_utc": "2026-09-05T04:58:41.568905+00:00",
+    "bytes": 14730,
+    "sha256": "0f5deeba4709b002353d8248152452d242dffa13f572e454c788970ef3f9dad8",
+    "status": "ok"
+  },
+  {
+    "name": "stream_pyproject.toml",
+    "url": "https://raw.githubusercontent.com/KULeuven-MICAS/stream/75748cc17e7c43add5a7d0d8f080841eb26531c4/pyproject.toml",
+    "retrieved_utc": "2026-09-05T04:58:42.916761+00:00",
+    "bytes": 8629,
+    "sha256": "e84e502360685c7052ae06723685a006820574a2dba7c69f009733c326adb942",
+    "status": "ok"
+  },
+  {
+    "name": "pipethreader.pdf",
+    "url": "https://www.usenix.org/system/files/osdi25-cheng.pdf",
+    "retrieved_utc": "2026-09-05T04:58:44.137323+00:00",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

@@ -1,0 +1,150 @@
+{
+  "method": "independent direct NumPy reference versus task-node algebra; float64, random weights",
+  "not_validated": [
+    "trained model quality",
+    "BF16 numerical error",
+    "installed Transformers execution",
+    "production compiler",
+    "real NPU"
+  ],
+  "numpy_version": "2.3.5",
+  "source_sha256": {
+    "r4/qwen_lowering.py": "d595a54059898c44614ca79bdc815cd090ec98f376952d0d497bec20753cdd36",
+    "r4/graph.py": "230fe4b07c0a9341a02e73b7a77fc6aae9c78396fa45c888370ec514c1eea760",
+    "r4/sources/qwen/config.json": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+    "r4/sources/qwen/modeling_qwen3_5.py": "458360c8072e6130580639170ad3e645b975512dbabae31eab5f92de5f0f09ef"
+  },
+  "results": [
+    {
+      "seed": 7,
+      "linear_seed_offset": 1,
+      "case": "qwen35_full_decode",
+      "outputs": {
+        "output": 1.1102230246251565e-16,
+        "kv_next": 6.661338147750939e-16
+      },
+      "nodes": 21,
+      "dense_macs": 109312,
+      "vpu_operation_estimate": 6480
+    },
+    {
+      "seed": 7,
+      "linear_seed_offset": 1,
+      "case": "qwen35_linear_decode",
+      "outputs": {
+        "output": 2.220446049250313e-16,
+        "conv_next": 2.498001805406602e-16,
+        "state_next0": 3.469446951953614e-17,
+        "state_next1": 1.0408340855860843e-16
+      },
+      "nodes": 20,
+      "dense_macs": 115200,
+      "vpu_operation_estimate": 11728
+    },
+    {
+      "seed": 19,
+      "linear_seed_offset": 1,
+      "case": "qwen35_full_decode",
+      "outputs": {
+        "output": 2.220446049250313e-16,
+        "kv_next": 4.996003610813204e-16
+      },
+      "nodes": 21,
+      "dense_macs": 109312,
+      "vpu_operation_estimate": 6480
+    },
+    {
+      "seed": 19,
+      "linear_seed_offset": 1,
+      "case": "qwen35_linear_decode",
+      "outputs": {
+        "output": 2.220446049250313e-16,
+        "conv_next": 4.440892098500626e-16,
+        "state_next0": 2.7755575615628914e-17,
+        "state_next1": 2.7755575615628914e-17
+      },
+      "nodes": 20,
+      "dense_macs": 115200,
+      "vpu_operation_estimate": 11728
+    },
+    {
+      "seed": 37,
+      "linear_seed_offset": 1,
+      "case": "qwen35_full_decode",
+      "outputs": {
+        "output": 1.1102230246251565e-16,
+        "kv_next": 5.551115123125783e-16
+      },
+      "nodes": 21,
+      "dense_macs": 109312,
+      "vpu_operation_estimate": 6480
+    },
+    {
+      "seed": 37,
+      "linear_seed_offset": 1,
+      "case": "qwen35_linear_decode",
+      "outputs": {
+        "output": 3.3306690738754696e-16,
+        "conv_next": 4.440892098500626e-16,
+        "state_next0": 2.7755575615628914e-17,
+        "state_next1": 8.326672684688674e-17
+      },
+      "nodes": 20,
+      "dense_macs": 115200,
+      "vpu_operation_estimate": 11728
+    },
+    {
+      "seed": 101,
+      "linear_seed_offset": 1,
+      "case": "qwen35_full_decode",
+      "outputs": {
+        "output": 1.6653345369377348e-16,
+        "kv_next": 6.661338147750939e-16
+      },
+      "nodes": 21,
+      "dense_macs": 109312,
+      "vpu_operation_estimate": 6480
+    },
+    {
+      "seed": 101,
+      "linear_seed_offset": 1,
+      "case": "qwen35_linear_decode",
+      "outputs": {
+        "output": 3.3306690738754696e-16,
+        "conv_next": 3.3306690738754696e-16,
+        "state_next0": 9.71445146547012e-17,
+        "state_next1": 2.7755575615628914e-17
+      },
+      "nodes": 20,
+      "dense_macs": 115200,
+      "vpu_operation_estimate": 11728
+    },
+    {
+      "seed": 709,
+      "linear_seed_offset": 1,
+      "case": "qwen35_full_decode",
+      "outputs": {
+        "output": 3.3306690738754696e-16,
+        "kv_next": 6.661338147750939e-16
+      },
+      "nodes": 21,
+      "dense_macs": 109312,
+      "vpu_operation_estimate": 6480
+    },
+    {
+      "seed": 709,
+      "linear_seed_offset": 1,
+      "case": "qwen35_linear_decode",
+      "outputs": {
+        "output": 2.7755575615628914e-16,
+        "conv_next": 4.440892098500626e-16,
+        "state_next0": 2.7755575615628914e-17,
+        "state_next1": 4.163336342344337e-17
+      },
+      "nodes": 20,
+      "dense_macs": 115200,
+      "vpu_operation_estimate": 11728
+    }
+  ],
+  "pass": true
+}

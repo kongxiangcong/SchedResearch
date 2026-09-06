@@ -1,0 +1,28 @@
+SYNTHETIC SCHEMA/FIXTURE TESTS ONLY. NO HARDWARE MEASUREMENTS.
+test_artifact_tampering_rejected (__main__.MeasurementChecks.test_artifact_tampering_rejected) ... ok
+test_compiler_can_change_implementation_but_not_semantics (__main__.MeasurementChecks.test_compiler_can_change_implementation_but_not_semantics) ... ok
+test_complete_fixture_still_cannot_qualify (__main__.MeasurementChecks.test_complete_fixture_still_cannot_qualify) ... ok
+test_contract_tampering_rejected (__main__.MeasurementChecks.test_contract_tampering_rejected) ... ok
+test_cpu_sdk_and_rtl_never_qualify (__main__.MeasurementChecks.test_cpu_sdk_and_rtl_never_qualify) ... ok
+test_dynamic_must_use_selected_strong_static (__main__.MeasurementChecks.test_dynamic_must_use_selected_strong_static) ... ok
+test_dynamic_requires_matching_residual_conditions (__main__.MeasurementChecks.test_dynamic_requires_matching_residual_conditions) ... ok
+test_dynamic_requires_selected_contract_residual_control (__main__.MeasurementChecks.test_dynamic_requires_selected_contract_residual_control) ... ok
+test_frequency_drift_blocks (__main__.MeasurementChecks.test_frequency_drift_blocks) ... ok
+test_limit_must_be_observed_and_defined (__main__.MeasurementChecks.test_limit_must_be_observed_and_defined) ... ok
+test_mixed_binary_in_fixed_comparison_rejected (__main__.MeasurementChecks.test_mixed_binary_in_fixed_comparison_rejected) ... ok
+test_one_extreme_profile_not_enough (__main__.MeasurementChecks.test_one_extreme_profile_not_enough) ... ok
+test_payload_change_is_not_dynamic_recovery (__main__.MeasurementChecks.test_payload_change_is_not_dynamic_recovery) ... ok
+test_preregistration_after_test_blocked (__main__.MeasurementChecks.test_preregistration_after_test_blocked) ... ok
+test_repeated_seed_cannot_inflate_independent_blocks (__main__.MeasurementChecks.test_repeated_seed_cannot_inflate_independent_blocks) ... ok
+test_small_sample_and_single_session_blocked (__main__.MeasurementChecks.test_small_sample_and_single_session_blocked) ... ok
+test_split_overlap_rejected (__main__.MeasurementChecks.test_split_overlap_rejected) ... ok
+test_trace_overflow_blocks_eligibility_without_erasing_run (__main__.MeasurementChecks.test_trace_overflow_blocks_eligibility_without_erasing_run) ... ok
+test_unknown_observation_is_valid_but_ineligible (__main__.MeasurementChecks.test_unknown_observation_is_valid_but_ineligible) ... ok
+test_unknown_requires_reason (__main__.MeasurementChecks.test_unknown_requires_reason) ... ok
+test_unvaried_pair_order_blocked (__main__.MeasurementChecks.test_unvaried_pair_order_blocked) ... ok
+test_zero_cannot_be_unknown (__main__.MeasurementChecks.test_zero_cannot_be_unknown) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.557s
+
+OK

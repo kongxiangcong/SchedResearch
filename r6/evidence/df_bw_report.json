@@ -1,0 +1,37 @@
+{
+    "logical_devices": [
+        {
+            "device_id": "0065:00:01.0",
+            "platform": "RyzenAI-Phoenix",
+            "platform_id": "0x0",
+            "sc_version": "",
+            "tests": [
+                {
+                    "name": "df-bw",
+                    "description": "Run bandwidth test on data fabric",
+                    "xclbin": "validate_phx.xclbin",
+                    "explicit": "false",
+                    "log": [
+                        {
+                            "Xclbin": "C:\\Windows\\System32\\AMD\\validate_phx.xclbin"
+                        },
+                        {
+                            "Details": "Kernel name is 'DPU_PDI_0'"
+                        },
+                        {
+                            "DPU-Sequence": "C:\\Windows\\System32\\AMD\\DPU_Sequence\\df_bw_dpu.txt"
+                        },
+                        {
+                            "Details": "Total duration: '0.359610's"
+                        },
+                        {
+                            "Details": "Average bandwidth per shim DMA: '2.780787' GS\/s"
+                        }
+                    ],
+                    "status": "PASSED"
+                }
+            ]
+        }
+    ]
+}
+

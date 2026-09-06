@@ -1,0 +1,2 @@
+curl: (35) Recv failure: Connection was reset
+FAILED: download error for https://citeseerx.ist.psu.edu/document?doi=3195af2e8ce905d27e5e896b73263c73f01e9375&repid=rep1&type=pdf

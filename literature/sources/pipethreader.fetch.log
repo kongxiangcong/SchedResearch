@@ -1,0 +1,2 @@
+ok: extractor=pdftotext -layout pdf_bytes=1321125 txt_bytes=142589 txt_lines=1308
+D:/dsh-proj/SchedResarch/literature/sources/papers/pipethreader.txt

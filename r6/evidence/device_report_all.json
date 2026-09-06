@@ -1,0 +1,150 @@
+{
+    "schema_version": {
+        "schema": "JSON",
+        "creation_date": "Sat Sep  5 07:09:21 2026 GMT"
+    },
+    "system": {
+        "host": {
+            "os": {
+                "sysname": "Windows NT",
+                "release": "26100.ge_release.240331-1435",
+                "version": "6.3",
+                "machine": "x86_64",
+                "distribution": "Windows 10 Home China",
+                "model": "21J1",
+                "hostname": "KONG",
+                "memory_bytes": "0x6ec4dd000",
+                "cores": "16",
+                "bios_vendor": "LENOVO - 1",
+                "bios_version": "3.4"
+            },
+            "xrt": {
+                "version": "2.17.0",
+                "branch": "HEAD",
+                "hash": "42cba83aee86b253c49eccd484646e91d062468d",
+                "build_date": "2023-12-14 19:30:02"
+            },
+            "devices": [
+                {
+                    "bdf": "0065:00:01.0",
+                    "vbnv": "RyzenAI-Phoenix",
+                    "id": "0x0",
+                    "instance": "user(inst=1)",
+                    "is_ready": "true"
+                }
+            ]
+        }
+    },
+    "devices": [
+        {
+            "interface_type": "pcie",
+            "device_id": "0065:00:01.0",
+            "device_status": "HEALTHY",
+            "dynamic_regions": [
+                {
+                    "id": "0",
+                    "xclbin_uuid": "00000000-0000-0000-0000-000000000000",
+                    "compute_units": ""
+                }
+            ],
+            "electrical": {
+                "power_rails": "",
+                "power_consumption_watts": "123",
+                "power_consumption_max_watts": "NA",
+                "power_consumption_warning": "NA"
+            },
+            "mechanical": {
+                "fans": {
+                    "msg": "No sensors present"
+                }
+            },
+            "mem_topology": {
+                "error_msg": "No such query request (148)",
+                "board": {
+                    "direct_memory_accesses": {
+                        "type": "pcie xdma",
+                        "metrics": ""
+                    },
+                    "memory": {
+                        "data_streams": "",
+                        "memories": ""
+                    }
+                }
+            },
+            "pcie_info": {
+                "vendor": "0x0",
+                "device": "0x0",
+                "sub_device": "0x0000",
+                "sub_vendor": "0x0",
+                "link_speed_gbit_sec": "0",
+                "expected_link_speed_gbit_sec": "0",
+                "express_lane_width_count": "0",
+                "expected_express_lane_width_count": "0"
+            },
+            "platforms": [
+                {
+                    "static_region": {
+                        "vbnv": "RyzenAI-Phoenix",
+                        "logic_uuid": "0x0",
+                        "jtag_idcode": "0x0",
+                        "fpga_name": ""
+                    },
+                    "off_chip_board_info": {
+                        "ddr_size_bytes": "0",
+                        "ddr_count": "0"
+                    },
+                    "status": {
+                        "mig_calibrated": "false",
+                        "p2p_status": "not supported",
+                        "performance_mode": "Default",
+                        "host_memory_status": "not supported"
+                    },
+                    "controller": {
+                        "satellite_controller": {
+                            "version": "",
+                            "expected_version": ""
+                        },
+                        "card_mgmt_controller": {
+                            "version": "",
+                            "serial_number": "",
+                            "oem_id": ""
+                        }
+                    },
+                    "clocks": [
+                        {
+                            "id": "H Clock",
+                            "description": "System",
+                            "freq_mhz": "800"
+                        },
+                        {
+                            "id": "MP-IPU Clock",
+                            "description": "System",
+                            "freq_mhz": "400"
+                        }
+                    ],
+                    "config": ""
+                }
+            ],
+            "thermals": {
+                "msg": "No sensors present"
+            },
+            "aie_metadata": {
+                "description": "Aie_Metadata",
+                "error_msg": "AIE information is not available"
+            },
+            "aie_mem_status": {
+                "description": "Aie_Mem_Status",
+                "error_msg": "AIE Mem tile information is not available"
+            },
+            "aie_shim_status": {
+                "description": "Aie_Shim_Status",
+                "error_msg": "AIE Shim tile information is not available"
+            },
+            "aie_partitions": {
+                "description": "AIE Partition Information",
+                "partitions": ""
+            }
+        }
+    ]
+}
+

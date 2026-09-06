@@ -1,0 +1,29 @@
+{
+  "command": [
+    "xbutil",
+    "--batch",
+    "validate",
+    "-d",
+    "0065:00:01.0",
+    "-r",
+    "verify",
+    "-p",
+    "C:\\Windows\\System32\\AMD",
+    "-f",
+    "JSON",
+    "-o",
+    "D:\\dsh-proj\\SchedResarch\\r6\\evidence\\verify_report.json"
+  ],
+  "started_utc": "2026-09-05T07:08:39.143439+00:00",
+  "ended_utc": "2026-09-05T07:08:39.543805+00:00",
+  "host_process_elapsed_s": 0.3972588999895379,
+  "returncode": 0,
+  "timed_out": false,
+  "timeout_s": 120,
+  "evidence_level": "raw local diagnostic; not NPU kernel timing",
+  "plan_sha256": "ca7d781d072aeecd356d50d739d8b0479dc1efb01d1ec98b0dd9b7822f7bd79d",
+  "raw_sha256": {
+    "stdout.bin": "933f057a9f606caa1a65ae9ca56c89b64bab6c9df4b3530b77e4c561f722bba6",
+    "stderr.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

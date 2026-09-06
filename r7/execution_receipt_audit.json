@@ -1,0 +1,176 @@
+{
+  "audited_utc": "2026-09-05T07:47:14.855603+00:00",
+  "method": "saved receipt, artifact hash, stage and saved-output consistency",
+  "performance_gate_evaluated": false,
+  "devices_called": 0,
+  "records": [
+    {
+      "receipt": "evidence\\compute_initial\\receipt.json",
+      "kind": "compute",
+      "receipt_sha256": "79a16e5e66843cecbfd50d4961c9bffbf8f6b97252f1d3885923fd86e52769f3",
+      "errors": [],
+      "stage_sequence": [
+        "fixture_read",
+        "prelaunch_contract",
+        "before_launch",
+        "result",
+        "completed"
+      ],
+      "requested_repetitions": 1,
+      "result_count": 1,
+      "host_launch_wait2_s": [
+        0.0028619
+      ],
+      "host_launch_to_output_sync_s": [
+        0.0028752
+      ],
+      "full_process_s": 0.2892570999683812,
+      "prelaunch_contract": {
+        "stage": "prelaunch_contract",
+        "a_bytes": 2248,
+        "weights_bytes": 4194304,
+        "output_bytes": 8192,
+        "instruction_bytes": 6652,
+        "a_address": 8796160131072,
+        "weights_address": 8796227239936,
+        "output_address": 8796294348800,
+        "instruction_address": 67108864,
+        "dummy1_address": 8796361457664,
+        "dummy2_address": 8796428566528,
+        "setup_sync_s": 0.000245,
+        "logical_macs": 4194304
+      }
+    },
+    {
+      "receipt": "evidence\\compute_repeat\\receipt.json",
+      "kind": "compute",
+      "receipt_sha256": "c8a365a05c62d3ac209c1f789494cb94dd1b59d9a79dd74b113551d87c06d96a",
+      "errors": [],
+      "stage_sequence": [
+        "fixture_read",
+        "prelaunch_contract",
+        "before_launch",
+        "result",
+        "before_launch",
+        "result",
+        "before_launch",
+        "result",
+        "completed"
+      ],
+      "requested_repetitions": 3,
+      "result_count": 3,
+      "host_launch_wait2_s": [
+        0.002265,
+        0.0005888,
+        0.0004801
+      ],
+      "host_launch_to_output_sync_s": [
+        0.0022892,
+        0.0006127,
+        0.0004929
+      ],
+      "full_process_s": 0.1863638999639079,
+      "prelaunch_contract": {
+        "stage": "prelaunch_contract",
+        "a_bytes": 2248,
+        "weights_bytes": 4194304,
+        "output_bytes": 8192,
+        "instruction_bytes": 6652,
+        "a_address": 8796160131072,
+        "weights_address": 8796227239936,
+        "output_address": 8796294348800,
+        "instruction_address": 67108864,
+        "dummy1_address": 8796361457664,
+        "dummy2_address": 8796428566528,
+        "setup_sync_s": 0.0001983,
+        "logical_macs": 4194304
+      }
+    },
+    {
+      "receipt": "evidence\\copy_initial\\receipt.json",
+      "kind": "copy",
+      "receipt_sha256": "476446a6a2a623ca8570ff82ffbf3091295d5de316b8c58d955c613902c77906",
+      "errors": [],
+      "stage_sequence": [
+        "instruction_read",
+        "prelaunch_contract",
+        "host_timer_only",
+        "before_launch",
+        "result",
+        "completed"
+      ],
+      "requested_repetitions": 1,
+      "result_count": 1,
+      "host_launch_wait2_s": [
+        0.3639387
+      ],
+      "host_launch_to_output_sync_s": [
+        0.3839602
+      ],
+      "full_process_s": 5.2453441000543535,
+      "prelaunch_contract": {
+        "stage": "prelaunch_contract",
+        "logical_input_bytes": 1073741824,
+        "logical_output_bytes": 1073741824,
+        "input_sha256": "f670740db6f236b884078533b82427530dfa8c5f1c57b269843be95c87c49ad8",
+        "input_bo_address": 8800387989504,
+        "output_bo_address": 8801461731328,
+        "instruction_bo_address": 67108864,
+        "input_group": 131072,
+        "output_group": 131072,
+        "instruction_group": 131073,
+        "initialization_hash_s": 0.8524625
+      }
+    },
+    {
+      "receipt": "evidence\\copy_repeat\\receipt.json",
+      "kind": "copy",
+      "receipt_sha256": "3357f84e30dfb08adcf9fe1aa381119c865d442b0fc99fba577a92bac6837c0a",
+      "errors": [],
+      "stage_sequence": [
+        "instruction_read",
+        "prelaunch_contract",
+        "host_timer_only",
+        "before_launch",
+        "result",
+        "before_launch",
+        "result",
+        "before_launch",
+        "result",
+        "completed"
+      ],
+      "requested_repetitions": 3,
+      "result_count": 3,
+      "host_launch_wait2_s": [
+        0.3462202,
+        0.2658747,
+        0.2664585
+      ],
+      "host_launch_to_output_sync_s": [
+        0.3643393,
+        0.2859118,
+        0.2880976
+      ],
+      "full_process_s": 9.272287799976766,
+      "prelaunch_contract": {
+        "stage": "prelaunch_contract",
+        "logical_input_bytes": 1073741824,
+        "logical_output_bytes": 1073741824,
+        "input_sha256": "f670740db6f236b884078533b82427530dfa8c5f1c57b269843be95c87c49ad8",
+        "input_bo_address": 8800387989504,
+        "output_bo_address": 8801461731328,
+        "instruction_bo_address": 67108864,
+        "input_group": 262144,
+        "output_group": 262144,
+        "instruction_group": 262145,
+        "initialization_hash_s": 0.8477189
+      }
+    }
+  ],
+  "errors": [],
+  "total_saved_results": {
+    "copy": 4,
+    "compute": 4
+  },
+  "consistency_pass": true
+}

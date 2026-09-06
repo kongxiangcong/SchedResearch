@@ -1,0 +1,28 @@
+{
+    "logical_devices": [
+        {
+            "device_id": "0065:00:01.0",
+            "platform": "RyzenAI-Phoenix",
+            "platform_id": "0x0",
+            "sc_version": "",
+            "tests": [
+                {
+                    "name": "verify",
+                    "description": "Run 'Hello World' test on IPU",
+                    "xclbin": "validate_phx.xclbin",
+                    "explicit": "false",
+                    "log": [
+                        {
+                            "Xclbin": "C:\\Windows\\System32\\AMD\\validate_phx.xclbin"
+                        },
+                        {
+                            "Details": "Kernel name is 'DPU_PDI_0'"
+                        }
+                    ],
+                    "status": "PASSED"
+                }
+            ]
+        }
+    ]
+}
+

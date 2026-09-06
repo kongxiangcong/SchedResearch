@@ -1,0 +1,22 @@
+# Python-generated cache files
+__pycache__/
+*.py[cod]
+
+# R7 source-retrieval caches; authoritative extracted files live beside them.
+/r7/sources/kernel_access/riallto_repo/
+/r7/sources/kernel_access/ryzenai_repo/
+/r7/sources/kernel_access/dynamicdispatch_repo/
+
+# Generated experimental result payloads; keep them locally, out of Git history.
+/experiments/results/
+/r3/figures/
+/r4/figures/
+/r4/results/
+/r5/results/
+/r5/resident_control_results/
+/r8/results/
+/r9/results/
+/r10/results/
+/r10/causal_results/
+/r11/results/
+/r11/numerical_data/

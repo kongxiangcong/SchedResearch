@@ -1,0 +1,11 @@
+[dblp] Error on query 'multi core NPU runtime dynamic scheduling': ('Connection aborted.', ConnectionResetError(10054, 'Զ������ǿ�ȹر���һ�����е����ӡ�', None, 10054, None))
+[dblp] Error on query 'accelerator dataflow task scheduling': ('Connection aborted.', ConnectionResetError(10054, 'Զ������ǿ�ȹر���һ�����е����ӡ�', None, 10054, None))
+[dblp] Error on query 'compiler dependency contract hardware completion dispatch': ('Connection aborted.', ConnectionResetError(10054, 'Զ������ǿ�ȹر���һ�����е����ӡ�', None, 10054, None))
+[open_alex] HTTP 504; retrying in 3s (attempt 2/2)
+[open_alex] HTTP 504; retrying in 3s (attempt 2/2)
+[semantic_scholar] HTTP 429; retrying in 3s (attempt 2/2)
+[semantic_scholar] Error on query 'multi core NPU runtime dynamic scheduling': 429 Client Error:  for url: https://api.semanticscholar.org/graph/v1/paper/search?query=multi+core+NPU+runtime+dynamic+scheduling&offset=0&limit=5&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2024-2026
+[semantic_scholar] HTTP 429; retrying in 3s (attempt 2/2)
+[semantic_scholar] Error on query 'accelerator dataflow task scheduling': 429 Client Error:  for url: https://api.semanticscholar.org/graph/v1/paper/search?query=accelerator+dataflow+task+scheduling&offset=0&limit=5&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2024-2026
+[semantic_scholar] HTTP 429; retrying in 3s (attempt 2/2)
+[semantic_scholar] Error on query 'compiler dependency contract hardware completion dispatch': 429 Client Error:  for url: https://api.semanticscholar.org/graph/v1/paper/search?query=compiler+dependency+contract+hardware+completion+dispatch&offset=0&limit=5&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2024-2026

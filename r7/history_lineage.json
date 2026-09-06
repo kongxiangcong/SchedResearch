@@ -1,0 +1,40 @@
+{
+  "schema_version": "r7.history-lineage.v1",
+  "date": "2026-09-05",
+  "operation": "append R7 and update current decision; preserve all R1-R6 table rows verbatim and in order",
+  "parent_manifests": [
+    {
+      "path": "experiments/results/r4/artifact_integrity.json",
+      "sha256": "28d3d8b9588a5cc2510da004ee58c7ca86d31167a99c37af69370869adf67e6c"
+    },
+    {
+      "path": "r5/artifact_integrity.json",
+      "sha256": "88e6728e4979745201a81137ba4a98941706c2efa532cf6212a2a817e6998e58"
+    },
+    {
+      "path": "r6/artifact_integrity.json",
+      "sha256": "6b52b291434c8c569b378e52b6859d5d4d53d94a14276c49794a07264e4a82ad"
+    }
+  ],
+  "r6_progress_snapshot": {
+    "logical_path": "research_progress.md",
+    "path": "r7/history/r6_research_progress.md",
+    "sha256": "49b32d42362359d975e797b8d9eb8901950c42f548caddf8a73a3498232ad2c5",
+    "bytes": 10206
+  },
+  "r5_progress_snapshot": {
+    "logical_path": "research_progress.md",
+    "path": "r6/history/r5_research_progress.md",
+    "sha256": "3e9147e5c53781d9c82fc7da98306b18b689a82ef15fd392765681eaadda10c8"
+  },
+  "successor_progress": {
+    "path": "research_progress.md",
+    "sha256": "d2696951b8613e2fa90be5b730b0be7328d5fa199e035155cad4e7745843f30e",
+    "parent_sha256": "49b32d42362359d975e797b8d9eb8901950c42f548caddf8a73a3498232ad2c5",
+    "status": "RECORDED",
+    "recorded_at_utc": "2026-09-05T07:54:50.645133+00:00"
+  },
+  "verification_rule": "R6 frozen logical research_progress.md maps only to byte-exact r7/history/r6_research_progress.md; R5 logical progress maps through original R6 lineage to r6/history/r5_research_progress.md; all other historical paths remain original. Original R6 verifier is expected to flag the changed live root after R7 append. Never rewrite any historical manifest or verifier.",
+  "initial_verification_receipt": "r7/history/snapshot_receipt.json",
+  "r4_frozen_root_readme_sha256": "e3bb86187ac01e0446444a837a33dba5cb3e27f7a742a5d224db816cc8f33829"
+}

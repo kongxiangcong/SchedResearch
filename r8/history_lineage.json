@@ -1,0 +1,20 @@
+{
+  "schema": "r8.progress-lineage.v1",
+  "created_utc": "2026-09-05T09:14:54.246477+00:00",
+  "parent_handoff_sha256": "ec14e29e06f4617bdd11f675095bd23a92a9ba25a7abbf0d70e80f28affbdd1e",
+  "parent_progress": {
+    "snapshot": "r8/history/aligned_research_progress.md",
+    "sha256": "48e5861f4c7f5adac38202556453f13327972508658e6b19b4a601c5f122d1ff"
+  },
+  "successor_progress": {
+    "logical_path": "research_progress.md",
+    "snapshot": "r8/history/completed_research_progress.md",
+    "sha256": "a2c65faeb440f9f140fd75780cacfa8e06ebf2cb9425fe71c866c5117d0482a0"
+  },
+  "added_rows": [
+    "| R8：静态分片与资源账本 | 两cluster各两核的跨域partial是否为工作量必需，还是静态mapping/路径取舍？ | Output-shard可免partial；split-K的价值依赖输入复制、route及数值许可，不能直接推出动态残差。 | 事前登记；Qwen down fullK9216/N128、M1/32，3种mapping×2M的6账本；20core/100分配；3seeds×2M×3mapping的18 CPU数值比较，独立复算。 | 同4核权重2359296B；M32单播输入N分片2359296B、K分片1179648B，后者增16384B partial；全部诊断容差通过，但6个split-K结果均非bitwise，抵消反例顺序1/split0/FP64为2。 | **Accept来源约束账本；Refine目标静态准入，不作性能排名。** | 当前TARS根、multicast/staging/peer路线、VMEM保留区和静态搜索；M1非历史native geometry，split-K数值许可未证。 | 先确认当前target及实际共享DMA/外存路径，允许target支持的mapping/layout/驻留/预取与既有仲裁；选择strong-static后才测真实残差。 |",
+    "| R8：payload可见性与复用 | DMA接受/最后读/目标可见能否未经证明合并为consumer和slot复用的完成信号？ | 精确静态wait/release或等价阻塞合同足以使有限单payload抽象安全；过早放行可构造错误。 | 五种七事件偏序全部70线性扩展，逐条执行sentinel读取；独立checker复算全部记录及witness，没有时序或设备实验。 | safe5/0错、保守release4/0错；early-event40/26错、early-source6/1错、early-destination15/10错；37是结构错误数非概率。 | **Accept有限安全证书与反例；Reject由此推出target bug、新scheduler或真实收益。** | 仅单次已produce-visible payload；未验两个partial并发、完整reduction/最终store、credit/反压、重试和RTL；真实残差未测。 | 获取目标completion语义并绑定具名span/last-reader；当前停止扩sim/Phoenix SDK，R5通用ready保持关闭，保留未测多cluster空间。 |"
+  ],
+  "evidence_level": "R8 source/CPU/finite-order results, no target performance",
+  "future_rule": "preserve this successor snapshot and rows; new results need a new parent-child record; never rewrite old manifests"
+}

@@ -1,0 +1,6 @@
+{"stage":"instruction_read","words":50,"sha256":"fdb930c79802190fe60ab3182330443814146fe05dd1f0b445cc6bc2b2c1f8c3"}
+{"stage":"prelaunch_contract","logical_input_bytes":1073741824,"logical_output_bytes":1073741824,"input_sha256":"f670740db6f236b884078533b82427530dfa8c5f1c57b269843be95c87c49ad8","input_bo_address":8800387989504,"output_bo_address":8801461731328,"instruction_bo_address":67108864,"input_group":131072,"output_group":131072,"instruction_group":131073,"initialization_hash_s":0.8524625}
+{"stage":"host_timer_only","count":1000,"mean_s":2.31e-08,"min_s":0,"device_empty_run":false}
+{"stage":"before_launch","iteration":0,"output_poison_sha256":"e58afd1b86eb4619e45de409bb5fdf7a2d58f7a0921a0008f33dff3cdb13d585","poison_hash_s":0.6615636,"all_sync_to_device_s":0.0224008}
+{"stage":"result","iteration":0,"state":4,"host_launch_wait2_s":0.3639387,"sync_from_device_s":0.0200192,"launch_to_output_sync_s":0.3839602,"verify_hash_s":1.4540908,"compared_words":268435456,"mismatches":0,"input_unchanged":true,"output_sha256":"f670740db6f236b884078533b82427530dfa8c5f1c57b269843be95c87c49ad8","numeric_pass":true}
+{"stage":"completed","repetitions":1,"host_main_before_teardown_s":4.8064895}

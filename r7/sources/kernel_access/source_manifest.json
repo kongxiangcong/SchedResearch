@@ -1,0 +1,383 @@
+{
+  "captured_at": "2026-09-05T07:35:23.049244+00:00",
+  "items": [
+    {
+      "repo": "AMDResearch/Riallto",
+      "revision": "8e73ab69daf2f04f1341baf6181a8d2ab478848d",
+      "source_path": "README.md",
+      "url": "https://github.com/AMDResearch/Riallto/blob/8e73ab69daf2f04f1341baf6181a8d2ab478848d/README.md",
+      "local_path": "r7\\sources\\kernel_access\\riallto\\README.md",
+      "exit_code": 0,
+      "sha256": "283246dedcc2ac37cda0bfe170b062030f8fc2f34e1b449d2884b5e0641ccd14",
+      "bytes": 3794
+    },
+    {
+      "repo": "AMDResearch/Riallto",
+      "revision": "8e73ab69daf2f04f1341baf6181a8d2ab478848d",
+      "source_path": "npu/runtime/apprunner.py",
+      "url": "https://github.com/AMDResearch/Riallto/blob/8e73ab69daf2f04f1341baf6181a8d2ab478848d/npu/runtime/apprunner.py",
+      "local_path": "r7\\sources\\kernel_access\\riallto\\npu\\runtime\\apprunner.py",
+      "exit_code": 0,
+      "sha256": "e1ef09c9a04d7ba3fd87510c6f1873b56b5ee31463f54de5019bd634d9360623",
+      "bytes": 23956
+    },
+    {
+      "repo": "AMDResearch/Riallto",
+      "revision": "8e73ab69daf2f04f1341baf6181a8d2ab478848d",
+      "source_path": "tests/test_endtoend.py",
+      "url": "https://github.com/AMDResearch/Riallto/blob/8e73ab69daf2f04f1341baf6181a8d2ab478848d/tests/test_endtoend.py",
+      "local_path": "r7\\sources\\kernel_access\\riallto\\tests\\test_endtoend.py",
+      "exit_code": 0,
+      "sha256": "4cd639a6e5b2285a473c95fa44b0f9b4e3d1d394ba03604c1e9e8b2d34e678c5",
+      "bytes": 8780
+    },
+    {
+      "repo": "AMDResearch/Riallto",
+      "revision": "8e73ab69daf2f04f1341baf6181a8d2ab478848d",
+      "source_path": "tests/test_applications.py",
+      "url": "https://github.com/AMDResearch/Riallto/blob/8e73ab69daf2f04f1341baf6181a8d2ab478848d/tests/test_applications.py",
+      "local_path": "r7\\sources\\kernel_access\\riallto\\tests\\test_applications.py",
+      "exit_code": 0,
+      "sha256": "da83f15f7a9e1667ee3bbd7c4923a7cf3c8cd892fe1bee1a7933f686fdc1bb17",
+      "bytes": 10503
+    },
+    {
+      "repo": "AMDResearch/Riallto",
+      "revision": "8e73ab69daf2f04f1341baf6181a8d2ab478848d",
+      "source_path": "scripts/utils/setup_runtime.ps1",
+      "url": "https://github.com/AMDResearch/Riallto/blob/8e73ab69daf2f04f1341baf6181a8d2ab478848d/scripts/utils/setup_runtime.ps1",
+      "local_path": "r7\\sources\\kernel_access\\riallto\\scripts\\utils\\setup_runtime.ps1",
+      "exit_code": 0,
+      "sha256": "53cba8e1c9f295dad51fffb48d4ec69a8ffcebe674ff1fc0e0c07bd1a86f61bd",
+      "bytes": 2098
+    },
+    {
+      "repo": "AMDResearch/Riallto",
+      "revision": "8e73ab69daf2f04f1341baf6181a8d2ab478848d",
+      "source_path": "setup.py",
+      "url": "https://github.com/AMDResearch/Riallto/blob/8e73ab69daf2f04f1341baf6181a8d2ab478848d/setup.py",
+      "local_path": "r7\\sources\\kernel_access\\riallto\\setup.py",
+      "exit_code": 0,
+      "sha256": "83984d40e284fc97a08d7c7e8fcfd04244f739af22bc59e8cc4b7b019a6e8eda",
+      "bytes": 1794
+    },
+    {
+      "repo": "AMDResearch/Riallto",
+      "revision": "8e73ab69daf2f04f1341baf6181a8d2ab478848d",
+      "source_path": "npu/lib/kernels/cpp/plus1.cpp",
+      "url": "https://github.com/AMDResearch/Riallto/blob/8e73ab69daf2f04f1341baf6181a8d2ab478848d/npu/lib/kernels/cpp/plus1.cpp",
+      "local_path": "r7\\sources\\kernel_access\\riallto\\npu\\lib\\kernels\\cpp\\plus1.cpp",
+      "exit_code": 0,
+      "sha256": "d7c34bafe696a83e0af68a0a69f66c3512320552f659d995b4acc3318ceeea62",
+      "bytes": 664
+    },
+    {
+      "repo": "AMDResearch/Riallto",
+      "revision": "8e73ab69daf2f04f1341baf6181a8d2ab478848d",
+      "source_path": "npu/lib/applications/binaries/color_threshold_v1_720p.seq",
+      "url": "https://github.com/AMDResearch/Riallto/blob/8e73ab69daf2f04f1341baf6181a8d2ab478848d/npu/lib/applications/binaries/color_threshold_v1_720p.seq",
+      "local_path": "r7\\sources\\kernel_access\\riallto\\npu\\lib\\applications\\binaries\\color_threshold_v1_720p.seq",
+      "exit_code": 0,
+      "sha256": "dd3a8ccd8aa51006ddea8dc3e03667f5233521670dc3fdcfa85cf41104a763bc",
+      "bytes": 540
+    },
+    {
+      "repo": "AMDResearch/Riallto",
+      "revision": "8e73ab69daf2f04f1341baf6181a8d2ab478848d",
+      "source_path": "npu/lib/applications/binaries/color_threshold_v1_720p.json",
+      "url": "https://github.com/AMDResearch/Riallto/blob/8e73ab69daf2f04f1341baf6181a8d2ab478848d/npu/lib/applications/binaries/color_threshold_v1_720p.json",
+      "local_path": "r7\\sources\\kernel_access\\riallto\\npu\\lib\\applications\\binaries\\color_threshold_v1_720p.json",
+      "exit_code": 0,
+      "sha256": "36e470c4d589005893aaf9a4ebd535606f037de82368d457fa6aa3a747834d39",
+      "bytes": 2040
+    },
+    {
+      "repo": "AMDResearch/Riallto",
+      "revision": "8e73ab69daf2f04f1341baf6181a8d2ab478848d",
+      "source_path": "npu/lib/applications/color_threshold.py",
+      "url": "https://github.com/AMDResearch/Riallto/blob/8e73ab69daf2f04f1341baf6181a8d2ab478848d/npu/lib/applications/color_threshold.py",
+      "local_path": "r7\\sources\\kernel_access\\riallto\\npu\\lib\\applications\\color_threshold.py",
+      "exit_code": 128,
+      "error": "fatal: path 'npu/lib/applications/color_threshold.py' does not exist in '8e73ab69daf2f04f1341baf6181a8d2ab478848d'\n"
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "README.md",
+      "url": "https://github.com/amd/RyzenAI-SW/blob/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/README.md",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\README.md",
+      "exit_code": 0,
+      "sha256": "9612698cdca3fee9cc617a49f2c0c6d1b252a15855e24c1bcbd25f10b835e71b",
+      "bytes": 2661
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/README.md",
+      "url": "https://github.com/amd/RyzenAI-SW/blob/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/README.md",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\README.md",
+      "exit_code": 128,
+      "error": "fatal: path 'example/transformers/README.md' does not exist in 'a3d163c81e4d0b21667c05f614c1d79be14c3fa1'\n"
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/ops/cpp/qlinear_2/qlinear_2.hpp",
+      "url": "https://github.com/amd/RyzenAI-SW/blob/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/ops/cpp/qlinear_2/qlinear_2.hpp",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\ops\\cpp\\qlinear_2\\qlinear_2.hpp",
+      "exit_code": 0,
+      "sha256": "1a6e10412ecd8bbe2c28f8f8a0feae176a150e0984a7c1fd4a1ba7b4a42c8817",
+      "bytes": 24652
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/ops/cpp/utils/dpu_kernel_metadata.hpp",
+      "url": "https://github.com/amd/RyzenAI-SW/blob/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/ops/cpp/utils/dpu_kernel_metadata.hpp",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\ops\\cpp\\utils\\dpu_kernel_metadata.hpp",
+      "exit_code": 0,
+      "sha256": "ef0394bbb42fb826d4667001d8d17c4a0284a16c6a1a50cfe0fb68076eee5103",
+      "bytes": 360
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/ops/cpp/utils/super_instr.h",
+      "url": "https://github.com/amd/RyzenAI-SW/blob/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/ops/cpp/utils/super_instr.h",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\ops\\cpp\\utils\\super_instr.h",
+      "exit_code": 0,
+      "sha256": "af1632e5ef6c6704feba5a3bf072be8e7cf39920a7493ae03c9282285327ce9e",
+      "bytes": 5680
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/tests/cpp/test_qlinear_2.cpp",
+      "url": "https://github.com/amd/RyzenAI-SW/blob/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/tests/cpp/test_qlinear_2.cpp",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\tests\\cpp\\test_qlinear_2.cpp",
+      "exit_code": 0,
+      "sha256": "ee0867f179ee2f6b946ce2ffc6d3adb06bff5791b3cbfe8f610b0fdbe0b93f47",
+      "bytes": 6012
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/third_party/xrt-ipu/xrt/include/xrt/xrt_kernel.h",
+      "url": "https://github.com/amd/RyzenAI-SW/blob/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/third_party/xrt-ipu/xrt/include/xrt/xrt_kernel.h",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\third_party\\xrt-ipu\\xrt\\include\\xrt\\xrt_kernel.h",
+      "exit_code": 0,
+      "sha256": "2e7f4a47b2479e69424875de1700ee2572dda748d9aecded3cd13db164ed1fe6",
+      "bytes": 30789
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/third_party/xrt-ipu/xrt/include/xrt/xrt_bo.h",
+      "url": "https://github.com/amd/RyzenAI-SW/blob/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/third_party/xrt-ipu/xrt/include/xrt/xrt_bo.h",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\third_party\\xrt-ipu\\xrt\\include\\xrt\\xrt_bo.h",
+      "exit_code": 0,
+      "sha256": "eaaad880aeb8218d5806d5c55651328a4a744922c4306faddf6dd869fa570174",
+      "bytes": 20920
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/third_party/xrt-ipu/xrt/include/xrt/xrt_device.h",
+      "url": "https://github.com/amd/RyzenAI-SW/blob/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/third_party/xrt-ipu/xrt/include/xrt/xrt_device.h",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\third_party\\xrt-ipu\\xrt\\include\\xrt\\xrt_device.h",
+      "exit_code": 0,
+      "sha256": "3333c6c30be91cd01d6e9cbd00cad2c7db5532f51d32896f7a1b2c1b3ab8a70d",
+      "bytes": 14291
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/third_party/xrt-ipu/xrt/include/xrt/xrt_version.h",
+      "url": "https://github.com/amd/RyzenAI-SW/blob/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/third_party/xrt-ipu/xrt/include/xrt/xrt_version.h",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\third_party\\xrt-ipu\\xrt\\include\\xrt\\xrt_version.h",
+      "exit_code": 128,
+      "error": "fatal: path 'example/transformers/third_party/xrt-ipu/xrt/include/xrt/xrt_version.h' does not exist in 'a3d163c81e4d0b21667c05f614c1d79be14c3fa1'\n"
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/ops/cpp/utils/xrt_context.hpp",
+      "url": "https://github.com/amd/RyzenAI-SW/blob/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/ops/cpp/utils/xrt_context.hpp",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\ops\\cpp\\utils\\xrt_context.hpp",
+      "exit_code": 0,
+      "sha256": "3503c5159756286a4e98e8ecab84a9dc7a39ac8fc111f6f8956be2a7d2d4198d",
+      "bytes": 1229
+    },
+    {
+      "repo": "amd/DynamicDispatch",
+      "revision": "b3051f03e20aab237cda3bbe4cd2081f76b72b06",
+      "source_path": "README.md",
+      "url": "https://github.com/amd/DynamicDispatch/blob/b3051f03e20aab237cda3bbe4cd2081f76b72b06/README.md",
+      "local_path": "r7\\sources\\kernel_access\\dynamicdispatch\\README.md",
+      "exit_code": 0,
+      "sha256": "6ad03ba0a9b146ce2d24b39a188280ae3986e2ca6e714f3aef58b0518f708709",
+      "bytes": 8905
+    },
+    {
+      "repo": "amd/DynamicDispatch",
+      "revision": "b3051f03e20aab237cda3bbe4cd2081f76b72b06",
+      "source_path": "VERSION",
+      "url": "https://github.com/amd/DynamicDispatch/blob/b3051f03e20aab237cda3bbe4cd2081f76b72b06/VERSION",
+      "local_path": "r7\\sources\\kernel_access\\dynamicdispatch\\VERSION",
+      "exit_code": 0,
+      "sha256": "dcfc86e8b2e38a3f90ceae6a117ebcb391a12cf7bb6d68955ae7f1b0ac21b6a6",
+      "bytes": 10
+    },
+    {
+      "repo": "amd/DynamicDispatch",
+      "revision": "b3051f03e20aab237cda3bbe4cd2081f76b72b06",
+      "source_path": "src/ops/matmul/matmul.cpp",
+      "url": "https://github.com/amd/DynamicDispatch/blob/b3051f03e20aab237cda3bbe4cd2081f76b72b06/src/ops/matmul/matmul.cpp",
+      "local_path": "r7\\sources\\kernel_access\\dynamicdispatch\\src\\ops\\matmul\\matmul.cpp",
+      "exit_code": 0,
+      "sha256": "64820643157658631532fffb0f9bef384c43a0c52dfa235acb1b603e862840fa",
+      "bytes": 54246
+    },
+    {
+      "repo": "amd/DynamicDispatch",
+      "revision": "b3051f03e20aab237cda3bbe4cd2081f76b72b06",
+      "source_path": "src/ops/ops_common/matmul_matrix.hpp",
+      "url": "https://github.com/amd/DynamicDispatch/blob/b3051f03e20aab237cda3bbe4cd2081f76b72b06/src/ops/ops_common/matmul_matrix.hpp",
+      "local_path": "r7\\sources\\kernel_access\\dynamicdispatch\\src\\ops\\ops_common\\matmul_matrix.hpp",
+      "exit_code": 0,
+      "sha256": "7d1f2a32e3836294c6984a6c4d42a0ece62670158def139005604daba1d01b0c",
+      "bytes": 37040
+    },
+    {
+      "repo": "amd/DynamicDispatch",
+      "revision": "b3051f03e20aab237cda3bbe4cd2081f76b72b06",
+      "source_path": "tests/cpp/unit_tests/test_matmul.cpp",
+      "url": "https://github.com/amd/DynamicDispatch/blob/b3051f03e20aab237cda3bbe4cd2081f76b72b06/tests/cpp/unit_tests/test_matmul.cpp",
+      "local_path": "r7\\sources\\kernel_access\\dynamicdispatch\\tests\\cpp\\unit_tests\\test_matmul.cpp",
+      "exit_code": 0,
+      "sha256": "defe4c74144e44a234fc9ed7dd5e638ec3b36634ea0d3835802ad41e6bb81a5e",
+      "bytes": 27052
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/README.MD",
+      "url": "https://raw.githubusercontent.com/amd/RyzenAI-SW/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/README.MD",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\README.MD",
+      "sha256": "0d0bff4ea42dfd56c58ed3207f0d27c25f0392832fdd5b4a9f99471f0b0d1f6e",
+      "bytes": 993,
+      "lfs_pointer": false,
+      "exit_code": 0
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/third_party/xrt-ipu/xrt/include/version.h",
+      "url": "https://raw.githubusercontent.com/amd/RyzenAI-SW/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/third_party/xrt-ipu/xrt/include/version.h",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\third_party\\xrt-ipu\\xrt\\include\\version.h",
+      "sha256": "587ae9d67f1446caaf3c96bfa4cf1c9815c04204423148ef5515a1ec673dfaaf",
+      "bytes": 2328,
+      "lfs_pointer": false,
+      "exit_code": 0
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/third_party/xrt-ipu/xrt/version.json",
+      "url": "https://raw.githubusercontent.com/amd/RyzenAI-SW/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/third_party/xrt-ipu/xrt/version.json",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\third_party\\xrt-ipu\\xrt\\version.json",
+      "sha256": "8a5fc2dc1a7be1c35c6f502e728a031fa04d3d31332265618a38cb6d6ad5e958",
+      "bytes": 243,
+      "lfs_pointer": false,
+      "exit_code": 0
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/ops/cpp/utils/wgt_matrix.h",
+      "url": "https://raw.githubusercontent.com/amd/RyzenAI-SW/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/ops/cpp/utils/wgt_matrix.h",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\ops\\cpp\\utils\\wgt_matrix.h",
+      "sha256": "00429a40cdc4d1767cb86f39f30de906b70217a8645c1b861563651930b3e285",
+      "bytes": 4617,
+      "lfs_pointer": false,
+      "exit_code": 0
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/ops/cpp/utils/buffer_ops.h",
+      "url": "https://raw.githubusercontent.com/amd/RyzenAI-SW/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/ops/cpp/utils/buffer_ops.h",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\ops\\cpp\\utils\\buffer_ops.h",
+      "sha256": "5c90e7c11a884fb42364dfd6b3e9a3acfcfa6489c852ec917e49518cc9f90560",
+      "bytes": 1231,
+      "lfs_pointer": false,
+      "exit_code": 0
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/ops/cpp/utils/ml_params.h",
+      "url": "https://raw.githubusercontent.com/amd/RyzenAI-SW/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/ops/cpp/utils/ml_params.h",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\ops\\cpp\\utils\\ml_params.h",
+      "sha256": "b2d431fc9eb770eada849f1762162ce8003c2d502bc4f37d033bd60553f5e4df",
+      "bytes": 1745,
+      "lfs_pointer": false,
+      "exit_code": 0
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/dll/phx/qlinear_2/mc_code_1_2k_2k.txt",
+      "url": "https://raw.githubusercontent.com/amd/RyzenAI-SW/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/dll/phx/qlinear_2/mc_code_1_2k_2k.txt",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\dll\\phx\\qlinear_2\\mc_code_1_2k_2k.txt",
+      "sha256": "f1e7a0ce98787aac71fbe72e65c24a5a6a6c162dbf830de646ce82504355b12b",
+      "bytes": 46360,
+      "lfs_pointer": false,
+      "exit_code": 0
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/xclbin/phx/gemm_4x4.xclbin",
+      "url": "https://raw.githubusercontent.com/amd/RyzenAI-SW/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/xclbin/phx/gemm_4x4.xclbin",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\xclbin\\phx\\gemm_4x4.xclbin",
+      "sha256": "ab6cef19acf6e7d0f8f1e8e064c69deb01a94a4a180468e68cf4ff28dc28f648",
+      "bytes": 2375756,
+      "lfs_pointer": false,
+      "exit_code": 0
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/xclbin/phx/aieml_gemm_vm_phx_4x4.xclbin",
+      "url": "https://raw.githubusercontent.com/amd/RyzenAI-SW/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/xclbin/phx/aieml_gemm_vm_phx_4x4.xclbin",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\xclbin\\phx\\aieml_gemm_vm_phx_4x4.xclbin",
+      "sha256": "d8b16adf18172cb3a5bfdd57328b49b05fa5ebc1e8ae9c86517920533c7bc032",
+      "bytes": 1802027,
+      "lfs_pointer": false,
+      "exit_code": 0
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/ops/cpp/qlinear/qlinear.hpp",
+      "url": "https://raw.githubusercontent.com/amd/RyzenAI-SW/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/ops/cpp/qlinear/qlinear.hpp",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\ops\\cpp\\qlinear\\qlinear.hpp",
+      "sha256": "1739e3faf83bc3f9d103a1d9afda9be2ab93947049b63b450ac726c6ad1b013c",
+      "bytes": 37557,
+      "lfs_pointer": false,
+      "exit_code": 0
+    },
+    {
+      "repo": "amd/RyzenAI-SW",
+      "revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+      "source_path": "example/transformers/third_party/.tvm/aie/aieml_gemm_vm_phx_4x4_bf16.json",
+      "url": "https://raw.githubusercontent.com/amd/RyzenAI-SW/a3d163c81e4d0b21667c05f614c1d79be14c3fa1/example/transformers/third_party/.tvm/aie/aieml_gemm_vm_phx_4x4_bf16.json",
+      "local_path": "r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\third_party\\.tvm\\aie\\aieml_gemm_vm_phx_4x4_bf16.json",
+      "sha256": "b1d00a0f477f0293863ab6d2104d24592bb97e1f01166a092b1cb5877cfa2c40",
+      "bytes": 3364,
+      "lfs_pointer": false,
+      "exit_code": 0
+    }
+  ]
+}

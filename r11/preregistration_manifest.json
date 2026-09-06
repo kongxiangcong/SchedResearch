@@ -1,0 +1,12 @@
+{
+  "registered_utc": "2026-09-05T15:37:27.697357+00:00",
+  "phase": "before-performance-execution",
+  "files": {
+    "r11/experiment_plan.md": "30e3275b03338d67de48858a4e44afad1a87d6881c8924c6a8afbd18cc5ae9b5",
+    "r11/contract.json": "e159d1a7d248cbe286d1e37838d2ab1b659af66d2bcbac1fd70bd28d00b7fb93",
+    "r11/continuation_brief.md": "187225d6d10c71d524571fe4ed86589af5528e39482b86001807246697a0bc60",
+    "r11/reporting_addendum.md": "0bb196a17fc39625fd91168b2db154d498dbaab721d8b52e0dbe47a638198dc4",
+    "r5/sources/qwen/modeling_qwen3_5.py": "458360c8072e6130580639170ad3e645b975512dbabae31eab5f92de5f0f09ef",
+    "r5/sources/qwen/config.json": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670"
+  }
+}

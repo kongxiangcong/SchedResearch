@@ -1,0 +1,61 @@
+{
+  "evidence_level": "source-derived CPU-only fixture, no device execution",
+  "source_revision": "a3d163c81e4d0b21667c05f614c1d79be14c3fa1",
+  "shape": [
+    1,
+    2048,
+    2048
+  ],
+  "dtype": "int8*int8->int32",
+  "byteorder": "little",
+  "device_kernel": "DPU",
+  "opcode_uint64": 1,
+  "args": [
+    "uint64(1)",
+    "A_BO(2248)",
+    "W_BO(4194304)",
+    "C_BO(8192)",
+    "dummy_BO(16)",
+    "instr_BO(6652)",
+    "uint32(1663)",
+    "dummy_BO(16)"
+  ],
+  "xclbin": "D:\\dsh-proj\\SchedResarch\\r7\\sources\\kernel_access\\ryzenai\\example\\transformers\\xclbin\\phx\\gemm_4x4.xclbin",
+  "instruction_words": 1663,
+  "weight_map_verified_bijection": true,
+  "oracle": "exact signed integer sum over the unformatted row-major weights",
+  "output_min": -575,
+  "output_max": 691,
+  "distinct_outputs": 694,
+  "files": {
+    "a_rowmajor_int8.bin": {
+      "bytes": 2048,
+      "sha256": "dc31cbb7248bbe829757915493a4bfe6281edeaf0261a7d2049cda55c23ec569"
+    },
+    "weights_rowmajor_int8.bin": {
+      "bytes": 4194304,
+      "sha256": "8dbdc0f4aedb8b6bfa38d165d67cbc38d141aae89770f6be5fc8971321b2b0a7"
+    },
+    "weights_packed_int8.bin": {
+      "bytes": 4194304,
+      "sha256": "dff4f7759fc5067e782be5454e8ed19d348b77b7db420ff601543f838e3a9330"
+    },
+    "super_sequence.bin": {
+      "bytes": 200,
+      "sha256": "95b27369061bb8464467b563742455f4ffa09671205e8dfa8e9d07a7a1378804"
+    },
+    "a_with_super_sequence.bin": {
+      "bytes": 2248,
+      "sha256": "ee1a7f3c3fe5c6d6629fd9e7838ea9aa932318cdd7916ff8da1cf6909437afa5"
+    },
+    "instructions_uint32.bin": {
+      "bytes": 6652,
+      "sha256": "cb113e14256fa97ff5dc475c7b6677e9b115673ea817199c7775bb21f00084c0"
+    },
+    "expected_rowmajor_int32.bin": {
+      "bytes": 8192,
+      "sha256": "2da121a2e7db4df976d9266d5d0af0d0fa460ca0e58d0a6034ef4e8197fd2158"
+    }
+  },
+  "cpu_fixture_generation_seconds": 4.365825099986978
+}

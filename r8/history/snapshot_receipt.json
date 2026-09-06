@@ -1,0 +1,8 @@
+{
+  "created_utc": "2026-09-05T08:50:43.521372+00:00",
+  "path": "r8/history/r7_research_progress.md",
+  "sha256": "d2696951b8613e2fa90be5b730b0be7328d5fa199e035155cad4e7745843f30e",
+  "bytes": 12696,
+  "equals_r7_manifest_and_lineage": true,
+  "scope": "before updating progress for user-approved R8 alignment; no new experiment"
+}

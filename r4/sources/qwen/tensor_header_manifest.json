@@ -1,0 +1,36 @@
+{
+  "retrieved_utc": "2026-09-05T05:03:12.576214+00:00",
+  "files": [
+    {
+      "file": "shard_1_safetensors_header.json",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors-00001-of-00002.safetensors",
+      "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "bytes": 11160,
+      "sha256": "f46b4aa8c303583fedfb3780fd2a3b981300ee9cad9bc624999bac343e799fd7",
+      "stream_bytes_read": 11168,
+      "contains_tensor_payload": false
+    },
+    {
+      "file": "shard_2_safetensors_header.json",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors-00002-of-00002.safetensors",
+      "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "bytes": 79064,
+      "sha256": "270d6faae3bc0e1642498e5ef12d222429a666c781022fb891302e42361b9d66",
+      "stream_bytes_read": 79072,
+      "contains_tensor_payload": false
+    }
+  ],
+  "module_parameter_counts": {
+    "model.language_model": {
+      "BF16": 4205747456,
+      "F32": 3840
+    },
+    "mtp": {
+      "BF16": 120599552
+    },
+    "model.visual": {
+      "BF16": 333514240
+    }
+  },
+  "total_parameters": 4659865088
+}

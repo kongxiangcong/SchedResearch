@@ -1,0 +1,16 @@
+{
+  "python": "C:\\Users\\72449\\AppData\\Roaming\\uv\\python\\cpython-3.11.15-windows-x86_64-none\\python.exe",
+  "version": "3.11.15 (main, Mar 10 2026, 18:12:25) [MSC v.1944 64 bit (AMD64)]",
+  "packages": {
+    "numpy": null,
+    "onnx": null,
+    "onnxruntime": null,
+    "torch": null,
+    "openvino": null,
+    "tvm": null,
+    "vai_q_onnx": null,
+    "npu": null,
+    "pyxrt": null,
+    "pytest": null
+  }
+}

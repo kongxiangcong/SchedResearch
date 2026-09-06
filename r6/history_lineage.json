@@ -1,0 +1,27 @@
+{
+  "schema_version": "r6.history-lineage.v1",
+  "date": "2026-09-05",
+  "operation": "append R6 and update current decision; preserve all R1-R5 table rows verbatim",
+  "parent_manifests": [
+    {
+      "path": "experiments/results/r4/artifact_integrity.json",
+      "sha256": "28d3d8b9588a5cc2510da004ee58c7ca86d31167a99c37af69370869adf67e6c"
+    },
+    {
+      "path": "r5/artifact_integrity.json",
+      "sha256": "88e6728e4979745201a81137ba4a98941706c2efa532cf6212a2a817e6998e58"
+    }
+  ],
+  "r5_progress_snapshot": {
+    "logical_path": "research_progress.md",
+    "path": "r6/history/r5_research_progress.md",
+    "sha256": "3e9147e5c53781d9c82fc7da98306b18b689a82ef15fd392765681eaadda10c8"
+  },
+  "successor_progress": {
+    "path": "research_progress.md",
+    "sha256": "49b32d42362359d975e797b8d9eb8901950c42f548caddf8a73a3498232ad2c5",
+    "parent_sha256": "3e9147e5c53781d9c82fc7da98306b18b689a82ef15fd392765681eaadda10c8"
+  },
+  "verification_rule": "Verify R5 frozen logical research_progress.md against the byte-identical snapshot; every other parent path stays original. Original R5 verifier is expected to flag live root progress as changed. Never rewrite the R5 manifest.",
+  "r4_frozen_root_readme_sha256": "e3bb86187ac01e0446444a837a33dba5cb3e27f7a742a5d224db816cc8f33829"
+}

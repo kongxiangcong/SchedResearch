@@ -1,0 +1,17 @@
+{
+  "scope": "R10 research overrides only; all unlisted R9 capabilities unchanged",
+  "base_contract": "reference_hardware.json",
+  "base_model": "model.py",
+  "variants": {
+    "EXT128": {
+      "external_bytes_per_cycle": 128,
+      "cluster_dma_bytes_per_cycle": 64
+    },
+    "DMA32": {
+      "external_bytes_per_cycle": 64,
+      "cluster_dma_bytes_per_cycle": 32
+    }
+  },
+  "causal_increment": "causal_plan.md; two EXT queue heads and current local busy bits; 2-cycle sample plus 8-cycle action",
+  "not_accepted": "No actual TARS, silicon, whole-model BF16 numerical, PPA, NoC or peer-link evidence"
+}

@@ -1,0 +1,268 @@
+{
+  "schema_version": "r7.access-calibration.v1",
+  "fixture": false,
+  "evidence_level": "physical Phoenix direct XRT execution; full numeric checks; host elapsed calibration only",
+  "runs": [
+    {
+      "name": "copy_initial",
+      "receipt_sha256": "476446a6a2a623ca8570ff82ffbf3091295d5de316b8c58d955c613902c77906",
+      "started_utc": "2026-09-05T07:44:42.868131+00:00",
+      "host_process_elapsed_s": 5.2453441000543535,
+      "prelaunch_contract": {
+        "stage": "prelaunch_contract",
+        "logical_input_bytes": 1073741824,
+        "logical_output_bytes": 1073741824,
+        "input_sha256": "f670740db6f236b884078533b82427530dfa8c5f1c57b269843be95c87c49ad8",
+        "input_bo_address": 8800387989504,
+        "output_bo_address": 8801461731328,
+        "instruction_bo_address": 67108864,
+        "input_group": 131072,
+        "output_group": 131072,
+        "instruction_group": 131073,
+        "initialization_hash_s": 0.8524625
+      },
+      "results": [
+        {
+          "stage": "result",
+          "iteration": 0,
+          "state": 4,
+          "host_launch_wait2_s": 0.3639387,
+          "sync_from_device_s": 0.0200192,
+          "launch_to_output_sync_s": 0.3839602,
+          "verify_hash_s": 1.4540908,
+          "compared_words": 268435456,
+          "mismatches": 0,
+          "input_unchanged": true,
+          "output_sha256": "f670740db6f236b884078533b82427530dfa8c5f1c57b269843be95c87c49ad8",
+          "numeric_pass": true
+        }
+      ]
+    },
+    {
+      "name": "compute_initial",
+      "receipt_sha256": "79a16e5e66843cecbfd50d4961c9bffbf8f6b97252f1d3885923fd86e52769f3",
+      "started_utc": "2026-09-05T07:44:55.079778+00:00",
+      "host_process_elapsed_s": 0.2892570999683812,
+      "prelaunch_contract": {
+        "stage": "prelaunch_contract",
+        "a_bytes": 2248,
+        "weights_bytes": 4194304,
+        "output_bytes": 8192,
+        "instruction_bytes": 6652,
+        "a_address": 8796160131072,
+        "weights_address": 8796227239936,
+        "output_address": 8796294348800,
+        "instruction_address": 67108864,
+        "dummy1_address": 8796361457664,
+        "dummy2_address": 8796428566528,
+        "setup_sync_s": 0.000245,
+        "logical_macs": 4194304
+      },
+      "results": [
+        {
+          "stage": "result",
+          "iteration": 0,
+          "state": 4,
+          "host_launch_wait2_s": 0.0028619,
+          "sync_from_device_s": 1.28e-05,
+          "launch_to_output_sync_s": 0.0028752,
+          "compared_int32": 2048,
+          "mismatches": 0,
+          "inputs_unchanged_host_mapping": true,
+          "output_sha256": "2da121a2e7db4df976d9266d5d0af0d0fa460ca0e58d0a6034ef4e8197fd2158",
+          "numeric_pass": true
+        }
+      ]
+    },
+    {
+      "name": "copy_repeat",
+      "receipt_sha256": "3357f84e30dfb08adcf9fe1aa381119c865d442b0fc99fba577a92bac6837c0a",
+      "started_utc": "2026-09-05T07:45:16.814353+00:00",
+      "host_process_elapsed_s": 9.272287799976766,
+      "prelaunch_contract": {
+        "stage": "prelaunch_contract",
+        "logical_input_bytes": 1073741824,
+        "logical_output_bytes": 1073741824,
+        "input_sha256": "f670740db6f236b884078533b82427530dfa8c5f1c57b269843be95c87c49ad8",
+        "input_bo_address": 8800387989504,
+        "output_bo_address": 8801461731328,
+        "instruction_bo_address": 67108864,
+        "input_group": 262144,
+        "output_group": 262144,
+        "instruction_group": 262145,
+        "initialization_hash_s": 0.8477189
+      },
+      "results": [
+        {
+          "stage": "result",
+          "iteration": 0,
+          "state": 4,
+          "host_launch_wait2_s": 0.3462202,
+          "sync_from_device_s": 0.0181173,
+          "launch_to_output_sync_s": 0.3643393,
+          "verify_hash_s": 1.5671481,
+          "compared_words": 268435456,
+          "mismatches": 0,
+          "input_unchanged": true,
+          "output_sha256": "f670740db6f236b884078533b82427530dfa8c5f1c57b269843be95c87c49ad8",
+          "numeric_pass": true
+        },
+        {
+          "stage": "result",
+          "iteration": 1,
+          "state": 4,
+          "host_launch_wait2_s": 0.2658747,
+          "sync_from_device_s": 0.0200346,
+          "launch_to_output_sync_s": 0.2859118,
+          "verify_hash_s": 1.5416944,
+          "compared_words": 268435456,
+          "mismatches": 0,
+          "input_unchanged": true,
+          "output_sha256": "f670740db6f236b884078533b82427530dfa8c5f1c57b269843be95c87c49ad8",
+          "numeric_pass": true
+        },
+        {
+          "stage": "result",
+          "iteration": 2,
+          "state": 4,
+          "host_launch_wait2_s": 0.2664585,
+          "sync_from_device_s": 0.0216366,
+          "launch_to_output_sync_s": 0.2880976,
+          "verify_hash_s": 1.5166213,
+          "compared_words": 268435456,
+          "mismatches": 0,
+          "input_unchanged": true,
+          "output_sha256": "f670740db6f236b884078533b82427530dfa8c5f1c57b269843be95c87c49ad8",
+          "numeric_pass": true
+        }
+      ]
+    },
+    {
+      "name": "compute_repeat",
+      "receipt_sha256": "c8a365a05c62d3ac209c1f789494cb94dd1b59d9a79dd74b113551d87c06d96a",
+      "started_utc": "2026-09-05T07:46:01.153747+00:00",
+      "host_process_elapsed_s": 0.1863638999639079,
+      "prelaunch_contract": {
+        "stage": "prelaunch_contract",
+        "a_bytes": 2248,
+        "weights_bytes": 4194304,
+        "output_bytes": 8192,
+        "instruction_bytes": 6652,
+        "a_address": 8796160131072,
+        "weights_address": 8796227239936,
+        "output_address": 8796294348800,
+        "instruction_address": 67108864,
+        "dummy1_address": 8796361457664,
+        "dummy2_address": 8796428566528,
+        "setup_sync_s": 0.0001983,
+        "logical_macs": 4194304
+      },
+      "results": [
+        {
+          "stage": "result",
+          "iteration": 0,
+          "state": 4,
+          "host_launch_wait2_s": 0.002265,
+          "sync_from_device_s": 2.37e-05,
+          "launch_to_output_sync_s": 0.0022892,
+          "compared_int32": 2048,
+          "mismatches": 0,
+          "inputs_unchanged_host_mapping": true,
+          "output_sha256": "2da121a2e7db4df976d9266d5d0af0d0fa460ca0e58d0a6034ef4e8197fd2158",
+          "numeric_pass": true
+        },
+        {
+          "stage": "result",
+          "iteration": 1,
+          "state": 4,
+          "host_launch_wait2_s": 0.0005888,
+          "sync_from_device_s": 2.35e-05,
+          "launch_to_output_sync_s": 0.0006127,
+          "compared_int32": 2048,
+          "mismatches": 0,
+          "inputs_unchanged_host_mapping": true,
+          "output_sha256": "2da121a2e7db4df976d9266d5d0af0d0fa460ca0e58d0a6034ef4e8197fd2158",
+          "numeric_pass": true
+        },
+        {
+          "stage": "result",
+          "iteration": 2,
+          "state": 4,
+          "host_launch_wait2_s": 0.0004801,
+          "sync_from_device_s": 1.26e-05,
+          "launch_to_output_sync_s": 0.0004929,
+          "compared_int32": 2048,
+          "mismatches": 0,
+          "inputs_unchanged_host_mapping": true,
+          "output_sha256": "2da121a2e7db4df976d9266d5d0af0d0fa460ca0e58d0a6034ef4e8197fd2158",
+          "numeric_pass": true
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "copy_launches": 4,
+    "compute_launches": 4,
+    "process_invocations": 4,
+    "confirmation_train": 0,
+    "confirmation_validation": 0,
+    "confirmation_test": 0,
+    "controlled_interference_pairs": 0,
+    "compiler_variants": 0,
+    "dynamic_variants": 0
+  },
+  "calibration": {
+    "known_logical_bytes_copy_functional": true,
+    "single_compute_functional": true,
+    "host_timer_only": true,
+    "device_empty_run": false,
+    "actual_bytes_counter": false,
+    "compute_active_counter": false,
+    "instrumentation_overhead": false
+  },
+  "unknown": {
+    "actual_read_bytes": {
+      "value": null,
+      "reason": "No actual requested/accepted/completed port observation; BO payloads are logical sizes"
+    },
+    "actual_write_bytes": {
+      "value": null,
+      "reason": "Same; poison/sync/command traffic is not a bus count"
+    },
+    "device_elapsed": {
+      "value": null,
+      "reason": "Installed timestamp export is a constant-zero stub; no calibrated device timer"
+    },
+    "compute_active": {
+      "value": null,
+      "reason": "Selected xclbins lack XDP_KERNEL; required compatible profiler and event definitions absent"
+    },
+    "request_latency_outstanding_limits": {
+      "value": null,
+      "reason": "No executable observation with accepted/released boundaries"
+    },
+    "device_empty_run": {
+      "value": null,
+      "reason": "No source-backed zero-work instruction/firmware contract qualified; host timer is not no-op device"
+    },
+    "instrumentation_overhead": {
+      "value": null,
+      "reason": "No usable device profiler to compare on/off; host timed intervals have not been paired against a minimal instrumentation variant"
+    },
+    "runtime_frequency": {
+      "value": null,
+      "reason": "No runtime clock trace/lock or thermal control"
+    },
+    "strong_static_residual": {
+      "value": null,
+      "reason": "Prebuilt functional baseline only; no legal static search/selected contract/controlled background pairs"
+    }
+  },
+  "device_access_accepted": true,
+  "host_elapsed_screening_capability": true,
+  "full_measurement_calibration_pass": false,
+  "strong_static_established": false,
+  "mechanism_exploration_allowed": false,
+  "performance_gate_evaluated": false,
+  "decision": "ACCEPT fixed copy/INT8 GEMM access; REFINE profiling/compiler contracts; R5 ready candidate remains closed"
+}

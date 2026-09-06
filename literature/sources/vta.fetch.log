@@ -1,0 +1,2 @@
+ok: extractor=pdftotext -layout pdf_bytes=632617 txt_bytes=56953 txt_lines=504
+D:/dsh-proj/SchedResarch/literature/sources/papers/vta.txt

@@ -1,0 +1,21 @@
+{
+  "captured_at": "2026-09-05T07:39:40.567657+00:00",
+  "assets": [
+    {
+      "path": "C:\\Windows\\System32\\AMD\\aieml_gemm_vm_phx_4x4.xclbin",
+      "bytes": 1802027,
+      "sha256": "d8b16adf18172cb3a5bfdd57328b49b05fa5ebc1e8ae9c86517920533c7bc032"
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\aieml_gemm_vm_phx_4x4_bf16.xclbin",
+      "bytes": 1491595,
+      "sha256": "29d66a1678a365783d77eff97f18e5ae4775fe981c8e31dc8cc7cc2621e95d66"
+    },
+    {
+      "path": "C:\\Windows\\System32\\AMD\\aieml_gemm_vm_phx_4x4_bf16.json",
+      "bytes": 46094,
+      "sha256": "f3cfba6cbb997366ed5cefb4fbbcf556097cb14a733a35c20271f5ba961b0862",
+      "frozen_copy": "r7\\sources\\kernel_access\\installed_bf16_aie_metadata.json"
+    }
+  ]
+}

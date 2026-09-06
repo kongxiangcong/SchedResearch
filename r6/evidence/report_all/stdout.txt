@@ -1,0 +1,93 @@
+------------------------------------------------------------
+                        EARLY ACCESS                        
+        This release of xbutil contains early access        
+         experimental features which may have bugs.         
+------------------------------------------------------------
+System Configuration
+  OS Name              : Windows NT
+  Release              : 26100.ge_release.240331-1435
+  Version              : 6.3
+  Machine              : x86_64
+  CPU Cores            : 16
+  Memory               : 28356 MB
+  Distribution         : Windows 10 Home China
+  Model                : 21J1
+  BIOS vendor          : LENOVO - 1
+  BIOS version         : 3.4
+
+XRT
+  Version              : 2.17.0
+  Branch               : HEAD
+  Hash                 : 42cba83aee86b253c49eccd484646e91d062468d
+  Hash Date            : 2023-12-14 19:30:02
+
+Devices present
+BDF             :  Shell            Logic UUID  Device ID     Device Ready*  
+-----------------------------------------------------------------------------
+[0065:00:01.0]  :  RyzenAI-Phoenix  0x0         user(inst=1)  Yes            
+
+
+* Devices that are not ready will have reduced functionality when using XRT tools
+
+---------------------------------
+[0065:00:01.0] : RyzenAI-Phoenix
+---------------------------------
+  Device Status: HEALTHY
+  Hardware Context ID: 0
+    Xclbin UUID: 00000000-0000-0000-0000-000000000000
+
+Electrical
+  Max Power              : NA Watts
+  Power                  : 123 Watts
+  Power Warning          : NA
+
+  No electrical sensors found
+
+Mechanical
+  Fans
+    Not present
+
+
+Pcie Info
+  Vendor                 : 0x0
+  Device                 : 0x0
+  Sub Device             : 0x0000
+  Sub Vendor             : 0x0
+  PCIe                   : Gen0x0
+  DMA Thread Count       : 0
+  CPU Affinity           : 0
+  Shared Host Memory     : 0
+  Max Shared Host Memory : 0
+  Enabled Host Memory    : 0
+
+Platform
+  XSA Name               : RyzenAI-Phoenix 
+  Logic UUID             : 0x0 
+  FPGA Name              :  
+  JTAG ID Code           : 0x0 
+  DDR Size               : 0 Bytes
+  DDR Count              : 0 
+  Mig Calibrated         : false 
+  P2P Status             : not supported 
+  Performance Mode       : Default 
+
+Clocks
+  H Clock (System)       : 800 MHz
+  MP-IPU Clock (System)  : 400 MHz
+
+Thermals
+  No temperature sensors are present
+
+Aie
+  <AIE information is not available>
+
+AIE
+  <AIE Mem tiles information unavailable>
+
+AIE
+  <AIE information unavailable>
+
+AIE Partitions
+  AIE Partition information unavailable
+
+Successfully wrote the JSON file: D:\dsh-proj\SchedResarch\r6\evidence\device_report_all.json

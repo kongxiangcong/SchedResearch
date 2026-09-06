@@ -1,0 +1,1520 @@
+{
+  "status": "PASS",
+  "smoke": true,
+  "evidence_level": "source-semantic complete GDN module synthetic numerical execution; separate from timing",
+  "source_sha256": "dea4aecbb3d386d49d5d7a7b600ca0028fc27cfb876b91b24b3a2eeb38bd4112",
+  "contract_sha256": "e159d1a7d248cbe286d1e37838d2ab1b659af66d2bcbac1fd70bd28d00b7fb93",
+  "official_source_sha256": "458360c8072e6130580639170ad3e645b975512dbabae31eab5f92de5f0f09ef",
+  "runtime": {
+    "python": "3.14.0",
+    "numpy": "2.3.5"
+  },
+  "numeric_contract": {
+    "external_dense_weight_dtype": "BF16 lossless encoding of generated BF16-representable values",
+    "external_hidden_dtype": "BF16",
+    "rf_weights_activations_accumulation_state_output_dtype": "FP32",
+    "permission": "Source-semantic FP32 research execution, FP32 intermediate projections/conv/norm. BF16 packed weights expanded exactly to FP32; 1 VPU op per converted element is charged. No source dtype-bitwise/official optimized chunk-kernel equivalence or trained-checkpoint claim.",
+    "fp32_reference_tolerance": {
+      "atol": 2e-05,
+      "rtol": 0.0002
+    },
+    "same_lowering_tolerance": {
+      "atol": 2e-06,
+      "rtol": 2e-05
+    },
+    "weights_seed": 110001
+  },
+  "weights": {
+    "qkv": {
+      "shape": [
+        2560,
+        8192
+      ],
+      "storage_dtype": "BF16",
+      "logical_bytes": 41943040,
+      "sha256": "6905751fee6699611cf0492c180e6bae6fdd6d2d1a3f1854c931fa2da6cdbca5",
+      "minimum": -0.107421875,
+      "maximum": 0.10400390625,
+      "nonzero_elements": 20971520
+    },
+    "z": {
+      "shape": [
+        2560,
+        4096
+      ],
+      "storage_dtype": "BF16",
+      "logical_bytes": 20971520,
+      "sha256": "cd9608c758bd0759ce87e2e9a1e8c53e082530bd75eb9b157e77469dac8f4859",
+      "minimum": -0.099609375,
+      "maximum": 0.10498046875,
+      "nonzero_elements": 10485760
+    },
+    "b": {
+      "shape": [
+        2560,
+        32
+      ],
+      "storage_dtype": "BF16",
+      "logical_bytes": 163840,
+      "sha256": "c57daaf3015df8f696cf6f5e8b6b81d299560333b6d186b868153bea56aee4bb",
+      "minimum": -0.0869140625,
+      "maximum": 0.08349609375,
+      "nonzero_elements": 81920
+    },
+    "a": {
+      "shape": [
+        2560,
+        32
+      ],
+      "storage_dtype": "BF16",
+      "logical_bytes": 163840,
+      "sha256": "f59bb3783e914d7aa53200a5e8f0ec3c8a1783742760ec955b7ecc7bc9daa96e",
+      "minimum": -0.0908203125,
+      "maximum": 0.09130859375,
+      "nonzero_elements": 81920
+    },
+    "out": {
+      "shape": [
+        4096,
+        2560
+      ],
+      "storage_dtype": "BF16",
+      "logical_bytes": 20971520,
+      "sha256": "99f591ddabceb43736f288eeb650da028b77f87958011c26dc248cbfc1936c47",
+      "minimum": -0.09228515625,
+      "maximum": 0.08203125,
+      "nonzero_elements": 10485760
+    },
+    "conv": {
+      "shape": [
+        8192,
+        4
+      ],
+      "storage_dtype": "BF16",
+      "logical_bytes": 65536,
+      "sha256": "287189b5278badfa4b352bfb9200345ac41fe3eae108ece96385c841027314bf",
+      "minimum": -0.9921875,
+      "maximum": 0.99609375,
+      "nonzero_elements": 32768
+    },
+    "A_log": {
+      "shape": [
+        32
+      ],
+      "storage_dtype": "FP32",
+      "logical_bytes": 128,
+      "sha256": "738c7d9025c5b13c9166ae4e275deca7e894f6805673c1a6374ec2598c78deea",
+      "minimum": -2.8824386596679688,
+      "maximum": -1.0357301235198975,
+      "nonzero_elements": 32
+    },
+    "dt_bias": {
+      "shape": [
+        32
+      ],
+      "storage_dtype": "FP32",
+      "logical_bytes": 128,
+      "sha256": "5f4c16ccda420bbd679e0a3fd3eca2cb4022a0d6a61c74235a86f7f1dd5e82fb",
+      "minimum": -0.9725759625434875,
+      "maximum": -0.01519816741347313,
+      "nonzero_elements": 32
+    },
+    "norm": {
+      "shape": [
+        128
+      ],
+      "storage_dtype": "FP32",
+      "logical_bytes": 512,
+      "sha256": "11e44778386101943b08151801d3a037fd632a3f40cc4ef31ef4b258e874cbcc",
+      "minimum": 0.8092356324195862,
+      "maximum": 1.1998332738876343,
+      "nonzero_elements": 128
+    }
+  },
+  "weights_unchanged": true,
+  "prefill_blocks": 1,
+  "variant_checks": 36,
+  "prefill": [
+    {
+      "seed": 110100,
+      "status": "PASS",
+      "inputs": {
+        "hidden": {
+          "shape": [
+            4,
+            2560
+          ],
+          "storage_dtype": "BF16",
+          "logical_bytes": 20480,
+          "sha256": "d0be74e1d833a362f1ec2f2a74b87571a1242b64eaf96bfadbf27912697a0e96",
+          "minimum": -1.1484375,
+          "maximum": 1.0546875,
+          "nonzero_elements": 10240
+        },
+        "state_initial": {
+          "shape": [
+            32,
+            128,
+            128
+          ],
+          "storage_dtype": "FP32",
+          "logical_bytes": 2097152,
+          "sha256": "1ede1d312c2bbda3b21cd6db1dc382e97272085ba83b413b8d613ade359f1690",
+          "minimum": -0.12976740300655365,
+          "maximum": 0.13094496726989746,
+          "nonzero_elements": 524288
+        },
+        "conv_initial": {
+          "shape": [
+            8192,
+            4
+          ],
+          "storage_dtype": "FP32",
+          "logical_bytes": 131072,
+          "sha256": "8eca441cfc53bfc75877bff546ee2d31fc16a7a7c92a6bce5d81436fb7abd99c",
+          "minimum": -0.8385552167892456,
+          "maximum": 0.8487198352813721,
+          "nonzero_elements": 32768
+        }
+      },
+      "input_unchanged": true,
+      "preparation_checks": {
+        "q": {
+          "status": "PASS",
+          "elements": 16384,
+          "max_abs_error": 7.330355780710285e-09,
+          "max_error_over_allowed": 0.0002922287061254007,
+          "atol": 2e-05,
+          "rtol": 0.0002
+        },
+        "k": {
+          "status": "PASS",
+          "elements": 16384,
+          "max_abs_error": 9.58270459094912e-08,
+          "max_error_over_allowed": 0.0019034192470052966,
+          "atol": 2e-05,
+          "rtol": 0.0002
+        },
+        "v": {
+          "status": "PASS",
+          "elements": 16384,
+          "max_abs_error": 9.354062785460471e-08,
+          "max_error_over_allowed": 0.0015428749265642323,
+          "atol": 2e-05,
+          "rtol": 0.0002
+        },
+        "beta": {
+          "status": "PASS",
+          "elements": 128,
+          "max_abs_error": 6.469768742967119e-08,
+          "max_error_over_allowed": 0.0005723625001411552,
+          "atol": 2e-05,
+          "rtol": 0.0002
+        },
+        "g": {
+          "status": "PASS",
+          "elements": 128,
+          "max_abs_error": 2.3828209905207842e-08,
+          "max_error_over_allowed": 0.000512362524648499,
+          "atol": 2e-05,
+          "rtol": 0.0002
+        },
+        "z": {
+          "status": "PASS",
+          "elements": 16384,
+          "max_abs_error": 2.334563760086894e-07,
+          "max_error_over_allowed": 0.005266841712737895,
+          "atol": 2e-05,
+          "rtol": 0.0002
+        },
+        "conv_final": {
+          "status": "PASS",
+          "elements": 32768,
+          "max_abs_error": 2.553133526816964e-07,
+          "max_error_over_allowed": 0.004637689220083909,
+          "atol": 2e-05,
+          "rtol": 0.0002
+        }
+      },
+      "variants": [
+        {
+          "value_tile": 32,
+          "order": "head",
+          "checks": {
+            "all_core_outputs_vs_fp64": {
+              "status": "PASS",
+              "elements": 16384,
+              "max_abs_error": 3.810302570423502e-09,
+              "max_error_over_allowed": 0.00018704281054541462,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_states_vs_fp64": {
+              "status": "PASS",
+              "elements": 2097152,
+              "max_abs_error": 3.047108021458911e-08,
+              "max_error_over_allowed": 0.001118481164329731,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_core_outputs_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 16384,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            },
+            "all_states_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 2097152,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            },
+            "all_module_outputs_vs_fp64": {
+              "status": "PASS",
+              "elements": 10240,
+              "max_abs_error": 1.9970002433644662e-07,
+              "max_error_over_allowed": 0.009547580561067711,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_module_outputs_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 10240,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            }
+          },
+          "core_outputs": {
+            "shape": [
+              4,
+              32,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 65536,
+            "sha256": "39d2aaf65d7a340ed2e67ebced56681a009cd8e4bd66a1ff6e7d6831ed16d4cf",
+            "minimum": -0.008597370237112045,
+            "maximum": 0.009271496906876564,
+            "nonzero_elements": 16384
+          },
+          "state_final": {
+            "shape": [
+              32,
+              128,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 2097152,
+            "sha256": "c08f388a32677ee77e14dd0502733680aa59b03c1da2ccf8d1d5655ff2353b78",
+            "minimum": -0.1163170337677002,
+            "maximum": 0.11888428777456284,
+            "nonzero_elements": 524288
+          },
+          "states_every_token": [
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "4275cb63c219d3eba9cd90e4b21e1239483f8518e4316ffd3ea3e173cfec577b",
+              "minimum": -0.12464530020952225,
+              "maximum": 0.12819430232048035,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "1cb5da504c1b1cf4c359d7d03130b6078e9a7f0af512edb3587615082b7f21a4",
+              "minimum": -0.12490125000476837,
+              "maximum": 0.12478306889533997,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "030f3d6d4de20063b8413cfb9d88eef2ce981cae7c56885cbe2671502a2c918b",
+              "minimum": -0.11945092678070068,
+              "maximum": 0.12144947052001953,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "c08f388a32677ee77e14dd0502733680aa59b03c1da2ccf8d1d5655ff2353b78",
+              "minimum": -0.1163170337677002,
+              "maximum": 0.11888428777456284,
+              "nonzero_elements": 524288
+            }
+          ],
+          "module_outputs": {
+            "shape": [
+              4,
+              2560
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 40960,
+            "sha256": "b6b1636b42ae9c2213fd398ce4a2e4537438edbc9badb694c3982e099066c789",
+            "minimum": -0.48494938015937805,
+            "maximum": 0.5409902334213257,
+            "nonzero_elements": 10240
+          }
+        },
+        {
+          "value_tile": 32,
+          "order": "token",
+          "checks": {
+            "all_core_outputs_vs_fp64": {
+              "status": "PASS",
+              "elements": 16384,
+              "max_abs_error": 3.810302570423502e-09,
+              "max_error_over_allowed": 0.00018704281054541462,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_states_vs_fp64": {
+              "status": "PASS",
+              "elements": 2097152,
+              "max_abs_error": 3.047108021458911e-08,
+              "max_error_over_allowed": 0.001118481164329731,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_core_outputs_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 16384,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            },
+            "all_states_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 2097152,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            },
+            "all_module_outputs_vs_fp64": {
+              "status": "PASS",
+              "elements": 10240,
+              "max_abs_error": 1.9970002433644662e-07,
+              "max_error_over_allowed": 0.009547580561067711,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_module_outputs_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 10240,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            }
+          },
+          "core_outputs": {
+            "shape": [
+              4,
+              32,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 65536,
+            "sha256": "39d2aaf65d7a340ed2e67ebced56681a009cd8e4bd66a1ff6e7d6831ed16d4cf",
+            "minimum": -0.008597370237112045,
+            "maximum": 0.009271496906876564,
+            "nonzero_elements": 16384
+          },
+          "state_final": {
+            "shape": [
+              32,
+              128,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 2097152,
+            "sha256": "c08f388a32677ee77e14dd0502733680aa59b03c1da2ccf8d1d5655ff2353b78",
+            "minimum": -0.1163170337677002,
+            "maximum": 0.11888428777456284,
+            "nonzero_elements": 524288
+          },
+          "states_every_token": [
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "4275cb63c219d3eba9cd90e4b21e1239483f8518e4316ffd3ea3e173cfec577b",
+              "minimum": -0.12464530020952225,
+              "maximum": 0.12819430232048035,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "1cb5da504c1b1cf4c359d7d03130b6078e9a7f0af512edb3587615082b7f21a4",
+              "minimum": -0.12490125000476837,
+              "maximum": 0.12478306889533997,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "030f3d6d4de20063b8413cfb9d88eef2ce981cae7c56885cbe2671502a2c918b",
+              "minimum": -0.11945092678070068,
+              "maximum": 0.12144947052001953,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "c08f388a32677ee77e14dd0502733680aa59b03c1da2ccf8d1d5655ff2353b78",
+              "minimum": -0.1163170337677002,
+              "maximum": 0.11888428777456284,
+              "nonzero_elements": 524288
+            }
+          ],
+          "module_outputs": {
+            "shape": [
+              4,
+              2560
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 40960,
+            "sha256": "b6b1636b42ae9c2213fd398ce4a2e4537438edbc9badb694c3982e099066c789",
+            "minimum": -0.48494938015937805,
+            "maximum": 0.5409902334213257,
+            "nonzero_elements": 10240
+          }
+        },
+        {
+          "value_tile": 64,
+          "order": "head",
+          "checks": {
+            "all_core_outputs_vs_fp64": {
+              "status": "PASS",
+              "elements": 16384,
+              "max_abs_error": 3.810302570423502e-09,
+              "max_error_over_allowed": 0.00018704281054541462,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_states_vs_fp64": {
+              "status": "PASS",
+              "elements": 2097152,
+              "max_abs_error": 3.047108021458911e-08,
+              "max_error_over_allowed": 0.001118481164329731,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_core_outputs_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 16384,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            },
+            "all_states_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 2097152,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            },
+            "all_module_outputs_vs_fp64": {
+              "status": "PASS",
+              "elements": 10240,
+              "max_abs_error": 1.9970002433644662e-07,
+              "max_error_over_allowed": 0.009547580561067711,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_module_outputs_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 10240,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            }
+          },
+          "core_outputs": {
+            "shape": [
+              4,
+              32,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 65536,
+            "sha256": "39d2aaf65d7a340ed2e67ebced56681a009cd8e4bd66a1ff6e7d6831ed16d4cf",
+            "minimum": -0.008597370237112045,
+            "maximum": 0.009271496906876564,
+            "nonzero_elements": 16384
+          },
+          "state_final": {
+            "shape": [
+              32,
+              128,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 2097152,
+            "sha256": "c08f388a32677ee77e14dd0502733680aa59b03c1da2ccf8d1d5655ff2353b78",
+            "minimum": -0.1163170337677002,
+            "maximum": 0.11888428777456284,
+            "nonzero_elements": 524288
+          },
+          "states_every_token": [
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "4275cb63c219d3eba9cd90e4b21e1239483f8518e4316ffd3ea3e173cfec577b",
+              "minimum": -0.12464530020952225,
+              "maximum": 0.12819430232048035,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "1cb5da504c1b1cf4c359d7d03130b6078e9a7f0af512edb3587615082b7f21a4",
+              "minimum": -0.12490125000476837,
+              "maximum": 0.12478306889533997,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "030f3d6d4de20063b8413cfb9d88eef2ce981cae7c56885cbe2671502a2c918b",
+              "minimum": -0.11945092678070068,
+              "maximum": 0.12144947052001953,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "c08f388a32677ee77e14dd0502733680aa59b03c1da2ccf8d1d5655ff2353b78",
+              "minimum": -0.1163170337677002,
+              "maximum": 0.11888428777456284,
+              "nonzero_elements": 524288
+            }
+          ],
+          "module_outputs": {
+            "shape": [
+              4,
+              2560
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 40960,
+            "sha256": "b6b1636b42ae9c2213fd398ce4a2e4537438edbc9badb694c3982e099066c789",
+            "minimum": -0.48494938015937805,
+            "maximum": 0.5409902334213257,
+            "nonzero_elements": 10240
+          }
+        },
+        {
+          "value_tile": 64,
+          "order": "token",
+          "checks": {
+            "all_core_outputs_vs_fp64": {
+              "status": "PASS",
+              "elements": 16384,
+              "max_abs_error": 3.810302570423502e-09,
+              "max_error_over_allowed": 0.00018704281054541462,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_states_vs_fp64": {
+              "status": "PASS",
+              "elements": 2097152,
+              "max_abs_error": 3.047108021458911e-08,
+              "max_error_over_allowed": 0.001118481164329731,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_core_outputs_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 16384,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            },
+            "all_states_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 2097152,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            },
+            "all_module_outputs_vs_fp64": {
+              "status": "PASS",
+              "elements": 10240,
+              "max_abs_error": 1.9970002433644662e-07,
+              "max_error_over_allowed": 0.009547580561067711,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_module_outputs_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 10240,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            }
+          },
+          "core_outputs": {
+            "shape": [
+              4,
+              32,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 65536,
+            "sha256": "39d2aaf65d7a340ed2e67ebced56681a009cd8e4bd66a1ff6e7d6831ed16d4cf",
+            "minimum": -0.008597370237112045,
+            "maximum": 0.009271496906876564,
+            "nonzero_elements": 16384
+          },
+          "state_final": {
+            "shape": [
+              32,
+              128,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 2097152,
+            "sha256": "c08f388a32677ee77e14dd0502733680aa59b03c1da2ccf8d1d5655ff2353b78",
+            "minimum": -0.1163170337677002,
+            "maximum": 0.11888428777456284,
+            "nonzero_elements": 524288
+          },
+          "states_every_token": [
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "4275cb63c219d3eba9cd90e4b21e1239483f8518e4316ffd3ea3e173cfec577b",
+              "minimum": -0.12464530020952225,
+              "maximum": 0.12819430232048035,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "1cb5da504c1b1cf4c359d7d03130b6078e9a7f0af512edb3587615082b7f21a4",
+              "minimum": -0.12490125000476837,
+              "maximum": 0.12478306889533997,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "030f3d6d4de20063b8413cfb9d88eef2ce981cae7c56885cbe2671502a2c918b",
+              "minimum": -0.11945092678070068,
+              "maximum": 0.12144947052001953,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "c08f388a32677ee77e14dd0502733680aa59b03c1da2ccf8d1d5655ff2353b78",
+              "minimum": -0.1163170337677002,
+              "maximum": 0.11888428777456284,
+              "nonzero_elements": 524288
+            }
+          ],
+          "module_outputs": {
+            "shape": [
+              4,
+              2560
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 40960,
+            "sha256": "b6b1636b42ae9c2213fd398ce4a2e4537438edbc9badb694c3982e099066c789",
+            "minimum": -0.48494938015937805,
+            "maximum": 0.5409902334213257,
+            "nonzero_elements": 10240
+          }
+        },
+        {
+          "value_tile": 128,
+          "order": "head",
+          "checks": {
+            "all_core_outputs_vs_fp64": {
+              "status": "PASS",
+              "elements": 16384,
+              "max_abs_error": 3.810302570423502e-09,
+              "max_error_over_allowed": 0.00018704281054541462,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_states_vs_fp64": {
+              "status": "PASS",
+              "elements": 2097152,
+              "max_abs_error": 3.047108021458911e-08,
+              "max_error_over_allowed": 0.001118481164329731,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_core_outputs_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 16384,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            },
+            "all_states_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 2097152,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            },
+            "all_module_outputs_vs_fp64": {
+              "status": "PASS",
+              "elements": 10240,
+              "max_abs_error": 1.9970002433644662e-07,
+              "max_error_over_allowed": 0.009547580561067711,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_module_outputs_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 10240,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            }
+          },
+          "core_outputs": {
+            "shape": [
+              4,
+              32,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 65536,
+            "sha256": "39d2aaf65d7a340ed2e67ebced56681a009cd8e4bd66a1ff6e7d6831ed16d4cf",
+            "minimum": -0.008597370237112045,
+            "maximum": 0.009271496906876564,
+            "nonzero_elements": 16384
+          },
+          "state_final": {
+            "shape": [
+              32,
+              128,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 2097152,
+            "sha256": "c08f388a32677ee77e14dd0502733680aa59b03c1da2ccf8d1d5655ff2353b78",
+            "minimum": -0.1163170337677002,
+            "maximum": 0.11888428777456284,
+            "nonzero_elements": 524288
+          },
+          "states_every_token": [
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "4275cb63c219d3eba9cd90e4b21e1239483f8518e4316ffd3ea3e173cfec577b",
+              "minimum": -0.12464530020952225,
+              "maximum": 0.12819430232048035,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "1cb5da504c1b1cf4c359d7d03130b6078e9a7f0af512edb3587615082b7f21a4",
+              "minimum": -0.12490125000476837,
+              "maximum": 0.12478306889533997,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "030f3d6d4de20063b8413cfb9d88eef2ce981cae7c56885cbe2671502a2c918b",
+              "minimum": -0.11945092678070068,
+              "maximum": 0.12144947052001953,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "c08f388a32677ee77e14dd0502733680aa59b03c1da2ccf8d1d5655ff2353b78",
+              "minimum": -0.1163170337677002,
+              "maximum": 0.11888428777456284,
+              "nonzero_elements": 524288
+            }
+          ],
+          "module_outputs": {
+            "shape": [
+              4,
+              2560
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 40960,
+            "sha256": "b6b1636b42ae9c2213fd398ce4a2e4537438edbc9badb694c3982e099066c789",
+            "minimum": -0.48494938015937805,
+            "maximum": 0.5409902334213257,
+            "nonzero_elements": 10240
+          }
+        },
+        {
+          "value_tile": 128,
+          "order": "token",
+          "checks": {
+            "all_core_outputs_vs_fp64": {
+              "status": "PASS",
+              "elements": 16384,
+              "max_abs_error": 3.810302570423502e-09,
+              "max_error_over_allowed": 0.00018704281054541462,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_states_vs_fp64": {
+              "status": "PASS",
+              "elements": 2097152,
+              "max_abs_error": 3.047108021458911e-08,
+              "max_error_over_allowed": 0.001118481164329731,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_core_outputs_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 16384,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            },
+            "all_states_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 2097152,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            },
+            "all_module_outputs_vs_fp64": {
+              "status": "PASS",
+              "elements": 10240,
+              "max_abs_error": 1.9970002433644662e-07,
+              "max_error_over_allowed": 0.009547580561067711,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "all_module_outputs_vs_first_lowering": {
+              "status": "PASS",
+              "elements": 10240,
+              "max_abs_error": 0.0,
+              "max_error_over_allowed": 0.0,
+              "atol": 2e-06,
+              "rtol": 2e-05
+            }
+          },
+          "core_outputs": {
+            "shape": [
+              4,
+              32,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 65536,
+            "sha256": "39d2aaf65d7a340ed2e67ebced56681a009cd8e4bd66a1ff6e7d6831ed16d4cf",
+            "minimum": -0.008597370237112045,
+            "maximum": 0.009271496906876564,
+            "nonzero_elements": 16384
+          },
+          "state_final": {
+            "shape": [
+              32,
+              128,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 2097152,
+            "sha256": "c08f388a32677ee77e14dd0502733680aa59b03c1da2ccf8d1d5655ff2353b78",
+            "minimum": -0.1163170337677002,
+            "maximum": 0.11888428777456284,
+            "nonzero_elements": 524288
+          },
+          "states_every_token": [
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "4275cb63c219d3eba9cd90e4b21e1239483f8518e4316ffd3ea3e173cfec577b",
+              "minimum": -0.12464530020952225,
+              "maximum": 0.12819430232048035,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "1cb5da504c1b1cf4c359d7d03130b6078e9a7f0af512edb3587615082b7f21a4",
+              "minimum": -0.12490125000476837,
+              "maximum": 0.12478306889533997,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "030f3d6d4de20063b8413cfb9d88eef2ce981cae7c56885cbe2671502a2c918b",
+              "minimum": -0.11945092678070068,
+              "maximum": 0.12144947052001953,
+              "nonzero_elements": 524288
+            },
+            {
+              "shape": [
+                32,
+                128,
+                128
+              ],
+              "storage_dtype": "FP32",
+              "logical_bytes": 2097152,
+              "sha256": "c08f388a32677ee77e14dd0502733680aa59b03c1da2ccf8d1d5655ff2353b78",
+              "minimum": -0.1163170337677002,
+              "maximum": 0.11888428777456284,
+              "nonzero_elements": 524288
+            }
+          ],
+          "module_outputs": {
+            "shape": [
+              4,
+              2560
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 40960,
+            "sha256": "b6b1636b42ae9c2213fd398ce4a2e4537438edbc9badb694c3982e099066c789",
+            "minimum": -0.48494938015937805,
+            "maximum": 0.5409902334213257,
+            "nonzero_elements": 10240
+          }
+        }
+      ],
+      "payload_file": "numerical_data/prefill_110100.npz",
+      "payload_sha256": "6324a79781abd7c9d26da1b7c24046b214abc45ad5613b2fda816e267617033a"
+    }
+  ],
+  "decode_blocks": 1,
+  "decode": [
+    {
+      "seed": 110100,
+      "status": "PASS",
+      "invocations": [
+        {
+          "token": 0,
+          "release_after_completed_tokens": 0,
+          "hidden": {
+            "shape": [
+              1,
+              2560
+            ],
+            "storage_dtype": "BF16",
+            "logical_bytes": 5120,
+            "sha256": "f3a482ff4858a297ebefdb38c5c27c91bcf0025342bd99cca1fe226761c9d06b",
+            "minimum": -0.953125,
+            "maximum": 0.8984375,
+            "nonzero_elements": 2560
+          },
+          "module_output": {
+            "shape": [
+              1,
+              2560
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 10240,
+            "sha256": "a8e0c4b10740415e7b1ce489ff7a93f86955e3f5a25edae8200c738145a06f19",
+            "minimum": -0.48494940996170044,
+            "maximum": 0.4719763696193695,
+            "nonzero_elements": 2560
+          },
+          "state": {
+            "shape": [
+              32,
+              128,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 2097152,
+            "sha256": "d1a2ec547341184058fcaf7c1539b51ede6972ff03b981410ee2a7cacac9fe71",
+            "minimum": -0.12464530020952225,
+            "maximum": 0.12819430232048035,
+            "nonzero_elements": 524288
+          },
+          "conv": {
+            "shape": [
+              8192,
+              4
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 131072,
+            "sha256": "e708a4ad31fc7eb990cae72649a584e0d682d71d1b7ad9ba882701586de8d0c0",
+            "minimum": -1.081764817237854,
+            "maximum": 1.4765461683273315,
+            "nonzero_elements": 32768
+          },
+          "checks": {
+            "module_output": {
+              "status": "PASS",
+              "elements": 2560,
+              "max_abs_error": 1.4370995644885642e-07,
+              "max_error_over_allowed": 0.0055903383854265624,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "core_output": {
+              "status": "PASS",
+              "elements": 4096,
+              "max_abs_error": 3.5144843016712835e-09,
+              "max_error_over_allowed": 0.00016596545659017316,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "state": {
+              "status": "PASS",
+              "elements": 524288,
+              "max_abs_error": 1.4823829469490235e-08,
+              "max_error_over_allowed": 0.0005232445869649356,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "conv": {
+              "status": "PASS",
+              "elements": 32768,
+              "max_abs_error": 1.7264392226934433e-07,
+              "max_error_over_allowed": 0.003414473161561908,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            }
+          },
+          "callback_reads_future_hidden": false
+        },
+        {
+          "token": 1,
+          "release_after_completed_tokens": 1,
+          "hidden": {
+            "shape": [
+              1,
+              2560
+            ],
+            "storage_dtype": "BF16",
+            "logical_bytes": 5120,
+            "sha256": "ad2ffb558dbd2a3dc78a8cb44b64d37259b21a540be70e4b13c2ff12cd787d47",
+            "minimum": -0.7109375,
+            "maximum": 0.66796875,
+            "nonzero_elements": 2560
+          },
+          "module_output": {
+            "shape": [
+              1,
+              2560
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 10240,
+            "sha256": "e31e7b763ea3ae3910d43fd836845e07c6ba5d6cf4bf5330c25a5639036eb22a",
+            "minimum": -0.33952489495277405,
+            "maximum": 0.3568691611289978,
+            "nonzero_elements": 2560
+          },
+          "state": {
+            "shape": [
+              32,
+              128,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 2097152,
+            "sha256": "4f2532439d352aea2350d5c12e9edb167ec4d03d56dbdb1e179c5fad995865e5",
+            "minimum": -0.11973057687282562,
+            "maximum": 0.125655397772789,
+            "nonzero_elements": 524288
+          },
+          "conv": {
+            "shape": [
+              8192,
+              4
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 131072,
+            "sha256": "c0c280eaefd10a89cd3594661972fb14a4a44e9f8e3d829f21c03974c167f48f",
+            "minimum": -1.081764817237854,
+            "maximum": 1.4765461683273315,
+            "nonzero_elements": 32768
+          },
+          "checks": {
+            "module_output": {
+              "status": "PASS",
+              "elements": 2560,
+              "max_abs_error": 1.1409392162986531e-07,
+              "max_error_over_allowed": 0.003662377164848766,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "core_output": {
+              "status": "PASS",
+              "elements": 4096,
+              "max_abs_error": 5.247587494747186e-09,
+              "max_error_over_allowed": 0.00024819593273366796,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "state": {
+              "status": "PASS",
+              "elements": 524288,
+              "max_abs_error": 2.3769168300269428e-08,
+              "max_error_over_allowed": 0.0006480103937571241,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "conv": {
+              "status": "PASS",
+              "elements": 32768,
+              "max_abs_error": 1.7264392226934433e-07,
+              "max_error_over_allowed": 0.003414473161561908,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            }
+          },
+          "callback_reads_future_hidden": false
+        },
+        {
+          "token": 2,
+          "release_after_completed_tokens": 2,
+          "hidden": {
+            "shape": [
+              1,
+              2560
+            ],
+            "storage_dtype": "BF16",
+            "logical_bytes": 5120,
+            "sha256": "e165bba223b51e108c4f0c56446e9b65acbb9fa60dc6c530a04b1619fc89c00c",
+            "minimum": -0.765625,
+            "maximum": 0.62890625,
+            "nonzero_elements": 2560
+          },
+          "module_output": {
+            "shape": [
+              1,
+              2560
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 10240,
+            "sha256": "dcdc731e082fddf6d93b454552fa5c10176c05490c337f6b80e0ed0a91ae4525",
+            "minimum": -0.27741706371307373,
+            "maximum": 0.3462578356266022,
+            "nonzero_elements": 2560
+          },
+          "state": {
+            "shape": [
+              32,
+              128,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 2097152,
+            "sha256": "e71331212892e7f58a5e854a4185ff1b4996bc2f5a86741abec15bc14d8f284b",
+            "minimum": -0.12224432826042175,
+            "maximum": 0.12359736114740372,
+            "nonzero_elements": 524288
+          },
+          "conv": {
+            "shape": [
+              8192,
+              4
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 131072,
+            "sha256": "264afae8d02117471859fb03cbde5ed911d382644cfbc60c1fa8d40739b4b41d",
+            "minimum": -1.081764817237854,
+            "maximum": 1.4765461683273315,
+            "nonzero_elements": 32768
+          },
+          "checks": {
+            "module_output": {
+              "status": "PASS",
+              "elements": 2560,
+              "max_abs_error": 1.0705583938785956e-07,
+              "max_error_over_allowed": 0.0033063934208208455,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "core_output": {
+              "status": "PASS",
+              "elements": 4096,
+              "max_abs_error": 3.769833264999356e-09,
+              "max_error_over_allowed": 0.0001747097457016535,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "state": {
+              "status": "PASS",
+              "elements": 524288,
+              "max_abs_error": 2.5588584431912587e-08,
+              "max_error_over_allowed": 0.0009481607827073593,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "conv": {
+              "status": "PASS",
+              "elements": 32768,
+              "max_abs_error": 1.7264392226934433e-07,
+              "max_error_over_allowed": 0.003414473161561908,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            }
+          },
+          "callback_reads_future_hidden": false
+        },
+        {
+          "token": 3,
+          "release_after_completed_tokens": 3,
+          "hidden": {
+            "shape": [
+              1,
+              2560
+            ],
+            "storage_dtype": "BF16",
+            "logical_bytes": 5120,
+            "sha256": "d23047af728b1f0098808f1b863788fa51dfb752dd3e048e63b3477317cc9540",
+            "minimum": -0.72265625,
+            "maximum": 0.6328125,
+            "nonzero_elements": 2560
+          },
+          "module_output": {
+            "shape": [
+              1,
+              2560
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 10240,
+            "sha256": "4c2df2fe7e60bf9cc56b703366d33f875dd630230082bb0d736a3c03d6fe619e",
+            "minimum": -0.3110578656196594,
+            "maximum": 0.30074238777160645,
+            "nonzero_elements": 2560
+          },
+          "state": {
+            "shape": [
+              32,
+              128,
+              128
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 2097152,
+            "sha256": "d7fbd933c2deea7d33371db20acc4c2061ac4df4af590ccdfe47126f085d422a",
+            "minimum": -0.11410567164421082,
+            "maximum": 0.11542908102273941,
+            "nonzero_elements": 524288
+          },
+          "conv": {
+            "shape": [
+              8192,
+              4
+            ],
+            "storage_dtype": "FP32",
+            "logical_bytes": 131072,
+            "sha256": "3b02b38dc42de7c1d84088757056918c947c4f69feed08f395d53b1cf0c77c1d",
+            "minimum": -1.081764817237854,
+            "maximum": 1.4765461683273315,
+            "nonzero_elements": 32768
+          },
+          "checks": {
+            "module_output": {
+              "status": "PASS",
+              "elements": 2560,
+              "max_abs_error": 1.336933175555277e-07,
+              "max_error_over_allowed": 0.004723505032438432,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "core_output": {
+              "status": "PASS",
+              "elements": 4096,
+              "max_abs_error": 3.2782039062484447e-09,
+              "max_error_over_allowed": 0.00015639788137624316,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "state": {
+              "status": "PASS",
+              "elements": 524288,
+              "max_abs_error": 3.078344194828997e-08,
+              "max_error_over_allowed": 0.0009117838140269962,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            },
+            "conv": {
+              "status": "PASS",
+              "elements": 32768,
+              "max_abs_error": 1.7264392226934433e-07,
+              "max_error_over_allowed": 0.003414473161561908,
+              "atol": 2e-05,
+              "rtol": 0.0002
+            }
+          },
+          "callback_reads_future_hidden": false
+        }
+      ],
+      "initial_state": {
+        "shape": [
+          32,
+          128,
+          128
+        ],
+        "storage_dtype": "FP32",
+        "logical_bytes": 2097152,
+        "sha256": "1ede1d312c2bbda3b21cd6db1dc382e97272085ba83b413b8d613ade359f1690",
+        "minimum": -0.12976740300655365,
+        "maximum": 0.13094496726989746,
+        "nonzero_elements": 524288
+      },
+      "initial_conv": {
+        "shape": [
+          8192,
+          4
+        ],
+        "storage_dtype": "FP32",
+        "logical_bytes": 131072,
+        "sha256": "8eca441cfc53bfc75877bff546ee2d31fc16a7a7c92a6bce5d81436fb7abd99c",
+        "minimum": -0.8385552167892456,
+        "maximum": 0.8487198352813721,
+        "nonzero_elements": 32768
+      },
+      "payload_file": "numerical_data/decode_110100.npz",
+      "payload_sha256": "93b8de1aa188e648fa603a9ccd6a81d2dcbf9c00c7d1cca2cb87f76ed798ef3a",
+      "scope": "synthetic post-output callback enforces causal availability; not execution of other model layers or token sampling"
+    }
+  ],
+  "max_abs_error": 1.9970002433644662e-07,
+  "max_error_over_allowed": 0.009547580561067711,
+  "wall_seconds_numerical_only": 4.225102900061756,
+  "limitations": [
+    "No trained weights, official Transformers/FLA execution, target device or simulator arithmetic.",
+    "Source-semantic FP32 intermediates; source BF16 cast boundaries are intentionally not emulated.",
+    "Official prefill uses chunk algebra; tested static sequential recurrence is the same source recurrence semantics, not that optimized implementation.",
+    "All 76 preregistered prefill blocks checked; strict-AR callback checked on four disjoint split representatives.",
+    "Trace arithmetic is not materialized; performance uses common shape/cost and links these checked input payload identities."
+  ]
+}
