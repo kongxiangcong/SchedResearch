@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "nominal_hint_plans": 70,
+  "trace_count": 4480,
+  "numeric_seed0_checks": 140,
+  "summary_rows_checked": 140,
+  "checker_sha256": "0de7c56e84146a599d4cce79226b61e8b8e3e86cdd9c51bb17f9413ac3b5103a",
+  "scope": "posthoc mathematical/abstract artifact audit; reused test set, no confirmatory or hardware acceptance claim",
+  "source_hashes": {
+    "r4/run.py": "879524a6ea3beb3377d9d758346d8c8be74e0a14e90a6d0caeddd3544be8f03a",
+    "r4/engine.py": "c0bae81cafac348bd3e28339d92d37d292a04799d65e3bb1705467878ca8cf19",
+    "r4/graph.py": "230fe4b07c0a9341a02e73b7a77fc6aae9c78396fa45c888370ec514c1eea760",
+    "r4/lowering.py": "5b5ce74583fc249ee2dcfd2ff1a6b2739dafa4fff95e2b8e50785843aa35c0ca",
+    "r4/fusion.py": "1c00a63bea7809a73cc18e28f7af6e167e3758bcaf5d9f93c12ba8e77626831a",
+    "r4/static_search.py": "922b5be52aca3d6038ef8e2ca6c81171a70e51d869086e8626adedf54279c912",
+    "r4/qwen_lowering.py": "d595a54059898c44614ca79bdc815cd090ec98f376952d0d497bec20753cdd36",
+    "r4/flux_lowering.py": "bf92514ea2537877b80144d95f42ca4acecd911cb8ba29c95f91a185a26a4ff2",
+    "r4/exact_probe.py": "c7f4b19fd7ce6675dd164aecc85f6cd6a239683c3a4b6b80728ee643b0299e08",
+    "sim/execution.py": "80f91634a0605c4512c9d5e78f7ae24bae30aba4914412c24efb55977579fac5",
+    "sim/__init__.py": "8b470cbc4934e09fc64e907f651423747718af06193e91d21382104f33667087",
+    "sim/compiler/__init__.py": "f9b0ecdbb359bce6613550ca3a533ee71807f13269e2b3a5a2e712250383b2e1",
+    "sim/hardware_model/latency.py": "13b97d6c286d81cca6436255eb1002d2e93867b89213329fbb5e5d36c456487f",
+    "sim/hardware_model/__init__.py": "d03f248e24ac6197cf596e39e6357e6c7948c96afa33e4a95514b3f16c2c05e2",
+    "sim/memory/__init__.py": "df998674a3c28f205e946ae17ec83569f6a76ff9d39540beed4946baf1f763d0",
+    "sim/metrics/__init__.py": "c142841227f5236bfcc2ee5bc4342b2f87a778d0662b39c235b6b91c8ef4d991",
+    "sim/noc/__init__.py": "9abf7c5a9a42b0e08a11ddf3582d56d02f1f7246d800e1afa728588934fb017e",
+    "sim/scheduler/oracle.py": "89591ed1c5abbf251baddb685e3365db9b3b8f25ac0242f9301fbdc0ecdfcc41",
+    "sim/scheduler/__init__.py": "8ce97f3cab574ff0a4dfad8b80fd5c52271b62a2d9c8c245edf6d13336805a21",
+    "sim/workload/motifs.py": "a2167ff15574660c362c04dd85fcd12ab2611846f349a296d3a24d7dcd84e602",
+    "sim/workload/__init__.py": "6e061eec880850a82fdecb8c947dc0a1d73c874a70d76b8cb10646b1183ae3bb"
+  },
+  "probe_sha256": "2beaf0a42831400ee35ea97963a0c4bba1810ef4cdb8264058ebc4af763cdc9b"
+}

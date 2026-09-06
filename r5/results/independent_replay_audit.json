@@ -1,0 +1,1220 @@
+{
+  "status": "PASS",
+  "cases": 42,
+  "summary_policy_rows": 126,
+  "test_policy_rows_recomputed": 1512,
+  "saved_traces_replayed": 126,
+  "request_events_replayed": 1073880,
+  "in_run_request_test_replay_receipts_checked": 1296,
+  "request_events_in_run_receipts": 12886560,
+  "traces": [
+    {
+      "file": "atomic__flux_projection__ref_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__flux_projection__ref_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__flux_projection__ref_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__flux_projection__ref_none__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__flux_projection__ref_none__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__flux_projection__ref_none__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__qwen_gdn_state__ref_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__qwen_gdn_state__ref_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__qwen_gdn_state__ref_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__qwen_gdn_state__ref_none__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__qwen_gdn_state__ref_none__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__qwen_gdn_state__ref_none__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__qwen_projection__ref_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__qwen_projection__ref_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__qwen_projection__ref_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__qwen_projection__ref_none__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__qwen_projection__ref_none__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "atomic__qwen_projection__ref_none__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 0,
+      "scope": "independent command-atomic stage replay; intentionally lacks finite request queues"
+    },
+    {
+      "file": "request__flux_projection__banks1_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__banks1_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__banks1_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__fifo_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__fifo_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__fifo_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__o1_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__o1_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__o1_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__o32_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 32,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__o32_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 32,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__o32_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 32,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__o4_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 4,
+      "peak_return_slots": 4,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__o4_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 4,
+      "peak_return_slots": 4,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__o4_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 4,
+      "peak_return_slots": 4,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__r1_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__r1_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__r1_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__r2_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 2,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__r2_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 2,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__r2_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 2,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_bank_background__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_bank_background__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_bank_background__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_bus_background__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_bus_background__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_bus_background__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_latency__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_latency__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_latency__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_none__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_none__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__flux_projection__ref_none__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 153,
+      "requests": 14912,
+      "external_bytes": 1769472,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__banks1_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 5,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__banks1_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 5,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__banks1_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 5,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__fifo_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__fifo_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__fifo_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__o1_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__o1_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__o1_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__o32_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 32,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__o32_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 32,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__o32_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 32,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__o4_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 4,
+      "peak_return_slots": 4,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__o4_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 4,
+      "peak_return_slots": 4,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__o4_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 4,
+      "peak_return_slots": 4,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__r1_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__r1_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__r1_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__r2_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 2,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__r2_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 2,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__r2_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 2,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_bank_background__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_bank_background__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_bank_background__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_bus_background__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_bus_background__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_bus_background__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_latency__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_latency__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_latency__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_none__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_none__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_gdn_state__ref_none__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 26,
+      "requests": 4608,
+      "external_bytes": 131072,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__banks1_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 5,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__banks1_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 5,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__banks1_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 5,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__fifo_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__fifo_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__fifo_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__o1_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__o1_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__o1_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 1,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__o32_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 32,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__o32_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 32,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__o32_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 32,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__o4_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 4,
+      "peak_return_slots": 4,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__o4_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 4,
+      "peak_return_slots": 4,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__o4_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 4,
+      "peak_return_slots": 4,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__r1_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__r1_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__r1_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 1,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__r2_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 2,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__r2_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 2,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__r2_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 2,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_bank_background__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_bank_background__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_bank_background__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_bus_background__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_bus_background__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_bus_background__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_combined__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_combined__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_combined__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_latency__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_latency__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 8,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_latency__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_none__2000__S.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_none__2000__B0.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    },
+    {
+      "file": "request__qwen_projection__ref_none__2000__B2.json.gz",
+      "status": "PASS",
+      "commands": 129,
+      "requests": 10310,
+      "external_bytes": 1315840,
+      "peak_outstanding": 16,
+      "peak_return_slots": 7,
+      "scope": "independent conservation/timing/capacity/visibility/address replay; no real-device calibration"
+    }
+  ],
+  "source_and_preregistration_hashes": "PASS",
+  "scope": "all saved detailed traces, every saved statistic/selection; detailed traces may be a subset of test seeds; no device calibration"
+}

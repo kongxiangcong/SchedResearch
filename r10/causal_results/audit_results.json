@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "pairs": 360,
+  "traces": 720,
+  "requests": 561600,
+  "operations": 53280,
+  "faults_detected": [
+    "causal observation/action charge"
+  ],
+  "checker_sha256": "152bfaf76757f0a318c205516d0b1c581ee53aa12e0a73ed7078207d3dafd075",
+  "observations": 1440,
+  "actions": 0,
+  "other_busy_samples": 1440
+}

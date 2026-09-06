@@ -1,0 +1,2320 @@
+{
+  "status": "PASS",
+  "scope": "exhaustive two accepted read request stage chains; destination VMEM visible endpoint, not main Y endpoint",
+  "legal_external_orders": 2,
+  "phases": [
+    0,
+    13
+  ],
+  "cases": [
+    {
+      "phase": 0,
+      "order": [
+        "a",
+        "b"
+      ],
+      "independent_elapsed": 21,
+      "independent_completions": {
+        "a": 19,
+        "b": 21
+      },
+      "audit": {
+        "status": "PASS",
+        "requests": 2,
+        "operations": 0,
+        "nodes": 2,
+        "external_bytes": 192,
+        "logical_bytes": 192,
+        "cluster_dma_bytes": {
+          "0": 256
+        },
+        "multicast_local_extra_bytes": 64,
+        "independent_lower_bound": 11.0,
+        "elapsed": 21.0,
+        "zero_cost_recovery_upper_percent": 47.61904761904762,
+        "credit_peaks": {
+          "0": 2
+        },
+        "hazard_comparisons": 1
+      },
+      "envelope": {
+        "hardware": {
+          "schema": "r9.reference-hardware.v1",
+          "status": "agent-selected research reference; no current TARS or silicon calibration",
+          "path_name": "shared-EXT-cluster-DMA-VMEM",
+          "units": "bytes and reference cycles; no GHz or wall-time claim",
+          "clusters": 1,
+          "cores_per_cluster": 2,
+          "geometry": [
+            32,
+            32,
+            32
+          ],
+          "macs_per_core_cycle": 1024,
+          "compute_startup_cycles": 8,
+          "core_operand_bytes_per_cycle": 128,
+          "reduction_adds_per_cycle": 64,
+          "vmem_bytes_per_core": 4194304,
+          "vmem_reserved_bytes_per_core": 65536,
+          "external_bytes_per_cycle": 64,
+          "cluster_dma_bytes_per_cycle": 64,
+          "dma_channels_per_cluster": 1,
+          "dma_command_slots_per_cluster": 8,
+          "dma_outstanding_per_cluster": 4,
+          "packet_bytes": 4096,
+          "bus_beat_bytes": 32,
+          "request_latency_cycles": 12,
+          "visibility_cycles": 4,
+          "transport_slots_per_cluster": 4,
+          "transport_bytes_per_slot": 8192,
+          "external_scratch_bytes": 16384,
+          "workload": {
+            "M": 32,
+            "K": 9216,
+            "N": 128,
+            "input_bytes": 2,
+            "weight_bytes": 2,
+            "partial_output_bytes": 4
+          },
+          "origin": {
+            "geometry_vmem_topology": "Historical inspiration only: r1-base/live_evidence_audit.md and r8/source_contract_audit.md. 32-multiple geometry, private 4 MiB, conservative 64 KiB reservation, shared cluster DMA. Two clusters are a new reference choice.",
+            "all_rates_latencies_queues": "Pure research choices, not measured or vendor specifications. 1024 MAC/cycle is an ideal 32x32 lane throughput assumption. All exposed numeric performance fields are replaceable here.",
+            "source_shape": "Frozen official Qwen config and MLP source already hash-verified in R8; M32 and N128 slice, FP32 outputs are research choices."
+          },
+          "capabilities": {
+            "input_multicast": "Optional intra-cluster only. One external X read delivered to two private VMEM destinations; local DMA charges twice the payload, both destinations reserved, credit held through both visible. No inter-cluster multicast.",
+            "partial_route": "External staging only: source VMEM -> same shared EXT scratch -> destination VMEM. Separate write and read, scratch held to receiver last-read. Direct peer excluded: no extra link or bandwidth.",
+            "layout": "Common external X[M,K] and W[N,K] row-major initial arrays. gather uses a research 2D gather DMA that packs at most packet_bytes logical bytes per request; row layout stops packets at source-row boundaries. Both enumerate exact source spans, beat-rounded bytes, and compact VMEM destinations. No free prepacked external inputs.",
+            "local_ports": "Dedicated core operand port and separate cluster DMA port. Compute duration is max(MAC throughput, operand bytes/core port) plus startup. No bank conflict, cache, refresh, retry, or NoC; such effects are outside this reference.",
+            "numerical": "Explicitly admit two FP32 algorithms for this timing research: N-shard ascending-K accumulation; K-shard ascending-K in each half, then P0+P1 rounded to FP32. Tiling preserves within-shard ascending order. No bitwise equivalence or model-quality claim; R8 cancellation witness remains valid.",
+            "static": "C2N/C2K and separate C1N control; Ktile256/512/1024 or full; full-X residency optional; one/two input slots; prefetch depth1/2 bounded by slots; X-before-W or W-before-X; core forward/reverse; gather/row packetization; outstanding1/2/4. Fixed ready-command priority and round-robin packet service are existing work-conserving arbitration.",
+            "completion": "Reserve source/destination and transport credit at request acceptance. Reads: latency -> EXT -> cluster DMA -> visibility. Writes: latency -> cluster DMA source-last-read -> EXT -> visibility. Consumers wait for all request destinations visible; alias refill waits for every compute reader to finish. All events at one time committed before new arbitration. End is all disjoint external Y stores visible."
+          },
+          "sensitivity": {
+            "external_bytes_per_cycle": [
+              32,
+              64,
+              128
+            ],
+            "cluster_dma_bytes_per_cycle": [
+              32,
+              64,
+              128
+            ],
+            "macs_per_core_cycle": [
+              512,
+              1024,
+              2048
+            ],
+            "request_latency_cycles": [
+              4,
+              12,
+              36
+            ],
+            "vmem_usable_bytes": [
+              262144,
+              4128768
+            ],
+            "note": "One field at a time, not jointly tuned for a positive result. Sensitivity supports scope only; independent confirmation needed for a newly proposed mechanism."
+          }
+        },
+        "graph": {
+          "scope": "tiny",
+          "config": {
+            "outstanding": 2
+          },
+          "allocations": [
+            {
+              "space": "vmem",
+              "owner": 0,
+              "address": 65536,
+              "size": 64
+            },
+            {
+              "space": "vmem",
+              "owner": 1,
+              "address": 65536,
+              "size": 64
+            },
+            {
+              "space": "vmem",
+              "owner": 0,
+              "address": 65600,
+              "size": 128
+            }
+          ],
+          "nodes": [
+            {
+              "id": "a",
+              "kind": "dma_read",
+              "cluster": 0,
+              "priority": 0,
+              "deps": [],
+              "reads": [
+                {
+                  "space": "ext_x",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 64
+                }
+              ],
+              "writes": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65536,
+                  "size": 64
+                },
+                {
+                  "space": "vmem",
+                  "owner": 1,
+                  "address": 65536,
+                  "size": 64
+                }
+              ],
+              "packets": [
+                {
+                  "id": "a:p",
+                  "logical_bytes": 64,
+                  "external_bytes": 64,
+                  "local_bytes": 128,
+                  "source_spans": [
+                    {
+                      "space": "ext_x",
+                      "owner": -1,
+                      "address": 0,
+                      "size": 64
+                    }
+                  ],
+                  "destination_spans": [
+                    {
+                      "space": "vmem",
+                      "owner": 0,
+                      "address": 65536,
+                      "size": 64
+                    },
+                    {
+                      "space": "vmem",
+                      "owner": 1,
+                      "address": 65536,
+                      "size": 64
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "kind": "dma_read",
+              "cluster": 0,
+              "priority": 1,
+              "deps": [],
+              "reads": [
+                {
+                  "space": "ext_w",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 128
+                }
+              ],
+              "writes": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65600,
+                  "size": 128
+                }
+              ],
+              "packets": [
+                {
+                  "id": "b:p",
+                  "logical_bytes": 128,
+                  "external_bytes": 128,
+                  "local_bytes": 128,
+                  "source_spans": [
+                    {
+                      "space": "ext_w",
+                      "owner": -1,
+                      "address": 0,
+                      "size": 128
+                    }
+                  ],
+                  "destination_spans": [
+                    {
+                      "space": "vmem",
+                      "owner": 0,
+                      "address": 65600,
+                      "size": 128
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "output_nodes": [
+            "a",
+            "b"
+          ],
+          "external_bytes": 192,
+          "cluster_dma_bytes": [
+            256
+          ],
+          "core_cycles": [
+            0,
+            0
+          ]
+        },
+        "config": {
+          "outstanding": 2
+        },
+        "environment": {
+          "period": 32,
+          "duty": 0.25,
+          "phase": 0
+        },
+        "result": {
+          "elapsed": 21.0,
+          "external_bytes": 192,
+          "cluster_dma_bytes": [
+            256
+          ],
+          "core_cycles": [
+            0,
+            0
+          ],
+          "packet_count": 2,
+          "peaks": {
+            "credits": [
+              2
+            ],
+            "commands": [
+              2
+            ],
+            "vmem_bytes": [
+              192,
+              64
+            ],
+            "scratch_bytes": 0
+          },
+          "all_outputs_visible": true,
+          "lower_bound": 11.0,
+          "ext_decision_count": 2,
+          "intervention_applied": true,
+          "graph": {
+            "scope": "tiny",
+            "config": {
+              "outstanding": 2
+            },
+            "allocations": [
+              {
+                "space": "vmem",
+                "owner": 0,
+                "address": 65536,
+                "size": 64
+              },
+              {
+                "space": "vmem",
+                "owner": 1,
+                "address": 65536,
+                "size": 64
+              },
+              {
+                "space": "vmem",
+                "owner": 0,
+                "address": 65600,
+                "size": 128
+              }
+            ],
+            "nodes": [
+              {
+                "id": "a",
+                "kind": "dma_read",
+                "cluster": 0,
+                "priority": 0,
+                "deps": [],
+                "reads": [
+                  {
+                    "space": "ext_x",
+                    "owner": -1,
+                    "address": 0,
+                    "size": 64
+                  }
+                ],
+                "writes": [
+                  {
+                    "space": "vmem",
+                    "owner": 0,
+                    "address": 65536,
+                    "size": 64
+                  },
+                  {
+                    "space": "vmem",
+                    "owner": 1,
+                    "address": 65536,
+                    "size": 64
+                  }
+                ],
+                "packets": [
+                  {
+                    "id": "a:p",
+                    "logical_bytes": 64,
+                    "external_bytes": 64,
+                    "local_bytes": 128,
+                    "source_spans": [
+                      {
+                        "space": "ext_x",
+                        "owner": -1,
+                        "address": 0,
+                        "size": 64
+                      }
+                    ],
+                    "destination_spans": [
+                      {
+                        "space": "vmem",
+                        "owner": 0,
+                        "address": 65536,
+                        "size": 64
+                      },
+                      {
+                        "space": "vmem",
+                        "owner": 1,
+                        "address": 65536,
+                        "size": 64
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "b",
+                "kind": "dma_read",
+                "cluster": 0,
+                "priority": 1,
+                "deps": [],
+                "reads": [
+                  {
+                    "space": "ext_w",
+                    "owner": -1,
+                    "address": 0,
+                    "size": 128
+                  }
+                ],
+                "writes": [
+                  {
+                    "space": "vmem",
+                    "owner": 0,
+                    "address": 65600,
+                    "size": 128
+                  }
+                ],
+                "packets": [
+                  {
+                    "id": "b:p",
+                    "logical_bytes": 128,
+                    "external_bytes": 128,
+                    "local_bytes": 128,
+                    "source_spans": [
+                      {
+                        "space": "ext_w",
+                        "owner": -1,
+                        "address": 0,
+                        "size": 128
+                      }
+                    ],
+                    "destination_spans": [
+                      {
+                        "space": "vmem",
+                        "owner": 0,
+                        "address": 65600,
+                        "size": 128
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "output_nodes": [
+              "a",
+              "b"
+            ],
+            "external_bytes": 192,
+            "cluster_dma_bytes": [
+              256
+            ],
+            "core_cycles": [
+              0,
+              0
+            ]
+          },
+          "environment": {
+            "period": 32,
+            "duty": 0.25,
+            "phase": 0
+          },
+          "operations": [],
+          "requests": [
+            {
+              "id": "a:p",
+              "logical_bytes": 64,
+              "external_bytes": 64,
+              "local_bytes": 128,
+              "source_spans": [
+                {
+                  "space": "ext_x",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 64
+                }
+              ],
+              "destination_spans": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65536,
+                  "size": 64
+                },
+                {
+                  "space": "vmem",
+                  "owner": 1,
+                  "address": 65536,
+                  "size": 64
+                }
+              ],
+              "node_id": "a",
+              "direction": "dma_read",
+              "cluster": 0,
+              "accept": 0.0,
+              "transport_slot": 0,
+              "external_start": 12.0,
+              "external_end": 13.0,
+              "external_segments": [
+                [
+                  12.0,
+                  13.0
+                ]
+              ],
+              "source_last_read": 13.0,
+              "local_start": 13.0,
+              "local_end": 15.0,
+              "visible": 19.0
+            },
+            {
+              "id": "b:p",
+              "logical_bytes": 128,
+              "external_bytes": 128,
+              "local_bytes": 128,
+              "source_spans": [
+                {
+                  "space": "ext_w",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 128
+                }
+              ],
+              "destination_spans": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65600,
+                  "size": 128
+                }
+              ],
+              "node_id": "b",
+              "direction": "dma_read",
+              "cluster": 0,
+              "accept": 0.0,
+              "transport_slot": 1,
+              "external_start": 13.0,
+              "external_end": 15.0,
+              "external_segments": [
+                [
+                  13.0,
+                  15.0
+                ]
+              ],
+              "source_last_read": 15.0,
+              "local_start": 15.0,
+              "local_end": 17.0,
+              "visible": 21.0
+            }
+          ],
+          "ext_decisions": [
+            {
+              "decision_index": 0,
+              "time": 12.0,
+              "candidates": [
+                "a:p",
+                "b:p"
+              ],
+              "default": "a:p",
+              "chosen": "a:p",
+              "cost_cycles": 0.0
+            },
+            {
+              "decision_index": 1,
+              "time": 13.0,
+              "candidates": [
+                "b:p"
+              ],
+              "default": "b:p",
+              "chosen": "b:p",
+              "cost_cycles": 0.0
+            }
+          ],
+          "node_completion": {
+            "a": 19.0,
+            "b": 21.0
+          },
+          "command_intervals": [
+            {
+              "id": "a",
+              "cluster": 0,
+              "start": 0.0,
+              "end": 19.0
+            },
+            {
+              "id": "b",
+              "cluster": 0,
+              "start": 0.0,
+              "end": 21.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "phase": 0,
+      "order": [
+        "b",
+        "a"
+      ],
+      "independent_elapsed": 22,
+      "independent_completions": {
+        "b": 20,
+        "a": 22
+      },
+      "audit": {
+        "status": "PASS",
+        "requests": 2,
+        "operations": 0,
+        "nodes": 2,
+        "external_bytes": 192,
+        "logical_bytes": 192,
+        "cluster_dma_bytes": {
+          "0": 256
+        },
+        "multicast_local_extra_bytes": 64,
+        "independent_lower_bound": 11.0,
+        "elapsed": 22.0,
+        "zero_cost_recovery_upper_percent": 50.0,
+        "credit_peaks": {
+          "0": 2
+        },
+        "hazard_comparisons": 1
+      },
+      "envelope": {
+        "hardware": {
+          "schema": "r9.reference-hardware.v1",
+          "status": "agent-selected research reference; no current TARS or silicon calibration",
+          "path_name": "shared-EXT-cluster-DMA-VMEM",
+          "units": "bytes and reference cycles; no GHz or wall-time claim",
+          "clusters": 1,
+          "cores_per_cluster": 2,
+          "geometry": [
+            32,
+            32,
+            32
+          ],
+          "macs_per_core_cycle": 1024,
+          "compute_startup_cycles": 8,
+          "core_operand_bytes_per_cycle": 128,
+          "reduction_adds_per_cycle": 64,
+          "vmem_bytes_per_core": 4194304,
+          "vmem_reserved_bytes_per_core": 65536,
+          "external_bytes_per_cycle": 64,
+          "cluster_dma_bytes_per_cycle": 64,
+          "dma_channels_per_cluster": 1,
+          "dma_command_slots_per_cluster": 8,
+          "dma_outstanding_per_cluster": 4,
+          "packet_bytes": 4096,
+          "bus_beat_bytes": 32,
+          "request_latency_cycles": 12,
+          "visibility_cycles": 4,
+          "transport_slots_per_cluster": 4,
+          "transport_bytes_per_slot": 8192,
+          "external_scratch_bytes": 16384,
+          "workload": {
+            "M": 32,
+            "K": 9216,
+            "N": 128,
+            "input_bytes": 2,
+            "weight_bytes": 2,
+            "partial_output_bytes": 4
+          },
+          "origin": {
+            "geometry_vmem_topology": "Historical inspiration only: r1-base/live_evidence_audit.md and r8/source_contract_audit.md. 32-multiple geometry, private 4 MiB, conservative 64 KiB reservation, shared cluster DMA. Two clusters are a new reference choice.",
+            "all_rates_latencies_queues": "Pure research choices, not measured or vendor specifications. 1024 MAC/cycle is an ideal 32x32 lane throughput assumption. All exposed numeric performance fields are replaceable here.",
+            "source_shape": "Frozen official Qwen config and MLP source already hash-verified in R8; M32 and N128 slice, FP32 outputs are research choices."
+          },
+          "capabilities": {
+            "input_multicast": "Optional intra-cluster only. One external X read delivered to two private VMEM destinations; local DMA charges twice the payload, both destinations reserved, credit held through both visible. No inter-cluster multicast.",
+            "partial_route": "External staging only: source VMEM -> same shared EXT scratch -> destination VMEM. Separate write and read, scratch held to receiver last-read. Direct peer excluded: no extra link or bandwidth.",
+            "layout": "Common external X[M,K] and W[N,K] row-major initial arrays. gather uses a research 2D gather DMA that packs at most packet_bytes logical bytes per request; row layout stops packets at source-row boundaries. Both enumerate exact source spans, beat-rounded bytes, and compact VMEM destinations. No free prepacked external inputs.",
+            "local_ports": "Dedicated core operand port and separate cluster DMA port. Compute duration is max(MAC throughput, operand bytes/core port) plus startup. No bank conflict, cache, refresh, retry, or NoC; such effects are outside this reference.",
+            "numerical": "Explicitly admit two FP32 algorithms for this timing research: N-shard ascending-K accumulation; K-shard ascending-K in each half, then P0+P1 rounded to FP32. Tiling preserves within-shard ascending order. No bitwise equivalence or model-quality claim; R8 cancellation witness remains valid.",
+            "static": "C2N/C2K and separate C1N control; Ktile256/512/1024 or full; full-X residency optional; one/two input slots; prefetch depth1/2 bounded by slots; X-before-W or W-before-X; core forward/reverse; gather/row packetization; outstanding1/2/4. Fixed ready-command priority and round-robin packet service are existing work-conserving arbitration.",
+            "completion": "Reserve source/destination and transport credit at request acceptance. Reads: latency -> EXT -> cluster DMA -> visibility. Writes: latency -> cluster DMA source-last-read -> EXT -> visibility. Consumers wait for all request destinations visible; alias refill waits for every compute reader to finish. All events at one time committed before new arbitration. End is all disjoint external Y stores visible."
+          },
+          "sensitivity": {
+            "external_bytes_per_cycle": [
+              32,
+              64,
+              128
+            ],
+            "cluster_dma_bytes_per_cycle": [
+              32,
+              64,
+              128
+            ],
+            "macs_per_core_cycle": [
+              512,
+              1024,
+              2048
+            ],
+            "request_latency_cycles": [
+              4,
+              12,
+              36
+            ],
+            "vmem_usable_bytes": [
+              262144,
+              4128768
+            ],
+            "note": "One field at a time, not jointly tuned for a positive result. Sensitivity supports scope only; independent confirmation needed for a newly proposed mechanism."
+          }
+        },
+        "graph": {
+          "scope": "tiny",
+          "config": {
+            "outstanding": 2
+          },
+          "allocations": [
+            {
+              "space": "vmem",
+              "owner": 0,
+              "address": 65536,
+              "size": 64
+            },
+            {
+              "space": "vmem",
+              "owner": 1,
+              "address": 65536,
+              "size": 64
+            },
+            {
+              "space": "vmem",
+              "owner": 0,
+              "address": 65600,
+              "size": 128
+            }
+          ],
+          "nodes": [
+            {
+              "id": "a",
+              "kind": "dma_read",
+              "cluster": 0,
+              "priority": 0,
+              "deps": [],
+              "reads": [
+                {
+                  "space": "ext_x",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 64
+                }
+              ],
+              "writes": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65536,
+                  "size": 64
+                },
+                {
+                  "space": "vmem",
+                  "owner": 1,
+                  "address": 65536,
+                  "size": 64
+                }
+              ],
+              "packets": [
+                {
+                  "id": "a:p",
+                  "logical_bytes": 64,
+                  "external_bytes": 64,
+                  "local_bytes": 128,
+                  "source_spans": [
+                    {
+                      "space": "ext_x",
+                      "owner": -1,
+                      "address": 0,
+                      "size": 64
+                    }
+                  ],
+                  "destination_spans": [
+                    {
+                      "space": "vmem",
+                      "owner": 0,
+                      "address": 65536,
+                      "size": 64
+                    },
+                    {
+                      "space": "vmem",
+                      "owner": 1,
+                      "address": 65536,
+                      "size": 64
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "kind": "dma_read",
+              "cluster": 0,
+              "priority": 1,
+              "deps": [],
+              "reads": [
+                {
+                  "space": "ext_w",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 128
+                }
+              ],
+              "writes": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65600,
+                  "size": 128
+                }
+              ],
+              "packets": [
+                {
+                  "id": "b:p",
+                  "logical_bytes": 128,
+                  "external_bytes": 128,
+                  "local_bytes": 128,
+                  "source_spans": [
+                    {
+                      "space": "ext_w",
+                      "owner": -1,
+                      "address": 0,
+                      "size": 128
+                    }
+                  ],
+                  "destination_spans": [
+                    {
+                      "space": "vmem",
+                      "owner": 0,
+                      "address": 65600,
+                      "size": 128
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "output_nodes": [
+            "a",
+            "b"
+          ],
+          "external_bytes": 192,
+          "cluster_dma_bytes": [
+            256
+          ],
+          "core_cycles": [
+            0,
+            0
+          ]
+        },
+        "config": {
+          "outstanding": 2
+        },
+        "environment": {
+          "period": 32,
+          "duty": 0.25,
+          "phase": 0
+        },
+        "result": {
+          "elapsed": 22.0,
+          "external_bytes": 192,
+          "cluster_dma_bytes": [
+            256
+          ],
+          "core_cycles": [
+            0,
+            0
+          ],
+          "packet_count": 2,
+          "peaks": {
+            "credits": [
+              2
+            ],
+            "commands": [
+              2
+            ],
+            "vmem_bytes": [
+              192,
+              64
+            ],
+            "scratch_bytes": 0
+          },
+          "all_outputs_visible": true,
+          "lower_bound": 11.0,
+          "ext_decision_count": 2,
+          "intervention_applied": true,
+          "graph": {
+            "scope": "tiny",
+            "config": {
+              "outstanding": 2
+            },
+            "allocations": [
+              {
+                "space": "vmem",
+                "owner": 0,
+                "address": 65536,
+                "size": 64
+              },
+              {
+                "space": "vmem",
+                "owner": 1,
+                "address": 65536,
+                "size": 64
+              },
+              {
+                "space": "vmem",
+                "owner": 0,
+                "address": 65600,
+                "size": 128
+              }
+            ],
+            "nodes": [
+              {
+                "id": "a",
+                "kind": "dma_read",
+                "cluster": 0,
+                "priority": 0,
+                "deps": [],
+                "reads": [
+                  {
+                    "space": "ext_x",
+                    "owner": -1,
+                    "address": 0,
+                    "size": 64
+                  }
+                ],
+                "writes": [
+                  {
+                    "space": "vmem",
+                    "owner": 0,
+                    "address": 65536,
+                    "size": 64
+                  },
+                  {
+                    "space": "vmem",
+                    "owner": 1,
+                    "address": 65536,
+                    "size": 64
+                  }
+                ],
+                "packets": [
+                  {
+                    "id": "a:p",
+                    "logical_bytes": 64,
+                    "external_bytes": 64,
+                    "local_bytes": 128,
+                    "source_spans": [
+                      {
+                        "space": "ext_x",
+                        "owner": -1,
+                        "address": 0,
+                        "size": 64
+                      }
+                    ],
+                    "destination_spans": [
+                      {
+                        "space": "vmem",
+                        "owner": 0,
+                        "address": 65536,
+                        "size": 64
+                      },
+                      {
+                        "space": "vmem",
+                        "owner": 1,
+                        "address": 65536,
+                        "size": 64
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "b",
+                "kind": "dma_read",
+                "cluster": 0,
+                "priority": 1,
+                "deps": [],
+                "reads": [
+                  {
+                    "space": "ext_w",
+                    "owner": -1,
+                    "address": 0,
+                    "size": 128
+                  }
+                ],
+                "writes": [
+                  {
+                    "space": "vmem",
+                    "owner": 0,
+                    "address": 65600,
+                    "size": 128
+                  }
+                ],
+                "packets": [
+                  {
+                    "id": "b:p",
+                    "logical_bytes": 128,
+                    "external_bytes": 128,
+                    "local_bytes": 128,
+                    "source_spans": [
+                      {
+                        "space": "ext_w",
+                        "owner": -1,
+                        "address": 0,
+                        "size": 128
+                      }
+                    ],
+                    "destination_spans": [
+                      {
+                        "space": "vmem",
+                        "owner": 0,
+                        "address": 65600,
+                        "size": 128
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "output_nodes": [
+              "a",
+              "b"
+            ],
+            "external_bytes": 192,
+            "cluster_dma_bytes": [
+              256
+            ],
+            "core_cycles": [
+              0,
+              0
+            ]
+          },
+          "environment": {
+            "period": 32,
+            "duty": 0.25,
+            "phase": 0
+          },
+          "operations": [],
+          "requests": [
+            {
+              "id": "a:p",
+              "logical_bytes": 64,
+              "external_bytes": 64,
+              "local_bytes": 128,
+              "source_spans": [
+                {
+                  "space": "ext_x",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 64
+                }
+              ],
+              "destination_spans": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65536,
+                  "size": 64
+                },
+                {
+                  "space": "vmem",
+                  "owner": 1,
+                  "address": 65536,
+                  "size": 64
+                }
+              ],
+              "node_id": "a",
+              "direction": "dma_read",
+              "cluster": 0,
+              "accept": 0.0,
+              "transport_slot": 0,
+              "external_start": 14.0,
+              "external_end": 15.0,
+              "external_segments": [
+                [
+                  14.0,
+                  15.0
+                ]
+              ],
+              "source_last_read": 15.0,
+              "local_start": 16.0,
+              "local_end": 18.0,
+              "visible": 22.0
+            },
+            {
+              "id": "b:p",
+              "logical_bytes": 128,
+              "external_bytes": 128,
+              "local_bytes": 128,
+              "source_spans": [
+                {
+                  "space": "ext_w",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 128
+                }
+              ],
+              "destination_spans": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65600,
+                  "size": 128
+                }
+              ],
+              "node_id": "b",
+              "direction": "dma_read",
+              "cluster": 0,
+              "accept": 0.0,
+              "transport_slot": 1,
+              "external_start": 12.0,
+              "external_end": 14.0,
+              "external_segments": [
+                [
+                  12.0,
+                  14.0
+                ]
+              ],
+              "source_last_read": 14.0,
+              "local_start": 14.0,
+              "local_end": 16.0,
+              "visible": 20.0
+            }
+          ],
+          "ext_decisions": [
+            {
+              "decision_index": 0,
+              "time": 12.0,
+              "candidates": [
+                "a:p",
+                "b:p"
+              ],
+              "default": "a:p",
+              "chosen": "b:p",
+              "cost_cycles": 0.0
+            },
+            {
+              "decision_index": 1,
+              "time": 14.0,
+              "candidates": [
+                "a:p"
+              ],
+              "default": "a:p",
+              "chosen": "a:p",
+              "cost_cycles": 0.0
+            }
+          ],
+          "node_completion": {
+            "b": 20.0,
+            "a": 22.0
+          },
+          "command_intervals": [
+            {
+              "id": "a",
+              "cluster": 0,
+              "start": 0.0,
+              "end": 22.0
+            },
+            {
+              "id": "b",
+              "cluster": 0,
+              "start": 0.0,
+              "end": 20.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "phase": 13,
+      "order": [
+        "a",
+        "b"
+      ],
+      "independent_elapsed": 29,
+      "independent_completions": {
+        "a": 19,
+        "b": 29
+      },
+      "audit": {
+        "status": "PASS",
+        "requests": 2,
+        "operations": 0,
+        "nodes": 2,
+        "external_bytes": 192,
+        "logical_bytes": 192,
+        "cluster_dma_bytes": {
+          "0": 256
+        },
+        "multicast_local_extra_bytes": 64,
+        "independent_lower_bound": 4.0,
+        "elapsed": 29.0,
+        "zero_cost_recovery_upper_percent": 86.20689655172414,
+        "credit_peaks": {
+          "0": 2
+        },
+        "hazard_comparisons": 1
+      },
+      "envelope": {
+        "hardware": {
+          "schema": "r9.reference-hardware.v1",
+          "status": "agent-selected research reference; no current TARS or silicon calibration",
+          "path_name": "shared-EXT-cluster-DMA-VMEM",
+          "units": "bytes and reference cycles; no GHz or wall-time claim",
+          "clusters": 1,
+          "cores_per_cluster": 2,
+          "geometry": [
+            32,
+            32,
+            32
+          ],
+          "macs_per_core_cycle": 1024,
+          "compute_startup_cycles": 8,
+          "core_operand_bytes_per_cycle": 128,
+          "reduction_adds_per_cycle": 64,
+          "vmem_bytes_per_core": 4194304,
+          "vmem_reserved_bytes_per_core": 65536,
+          "external_bytes_per_cycle": 64,
+          "cluster_dma_bytes_per_cycle": 64,
+          "dma_channels_per_cluster": 1,
+          "dma_command_slots_per_cluster": 8,
+          "dma_outstanding_per_cluster": 4,
+          "packet_bytes": 4096,
+          "bus_beat_bytes": 32,
+          "request_latency_cycles": 12,
+          "visibility_cycles": 4,
+          "transport_slots_per_cluster": 4,
+          "transport_bytes_per_slot": 8192,
+          "external_scratch_bytes": 16384,
+          "workload": {
+            "M": 32,
+            "K": 9216,
+            "N": 128,
+            "input_bytes": 2,
+            "weight_bytes": 2,
+            "partial_output_bytes": 4
+          },
+          "origin": {
+            "geometry_vmem_topology": "Historical inspiration only: r1-base/live_evidence_audit.md and r8/source_contract_audit.md. 32-multiple geometry, private 4 MiB, conservative 64 KiB reservation, shared cluster DMA. Two clusters are a new reference choice.",
+            "all_rates_latencies_queues": "Pure research choices, not measured or vendor specifications. 1024 MAC/cycle is an ideal 32x32 lane throughput assumption. All exposed numeric performance fields are replaceable here.",
+            "source_shape": "Frozen official Qwen config and MLP source already hash-verified in R8; M32 and N128 slice, FP32 outputs are research choices."
+          },
+          "capabilities": {
+            "input_multicast": "Optional intra-cluster only. One external X read delivered to two private VMEM destinations; local DMA charges twice the payload, both destinations reserved, credit held through both visible. No inter-cluster multicast.",
+            "partial_route": "External staging only: source VMEM -> same shared EXT scratch -> destination VMEM. Separate write and read, scratch held to receiver last-read. Direct peer excluded: no extra link or bandwidth.",
+            "layout": "Common external X[M,K] and W[N,K] row-major initial arrays. gather uses a research 2D gather DMA that packs at most packet_bytes logical bytes per request; row layout stops packets at source-row boundaries. Both enumerate exact source spans, beat-rounded bytes, and compact VMEM destinations. No free prepacked external inputs.",
+            "local_ports": "Dedicated core operand port and separate cluster DMA port. Compute duration is max(MAC throughput, operand bytes/core port) plus startup. No bank conflict, cache, refresh, retry, or NoC; such effects are outside this reference.",
+            "numerical": "Explicitly admit two FP32 algorithms for this timing research: N-shard ascending-K accumulation; K-shard ascending-K in each half, then P0+P1 rounded to FP32. Tiling preserves within-shard ascending order. No bitwise equivalence or model-quality claim; R8 cancellation witness remains valid.",
+            "static": "C2N/C2K and separate C1N control; Ktile256/512/1024 or full; full-X residency optional; one/two input slots; prefetch depth1/2 bounded by slots; X-before-W or W-before-X; core forward/reverse; gather/row packetization; outstanding1/2/4. Fixed ready-command priority and round-robin packet service are existing work-conserving arbitration.",
+            "completion": "Reserve source/destination and transport credit at request acceptance. Reads: latency -> EXT -> cluster DMA -> visibility. Writes: latency -> cluster DMA source-last-read -> EXT -> visibility. Consumers wait for all request destinations visible; alias refill waits for every compute reader to finish. All events at one time committed before new arbitration. End is all disjoint external Y stores visible."
+          },
+          "sensitivity": {
+            "external_bytes_per_cycle": [
+              32,
+              64,
+              128
+            ],
+            "cluster_dma_bytes_per_cycle": [
+              32,
+              64,
+              128
+            ],
+            "macs_per_core_cycle": [
+              512,
+              1024,
+              2048
+            ],
+            "request_latency_cycles": [
+              4,
+              12,
+              36
+            ],
+            "vmem_usable_bytes": [
+              262144,
+              4128768
+            ],
+            "note": "One field at a time, not jointly tuned for a positive result. Sensitivity supports scope only; independent confirmation needed for a newly proposed mechanism."
+          }
+        },
+        "graph": {
+          "scope": "tiny",
+          "config": {
+            "outstanding": 2
+          },
+          "allocations": [
+            {
+              "space": "vmem",
+              "owner": 0,
+              "address": 65536,
+              "size": 64
+            },
+            {
+              "space": "vmem",
+              "owner": 1,
+              "address": 65536,
+              "size": 64
+            },
+            {
+              "space": "vmem",
+              "owner": 0,
+              "address": 65600,
+              "size": 128
+            }
+          ],
+          "nodes": [
+            {
+              "id": "a",
+              "kind": "dma_read",
+              "cluster": 0,
+              "priority": 0,
+              "deps": [],
+              "reads": [
+                {
+                  "space": "ext_x",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 64
+                }
+              ],
+              "writes": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65536,
+                  "size": 64
+                },
+                {
+                  "space": "vmem",
+                  "owner": 1,
+                  "address": 65536,
+                  "size": 64
+                }
+              ],
+              "packets": [
+                {
+                  "id": "a:p",
+                  "logical_bytes": 64,
+                  "external_bytes": 64,
+                  "local_bytes": 128,
+                  "source_spans": [
+                    {
+                      "space": "ext_x",
+                      "owner": -1,
+                      "address": 0,
+                      "size": 64
+                    }
+                  ],
+                  "destination_spans": [
+                    {
+                      "space": "vmem",
+                      "owner": 0,
+                      "address": 65536,
+                      "size": 64
+                    },
+                    {
+                      "space": "vmem",
+                      "owner": 1,
+                      "address": 65536,
+                      "size": 64
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "kind": "dma_read",
+              "cluster": 0,
+              "priority": 1,
+              "deps": [],
+              "reads": [
+                {
+                  "space": "ext_w",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 128
+                }
+              ],
+              "writes": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65600,
+                  "size": 128
+                }
+              ],
+              "packets": [
+                {
+                  "id": "b:p",
+                  "logical_bytes": 128,
+                  "external_bytes": 128,
+                  "local_bytes": 128,
+                  "source_spans": [
+                    {
+                      "space": "ext_w",
+                      "owner": -1,
+                      "address": 0,
+                      "size": 128
+                    }
+                  ],
+                  "destination_spans": [
+                    {
+                      "space": "vmem",
+                      "owner": 0,
+                      "address": 65600,
+                      "size": 128
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "output_nodes": [
+            "a",
+            "b"
+          ],
+          "external_bytes": 192,
+          "cluster_dma_bytes": [
+            256
+          ],
+          "core_cycles": [
+            0,
+            0
+          ]
+        },
+        "config": {
+          "outstanding": 2
+        },
+        "environment": {
+          "period": 32,
+          "duty": 0.25,
+          "phase": 13
+        },
+        "result": {
+          "elapsed": 29.0,
+          "external_bytes": 192,
+          "cluster_dma_bytes": [
+            256
+          ],
+          "core_cycles": [
+            0,
+            0
+          ],
+          "packet_count": 2,
+          "peaks": {
+            "credits": [
+              2
+            ],
+            "commands": [
+              2
+            ],
+            "vmem_bytes": [
+              192,
+              64
+            ],
+            "scratch_bytes": 0
+          },
+          "all_outputs_visible": true,
+          "lower_bound": 4.0,
+          "ext_decision_count": 2,
+          "intervention_applied": true,
+          "graph": {
+            "scope": "tiny",
+            "config": {
+              "outstanding": 2
+            },
+            "allocations": [
+              {
+                "space": "vmem",
+                "owner": 0,
+                "address": 65536,
+                "size": 64
+              },
+              {
+                "space": "vmem",
+                "owner": 1,
+                "address": 65536,
+                "size": 64
+              },
+              {
+                "space": "vmem",
+                "owner": 0,
+                "address": 65600,
+                "size": 128
+              }
+            ],
+            "nodes": [
+              {
+                "id": "a",
+                "kind": "dma_read",
+                "cluster": 0,
+                "priority": 0,
+                "deps": [],
+                "reads": [
+                  {
+                    "space": "ext_x",
+                    "owner": -1,
+                    "address": 0,
+                    "size": 64
+                  }
+                ],
+                "writes": [
+                  {
+                    "space": "vmem",
+                    "owner": 0,
+                    "address": 65536,
+                    "size": 64
+                  },
+                  {
+                    "space": "vmem",
+                    "owner": 1,
+                    "address": 65536,
+                    "size": 64
+                  }
+                ],
+                "packets": [
+                  {
+                    "id": "a:p",
+                    "logical_bytes": 64,
+                    "external_bytes": 64,
+                    "local_bytes": 128,
+                    "source_spans": [
+                      {
+                        "space": "ext_x",
+                        "owner": -1,
+                        "address": 0,
+                        "size": 64
+                      }
+                    ],
+                    "destination_spans": [
+                      {
+                        "space": "vmem",
+                        "owner": 0,
+                        "address": 65536,
+                        "size": 64
+                      },
+                      {
+                        "space": "vmem",
+                        "owner": 1,
+                        "address": 65536,
+                        "size": 64
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "b",
+                "kind": "dma_read",
+                "cluster": 0,
+                "priority": 1,
+                "deps": [],
+                "reads": [
+                  {
+                    "space": "ext_w",
+                    "owner": -1,
+                    "address": 0,
+                    "size": 128
+                  }
+                ],
+                "writes": [
+                  {
+                    "space": "vmem",
+                    "owner": 0,
+                    "address": 65600,
+                    "size": 128
+                  }
+                ],
+                "packets": [
+                  {
+                    "id": "b:p",
+                    "logical_bytes": 128,
+                    "external_bytes": 128,
+                    "local_bytes": 128,
+                    "source_spans": [
+                      {
+                        "space": "ext_w",
+                        "owner": -1,
+                        "address": 0,
+                        "size": 128
+                      }
+                    ],
+                    "destination_spans": [
+                      {
+                        "space": "vmem",
+                        "owner": 0,
+                        "address": 65600,
+                        "size": 128
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "output_nodes": [
+              "a",
+              "b"
+            ],
+            "external_bytes": 192,
+            "cluster_dma_bytes": [
+              256
+            ],
+            "core_cycles": [
+              0,
+              0
+            ]
+          },
+          "environment": {
+            "period": 32,
+            "duty": 0.25,
+            "phase": 13
+          },
+          "operations": [],
+          "requests": [
+            {
+              "id": "a:p",
+              "logical_bytes": 64,
+              "external_bytes": 64,
+              "local_bytes": 128,
+              "source_spans": [
+                {
+                  "space": "ext_x",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 64
+                }
+              ],
+              "destination_spans": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65536,
+                  "size": 64
+                },
+                {
+                  "space": "vmem",
+                  "owner": 1,
+                  "address": 65536,
+                  "size": 64
+                }
+              ],
+              "node_id": "a",
+              "direction": "dma_read",
+              "cluster": 0,
+              "accept": 0.0,
+              "transport_slot": 0,
+              "external_start": 12.0,
+              "external_end": 13.0,
+              "external_segments": [
+                [
+                  12.0,
+                  13.0
+                ]
+              ],
+              "source_last_read": 13.0,
+              "local_start": 13.0,
+              "local_end": 15.0,
+              "visible": 19.0
+            },
+            {
+              "id": "b:p",
+              "logical_bytes": 128,
+              "external_bytes": 128,
+              "local_bytes": 128,
+              "source_spans": [
+                {
+                  "space": "ext_w",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 128
+                }
+              ],
+              "destination_spans": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65600,
+                  "size": 128
+                }
+              ],
+              "node_id": "b",
+              "direction": "dma_read",
+              "cluster": 0,
+              "accept": 0.0,
+              "transport_slot": 1,
+              "external_start": 13.0,
+              "external_end": 23.0,
+              "external_segments": [
+                [
+                  21.0,
+                  23.0
+                ]
+              ],
+              "source_last_read": 23.0,
+              "local_start": 23.0,
+              "local_end": 25.0,
+              "visible": 29.0
+            }
+          ],
+          "ext_decisions": [
+            {
+              "decision_index": 0,
+              "time": 12.0,
+              "candidates": [
+                "a:p",
+                "b:p"
+              ],
+              "default": "a:p",
+              "chosen": "a:p",
+              "cost_cycles": 0.0
+            },
+            {
+              "decision_index": 1,
+              "time": 13.0,
+              "candidates": [
+                "b:p"
+              ],
+              "default": "b:p",
+              "chosen": "b:p",
+              "cost_cycles": 0.0
+            }
+          ],
+          "node_completion": {
+            "a": 19.0,
+            "b": 29.0
+          },
+          "command_intervals": [
+            {
+              "id": "a",
+              "cluster": 0,
+              "start": 0.0,
+              "end": 19.0
+            },
+            {
+              "id": "b",
+              "cluster": 0,
+              "start": 0.0,
+              "end": 29.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "phase": 13,
+      "order": [
+        "b",
+        "a"
+      ],
+      "independent_elapsed": 30,
+      "independent_completions": {
+        "b": 28,
+        "a": 30
+      },
+      "audit": {
+        "status": "PASS",
+        "requests": 2,
+        "operations": 0,
+        "nodes": 2,
+        "external_bytes": 192,
+        "logical_bytes": 192,
+        "cluster_dma_bytes": {
+          "0": 256
+        },
+        "multicast_local_extra_bytes": 64,
+        "independent_lower_bound": 4.0,
+        "elapsed": 30.0,
+        "zero_cost_recovery_upper_percent": 86.66666666666667,
+        "credit_peaks": {
+          "0": 2
+        },
+        "hazard_comparisons": 1
+      },
+      "envelope": {
+        "hardware": {
+          "schema": "r9.reference-hardware.v1",
+          "status": "agent-selected research reference; no current TARS or silicon calibration",
+          "path_name": "shared-EXT-cluster-DMA-VMEM",
+          "units": "bytes and reference cycles; no GHz or wall-time claim",
+          "clusters": 1,
+          "cores_per_cluster": 2,
+          "geometry": [
+            32,
+            32,
+            32
+          ],
+          "macs_per_core_cycle": 1024,
+          "compute_startup_cycles": 8,
+          "core_operand_bytes_per_cycle": 128,
+          "reduction_adds_per_cycle": 64,
+          "vmem_bytes_per_core": 4194304,
+          "vmem_reserved_bytes_per_core": 65536,
+          "external_bytes_per_cycle": 64,
+          "cluster_dma_bytes_per_cycle": 64,
+          "dma_channels_per_cluster": 1,
+          "dma_command_slots_per_cluster": 8,
+          "dma_outstanding_per_cluster": 4,
+          "packet_bytes": 4096,
+          "bus_beat_bytes": 32,
+          "request_latency_cycles": 12,
+          "visibility_cycles": 4,
+          "transport_slots_per_cluster": 4,
+          "transport_bytes_per_slot": 8192,
+          "external_scratch_bytes": 16384,
+          "workload": {
+            "M": 32,
+            "K": 9216,
+            "N": 128,
+            "input_bytes": 2,
+            "weight_bytes": 2,
+            "partial_output_bytes": 4
+          },
+          "origin": {
+            "geometry_vmem_topology": "Historical inspiration only: r1-base/live_evidence_audit.md and r8/source_contract_audit.md. 32-multiple geometry, private 4 MiB, conservative 64 KiB reservation, shared cluster DMA. Two clusters are a new reference choice.",
+            "all_rates_latencies_queues": "Pure research choices, not measured or vendor specifications. 1024 MAC/cycle is an ideal 32x32 lane throughput assumption. All exposed numeric performance fields are replaceable here.",
+            "source_shape": "Frozen official Qwen config and MLP source already hash-verified in R8; M32 and N128 slice, FP32 outputs are research choices."
+          },
+          "capabilities": {
+            "input_multicast": "Optional intra-cluster only. One external X read delivered to two private VMEM destinations; local DMA charges twice the payload, both destinations reserved, credit held through both visible. No inter-cluster multicast.",
+            "partial_route": "External staging only: source VMEM -> same shared EXT scratch -> destination VMEM. Separate write and read, scratch held to receiver last-read. Direct peer excluded: no extra link or bandwidth.",
+            "layout": "Common external X[M,K] and W[N,K] row-major initial arrays. gather uses a research 2D gather DMA that packs at most packet_bytes logical bytes per request; row layout stops packets at source-row boundaries. Both enumerate exact source spans, beat-rounded bytes, and compact VMEM destinations. No free prepacked external inputs.",
+            "local_ports": "Dedicated core operand port and separate cluster DMA port. Compute duration is max(MAC throughput, operand bytes/core port) plus startup. No bank conflict, cache, refresh, retry, or NoC; such effects are outside this reference.",
+            "numerical": "Explicitly admit two FP32 algorithms for this timing research: N-shard ascending-K accumulation; K-shard ascending-K in each half, then P0+P1 rounded to FP32. Tiling preserves within-shard ascending order. No bitwise equivalence or model-quality claim; R8 cancellation witness remains valid.",
+            "static": "C2N/C2K and separate C1N control; Ktile256/512/1024 or full; full-X residency optional; one/two input slots; prefetch depth1/2 bounded by slots; X-before-W or W-before-X; core forward/reverse; gather/row packetization; outstanding1/2/4. Fixed ready-command priority and round-robin packet service are existing work-conserving arbitration.",
+            "completion": "Reserve source/destination and transport credit at request acceptance. Reads: latency -> EXT -> cluster DMA -> visibility. Writes: latency -> cluster DMA source-last-read -> EXT -> visibility. Consumers wait for all request destinations visible; alias refill waits for every compute reader to finish. All events at one time committed before new arbitration. End is all disjoint external Y stores visible."
+          },
+          "sensitivity": {
+            "external_bytes_per_cycle": [
+              32,
+              64,
+              128
+            ],
+            "cluster_dma_bytes_per_cycle": [
+              32,
+              64,
+              128
+            ],
+            "macs_per_core_cycle": [
+              512,
+              1024,
+              2048
+            ],
+            "request_latency_cycles": [
+              4,
+              12,
+              36
+            ],
+            "vmem_usable_bytes": [
+              262144,
+              4128768
+            ],
+            "note": "One field at a time, not jointly tuned for a positive result. Sensitivity supports scope only; independent confirmation needed for a newly proposed mechanism."
+          }
+        },
+        "graph": {
+          "scope": "tiny",
+          "config": {
+            "outstanding": 2
+          },
+          "allocations": [
+            {
+              "space": "vmem",
+              "owner": 0,
+              "address": 65536,
+              "size": 64
+            },
+            {
+              "space": "vmem",
+              "owner": 1,
+              "address": 65536,
+              "size": 64
+            },
+            {
+              "space": "vmem",
+              "owner": 0,
+              "address": 65600,
+              "size": 128
+            }
+          ],
+          "nodes": [
+            {
+              "id": "a",
+              "kind": "dma_read",
+              "cluster": 0,
+              "priority": 0,
+              "deps": [],
+              "reads": [
+                {
+                  "space": "ext_x",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 64
+                }
+              ],
+              "writes": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65536,
+                  "size": 64
+                },
+                {
+                  "space": "vmem",
+                  "owner": 1,
+                  "address": 65536,
+                  "size": 64
+                }
+              ],
+              "packets": [
+                {
+                  "id": "a:p",
+                  "logical_bytes": 64,
+                  "external_bytes": 64,
+                  "local_bytes": 128,
+                  "source_spans": [
+                    {
+                      "space": "ext_x",
+                      "owner": -1,
+                      "address": 0,
+                      "size": 64
+                    }
+                  ],
+                  "destination_spans": [
+                    {
+                      "space": "vmem",
+                      "owner": 0,
+                      "address": 65536,
+                      "size": 64
+                    },
+                    {
+                      "space": "vmem",
+                      "owner": 1,
+                      "address": 65536,
+                      "size": 64
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "kind": "dma_read",
+              "cluster": 0,
+              "priority": 1,
+              "deps": [],
+              "reads": [
+                {
+                  "space": "ext_w",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 128
+                }
+              ],
+              "writes": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65600,
+                  "size": 128
+                }
+              ],
+              "packets": [
+                {
+                  "id": "b:p",
+                  "logical_bytes": 128,
+                  "external_bytes": 128,
+                  "local_bytes": 128,
+                  "source_spans": [
+                    {
+                      "space": "ext_w",
+                      "owner": -1,
+                      "address": 0,
+                      "size": 128
+                    }
+                  ],
+                  "destination_spans": [
+                    {
+                      "space": "vmem",
+                      "owner": 0,
+                      "address": 65600,
+                      "size": 128
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "output_nodes": [
+            "a",
+            "b"
+          ],
+          "external_bytes": 192,
+          "cluster_dma_bytes": [
+            256
+          ],
+          "core_cycles": [
+            0,
+            0
+          ]
+        },
+        "config": {
+          "outstanding": 2
+        },
+        "environment": {
+          "period": 32,
+          "duty": 0.25,
+          "phase": 13
+        },
+        "result": {
+          "elapsed": 30.0,
+          "external_bytes": 192,
+          "cluster_dma_bytes": [
+            256
+          ],
+          "core_cycles": [
+            0,
+            0
+          ],
+          "packet_count": 2,
+          "peaks": {
+            "credits": [
+              2
+            ],
+            "commands": [
+              2
+            ],
+            "vmem_bytes": [
+              192,
+              64
+            ],
+            "scratch_bytes": 0
+          },
+          "all_outputs_visible": true,
+          "lower_bound": 4.0,
+          "ext_decision_count": 2,
+          "intervention_applied": true,
+          "graph": {
+            "scope": "tiny",
+            "config": {
+              "outstanding": 2
+            },
+            "allocations": [
+              {
+                "space": "vmem",
+                "owner": 0,
+                "address": 65536,
+                "size": 64
+              },
+              {
+                "space": "vmem",
+                "owner": 1,
+                "address": 65536,
+                "size": 64
+              },
+              {
+                "space": "vmem",
+                "owner": 0,
+                "address": 65600,
+                "size": 128
+              }
+            ],
+            "nodes": [
+              {
+                "id": "a",
+                "kind": "dma_read",
+                "cluster": 0,
+                "priority": 0,
+                "deps": [],
+                "reads": [
+                  {
+                    "space": "ext_x",
+                    "owner": -1,
+                    "address": 0,
+                    "size": 64
+                  }
+                ],
+                "writes": [
+                  {
+                    "space": "vmem",
+                    "owner": 0,
+                    "address": 65536,
+                    "size": 64
+                  },
+                  {
+                    "space": "vmem",
+                    "owner": 1,
+                    "address": 65536,
+                    "size": 64
+                  }
+                ],
+                "packets": [
+                  {
+                    "id": "a:p",
+                    "logical_bytes": 64,
+                    "external_bytes": 64,
+                    "local_bytes": 128,
+                    "source_spans": [
+                      {
+                        "space": "ext_x",
+                        "owner": -1,
+                        "address": 0,
+                        "size": 64
+                      }
+                    ],
+                    "destination_spans": [
+                      {
+                        "space": "vmem",
+                        "owner": 0,
+                        "address": 65536,
+                        "size": 64
+                      },
+                      {
+                        "space": "vmem",
+                        "owner": 1,
+                        "address": 65536,
+                        "size": 64
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "b",
+                "kind": "dma_read",
+                "cluster": 0,
+                "priority": 1,
+                "deps": [],
+                "reads": [
+                  {
+                    "space": "ext_w",
+                    "owner": -1,
+                    "address": 0,
+                    "size": 128
+                  }
+                ],
+                "writes": [
+                  {
+                    "space": "vmem",
+                    "owner": 0,
+                    "address": 65600,
+                    "size": 128
+                  }
+                ],
+                "packets": [
+                  {
+                    "id": "b:p",
+                    "logical_bytes": 128,
+                    "external_bytes": 128,
+                    "local_bytes": 128,
+                    "source_spans": [
+                      {
+                        "space": "ext_w",
+                        "owner": -1,
+                        "address": 0,
+                        "size": 128
+                      }
+                    ],
+                    "destination_spans": [
+                      {
+                        "space": "vmem",
+                        "owner": 0,
+                        "address": 65600,
+                        "size": 128
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "output_nodes": [
+              "a",
+              "b"
+            ],
+            "external_bytes": 192,
+            "cluster_dma_bytes": [
+              256
+            ],
+            "core_cycles": [
+              0,
+              0
+            ]
+          },
+          "environment": {
+            "period": 32,
+            "duty": 0.25,
+            "phase": 13
+          },
+          "operations": [],
+          "requests": [
+            {
+              "id": "a:p",
+              "logical_bytes": 64,
+              "external_bytes": 64,
+              "local_bytes": 128,
+              "source_spans": [
+                {
+                  "space": "ext_x",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 64
+                }
+              ],
+              "destination_spans": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65536,
+                  "size": 64
+                },
+                {
+                  "space": "vmem",
+                  "owner": 1,
+                  "address": 65536,
+                  "size": 64
+                }
+              ],
+              "node_id": "a",
+              "direction": "dma_read",
+              "cluster": 0,
+              "accept": 0.0,
+              "transport_slot": 0,
+              "external_start": 22.0,
+              "external_end": 23.0,
+              "external_segments": [
+                [
+                  22.0,
+                  23.0
+                ]
+              ],
+              "source_last_read": 23.0,
+              "local_start": 24.0,
+              "local_end": 26.0,
+              "visible": 30.0
+            },
+            {
+              "id": "b:p",
+              "logical_bytes": 128,
+              "external_bytes": 128,
+              "local_bytes": 128,
+              "source_spans": [
+                {
+                  "space": "ext_w",
+                  "owner": -1,
+                  "address": 0,
+                  "size": 128
+                }
+              ],
+              "destination_spans": [
+                {
+                  "space": "vmem",
+                  "owner": 0,
+                  "address": 65600,
+                  "size": 128
+                }
+              ],
+              "node_id": "b",
+              "direction": "dma_read",
+              "cluster": 0,
+              "accept": 0.0,
+              "transport_slot": 1,
+              "external_start": 12.0,
+              "external_end": 22.0,
+              "external_segments": [
+                [
+                  12.0,
+                  13.0
+                ],
+                [
+                  21.0,
+                  22.0
+                ]
+              ],
+              "source_last_read": 22.0,
+              "local_start": 22.0,
+              "local_end": 24.0,
+              "visible": 28.0
+            }
+          ],
+          "ext_decisions": [
+            {
+              "decision_index": 0,
+              "time": 12.0,
+              "candidates": [
+                "a:p",
+                "b:p"
+              ],
+              "default": "a:p",
+              "chosen": "b:p",
+              "cost_cycles": 0.0
+            },
+            {
+              "decision_index": 1,
+              "time": 22.0,
+              "candidates": [
+                "a:p"
+              ],
+              "default": "a:p",
+              "chosen": "a:p",
+              "cost_cycles": 0.0
+            }
+          ],
+          "node_completion": {
+            "b": 28.0,
+            "a": 30.0
+          },
+          "command_intervals": [
+            {
+              "id": "a",
+              "cluster": 0,
+              "start": 0.0,
+              "end": 30.0
+            },
+            {
+              "id": "b",
+              "cluster": 0,
+              "start": 0.0,
+              "end": 28.0
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "enumeration_reason": "Two initially eligible requests, one shared EXT server, FIFO local stage; first EXT choice determines the only remaining order.",
+  "minimum_elapsed_by_phase": {
+    "0": 21,
+    "13": 29
+  }
+}

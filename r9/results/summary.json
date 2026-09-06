@@ -1,0 +1,380 @@
+{
+  "s1.quiet": {
+    "fixed_static_loss_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "strong_static_gain_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "remaining_zero_cost_upper_pct": {
+      "n": 30,
+      "mean": 1.942397856664435,
+      "ci95_t": [
+        1.942397856664435,
+        1.942397856664435
+      ],
+      "min": 1.942397856664435,
+      "max": 1.942397856664435
+    },
+    "strong_elapsed": {
+      "n": 30,
+      "mean": 47776.0,
+      "ci95_t": [
+        47776.0,
+        47776.0
+      ],
+      "min": 47776.0,
+      "max": 47776.0
+    },
+    "best_sampled_single_action_free_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "best_sampled_single_action_charged_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "scope": "paired simulated phase blocks; sampled best-action includes no-action and is hindsight, not a causal policy"
+  },
+  "s1.reserved20": {
+    "fixed_static_loss_pct": {
+      "n": 30,
+      "mean": 24.754254205730074,
+      "ci95_t": [
+        24.25108505219897,
+        25.25742335926118
+      ],
+      "min": 23.737441393168133,
+      "max": 27.46818486269258
+    },
+    "strong_static_gain_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "remaining_zero_cost_upper_pct": {
+      "n": 30,
+      "mean": 1.70767000618585,
+      "ci95_t": [
+        1.4457745608676913,
+        1.9695654515040089
+      ],
+      "min": 1.3313738562116595,
+      "max": 4.240449792443924
+    },
+    "strong_elapsed": {
+      "n": 30,
+      "mean": 59602.5924893296,
+      "ci95_t": [
+        59362.19839453858,
+        59842.98658412063
+      ],
+      "min": 59116.80000000001,
+      "max": 60899.20000000001
+    },
+    "best_sampled_single_action_free_pct": {
+      "n": 30,
+      "mean": 0.021521369089632463,
+      "ci95_t": [
+        -0.003400051402136922,
+        0.04644278958140185
+      ],
+      "min": 0.0,
+      "max": 0.3363108049935448
+    },
+    "best_sampled_single_action_charged_pct": {
+      "n": 30,
+      "mean": 0.021036079996769413,
+      "ci95_t": [
+        -0.003008221104543317,
+        0.04508038109808214
+      ],
+      "min": 0.0,
+      "max": 0.3228583727937995
+    },
+    "scope": "paired simulated phase blocks; sampled best-action includes no-action and is hindsight, not a causal policy"
+  },
+  "s1.reserved35": {
+    "fixed_static_loss_pct": {
+      "n": 30,
+      "mean": 52.811169336858484,
+      "ci95_t": [
+        52.16817062665132,
+        53.45416804706565
+      ],
+      "min": 48.949341585516734,
+      "max": 54.2129939718687
+    },
+    "strong_static_gain_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "remaining_zero_cost_upper_pct": {
+      "n": 30,
+      "mean": 1.877616753471854,
+      "ci95_t": [
+        1.3462603569752178,
+        2.40897314996849
+      ],
+      "min": 0.5261479206726705,
+      "max": 5.157867269722538
+    },
+    "strong_elapsed": {
+      "n": 30,
+      "mean": 73007.0642623775,
+      "ci95_t": [
+        72699.86519858893,
+        73314.26332616608
+      ],
+      "min": 71162.03743589648,
+      "max": 73676.79999999999
+    },
+    "best_sampled_single_action_free_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "best_sampled_single_action_charged_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "scope": "paired simulated phase blocks; sampled best-action includes no-action and is hindsight, not a causal policy"
+  },
+  "s2.quiet": {
+    "fixed_static_loss_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "strong_static_gain_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "remaining_zero_cost_upper_pct": {
+      "n": 30,
+      "mean": 1.942397856664435,
+      "ci95_t": [
+        1.942397856664435,
+        1.942397856664435
+      ],
+      "min": 1.942397856664435,
+      "max": 1.942397856664435
+    },
+    "strong_elapsed": {
+      "n": 30,
+      "mean": 47776.0,
+      "ci95_t": [
+        47776.0,
+        47776.0
+      ],
+      "min": 47776.0,
+      "max": 47776.0
+    },
+    "best_sampled_single_action_free_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "best_sampled_single_action_charged_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "scope": "paired simulated phase blocks; sampled best-action includes no-action and is hindsight, not a causal policy"
+  },
+  "s2.reserved20": {
+    "fixed_static_loss_pct": {
+      "n": 30,
+      "mean": 25.306996105043766,
+      "ci95_t": [
+        24.777270030609877,
+        25.836722179477654
+      ],
+      "min": 23.787675820495657,
+      "max": 27.417950435365036
+    },
+    "strong_static_gain_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "remaining_zero_cost_upper_pct": {
+      "n": 30,
+      "mean": 1.6066062436075885,
+      "ci95_t": [
+        1.351302471331563,
+        1.8619100158836142
+      ],
+      "min": 0.6803952648187339,
+      "max": 4.0513860004738556
+    },
+    "strong_elapsed": {
+      "n": 30,
+      "mean": 59866.67045914571,
+      "ci95_t": [
+        59613.58852982418,
+        60119.75238846724
+      ],
+      "min": 59140.80000000001,
+      "max": 60875.200000000004
+    },
+    "best_sampled_single_action_free_pct": {
+      "n": 30,
+      "mean": 0.007548872351612612,
+      "ci95_t": [
+        -0.0032077630226048596,
+        0.018305507725830082
+      ],
+      "min": 0.0,
+      "max": 0.12133304572907733
+    },
+    "best_sampled_single_action_charged_pct": {
+      "n": 30,
+      "mean": 0.008009580966562568,
+      "ci95_t": [
+        -0.0037023815925388576,
+        0.019721543525663993
+      ],
+      "min": 0.0,
+      "max": 0.14829594477998587
+    },
+    "scope": "paired simulated phase blocks; sampled best-action includes no-action and is hindsight, not a causal policy"
+  },
+  "s2.reserved35": {
+    "fixed_static_loss_pct": {
+      "n": 30,
+      "mean": 53.01142965110241,
+      "ci95_t": [
+        52.36302587686226,
+        53.65983342534256
+      ],
+      "min": 47.992841062609145,
+      "max": 54.2129939718687
+    },
+    "strong_static_gain_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "remaining_zero_cost_upper_pct": {
+      "n": 30,
+      "mean": 1.809195878493851,
+      "ci95_t": [
+        1.3201306337943706,
+        2.2982611231933316
+      ],
+      "min": 0.8949342423965834,
+      "max": 5.157867269722538
+    },
+    "strong_elapsed": {
+      "n": 30,
+      "mean": 73102.74063011068,
+      "ci95_t": [
+        72792.9592429297,
+        73412.52201729166
+      ],
+      "min": 70705.05974607215,
+      "max": 73676.79999999999
+    },
+    "best_sampled_single_action_free_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "best_sampled_single_action_charged_pct": {
+      "n": 30,
+      "mean": 0.0,
+      "ci95_t": [
+        0.0,
+        0.0
+      ],
+      "min": 0.0,
+      "max": 0.0
+    },
+    "scope": "paired simulated phase blocks; sampled best-action includes no-action and is hindsight, not a causal policy"
+  }
+}

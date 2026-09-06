@@ -1,0 +1,68 @@
+{
+  "B_order0": {
+    "positive": 10,
+    "negative": 33,
+    "zero": 27,
+    "best": {
+      "config": "flux2_klein4b_double_scaled__dma64__service",
+      "group": "hardware_sensitivity",
+      "case": "flux2_klein4b_double_scaled",
+      "target": "dma64",
+      "mode": "service",
+      "policy": "B_order0",
+      "n": 32,
+      "latency_mean": 9566.722757265114,
+      "latency_p95": 10261.265302174479,
+      "paired_reduction_pct": 0.6864340039886325,
+      "ci95_low": 0.2836677518101419,
+      "ci95_high": 1.089200256167123
+    },
+    "worst": {
+      "config": "qwen35_linear_decode__two_core__deterministic",
+      "group": "main",
+      "case": "qwen35_linear_decode",
+      "target": "two_core",
+      "mode": "deterministic",
+      "policy": "B_order0",
+      "n": 32,
+      "latency_mean": 9789.5,
+      "latency_p95": 9789.5,
+      "paired_reduction_pct": -6.390262457208064,
+      "ci95_low": -6.390262457208064,
+      "ci95_high": -6.390262457208064
+    }
+  },
+  "B_order2": {
+    "positive": 2,
+    "negative": 68,
+    "zero": 0,
+    "best": {
+      "config": "flux2_klein4b_double_scaled__split_engine_ports__service",
+      "group": "pipeline_port_sensitivity",
+      "case": "flux2_klein4b_double_scaled",
+      "target": "split_engine_ports",
+      "mode": "service",
+      "policy": "B_order2",
+      "n": 32,
+      "latency_mean": 15244.846959692844,
+      "latency_p95": 16521.794370379976,
+      "paired_reduction_pct": 0.19679702605034707,
+      "ci95_low": -0.15224059608988336,
+      "ci95_high": 0.5458346481905775
+    },
+    "worst": {
+      "config": "qwen35_full_decode__dma64__service",
+      "group": "hardware_sensitivity",
+      "case": "qwen35_full_decode",
+      "target": "dma64",
+      "mode": "service",
+      "policy": "B_order2",
+      "n": 32,
+      "latency_mean": 5384.821175794393,
+      "latency_p95": 6051.306652587734,
+      "paired_reduction_pct": -7.121692403443854,
+      "ci95_low": -8.706801484795157,
+      "ci95_high": -5.53658332209255
+    }
+  }
+}

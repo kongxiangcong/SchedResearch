@@ -1,0 +1,2800 @@
+{
+  "evidence": "exact finite synthetic distribution; no device timing or area claim",
+  "scope": "all topological admission permutations and projected static resource orders; fixed mapping and addresses",
+  "fairness": "B uses A-optimal frozen contract; same common costs, plus explicit dynamic-only extra dispatch cost",
+  "state": "partial logical bit model; graph history and notification storage included, not RTL PPA",
+  "worlds": [
+    {
+      "load0": 80,
+      "load1": 120,
+      "vpu0": 20,
+      "vpu1": 20
+    },
+    {
+      "load0": 120,
+      "load1": 80,
+      "vpu0": 20,
+      "vpu1": 20
+    }
+  ],
+  "results": [
+    {
+      "window": 1,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 0,
+      "static_expected": 240.0,
+      "dynamic_expected": 240.0,
+      "reduction_pct": 0.0,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 1,
+      "static_expected": 240.0,
+      "dynamic_expected": 244.0,
+      "reduction_pct": -1.6666666666666667,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 2,
+      "static_expected": 240.0,
+      "dynamic_expected": 248.0,
+      "reduction_pct": -3.3333333333333335,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 4,
+      "static_expected": 240.0,
+      "dynamic_expected": 256.0,
+      "reduction_pct": -6.666666666666667,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 8,
+      "static_expected": 240.0,
+      "dynamic_expected": 272.0,
+      "reduction_pct": -13.333333333333334,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 16,
+      "static_expected": 240.0,
+      "dynamic_expected": 304.0,
+      "reduction_pct": -26.666666666666668,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 0,
+      "static_expected": 244.0,
+      "dynamic_expected": 244.0,
+      "reduction_pct": 0.0,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 1,
+      "static_expected": 244.0,
+      "dynamic_expected": 248.0,
+      "reduction_pct": -1.639344262295082,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 2,
+      "static_expected": 244.0,
+      "dynamic_expected": 252.0,
+      "reduction_pct": -3.278688524590164,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 4,
+      "static_expected": 244.0,
+      "dynamic_expected": 260.0,
+      "reduction_pct": -6.557377049180328,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 8,
+      "static_expected": 244.0,
+      "dynamic_expected": 276.0,
+      "reduction_pct": -13.114754098360656,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 16,
+      "static_expected": 244.0,
+      "dynamic_expected": 308.0,
+      "reduction_pct": -26.229508196721312,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 0,
+      "static_expected": 248.0,
+      "dynamic_expected": 248.0,
+      "reduction_pct": 0.0,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 1,
+      "static_expected": 248.0,
+      "dynamic_expected": 252.0,
+      "reduction_pct": -1.6129032258064515,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 2,
+      "static_expected": 248.0,
+      "dynamic_expected": 256.0,
+      "reduction_pct": -3.225806451612903,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 4,
+      "static_expected": 248.0,
+      "dynamic_expected": 264.0,
+      "reduction_pct": -6.451612903225806,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 8,
+      "static_expected": 248.0,
+      "dynamic_expected": 280.0,
+      "reduction_pct": -12.903225806451612,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 1,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 16,
+      "static_expected": 248.0,
+      "dynamic_expected": 312.0,
+      "reduction_pct": -25.806451612903224,
+      "static_state_bits": 229,
+      "dynamic_state_bits": 229,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 0,
+      "static_expected": 150.0,
+      "dynamic_expected": 150.0,
+      "reduction_pct": 0.0,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 1,
+      "static_expected": 150.0,
+      "dynamic_expected": 152.5,
+      "reduction_pct": -1.6666666666666667,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 2,
+      "static_expected": 150.0,
+      "dynamic_expected": 155.0,
+      "reduction_pct": -3.3333333333333335,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 4,
+      "static_expected": 150.0,
+      "dynamic_expected": 160.0,
+      "reduction_pct": -6.666666666666667,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 8,
+      "static_expected": 150.0,
+      "dynamic_expected": 170.0,
+      "reduction_pct": -13.333333333333334,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 16,
+      "static_expected": 150.0,
+      "dynamic_expected": 190.0,
+      "reduction_pct": -26.666666666666668,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 0,
+      "static_expected": 154.0,
+      "dynamic_expected": 153.5,
+      "reduction_pct": 0.3246753246753247,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 1,
+      "static_expected": 154.0,
+      "dynamic_expected": 156.0,
+      "reduction_pct": -1.2987012987012987,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 2,
+      "static_expected": 154.0,
+      "dynamic_expected": 158.5,
+      "reduction_pct": -2.9220779220779223,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 4,
+      "static_expected": 154.0,
+      "dynamic_expected": 163.5,
+      "reduction_pct": -6.1688311688311686,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 8,
+      "static_expected": 154.0,
+      "dynamic_expected": 173.5,
+      "reduction_pct": -12.662337662337663,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 16,
+      "static_expected": 154.0,
+      "dynamic_expected": 193.5,
+      "reduction_pct": -25.649350649350648,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 0,
+      "static_expected": 158.0,
+      "dynamic_expected": 157.0,
+      "reduction_pct": 0.6329113924050633,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 1,
+      "static_expected": 158.0,
+      "dynamic_expected": 159.5,
+      "reduction_pct": -0.9493670886075949,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 2,
+      "static_expected": 158.0,
+      "dynamic_expected": 162.0,
+      "reduction_pct": -2.5316455696202533,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 4,
+      "static_expected": 158.0,
+      "dynamic_expected": 167.0,
+      "reduction_pct": -5.69620253164557,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 8,
+      "static_expected": 158.0,
+      "dynamic_expected": 177.0,
+      "reduction_pct": -12.025316455696203,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 2,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 16,
+      "static_expected": 158.0,
+      "dynamic_expected": 197.0,
+      "reduction_pct": -24.68354430379747,
+      "static_state_bits": 287,
+      "dynamic_state_bits": 290,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 0,
+      "static_expected": 150.0,
+      "dynamic_expected": 140.0,
+      "reduction_pct": 6.666666666666667,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 1,
+      "static_expected": 150.0,
+      "dynamic_expected": 142.0,
+      "reduction_pct": 5.333333333333333,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 2,
+      "static_expected": 150.0,
+      "dynamic_expected": 144.0,
+      "reduction_pct": 4.0,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 4,
+      "static_expected": 150.0,
+      "dynamic_expected": 148.0,
+      "reduction_pct": 1.3333333333333333,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 8,
+      "static_expected": 150.0,
+      "dynamic_expected": 156.0,
+      "reduction_pct": -4.0,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 16,
+      "static_expected": 150.0,
+      "dynamic_expected": 172.0,
+      "reduction_pct": -14.666666666666666,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 0,
+      "static_expected": 154.0,
+      "dynamic_expected": 143.5,
+      "reduction_pct": 6.818181818181818,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 1,
+      "static_expected": 154.0,
+      "dynamic_expected": 145.5,
+      "reduction_pct": 5.51948051948052,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 2,
+      "static_expected": 154.0,
+      "dynamic_expected": 147.5,
+      "reduction_pct": 4.220779220779221,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 4,
+      "static_expected": 154.0,
+      "dynamic_expected": 151.5,
+      "reduction_pct": 1.6233766233766234,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 8,
+      "static_expected": 154.0,
+      "dynamic_expected": 159.5,
+      "reduction_pct": -3.5714285714285716,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 16,
+      "static_expected": 154.0,
+      "dynamic_expected": 175.5,
+      "reduction_pct": -13.96103896103896,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 0,
+      "static_expected": 158.0,
+      "dynamic_expected": 147.0,
+      "reduction_pct": 6.962025316455696,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 1,
+      "static_expected": 158.0,
+      "dynamic_expected": 149.0,
+      "reduction_pct": 5.69620253164557,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 2,
+      "static_expected": 158.0,
+      "dynamic_expected": 151.0,
+      "reduction_pct": 4.430379746835443,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 4,
+      "static_expected": 158.0,
+      "dynamic_expected": 155.0,
+      "reduction_pct": 1.8987341772151898,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 8,
+      "static_expected": 158.0,
+      "dynamic_expected": 163.0,
+      "reduction_pct": -3.1645569620253164,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 3,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 16,
+      "static_expected": 158.0,
+      "dynamic_expected": 179.0,
+      "reduction_pct": -13.291139240506329,
+      "static_state_bits": 345,
+      "dynamic_state_bits": 351,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 0,
+      "static_expected": 150.0,
+      "dynamic_expected": 140.0,
+      "reduction_pct": 6.666666666666667,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 1,
+      "static_expected": 150.0,
+      "dynamic_expected": 142.0,
+      "reduction_pct": 5.333333333333333,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 2,
+      "static_expected": 150.0,
+      "dynamic_expected": 144.0,
+      "reduction_pct": 4.0,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 4,
+      "static_expected": 150.0,
+      "dynamic_expected": 148.0,
+      "reduction_pct": 1.3333333333333333,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 8,
+      "static_expected": 150.0,
+      "dynamic_expected": 156.0,
+      "reduction_pct": -4.0,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 0,
+      "extra_dynamic_dispatch": 16,
+      "static_expected": 150.0,
+      "dynamic_expected": 172.0,
+      "reduction_pct": -14.666666666666666,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 0,
+      "static_expected": 154.0,
+      "dynamic_expected": 143.5,
+      "reduction_pct": 6.818181818181818,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 1,
+      "static_expected": 154.0,
+      "dynamic_expected": 145.5,
+      "reduction_pct": 5.51948051948052,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 2,
+      "static_expected": 154.0,
+      "dynamic_expected": 147.5,
+      "reduction_pct": 4.220779220779221,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 4,
+      "static_expected": 154.0,
+      "dynamic_expected": 151.5,
+      "reduction_pct": 1.6233766233766234,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 8,
+      "static_expected": 154.0,
+      "dynamic_expected": 159.5,
+      "reduction_pct": -3.5714285714285716,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 1,
+      "extra_dynamic_dispatch": 16,
+      "static_expected": 154.0,
+      "dynamic_expected": 175.5,
+      "reduction_pct": -13.96103896103896,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 0,
+      "static_expected": 158.0,
+      "dynamic_expected": 147.0,
+      "reduction_pct": 6.962025316455696,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 1,
+      "static_expected": 158.0,
+      "dynamic_expected": 149.0,
+      "reduction_pct": 5.69620253164557,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 2,
+      "static_expected": 158.0,
+      "dynamic_expected": 151.0,
+      "reduction_pct": 4.430379746835443,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 4,
+      "static_expected": 158.0,
+      "dynamic_expected": 155.0,
+      "reduction_pct": 1.8987341772151898,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 8,
+      "static_expected": 158.0,
+      "dynamic_expected": 163.0,
+      "reduction_pct": -3.1645569620253164,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    },
+    {
+      "window": 4,
+      "common_cost": 2,
+      "extra_dynamic_dispatch": 16,
+      "static_expected": 158.0,
+      "dynamic_expected": 179.0,
+      "reduction_pct": -13.291139240506329,
+      "static_state_bits": 403,
+      "dynamic_state_bits": 412,
+      "descriptor_bytes": 234,
+      "exhaustive_static_contracts": 6,
+      "admission": "load0|load1|vpu0|vpu1"
+    }
+  ],
+  "traces": {
+    "window1_extra0": {
+      "A": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 200.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 200.0,
+            "start": 200.0,
+            "finish": 220.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 220.0,
+            "start": 220.0,
+            "finish": 240.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 200.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 200.0,
+            "start": 200.0,
+            "finish": 220.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 220.0,
+            "start": 220.0,
+            "finish": 240.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "B": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 200.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 200.0,
+            "start": 200.0,
+            "finish": 220.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 220.0,
+            "start": 220.0,
+            "finish": 240.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 200.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 200.0,
+            "start": 200.0,
+            "finish": 220.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 220.0,
+            "start": 220.0,
+            "finish": 240.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "static_hardware": {
+        "window": 1,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 0,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      },
+      "dynamic_hardware": {
+        "window": 1,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 0,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      }
+    },
+    "window1_extra8": {
+      "A": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 200.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 200.0,
+            "start": 200.0,
+            "finish": 220.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 220.0,
+            "start": 220.0,
+            "finish": 240.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 200.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 200.0,
+            "start": 200.0,
+            "finish": 220.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 220.0,
+            "start": 220.0,
+            "finish": 240.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "B": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 88.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 88.0,
+            "start": 96.0,
+            "finish": 216.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 216.0,
+            "start": 224.0,
+            "finish": 244.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 244.0,
+            "start": 252.0,
+            "finish": 272.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 128.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 128.0,
+            "start": 136.0,
+            "finish": 216.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 216.0,
+            "start": 224.0,
+            "finish": 244.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 244.0,
+            "start": 252.0,
+            "finish": 272.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "static_hardware": {
+        "window": 1,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 0,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      },
+      "dynamic_hardware": {
+        "window": 1,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 8,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      }
+    },
+    "window2_extra0": {
+      "A": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 100.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 140.0,
+            "start": 140.0,
+            "finish": 160.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "B": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 100.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 140.0,
+            "start": 140.0,
+            "finish": 160.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "static_hardware": {
+        "window": 2,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 0,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      },
+      "dynamic_hardware": {
+        "window": 2,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 0,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      }
+    },
+    "window2_extra8": {
+      "A": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 100.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 140.0,
+            "start": 140.0,
+            "finish": 160.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "B": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 88.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 128.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 88.0,
+            "start": 96.0,
+            "finish": 116.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 128.0,
+            "start": 136.0,
+            "finish": 156.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 128.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 88.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 128.0,
+            "start": 136.0,
+            "finish": 156.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 156.0,
+            "start": 164.0,
+            "finish": 184.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "static_hardware": {
+        "window": 2,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 0,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      },
+      "dynamic_hardware": {
+        "window": 2,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 8,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      }
+    },
+    "window3_extra0": {
+      "A": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 100.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 140.0,
+            "start": 140.0,
+            "finish": 160.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "B": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 100.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 100.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "static_hardware": {
+        "window": 3,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 0,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      },
+      "dynamic_hardware": {
+        "window": 3,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 0,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      }
+    },
+    "window3_extra8": {
+      "A": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 100.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 140.0,
+            "start": 140.0,
+            "finish": 160.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "B": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 88.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 128.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 88.0,
+            "start": 96.0,
+            "finish": 116.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 128.0,
+            "start": 136.0,
+            "finish": 156.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 128.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 88.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 88.0,
+            "start": 96.0,
+            "finish": 116.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 128.0,
+            "start": 136.0,
+            "finish": 156.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "static_hardware": {
+        "window": 3,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 0,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      },
+      "dynamic_hardware": {
+        "window": 3,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 8,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      }
+    },
+    "window4_extra0": {
+      "A": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 100.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 140.0,
+            "start": 140.0,
+            "finish": 160.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "B": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 100.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 100.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "static_hardware": {
+        "window": 4,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 0,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      },
+      "dynamic_hardware": {
+        "window": 4,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 0,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      }
+    },
+    "window4_extra8": {
+      "A": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 80.0,
+            "start": 80.0,
+            "finish": 100.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 120.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 0.0,
+            "finish": 80.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 120.0,
+            "start": 120.0,
+            "finish": 140.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 140.0,
+            "start": 140.0,
+            "finish": 160.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "B": [
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 88.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 128.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 88.0,
+            "start": 96.0,
+            "finish": 116.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 128.0,
+            "start": 136.0,
+            "finish": 156.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ],
+        [
+          {
+            "task": "load0",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 128.0,
+            "sequence": 0,
+            "resources": [
+              "dma0"
+            ],
+            "service": 120,
+            "domain": "central"
+          },
+          {
+            "task": "load1",
+            "dispatch": 0.0,
+            "start": 8.0,
+            "finish": 88.0,
+            "sequence": 1,
+            "resources": [
+              "dma1"
+            ],
+            "service": 80,
+            "domain": "central"
+          },
+          {
+            "task": "vpu1",
+            "dispatch": 88.0,
+            "start": 96.0,
+            "finish": 116.0,
+            "sequence": 2,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          },
+          {
+            "task": "vpu0",
+            "dispatch": 128.0,
+            "start": 136.0,
+            "finish": 156.0,
+            "sequence": 3,
+            "resources": [
+              "vpu"
+            ],
+            "service": 20,
+            "domain": "central"
+          }
+        ]
+      ],
+      "static_hardware": {
+        "window": 4,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 0,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      },
+      "dynamic_hardware": {
+        "window": 4,
+        "byte_window": 4096,
+        "issue_width": 1,
+        "issue_cycle": 0,
+        "dispatch_latency": 8,
+        "completion_latency": 0,
+        "wakeup_width": 1,
+        "wakeup_cycle": 0,
+        "distributed": false,
+        "memory_capacity": 268435456
+      }
+    }
+  }
+}

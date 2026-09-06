@@ -1,0 +1,303 @@
+{
+  "descriptor_contract": [
+    {
+      "completion_event": "load0",
+      "domain": "cluster0",
+      "output_address": 0,
+      "output_bytes": 256,
+      "predicted_latency": 100,
+      "priority": 120,
+      "task_id": "load0",
+      "wait": [],
+      "where": [
+        "dma0"
+      ]
+    },
+    {
+      "completion_event": "load1",
+      "domain": "cluster0",
+      "output_address": 256,
+      "output_bytes": 256,
+      "predicted_latency": 100,
+      "priority": 120,
+      "task_id": "load1",
+      "wait": [],
+      "where": [
+        "dma1"
+      ]
+    },
+    {
+      "completion_event": "vpu0",
+      "domain": "cluster0",
+      "output_address": 512,
+      "output_bytes": 256,
+      "predicted_latency": 20,
+      "priority": 20,
+      "task_id": "vpu0",
+      "wait": [
+        {
+          "event": "load0",
+          "kind": "data"
+        }
+      ],
+      "where": [
+        "vpu"
+      ]
+    },
+    {
+      "completion_event": "vpu1",
+      "domain": "cluster0",
+      "output_address": 768,
+      "output_bytes": 256,
+      "predicted_latency": 20,
+      "priority": 20,
+      "task_id": "vpu1",
+      "wait": [
+        {
+          "event": "load1",
+          "kind": "data"
+        }
+      ],
+      "where": [
+        "vpu"
+      ]
+    }
+  ],
+  "distribution": "equiprobable (80,120) and (120,80); mean100 CoV0.2; no storage alias",
+  "dynamic_expected_latency": 140,
+  "evidence": "exact bounded synthetic counterexample, not measured NPU",
+  "exact_oracle_latencies": [
+    140.0,
+    140.0
+  ],
+  "latency_reduction_pct": 6.666666666666667,
+  "static_expected_latency": 150,
+  "static_orders_exhausted": [
+    {
+      "latencies": [
+        140.0,
+        160.0
+      ],
+      "vpu_order": [
+        "vpu0",
+        "vpu1"
+      ]
+    },
+    {
+      "latencies": [
+        160.0,
+        140.0
+      ],
+      "vpu_order": [
+        "vpu1",
+        "vpu0"
+      ]
+    }
+  ],
+  "traces": {
+    "A": [
+      [
+        {
+          "dispatch": 0.0,
+          "domain": "central",
+          "finish": 80.0,
+          "resources": [
+            "dma0"
+          ],
+          "sequence": 0,
+          "service": 80,
+          "start": 0.0,
+          "task": "load0"
+        },
+        {
+          "dispatch": 0.0,
+          "domain": "central",
+          "finish": 120.0,
+          "resources": [
+            "dma1"
+          ],
+          "sequence": 1,
+          "service": 120,
+          "start": 0.0,
+          "task": "load1"
+        },
+        {
+          "dispatch": 80.0,
+          "domain": "central",
+          "finish": 100.0,
+          "resources": [
+            "vpu"
+          ],
+          "sequence": 2,
+          "service": 20,
+          "start": 80.0,
+          "task": "vpu0"
+        },
+        {
+          "dispatch": 120.0,
+          "domain": "central",
+          "finish": 140.0,
+          "resources": [
+            "vpu"
+          ],
+          "sequence": 3,
+          "service": 20,
+          "start": 120.0,
+          "task": "vpu1"
+        }
+      ],
+      [
+        {
+          "dispatch": 0.0,
+          "domain": "central",
+          "finish": 120.0,
+          "resources": [
+            "dma0"
+          ],
+          "sequence": 0,
+          "service": 120,
+          "start": 0.0,
+          "task": "load0"
+        },
+        {
+          "dispatch": 0.0,
+          "domain": "central",
+          "finish": 80.0,
+          "resources": [
+            "dma1"
+          ],
+          "sequence": 1,
+          "service": 80,
+          "start": 0.0,
+          "task": "load1"
+        },
+        {
+          "dispatch": 120.0,
+          "domain": "central",
+          "finish": 140.0,
+          "resources": [
+            "vpu"
+          ],
+          "sequence": 2,
+          "service": 20,
+          "start": 120.0,
+          "task": "vpu0"
+        },
+        {
+          "dispatch": 140.0,
+          "domain": "central",
+          "finish": 160.0,
+          "resources": [
+            "vpu"
+          ],
+          "sequence": 3,
+          "service": 20,
+          "start": 140.0,
+          "task": "vpu1"
+        }
+      ]
+    ],
+    "B": [
+      [
+        {
+          "dispatch": 0.0,
+          "domain": "central",
+          "finish": 80.0,
+          "resources": [
+            "dma0"
+          ],
+          "sequence": 0,
+          "service": 80,
+          "start": 0.0,
+          "task": "load0"
+        },
+        {
+          "dispatch": 0.0,
+          "domain": "central",
+          "finish": 120.0,
+          "resources": [
+            "dma1"
+          ],
+          "sequence": 1,
+          "service": 120,
+          "start": 0.0,
+          "task": "load1"
+        },
+        {
+          "dispatch": 80.0,
+          "domain": "central",
+          "finish": 100.0,
+          "resources": [
+            "vpu"
+          ],
+          "sequence": 2,
+          "service": 20,
+          "start": 80.0,
+          "task": "vpu0"
+        },
+        {
+          "dispatch": 120.0,
+          "domain": "central",
+          "finish": 140.0,
+          "resources": [
+            "vpu"
+          ],
+          "sequence": 3,
+          "service": 20,
+          "start": 120.0,
+          "task": "vpu1"
+        }
+      ],
+      [
+        {
+          "dispatch": 0.0,
+          "domain": "central",
+          "finish": 120.0,
+          "resources": [
+            "dma0"
+          ],
+          "sequence": 0,
+          "service": 120,
+          "start": 0.0,
+          "task": "load0"
+        },
+        {
+          "dispatch": 0.0,
+          "domain": "central",
+          "finish": 80.0,
+          "resources": [
+            "dma1"
+          ],
+          "sequence": 1,
+          "service": 80,
+          "start": 0.0,
+          "task": "load1"
+        },
+        {
+          "dispatch": 80.0,
+          "domain": "central",
+          "finish": 100.0,
+          "resources": [
+            "vpu"
+          ],
+          "sequence": 2,
+          "service": 20,
+          "start": 80.0,
+          "task": "vpu1"
+        },
+        {
+          "dispatch": 120.0,
+          "domain": "central",
+          "finish": 140.0,
+          "resources": [
+            "vpu"
+          ],
+          "sequence": 3,
+          "service": 20,
+          "start": 120.0,
+          "task": "vpu0"
+        }
+      ]
+    ]
+  }
+}

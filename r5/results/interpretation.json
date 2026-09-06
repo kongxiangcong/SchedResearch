@@ -1,0 +1,161 @@
+{
+  "status": "PASS",
+  "case_count": 42,
+  "request_case_count": 36,
+  "performance_executions": 7094,
+  "test_executions": 1512,
+  "request_test_executions_independently_replayed_in_memory": 1296,
+  "request_events_checked_in_memory": 12886560,
+  "verdict_counts_request": {
+    "B0": {
+      "positive": 2,
+      "zero": 16,
+      "negative": 18,
+      "mean5pct_ci_positive": 0,
+      "best": {
+        "case": "request__qwen_projection__o1_combined",
+        "gain": 0.1649123189643766,
+        "ci95": [
+          -0.025303823683185678,
+          0.3457724488768057
+        ]
+      }
+    },
+    "B2": {
+      "positive": 2,
+      "zero": 0,
+      "negative": 34,
+      "mean5pct_ci_positive": 0,
+      "best": {
+        "case": "request__qwen_projection__o1_combined",
+        "gain": 0.18213473079335962,
+        "ci95": [
+          -0.00821187540325681,
+          0.3534214124989932
+        ]
+      }
+    }
+  },
+  "contrasts": [
+    {
+      "workload": "qwen_projection",
+      "quiet_cycles": 41718.0,
+      "combined_cycles": 55546.57411418244,
+      "retrained_combined_penalty_pct": 33.14773985853214,
+      "quiet_loose_max_gain_pct": 1.4334340093005382,
+      "combined_loose_max_gain_pct": 1.2925910500265407,
+      "combined_B0_gain_pct": 0.0,
+      "combined_B2_gain_pct": -0.055822506461496633,
+      "quiet_external_occupancy": 0.9856656599069946,
+      "quiet_external_payload_bw": 31.541301117023828,
+      "quiet_compute_utilization": {
+        "mxu0": 0.023011649647634115,
+        "mxu1": 0.023011649647634115,
+        "vpu0": 0.00038352749412723527,
+        "vpu1": 0.00038352749412723527
+      },
+      "stress_vs_combined_static_multiplier": {
+        "o1_combined": 10.599923626507813,
+        "o4_combined": 2.7782538656810516,
+        "r1_combined": 3.7132083109845193,
+        "r2_combined": 1.9099587869466572,
+        "fifo_combined": 1.1669460613419407,
+        "banks1_combined": 0.9960078831025665
+      },
+      "atomic_vs_request": {
+        "ref_none": {
+          "atomic": 42300.0,
+          "request": 41718.0,
+          "atomic_B0_gain_pct": 0.0,
+          "request_B0_gain_pct": 0.0
+        },
+        "ref_combined": {
+          "atomic": 56034.01861045061,
+          "request": 55546.57411418244,
+          "atomic_B0_gain_pct": 0.0,
+          "request_B0_gain_pct": 0.0
+        }
+      }
+    },
+    {
+      "workload": "flux_projection",
+      "quiet_cycles": 57575.0,
+      "combined_cycles": 76700.69143539341,
+      "retrained_combined_penalty_pct": 33.21874326598942,
+      "quiet_loose_max_gain_pct": 3.958315240990018,
+      "combined_loose_max_gain_pct": 3.901048649964316,
+      "combined_B0_gain_pct": -1.2791786837596668,
+      "combined_B2_gain_pct": -1.2751027802899735,
+      "quiet_external_occupancy": 0.9604168475900998,
+      "quiet_external_payload_bw": 30.733339122883194,
+      "quiet_compute_utilization": {
+        "mxu0": 0.22676508901432912,
+        "vpu0": 0.008892748588797222,
+        "mxu1": 0.22676508901432912,
+        "vpu1": 0.008892748588797222
+      },
+      "stress_vs_combined_static_multiplier": {
+        "o1_combined": 10.32233120944502,
+        "o4_combined": 2.7325882086657605,
+        "r1_combined": 3.651177437125495,
+        "r2_combined": 1.8933727705678398,
+        "fifo_combined": 1.1908005789292002,
+        "banks1_combined": 0.9941775036433845
+      },
+      "atomic_vs_request": {
+        "ref_none": {
+          "atomic": 61679.0,
+          "request": 57575.0,
+          "atomic_B0_gain_pct": 0.0,
+          "request_B0_gain_pct": -0.5280069474598248
+        },
+        "ref_combined": {
+          "atomic": 79650.17493523002,
+          "request": 76700.69143539341,
+          "atomic_B0_gain_pct": 0.0,
+          "request_B0_gain_pct": -1.2791786837596668
+        }
+      }
+    },
+    {
+      "workload": "qwen_gdn_state",
+      "quiet_cycles": 23318.0,
+      "combined_cycles": 28149.94212649772,
+      "retrained_combined_penalty_pct": 20.721940674576377,
+      "quiet_loose_max_gain_pct": 38.51959859336135,
+      "combined_loose_max_gain_pct": 49.06438193398052,
+      "combined_B0_gain_pct": 0.0,
+      "combined_B2_gain_pct": -0.1997950201701043,
+      "quiet_external_occupancy": 0.1756582897332533,
+      "quiet_external_payload_bw": 5.621065271464105,
+      "quiet_compute_utilization": {
+        "vpu0": 0.6148040140663865,
+        "vpu1": 0.6148040140663865
+      },
+      "stress_vs_combined_static_multiplier": {
+        "o1_combined": 2.850420437072147,
+        "o4_combined": 1.325425204313311,
+        "r1_combined": 1.4635909538413576,
+        "r2_combined": 1.127894585768136,
+        "fifo_combined": 1.1433179448897632,
+        "banks1_combined": 0.9455207537592332
+      },
+      "atomic_vs_request": {
+        "ref_none": {
+          "atomic": 24156.0,
+          "request": 23318.0,
+          "atomic_B0_gain_pct": 0.0,
+          "request_B0_gain_pct": 0.0
+        },
+        "ref_combined": {
+          "atomic": 25641.841397893986,
+          "request": 28149.94212649772,
+          "atomic_B0_gain_pct": 0.0,
+          "request_B0_gain_pct": 0.0
+        }
+      }
+    }
+  ],
+  "scientific_boundary": "Conditional uncalibrated full-width source slices; trained static candidate class, not production compiler or full-model evidence.",
+  "GDN_caveat": "Main per-token SRAM roundtrips are not mandated by capacity; see fresh-seed RF-resident compiler control before interpreting GDN."
+}

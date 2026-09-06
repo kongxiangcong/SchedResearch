@@ -1,0 +1,1442 @@
+[
+  {
+    "config": "qwen35_full_decode__two_core__calendar",
+    "artifact": "counterfactuals/qwen35_full_decode__two_core__calendar.0.json",
+    "action": {
+      "time": 9559.249999992498,
+      "task": "load.pack.ffn_down0"
+    },
+    "static_latency": 11886.70328404479,
+    "counterfactual_latency": 11910.249999992498,
+    "reduction_cycles": -23.546715947708435,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__dma64__service",
+    "artifact": "counterfactuals/qwen35_full_decode__dma64__service.0.json",
+    "action": {
+      "time": 1076.2387561740795,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 5149.1718075831795,
+    "counterfactual_latency": 5906.572977550605,
+    "reduction_cycles": -757.4011699674256,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__dma64__service",
+    "artifact": "counterfactuals/qwen35_full_decode__dma64__service.1.json",
+    "action": {
+      "time": 1076.2387561740795,
+      "task": "load.pack.kv_append"
+    },
+    "static_latency": 5149.1718075831795,
+    "counterfactual_latency": 5187.488855748023,
+    "reduction_cycles": -38.31704816484307,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__dma64__service",
+    "artifact": "counterfactuals/qwen35_full_decode__dma64__service.2.json",
+    "action": {
+      "time": 1089.7387561740795,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 5149.1718075831795,
+    "counterfactual_latency": 5920.072977550605,
+    "reduction_cycles": -770.9011699674256,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__dma64__service",
+    "artifact": "counterfactuals/qwen35_full_decode__dma64__service.3.json",
+    "action": {
+      "time": 1089.7387561740795,
+      "task": "load.pack.kv_append"
+    },
+    "static_latency": 5149.1718075831795,
+    "counterfactual_latency": 5200.988855748023,
+    "reduction_cycles": -51.81704816484307,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__dma64__service",
+    "artifact": "counterfactuals/qwen35_full_decode__dma64__service.4.json",
+    "action": {
+      "time": 1090.7387561740795,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 5149.1718075831795,
+    "counterfactual_latency": 5921.072977550605,
+    "reduction_cycles": -771.9011699674256,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__dma64__service",
+    "artifact": "counterfactuals/qwen35_full_decode__dma64__service.5.json",
+    "action": {
+      "time": 1090.7387561740795,
+      "task": "load.pack.kv_append"
+    },
+    "static_latency": 5149.1718075831795,
+    "counterfactual_latency": 5201.988855748023,
+    "reduction_cycles": -52.81704816484307,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__sram_one_port__service",
+    "artifact": "counterfactuals/qwen35_full_decode__sram_one_port__service.0.json",
+    "action": {
+      "time": 5488.457054906021,
+      "task": "load.pack.ffn_down1"
+    },
+    "static_latency": 11488.441012292864,
+    "counterfactual_latency": 11488.441012292864,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__sram_one_port__service",
+    "artifact": "counterfactuals/qwen35_full_decode__sram_one_port__service.1.json",
+    "action": {
+      "time": 5507.457054906021,
+      "task": "load.pack.ffn_down1"
+    },
+    "static_latency": 11488.441012292864,
+    "counterfactual_latency": 11488.441012292864,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__one_operand_slot__service",
+    "artifact": "counterfactuals/qwen35_full_decode__one_operand_slot__service.0.json",
+    "action": {
+      "time": 20.898600940904153,
+      "task": "load.pack.kv_append"
+    },
+    "static_latency": 8875.870325596145,
+    "counterfactual_latency": 8954.441012292862,
+    "reduction_cycles": -78.57068669671753,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__one_operand_slot__service",
+    "artifact": "counterfactuals/qwen35_full_decode__one_operand_slot__service.1.json",
+    "action": {
+      "time": 22.898600940904153,
+      "task": "load.pack.kv_append"
+    },
+    "static_latency": 8875.870325596145,
+    "counterfactual_latency": 8956.441012292862,
+    "reduction_cycles": -80.57068669671753,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__one_operand_slot__service",
+    "artifact": "counterfactuals/qwen35_full_decode__one_operand_slot__service.2.json",
+    "action": {
+      "time": 36.39860094090415,
+      "task": "load.pack.kv_append"
+    },
+    "static_latency": 8875.870325596145,
+    "counterfactual_latency": 8969.941012292862,
+    "reduction_cycles": -94.07068669671753,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__one_operand_slot__service",
+    "artifact": "counterfactuals/qwen35_full_decode__one_operand_slot__service.3.json",
+    "action": {
+      "time": 37.39860094090415,
+      "task": "load.pack.kv_append"
+    },
+    "static_latency": 8875.870325596145,
+    "counterfactual_latency": 8970.941012292862,
+    "reduction_cycles": -95.07068669671753,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__four_operand_slots__service",
+    "artifact": "counterfactuals/qwen35_full_decode__four_operand_slots__service.0.json",
+    "action": {
+      "time": 6381.994120676832,
+      "task": "load.pack.ffn_down1"
+    },
+    "static_latency": 8876.441012292864,
+    "counterfactual_latency": 9326.191012292864,
+    "reduction_cycles": -449.75,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__four_operand_slots__service",
+    "artifact": "counterfactuals/qwen35_full_decode__four_operand_slots__service.1.json",
+    "action": {
+      "time": 6415.494120676832,
+      "task": "load.pack.ffn_down1"
+    },
+    "static_latency": 8876.441012292864,
+    "counterfactual_latency": 9359.691012292864,
+    "reduction_cycles": -483.25,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__two_core__deterministic",
+    "artifact": "counterfactuals/qwen35_linear_decode__two_core__deterministic.0.json",
+    "action": {
+      "time": 3611.0,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 9201.5,
+    "counterfactual_latency": 9487.0,
+    "reduction_cycles": -285.5,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__two_core__deterministic",
+    "artifact": "counterfactuals/qwen35_linear_decode__two_core__deterministic.1.json",
+    "action": {
+      "time": 3750.0,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 9201.5,
+    "counterfactual_latency": 9626.0,
+    "reduction_cycles": -424.5,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__two_core__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__two_core__service.0.json",
+    "action": {
+      "time": 4484.661743524059,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 10735.810859584466,
+    "counterfactual_latency": 11021.310859584466,
+    "reduction_cycles": -285.5,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__two_core__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__two_core__service.1.json",
+    "action": {
+      "time": 4623.661743524059,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 10735.810859584466,
+    "counterfactual_latency": 11160.310859584466,
+    "reduction_cycles": -424.5,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__two_core__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__two_core__service.2.json",
+    "action": {
+      "time": 9529.62918775138,
+      "task": "ffn_swiglu0"
+    },
+    "static_latency": 10735.810859584466,
+    "counterfactual_latency": 10735.810859584466,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__two_core__calendar",
+    "artifact": "counterfactuals/qwen35_linear_decode__two_core__calendar.0.json",
+    "action": {
+      "time": 5102.000000000001,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 13736.6991789813,
+    "counterfactual_latency": 13989.498973726626,
+    "reduction_cycles": -252.79979474532593,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__two_core__calendar",
+    "artifact": "counterfactuals/qwen35_linear_decode__two_core__calendar.1.json",
+    "action": {
+      "time": 5241.000000000001,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 13736.6991789813,
+    "counterfactual_latency": 14198.703284074796,
+    "reduction_cycles": -462.00410509349604,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__two_core__calendar",
+    "artifact": "counterfactuals/qwen35_linear_decode__two_core__calendar.2.json",
+    "action": {
+      "time": 11757.1991789813,
+      "task": "ffn_swiglu0"
+    },
+    "static_latency": 13736.6991789813,
+    "counterfactual_latency": 13712.1991789813,
+    "reduction_cycles": 24.5,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__two_core__combined",
+    "artifact": "counterfactuals/qwen35_linear_decode__two_core__combined.0.json",
+    "action": {
+      "time": 6443.238868570643,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 15765.367800499078,
+    "counterfactual_latency": 16016.140592938857,
+    "reduction_cycles": -250.77279243977864,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__two_core__combined",
+    "artifact": "counterfactuals/qwen35_linear_decode__two_core__combined.1.json",
+    "action": {
+      "time": 6582.238868570643,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 15765.367800499078,
+    "counterfactual_latency": 16210.843891316152,
+    "reduction_cycles": -445.4760908170738,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__two_core__combined",
+    "artifact": "counterfactuals/qwen35_linear_decode__two_core__combined.2.json",
+    "action": {
+      "time": 13955.88691960698,
+      "task": "ffn_swiglu0"
+    },
+    "static_latency": 15765.367800499078,
+    "counterfactual_latency": 15740.867800499078,
+    "reduction_cycles": 24.5,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__dma16__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__dma16__service.0.json",
+    "action": {
+      "time": 6418.313072801373,
+      "task": "load.shared.1"
+    },
+    "static_latency": 19195.47054617714,
+    "counterfactual_latency": 19195.47054617714,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__dma16__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__dma16__service.1.json",
+    "action": {
+      "time": 6419.313072801373,
+      "task": "load.shared.1"
+    },
+    "static_latency": 19195.47054617714,
+    "counterfactual_latency": 19195.47054617714,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__dma16__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__dma16__service.2.json",
+    "action": {
+      "time": 7776.4296563490025,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 19195.47054617714,
+    "counterfactual_latency": 19488.574742614957,
+    "reduction_cycles": -293.1041964378164,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__dma16__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__dma16__service.3.json",
+    "action": {
+      "time": 7777.4296563490025,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 19195.47054617714,
+    "counterfactual_latency": 19489.574742614957,
+    "reduction_cycles": -294.1041964378164,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__dma16__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__dma16__service.4.json",
+    "action": {
+      "time": 7778.4296563490025,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 19195.47054617714,
+    "counterfactual_latency": 19490.574742614957,
+    "reduction_cycles": -295.1041964378164,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__dma16__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__dma16__service.5.json",
+    "action": {
+      "time": 7907.825459911189,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 19195.47054617714,
+    "counterfactual_latency": 19619.970546177145,
+    "reduction_cycles": -424.50000000000364,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__dma64__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__dma64__service.0.json",
+    "action": {
+      "time": 4316.2495900004,
+      "task": "load.pack.ffn_norm"
+    },
+    "static_latency": 6771.814484376593,
+    "counterfactual_latency": 6770.814484376593,
+    "reduction_cycles": 1.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__one_operand_slot__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__one_operand_slot__service.0.json",
+    "action": {
+      "time": 20.898600940904153,
+      "task": "load.pack.decay_gates"
+    },
+    "static_latency": 10617.248635543441,
+    "counterfactual_latency": 10622.779217744463,
+    "reduction_cycles": -5.530582201021389,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__one_operand_slot__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__one_operand_slot__service.1.json",
+    "action": {
+      "time": 20.898600940904153,
+      "task": "load.shared.1"
+    },
+    "static_latency": 10617.248635543441,
+    "counterfactual_latency": 10617.248635543441,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__one_operand_slot__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__one_operand_slot__service.2.json",
+    "action": {
+      "time": 22.898600940904153,
+      "task": "load.pack.decay_gates"
+    },
+    "static_latency": 10617.248635543441,
+    "counterfactual_latency": 10624.779217744463,
+    "reduction_cycles": -7.530582201021389,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__one_operand_slot__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__one_operand_slot__service.3.json",
+    "action": {
+      "time": 22.898600940904153,
+      "task": "load.shared.1"
+    },
+    "static_latency": 10617.248635543441,
+    "counterfactual_latency": 10617.248635543441,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__one_operand_slot__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__one_operand_slot__service.4.json",
+    "action": {
+      "time": 36.39860094090415,
+      "task": "load.pack.decay_gates"
+    },
+    "static_latency": 10617.248635543441,
+    "counterfactual_latency": 10638.279217744463,
+    "reduction_cycles": -21.03058220102139,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__one_operand_slot__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__one_operand_slot__service.5.json",
+    "action": {
+      "time": 36.39860094090415,
+      "task": "load.shared.1"
+    },
+    "static_latency": 10617.248635543441,
+    "counterfactual_latency": 10622.485932179155,
+    "reduction_cycles": -5.237296635714301,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__sram2MiB__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__sram2MiB__service.0.json",
+    "action": {
+      "time": 4484.661743524059,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 10735.810859584466,
+    "counterfactual_latency": 11021.310859584466,
+    "reduction_cycles": -285.5,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__sram2MiB__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__sram2MiB__service.1.json",
+    "action": {
+      "time": 4623.661743524059,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 10735.810859584466,
+    "counterfactual_latency": 11160.310859584466,
+    "reduction_cycles": -424.5,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__sram2MiB__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__sram2MiB__service.2.json",
+    "action": {
+      "time": 9529.62918775138,
+      "task": "ffn_swiglu0"
+    },
+    "static_latency": 10735.810859584466,
+    "counterfactual_latency": 10735.810859584466,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__sram8MiB__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__sram8MiB__service.0.json",
+    "action": {
+      "time": 4484.661743524059,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 10735.810859584466,
+    "counterfactual_latency": 11021.310859584466,
+    "reduction_cycles": -285.5,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__sram8MiB__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__sram8MiB__service.1.json",
+    "action": {
+      "time": 4623.661743524059,
+      "task": "load.pack.ffn_gu1"
+    },
+    "static_latency": 10735.810859584466,
+    "counterfactual_latency": 11160.310859584466,
+    "reduction_cycles": -424.5,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__sram8MiB__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__sram8MiB__service.2.json",
+    "action": {
+      "time": 9529.62918775138,
+      "task": "ffn_swiglu0"
+    },
+    "static_latency": 10735.810859584466,
+    "counterfactual_latency": 10735.810859584466,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__dma16__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__dma16__service.0.json",
+    "action": {
+      "time": 11288.57789887494,
+      "task": "load.pack.txt_mlp_expand"
+    },
+    "static_latency": 23832.648576795174,
+    "counterfactual_latency": 26056.505742926056,
+    "reduction_cycles": -2223.8571661308815,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__dma16__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__dma16__service.1.json",
+    "action": {
+      "time": 11289.57789887494,
+      "task": "load.pack.txt_mlp_expand"
+    },
+    "static_latency": 23832.648576795174,
+    "counterfactual_latency": 26057.505742926056,
+    "reduction_cycles": -2224.8571661308815,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__dma16__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__dma16__service.2.json",
+    "action": {
+      "time": 11466.72073274406,
+      "task": "load.pack.img_qk_norm_rope"
+    },
+    "static_latency": 23832.648576795174,
+    "counterfactual_latency": 23831.648576795174,
+    "reduction_cycles": 1.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__dma16__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__dma16__service.3.json",
+    "action": {
+      "time": 11466.72073274406,
+      "task": "load.pack.txt_mlp_expand"
+    },
+    "static_latency": 23832.648576795174,
+    "counterfactual_latency": 26234.648576795174,
+    "reduction_cycles": -2402.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__dma16__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__dma16__service.4.json",
+    "action": {
+      "time": 11467.72073274406,
+      "task": "load.pack.img_qk_norm_rope"
+    },
+    "static_latency": 23832.648576795174,
+    "counterfactual_latency": 23832.648576795174,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__dma16__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__dma16__service.5.json",
+    "action": {
+      "time": 11467.72073274406,
+      "task": "load.pack.txt_mlp_expand"
+    },
+    "static_latency": 23832.648576795174,
+    "counterfactual_latency": 26235.648576795174,
+    "reduction_cycles": -2403.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__one_operand_slot__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__one_operand_slot__service.0.json",
+    "action": {
+      "time": 6516.223550450488,
+      "task": "load.pack.txt_attention_out"
+    },
+    "static_latency": 15168.152362826515,
+    "counterfactual_latency": 15294.641850249036,
+    "reduction_cycles": -126.48948742252105,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__one_operand_slot__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__one_operand_slot__service.1.json",
+    "action": {
+      "time": 6559.246162755951,
+      "task": "load.pack.txt_attention_out"
+    },
+    "static_latency": 15168.152362826515,
+    "counterfactual_latency": 15337.6644625545,
+    "reduction_cycles": -169.5120997279846,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__one_operand_slot__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__one_operand_slot__service.2.json",
+    "action": {
+      "time": 6560.246162755951,
+      "task": "load.pack.txt_attention_out"
+    },
+    "static_latency": 15168.152362826515,
+    "counterfactual_latency": 15338.6644625545,
+    "reduction_cycles": -170.5120997279846,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__one_operand_slot__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__one_operand_slot__service.3.json",
+    "action": {
+      "time": 8247.071457964284,
+      "task": "txt_residual_norm2"
+    },
+    "static_latency": 15168.152362826515,
+    "counterfactual_latency": 15393.152362826515,
+    "reduction_cycles": -225.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__four_operand_slots__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__four_operand_slots__service.0.json",
+    "action": {
+      "time": 9150.09552219294,
+      "task": "img_av"
+    },
+    "static_latency": 13550.559977729095,
+    "counterfactual_latency": 13420.559977729095,
+    "reduction_cycles": 130.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled__two_core__combined",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled__two_core__combined.0.json",
+    "action": {
+      "time": 675.9426471391275,
+      "task": "load.pack.single_modulation"
+    },
+    "static_latency": 12422.79926698263,
+    "counterfactual_latency": 12420.97524193216,
+    "reduction_cycles": 1.8240250504713913,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled__two_core__combined",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled__two_core__combined.1.json",
+    "action": {
+      "time": 810.9426471391275,
+      "task": "load.pack.single_modulation"
+    },
+    "static_latency": 12422.79926698263,
+    "counterfactual_latency": 12420.29926698263,
+    "reduction_cycles": 2.5,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled__two_core__combined",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled__two_core__combined.2.json",
+    "action": {
+      "time": 2285.834364554391,
+      "task": "load.pack.single_linear1"
+    },
+    "static_latency": 12422.79926698263,
+    "counterfactual_latency": 12417.070680919833,
+    "reduction_cycles": 5.728586062798058,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled__two_core__combined",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled__two_core__combined.3.json",
+    "action": {
+      "time": 2680.834364554391,
+      "task": "load.pack.single_linear1"
+    },
+    "static_latency": 12422.79926698263,
+    "counterfactual_latency": 12434.776111233821,
+    "reduction_cycles": -11.976844251190414,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled__two_core__combined",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled__two_core__combined.4.json",
+    "action": {
+      "time": 8378.9586553828,
+      "task": "load.pack.single_join_project"
+    },
+    "static_latency": 12422.79926698263,
+    "counterfactual_latency": 12395.04926698263,
+    "reduction_cycles": 27.75,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled__sram_one_port__service",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled__sram_one_port__service.0.json",
+    "action": {
+      "time": 8397.069079545929,
+      "task": "single_swiglu"
+    },
+    "static_latency": 10872.069079545929,
+    "counterfactual_latency": 10872.069079545929,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled__one_operand_slot__service",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled__one_operand_slot__service.0.json",
+    "action": {
+      "time": 10.041084335315555,
+      "task": "load.shared.0"
+    },
+    "static_latency": 10016.069079545929,
+    "counterfactual_latency": 10017.069079545929,
+    "reduction_cycles": -1.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode_attention_fused__two_core__deterministic",
+    "artifact": "counterfactuals/qwen35_full_decode_attention_fused__two_core__deterministic.0.json",
+    "action": {
+      "time": 6011.0,
+      "task": "load.pack.ffn_down0"
+    },
+    "static_latency": 7882.0,
+    "counterfactual_latency": 7882.0,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode_attention_fused__two_core__service",
+    "artifact": "counterfactuals/qwen35_full_decode_attention_fused__two_core__service.0.json",
+    "action": {
+      "time": 7197.175792509917,
+      "task": "load.pack.ffn_down0"
+    },
+    "static_latency": 8836.941012292862,
+    "counterfactual_latency": 8836.941012292864,
+    "reduction_cycles": -1.8189894035458565e-12,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode_attention_fused__two_core__calendar",
+    "artifact": "counterfactuals/qwen35_full_decode_attention_fused__two_core__calendar.0.json",
+    "action": {
+      "time": 9559.249999992498,
+      "task": "load.pack.ffn_down0"
+    },
+    "static_latency": 11886.70328404479,
+    "counterfactual_latency": 11910.249999992498,
+    "reduction_cycles": -23.546715947708435,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__deterministic",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__deterministic.0.json",
+    "action": {
+      "time": 637.0,
+      "task": "load.pack.img_qkv_projection"
+    },
+    "static_latency": 9510.0,
+    "counterfactual_latency": 9665.0,
+    "reduction_cycles": -155.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__deterministic",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__deterministic.1.json",
+    "action": {
+      "time": 638.0,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 9510.0,
+    "counterfactual_latency": 9811.0,
+    "reduction_cycles": -301.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__deterministic",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__deterministic.2.json",
+    "action": {
+      "time": 638.0,
+      "task": "load.pack.img_qkv_projection"
+    },
+    "static_latency": 9510.0,
+    "counterfactual_latency": 9666.0,
+    "reduction_cycles": -156.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__deterministic",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__deterministic.3.json",
+    "action": {
+      "time": 639.0,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 9510.0,
+    "counterfactual_latency": 9812.0,
+    "reduction_cycles": -302.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__deterministic",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__deterministic.4.json",
+    "action": {
+      "time": 639.0,
+      "task": "load.pack.img_qkv_projection"
+    },
+    "static_latency": 9510.0,
+    "counterfactual_latency": 9667.0,
+    "reduction_cycles": -157.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__deterministic",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__deterministic.5.json",
+    "action": {
+      "time": 640.0,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 9510.0,
+    "counterfactual_latency": 9813.0,
+    "reduction_cycles": -303.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__service.0.json",
+    "action": {
+      "time": 663.3879118725475,
+      "task": "load.pack.img_qkv_projection"
+    },
+    "static_latency": 10962.64333833244,
+    "counterfactual_latency": 11132.458315948781,
+    "reduction_cycles": -169.8149776163409,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__service.1.json",
+    "action": {
+      "time": 664.3879118725475,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 10962.64333833244,
+    "counterfactual_latency": 11281.999340919796,
+    "reduction_cycles": -319.35600258735576,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__service.2.json",
+    "action": {
+      "time": 664.3879118725475,
+      "task": "load.pack.img_qkv_projection"
+    },
+    "static_latency": 10962.64333833244,
+    "counterfactual_latency": 11133.458315948781,
+    "reduction_cycles": -170.8149776163409,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__service.3.json",
+    "action": {
+      "time": 665.3879118725475,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 10962.64333833244,
+    "counterfactual_latency": 11282.999340919796,
+    "reduction_cycles": -320.35600258735576,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__service.4.json",
+    "action": {
+      "time": 665.3879118725475,
+      "task": "load.pack.img_qkv_projection"
+    },
+    "static_latency": 10962.64333833244,
+    "counterfactual_latency": 11134.458315948781,
+    "reduction_cycles": -171.8149776163409,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__service.5.json",
+    "action": {
+      "time": 666.3879118725475,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 10962.64333833244,
+    "counterfactual_latency": 11283.999340919796,
+    "reduction_cycles": -321.35600258735576,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__calendar.0.json",
+    "action": {
+      "time": 925.25,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 13102.016420373966,
+    "counterfactual_latency": 13525.25,
+    "reduction_cycles": -423.23357962603404,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__calendar.1.json",
+    "action": {
+      "time": 926.25,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 13102.016420373966,
+    "counterfactual_latency": 13526.25,
+    "reduction_cycles": -424.23357962603404,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__calendar.2.json",
+    "action": {
+      "time": 927.25,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 13102.016420373966,
+    "counterfactual_latency": 13527.25,
+    "reduction_cycles": -425.23357962603404,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__calendar.3.json",
+    "action": {
+      "time": 974.016420373972,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 13102.016420373966,
+    "counterfactual_latency": 13536.953284074792,
+    "reduction_cycles": -434.9368637008265,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__calendar.4.json",
+    "action": {
+      "time": 975.016420373972,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 13102.016420373966,
+    "counterfactual_latency": 13537.203284074792,
+    "reduction_cycles": -435.1868637008265,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__calendar.5.json",
+    "action": {
+      "time": 976.016420373972,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 13102.016420373966,
+    "counterfactual_latency": 13537.453284074792,
+    "reduction_cycles": -435.4368637008265,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__combined",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__combined.0.json",
+    "action": {
+      "time": 951.6379118725475,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 15565.804767005198,
+    "counterfactual_latency": 15832.956267652036,
+    "reduction_cycles": -267.15150064683803,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__combined",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__combined.1.json",
+    "action": {
+      "time": 952.6379118725475,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 15565.804767005198,
+    "counterfactual_latency": 15833.206267652036,
+    "reduction_cycles": -267.40150064683803,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__combined",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__combined.2.json",
+    "action": {
+      "time": 953.6379118725475,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 15565.804767005198,
+    "counterfactual_latency": 15833.456267652036,
+    "reduction_cycles": -267.65150064683803,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__combined",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__combined.3.json",
+    "action": {
+      "time": 1016.0545215906527,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 15565.804767005198,
+    "counterfactual_latency": 15852.824238418712,
+    "reduction_cycles": -287.0194714135141,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__combined",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__combined.4.json",
+    "action": {
+      "time": 1017.0545215906527,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 15565.804767005198,
+    "counterfactual_latency": 15853.074238418712,
+    "reduction_cycles": -287.2694714135141,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__combined",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__combined.5.json",
+    "action": {
+      "time": 1018.0545215906527,
+      "task": "img_norm_mod1"
+    },
+    "static_latency": 15565.804767005198,
+    "counterfactual_latency": 15853.324238418712,
+    "reduction_cycles": -287.5194714135141,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident__two_core__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled_attention_aggregate_cond_resident__two_core__calendar.0.json",
+    "action": {
+      "time": 7454.5,
+      "task": "load.pack.single_join_project"
+    },
+    "static_latency": 10478.5,
+    "counterfactual_latency": 10477.5,
+    "reduction_cycles": 1.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__split_engine_ports__service",
+    "artifact": "counterfactuals/qwen35_full_decode__split_engine_ports__service.0.json",
+    "action": {
+      "time": 5166.464385657206,
+      "task": "attention_residual"
+    },
+    "static_latency": 9537.903316346335,
+    "counterfactual_latency": 9520.903316346335,
+    "reduction_cycles": 17.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode__split_engine_ports__service",
+    "artifact": "counterfactuals/qwen35_full_decode__split_engine_ports__service.1.json",
+    "action": {
+      "time": 5167.464385657206,
+      "task": "attention_residual"
+    },
+    "static_latency": 9537.903316346335,
+    "counterfactual_latency": 9520.903316346335,
+    "reduction_cycles": 17.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__split_engine_ports__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__split_engine_ports__service.0.json",
+    "action": {
+      "time": 5467.707947000596,
+      "task": "fused.causal_conv.qk_l2_expand"
+    },
+    "static_latency": 12782.684506884973,
+    "counterfactual_latency": 13058.684506884973,
+    "reduction_cycles": -276.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__split_engine_ports__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__split_engine_ports__service.1.json",
+    "action": {
+      "time": 8409.995576195844,
+      "task": "mix_residual"
+    },
+    "static_latency": 12782.684506884973,
+    "counterfactual_latency": 12765.684506884973,
+    "reduction_cycles": 17.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__split_engine_ports__service",
+    "artifact": "counterfactuals/qwen35_linear_decode__split_engine_ports__service.2.json",
+    "action": {
+      "time": 8410.995576195844,
+      "task": "mix_residual"
+    },
+    "static_latency": 12782.684506884973,
+    "counterfactual_latency": 12765.684506884973,
+    "reduction_cycles": 17.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__split_engine_ports__calendar",
+    "artifact": "counterfactuals/qwen35_linear_decode__split_engine_ports__calendar.0.json",
+    "action": {
+      "time": 3638.0,
+      "task": "load.pack.fused.delta_recurrence1.gated_norm1"
+    },
+    "static_latency": 15128.0,
+    "counterfactual_latency": 15128.0,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__split_engine_ports__calendar",
+    "artifact": "counterfactuals/qwen35_linear_decode__split_engine_ports__calendar.1.json",
+    "action": {
+      "time": 3638.0,
+      "task": "load.shared.1"
+    },
+    "static_latency": 15128.0,
+    "counterfactual_latency": 15128.0,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__split_engine_ports__calendar",
+    "artifact": "counterfactuals/qwen35_linear_decode__split_engine_ports__calendar.2.json",
+    "action": {
+      "time": 3639.0,
+      "task": "load.pack.fused.delta_recurrence1.gated_norm1"
+    },
+    "static_latency": 15128.0,
+    "counterfactual_latency": 15128.0,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__split_engine_ports__calendar",
+    "artifact": "counterfactuals/qwen35_linear_decode__split_engine_ports__calendar.3.json",
+    "action": {
+      "time": 3639.0,
+      "task": "load.shared.1"
+    },
+    "static_latency": 15128.0,
+    "counterfactual_latency": 15128.0,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "qwen35_linear_decode__split_engine_ports__calendar",
+    "artifact": "counterfactuals/qwen35_linear_decode__split_engine_ports__calendar.4.json",
+    "action": {
+      "time": 5917.0,
+      "task": "fused.causal_conv.qk_l2_expand"
+    },
+    "static_latency": 15128.0,
+    "counterfactual_latency": 15393.0,
+    "reduction_cycles": -265.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__split_engine_ports__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__split_engine_ports__service.0.json",
+    "action": {
+      "time": 5052.278060249659,
+      "task": "load.pack.txt_qkv_projection"
+    },
+    "static_latency": 15406.809533365446,
+    "counterfactual_latency": 15415.934122047058,
+    "reduction_cycles": -9.124588681612295,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__split_engine_ports__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__split_engine_ports__service.1.json",
+    "action": {
+      "time": 5053.278060249659,
+      "task": "load.pack.txt_qkv_projection"
+    },
+    "static_latency": 15406.809533365446,
+    "counterfactual_latency": 15416.934122047058,
+    "reduction_cycles": -10.124588681612295,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__split_engine_ports__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__split_engine_ports__calendar.0.json",
+    "action": {
+      "time": 7921.453284044795,
+      "task": "txt_norm_mod1"
+    },
+    "static_latency": 19151.5624999925,
+    "counterfactual_latency": 19151.5624999925,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__split_engine_ports__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__split_engine_ports__calendar.1.json",
+    "action": {
+      "time": 7922.453284044795,
+      "task": "txt_norm_mod1"
+    },
+    "static_latency": 19151.5624999925,
+    "counterfactual_latency": 19151.5624999925,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled__split_engine_ports__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled__split_engine_ports__calendar.2.json",
+    "action": {
+      "time": 7923.453284044795,
+      "task": "txt_norm_mod1"
+    },
+    "static_latency": 19151.5624999925,
+    "counterfactual_latency": 19151.5624999925,
+    "reduction_cycles": 0.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled__split_engine_ports__service",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled__split_engine_ports__service.0.json",
+    "action": {
+      "time": 7854.734697650823,
+      "task": "load.pack.single_join_project"
+    },
+    "static_latency": 11910.845121806453,
+    "counterfactual_latency": 12005.845121806453,
+    "reduction_cycles": -95.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled__split_engine_ports__service",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled__split_engine_ports__service.1.json",
+    "action": {
+      "time": 7856.734697650823,
+      "task": "load.pack.single_join_project"
+    },
+    "static_latency": 11910.845121806453,
+    "counterfactual_latency": 12007.845121806453,
+    "reduction_cycles": -97.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled__split_engine_ports__service",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled__split_engine_ports__service.2.json",
+    "action": {
+      "time": 8289.734697650823,
+      "task": "load.pack.single_join_project"
+    },
+    "static_latency": 11910.845121806453,
+    "counterfactual_latency": 12440.845121806453,
+    "reduction_cycles": -530.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled__split_engine_ports__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled__split_engine_ports__calendar.0.json",
+    "action": {
+      "time": 10865.5624999925,
+      "task": "load.pack.single_join_project"
+    },
+    "static_latency": 15177.089803979427,
+    "counterfactual_latency": 15345.5624999925,
+    "reduction_cycles": -168.4726960130738,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled__split_engine_ports__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled__split_engine_ports__calendar.1.json",
+    "action": {
+      "time": 10867.5624999925,
+      "task": "load.pack.single_join_project"
+    },
+    "static_latency": 15177.089803979427,
+    "counterfactual_latency": 15347.5624999925,
+    "reduction_cycles": -170.4726960130738,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled__split_engine_ports__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled__split_engine_ports__calendar.2.json",
+    "action": {
+      "time": 11300.5624999925,
+      "task": "load.pack.single_join_project"
+    },
+    "static_latency": 15177.089803979427,
+    "counterfactual_latency": 15684.5624999925,
+    "reduction_cycles": -507.4726960130738,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode_attention_fused__split_engine_ports__service",
+    "artifact": "counterfactuals/qwen35_full_decode_attention_fused__split_engine_ports__service.0.json",
+    "action": {
+      "time": 5175.714385657206,
+      "task": "attention_residual"
+    },
+    "static_latency": 9537.903316346335,
+    "counterfactual_latency": 9521.72164451325,
+    "reduction_cycles": 16.181671833084692,
+    "applied": true
+  },
+  {
+    "config": "qwen35_full_decode_attention_fused__split_engine_ports__service",
+    "artifact": "counterfactuals/qwen35_full_decode_attention_fused__split_engine_ports__service.1.json",
+    "action": {
+      "time": 5176.714385657206,
+      "task": "attention_residual"
+    },
+    "static_latency": 9537.903316346335,
+    "counterfactual_latency": 9522.72164451325,
+    "reduction_cycles": 15.181671833084692,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__split_engine_ports__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__split_engine_ports__service.0.json",
+    "action": {
+      "time": 2870.8152580485157,
+      "task": "load.pack.img_attention_out"
+    },
+    "static_latency": 12271.182209071187,
+    "counterfactual_latency": 12273.182209071187,
+    "reduction_cycles": -2.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__split_engine_ports__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__split_engine_ports__service.1.json",
+    "action": {
+      "time": 8211.146293278274,
+      "task": "load.pack.img_mlp_contract"
+    },
+    "static_latency": 12271.182209071187,
+    "counterfactual_latency": 12849.241739525647,
+    "reduction_cycles": -578.0595304544604,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__split_engine_ports__service",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__split_engine_ports__service.2.json",
+    "action": {
+      "time": 8213.146293278274,
+      "task": "load.pack.img_mlp_contract"
+    },
+    "static_latency": 12271.182209071187,
+    "counterfactual_latency": 12851.241739525647,
+    "reduction_cycles": -580.0595304544604,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__split_engine_ports__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_double_scaled_attention_aggregate_cond_resident__split_engine_ports__calendar.0.json",
+    "action": {
+      "time": 9489.25,
+      "task": "txt_swiglu"
+    },
+    "static_latency": 13865.25,
+    "counterfactual_latency": 14117.25,
+    "reduction_cycles": -252.0,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident__split_engine_ports__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled_attention_aggregate_cond_resident__split_engine_ports__calendar.0.json",
+    "action": {
+      "time": 148.20328407479448,
+      "task": "load.pack.single_linear1"
+    },
+    "static_latency": 13448.203284044797,
+    "counterfactual_latency": 13547.25,
+    "reduction_cycles": -99.04671595520267,
+    "applied": true
+  },
+  {
+    "config": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident__split_engine_ports__calendar",
+    "artifact": "counterfactuals/flux2_klein4b_single_scaled_attention_aggregate_cond_resident__split_engine_ports__calendar.1.json",
+    "action": {
+      "time": 148.20328407479448,
+      "task": "load.pack.single_qk_norm_rope"
+    },
+    "static_latency": 13448.203284044797,
+    "counterfactual_latency": 13539.203284067295,
+    "reduction_cycles": -91.00000002249726,
+    "applied": true
+  }
+]

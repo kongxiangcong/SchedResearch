@@ -1,0 +1,922 @@
+{
+  "status": "PASS",
+  "scope": "reference-model structural tests and deliberately corrupted evidence only; no target runs",
+  "checker_sha256": "391a2431a6b8429e7a5ea05127509f098ca0b1743c4cd7ad0e06a4890ad173f2",
+  "test_sha256": "fde9574cb6d3645039871bedaca6185cb755737256a10d92390bcd922dbbfabb",
+  "model_sha256": "c2bce41235fddd8fae95265cd37a4704d3504ad24ded013ec225d05760af2214",
+  "smoke_configurations": 27,
+  "smoke_requests": 50404,
+  "smoke": [
+    {
+      "config": {
+        "mapping": "C1N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": false,
+        "multicast": false,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 868,
+      "operations": 36,
+      "nodes": 110,
+      "external_bytes": 3555328,
+      "logical_bytes": 3555328,
+      "cluster_dma_bytes": {
+        "0": 3555328
+      },
+      "multicast_local_extra_bytes": 0,
+      "independent_lower_bound": 87091.19999999998,
+      "elapsed": 89309.99999999999,
+      "zero_cost_recovery_upper_percent": 2.484380248572392,
+      "credit_peaks": {
+        "0": 4
+      },
+      "hazard_comparisons": 2555
+    },
+    {
+      "config": {
+        "mapping": "C1N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": true,
+        "multicast": false,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 868,
+      "operations": 36,
+      "nodes": 76,
+      "external_bytes": 3555328,
+      "logical_bytes": 3555328,
+      "cluster_dma_bytes": {
+        "0": 3555328
+      },
+      "multicast_local_extra_bytes": 0,
+      "independent_lower_bound": 87091.19999999998,
+      "elapsed": 88155.19999999998,
+      "zero_cost_recovery_upper_percent": 1.2069622665480881,
+      "credit_peaks": {
+        "0": 4
+      },
+      "hazard_comparisons": 9222
+    },
+    {
+      "config": {
+        "mapping": "C1N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": false,
+        "multicast": true,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 724,
+      "operations": 36,
+      "nodes": 92,
+      "external_bytes": 2965504,
+      "logical_bytes": 2965504,
+      "cluster_dma_bytes": {
+        "0": 3555328
+      },
+      "multicast_local_extra_bytes": 589824,
+      "independent_lower_bound": 72140.79999999999,
+      "elapsed": 86281.2,
+      "zero_cost_recovery_upper_percent": 16.3887382187545,
+      "credit_peaks": {
+        "0": 4
+      },
+      "hazard_comparisons": 3978
+    },
+    {
+      "config": {
+        "mapping": "C1N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": true,
+        "multicast": true,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 724,
+      "operations": 36,
+      "nodes": 75,
+      "external_bytes": 2965504,
+      "logical_bytes": 2965504,
+      "cluster_dma_bytes": {
+        "0": 3555328
+      },
+      "multicast_local_extra_bytes": 589824,
+      "independent_lower_bound": 72140.79999999999,
+      "elapsed": 89076.39999999998,
+      "zero_cost_recovery_upper_percent": 19.01244325096209,
+      "credit_peaks": {
+        "0": 4
+      },
+      "hazard_comparisons": 9832
+    },
+    {
+      "config": {
+        "mapping": "C1N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": false,
+        "multicast": false,
+        "layout": "row",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 3520,
+      "operations": 36,
+      "nodes": 110,
+      "external_bytes": 3555328,
+      "logical_bytes": 3555328,
+      "cluster_dma_bytes": {
+        "0": 3555328
+      },
+      "multicast_local_extra_bytes": 0,
+      "independent_lower_bound": 87091.19999999998,
+      "elapsed": 94401.2,
+      "zero_cost_recovery_upper_percent": 7.743545632894512,
+      "credit_peaks": {
+        "0": 4
+      },
+      "hazard_comparisons": 7329
+    },
+    {
+      "config": {
+        "mapping": "C1N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": true,
+        "multicast": false,
+        "layout": "row",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 2688,
+      "operations": 36,
+      "nodes": 76,
+      "external_bytes": 3555328,
+      "logical_bytes": 3555328,
+      "cluster_dma_bytes": {
+        "0": 3555328
+      },
+      "multicast_local_extra_bytes": 0,
+      "independent_lower_bound": 87091.19999999998,
+      "elapsed": 91014.79999999997,
+      "zero_cost_recovery_upper_percent": 4.310947230560296,
+      "credit_peaks": {
+        "0": 4
+      },
+      "hazard_comparisons": 36956
+    },
+    {
+      "config": {
+        "mapping": "C1N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": false,
+        "multicast": true,
+        "layout": "row",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 2944,
+      "operations": 36,
+      "nodes": 92,
+      "external_bytes": 2965504,
+      "logical_bytes": 2965504,
+      "cluster_dma_bytes": {
+        "0": 3555328
+      },
+      "multicast_local_extra_bytes": 589824,
+      "independent_lower_bound": 72140.79999999999,
+      "elapsed": 89968.4,
+      "zero_cost_recovery_upper_percent": 19.81540185220589,
+      "credit_peaks": {
+        "0": 4
+      },
+      "hazard_comparisons": 9405
+    },
+    {
+      "config": {
+        "mapping": "C1N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": true,
+        "multicast": true,
+        "layout": "row",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 2528,
+      "operations": 36,
+      "nodes": 75,
+      "external_bytes": 2965504,
+      "logical_bytes": 2965504,
+      "cluster_dma_bytes": {
+        "0": 3555328
+      },
+      "multicast_local_extra_bytes": 589824,
+      "independent_lower_bound": 72140.79999999999,
+      "elapsed": 90611.59999999998,
+      "zero_cost_recovery_upper_percent": 20.384586520931087,
+      "credit_peaks": {
+        "0": 4
+      },
+      "hazard_comparisons": 34205
+    },
+    {
+      "config": {
+        "mapping": "C2N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": false,
+        "multicast": false,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 1156,
+      "operations": 72,
+      "nodes": 220,
+      "external_bytes": 4734976,
+      "logical_bytes": 4734976,
+      "cluster_dma_bytes": {
+        "0": 2367488,
+        "1": 2367488
+      },
+      "multicast_local_extra_bytes": 0,
+      "independent_lower_bound": 114124.79999999997,
+      "elapsed": 114676.79999999997,
+      "zero_cost_recovery_upper_percent": 0.4813528106818468,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 4086
+    },
+    {
+      "config": {
+        "mapping": "C2N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": true,
+        "multicast": false,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 1156,
+      "operations": 72,
+      "nodes": 152,
+      "external_bytes": 4734976,
+      "logical_bytes": 4734976,
+      "cluster_dma_bytes": {
+        "0": 2367488,
+        "1": 2367488
+      },
+      "multicast_local_extra_bytes": 0,
+      "independent_lower_bound": 114124.79999999997,
+      "elapsed": 115116.79999999997,
+      "zero_cost_recovery_upper_percent": 0.8617334741757938,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 10723
+    },
+    {
+      "config": {
+        "mapping": "C2N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": false,
+        "multicast": true,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 868,
+      "operations": 72,
+      "nodes": 184,
+      "external_bytes": 3555328,
+      "logical_bytes": 3555328,
+      "cluster_dma_bytes": {
+        "0": 2367488,
+        "1": 2367488
+      },
+      "multicast_local_extra_bytes": 1179648,
+      "independent_lower_bound": 87091.19999999998,
+      "elapsed": 87763.19999999998,
+      "zero_cost_recovery_upper_percent": 0.765696784073507,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 9578
+    },
+    {
+      "config": {
+        "mapping": "C2N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": true,
+        "multicast": true,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 868,
+      "operations": 72,
+      "nodes": 150,
+      "external_bytes": 3555328,
+      "logical_bytes": 3555328,
+      "cluster_dma_bytes": {
+        "0": 2367488,
+        "1": 2367488
+      },
+      "multicast_local_extra_bytes": 1179648,
+      "independent_lower_bound": 87091.19999999998,
+      "elapsed": 87707.19999999998,
+      "zero_cost_recovery_upper_percent": 0.7023368663006003,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 11242
+    },
+    {
+      "config": {
+        "mapping": "C2N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": false,
+        "multicast": false,
+        "layout": "row",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 4736,
+      "operations": 72,
+      "nodes": 220,
+      "external_bytes": 4734976,
+      "logical_bytes": 4734976,
+      "cluster_dma_bytes": {
+        "0": 2367488,
+        "1": 2367488
+      },
+      "multicast_local_extra_bytes": 0,
+      "independent_lower_bound": 114124.79999999997,
+      "elapsed": 115158.79999999997,
+      "zero_cost_recovery_upper_percent": 0.8978905650284652,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 7943
+    },
+    {
+      "config": {
+        "mapping": "C2N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": true,
+        "multicast": false,
+        "layout": "row",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 3072,
+      "operations": 72,
+      "nodes": 152,
+      "external_bytes": 4734976,
+      "logical_bytes": 4734976,
+      "cluster_dma_bytes": {
+        "0": 2367488,
+        "1": 2367488
+      },
+      "multicast_local_extra_bytes": 0,
+      "independent_lower_bound": 114124.79999999997,
+      "elapsed": 115298.79999999997,
+      "zero_cost_recovery_upper_percent": 1.018223953761878,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 24862
+    },
+    {
+      "config": {
+        "mapping": "C2N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": false,
+        "multicast": true,
+        "layout": "row",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 3584,
+      "operations": 72,
+      "nodes": 184,
+      "external_bytes": 3555328,
+      "logical_bytes": 3555328,
+      "cluster_dma_bytes": {
+        "0": 2367488,
+        "1": 2367488
+      },
+      "multicast_local_extra_bytes": 1179648,
+      "independent_lower_bound": 87091.19999999998,
+      "elapsed": 88687.99999999999,
+      "zero_cost_recovery_upper_percent": 1.800469060075775,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 13053
+    },
+    {
+      "config": {
+        "mapping": "C2N",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": true,
+        "multicast": true,
+        "layout": "row",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 2752,
+      "operations": 72,
+      "nodes": 150,
+      "external_bytes": 3555328,
+      "logical_bytes": 3555328,
+      "cluster_dma_bytes": {
+        "0": 2367488,
+        "1": 2367488
+      },
+      "multicast_local_extra_bytes": 1179648,
+      "independent_lower_bound": 87091.19999999998,
+      "elapsed": 87865.19999999998,
+      "zero_cost_recovery_upper_percent": 0.8808948252550499,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 25850
+    },
+    {
+      "config": {
+        "mapping": "C2K",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": false,
+        "multicast": false,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 876,
+      "operations": 38,
+      "nodes": 116,
+      "external_bytes": 3588096,
+      "logical_bytes": 3588096,
+      "cluster_dma_bytes": {
+        "0": 1802240,
+        "1": 1785856
+      },
+      "multicast_local_extra_bytes": 0,
+      "independent_lower_bound": 87603.19999999998,
+      "elapsed": 88859.19999999998,
+      "zero_cost_recovery_upper_percent": 1.4134720996812937,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 2236
+    },
+    {
+      "config": {
+        "mapping": "C2K",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": true,
+        "multicast": false,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 876,
+      "operations": 38,
+      "nodes": 84,
+      "external_bytes": 3588096,
+      "logical_bytes": 3588096,
+      "cluster_dma_bytes": {
+        "0": 1802240,
+        "1": 1785856
+      },
+      "multicast_local_extra_bytes": 0,
+      "independent_lower_bound": 87603.19999999998,
+      "elapsed": 89691.19999999998,
+      "zero_cost_recovery_upper_percent": 2.3279875840662188,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 5650
+    },
+    {
+      "config": {
+        "mapping": "C2K",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": false,
+        "multicast": true,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 732,
+      "operations": 38,
+      "nodes": 98,
+      "external_bytes": 2998272,
+      "logical_bytes": 2998272,
+      "cluster_dma_bytes": {
+        "0": 1802240,
+        "1": 1785856
+      },
+      "multicast_local_extra_bytes": 589824,
+      "independent_lower_bound": 72652.79999999999,
+      "elapsed": 74484.79999999999,
+      "zero_cost_recovery_upper_percent": 2.459562219405839,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 2700
+    },
+    {
+      "config": {
+        "mapping": "C2K",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": true,
+        "multicast": true,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 732,
+      "operations": 38,
+      "nodes": 82,
+      "external_bytes": 2998272,
+      "logical_bytes": 2998272,
+      "cluster_dma_bytes": {
+        "0": 1802240,
+        "1": 1785856
+      },
+      "multicast_local_extra_bytes": 589824,
+      "independent_lower_bound": 72652.79999999999,
+      "elapsed": 77911.99999999999,
+      "zero_cost_recovery_upper_percent": 6.75017968990656,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 8597
+    },
+    {
+      "config": {
+        "mapping": "C2K",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": false,
+        "multicast": false,
+        "layout": "row",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 3528,
+      "operations": 38,
+      "nodes": 116,
+      "external_bytes": 3588096,
+      "logical_bytes": 3588096,
+      "cluster_dma_bytes": {
+        "0": 1802240,
+        "1": 1785856
+      },
+      "multicast_local_extra_bytes": 0,
+      "independent_lower_bound": 87603.19999999998,
+      "elapsed": 90327.19999999998,
+      "zero_cost_recovery_upper_percent": 3.015702911193971,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 5550
+    },
+    {
+      "config": {
+        "mapping": "C2K",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": true,
+        "multicast": false,
+        "layout": "row",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 2760,
+      "operations": 38,
+      "nodes": 84,
+      "external_bytes": 3588096,
+      "logical_bytes": 3588096,
+      "cluster_dma_bytes": {
+        "0": 1802240,
+        "1": 1785856
+      },
+      "multicast_local_extra_bytes": 0,
+      "independent_lower_bound": 87603.19999999998,
+      "elapsed": 90091.19999999998,
+      "zero_cost_recovery_upper_percent": 2.76164597652157,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 15285
+    },
+    {
+      "config": {
+        "mapping": "C2K",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": false,
+        "multicast": true,
+        "layout": "row",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 2952,
+      "operations": 38,
+      "nodes": 98,
+      "external_bytes": 2998272,
+      "logical_bytes": 2998272,
+      "cluster_dma_bytes": {
+        "0": 1802240,
+        "1": 1785856
+      },
+      "multicast_local_extra_bytes": 589824,
+      "independent_lower_bound": 72652.79999999999,
+      "elapsed": 74840.79999999999,
+      "zero_cost_recovery_upper_percent": 2.923539032185653,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 8138
+    },
+    {
+      "config": {
+        "mapping": "C2K",
+        "ktile": 512,
+        "buffers": 2,
+        "prefetch": 2,
+        "resident_x": true,
+        "multicast": true,
+        "layout": "row",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 2568,
+      "operations": 38,
+      "nodes": 82,
+      "external_bytes": 2998272,
+      "logical_bytes": 2998272,
+      "cluster_dma_bytes": {
+        "0": 1802240,
+        "1": 1785856
+      },
+      "multicast_local_extra_bytes": 589824,
+      "independent_lower_bound": 72652.79999999999,
+      "elapsed": 74944.79999999999,
+      "zero_cost_recovery_upper_percent": 3.0582508726422653,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 19320
+    },
+    {
+      "config": {
+        "mapping": "C1N",
+        "ktile": 0,
+        "buffers": 1,
+        "prefetch": 1,
+        "resident_x": true,
+        "multicast": true,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 724,
+      "operations": 2,
+      "nodes": 7,
+      "external_bytes": 2965504,
+      "logical_bytes": 2965504,
+      "cluster_dma_bytes": {
+        "0": 3555328
+      },
+      "multicast_local_extra_bytes": 589824,
+      "independent_lower_bound": 72140.79999999999,
+      "elapsed": 102665.2,
+      "zero_cost_recovery_upper_percent": 29.73198318417537,
+      "credit_peaks": {
+        "0": 4
+      },
+      "hazard_comparisons": 2971
+    },
+    {
+      "config": {
+        "mapping": "C2N",
+        "ktile": 0,
+        "buffers": 1,
+        "prefetch": 1,
+        "resident_x": true,
+        "multicast": true,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 868,
+      "operations": 4,
+      "nodes": 14,
+      "external_bytes": 3555328,
+      "logical_bytes": 3555328,
+      "cluster_dma_bytes": {
+        "0": 2367488,
+        "1": 2367488
+      },
+      "multicast_local_extra_bytes": 1179648,
+      "independent_lower_bound": 87091.19999999998,
+      "elapsed": 96315.19999999998,
+      "zero_cost_recovery_upper_percent": 9.576889213748196,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 7412
+    },
+    {
+      "config": {
+        "mapping": "C2K",
+        "ktile": 0,
+        "buffers": 1,
+        "prefetch": 1,
+        "resident_x": true,
+        "multicast": true,
+        "layout": "gather",
+        "order": "xw",
+        "reverse": false,
+        "outstanding": 4
+      },
+      "status": "PASS",
+      "requests": 732,
+      "operations": 6,
+      "nodes": 18,
+      "external_bytes": 2998272,
+      "logical_bytes": 2998272,
+      "cluster_dma_bytes": {
+        "0": 1802240,
+        "1": 1785856
+      },
+      "multicast_local_extra_bytes": 589824,
+      "independent_lower_bound": 72652.79999999999,
+      "elapsed": 82124.79999999999,
+      "zero_cost_recovery_upper_percent": 11.533665835411473,
+      "credit_peaks": {
+        "0": 4,
+        "1": 4
+      },
+      "hazard_comparisons": 2978
+    }
+  ],
+  "corruption_fixtures": [
+    {
+      "name": "missed_payload",
+      "status": "DETECTED",
+      "reason": "request coverage/missed bytes"
+    },
+    {
+      "name": "early_consumer",
+      "status": "DETECTED",
+      "reason": "early consumer mac.c0.t0 before destination visible/dependency x.t0.0.1"
+    },
+    {
+      "name": "free_multicast_delivery",
+      "status": "DETECTED",
+      "reason": "packet x.t0.0.1:p0000: altered local_bytes"
+    },
+    {
+      "name": "missed_service_bytes",
+      "status": "DETECTED",
+      "reason": "external segment endpoints"
+    },
+    {
+      "name": "alias_overwrite_during_last_reader",
+      "status": "DETECTED",
+      "reason": "address hazard: refill write overlaps dma_source read"
+    },
+    {
+      "name": "credit_overflow",
+      "status": "DETECTED",
+      "reason": "outstanding/credit: capacity 4 exceeded at 4"
+    },
+    {
+      "name": "transport_slot_reuse",
+      "status": "DETECTED",
+      "reason": "transport slot: capacity 1 exceeded at b"
+    }
+  ],
+  "tiny_exact_cases": 4
+}

@@ -1,0 +1,451 @@
+{
+  "status": "passed",
+  "source_hash_count": 21,
+  "configurations": [
+    {
+      "config": "qwen35_full_decode__two_core__deterministic",
+      "traces": 192,
+      "static_candidates": 150,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode__two_core__service",
+      "traces": 192,
+      "static_candidates": 150,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode__two_core__calendar",
+      "traces": 192,
+      "static_candidates": 150,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode__two_core__combined",
+      "traces": 192,
+      "static_candidates": 150,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode__dma16__service",
+      "traces": 192,
+      "static_candidates": 150,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode__dma64__service",
+      "traces": 192,
+      "static_candidates": 150,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode__sram_one_port__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode__one_operand_slot__service",
+      "traces": 192,
+      "static_candidates": 139,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode__four_operand_slots__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode__sram2MiB__service",
+      "traces": 192,
+      "static_candidates": 150,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode__sram8MiB__service",
+      "traces": 192,
+      "static_candidates": 150,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_linear_decode__two_core__deterministic",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_linear_decode__two_core__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_linear_decode__two_core__calendar",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_linear_decode__two_core__combined",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_linear_decode__dma16__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_linear_decode__dma64__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_linear_decode__sram_one_port__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_linear_decode__one_operand_slot__service",
+      "traces": 192,
+      "static_candidates": 143,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_linear_decode__four_operand_slots__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_linear_decode__sram2MiB__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_linear_decode__sram8MiB__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled__two_core__deterministic",
+      "traces": 192,
+      "static_candidates": 151,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled__two_core__service",
+      "traces": 192,
+      "static_candidates": 151,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled__two_core__calendar",
+      "traces": 192,
+      "static_candidates": 151,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled__two_core__combined",
+      "traces": 192,
+      "static_candidates": 151,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled__dma16__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled__dma64__service",
+      "traces": 192,
+      "static_candidates": 149,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled__sram_one_port__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled__one_operand_slot__service",
+      "traces": 192,
+      "static_candidates": 130,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled__four_operand_slots__service",
+      "traces": 192,
+      "static_candidates": 151,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled__sram2MiB__service",
+      "traces": 192,
+      "static_candidates": 151,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled__sram8MiB__service",
+      "traces": 192,
+      "static_candidates": 151,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_single_scaled__two_core__deterministic",
+      "traces": 192,
+      "static_candidates": 110,
+      "search_budget_exhausted": false
+    },
+    {
+      "config": "flux2_klein4b_single_scaled__two_core__service",
+      "traces": 192,
+      "static_candidates": 110,
+      "search_budget_exhausted": false
+    },
+    {
+      "config": "flux2_klein4b_single_scaled__two_core__calendar",
+      "traces": 192,
+      "static_candidates": 140,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_single_scaled__two_core__combined",
+      "traces": 192,
+      "static_candidates": 140,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_single_scaled__dma16__service",
+      "traces": 192,
+      "static_candidates": 110,
+      "search_budget_exhausted": false
+    },
+    {
+      "config": "flux2_klein4b_single_scaled__dma64__service",
+      "traces": 192,
+      "static_candidates": 110,
+      "search_budget_exhausted": false
+    },
+    {
+      "config": "flux2_klein4b_single_scaled__sram_one_port__service",
+      "traces": 192,
+      "static_candidates": 141,
+      "search_budget_exhausted": false
+    },
+    {
+      "config": "flux2_klein4b_single_scaled__one_operand_slot__service",
+      "traces": 192,
+      "static_candidates": 34,
+      "search_budget_exhausted": false
+    },
+    {
+      "config": "flux2_klein4b_single_scaled__four_operand_slots__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_single_scaled__sram2MiB__service",
+      "traces": 192,
+      "static_candidates": 110,
+      "search_budget_exhausted": false
+    },
+    {
+      "config": "flux2_klein4b_single_scaled__sram8MiB__service",
+      "traces": 192,
+      "static_candidates": 110,
+      "search_budget_exhausted": false
+    },
+    {
+      "config": "qwen35_full_decode_attention_fused__two_core__deterministic",
+      "traces": 192,
+      "static_candidates": 151,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode_attention_fused__two_core__service",
+      "traces": 192,
+      "static_candidates": 151,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode_attention_fused__two_core__calendar",
+      "traces": 192,
+      "static_candidates": 151,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode_attention_fused__two_core__combined",
+      "traces": 192,
+      "static_candidates": 151,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__deterministic",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__calendar",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__two_core__combined",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident__two_core__deterministic",
+      "traces": 192,
+      "static_candidates": 63,
+      "search_budget_exhausted": false
+    },
+    {
+      "config": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident__two_core__service",
+      "traces": 192,
+      "static_candidates": 63,
+      "search_budget_exhausted": false
+    },
+    {
+      "config": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident__two_core__calendar",
+      "traces": 192,
+      "static_candidates": 118,
+      "search_budget_exhausted": false
+    },
+    {
+      "config": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident__two_core__combined",
+      "traces": 192,
+      "static_candidates": 67,
+      "search_budget_exhausted": false
+    },
+    {
+      "config": "qwen35_full_decode__split_engine_ports__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode__split_engine_ports__calendar",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_linear_decode__split_engine_ports__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_linear_decode__split_engine_ports__calendar",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled__split_engine_ports__service",
+      "traces": 192,
+      "static_candidates": 151,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled__split_engine_ports__calendar",
+      "traces": 192,
+      "static_candidates": 151,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_single_scaled__split_engine_ports__service",
+      "traces": 192,
+      "static_candidates": 145,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_single_scaled__split_engine_ports__calendar",
+      "traces": 192,
+      "static_candidates": 145,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode_attention_fused__split_engine_ports__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "qwen35_full_decode_attention_fused__split_engine_ports__calendar",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__split_engine_ports__service",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_double_scaled_attention_aggregate_cond_resident__split_engine_ports__calendar",
+      "traces": 192,
+      "static_candidates": 152,
+      "search_budget_exhausted": true
+    },
+    {
+      "config": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident__split_engine_ports__service",
+      "traces": 192,
+      "static_candidates": 74,
+      "search_budget_exhausted": false
+    },
+    {
+      "config": "flux2_klein4b_single_scaled_attention_aggregate_cond_resident__split_engine_ports__calendar",
+      "traces": 192,
+      "static_candidates": 143,
+      "search_budget_exhausted": true
+    }
+  ],
+  "numeric_trace_checks": 420,
+  "trace_count": 13440,
+  "counterfactuals": 120,
+  "scope": "independent replay from all stored contracts/traces; no external device validation",
+  "independent_exact_probe": {
+    "independent_topological_orders": 52,
+    "unique_resource_orders": 6,
+    "optimal_static_mean": 3665.0,
+    "clairvoyant_scenarios": [
+      3665.0,
+      3665.0
+    ],
+    "method": "permutation enumeration plus earliest-time recurrence, not event simulator"
+  },
+  "summary_statistics": {
+    "sample_rows": 13440,
+    "summary_rows": 420,
+    "mean_p95_paired_ci": "passed",
+    "interval_scope": "normal sample interval for synthetic paired draws; no multiplicity adjustment or real-hardware uncertainty"
+  },
+  "checker_sha256": "27146a0b16dbc31c722f04a178853c8ab16acfe733438e935319b71201fa81a1",
+  "unreferenced_counterfactual_files": 0,
+  "test_seed_count": 32,
+  "train_seed_count": 12,
+  "validation_seed_count": 8
+}

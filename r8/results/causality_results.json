@@ -1,0 +1,200 @@
+{
+  "scope": "all linear extensions of five declared seven-event partial orders; no probabilities or timing",
+  "variants": {
+    "safe": {
+      "edges": [
+        [
+          "A",
+          "R"
+        ],
+        [
+          "R",
+          "V"
+        ],
+        [
+          "E",
+          "C"
+        ],
+        [
+          "V",
+          "E"
+        ],
+        [
+          "R",
+          "S"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "linear_extensions": 5,
+      "incorrect_extensions": 0,
+      "first_bad_witness": null
+    },
+    "early_event": {
+      "edges": [
+        [
+          "A",
+          "R"
+        ],
+        [
+          "R",
+          "V"
+        ],
+        [
+          "E",
+          "C"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "R",
+          "S"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "linear_extensions": 40,
+      "incorrect_extensions": 26,
+      "first_bad_witness": {
+        "variant": "early_event",
+        "order": [
+          "A",
+          "R",
+          "E",
+          "C",
+          "V",
+          "S",
+          "D"
+        ],
+        "observed": -7,
+        "correct": false
+      }
+    },
+    "early_source_reuse": {
+      "edges": [
+        [
+          "A",
+          "R"
+        ],
+        [
+          "R",
+          "V"
+        ],
+        [
+          "E",
+          "C"
+        ],
+        [
+          "V",
+          "E"
+        ],
+        [
+          "A",
+          "S"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "linear_extensions": 6,
+      "incorrect_extensions": 1,
+      "first_bad_witness": {
+        "variant": "early_source_reuse",
+        "order": [
+          "A",
+          "S",
+          "R",
+          "V",
+          "E",
+          "C",
+          "D"
+        ],
+        "observed": 97,
+        "correct": false
+      }
+    },
+    "early_destination_reuse": {
+      "edges": [
+        [
+          "A",
+          "R"
+        ],
+        [
+          "R",
+          "V"
+        ],
+        [
+          "E",
+          "C"
+        ],
+        [
+          "V",
+          "E"
+        ],
+        [
+          "R",
+          "S"
+        ],
+        [
+          "V",
+          "D"
+        ]
+      ],
+      "linear_extensions": 15,
+      "incorrect_extensions": 10,
+      "first_bad_witness": {
+        "variant": "early_destination_reuse",
+        "order": [
+          "A",
+          "R",
+          "V",
+          "E",
+          "S",
+          "D",
+          "C"
+        ],
+        "observed": 53,
+        "correct": false
+      }
+    },
+    "conservative_source_release": {
+      "edges": [
+        [
+          "A",
+          "R"
+        ],
+        [
+          "R",
+          "V"
+        ],
+        [
+          "E",
+          "C"
+        ],
+        [
+          "V",
+          "E"
+        ],
+        [
+          "V",
+          "S"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "linear_extensions": 4,
+      "incorrect_extensions": 0,
+      "first_bad_witness": null
+    }
+  },
+  "total_extensions": 70
+}
