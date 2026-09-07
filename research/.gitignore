@@ -1,0 +1,78 @@
+# Python-generated cache files
+__pycache__/
+*.py[cod]
+
+# R7 source-retrieval caches; authoritative extracted files live beside them.
+/r7/sources/kernel_access/riallto_repo/
+/r7/sources/kernel_access/ryzenai_repo/
+/r7/sources/kernel_access/dynamicdispatch_repo/
+
+# Generated experimental result payloads.
+# Keep raw traces, samples, arrays, compressed outputs, and other unreviewed
+# payloads local. The explicit allowlist below contains reviewed compact
+# figures and conclusion artifacts; large experiment files remain ignored.
+/experiments/results/**
+!/experiments/results/**/
+/r3/figures/**
+!/r3/figures/**/
+/r4/figures/**
+!/r4/figures/**/
+/r4/results/**
+!/r4/results/**/
+/r5/results/**
+!/r5/results/**/
+/r5/resident_control_results/**
+!/r5/resident_control_results/**/
+/r8/results/**
+!/r8/results/**/
+/r9/results/**
+!/r9/results/**/
+/r10/results/**
+!/r10/results/**/
+/r10/causal_results/**
+!/r10/causal_results/**/
+/r11/results/**
+!/r11/results/**/
+/r11/numerical_data/**
+!/r11/numerical_data/**/
+
+# Reviewed experiment figures.
+!/r3/figures/r3_evidence.pdf
+!/r3/figures/r3_evidence.png
+!/r4/figures/r4_results.pdf
+!/r4/figures/r4_results.png
+!/r9/results/loss_and_recovery.pdf
+!/r9/results/loss_and_recovery.png
+
+# Reviewed experiment conclusion artifacts.
+!/experiments/results/minimum_window/results.json
+!/experiments/results/minimum_window/summary.csv
+!/experiments/results/r3/counterexample.json
+!/experiments/results/r3/summary.csv
+!/experiments/results/r3/summary.json
+!/experiments/results/r4/counterfactual_summary.json
+!/experiments/results/r4/decision_summary.json
+!/experiments/results/r4/opportunity_cost_summary.json
+!/experiments/results/r4/priority_probe/decision_summary.json
+!/experiments/results/r4/priority_probe/redteam_audit.json
+!/experiments/results/r4/priority_probe/summary.csv
+!/experiments/results/r4/redteam_artifact_audit.json
+!/experiments/results/r4/summary.csv
+!/r5/results/all_cases.md
+!/r5/results/independent_replay_audit.json
+!/r5/results/interpretation.json
+!/r5/results/summary.json
+!/r8/results/causality_results.json
+!/r8/results/event_extensions.jsonl
+!/r8/results/numerical_results.json
+!/r9/results/audit_results.json
+!/r9/results/audit_tests.json
+!/r9/results/counterfactuals.json
+!/r9/results/sensitivity.json
+!/r9/results/summary.json
+!/r9/results/tiny_exact_results.json
+!/r10/results/audit_results.json
+!/r10/results/summary.json
+!/r10/causal_results/audit_results.json
+!/r10/causal_results/diagnostics.json
+!/r10/causal_results/summary.json

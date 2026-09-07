@@ -2,7 +2,7 @@
   "date": "2026-09-05",
   "evidence_level": "uncalibrated synthetic event model",
   "source": "r2-ooo-npu/toy-sim/r4sim.py",
-  "source_sha256": "97329f8ac75116053a35effa8c18f5798919a795d853df60ff98f149f1636c6d",
+  "source_sha256": "8b9e387cfafd150cca9d3eb2019668490a95ca323ee59c3359db942c4c19f6a5",
   "source_unchanged": true,
   "r2_table_b1_reproduction": [
     {
