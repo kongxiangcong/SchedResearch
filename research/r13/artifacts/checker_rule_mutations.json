@@ -1,0 +1,96 @@
+{
+  "schema": "r13.independent-checker.rule-mutations.v1",
+  "command": "research/r12/.venv/Scripts/python.exe -X utf8 -B research/r13/test_independent_checker.py --mutations",
+  "passed": true,
+  "mutations": [
+    {
+      "name": "early_credit_return",
+      "detected": true,
+      "differing_fields": [
+        "job_end",
+        "quiescent",
+        "operations.a1:0",
+        "operations.a1:1"
+      ]
+    },
+    {
+      "name": "erase_finite_reservation_limit",
+      "detected": true,
+      "differing_fields": [
+        "job_end",
+        "quiescent",
+        "buffer_peaks",
+        "operations.a1:0",
+        "operations.a1:1"
+      ]
+    },
+    {
+      "name": "duplicate_channel_by_endpoint",
+      "detected": true,
+      "differing_fields": [
+        "job_end",
+        "quiescent",
+        "resource_launches",
+        "operations.b:0"
+      ]
+    },
+    {
+      "name": "duplicate_bank_by_noc",
+      "detected": true,
+      "differing_fields": [
+        "job_end",
+        "quiescent",
+        "resource_launches",
+        "operations.b:0"
+      ]
+    },
+    {
+      "name": "erase_same_vc_exclusion",
+      "detected": true,
+      "differing_fields": [
+        "job_end",
+        "quiescent",
+        "operations.a0:0",
+        "operations.a1:0",
+        "operations.b0:0"
+      ]
+    },
+    {
+      "name": "collapse_router_outputs",
+      "detected": true,
+      "differing_fields": [
+        "job_end",
+        "quiescent",
+        "resource_launches",
+        "operations.b:0"
+      ]
+    },
+    {
+      "name": "router_latency_equals_ii",
+      "detected": true,
+      "differing_fields": [
+        "job_end",
+        "quiescent",
+        "operations.a0:1",
+        "operations.a0:2",
+        "operations.a1:1",
+        "operations.a1:2"
+      ]
+    },
+    {
+      "name": "replicate_shared_pool",
+      "detected": true,
+      "differing_fields": [
+        "job_end",
+        "quiescent",
+        "operations.1_1:0"
+      ]
+    }
+  ],
+  "scope": "incorrect rule outputs are produced by changing DES input rules, then compared with independent replay of the original frozen rules; not source/target epoch mutations",
+  "source_hashes": {
+    "independent_checker.py": "c752b00faceb1a2ccde9cc6375c43dab7d9325bcdb9d07e05e54be803226d308",
+    "test_independent_checker.py": "94453d0fe0899e24edac775d3555fae238a1232562d5d4c92b9b5a0b90407ccd",
+    "event_machine.py": "e52d2ad6ee652e7beb8c9d6c3ccc97502e47e996dd4e02665189e1def93c8696"
+  }
+}

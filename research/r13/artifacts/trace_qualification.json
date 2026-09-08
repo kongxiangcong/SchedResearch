@@ -1,0 +1,1220 @@
+{
+  "schema": "r13.trace-qualification.v1",
+  "status": "passed",
+  "positive_traces": [
+    {
+      "bank_layout": "interleaved",
+      "plan_index": 0,
+      "spec_sha256": "65fd959136abf924834fbafc25d4f78d17c199ee32f6d1ef4916c3761a844279",
+      "trace_sha256": "e1c2225aabc385bbef72c4a31853288bda8b38f6d5fc42609f214154c3b0b670",
+      "audit": {
+        "schema": "r13.independent-trace-audit.v1",
+        "passed": true,
+        "checked_output_blocks": 256,
+        "data_read_16B_blocks": 1280,
+        "written_16B_blocks_including_controls": 1288,
+        "observed_control_16B_blocks": 8,
+        "individual_memory_completion_events": 2576,
+        "all_declared_operation_times_checked": 4584,
+        "block_timeline_sha256": "0d1a671db46d0193c667e8671eb5e30b8a57891ed38384725b0fba8016e0cc65",
+        "protocol_boundaries": [
+          {
+            "transaction": "c0e0/load",
+            "last_actual_source_read": 13328,
+            "source_release": 13328,
+            "target_visible": 15312,
+            "ack_observed": 15384
+          },
+          {
+            "transaction": "c0e0/peer",
+            "last_actual_source_read": 26100,
+            "source_release": 26100,
+            "target_visible": 29892,
+            "ack_observed": 33240
+          },
+          {
+            "transaction": "c0e0/notify",
+            "last_actual_source_read": 33384,
+            "source_release": 33384,
+            "target_visible": 34764,
+            "ack_observed": 38232
+          },
+          {
+            "transaction": "c0e0/token",
+            "last_actual_source_read": 36168,
+            "source_release": 36168,
+            "target_visible": 39864,
+            "ack_observed": 41268
+          },
+          {
+            "transaction": "c0e0/output",
+            "last_actual_source_read": 45588,
+            "source_release": 45588,
+            "target_visible": 55432,
+            "ack_observed": 59752
+          },
+          {
+            "transaction": "c0e1/load",
+            "last_actual_source_read": 42020,
+            "source_release": 42020,
+            "target_visible": 44132,
+            "ack_observed": 44204
+          },
+          {
+            "transaction": "c0e1/peer",
+            "last_actual_source_read": 54920,
+            "source_release": 54920,
+            "target_visible": 58584,
+            "ack_observed": 61932
+          },
+          {
+            "transaction": "c0e1/notify",
+            "last_actual_source_read": 62076,
+            "source_release": 62076,
+            "target_visible": 63456,
+            "ack_observed": 66804
+          },
+          {
+            "transaction": "c0e1/token",
+            "last_actual_source_read": 64860,
+            "source_release": 64860,
+            "target_visible": 68184,
+            "ack_observed": 69588
+          },
+          {
+            "transaction": "c0e1/output",
+            "last_actual_source_read": 74280,
+            "source_release": 74280,
+            "target_visible": 84124,
+            "ack_observed": 88444
+          },
+          {
+            "transaction": "c1e0/load",
+            "last_actual_source_read": 9440,
+            "source_release": 9440,
+            "target_visible": 11424,
+            "ack_observed": 11496
+          },
+          {
+            "transaction": "c1e0/peer",
+            "last_actual_source_read": 22212,
+            "source_release": 22212,
+            "target_visible": 24324,
+            "ack_observed": 31560
+          },
+          {
+            "transaction": "c1e0/notify",
+            "last_actual_source_read": 31704,
+            "source_release": 31704,
+            "target_visible": 33084,
+            "ack_observed": 40320
+          },
+          {
+            "transaction": "c1e0/token",
+            "last_actual_source_read": 34488,
+            "source_release": 34488,
+            "target_visible": 41700,
+            "ack_observed": 43104
+          },
+          {
+            "transaction": "c1e0/output",
+            "last_actual_source_read": 43908,
+            "source_release": 43908,
+            "target_visible": 48628,
+            "ack_observed": 53272
+          },
+          {
+            "transaction": "c1e1/load",
+            "last_actual_source_read": 38132,
+            "source_release": 38132,
+            "target_visible": 40116,
+            "ack_observed": 40188
+          },
+          {
+            "transaction": "c1e1/peer",
+            "last_actual_source_read": 50904,
+            "source_release": 50904,
+            "target_visible": 53016,
+            "ack_observed": 60252
+          },
+          {
+            "transaction": "c1e1/notify",
+            "last_actual_source_read": 60396,
+            "source_release": 60396,
+            "target_visible": 61776,
+            "ack_observed": 69012
+          },
+          {
+            "transaction": "c1e1/token",
+            "last_actual_source_read": 63180,
+            "source_release": 63180,
+            "target_visible": 70392,
+            "ack_observed": 71796
+          },
+          {
+            "transaction": "c1e1/output",
+            "last_actual_source_read": 72600,
+            "source_release": 72600,
+            "target_visible": 77320,
+            "ack_observed": 81964
+          }
+        ],
+        "reuse_guards": [
+          {
+            "chain": 0,
+            "epoch": 1,
+            "role": "source",
+            "reuse_start": 26172,
+            "release_observed": 26172
+          },
+          {
+            "chain": 0,
+            "epoch": 1,
+            "role": "receive",
+            "reuse_start": 48884,
+            "release_observed": 39972
+          },
+          {
+            "chain": 0,
+            "epoch": 1,
+            "role": "result",
+            "reuse_start": 67020,
+            "release_observed": 45660
+          },
+          {
+            "chain": 1,
+            "epoch": 1,
+            "role": "source",
+            "reuse_start": 22284,
+            "release_observed": 22284
+          },
+          {
+            "chain": 1,
+            "epoch": 1,
+            "role": "receive",
+            "reuse_start": 44868,
+            "release_observed": 41808
+          },
+          {
+            "chain": 1,
+            "epoch": 1,
+            "role": "result",
+            "reuse_start": 65340,
+            "release_observed": 43980
+          }
+        ],
+        "failure_count": 0,
+        "failures": [],
+        "verified_scope": "Named two-chain integer micro DFG: each16B data block contains four identical32-bit words; notification immediate32 replicates its epoch into the four words; distinct blocks and epochs retain distinct identities",
+        "not_verified": [
+          "arbitrary per-byte masks or sub16B tearing",
+          "full MLP floating point execution or performance",
+          "physical chip memory ordering beyond this registered model",
+          "router/credit liveness and resource-capacity correctness (separate checker)",
+          "all possible interleavings not present in the supplied traces",
+          "physical RF allocation or vendor instruction lowering"
+        ]
+      }
+    },
+    {
+      "bank_layout": "mono",
+      "plan_index": 0,
+      "spec_sha256": "c70af40d27d4a0a42aca66cd0715f70ff6a310bf732546d89f3c93e88b88f9c5",
+      "trace_sha256": "425fe9012ec343df2f0e096221aba9b9a519688d22216608f211d8179b032257",
+      "audit": {
+        "schema": "r13.independent-trace-audit.v1",
+        "passed": true,
+        "checked_output_blocks": 256,
+        "data_read_16B_blocks": 1280,
+        "written_16B_blocks_including_controls": 1288,
+        "observed_control_16B_blocks": 8,
+        "individual_memory_completion_events": 2576,
+        "all_declared_operation_times_checked": 4584,
+        "block_timeline_sha256": "c35422c702ec4dda775a888ff2d8fe0fe3db1d810447dd8e8769c263a148bf7e",
+        "protocol_boundaries": [
+          {
+            "transaction": "c0e0/load",
+            "last_actual_source_read": 13328,
+            "source_release": 13328,
+            "target_visible": 15360,
+            "ack_observed": 15432
+          },
+          {
+            "transaction": "c0e0/peer",
+            "last_actual_source_read": 28836,
+            "source_release": 28836,
+            "target_visible": 32676,
+            "ack_observed": 36028
+          },
+          {
+            "transaction": "c0e0/notify",
+            "last_actual_source_read": 36172,
+            "source_release": 36172,
+            "target_visible": 37552,
+            "ack_observed": 40968
+          },
+          {
+            "transaction": "c0e0/token",
+            "last_actual_source_read": 40108,
+            "source_release": 40108,
+            "target_visible": 43524,
+            "ack_observed": 44928
+          },
+          {
+            "transaction": "c0e0/output",
+            "last_actual_source_read": 51064,
+            "source_release": 51064,
+            "target_visible": 60136,
+            "ack_observed": 64456
+          },
+          {
+            "transaction": "c0e1/load",
+            "last_actual_source_read": 44756,
+            "source_release": 44756,
+            "target_visible": 46980,
+            "ack_observed": 47052
+          },
+          {
+            "transaction": "c0e1/peer",
+            "last_actual_source_read": 60456,
+            "source_release": 60456,
+            "target_visible": 64284,
+            "ack_observed": 67632
+          },
+          {
+            "transaction": "c0e1/notify",
+            "last_actual_source_read": 67776,
+            "source_release": 67776,
+            "target_visible": 69156,
+            "ack_observed": 72504
+          },
+          {
+            "transaction": "c0e1/token",
+            "last_actual_source_read": 71712,
+            "source_release": 71712,
+            "target_visible": 75036,
+            "ack_observed": 76464
+          },
+          {
+            "transaction": "c0e1/output",
+            "last_actual_source_read": 82668,
+            "source_release": 82668,
+            "target_visible": 91840,
+            "ack_observed": 96160
+          },
+          {
+            "transaction": "c1e0/load",
+            "last_actual_source_read": 9440,
+            "source_release": 9440,
+            "target_visible": 11472,
+            "ack_observed": 11544
+          },
+          {
+            "transaction": "c1e0/peer",
+            "last_actual_source_read": 24948,
+            "source_release": 24948,
+            "target_visible": 26724,
+            "ack_observed": 33960
+          },
+          {
+            "transaction": "c1e0/notify",
+            "last_actual_source_read": 34104,
+            "source_release": 34104,
+            "target_visible": 35484,
+            "ack_observed": 42876
+          },
+          {
+            "transaction": "c1e0/token",
+            "last_actual_source_read": 38040,
+            "source_release": 38040,
+            "target_visible": 45276,
+            "ack_observed": 46680
+          },
+          {
+            "transaction": "c1e0/output",
+            "last_actual_source_read": 48996,
+            "source_release": 48996,
+            "target_visible": 53332,
+            "ack_observed": 58308
+          },
+          {
+            "transaction": "c1e1/load",
+            "last_actual_source_read": 40868,
+            "source_release": 40868,
+            "target_visible": 42996,
+            "ack_observed": 43068
+          },
+          {
+            "transaction": "c1e1/peer",
+            "last_actual_source_read": 56556,
+            "source_release": 56556,
+            "target_visible": 58428,
+            "ack_observed": 65664
+          },
+          {
+            "transaction": "c1e1/notify",
+            "last_actual_source_read": 65808,
+            "source_release": 65808,
+            "target_visible": 67188,
+            "ack_observed": 74424
+          },
+          {
+            "transaction": "c1e1/token",
+            "last_actual_source_read": 69744,
+            "source_release": 69744,
+            "target_visible": 76956,
+            "ack_observed": 78360
+          },
+          {
+            "transaction": "c1e1/output",
+            "last_actual_source_read": 80700,
+            "source_release": 80700,
+            "target_visible": 85036,
+            "ack_observed": 89680
+          }
+        ],
+        "reuse_guards": [
+          {
+            "chain": 0,
+            "epoch": 1,
+            "role": "source",
+            "reuse_start": 28908,
+            "release_observed": 28908
+          },
+          {
+            "chain": 0,
+            "epoch": 1,
+            "role": "receive",
+            "reuse_start": 54036,
+            "release_observed": 43632
+          },
+          {
+            "chain": 0,
+            "epoch": 1,
+            "role": "result",
+            "reuse_start": 73872,
+            "release_observed": 51136
+          },
+          {
+            "chain": 1,
+            "epoch": 1,
+            "role": "source",
+            "reuse_start": 25020,
+            "release_observed": 25020
+          },
+          {
+            "chain": 1,
+            "epoch": 1,
+            "role": "receive",
+            "reuse_start": 50136,
+            "release_observed": 45384
+          },
+          {
+            "chain": 1,
+            "epoch": 1,
+            "role": "result",
+            "reuse_start": 71904,
+            "release_observed": 49068
+          }
+        ],
+        "failure_count": 0,
+        "failures": [],
+        "verified_scope": "Named two-chain integer micro DFG: each16B data block contains four identical32-bit words; notification immediate32 replicates its epoch into the four words; distinct blocks and epochs retain distinct identities",
+        "not_verified": [
+          "arbitrary per-byte masks or sub16B tearing",
+          "full MLP floating point execution or performance",
+          "physical chip memory ordering beyond this registered model",
+          "router/credit liveness and resource-capacity correctness (separate checker)",
+          "all possible interleavings not present in the supplied traces",
+          "physical RF allocation or vendor instruction lowering"
+        ]
+      }
+    },
+    {
+      "bank_layout": "interleaved",
+      "plan_index": 287,
+      "spec_sha256": "8cde83275b7a61389f35787abacd322d70a30b21cc4290f17c3d2beb7ab9d0f3",
+      "trace_sha256": "f8cc53433e8a61b415ccff1b4dcffa747a8542c4be0b3592963d7c94cfa611c4",
+      "audit": {
+        "schema": "r13.independent-trace-audit.v1",
+        "passed": true,
+        "checked_output_blocks": 256,
+        "data_read_16B_blocks": 1280,
+        "written_16B_blocks_including_controls": 1288,
+        "observed_control_16B_blocks": 8,
+        "individual_memory_completion_events": 2576,
+        "all_declared_operation_times_checked": 8065,
+        "block_timeline_sha256": "869a73677c4c9194e71fd72f412f96185162d9b99c030a28fd6dd11dc9cbced8",
+        "protocol_boundaries": [
+          {
+            "transaction": "c0e0/load",
+            "last_actual_source_read": 7496,
+            "source_release": 7496,
+            "target_visible": 15312,
+            "ack_observed": 15384
+          },
+          {
+            "transaction": "c0e0/peer",
+            "last_actual_source_read": 26100,
+            "source_release": 26100,
+            "target_visible": 33720,
+            "ack_observed": 35448
+          },
+          {
+            "transaction": "c0e0/notify",
+            "last_actual_source_read": 35592,
+            "source_release": 35592,
+            "target_visible": 42480,
+            "ack_observed": 44208
+          },
+          {
+            "transaction": "c0e0/token",
+            "last_actual_source_read": 43884,
+            "source_release": 43884,
+            "target_visible": 45840,
+            "ack_observed": 52752
+          },
+          {
+            "transaction": "c0e0/output",
+            "last_actual_source_read": 53304,
+            "source_release": 53304,
+            "target_visible": 63728,
+            "ack_observed": 67924
+          },
+          {
+            "transaction": "c0e1/load",
+            "last_actual_source_read": 43268,
+            "source_release": 43268,
+            "target_visible": 51148,
+            "ack_observed": 51220
+          },
+          {
+            "transaction": "c0e1/peer",
+            "last_actual_source_read": 61936,
+            "source_release": 61936,
+            "target_visible": 69604,
+            "ack_observed": 71332
+          },
+          {
+            "transaction": "c0e1/notify",
+            "last_actual_source_read": 71476,
+            "source_release": 71476,
+            "target_visible": 78364,
+            "ack_observed": 80092
+          },
+          {
+            "transaction": "c0e1/token",
+            "last_actual_source_read": 79768,
+            "source_release": 79768,
+            "target_visible": 81472,
+            "ack_observed": 88384
+          },
+          {
+            "transaction": "c0e1/output",
+            "last_actual_source_read": 89188,
+            "source_release": 89188,
+            "target_visible": 99816,
+            "ack_observed": 103812
+          },
+          {
+            "transaction": "c1e0/load",
+            "last_actual_source_read": 12392,
+            "source_release": 12392,
+            "target_visible": 21016,
+            "ack_observed": 21088
+          },
+          {
+            "transaction": "c1e0/peer",
+            "last_actual_source_read": 31804,
+            "source_release": 31804,
+            "target_visible": 36184,
+            "ack_observed": 37264
+          },
+          {
+            "transaction": "c1e0/notify",
+            "last_actual_source_read": 37408,
+            "source_release": 37408,
+            "target_visible": 41056,
+            "ack_observed": 42136
+          },
+          {
+            "transaction": "c1e0/token",
+            "last_actual_source_read": 42460,
+            "source_release": 42460,
+            "target_visible": 43516,
+            "ack_observed": 49856
+          },
+          {
+            "transaction": "c1e0/output",
+            "last_actual_source_read": 51880,
+            "source_release": 51880,
+            "target_visible": 56924,
+            "ack_observed": 61244
+          },
+          {
+            "transaction": "c1e1/load",
+            "last_actual_source_read": 47676,
+            "source_release": 47676,
+            "target_visible": 57104,
+            "ack_observed": 57176
+          },
+          {
+            "transaction": "c1e1/peer",
+            "last_actual_source_read": 67892,
+            "source_release": 67892,
+            "target_visible": 72272,
+            "ack_observed": 73352
+          },
+          {
+            "transaction": "c1e1/notify",
+            "last_actual_source_read": 73496,
+            "source_release": 73496,
+            "target_visible": 77144,
+            "ack_observed": 78224
+          },
+          {
+            "transaction": "c1e1/token",
+            "last_actual_source_read": 78548,
+            "source_release": 78548,
+            "target_visible": 79604,
+            "ack_observed": 83276
+          },
+          {
+            "transaction": "c1e1/output",
+            "last_actual_source_read": 87968,
+            "source_release": 87968,
+            "target_visible": 93012,
+            "ack_observed": 97332
+          }
+        ],
+        "reuse_guards": [
+          {
+            "chain": 0,
+            "epoch": 1,
+            "role": "source",
+            "reuse_start": 35664,
+            "release_observed": 26172
+          },
+          {
+            "chain": 0,
+            "epoch": 1,
+            "role": "receive",
+            "reuse_start": 55900,
+            "release_observed": 45948
+          },
+          {
+            "chain": 0,
+            "epoch": 1,
+            "role": "result",
+            "reuse_start": 81928,
+            "release_observed": 53376
+          },
+          {
+            "chain": 1,
+            "epoch": 1,
+            "role": "source",
+            "reuse_start": 37480,
+            "release_observed": 31876
+          },
+          {
+            "chain": 1,
+            "epoch": 1,
+            "role": "receive",
+            "reuse_start": 61856,
+            "release_observed": 43624
+          },
+          {
+            "chain": 1,
+            "epoch": 1,
+            "role": "result",
+            "reuse_start": 80708,
+            "release_observed": 51952
+          }
+        ],
+        "failure_count": 0,
+        "failures": [],
+        "verified_scope": "Named two-chain integer micro DFG: each16B data block contains four identical32-bit words; notification immediate32 replicates its epoch into the four words; distinct blocks and epochs retain distinct identities",
+        "not_verified": [
+          "arbitrary per-byte masks or sub16B tearing",
+          "full MLP floating point execution or performance",
+          "physical chip memory ordering beyond this registered model",
+          "router/credit liveness and resource-capacity correctness (separate checker)",
+          "all possible interleavings not present in the supplied traces",
+          "physical RF allocation or vendor instruction lowering"
+        ]
+      }
+    },
+    {
+      "bank_layout": "mono",
+      "plan_index": 575,
+      "spec_sha256": "86d729bf66a3c1e0096ce3c1e6932b12866c164378e165d0ecfda397c85a3ef8",
+      "trace_sha256": "b47ef5fcc0a1b87adc26b27d3c5cec400dc6b7d9826358944f748f15f0b97a9d",
+      "audit": {
+        "schema": "r13.independent-trace-audit.v1",
+        "passed": true,
+        "checked_output_blocks": 256,
+        "data_read_16B_blocks": 1280,
+        "written_16B_blocks_including_controls": 1288,
+        "observed_control_16B_blocks": 8,
+        "individual_memory_completion_events": 2576,
+        "all_declared_operation_times_checked": 6017,
+        "block_timeline_sha256": "a9ef93d58f375071a0de5694b27f1aeb253992d6fb8b9802605e7d97605b896c",
+        "protocol_boundaries": [
+          {
+            "transaction": "c0e0/load",
+            "last_actual_source_read": 8144,
+            "source_release": 8144,
+            "target_visible": 15360,
+            "ack_observed": 15432
+          },
+          {
+            "transaction": "c0e0/peer",
+            "last_actual_source_read": 28836,
+            "source_release": 28836,
+            "target_visible": 30288,
+            "ack_observed": 33960
+          },
+          {
+            "transaction": "c0e0/notify",
+            "last_actual_source_read": 34104,
+            "source_release": 34104,
+            "target_visible": 35160,
+            "ack_observed": 38832
+          },
+          {
+            "transaction": "c0e0/token",
+            "last_actual_source_read": 37716,
+            "source_release": 37716,
+            "target_visible": 41364,
+            "ack_observed": 42468
+          },
+          {
+            "transaction": "c0e0/output",
+            "last_actual_source_read": 48672,
+            "source_release": 48672,
+            "target_visible": 53008,
+            "ack_observed": 57652
+          },
+          {
+            "transaction": "c0e1/load",
+            "last_actual_source_read": 42428,
+            "source_release": 42428,
+            "target_visible": 49644,
+            "ack_observed": 49716
+          },
+          {
+            "transaction": "c0e1/peer",
+            "last_actual_source_read": 63120,
+            "source_release": 63120,
+            "target_visible": 64572,
+            "ack_observed": 68244
+          },
+          {
+            "transaction": "c0e1/notify",
+            "last_actual_source_read": 68388,
+            "source_release": 68388,
+            "target_visible": 69444,
+            "ack_observed": 73116
+          },
+          {
+            "transaction": "c0e1/token",
+            "last_actual_source_read": 72000,
+            "source_release": 72000,
+            "target_visible": 75648,
+            "ack_observed": 76752
+          },
+          {
+            "transaction": "c0e1/output",
+            "last_actual_source_read": 82956,
+            "source_release": 82956,
+            "target_visible": 87292,
+            "ack_observed": 91936
+          },
+          {
+            "transaction": "c1e0/load",
+            "last_actual_source_read": 13040,
+            "source_release": 13040,
+            "target_visible": 17664,
+            "ack_observed": 17736
+          },
+          {
+            "transaction": "c1e0/peer",
+            "last_actual_source_read": 31140,
+            "source_release": 31140,
+            "target_visible": 37236,
+            "ack_observed": 44148
+          },
+          {
+            "transaction": "c1e0/notify",
+            "last_actual_source_read": 44292,
+            "source_release": 44292,
+            "target_visible": 45996,
+            "ack_observed": 52908
+          },
+          {
+            "transaction": "c1e0/token",
+            "last_actual_source_read": 48552,
+            "source_release": 48552,
+            "target_visible": 55440,
+            "ack_observed": 57168
+          },
+          {
+            "transaction": "c1e0/output",
+            "last_actual_source_read": 59508,
+            "source_release": 59508,
+            "target_visible": 63520,
+            "ack_observed": 68488
+          },
+          {
+            "transaction": "c1e1/load",
+            "last_actual_source_read": 59444,
+            "source_release": 59444,
+            "target_visible": 63976,
+            "ack_observed": 64048
+          },
+          {
+            "transaction": "c1e1/peer",
+            "last_actual_source_read": 77452,
+            "source_release": 77452,
+            "target_visible": 79552,
+            "ack_observed": 86464
+          },
+          {
+            "transaction": "c1e1/notify",
+            "last_actual_source_read": 86608,
+            "source_release": 86608,
+            "target_visible": 88312,
+            "ack_observed": 95224
+          },
+          {
+            "transaction": "c1e1/token",
+            "last_actual_source_read": 90868,
+            "source_release": 90868,
+            "target_visible": 97756,
+            "ack_observed": 99484
+          },
+          {
+            "transaction": "c1e1/output",
+            "last_actual_source_read": 101824,
+            "source_release": 101824,
+            "target_visible": 105836,
+            "ack_observed": 110804
+          }
+        ],
+        "reuse_guards": [
+          {
+            "chain": 0,
+            "epoch": 1,
+            "role": "source",
+            "reuse_start": 34176,
+            "release_observed": 28908
+          },
+          {
+            "chain": 0,
+            "epoch": 1,
+            "role": "receive",
+            "reuse_start": 56700,
+            "release_observed": 41472
+          },
+          {
+            "chain": 0,
+            "epoch": 1,
+            "role": "result",
+            "reuse_start": 74160,
+            "release_observed": 48744
+          },
+          {
+            "chain": 1,
+            "epoch": 1,
+            "role": "source",
+            "reuse_start": 44364,
+            "release_observed": 31212
+          },
+          {
+            "chain": 1,
+            "epoch": 1,
+            "role": "receive",
+            "reuse_start": 71032,
+            "release_observed": 55548
+          },
+          {
+            "chain": 1,
+            "epoch": 1,
+            "role": "result",
+            "reuse_start": 93028,
+            "release_observed": 59580
+          }
+        ],
+        "failure_count": 0,
+        "failures": [],
+        "verified_scope": "Named two-chain integer micro DFG: each16B data block contains four identical32-bit words; notification immediate32 replicates its epoch into the four words; distinct blocks and epochs retain distinct identities",
+        "not_verified": [
+          "arbitrary per-byte masks or sub16B tearing",
+          "full MLP floating point execution or performance",
+          "physical chip memory ordering beyond this registered model",
+          "router/credit liveness and resource-capacity correctness (separate checker)",
+          "all possible interleavings not present in the supplied traces",
+          "physical RF allocation or vendor instruction lowering"
+        ]
+      }
+    }
+  ],
+  "negative_mutations": [
+    {
+      "name": "stale_notification_epoch",
+      "rejected": true,
+      "failure_count": 3,
+      "failure_codes": [
+        "observed_control_value_or_identity",
+        "stale_control_payload",
+        "written_value_or_identity"
+      ],
+      "first_failures": [
+        {
+          "code": "stale_control_payload",
+          "op": "c0e1/notify/data/f000:5"
+        },
+        {
+          "code": "written_value_or_identity",
+          "op": "c0e1/notify/data/f000:5",
+          "block": "l1/3,1/16384",
+          "expected": [
+            1,
+            [
+              0,
+              1,
+              0,
+              "notify"
+            ]
+          ],
+          "actual": [
+            0,
+            [
+              0,
+              1,
+              0,
+              "notify"
+            ]
+          ]
+        },
+        {
+          "code": "observed_control_value_or_identity",
+          "op": "c0e1/consumer_ready/read:0",
+          "expected": [
+            1,
+            [
+              0,
+              1,
+              0,
+              "notify"
+            ]
+          ],
+          "actual": [
+            0,
+            [
+              0,
+              1,
+              0,
+              "notify"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stale_receive_token_epoch",
+      "rejected": true,
+      "failure_count": 3,
+      "failure_codes": [
+        "observed_control_value_or_identity",
+        "stale_control_payload",
+        "written_value_or_identity"
+      ],
+      "first_failures": [
+        {
+          "code": "stale_control_payload",
+          "op": "c0e1/token/data/f000:11"
+        },
+        {
+          "code": "written_value_or_identity",
+          "op": "c0e1/token/data/f000:11",
+          "block": "l1/1,1/16384",
+          "expected": [
+            1,
+            [
+              0,
+              1,
+              0,
+              "token"
+            ]
+          ],
+          "actual": [
+            0,
+            [
+              0,
+              1,
+              0,
+              "token"
+            ]
+          ]
+        },
+        {
+          "code": "observed_control_value_or_identity",
+          "op": "c0e1/token_ready/read:0",
+          "expected": [
+            1,
+            [
+              0,
+              1,
+              0,
+              "token"
+            ]
+          ],
+          "actual": [
+            0,
+            [
+              0,
+              1,
+              0,
+              "token"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "different_16B_blocks_swapped_in_one_flit",
+      "rejected": true,
+      "failure_count": 13,
+      "failure_codes": [
+        "final_output_value",
+        "read_value_or_identity",
+        "reader_span_or_order_mismatch",
+        "written_value_or_identity"
+      ],
+      "first_failures": [
+        {
+          "code": "reader_span_or_order_mismatch",
+          "role": "c0e0/peer"
+        },
+        {
+          "code": "written_value_or_identity",
+          "op": "c0e0/peer/data/f001:5",
+          "block": "l1/3,1/8192",
+          "expected": [
+            2000000,
+            [
+              0,
+              0,
+              0,
+              "times2"
+            ]
+          ],
+          "actual": [
+            2000002,
+            [
+              0,
+              0,
+              1,
+              "times2"
+            ]
+          ]
+        },
+        {
+          "code": "written_value_or_identity",
+          "op": "c0e0/peer/data/f001:5",
+          "block": "l1/3,1/8193",
+          "expected": [
+            2000002,
+            [
+              0,
+              0,
+              1,
+              "times2"
+            ]
+          ],
+          "actual": [
+            2000000,
+            [
+              0,
+              0,
+              0,
+              "times2"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mono_bank_two_blocks_falsely_atomic_at_tail",
+      "rejected": true,
+      "failure_count": 1,
+      "failure_codes": [
+        "block_completion_formula_mismatch"
+      ],
+      "first_failures": [
+        {
+          "code": "block_completion_formula_mismatch",
+          "op": "c0e0/peer/data/f001:0",
+          "actual": [
+            96,
+            96
+          ],
+          "expected": [
+            "48",
+            "96"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "next_load_issue_before_source_release",
+      "rejected": true,
+      "failure_count": 3,
+      "failure_codes": [
+        "dependency_time_violation",
+        "early_source_reuse"
+      ],
+      "first_failures": [
+        {
+          "code": "dependency_time_violation",
+          "job": "c0e1/load/issue",
+          "dependency": "c0e0/peer/source_observed:0"
+        },
+        {
+          "code": "dependency_time_violation",
+          "job": "c0e1/load/issue",
+          "dependency": "c0e0/load/observed:0"
+        },
+        {
+          "code": "early_source_reuse",
+          "chain": 0,
+          "epoch": 1,
+          "reuse_start": 0,
+          "release_observed": 28908
+        }
+      ]
+    },
+    {
+      "name": "next_peer_issue_before_receive_token",
+      "rejected": true,
+      "failure_count": 4,
+      "failure_codes": [
+        "dependency_time_violation",
+        "early_receive_reuse"
+      ],
+      "first_failures": [
+        {
+          "code": "dependency_time_violation",
+          "job": "c0e1/peer/issue",
+          "dependency": "c0e1/producer/published:0"
+        },
+        {
+          "code": "dependency_time_violation",
+          "job": "c0e1/peer/issue",
+          "dependency": "c0e0/token_ready:0"
+        },
+        {
+          "code": "dependency_time_violation",
+          "job": "c0e1/peer/issue",
+          "dependency": "c0e0/peer/observed:0"
+        }
+      ]
+    },
+    {
+      "name": "result_overwrite_before_output_last_read",
+      "rejected": true,
+      "failure_count": 10,
+      "failure_codes": [
+        "dependency_time_violation",
+        "early_result_reuse",
+        "final_output_value",
+        "read_value_or_identity",
+        "written_value_or_identity"
+      ],
+      "first_failures": [
+        {
+          "code": "dependency_time_violation",
+          "job": "c0e1/consumer/write000",
+          "dependency": "c0e1/consumer/calc:0"
+        },
+        {
+          "code": "early_result_reuse",
+          "chain": 0,
+          "epoch": 1,
+          "reuse_start": 0,
+          "release_observed": 51136
+        },
+        {
+          "code": "written_value_or_identity",
+          "op": "c0e1/consumer/write000:0",
+          "block": "l1/3,1/12288",
+          "expected": [
+            2020003,
+            [
+              0,
+              1,
+              0,
+              "plus3"
+            ]
+          ],
+          "actual": [
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "name": "consumer_ready_without_actual_notification_read",
+      "rejected": true,
+      "failure_count": 3,
+      "failure_codes": [
+        "consumer_ready_before_payload_visible",
+        "dependency_time_violation",
+        "ready_before_control_observation"
+      ],
+      "first_failures": [
+        {
+          "code": "dependency_time_violation",
+          "job": "c0e0/consumer_ready",
+          "dependency": "c0e0/consumer_ready/read:0"
+        },
+        {
+          "code": "ready_before_control_observation",
+          "role": "c0e0/notify"
+        },
+        {
+          "code": "consumer_ready_before_payload_visible",
+          "chain": 0,
+          "epoch": 0
+        }
+      ]
+    },
+    {
+      "name": "missing_final_ack_operation",
+      "rejected": true,
+      "failure_count": 1,
+      "failure_codes": [
+        "operation_coverage"
+      ],
+      "first_failures": [
+        {
+          "code": "operation_coverage",
+          "missing": [
+            "c0e1/output/ack/f000:0"
+          ],
+          "extra": []
+        }
+      ]
+    }
+  ],
+  "wall_seconds_not_model_cycles": 3.0694850999861956,
+  "producer_sha256": "45ed9618e9a2c31518e65fff26c4f1555164656f224cd0308050c3c16c6ba58a",
+  "source_file_sha256": {
+    "model_builder.py": "c60556f275d0c8efe5505333535a472288b2d92d8a57f6616f1deee84281703b",
+    "event_machine.py": "e52d2ad6ee652e7beb8c9d6c3ccc97502e47e996dd4e02665189e1def93c8696",
+    "hardware_model.json": "162b8cb6fb8f32a4a7997b26d578593e5ba389cd980973afd167936ebb5a069c"
+  },
+  "scope": "Four actual full two-chain/two-epoch 1KiB trace audits and nine negative mutations; not a proof over unexecuted schedules"
+}

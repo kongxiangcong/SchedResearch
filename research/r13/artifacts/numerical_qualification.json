@@ -1,0 +1,285 @@
+{
+  "schema": "r13.numerical-qualification.v1",
+  "status": "passed",
+  "evidence": "Actual CPU execution of complete MLPs and independent fixed-tree checks; no hardware, model timing, downloaded trained weights, or end-task accuracy claim",
+  "contract_sha256": "0fb2c74fc005667885f6caa8a4d25934e6456500f7b8cd697a423c83844cc13e",
+  "producer_sha256": "38b070e9b15842d2755b88b14b366cbf432bfc8ebce68e1a5363b567a5fc008e",
+  "environment": {
+    "python": "3.13.12 (main, Mar 10 2026, 18:14:40) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.5.3",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "blas_threads": 4
+  },
+  "units": {
+    "passed": true,
+    "bf16_tie_cases": 10,
+    "finite_fp32_rounding_cases": 100000,
+    "silu_extreme_cases": 8,
+    "cancellation_tree_result": 1.0,
+    "forbidden_reassociation_result": 2.0,
+    "omitted_cast_mutation_detected": true,
+    "omitted_cast_max_absolute_difference": 0.019341468811035156
+  },
+  "initial_tensors": {
+    "X": {
+      "shape": [
+        128,
+        2560
+      ],
+      "storage_dtype": "BF16 represented exactly in FP32 CPU arrays",
+      "sha256_of_fp32_representation": "8a1650b34fe2ab55402ce92d91e6a72e24547be0198fb02dcaabfc65edc9fc07"
+    },
+    "gate": {
+      "shape": [
+        2560,
+        9216
+      ],
+      "storage_dtype": "BF16 represented exactly in FP32 CPU arrays",
+      "sha256_of_fp32_representation": "e8ff955dbbc00b5849df4dda34b7725fc9d33818b990ca6a52b36f3136954753"
+    },
+    "up": {
+      "shape": [
+        2560,
+        9216
+      ],
+      "storage_dtype": "BF16 represented exactly in FP32 CPU arrays",
+      "sha256_of_fp32_representation": "4ec75330bb8fc981bf376d5a271c0fdbcc11d3e11756eefe7db2e6ff7b7b5e5d"
+    },
+    "down": {
+      "shape": [
+        9216,
+        2560
+      ],
+      "storage_dtype": "BF16 represented exactly in FP32 CPU arrays",
+      "sha256_of_fp32_representation": "19bace68292a58bb8cd5ad9f853bcbeaa3732b59ab6df5807fba8a0a6bcd630a"
+    }
+  },
+  "cases": [
+    {
+      "M": 1,
+      "padded_M": 32,
+      "all_output_elements_checked": 2560,
+      "all_padded_output_elements_checked": 81920,
+      "logical_MACs": 70778880,
+      "padded_MACs": 2264924160,
+      "input_bf16_bytes": 5120,
+      "output_fp32_bytes": 10240,
+      "cast_elements": 9216,
+      "cast_logical_read_bytes": 36864,
+      "cast_logical_write_bytes": 18432,
+      "checks": {
+        "gate": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "9abd19dad066d3ef1a4af0e22ae22361ab8b7f38be72b0861a3d23dc575ec962",
+          "bitwise_independent_match": true
+        },
+        "up": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "db9af6f9deecf58c4fb80a284b89b427ca119fa86e37765158128cc8aae4c457",
+          "bitwise_independent_match": true
+        },
+        "silu": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "e36c53583203b2159e0b587766bba304b22134e7ce18ef37652e28b34be4e37b",
+          "bitwise_independent_match": true
+        },
+        "multiply_fp32": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "ddb59b90b98bda68d49480fb9ae827815f22b5806c4e1eb2739490a854420f09",
+          "bitwise_independent_match": true
+        },
+        "down_input_bf16": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "1c573d7df512a7762d6747c56af310dd629205c2461dbd62823bf2c87e8a9276",
+          "bitwise_independent_match": true
+        },
+        "down": {
+          "shape": [
+            32,
+            2560
+          ],
+          "sha256": "37a30723db359755c65af6bf2972d92d9c7f564c993859ba17a9c9786ef5d51f",
+          "bitwise_independent_match": true
+        }
+      },
+      "source_algebra_error": {
+        "relative_l2": 0.0016238196248702127,
+        "max_abs_error": 0.0010438045843843159,
+        "max_abs_over_max_abs_source": 0.0015917327406944355,
+        "max_pointwise_relative_error_at_1e_minus12_floor": 3.4226604201184228,
+        "reference_max_abs": 0.6557662336762191,
+        "reference_sha256": "48be33ed0b61ab15a3de4b6674e0a0c24d228a1a3d477fabed7710ca1ec14334",
+        "passed": true
+      },
+      "output_logical_sha256": "3c8c05c7bad16a953082443ac8f80aaf8d3e7d6e1fbcab269fc59c5512f55684",
+      "cpu_validation_wall_seconds_not_model_cycles": 8.094868400017731,
+      "passed": true
+    },
+    {
+      "M": 32,
+      "padded_M": 32,
+      "all_output_elements_checked": 81920,
+      "all_padded_output_elements_checked": 81920,
+      "logical_MACs": 2264924160,
+      "padded_MACs": 2264924160,
+      "input_bf16_bytes": 163840,
+      "output_fp32_bytes": 327680,
+      "cast_elements": 294912,
+      "cast_logical_read_bytes": 1179648,
+      "cast_logical_write_bytes": 589824,
+      "checks": {
+        "gate": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "04730dff0a9cd4df3f7ebd56f7147c16c83597c3b69571a407597f893f7cc41b",
+          "bitwise_independent_match": true
+        },
+        "up": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "4c55dc5d9e65e50531f3b9a7143457dcc2e63a7b38780641d63dd26f7ac76dbc",
+          "bitwise_independent_match": true
+        },
+        "silu": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "8ea42ccc5fc9f7cd31bc0c0fca35d8ee9482ea5771a85c4acf388a8fed124233",
+          "bitwise_independent_match": true
+        },
+        "multiply_fp32": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "1e56590719c46d3ed2dab5e4a6143f77e2ad486a4c6e20945cee241190a363d4",
+          "bitwise_independent_match": true
+        },
+        "down_input_bf16": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "7f51226a376a0e6e77ada1029c8a0562d8df6d3bbe6b593c98d7524a9e2ab451",
+          "bitwise_independent_match": true
+        },
+        "down": {
+          "shape": [
+            32,
+            2560
+          ],
+          "sha256": "15d5ae430466c131d77c5f17c437da0fdceb2a7d70a4d3c98fb19bff5af5a326",
+          "bitwise_independent_match": true
+        }
+      },
+      "source_algebra_error": {
+        "relative_l2": 0.0016506450773327995,
+        "max_abs_error": 0.0012775568014744831,
+        "max_abs_over_max_abs_source": 0.0015202860580629568,
+        "max_pointwise_relative_error_at_1e_minus12_floor": 64.9428508474807,
+        "reference_max_abs": 0.8403397470488267,
+        "reference_sha256": "99209a4ab75a61891b99a1cab0ff439ce77321799e42b70250343850fa55841b",
+        "passed": true
+      },
+      "output_logical_sha256": "15d5ae430466c131d77c5f17c437da0fdceb2a7d70a4d3c98fb19bff5af5a326",
+      "cpu_validation_wall_seconds_not_model_cycles": 7.733239799970761,
+      "passed": true
+    },
+    {
+      "M": 128,
+      "padded_M": 128,
+      "all_output_elements_checked": 327680,
+      "all_padded_output_elements_checked": 327680,
+      "logical_MACs": 9059696640,
+      "padded_MACs": 9059696640,
+      "input_bf16_bytes": 655360,
+      "output_fp32_bytes": 1310720,
+      "cast_elements": 1179648,
+      "cast_logical_read_bytes": 4718592,
+      "cast_logical_write_bytes": 2359296,
+      "checks": {
+        "gate": {
+          "shape": [
+            128,
+            9216
+          ],
+          "sha256": "0dde2a9d4465f450baff4215087f6a74209bf6230d80accf6eafaa88f527be6c",
+          "bitwise_independent_match": true
+        },
+        "up": {
+          "shape": [
+            128,
+            9216
+          ],
+          "sha256": "59f6e2d0999029e1c5a5ee515162d08be76c56cbede1162610b40d24e8a9b5f5",
+          "bitwise_independent_match": true
+        },
+        "silu": {
+          "shape": [
+            128,
+            9216
+          ],
+          "sha256": "b3f8aeeee35e8754f96bfc4a1bd01d3aeaaea9853eae0754cf34899ca0d5b910",
+          "bitwise_independent_match": true
+        },
+        "multiply_fp32": {
+          "shape": [
+            128,
+            9216
+          ],
+          "sha256": "bdf1dfd539c45f4c7ebdee62d543ccc39237dbfb526987340183a6d374083a6b",
+          "bitwise_independent_match": true
+        },
+        "down_input_bf16": {
+          "shape": [
+            128,
+            9216
+          ],
+          "sha256": "177c24184f5d3f5fc1e1b35ef18b9cf8ecd351654dd32bdc4f175430cf89c925",
+          "bitwise_independent_match": true
+        },
+        "down": {
+          "shape": [
+            128,
+            2560
+          ],
+          "sha256": "fccfb9f56b638fcaf90fdeda1569b127c0c55d7c0eed719cc9dbc23ca0262d86",
+          "bitwise_independent_match": true
+        }
+      },
+      "source_algebra_error": {
+        "relative_l2": 0.0016584420571192113,
+        "max_abs_error": 0.0013018632409674963,
+        "max_abs_over_max_abs_source": 0.0014057609068821172,
+        "max_pointwise_relative_error_at_1e_minus12_floor": 463.69633682971875,
+        "reference_max_abs": 0.9260915100100067,
+        "reference_sha256": "01c21cfab88e9314a4468e87f7f4b786b770eacd454866de687491bb6690a771",
+        "passed": true
+      },
+      "output_logical_sha256": "fccfb9f56b638fcaf90fdeda1569b127c0c55d7c0eed719cc9dbc23ca0262d86",
+      "cpu_validation_wall_seconds_not_model_cycles": 33.918820199905895,
+      "passed": true
+    }
+  ],
+  "total_cpu_validation_wall_seconds_not_model_cycles": 53.347254600026645
+}

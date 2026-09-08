@@ -1,0 +1,34 @@
+name: r13_micro_single_offchip_candidate_projection
+cores:
+  0: ./compute.yaml
+  1: ./compute.yaml
+  2: ./compute.yaml
+  3: ./compute.yaml
+  4: ./offchip.yaml
+core_coordinates:
+  0:
+  - 1
+  - 1
+  1:
+  - 2
+  - 1
+  2:
+  - 3
+  - 1
+  3:
+  - 3
+  - 2
+  4:
+  - 0
+  - 0
+offchip_core_id: 4
+unit_energy_cost: 0
+core_connectivity:
+- type: bus
+  cores:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  bandwidth: 192

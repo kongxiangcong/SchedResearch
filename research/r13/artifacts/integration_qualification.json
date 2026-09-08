@@ -1,0 +1,387 @@
+{
+  "schema": "r13.model-integration.v1",
+  "command": "research/r12/.venv/Scripts/python.exe -X utf8 -B research/r13/test_model_integration.py",
+  "registered_case_count": 9,
+  "source_hashes": {
+    "test_model_integration.py": "eedd51c04848a7d5e5ad85eb8b9949089a9612253b3af174eedaac8f67acbc72",
+    "model_builder.py": "c60556f275d0c8efe5505333535a472288b2d92d8a57f6616f1deee84281703b",
+    "event_machine.py": "e52d2ad6ee652e7beb8c9d6c3ccc97502e47e996dd4e02665189e1def93c8696",
+    "independent_checker.py": "c752b00faceb1a2ccde9cc6375c43dab7d9325bcdb9d07e05e54be803226d308",
+    "trace_audit.py": "45ed9618e9a2c31518e65fff26c4f1555164656f224cd0308050c3c16c6ba58a",
+    "hardware_model.json": "162b8cb6fb8f32a4a7997b26d578593e5ba389cd980973afd167936ebb5a069c",
+    "machine_contract.md": "6cbd8f20b247c448d12d917962abe225330ccbd7cd4cb877767ba7fa5f5a88f4"
+  },
+  "source_unchanged_during_run": true,
+  "passed": true,
+  "cases": [
+    {
+      "name": "minimum_16B_payload",
+      "expected": "complete",
+      "payload_bytes": 16,
+      "plan_id": "p0000",
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "tie_break": "ascending",
+      "spec_sha256": "a6774418fbf70abd1fbc078f56096b153bcb3ed91d3b6f23fc1cd56b14711387",
+      "execution_sha256": "b91e2250e4f7a49992bd7f93f452625b186cadfe8bc8514123d9abc329ad34be",
+      "status": "ok",
+      "quiescent_ticks": 47660,
+      "operations": 802,
+      "builder_rules": {
+        "passed": true,
+        "errors": [],
+        "packets": 40,
+        "link_operations": 506,
+        "memory_operations": 56,
+        "memory_16B_blocks": 56,
+        "scope": "independent modular routing, full packet-class flit ledger, registered 16B memory costs/offsets, and finite pool/credit constraints; no value/epoch replay"
+      },
+      "trace_audit": {
+        "passed": true,
+        "checked_output_blocks": 4,
+        "data_read_16B_blocks": 20,
+        "written_16B_blocks_including_controls": 28,
+        "observed_control_16B_blocks": 8,
+        "individual_memory_completion_events": 56,
+        "all_declared_operation_times_checked": 802,
+        "block_timeline_sha256": "2b2bbdff6f317aafbca52830c2ad28513b6ff5ab18982ba440528e041dd52bbf",
+        "failure_count": 0,
+        "failures": []
+      },
+      "passed": true
+    },
+    {
+      "name": "32B_negative_direction_wraps",
+      "expected": "complete",
+      "payload_bytes": 32,
+      "plan_id": "p0090",
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "tie_break": "ascending",
+      "spec_sha256": "eb3c25681a5b1325185374b864d33091dbff1a1bc3fd0f4a9be2108e3132a504",
+      "execution_sha256": "98a9ab8938e83104a5479f979774bf378c30e7f347e778363a49486fb6cddfbe",
+      "status": "ok",
+      "quiescent_ticks": 53552,
+      "operations": 902,
+      "builder_rules": {
+        "passed": true,
+        "errors": [],
+        "packets": 40,
+        "link_operations": 606,
+        "memory_operations": 56,
+        "memory_16B_blocks": 96,
+        "scope": "independent modular routing, full packet-class flit ledger, registered 16B memory costs/offsets, and finite pool/credit constraints; no value/epoch replay"
+      },
+      "trace_audit": {
+        "passed": true,
+        "checked_output_blocks": 8,
+        "data_read_16B_blocks": 40,
+        "written_16B_blocks_including_controls": 48,
+        "observed_control_16B_blocks": 8,
+        "individual_memory_completion_events": 96,
+        "all_declared_operation_times_checked": 902,
+        "block_timeline_sha256": "2e2cebe4d62ba9a4c00f1a87750f48a7dcd05c0ffb33c1b4ec412bc9a1289ac8",
+        "failure_count": 0,
+        "failures": []
+      },
+      "passed": true
+    },
+    {
+      "name": "48B_partial_last_flit_zero_niu_extra",
+      "expected": "complete",
+      "payload_bytes": 48,
+      "plan_id": "p0090",
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 0,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "tie_break": "ascending",
+      "spec_sha256": "660b406e773e3440b50e887118118fa64107bfca5bdac46bb4407e4b6fb108ea",
+      "execution_sha256": "4fa207734110e4af116207dee299ff25942f1c467bd767012b4f6c2f5c637024",
+      "status": "ok",
+      "quiescent_ticks": 50244,
+      "operations": 1124,
+      "builder_rules": {
+        "passed": true,
+        "errors": [],
+        "packets": 40,
+        "link_operations": 788,
+        "memory_operations": 96,
+        "memory_16B_blocks": 136,
+        "scope": "independent modular routing, full packet-class flit ledger, registered 16B memory costs/offsets, and finite pool/credit constraints; no value/epoch replay"
+      },
+      "trace_audit": {
+        "passed": true,
+        "checked_output_blocks": 12,
+        "data_read_16B_blocks": 60,
+        "written_16B_blocks_including_controls": 68,
+        "observed_control_16B_blocks": 8,
+        "individual_memory_completion_events": 136,
+        "all_declared_operation_times_checked": 1124,
+        "block_timeline_sha256": "2100caa8ad0976787c6597cd71a36f6231ba8466f7fdada68afa1f72d12c7bc0",
+        "failure_count": 0,
+        "failures": []
+      },
+      "passed": true
+    },
+    {
+      "name": "1024B_single_niu_flit_capacity",
+      "expected": "complete",
+      "payload_bytes": 1024,
+      "plan_id": "p0000",
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 1,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "tie_break": "ascending",
+      "spec_sha256": "a0f21f2bdd19adb5a19946921d41ae6426d0ad51993d4bff52fa2de63c68a6da",
+      "execution_sha256": "36b5232cc47fa30a154f2e9d12e5259d0e848bd5bfec3e5eeeda4001c2e0e08c",
+      "status": "ok",
+      "quiescent_ticks": 225604,
+      "operations": 4584,
+      "builder_rules": {
+        "passed": true,
+        "errors": [],
+        "packets": 40,
+        "link_operations": 3048,
+        "memory_operations": 1296,
+        "memory_16B_blocks": 2576,
+        "scope": "independent modular routing, full packet-class flit ledger, registered 16B memory costs/offsets, and finite pool/credit constraints; no value/epoch replay"
+      },
+      "trace_audit": {
+        "passed": true,
+        "checked_output_blocks": 256,
+        "data_read_16B_blocks": 1280,
+        "written_16B_blocks_including_controls": 1288,
+        "observed_control_16B_blocks": 8,
+        "individual_memory_completion_events": 2576,
+        "all_declared_operation_times_checked": 4584,
+        "block_timeline_sha256": "26e3d971057e90409067387ee82de3f9ffd471d552f99d903fffca0fe7546837",
+        "failure_count": 0,
+        "failures": []
+      },
+      "passed": true
+    },
+    {
+      "name": "32B_long_credit_return",
+      "expected": "complete",
+      "payload_bytes": 32,
+      "plan_id": "p0575",
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 36,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "tie_break": "ascending",
+      "spec_sha256": "0fd820413e4cf76e69d79cc70b4cda889093f7002c7cfbaff983aef4b9b573df",
+      "execution_sha256": "da7c55260f37a74e03eeda8cf711c56b6a933917245623669546b01bc3672389",
+      "status": "ok",
+      "quiescent_ticks": 57332,
+      "operations": 871,
+      "builder_rules": {
+        "passed": true,
+        "errors": [],
+        "packets": 40,
+        "link_operations": 574,
+        "memory_operations": 56,
+        "memory_16B_blocks": 96,
+        "scope": "independent modular routing, full packet-class flit ledger, registered 16B memory costs/offsets, and finite pool/credit constraints; no value/epoch replay"
+      },
+      "trace_audit": {
+        "passed": true,
+        "checked_output_blocks": 8,
+        "data_read_16B_blocks": 40,
+        "written_16B_blocks_including_controls": 48,
+        "observed_control_16B_blocks": 8,
+        "individual_memory_completion_events": 96,
+        "all_declared_operation_times_checked": 871,
+        "block_timeline_sha256": "acc23eb506ae72c6180db784380c80c6f92687907d06558baa0cb1dfd55309ce",
+        "failure_count": 0,
+        "failures": []
+      },
+      "passed": true
+    },
+    {
+      "name": "48B_serial_bank_completions",
+      "expected": "complete",
+      "payload_bytes": 48,
+      "plan_id": "p0090",
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "tie_break": "ascending",
+      "spec_sha256": "2075a1099eb46ee4b101cf69d7506443ca3774af14af0d4d93cfdd06639ee081",
+      "execution_sha256": "41a9dbe7786010a8752844c56bd15b2f13997f5def89b089bcf0bdad699949a0",
+      "status": "ok",
+      "quiescent_ticks": 54340,
+      "operations": 1124,
+      "builder_rules": {
+        "passed": true,
+        "errors": [],
+        "packets": 40,
+        "link_operations": 788,
+        "memory_operations": 96,
+        "memory_16B_blocks": 136,
+        "scope": "independent modular routing, full packet-class flit ledger, registered 16B memory costs/offsets, and finite pool/credit constraints; no value/epoch replay"
+      },
+      "trace_audit": {
+        "passed": true,
+        "checked_output_blocks": 12,
+        "data_read_16B_blocks": 60,
+        "written_16B_blocks_including_controls": 68,
+        "observed_control_16B_blocks": 8,
+        "individual_memory_completion_events": 136,
+        "all_declared_operation_times_checked": 1124,
+        "block_timeline_sha256": "8e15387e9498e322b3fb711715929c8853299758dc2fbfe4f11ceb649a4a6e17",
+        "failure_count": 0,
+        "failures": []
+      },
+      "passed": true
+    },
+    {
+      "name": "16B_descending_long_path_tick_check",
+      "expected": "complete",
+      "payload_bytes": 16,
+      "plan_id": "p0575",
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "tie_break": "descending",
+      "spec_sha256": "e3f872aacb3fe1166ddadfcda1335ea75a7517ed869966f47a99ba1030e8595a",
+      "execution_sha256": "47d79b0198c95b17d3850d649a71b730f8ffe0d05c26f6947bc0765f32642135",
+      "status": "ok",
+      "quiescent_ticks": 56180,
+      "operations": 871,
+      "builder_rules": {
+        "passed": true,
+        "errors": [],
+        "packets": 40,
+        "link_operations": 574,
+        "memory_operations": 56,
+        "memory_16B_blocks": 56,
+        "scope": "independent modular routing, full packet-class flit ledger, registered 16B memory costs/offsets, and finite pool/credit constraints; no value/epoch replay"
+      },
+      "trace_audit": {
+        "passed": true,
+        "checked_output_blocks": 4,
+        "data_read_16B_blocks": 20,
+        "written_16B_blocks_including_controls": 28,
+        "observed_control_16B_blocks": 8,
+        "individual_memory_completion_events": 56,
+        "all_declared_operation_times_checked": 871,
+        "block_timeline_sha256": "340203bf1ecda04f3a934b3be859b9b0b507d77219b12ceb5a8206c99103fd9f",
+        "failure_count": 0,
+        "failures": []
+      },
+      "passed": true
+    },
+    {
+      "name": "8192B_maximum_packet_both_dimensions_wrap",
+      "expected": "complete",
+      "spec_sha256": "d4812f99ecd9b3e4f83df2fbcea0757dcb37e87a4209153a0675009c7ac96c93",
+      "execution_sha256": "4173f45515a057bfc7e3f9f68eebf0cd3e0a4ff40c0bc3e3981927fc161fc08d",
+      "payload_bytes": 8192,
+      "status": "ok",
+      "quiescent_ticks": 55620,
+      "builder_rules": {
+        "passed": true,
+        "errors": [],
+        "packets": 1,
+        "link_operations": 1542,
+        "memory_operations": 512,
+        "memory_16B_blocks": 1024,
+        "scope": "independent modular routing, full packet-class flit ledger, registered 16B memory costs/offsets, and finite pool/credit constraints; no value/epoch replay"
+      },
+      "packet_copy_audit": {
+        "passed": true,
+        "read_blocks": 512,
+        "written_blocks": 512,
+        "failures": [],
+        "scope": "single packet with512 distinct16B blocks; no compute, ACK, epoch, or DFG lifetime claim"
+      },
+      "trace_audit": {
+        "not_applicable": "audit_trace is a named two-chain DFG auditor; this fixture is a single packet"
+      },
+      "passed": true
+    },
+    {
+      "name": "8192B_complete_micrograph_preflight_rejected",
+      "expected": "reject",
+      "passed": true,
+      "rejected": true,
+      "reasons": [
+        {
+          "code": "compute_scratch_exceeds_registered_budget",
+          "required_bytes": 16384,
+          "budget_bytes": 2048
+        },
+        {
+          "code": "fixed_epoch_dram_stride_would_alias",
+          "payload_bytes": 8192,
+          "registered_builder_stride_bytes": 4096
+        }
+      ],
+      "execution": "not executed because the declared complete micrograph would violate capacity and ownership",
+      "scope": "independent preflight only; this result does not assert that model_builder itself rejects this input"
+    }
+  ],
+  "additional_independent_tick": {
+    "name": "16B_descending_long_path_tick_check",
+    "passed": true,
+    "tick_wall_seconds": 5.411911000031978,
+    "quiescent_ticks": 56180,
+    "mismatches": [],
+    "scope": "all operation start/end/resources/locks, job ends, credit quiescence and buffer peaks"
+  },
+  "wall_seconds_not_model_time": 6.457966199959628,
+  "cross_tool_status": "not_executed",
+  "M0_statement": "These integration checks can pass while the requested NPE cross-tool step remains not executed. Do not report the entire cross-tool validation chain as passed.",
+  "scope": "bounded representation/service/lifecycle boundaries, not exhaustive plans, performance sensitivity, compiler gain, or full MLP"
+}

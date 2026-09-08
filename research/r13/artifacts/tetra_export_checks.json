@@ -1,0 +1,27 @@
+{
+  "schema": "r13.tetra-live-export-checks.v1",
+  "artifact_sha256": "e11e028ebaa32d16f13c9ddd8ac7e18e5c160df608855a02f3efa424e4b44aad",
+  "exporter_hash_matches": true,
+  "schema_json_parsed": true,
+  "full_external_jsonschema_validation_run": false,
+  "reason_no_external_schema_validation": "jsonschema package not installed; explicit semantic checks below ran",
+  "selected_tensor_choices_checked": 10,
+  "distinct_link_object_ids": 1,
+  "link_references_checked": 5,
+  "shared_link_identity_consistent": true,
+  "solver_phase_bounds_equal_objectives": true,
+  "independent_affine_point_checks": 18,
+  "real_live_ox_splits_verified": true,
+  "aligned_contiguous_ownership_assumption": true,
+  "halo_remote_bits_per_core": [
+    8192,
+    16384,
+    16384,
+    8192
+  ],
+  "halo_total_bits": 49152,
+  "halo_payload_service_lower_bound_at_128_bits_per_cycle": 384,
+  "native_protocol_acceptance": false,
+  "r13_p0_qualified": false,
+  "passed": true
+}

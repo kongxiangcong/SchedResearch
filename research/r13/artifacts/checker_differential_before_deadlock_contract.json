@@ -1,0 +1,1755 @@
+{
+  "schema": "r13.independent-checker.differential.v1",
+  "scope": "independent integer tick versus event-queue service engine; pure-data ops input",
+  "seed": 130901,
+  "random_cases": 200,
+  "hand_cases": 9,
+  "passed": false,
+  "source_hashes": {
+    "independent_checker.py": "f85863bae923a63a626efaf91870a4458d42ed5e42a2078fe66bd2eb7cf23f61",
+    "test_independent_checker.py": "832a82bf7d8858fb9a1356af96e850130764472d44c1a19aa40e417a20728913",
+    "event_machine.py": "f828997289f5e2acf0ab2d29e4af8113b2fc854744813fbb5ebc5c0057dc55ac",
+    "machine_contract.md": "5aced60b098d5cf553375db71daab5dbaab65b71067cc7291f2046cafb90f170"
+  },
+  "fixtures": [
+    {
+      "name": "one_hop_pipeline",
+      "input_sha256": "de98b47670feaa4a90b288d29449c3f6b25f25e48ce8f845c38a7aa1cce26a2c",
+      "status": "ok",
+      "operations": 6,
+      "quiescent": 1188,
+      "mismatches": []
+    },
+    {
+      "name": "credit_roundtrip",
+      "input_sha256": "e58d298b916d43861be3cc3df914c27691e4729bd9e24b2a00aba068663593c7",
+      "status": "ok",
+      "operations": 4,
+      "quiescent": 200,
+      "mismatches": []
+    },
+    {
+      "name": "independent_crossing",
+      "input_sha256": "7de5b4cf20ff3c92eef061cc04a90da608506adc26d45c32e00ff5cf1138b5d4",
+      "status": "ok",
+      "operations": 2,
+      "quiescent": 324,
+      "mismatches": []
+    },
+    {
+      "name": "bank_conflict",
+      "input_sha256": "1bb398cb91d0fb7b512613ffca377fcf24fc697dbb10c8fd308066374d4cf86f",
+      "status": "ok",
+      "operations": 2,
+      "quiescent": 72,
+      "mismatches": []
+    },
+    {
+      "name": "channel_alias",
+      "input_sha256": "2b70fee5ee4cc608da86c24298074488b95325daab29c5c2ec4dab93591e6cb5",
+      "status": "ok",
+      "operations": 2,
+      "quiescent": 128,
+      "mismatches": []
+    },
+    {
+      "name": "zero_dependency",
+      "input_sha256": "400c3d0528ce6901603df7794051f84b9334482551eb688d718fb44e6fe46426",
+      "status": "ok",
+      "operations": 2,
+      "quiescent": 0,
+      "mismatches": []
+    },
+    {
+      "name": "shared_pool",
+      "input_sha256": "0c34813f0ce704aa53cc5fc44958a9742ebe9a4f0ca6e9e56b61d3f60ef088eb",
+      "status": "ok",
+      "operations": 4,
+      "quiescent": 60,
+      "mismatches": []
+    },
+    {
+      "name": "same_vc_exclusion",
+      "input_sha256": "23119c9c11fbb0619032c9686c0c9dd4bf9ecabdf82e0347032637c29a726c5a",
+      "status": "ok",
+      "operations": 3,
+      "quiescent": 21,
+      "mismatches": []
+    },
+    {
+      "name": "different_vc_interleave",
+      "input_sha256": "5e42bbc6b1f0dbf5d7d46f5a21252d910baa807eef8214c2adfbc1663993ef75",
+      "status": "ok",
+      "operations": 3,
+      "quiescent": 12,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_000",
+      "input_sha256": "3705b09d28356f504a4d8b2be89061e62d28b3cd3ad0174fd3c0a89e9f8a5184",
+      "status": "deadlock",
+      "operations": 5,
+      "quiescent": 16,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_001",
+      "input_sha256": "c09216040ea261c6c17d30bc59bac7c6aaa72ddf2de3d30ef7f5da174ca06874",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 10,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_002",
+      "input_sha256": "5d9fca3571c3d4f7ec4607475fb0283d8cfd51c8884e580d126534e5c434e1c6",
+      "status": "deadlock",
+      "operations": 5,
+      "quiescent": 19,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_003",
+      "input_sha256": "bac669d3e799c47f29fdbc361a8236a01bb9a61f562feb551bd1afcbe61a0a1f",
+      "status": "deadlock",
+      "operations": 14,
+      "quiescent": 33,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_004",
+      "input_sha256": "57e7c0deda3621d460f5027aa71a43335b7627d6936808ca267fe1d86b5cbb4f",
+      "status": "ok",
+      "operations": 15,
+      "quiescent": 47,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_005",
+      "input_sha256": "2effd541de29c0d4b207e28bfdcaac5b8eb2d8a8f9e4bffdfd11a2f9f94c1dc2",
+      "status": "ok",
+      "operations": 9,
+      "quiescent": 21,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_006",
+      "input_sha256": "838a3a0012deab9d83d8b50ce03d5e781e5a3370c5ab91b43123caab69ac78de",
+      "status": "deadlock",
+      "operations": 1,
+      "quiescent": 9,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_007",
+      "input_sha256": "577d4c5c58a114eb530dc0f008b4cacc6ba94dc31c634e1cd07fa16d69455fbc",
+      "status": "deadlock",
+      "operations": 11,
+      "quiescent": 26,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_008",
+      "input_sha256": "095c6c5871bd63826a628509f5f330d28b34bd5a531ca35c7f1d24151b0fac0d",
+      "status": "ok",
+      "operations": 5,
+      "quiescent": 27,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_009",
+      "input_sha256": "9e15b8aad2216cd50229acf920ed45a916caebc4b70422352534d140c593c165",
+      "status": "deadlock",
+      "operations": 4,
+      "quiescent": 17,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_010",
+      "input_sha256": "c037707ad3c099b6bd36d2f322d84f6b4f4b1ee9ef69f9c3b6111f4199144661",
+      "status": "deadlock",
+      "operations": 2,
+      "quiescent": 10,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_011",
+      "input_sha256": "3bdea1f1c79d8c200909fb8a191f26e54b825d6dfbb22fe405619bd225949020",
+      "status": "deadlock",
+      "operations": 1,
+      "quiescent": 4,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_012",
+      "input_sha256": "bd61348732fd0d8dc8d3c3ac99328e594533926b6c30888e153dcefb58e9e0e9",
+      "status": "ok",
+      "operations": 10,
+      "quiescent": 34,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_013",
+      "input_sha256": "4d0f8d7e20240b7b20cb86ad6ed85a2562fa3ed1f010afde6d9865421f195ac3",
+      "status": "ok",
+      "operations": 11,
+      "quiescent": 27,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_014",
+      "input_sha256": "0012b5218550ec9ab4c3e44b54badfbfa955682597d70501550a32b07e5bfeef",
+      "status": "ok",
+      "operations": 5,
+      "quiescent": 17,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_015",
+      "input_sha256": "57af112b8ebde3d06437d417658b9eab214d70bd4827fd422ee4a88296c69333",
+      "status": "ok",
+      "operations": 4,
+      "quiescent": 13,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_016",
+      "input_sha256": "bdd2dd396bd921a0a4e0715d56d32b050292b2ff526ee43988ec32ece4446f80",
+      "status": "ok",
+      "operations": 6,
+      "quiescent": 31,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_017",
+      "input_sha256": "707fec83f22e5b6efbc53bc9dd6bef0f0be180bbef0c25b5dec5f6ed66f56d79",
+      "status": "ok",
+      "operations": 16,
+      "quiescent": 33,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_018",
+      "input_sha256": "dbc4bfbac6612ac417b33ca2c1174864e1af13287bc9caf1026afcc2af7e41ea",
+      "status": "ok",
+      "operations": 5,
+      "quiescent": 28,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_019",
+      "input_sha256": "5e808eabf9733a9090ece44b9ae196b3d08b944736980c3449474fb9bb697890",
+      "status": "ok",
+      "operations": 15,
+      "quiescent": 29,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_020",
+      "input_sha256": "5939ff0fb1e455a86fd7f4c9b7e1087f4492f21dd3972db3e2db3afbbbfa1a76",
+      "status": "deadlock",
+      "operations": 4,
+      "quiescent": 13,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_021",
+      "input_sha256": "30a22d49770697d03a8d6d554ca284dbcb72cc7ff75cad9fb28ba7e3b25d122f",
+      "status": "ok",
+      "operations": 6,
+      "quiescent": 28,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_022",
+      "input_sha256": "96baab1826d04b0a2b0992858969c30923fe0857012feb43595e8553137a207e",
+      "status": "ok",
+      "operations": 11,
+      "quiescent": 28,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_023",
+      "input_sha256": "bee989747f11890988813dc141bff5d7064da2041a71c2f90360016d5364d0b5",
+      "status": "ok",
+      "operations": 1,
+      "quiescent": 13,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_024",
+      "input_sha256": "2ba243085ae686aab012a37c74306026a45f87295fd2301a3a3c8988efb5f202",
+      "status": "ok",
+      "operations": 14,
+      "quiescent": 44,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_025",
+      "input_sha256": "cbd906f8ee7fa01b8d37d241afd16693cddb717858380b9fecf4b8276df81aaf",
+      "status": "deadlock",
+      "operations": 0,
+      "quiescent": 3,
+      "mismatches": [
+        {
+          "field": "quiescent",
+          "expected": 3,
+          "actual": 0
+        }
+      ]
+    },
+    {
+      "name": "seed130901_026",
+      "input_sha256": "673611925bb4e0bcb9bab5f26ec2b5cdb43f002868b2b715fce50b37810abc14",
+      "status": "deadlock",
+      "operations": 2,
+      "quiescent": 13,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_027",
+      "input_sha256": "c79e09c3ff7c662204afaa5e2ac2bd9b9226dac8492f508c5dda8ad7f3656de0",
+      "status": "deadlock",
+      "operations": 9,
+      "quiescent": 23,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_028",
+      "input_sha256": "d72c7ec3e4008ac22da809a6a11c5e38ef2cc356c279ac87e32c426af10007a3",
+      "status": "ok",
+      "operations": 18,
+      "quiescent": 56,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_029",
+      "input_sha256": "2cad780623b741a3925e1976fdff09e9ee78b79be02f44f6e71a5fddc878e402",
+      "status": "ok",
+      "operations": 2,
+      "quiescent": 9,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_030",
+      "input_sha256": "411175c4f74e7af8d75604bf0d6f569d693800498df8aacd92554dd3960d1546",
+      "status": "deadlock",
+      "operations": 8,
+      "quiescent": 19,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_031",
+      "input_sha256": "b62340729e5a4974601ddb178e4dcec50587f6611ce2740c8da851aa16dfc538",
+      "status": "ok",
+      "operations": 8,
+      "quiescent": 33,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_032",
+      "input_sha256": "e0a9f6b830a6e09fa0b97698af4e23cf1adbedde07da3b61b0ab45a4219be945",
+      "status": "ok",
+      "operations": 2,
+      "quiescent": 14,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_033",
+      "input_sha256": "9ae4f58dba589d6b311f5b373a9395ebfc4c271f07eb1574707ac7177ba82643",
+      "status": "ok",
+      "operations": 17,
+      "quiescent": 47,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_034",
+      "input_sha256": "1ab1eb71d69ef6c1241e36cd7c98427eb7686a3ba98a755f202040c0974fbebe",
+      "status": "deadlock",
+      "operations": 1,
+      "quiescent": 7,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_035",
+      "input_sha256": "17c7e5e3a56420af2dddb6d2d3602a2bae0436990d99426f859ef0833b419fa3",
+      "status": "deadlock",
+      "operations": 4,
+      "quiescent": 13,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_036",
+      "input_sha256": "bc1a3a74afc2e78e74fb24808de646690d0c5a97b55bcc97f3638ca3fb6797c5",
+      "status": "ok",
+      "operations": 10,
+      "quiescent": 38,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_037",
+      "input_sha256": "cdffce527f22c583f42d3138fa7054d0e03a23ebd52181cbc14ef12f1a727311",
+      "status": "deadlock",
+      "operations": 5,
+      "quiescent": 30,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_038",
+      "input_sha256": "07940c2adaaadabdb2a10dda0d93590673b48249dc3a1b203f962082b1ba6b52",
+      "status": "deadlock",
+      "operations": 6,
+      "quiescent": 22,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_039",
+      "input_sha256": "0d8231fad3e7cdcf33c967a1b9e980a4c72cbe5d31ee9b9010d7bea2b6ff5605",
+      "status": "ok",
+      "operations": 1,
+      "quiescent": 10,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_040",
+      "input_sha256": "da2e6ba16755949a2ebbabaa596cae900043ac6db30c2426b81afc94562856a0",
+      "status": "ok",
+      "operations": 21,
+      "quiescent": 53,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_041",
+      "input_sha256": "16e6826fec9dbe909fb92b6f8d0b20aac564ead7e1b93c28d4b4e115aa045ff2",
+      "status": "ok",
+      "operations": 3,
+      "quiescent": 25,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_042",
+      "input_sha256": "c47516015993b61943b6ff636377ec948698702cf936f1faa11f15d99f5825fe",
+      "status": "deadlock",
+      "operations": 4,
+      "quiescent": 19,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_043",
+      "input_sha256": "5a103a5573cf7c462d868131c0f9a2d96f7423b405b7531cde1c88b3d31835bb",
+      "status": "ok",
+      "operations": 5,
+      "quiescent": 12,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_044",
+      "input_sha256": "70812b2f5f3346a69723292c704fcd67649eb757acbb254c3c4ebfebce91d3e8",
+      "status": "ok",
+      "operations": 8,
+      "quiescent": 24,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_045",
+      "input_sha256": "262add225ab7aa9a9d8b3eb40d464d81a66b0e41b0ff5d2bbbf5e982e8e3c7ea",
+      "status": "ok",
+      "operations": 13,
+      "quiescent": 31,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_046",
+      "input_sha256": "8ce8f1938a03bda0de523aef71b954e71ef31465c04605030450b6ff318e1b34",
+      "status": "ok",
+      "operations": 10,
+      "quiescent": 26,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_047",
+      "input_sha256": "6a09f3e66caa4e1470771bc9f9a22b2beda01e03b3148870f942b5d41bb14ad9",
+      "status": "deadlock",
+      "operations": 0,
+      "quiescent": 2,
+      "mismatches": [
+        {
+          "field": "quiescent",
+          "expected": 2,
+          "actual": 0
+        }
+      ]
+    },
+    {
+      "name": "seed130901_048",
+      "input_sha256": "19a7a9c2165f74d9edf3a0bc67f6baff31ba2e760246d77ee094217656c8e49a",
+      "status": "ok",
+      "operations": 14,
+      "quiescent": 59,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_049",
+      "input_sha256": "8ccd8ab5718b51676f6bc5eb4b0684a4873a22517d3dc7b63b770af2754480ab",
+      "status": "ok",
+      "operations": 24,
+      "quiescent": 51,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_050",
+      "input_sha256": "c4cca5bc13cf3677ffa8888d13a93bd38391f8c800214721ad1c459620385cd9",
+      "status": "ok",
+      "operations": 2,
+      "quiescent": 15,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_051",
+      "input_sha256": "61dfad85a323276163900cf9db253a92691b75138fa5058854760e44571015d8",
+      "status": "deadlock",
+      "operations": 1,
+      "quiescent": 3,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_052",
+      "input_sha256": "429ae23d9f1d82e084f988a9ca1e343704d2c2daace8bfd8201ea7e28eb7eecc",
+      "status": "deadlock",
+      "operations": 10,
+      "quiescent": 28,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_053",
+      "input_sha256": "1c5404b75035cbf1344cbee15e10bc649d03d4342bb19665b088d5aad3883283",
+      "status": "deadlock",
+      "operations": 2,
+      "quiescent": 12,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_054",
+      "input_sha256": "d8e14ea42352d01d0d5e9cd3f0daf59ebc313f4f499ff91b7fd19e978c274326",
+      "status": "ok",
+      "operations": 12,
+      "quiescent": 30,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_055",
+      "input_sha256": "fc773aa2ba4b49f0ffcda948a723d565b54338051b8a763ffb596c011af04c91",
+      "status": "ok",
+      "operations": 16,
+      "quiescent": 31,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_056",
+      "input_sha256": "86e4048dbd4f4cc629386796604926bd495032557e012edf6496c0fc0696f2ee",
+      "status": "ok",
+      "operations": 22,
+      "quiescent": 56,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_057",
+      "input_sha256": "cd0b3842110226f5fb5470ff036da25f9b570beff5307f9a7a9c0de07727a475",
+      "status": "deadlock",
+      "operations": 0,
+      "quiescent": 8,
+      "mismatches": [
+        {
+          "field": "quiescent",
+          "expected": 8,
+          "actual": 0
+        }
+      ]
+    },
+    {
+      "name": "seed130901_058",
+      "input_sha256": "58c6ac3e6663ac0c5d247bb23740514d718f8f6ce6c705c339f03c1ae5d95c0e",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 8,
+      "mismatches": [
+        {
+          "field": "quiescent",
+          "expected": 8,
+          "actual": 6
+        }
+      ]
+    },
+    {
+      "name": "seed130901_059",
+      "input_sha256": "df755ee1801f82dad52c0958372a8eee26a3af5f3f1ccdef548d511dc0e9bf3f",
+      "status": "deadlock",
+      "operations": 10,
+      "quiescent": 20,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_060",
+      "input_sha256": "5706974f77e6b902c5e278e216675db492b34881efe3858e4cbd482d6f991b63",
+      "status": "deadlock",
+      "operations": 7,
+      "quiescent": 41,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_061",
+      "input_sha256": "551cb339dcd4dfe8d321f101eabbfa73303f8357e85c43e8ae563f2413c6e683",
+      "status": "ok",
+      "operations": 21,
+      "quiescent": 36,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_062",
+      "input_sha256": "4289307832cd16016dee4d1575b79c6b9989e99d83d7f73c880be49cfe998631",
+      "status": "deadlock",
+      "operations": 8,
+      "quiescent": 22,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_063",
+      "input_sha256": "ecbea0a607a2c9bc7ad8597e7fd10797614b4c624d4cf3ec0fab275ef8975cfa",
+      "status": "ok",
+      "operations": 4,
+      "quiescent": 25,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_064",
+      "input_sha256": "69483eea79dbe4b536b75c1eab6b8267fb39833af863ad856eaf9ef8d9188d14",
+      "status": "ok",
+      "operations": 6,
+      "quiescent": 23,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_065",
+      "input_sha256": "fdd80ea381cd273110d2a166ec4f47f934b3eb5a0bb94178bcad875f4646ef6d",
+      "status": "ok",
+      "operations": 3,
+      "quiescent": 12,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_066",
+      "input_sha256": "b37aa979eda96a24d51cef791a46bcfa98ce0ca866212ea7999b82fea9c223de",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 12,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_067",
+      "input_sha256": "f3e024ae2936dcfe6f3b6e4a00c0f0e9946f83e2f171cf644a4cdf576d48dbaf",
+      "status": "deadlock",
+      "operations": 0,
+      "quiescent": 1,
+      "mismatches": [
+        {
+          "field": "quiescent",
+          "expected": 1,
+          "actual": 0
+        }
+      ]
+    },
+    {
+      "name": "seed130901_068",
+      "input_sha256": "708e2b6de5ba4359204681e6248828a8454f766f83ef136b570daf372993043e",
+      "status": "deadlock",
+      "operations": 1,
+      "quiescent": 10,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_069",
+      "input_sha256": "c68e15be311ddc0b638f7d2dde225787bda2b377e77fcf845c91fda82458c135",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 9,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_070",
+      "input_sha256": "7299eed6144ad94ea0d05aa8f90d0f1d275cadfd9935e0183e4f4e1a25299b8a",
+      "status": "deadlock",
+      "operations": 4,
+      "quiescent": 12,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_071",
+      "input_sha256": "527e6dace92cd8d1a6fc23cfb60aa6d18d2455a0ed87ba07703d56dae7db7d55",
+      "status": "deadlock",
+      "operations": 9,
+      "quiescent": 21,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_072",
+      "input_sha256": "e64ffe977e0a7beeacd79cccc6f4c18ced8a4265164690a733348f53b5474f8f",
+      "status": "ok",
+      "operations": 9,
+      "quiescent": 24,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_073",
+      "input_sha256": "9bde115a5420d55a4758b8008e149bd9a7a0e88bf3caa188155a2b34164a3391",
+      "status": "ok",
+      "operations": 2,
+      "quiescent": 13,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_074",
+      "input_sha256": "726c2c72f4fe190896111090e1b1dd3076c9979baca92ada2ac50f5e48a25de8",
+      "status": "ok",
+      "operations": 9,
+      "quiescent": 33,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_075",
+      "input_sha256": "12f8ad994acdf4d60b7f15c07c83c54eb71ef338310100fbad744cd353387717",
+      "status": "ok",
+      "operations": 11,
+      "quiescent": 32,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_076",
+      "input_sha256": "c9a783c4b9a59afce7bffd6dfde215a1ec34464dc474a98dbb9743030b93905b",
+      "status": "ok",
+      "operations": 11,
+      "quiescent": 48,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_077",
+      "input_sha256": "1a54af9924b463956de7080366093cebbcce9d79d1705a6515e76086bc947971",
+      "status": "deadlock",
+      "operations": 6,
+      "quiescent": 15,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_078",
+      "input_sha256": "9f078dfedc409f39081b0f0adbc3d5736069ff8ecb9223c8b9d36caed22aca18",
+      "status": "ok",
+      "operations": 3,
+      "quiescent": 18,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_079",
+      "input_sha256": "1bdf5c0f0506579942853ce48b36d957760608290bf3749e2cf149e3883b772f",
+      "status": "ok",
+      "operations": 2,
+      "quiescent": 11,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_080",
+      "input_sha256": "a046cb31ac0dd9a6a9c8ea5264d59309cd556f5b5cb911c617bc494898491188",
+      "status": "ok",
+      "operations": 9,
+      "quiescent": 19,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_081",
+      "input_sha256": "55d8a141e10405b99085a7bc3ba5ad540a9d6161505f8079784e110364ded037",
+      "status": "deadlock",
+      "operations": 2,
+      "quiescent": 14,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_082",
+      "input_sha256": "77a740dae6502af916d1ff1e0432286e9dda9150c26e4d4a012481d19e8e2796",
+      "status": "deadlock",
+      "operations": 11,
+      "quiescent": 17,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_083",
+      "input_sha256": "9105888230e70eb7784295abc385853009a71c64120df0f4af8fbea2c12067ae",
+      "status": "ok",
+      "operations": 7,
+      "quiescent": 25,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_084",
+      "input_sha256": "9127debafd0e4c395305b09ae1fbbbf5f43f42e402ad864065ffd54bf6c20ced",
+      "status": "deadlock",
+      "operations": 2,
+      "quiescent": 12,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_085",
+      "input_sha256": "5d8f08d34e75cfcaf0c233f4f232b6a8aac2e23e8402a34601676b784e666cea",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 15,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_086",
+      "input_sha256": "111255d6e444897e552d41d2c20d42ee36374198284d4e204102bd66899903c2",
+      "status": "ok",
+      "operations": 7,
+      "quiescent": 24,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_087",
+      "input_sha256": "05154724a30921b9b6d35001971465461c37a461c6081f81034052e87d39903c",
+      "status": "ok",
+      "operations": 7,
+      "quiescent": 33,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_088",
+      "input_sha256": "6212391dbbd91d9140302b56c8f2330765d72c1958577b807069384c5ded5eca",
+      "status": "deadlock",
+      "operations": 9,
+      "quiescent": 20,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_089",
+      "input_sha256": "05e5a68031ed1f7d88ffa382300c03e4b87b3951e7660da9bed8c3e1683c1951",
+      "status": "ok",
+      "operations": 1,
+      "quiescent": 7,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_090",
+      "input_sha256": "01902f64b70eff5dda061912f0ff015b1290ef1b4e8d17d94792ca4e40e6f8c0",
+      "status": "ok",
+      "operations": 7,
+      "quiescent": 22,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_091",
+      "input_sha256": "8b466c6e24b88e92c5e7dad9e0e022f6814441afceb786b8bdbf13cf37389575",
+      "status": "ok",
+      "operations": 11,
+      "quiescent": 41,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_092",
+      "input_sha256": "f301f0f64af5ae26ae96c95b694193cef017881aad840e7a6bd19c3b63e7b6e1",
+      "status": "deadlock",
+      "operations": 2,
+      "quiescent": 11,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_093",
+      "input_sha256": "247d6f2a752df270661adc8cf451cf3b0dd9a93e35622cb305b0f2aa99b85da0",
+      "status": "ok",
+      "operations": 5,
+      "quiescent": 23,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_094",
+      "input_sha256": "1252c8c646ba2225670988354b64d6448404f35e278c2a3dbab3b765c2a9b30e",
+      "status": "deadlock",
+      "operations": 4,
+      "quiescent": 16,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_095",
+      "input_sha256": "e90e5b4cd937f374066d9570df7c792b543d6b6dbb7d24d86eac7d6dce0f7967",
+      "status": "deadlock",
+      "operations": 4,
+      "quiescent": 13,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_096",
+      "input_sha256": "d61d92789c1deff973c27544b73e6968a13d9e16890b7596d494ee30af204c6c",
+      "status": "ok",
+      "operations": 3,
+      "quiescent": 13,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_097",
+      "input_sha256": "eaf3d3351b77101c0496059b7303f924276c5fd841bfbb14680f5efdc4683760",
+      "status": "deadlock",
+      "operations": 2,
+      "quiescent": 7,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_098",
+      "input_sha256": "e56ac718d2f7fc217db8c67406c8cb69539427bb8d52073f1ae4a169b8c730f2",
+      "status": "deadlock",
+      "operations": 18,
+      "quiescent": 42,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_099",
+      "input_sha256": "e761b738daecb321cbdd0f7a61b726c7090fdf75fb04f0083bed451519b89de6",
+      "status": "deadlock",
+      "operations": 0,
+      "quiescent": 4,
+      "mismatches": [
+        {
+          "field": "quiescent",
+          "expected": 4,
+          "actual": 0
+        }
+      ]
+    },
+    {
+      "name": "seed130901_100",
+      "input_sha256": "66eaf5c7ac35233ba65d72eb441765c0e890e8c396d7f776f2c4d7b865d69701",
+      "status": "ok",
+      "operations": 8,
+      "quiescent": 30,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_101",
+      "input_sha256": "4be6e3921bf836d01494c7100594472cef4d95942afbbe1804cd31faf8cc52d8",
+      "status": "deadlock",
+      "operations": 6,
+      "quiescent": 12,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_102",
+      "input_sha256": "b102a38c86139f45cb6313079988c4291387cc4bcf9ddd46658afb5f5161ecc6",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 14,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_103",
+      "input_sha256": "e4b8d267e0d3fa81510f76924196be5f2949aeae5475d0f5e86151eb10f4fac4",
+      "status": "ok",
+      "operations": 1,
+      "quiescent": 10,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_104",
+      "input_sha256": "eda289747a0e1732e48be4aa74e17727bb62437cf695997ea648b0dcef108881",
+      "status": "ok",
+      "operations": 19,
+      "quiescent": 51,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_105",
+      "input_sha256": "c450eb317129f52ecea576664fcdea1dfd27d9e933d436905e13e75d9024f5a1",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 5,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_106",
+      "input_sha256": "2d5b1168cddc9ab77805b50e6137de2df47d67d6399b4d5626eff10ff9e7f8ee",
+      "status": "deadlock",
+      "operations": 4,
+      "quiescent": 16,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_107",
+      "input_sha256": "dfe40115e16f2eae11eaed506a171d0394f0806396ad29194e7bdd989153471d",
+      "status": "ok",
+      "operations": 24,
+      "quiescent": 50,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_108",
+      "input_sha256": "9687dfb8739038411705eaa12db531322edfe6c26cf7f9b4ce9694971686851a",
+      "status": "deadlock",
+      "operations": 1,
+      "quiescent": 5,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_109",
+      "input_sha256": "81fffdea1da35da3190711ef3fa117bc008968852947f39a77c09b5f4ed43119",
+      "status": "deadlock",
+      "operations": 4,
+      "quiescent": 11,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_110",
+      "input_sha256": "137f309bbbce38877d953738dba2dd761abe81359d47ad49f4cbd2f52440f0f7",
+      "status": "ok",
+      "operations": 1,
+      "quiescent": 8,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_111",
+      "input_sha256": "ee1f1b91ec6560b7c40e006f287380564761c21bd4dee991357bb3fae8622bc8",
+      "status": "deadlock",
+      "operations": 0,
+      "quiescent": 7,
+      "mismatches": [
+        {
+          "field": "quiescent",
+          "expected": 7,
+          "actual": 0
+        }
+      ]
+    },
+    {
+      "name": "seed130901_112",
+      "input_sha256": "807c32c71e1365868c4eed125bcf1a2312c98c16388b8fc81e5c054717225447",
+      "status": "ok",
+      "operations": 9,
+      "quiescent": 20,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_113",
+      "input_sha256": "06e6e345e74f46a868a1cddf21a6d97a30ef9e8d21724b32282e1d49572e6699",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 14,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_114",
+      "input_sha256": "ca5178f55dcddc531a68a448470106566c063ba7eab8b75fd5eada7136cd0d4e",
+      "status": "deadlock",
+      "operations": 5,
+      "quiescent": 15,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_115",
+      "input_sha256": "f3a402db79b8c2e36b075947b543e3f6e76eb328f938f54820b9a2b094303504",
+      "status": "ok",
+      "operations": 1,
+      "quiescent": 5,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_116",
+      "input_sha256": "f5abeda217cbfafc946f0012c9ccd105d1cdfe16e22fe224b119956f6127c831",
+      "status": "deadlock",
+      "operations": 8,
+      "quiescent": 17,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_117",
+      "input_sha256": "600391b41aebfef4ddfe15e86c42cbcbc9e1c7eb7c1f061f10dbbfecdfd8c22c",
+      "status": "ok",
+      "operations": 11,
+      "quiescent": 26,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_118",
+      "input_sha256": "12338e439080fdaf00fe49b65099a88d12597a1f8f41dcc178cf1c10df397c9a",
+      "status": "ok",
+      "operations": 16,
+      "quiescent": 47,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_119",
+      "input_sha256": "9fd7508c83500a6392f01d07bb3739d1dfd297c63600d453b3229ef5a9cb824d",
+      "status": "ok",
+      "operations": 8,
+      "quiescent": 24,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_120",
+      "input_sha256": "a42636776712e769dc6e799b75392f4a6add65c488aef2509f19c5c8b5162080",
+      "status": "deadlock",
+      "operations": 5,
+      "quiescent": 28,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_121",
+      "input_sha256": "07a1d79a4b8d3aded76fa30aeb53ebd78b7e9fa03b07d78f1d743b188ddd9d8a",
+      "status": "ok",
+      "operations": 1,
+      "quiescent": 6,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_122",
+      "input_sha256": "65b2b1ce4e451ca60cd73c04626a93ec2cc4cad631ba19d0d4e3bf56ce5ee9ee",
+      "status": "deadlock",
+      "operations": 0,
+      "quiescent": 2,
+      "mismatches": [
+        {
+          "field": "quiescent",
+          "expected": 2,
+          "actual": 0
+        }
+      ]
+    },
+    {
+      "name": "seed130901_123",
+      "input_sha256": "7fe72e230ff5f0284dbe1f3fc0bb1d7ef6bbbec2a8523c86d7ed27bcc7721d23",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 15,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_124",
+      "input_sha256": "19ae9d45d65390f4038045592098cd0a9a55fb6f056c32b3685fbf7266d80b73",
+      "status": "ok",
+      "operations": 9,
+      "quiescent": 31,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_125",
+      "input_sha256": "a8659c3e002cd0ab37c3f6f7fe96d31b0a06ce11ab9786e65c412dde3ce624f5",
+      "status": "ok",
+      "operations": 6,
+      "quiescent": 28,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_126",
+      "input_sha256": "86d6bc790e421f08e62c4a8febf06cf9a3925ef9ab936ce84687fef380597969",
+      "status": "deadlock",
+      "operations": 5,
+      "quiescent": 14,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_127",
+      "input_sha256": "e0e306cd88570f7207acddf505a1d3c183b311ba16a1a9acc007803888ddd0e0",
+      "status": "ok",
+      "operations": 18,
+      "quiescent": 27,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_128",
+      "input_sha256": "7491b4fe9eaf27dedec924e30c4bef70ea7a3602d89c829401e1035d97909b48",
+      "status": "deadlock",
+      "operations": 7,
+      "quiescent": 24,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_129",
+      "input_sha256": "b6af499b8139e00d8c06d828b92779752af95601210f14bfed2d50c418a21933",
+      "status": "ok",
+      "operations": 9,
+      "quiescent": 26,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_130",
+      "input_sha256": "2b0bc583cb2f9be6173296186a29c11e18dbf3064b38502a1767f49f97827f9a",
+      "status": "deadlock",
+      "operations": 6,
+      "quiescent": 15,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_131",
+      "input_sha256": "c0336334961c2027e4b2ada95c2bed967f1294047f1e6d0ec2172f35b3246570",
+      "status": "deadlock",
+      "operations": 5,
+      "quiescent": 13,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_132",
+      "input_sha256": "800daa2c2196e3bada0dcf6c98ac2fa7a92f6a36050a937eef054647400c07cc",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 16,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_133",
+      "input_sha256": "7ef89e4f512022f7cfb63b33da0ae32a4ca7bf23c54bd09146181124b66c769e",
+      "status": "ok",
+      "operations": 5,
+      "quiescent": 11,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_134",
+      "input_sha256": "b7591742b0eee43cd6bc96fd9735c9c35b0421109a2f514c06a590ba7b1dec21",
+      "status": "ok",
+      "operations": 7,
+      "quiescent": 31,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_135",
+      "input_sha256": "c9f0706dec0925bffb198c56576df18ede1f97f1f2350b3b710d07d1c30050b9",
+      "status": "deadlock",
+      "operations": 5,
+      "quiescent": 12,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_136",
+      "input_sha256": "e79244ba0d68d2f656f61eb34c2e920e73d15bb6f6258efd2f3fb059b1476c1f",
+      "status": "ok",
+      "operations": 15,
+      "quiescent": 62,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_137",
+      "input_sha256": "78b9ba01011d5fdaa03c1004bc96b3615937a41c3c0e062088538fef9d004f6a",
+      "status": "deadlock",
+      "operations": 11,
+      "quiescent": 33,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_138",
+      "input_sha256": "b96c2f4fa6833c568e8b80995be7fef5fb09886c37d17d3811651fc5c6fdab0a",
+      "status": "deadlock",
+      "operations": 2,
+      "quiescent": 8,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_139",
+      "input_sha256": "5f182684c9bcd39fd1b3e2082cc7d2e1dabd52d9e577785fa7d5510aef45c89f",
+      "status": "ok",
+      "operations": 18,
+      "quiescent": 35,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_140",
+      "input_sha256": "c408d95da8708c8e8333bae9cbe876ac66000665aadab90c45091cc75d439524",
+      "status": "deadlock",
+      "operations": 7,
+      "quiescent": 25,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_141",
+      "input_sha256": "53d65f85abc49b91aa296ab25c9b8aa87b52c2aaab92c7a75b9e24b6105c21da",
+      "status": "deadlock",
+      "operations": 1,
+      "quiescent": 15,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_142",
+      "input_sha256": "b245c672e9d9c89fd406f99ab86cb872a615259d3988aabff12ded5cef3d4ff0",
+      "status": "deadlock",
+      "operations": 4,
+      "quiescent": 11,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_143",
+      "input_sha256": "9c6aabcff3dfff6dd58f557eabcd60676866176c46fab0e52334ba0164dd7a4f",
+      "status": "deadlock",
+      "operations": 7,
+      "quiescent": 20,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_144",
+      "input_sha256": "c0e50ba067417998e7e5e21d0cbc250fd7810d428b032c54f0b2d75657147866",
+      "status": "ok",
+      "operations": 14,
+      "quiescent": 74,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_145",
+      "input_sha256": "ceb7d535cad6ae684d58ffd7312e99056b874fc04d77caf3a6757cb3dd5273de",
+      "status": "ok",
+      "operations": 14,
+      "quiescent": 42,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_146",
+      "input_sha256": "f36cbb16dbc9417818f350aca7aea709074edc2235dfc694bc2f6a47deaed7e2",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 10,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_147",
+      "input_sha256": "a63b769100585481b7dddc35e2d3ebb4f50400860214fe538950c2c1fcced1f3",
+      "status": "ok",
+      "operations": 9,
+      "quiescent": 25,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_148",
+      "input_sha256": "308837ce6b1acaa2aba8c27794f9e4d24eeca1f5973dbc2559029dcce3921600",
+      "status": "ok",
+      "operations": 10,
+      "quiescent": 42,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_149",
+      "input_sha256": "095104227812ece04a94fa598d36aa0804de186b925f8b85c50967d750fe6144",
+      "status": "deadlock",
+      "operations": 7,
+      "quiescent": 20,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_150",
+      "input_sha256": "3a7ab3d894456fee55e302021478f1eeabda2eb2f6539c436b46c0d07c9564fe",
+      "status": "deadlock",
+      "operations": 4,
+      "quiescent": 7,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_151",
+      "input_sha256": "f719d88c37c32cc438647f9d55e560dcd17fe9f7315753ed40676582d3140c0b",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 15,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_152",
+      "input_sha256": "c89f4aa228ffb2d2765d45bbde3bad8bbae02995a0f163bf03d4192e6d73b3fe",
+      "status": "ok",
+      "operations": 7,
+      "quiescent": 25,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_153",
+      "input_sha256": "54fe82162cea43810b571a40064ed9e96ff992bfb5e972617f722b4031c7f790",
+      "status": "ok",
+      "operations": 13,
+      "quiescent": 39,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_154",
+      "input_sha256": "0d6371a8005cc66a9c2d75bbc3eebc981f475fbb184d555205f80ce52e575813",
+      "status": "ok",
+      "operations": 18,
+      "quiescent": 51,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_155",
+      "input_sha256": "761e7fc8266cdf7051715a057971fea31c30004d065a42007c82d13a56132b63",
+      "status": "ok",
+      "operations": 8,
+      "quiescent": 25,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_156",
+      "input_sha256": "eb63e81cc18298757d401eebd86a86760707b98d9972eb0f0ff85fdb0b1a5732",
+      "status": "deadlock",
+      "operations": 9,
+      "quiescent": 49,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_157",
+      "input_sha256": "40fd86cf66d629ab1bfb68fe2e7892b29aea713b8cad0f55b27f45f8356738cc",
+      "status": "ok",
+      "operations": 7,
+      "quiescent": 18,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_158",
+      "input_sha256": "ca24c491d8951986a0ca3761b464322a70d5eede7fc442fdb853ba2f6de3f172",
+      "status": "ok",
+      "operations": 8,
+      "quiescent": 37,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_159",
+      "input_sha256": "d8fdc2d73681caa58d47e5c577e6f75d88f398081d668271da114d2130120ad5",
+      "status": "deadlock",
+      "operations": 1,
+      "quiescent": 9,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_160",
+      "input_sha256": "4cc2c8cfd62cb89b40925a5e30dc06a4ab5cff9dcc12b63b9c757e0691ef41c8",
+      "status": "ok",
+      "operations": 15,
+      "quiescent": 42,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_161",
+      "input_sha256": "221275973345564147d9bd24bdb126833c83f6b1c1740e7c4a001325bfb30b96",
+      "status": "ok",
+      "operations": 8,
+      "quiescent": 40,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_162",
+      "input_sha256": "222c947b0875ed595a41de0a297a8d69ccfac89dd99857a29e5a5896a47c2b53",
+      "status": "ok",
+      "operations": 9,
+      "quiescent": 35,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_163",
+      "input_sha256": "1043c75acb825642ffc09ff4a76c626796121fe87243a3f29c81e866ded9df1d",
+      "status": "deadlock",
+      "operations": 2,
+      "quiescent": 10,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_164",
+      "input_sha256": "f65798e2ec5d6f83d11a9de02609e977dc979eec2a8e3df842e9ec4515aaca6a",
+      "status": "ok",
+      "operations": 11,
+      "quiescent": 58,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_165",
+      "input_sha256": "9dc493e6f47588dc5e9f81cc15f116a64ffe4888aebea372796561828ffe2192",
+      "status": "ok",
+      "operations": 9,
+      "quiescent": 26,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_166",
+      "input_sha256": "18257cb6be760ef036185d5d17eddbc0e7f9c40e3dadbce311df75a230320598",
+      "status": "deadlock",
+      "operations": 2,
+      "quiescent": 16,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_167",
+      "input_sha256": "238ba5993fbe97fd79f47b9878ea90caaf2d3c7549567390c55ab9350dcaac21",
+      "status": "ok",
+      "operations": 14,
+      "quiescent": 36,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_168",
+      "input_sha256": "bb85e8c922335aeba55bfeb715f19743bb1f347ef1bf0f8c6d56462413fd76f9",
+      "status": "deadlock",
+      "operations": 0,
+      "quiescent": 2,
+      "mismatches": [
+        {
+          "field": "quiescent",
+          "expected": 2,
+          "actual": 0
+        }
+      ]
+    },
+    {
+      "name": "seed130901_169",
+      "input_sha256": "8a95a7b3d2badc6c435c6810ef6264011b09d9e34f2a18607d50d022924637fb",
+      "status": "ok",
+      "operations": 19,
+      "quiescent": 30,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_170",
+      "input_sha256": "3f4842919433a4c852262f2d397dfcabfa218ce89b81c40ef3167d6917897bbf",
+      "status": "ok",
+      "operations": 7,
+      "quiescent": 22,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_171",
+      "input_sha256": "04b6c57c9927593ec8d3c8c22229cbb445369cba97706e547f723bf1fb6f711f",
+      "status": "ok",
+      "operations": 5,
+      "quiescent": 17,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_172",
+      "input_sha256": "270cfefd4e7d9b7410ecae543812b8564326cbccc334a55d05c96bf7175dc028",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 16,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_173",
+      "input_sha256": "70a6bcbd063ee5477af21ce94064ba6975afbd9c4ff6320acf8b326925bdaed7",
+      "status": "ok",
+      "operations": 3,
+      "quiescent": 14,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_174",
+      "input_sha256": "93aa60bf3af0852bebde789bb8515e8229aec04e686bf84cd70b70d7d3bcc522",
+      "status": "deadlock",
+      "operations": 1,
+      "quiescent": 10,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_175",
+      "input_sha256": "d912982ef9c66af8069a950d9e7d9cfb8d5cbc5b605e5d241d524704b2471494",
+      "status": "deadlock",
+      "operations": 6,
+      "quiescent": 14,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_176",
+      "input_sha256": "24fbfce34bd6fa4e044664ea0eeabf827c9d35259ba5f9f50f09b166bb9daca4",
+      "status": "deadlock",
+      "operations": 14,
+      "quiescent": 34,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_177",
+      "input_sha256": "877061a0fbdb56338cc5004ed26f9ad4ab4b9d29386dac2b7e1d0827a224d31b",
+      "status": "ok",
+      "operations": 19,
+      "quiescent": 51,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_178",
+      "input_sha256": "3ac16d47fb2d7408f177aed85e09a84d163ac46b12231584f382bae55bdea70a",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 18,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_179",
+      "input_sha256": "a63032315dd96f8487aa96ea91e532f46c6d1b888d1081567d09f70ab04232e8",
+      "status": "ok",
+      "operations": 2,
+      "quiescent": 6,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_180",
+      "input_sha256": "53c8ebc758ff8a474d3daa476bd627105b1706c6af2e086d1c6ced8ab2a4afb5",
+      "status": "ok",
+      "operations": 3,
+      "quiescent": 14,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_181",
+      "input_sha256": "722b5a25235cad84248204d09f4eaa20d141656a9292ab4d61f339eeaff3f8b5",
+      "status": "deadlock",
+      "operations": 0,
+      "quiescent": 3,
+      "mismatches": [
+        {
+          "field": "quiescent",
+          "expected": 3,
+          "actual": 0
+        }
+      ]
+    },
+    {
+      "name": "seed130901_182",
+      "input_sha256": "ade557eb1f217ebc64aafdbb6f05b83d88a7a8f4e3220cf799563a0c6d5e6ed3",
+      "status": "ok",
+      "operations": 8,
+      "quiescent": 25,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_183",
+      "input_sha256": "f46e15e204b7413640a6bffae07acd9180c247e57e29f57f937d3f0d74e7c569",
+      "status": "deadlock",
+      "operations": 6,
+      "quiescent": 16,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_184",
+      "input_sha256": "0d48305ac7268f526f1163311a9a9ff705da6507a7c48690c152d7be7e4076f0",
+      "status": "ok",
+      "operations": 1,
+      "quiescent": 14,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_185",
+      "input_sha256": "b10c3c2bf49461123b5982591f647135f96ebeddc07e2b6d5a2c31497b78d37e",
+      "status": "ok",
+      "operations": 6,
+      "quiescent": 26,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_186",
+      "input_sha256": "a39e5416e36146f1f143cf4a55c715bf3a28648a53dffacb47f8ad5b671701de",
+      "status": "ok",
+      "operations": 1,
+      "quiescent": 9,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_187",
+      "input_sha256": "bb2fbe1dc6612da53f12cc18827c1250547b0dbe665c37cb6cfd8b1da46d6646",
+      "status": "ok",
+      "operations": 4,
+      "quiescent": 28,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_188",
+      "input_sha256": "ac75db05111e40dbee9a25c153ce130f90bf388cbfb28d4893bbbeaf6dc5c485",
+      "status": "deadlock",
+      "operations": 0,
+      "quiescent": 5,
+      "mismatches": [
+        {
+          "field": "quiescent",
+          "expected": 5,
+          "actual": 0
+        }
+      ]
+    },
+    {
+      "name": "seed130901_189",
+      "input_sha256": "66dd79fa5596505a945f5266cb17d20ec0fa489b1cfad5196eaa22c7b9bc633f",
+      "status": "deadlock",
+      "operations": 4,
+      "quiescent": 11,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_190",
+      "input_sha256": "8c38b66338eefc82a79e46cdad1c9564eb609794919eba8b825fd8d9fced879a",
+      "status": "ok",
+      "operations": 14,
+      "quiescent": 29,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_191",
+      "input_sha256": "9f9c2dc45b682d08eb7432d54f7716a02c8f978a35f96af40c74205c8f00f71c",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 20,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_192",
+      "input_sha256": "fb4e297df1de31d12bb63024a1cfa5f19cb8088df6078fa04d0f789f9ceaf7a6",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 15,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_193",
+      "input_sha256": "f4dc97f7b5dd1d70c433ce951f962c50d9e766ad494cb88d73ec99df2b5b0ed5",
+      "status": "deadlock",
+      "operations": 1,
+      "quiescent": 9,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_194",
+      "input_sha256": "338830fd57e758689c59b610c4245295c1238c992afc979bd585a405919fb05e",
+      "status": "ok",
+      "operations": 11,
+      "quiescent": 21,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_195",
+      "input_sha256": "e0d4e7645b01cb2a9a9d9c7e89f768a7c95481c81a59414ea9f9e068248750e9",
+      "status": "ok",
+      "operations": 8,
+      "quiescent": 20,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_196",
+      "input_sha256": "080440c2006d61ac21cc3c6ecbf9466832eae9885e31022ba43df9e21c0bb334",
+      "status": "deadlock",
+      "operations": 3,
+      "quiescent": 12,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_197",
+      "input_sha256": "8750fee10ff38b68803f9a14fe3b2a16536df24be2814ce15fe6e23a2287439b",
+      "status": "deadlock",
+      "operations": 2,
+      "quiescent": 16,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_198",
+      "input_sha256": "bd722b47df17481cd999d6c0a73ac81123accb0b9c95be9b5b5fb86ed6e022a8",
+      "status": "ok",
+      "operations": 8,
+      "quiescent": 25,
+      "mismatches": []
+    },
+    {
+      "name": "seed130901_199",
+      "input_sha256": "34f334323b31a5e5be8d4e4ddf67b7ebd534ff81e472cbd022bab9b2267021a9",
+      "status": "ok",
+      "operations": 19,
+      "quiescent": 33,
+      "mismatches": []
+    }
+  ],
+  "interpretation": "fixed synthetic model implementation checks; no chip accuracy, performance gain, or complete DFG qualification claim"
+}

@@ -1,0 +1,9 @@
+{
+  "schema": "r13.execution-attempt.v1",
+  "action": "run_micro.py nominal --workers 2",
+  "result": "not_started",
+  "completed_F_evaluations": 0,
+  "error": "PermissionError [WinError 5] at multiprocessing.connection.Pipe -> _winapi.CreateFile",
+  "meaning": "Windows worker IPC was denied before any candidate ran; no partial timing or exact claim",
+  "remedy": "Use one serial execution path. Preserve initial preregistration.json and run_micro_process_pool.py; re-register identical C, scenarios and costs with new runner hash in preregistration_serial.json. No model or cost change."
+}

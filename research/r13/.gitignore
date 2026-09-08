@@ -1,0 +1,19 @@
+# Reproducible temporary pipeline outputs; compact exports live in artifacts/.
+/logs/
+/inputs_micro/**/console.log
+/inputs_micro/**/tetra_output/
+/inputs_micro/**/producer_source.py
+/local_replays/
+__pycache__/
+*.py[cod]
+
+# Large local-only raw tables/exports; compact conclusions are committed.
+/preregistration.json
+/preregistration_serial.json
+/artifacts/micro_nominal.json
+/artifacts/micro_witnesses.json
+/artifacts/tetra_export.json
+/artifacts/tetra_export_attempt1.json
+/artifacts/tetra_lower_receipt.json
+/artifacts/tetra_micro_p0000.json
+/artifacts/tetra_micro_p0000_target.json

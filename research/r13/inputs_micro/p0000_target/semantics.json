@@ -1,0 +1,69 @@
+{
+  "schema": "r13.micro-tetra-input.v1",
+  "r13_plan": {
+    "id": "p0000",
+    "producers": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "consumers": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "placement": "same_channel_alias",
+    "nocs": [
+      0,
+      0,
+      0
+    ],
+    "chain1_offset_cycles": 0,
+    "source_wait": "source"
+  },
+  "generations": 2,
+  "payload_bytes_per_transfer": 1024,
+  "tensor_shape": [
+    64,
+    4
+  ],
+  "dtype": "i32",
+  "data": "each16B block is four equal i32 lanes; distinct values across blocks/chains/generations",
+  "operators": {
+    "R13TimesTwo": "each output lane = 2 * input lane",
+    "R13PlusThree": "each output lane = input lane + 3"
+  },
+  "compute_cost": {
+    "latency_cycles": 64,
+    "origin": "registered 32 / nominal eta_c=0.5, arithmetic only",
+    "not_F": true
+  },
+  "capacity": {
+    "payload_bytes_per_compute_tile": 1433600
+  },
+  "projection_losses": [
+    "original whole-transfer cost/slots omit packet latency, control events and address lifetimes; F remains external"
+  ],
+  "input_source_hashes": {
+    "hardware_model.json": "162b8cb6fb8f32a4a7997b26d578593e5ba389cd980973afd167936ebb5a069c",
+    "compute_backend_yaml": "4f0a997a12cdfc2fc21d2580cbca3a13faee494076428693e89839dfdba8aa98",
+    "offchip_backend_yaml": "96bacc11f8611de7c62fa3b649b14803bd7c37a3f9e8572e905caffc698f68b4"
+  },
+  "hardware_adapter": {
+    "physical_dram_channel_cores": 12,
+    "compute_cores": 4,
+    "endpoint_aliases": "one capacity Core per physical channel, endpoint belongs to transfer route",
+    "router_network": "all480 directed router links across two full10x12 toruses; no surrogate bus",
+    "unused_hardware_yaml": "hardware.yaml documents earlier surrogate only; target run constructs public Core identities programmatically"
+  }
+}

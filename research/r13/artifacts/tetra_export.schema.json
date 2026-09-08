@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:schedresearch:r13:tetra-live-candidate:v1",
+  "title": "Successful live STREAM/TETRA candidate intake, not a target ModelPlan",
+  "type": "object",
+  "required": ["schema", "scope", "r13_p0_qualified", "hardware_model_evaluated", "provenance", "parsed_source_workloads", "groups", "passed", "validation"],
+  "properties": {
+    "schema": {"const": "r13.tetra-live-candidate.v1"},
+    "scope": {"const": "official_2conv_upstream_analytical_candidate_export"},
+    "r13_p0_qualified": {"const": false},
+    "hardware_model_evaluated": {"const": false},
+    "passed": {"const": true},
+    "provenance": {
+      "type": "object",
+      "required": ["stream_commit", "source_status_before", "source_status_after", "exporter_sha256", "hardware", "workload"],
+      "properties": {
+        "stream_commit": {"const": "75748cc17e7c43add5a7d0d8f080841eb26531c4"},
+        "source_status_before": {"const": ""},
+        "source_status_after": {"const": ""},
+        "exporter_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "parsed_source_workloads": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/workload"}},
+    "groups": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["group_index", "source_workload", "mapping_before_schedule", "allocators", "final_workload", "mapping_after_schedule"],
+        "properties": {
+          "source_workload": {"$ref": "#/$defs/workload"},
+          "final_workload": {"$ref": "#/$defs/workload"},
+          "allocators": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/allocator"}}
+        }
+      }
+    },
+    "validation": {"type": "object", "required": ["passed"], "properties": {"passed": {"const": true}}}
+  },
+  "$defs": {
+    "core": {
+      "type": "object", "required": ["object_id", "core_id", "type"],
+      "properties": {"object_id": {"type": "string"}, "core_id": {"type": "integer"}, "type": {"type": "string"}}
+    },
+    "link": {
+      "type": "object", "required": ["id", "sender", "receiver", "bandwidth_bits_per_cycle", "bidirectional"],
+      "properties": {"id": {"type": "string"}, "bandwidth_bits_per_cycle": {"type": "number", "exclusiveMinimum": 0}, "bidirectional": {"type": "boolean"}}
+    },
+    "path": {
+      "type": "object", "required": ["id", "sources", "targets", "links", "ordered_packet_path_available", "noc_id"],
+      "properties": {
+        "id": {"type": "string"},
+        "sources": {"type": "array", "items": {"$ref": "#/$defs/core"}},
+        "targets": {"type": "array", "items": {"$ref": "#/$defs/core"}},
+        "links": {"type": "array", "items": {"$ref": "#/$defs/link"}},
+        "ordered_packet_path_available": {"const": false}, "noc_id": {"type": "null"}
+      }
+    },
+    "tensor": {
+      "type": "object", "required": ["id", "name", "shape", "dtype", "bitwidth", "footprint_bits", "subview"],
+      "properties": {
+        "id": {"type": "string"}, "name": {"type": "string"},
+        "shape": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+        "bitwidth": {"type": "integer", "minimum": 1},
+        "subview": {"type": "object", "required": ["source_id", "source_type", "result_type", "static_offsets", "static_sizes", "static_strides", "raw_ir"]}
+      }
+    },
+    "affine_map": {
+      "type": "object", "required": ["tensor_id", "text", "ast"],
+      "properties": {
+        "tensor_id": {"type": "string"}, "text": {"type": "string"},
+        "ast": {
+          "type": "object", "required": ["type", "num_dims", "num_symbols", "results"],
+          "properties": {"type": {"const": "AffineMap"}, "num_dims": {"type": "integer"}, "num_symbols": {"type": "integer"}, "results": {"type": "array", "items": {"type": "object"}}}
+        }
+      }
+    },
+    "workload": {
+      "type": "object", "required": ["nodes", "edges", "dimension_relations"],
+      "properties": {
+        "nodes": {"type": "array", "items": {
+          "type": "object", "required": ["id", "name", "type", "inputs", "outputs"],
+          "properties": {
+            "inputs": {"type": "array", "items": {"$ref": "#/$defs/tensor"}},
+            "outputs": {"type": "array", "items": {"$ref": "#/$defs/tensor"}},
+            "operand_affine_maps": {"type": "array", "items": {"$ref": "#/$defs/affine_map"}}
+          }
+        }},
+        "edges": {"type": "array", "items": {"type": "object", "required": ["source", "target"]}}
+      }
+    },
+    "allocator": {
+      "type": "object",
+      "required": ["workload", "mapping_before_solve", "iterations", "slot_of", "tensor_choices", "path_choices", "ssis", "reuse_options", "constraint_selection", "context", "solver_parameters", "lex_objectives", "solve_phases", "selected"],
+      "properties": {
+        "workload": {"$ref": "#/$defs/workload"},
+        "iterations": {"type": "integer", "minimum": 1},
+        "slot_of": {"type": "array", "items": {"type": "object", "required": ["node_id", "slot"]}},
+        "tensor_choices": {"type": "array", "minItems": 1, "items": {
+          "type": "object", "required": ["tensor", "choices"],
+          "properties": {"tensor": {"$ref": "#/$defs/tensor"}, "choices": {"type": "array", "minItems": 1}}
+        }},
+        "path_choices": {"type": "array", "minItems": 1, "items": {
+          "type": "object", "required": ["transfer_id", "choices"],
+          "properties": {"choices": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/path"}}}
+        }},
+        "solve_phases": {"type": "array", "minItems": 3, "maxItems": 3, "items": {
+          "type": "object", "required": ["phase_index", "objective_definition", "termination", "objective", "best_objective_bound", "effective_parameters_text"],
+          "properties": {"termination": {"const": "TerminationReason.OPTIMAL"}}
+        }},
+        "selected": {"type": "object", "required": ["tensor_reuse_levels", "tensor_depths", "tensor_allocations", "transfer_allocations", "memory_allocations", "analysis_latency_cycles", "last_phase_solve_stats"]}
+      }
+    }
+  }
+}

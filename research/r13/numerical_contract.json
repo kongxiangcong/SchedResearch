@@ -1,0 +1,67 @@
+{
+  "schema": "r13.numerical-contract.v1",
+  "frozen_before_execution": true,
+  "date": "2026-09-08",
+  "claim": "Deterministic CPU qualification of a named model arithmetic contract, not native kernel equivalence or trained model accuracy",
+  "source": {
+    "model": "Qwen/Qwen3.5-4B",
+    "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "transformers_revision": "f62dc9bf2c90353b442a56e74391fbb8c689b55e",
+    "algebra": "down(SiLU(gate(X))*up(X))",
+    "H": 2560,
+    "I": 9216,
+    "M": [1, 32, 128],
+    "bias": false
+  },
+  "generation": {
+    "rng": "numpy.random.Generator(PCG64)",
+    "numpy_version": "2.5.3",
+    "seeds": {"X": 20260908, "gate": 20260909, "up": 20260910, "down": 20260911},
+    "X": "PCG64 random float64 in [0,1), affine uniform [-1,1), cast FP32 then BF16 RNE; generate [128,2560], use row prefixes",
+    "weights": "Independent PCG64 random float64, affine uniform [-sqrt(3/K),sqrt(3/K)), cast FP32 then BF16 RNE, stored mathematical [K,N] C order",
+    "input_of_fp64_algebra": "The exact same BF16-representable X and weights as the quantized contract; no down-input cast in this source-algebra oracle"
+  },
+  "gemm": {
+    "multiplicands": "BF16 values represented exactly as FP32",
+    "product": "FP32 multiply, no fused multiply-add",
+    "k_block": 32,
+    "within_block": "Adjacent pairwise binary tree over 32 products: (0+1),(2+3),... at level 1; every addition rounds FP32",
+    "between_blocks": "FP32 accumulator starts +0; add each block result in increasing K block order with a separate FP32 add",
+    "reassociation": "Forbidden; candidate split-K must preserve this tree and block accumulation order",
+    "independent_checker": "Streaming binary carry tree over individual K products; separate from materialized-product pair reduction",
+    "blas": "Only FP64 source algebra uses BLAS. FP32 BLAS is not an implementation of this contract"
+  },
+  "pointwise": {
+    "silu": "For FP32 x>=0: e=round32(exp64(-float64(x))), d=round32(1+e), s=round32(x/d). For x<0: e=round32(exp64(float64(x))), n=round32(x*e), d=round32(1+e), s=round32(n/d). exp64 uses host double libm; independent implementation uses scalar math.exp and scalar operations, each rounded FP32",
+    "multiply": "A32=round32(S32*U32)",
+    "down_input": "A16=BF16 round-to-nearest-even(A32), then exact FP32 representation for CPU arithmetic",
+    "output": "Complete [M,2560] FP32 output, no output BF16 cast",
+    "not_claimed": "No guarantee of bit identity with any native SFPU or library kernel"
+  },
+  "padding": {
+    "tile_m": 32,
+    "tile_k": 32,
+    "tile_n": 32,
+    "rule": "Explicit positive-zero M padding to ceil(M/32)*32. H and I are divisible by 32. Run padded rows and verify they remain zero; expose all padded MACs to the performance model",
+    "mask": "Only original M rows are module outputs; padding initialization and relevant storage/movement must be charged by physical plans"
+  },
+  "acceptance": {
+    "independent_quantized_contract": "All BF16 conversions, G/U/S/A16/Y arrays bitwise equal between independent implementations, including full output for M=1,32,128; disagreement fails and is not hidden by source-algebra tolerance",
+    "source_algebra_relative_l2_max": 0.02,
+    "source_algebra_max_abs_over_max_abs_reference_max": 0.02,
+    "source_algebra_atol_floor": 1e-12,
+    "pointwise_relative_error": "Report max but do not use as pass condition near zero",
+    "finite_values": true,
+    "adversarial_unit_cases": ["BF16 positive/negative ties and subnormals", "BF16 independent rounding on 100000 finite FP32 bit patterns", "FP32 tree cancellation and forbidden reassociation", "SiLU signed zero and magnitudes up to 100", "M padding zeros", "mutation: omitted down-input cast must alter output"]
+  },
+  "service_inventory": {
+    "weight_bytes_bf16": 141557760,
+    "input_bytes": "2*M*H",
+    "output_bytes": "4*M*H",
+    "G_U_S_A32_each_bytes": "4*M*I",
+    "A16_bytes": "2*M*I",
+    "explicit_cast": "M*I FP32-to-BF16 conversions, reading 4*M*I bytes and logically producing 2*M*I bytes; fusion may avoid physical materialization, not arithmetic work",
+    "logical_gemm_MACs": "3*M*H*I",
+    "padded_gemm_MACs": "3*ceil(M/32)*32*H*I"
+  }
+}
