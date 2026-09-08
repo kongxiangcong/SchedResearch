@@ -1,0 +1,176 @@
+{
+  "schema": "r12-baseline-smoke-v1",
+  "created_utc": "2026-09-08T00:38:00.528187+00:00",
+  "evidence_level": "upstream analytical fixture and actual solver execution",
+  "wormhole_p0_qualified": false,
+  "native_hardware_measurement": false,
+  "source_visibility_semantics_tested": false,
+  "controller_domain_semantics_tested": false,
+  "passed": true,
+  "stream_commit": "75748cc17e7c43add5a7d0d8f080841eb26531c4",
+  "stream_status_before": "",
+  "python": "3.13.12 (main, Mar 10 2026, 18:14:40) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "D:\\dsh-proj\\SchedResarch\\research\\r12\\.venv\\Scripts\\python.exe",
+  "packages": {
+    "stream-dse": "1.14.1",
+    "zigzag-dse": "3.8.5",
+    "ortools": "9.15.6755",
+    "pydantic": "2.11.10",
+    "xdsl": "0.29.1",
+    "numpy": "2.5.3",
+    "onnx": "1.21.0"
+  },
+  "stream_api_path": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\api.py",
+  "solver_sentinel": {
+    "value": 3.0,
+    "expected_value": 3,
+    "solve": {
+      "backend": "ORTOOLS_GSCIP",
+      "solver": "gscip",
+      "status": "OPTIMAL",
+      "objective": 3.0,
+      "solve_time_s": 0.001214,
+      "mip_gap": 0.0,
+      "node_count": null,
+      "iteration_count": null
+    }
+  },
+  "inputs": {
+    "hardware": {
+      "path": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\inputs\\examples\\hardware\\tpu_like_quad_core.yaml",
+      "sha256": "611e5d0fc71b1122b65b2c027550d6aa9719a4be40a4d6435f210955415d2ccc"
+    },
+    "workload": {
+      "path": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\inputs\\testing\\workload\\2conv_1_8_32_32_16_32_3.onnx",
+      "sha256": "049590d81e54bc107c1e1486a214d2d0e055b5a904f8ca6b372b646a034e63da"
+    }
+  },
+  "configuration": {
+    "backend": "ortools_gscip",
+    "constraint_selection": {
+      "memory_capacity": true,
+      "object_fifo_depth": true,
+      "buffer_descriptors": true,
+      "dma_channels": true,
+      "pipelining": "occupancy"
+    },
+    "mapping": "upstream auto-generated",
+    "skip_if_exists": false
+  },
+  "pipeline_wall_seconds": 8.953618700033985,
+  "allocation_ir": "D:\\dsh-proj\\SchedResarch\\research\\r12\\results\\baseline_smoke\\allocation_ir.json",
+  "solve": {
+    "status": "OPTIMAL",
+    "solver": "gscip",
+    "mip_gap": 0.0,
+    "objective": 10.0,
+    "solve_time_s": 0.006205,
+    "node_count": null,
+    "iteration_count": null
+  },
+  "analytical_latency_cycles": 12808.0,
+  "group_latencies": {
+    "0": 12808
+  },
+  "iterations": 1,
+  "upstream_documented_reference_cycles": 14344,
+  "matches_documented_reference": false,
+  "cost_models": {
+    "intra_core": "ZigZag analytical (per-node latency & energy, MAC-array spatial utilization)",
+    "scheduler": "SteadyStateScheduler (steady-state pipeline latency, compute vs transfer bottleneck)",
+    "solver": "ORTOOLS_GSCIP"
+  },
+  "overlays": [],
+  "cost_degenerate": false,
+  "chosen_transfer_paths": [
+    {
+      "transfer": "Transfer(input)",
+      "tensor_bits": 131072,
+      "sources": [
+        6
+      ],
+      "targets": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "link_resources": [
+        "CL(Any, Any, bw=128)"
+      ],
+      "upstream_single_firing_path_cycles": 1024
+    },
+    {
+      "transfer": "Transfer(weights_1)",
+      "tensor_bits": 18432,
+      "sources": [
+        6
+      ],
+      "targets": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "link_resources": [
+        "CL(Any, Any, bw=128)"
+      ],
+      "upstream_single_firing_path_cycles": 144
+    },
+    {
+      "transfer": "Transfer(conv1_out)",
+      "tensor_bits": 262144,
+      "sources": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "targets": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "link_resources": [
+        "CL(Any, Any, bw=128)"
+      ],
+      "upstream_single_firing_path_cycles": 512
+    },
+    {
+      "transfer": "Transfer(weights_2)",
+      "tensor_bits": 73728,
+      "sources": [
+        6
+      ],
+      "targets": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "link_resources": [
+        "CL(Any, Any, bw=128)"
+      ],
+      "upstream_single_firing_path_cycles": 576
+    },
+    {
+      "transfer": "Transfer(output_1)",
+      "tensor_bits": 524288,
+      "sources": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "targets": [
+        6
+      ],
+      "link_resources": [
+        "CL(Any, Any, bw=128)"
+      ],
+      "upstream_single_firing_path_cycles": 4096
+    }
+  ],
+  "stream_status_after": ""
+}

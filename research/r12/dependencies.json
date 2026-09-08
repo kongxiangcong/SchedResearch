@@ -1,0 +1,9 @@
+{
+  "schema": "r12.dependencies.v1",
+  "python": "3.13",
+  "repositories": [
+    {"name": "tt-isa-documentation", "url": "https://github.com/tenstorrent/tt-isa-documentation.git", "commit": "5287a62727350bcef35f7b411d1b8a706172ec4c", "role": "fixed hardware interface source"},
+    {"name": "stream", "url": "https://github.com/KULeuven-MICAS/stream.git", "commit": "75748cc17e7c43add5a7d0d8f080841eb26531c4", "role": "strong compiler baseline; base install with OR-Tools SCIP"},
+    {"name": "tt-npe", "url": "https://github.com/tenstorrent/tt-npe.git", "commit": "341da058f0b65e51d3643fb36f011a0784abedff", "role": "coarse NoC estimator only; not elapsed or visibility oracle"}
+  ]
+}

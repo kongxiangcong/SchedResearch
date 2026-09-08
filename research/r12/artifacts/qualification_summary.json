@@ -1,0 +1,97 @@
+{
+  "schema": "r12.offline-qualification.v1",
+  "evidence_level": "source-derived accounting and conditional functional proof",
+  "preregistration_sha256": "7c4bfb6073b82467c5455b93a1020eebd528ea4a06af5d2e6432cb50b2ee46c9",
+  "integrity": {
+    "package_files": {
+      "evidence_ledger.md": {
+        "expected": "fca0c47708797a6f22b4ed024f3e53468324cbe191b71fd8606832af4acf973c",
+        "raw_sha256": "fca0c47708797a6f22b4ed024f3e53468324cbe191b71fd8606832af4acf973c",
+        "lf_sha256": "fca0c47708797a6f22b4ed024f3e53468324cbe191b71fd8606832af4acf973c",
+        "status": "raw_match"
+      },
+      "evidence_manifest.json": {
+        "expected": "5c4995cc7c38793f806383ff2430b569b0db3d3febba294e8a9259540a610964",
+        "raw_sha256": "5c4995cc7c38793f806383ff2430b569b0db3d3febba294e8a9259540a610964",
+        "lf_sha256": "5c4995cc7c38793f806383ff2430b569b0db3d3febba294e8a9259540a610964",
+        "status": "raw_match"
+      },
+      "proposal_contract.md": {
+        "expected": "ddb45cc3aca19d5d2da72ee97bacfeec269ca1f340eb2d210f39897ea2106311",
+        "raw_sha256": "ddb45cc3aca19d5d2da72ee97bacfeec269ca1f340eb2d210f39897ea2106311",
+        "lf_sha256": "ddb45cc3aca19d5d2da72ee97bacfeec269ca1f340eb2d210f39897ea2106311",
+        "status": "raw_match"
+      },
+      "bound_witness.py": {
+        "expected": "8040b57008a2b67a9a42ec51ca73bfc08cadb7a254a8657b1e956342c87b22c1",
+        "raw_sha256": "8040b57008a2b67a9a42ec51ca73bfc08cadb7a254a8657b1e956342c87b22c1",
+        "lf_sha256": "8040b57008a2b67a9a42ec51ca73bfc08cadb7a254a8657b1e956342c87b22c1",
+        "status": "raw_match"
+      },
+      "bound_witness_result.json": {
+        "expected": "d7f1fdf9d70591e4bbb070ad22e8289b458360a7ec810e8302744bd2dc9b530b",
+        "raw_sha256": "d7f1fdf9d70591e4bbb070ad22e8289b458360a7ec810e8302744bd2dc9b530b",
+        "lf_sha256": "d7f1fdf9d70591e4bbb070ad22e8289b458360a7ec810e8302744bd2dc9b530b",
+        "status": "raw_match"
+      }
+    },
+    "bound_witness_replayed": true,
+    "historical_performance_rerun": false
+  },
+  "topology": {
+    "all_pair_route_cases": 28800,
+    "status": "PASS",
+    "live_harvest_verified": false
+  },
+  "static_candidates": {
+    "candidate_count": 96,
+    "status": "accounting only; no output-visible time, no optimal-plan claim",
+    "omits": [
+      "notification and credit-return packets",
+      "NIU links/service",
+      "router credits",
+      "compute and controller times"
+    ],
+    "min_max_link_flits": 132,
+    "max_max_link_flits": 202
+  },
+  "events": {
+    "native_scoped_contract": {
+      "status": "PASS",
+      "events": 56,
+      "obligations": 10,
+      "rejected_obligations": 0
+    },
+    "sent_is_source_done": {
+      "status": "EXPECTED_REJECTION",
+      "events": 56,
+      "obligations": 10,
+      "rejected_obligations": 2
+    },
+    "receive_is_visible": {
+      "status": "EXPECTED_REJECTION",
+      "events": 56,
+      "obligations": 10,
+      "rejected_obligations": 4
+    },
+    "source_is_visible": {
+      "status": "EXPECTED_REJECTION",
+      "events": 56,
+      "obligations": 10,
+      "rejected_obligations": 4
+    },
+    "ack_releases_destination": {
+      "status": "EXPECTED_REJECTION",
+      "events": 56,
+      "obligations": 10,
+      "rejected_obligations": 2
+    }
+  },
+  "gates": {
+    "G0_native": "NOT_PASSED",
+    "G1": "NOT_TESTED",
+    "G2": "NOT_TESTED",
+    "G3": "NOT_OPEN"
+  },
+  "raw_sha256": "a7c5b491d57389e9545752c46aa1f474559c50d6941fa65925ad8ef6a4134dd3"
+}

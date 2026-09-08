@@ -1,0 +1,1086 @@
+{
+  "schema_version": "1.5",
+  "latency": {
+    "total": 12808,
+    "per_iteration": 12808,
+    "overlap_between_iterations": 0
+  },
+  "backend": "ORTOOLS_GSCIP",
+  "solve": {
+    "status": "OPTIMAL",
+    "solver": "gscip",
+    "mip_gap": 0.0,
+    "objective": 10.0,
+    "solve_time_s": 0.006205,
+    "node_count": null,
+    "iteration_count": null
+  },
+  "cost_models": {
+    "intra_core": "ZigZag analytical (per-node latency & energy, MAC-array spatial utilization)",
+    "scheduler": "SteadyStateScheduler (steady-state pipeline latency, compute vs transfer bottleneck)",
+    "solver": "ORTOOLS_GSCIP"
+  },
+  "constraint_selection": {
+    "memory_capacity": true,
+    "object_fifo_depth": true,
+    "buffer_descriptors": true,
+    "dma_channels": true
+  },
+  "fusion_splits": {
+    "z10": 1
+  },
+  "mapping_nodes": {
+    "Conv1": {
+      "resource_allocation": [
+        [
+          {
+            "type": "core",
+            "id": 0
+          },
+          {
+            "type": "core",
+            "id": 1
+          },
+          {
+            "type": "core",
+            "id": 2
+          },
+          {
+            "type": "core",
+            "id": 3
+          }
+        ]
+      ],
+      "inter_core_tiling": [
+        [
+          [
+            "z6",
+            4
+          ]
+        ]
+      ],
+      "memory_allocation": []
+    },
+    "Conv2": {
+      "resource_allocation": [
+        [
+          {
+            "type": "core",
+            "id": 0
+          },
+          {
+            "type": "core",
+            "id": 1
+          },
+          {
+            "type": "core",
+            "id": 2
+          },
+          {
+            "type": "core",
+            "id": 3
+          }
+        ]
+      ],
+      "inter_core_tiling": [
+        [
+          [
+            "z13",
+            4
+          ]
+        ]
+      ],
+      "memory_allocation": []
+    },
+    "Transfer(input)": {
+      "resource_allocation": [
+        [
+          {
+            "type": "path",
+            "sources": [
+              6
+            ],
+            "targets": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "hops": 4.0
+          }
+        ]
+      ],
+      "inter_core_tiling": [],
+      "memory_allocation": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "Transfer(weights_1)": {
+      "resource_allocation": [
+        [
+          {
+            "type": "path",
+            "sources": [
+              6
+            ],
+            "targets": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "hops": 4.0
+          }
+        ]
+      ],
+      "inter_core_tiling": [],
+      "memory_allocation": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "Transfer(conv1_out)": {
+      "resource_allocation": [
+        [
+          {
+            "type": "path",
+            "sources": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "targets": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "hops": 6.0
+          }
+        ]
+      ],
+      "inter_core_tiling": [],
+      "memory_allocation": []
+    },
+    "Transfer(weights_2)": {
+      "resource_allocation": [
+        [
+          {
+            "type": "path",
+            "sources": [
+              6
+            ],
+            "targets": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "hops": 4.0
+          }
+        ]
+      ],
+      "inter_core_tiling": [],
+      "memory_allocation": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "Transfer(output_1)": {
+      "resource_allocation": [
+        [
+          {
+            "type": "path",
+            "sources": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "targets": [
+              6
+            ],
+            "hops": 4.0
+          }
+        ]
+      ],
+      "inter_core_tiling": [],
+      "memory_allocation": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    }
+  },
+  "fused_groups": [
+    {
+      "name": "Fused_Group_1",
+      "layers": [
+        "Conv1",
+        "Conv2"
+      ],
+      "intra_core_tiling": [
+        [
+          "z10",
+          1
+        ]
+      ]
+    }
+  ],
+  "runtime_args": {},
+  "performance": {
+    "schema_version": "1.1",
+    "latency": {
+      "total": 12808,
+      "per_iteration": 12808,
+      "overlap_between_iterations": 0
+    },
+    "bottleneck": {
+      "compute_bound_cycles": 7032,
+      "transfer_bound_cycles": 5776,
+      "compute_bound_pct": 54.9,
+      "transfer_bound_pct": 45.1
+    },
+    "aggregate": {
+      "compute_cores_available": 6,
+      "compute_cores_used": 4,
+      "latency_weighted_mac_spatial_utilization": 0.41552901023890787,
+      "min_mac_spatial_utilization": 0.25,
+      "total_mac_ops": 5898240.0,
+      "peak_macs_per_cycle": 4096.0,
+      "mac_capable_cores": 4,
+      "end_to_end_mac_utilization": 0.11242973141786383,
+      "degenerate": false,
+      "degenerate_nodes": []
+    },
+    "nodes": {
+      "Conv1": {
+        "kind": "compute",
+        "n_cores": 4,
+        "latency_cycles": 2376,
+        "ideal_compute_cycles": 288.0,
+        "mac_spatial_utilization": 0.25,
+        "compute_efficiency": 0.12121212121212122,
+        "fallback": false
+      },
+      "Conv2": {
+        "kind": "compute",
+        "n_cores": 4,
+        "latency_cycles": 4656,
+        "ideal_compute_cycles": 1152.0,
+        "mac_spatial_utilization": 0.5,
+        "compute_efficiency": 0.24742268041237114,
+        "fallback": false
+      }
+    },
+    "overlap": {
+      "overlap_cycles": 0,
+      "binding_resources": [
+        "CL(Any, Any, bw=128)"
+      ],
+      "per_resource_slack": [
+        {
+          "resource": "CL(Any, Any, bw=128)",
+          "kind": "link",
+          "slack_cycles": 4656
+        },
+        {
+          "resource": "Core(0, zigzag.compute)",
+          "kind": "core",
+          "slack_cycles": 5776
+        },
+        {
+          "resource": "Core(1, zigzag.compute)",
+          "kind": "core",
+          "slack_cycles": 5776
+        },
+        {
+          "resource": "Core(2, zigzag.compute)",
+          "kind": "core",
+          "slack_cycles": 5776
+        },
+        {
+          "resource": "Core(3, zigzag.compute)",
+          "kind": "core",
+          "slack_cycles": 5776
+        }
+      ],
+      "recurrence_bound_cycles": 0
+    },
+    "tensor_reuse": [
+      {
+        "tensor": "output_1",
+        "size_bits": 524288,
+        "reuse_factor": 1,
+        "reuse_stop_level": -1,
+        "on_chip_tiles": 1,
+        "loop_nest_out_to_in": [
+          "T(z10,1,V)",
+          "S(z13,4,V)",
+          "ST(z6,4,A)",
+          "K(z13,8,V)",
+          "K(z12,32,V)",
+          "K(z11,32,V)",
+          "K(z10,1,V)",
+          "K(z9,16,I)",
+          "K(z8,3,I)",
+          "K(z7,3,I)",
+          "K(z6,8,I)",
+          "K(z5,32,I)",
+          "K(z4,8,I)",
+          "K(z3,3,I)",
+          "K(z2,3,I)",
+          "K(z1,32,I)",
+          "K(z0,32,I)"
+        ]
+      },
+      {
+        "tensor": "output",
+        "size_bits": 524288,
+        "reuse_factor": 1,
+        "reuse_stop_level": -1,
+        "on_chip_tiles": 1,
+        "loop_nest_out_to_in": [
+          "T(z10,1,V)",
+          "ST(z13,4,V)",
+          "ST(z6,4,A)",
+          "K(z13,8,V)",
+          "K(z12,32,V)",
+          "K(z11,32,V)",
+          "K(z10,1,V)",
+          "K(z9,16,I)",
+          "K(z8,3,I)",
+          "K(z7,3,I)",
+          "K(z6,8,I)",
+          "K(z5,32,I)",
+          "K(z4,8,I)",
+          "K(z3,3,I)",
+          "K(z2,3,I)",
+          "K(z1,32,I)",
+          "K(z0,32,I)"
+        ]
+      },
+      {
+        "tensor": "conv1_out",
+        "size_bits": 262144,
+        "reuse_factor": 1,
+        "reuse_stop_level": -1,
+        "on_chip_tiles": 1,
+        "loop_nest_out_to_in": [
+          "T(z10,1,V)",
+          "ST(z13,4,A)",
+          "S(z6,4,V)",
+          "K(z13,8,I)",
+          "K(z12,32,I)",
+          "K(z11,32,I)",
+          "K(z10,1,V)",
+          "K(z9,16,V)",
+          "K(z8,3,I)",
+          "K(z7,3,I)",
+          "K(z6,8,V)",
+          "K(z5,32,V)",
+          "K(z4,8,I)",
+          "K(z3,3,I)",
+          "K(z2,3,I)",
+          "K(z1,32,I)",
+          "K(z0,32,I)"
+        ]
+      },
+      {
+        "tensor": "conv1_out_1",
+        "size_bits": 262144,
+        "reuse_factor": 1,
+        "reuse_stop_level": -1,
+        "on_chip_tiles": 1,
+        "loop_nest_out_to_in": [
+          "T(z10,1,V)",
+          "S(z13,4,V)",
+          "ST(z6,4,I)",
+          "K(z13,8,V)",
+          "K(z12,32,V)",
+          "K(z11,32,I)",
+          "K(z10,1,V)",
+          "K(z9,16,V)",
+          "K(z8,3,V)",
+          "K(z7,3,V)",
+          "K(z6,8,I)",
+          "K(z5,32,I)",
+          "K(z4,8,I)",
+          "K(z3,3,I)",
+          "K(z2,3,I)",
+          "K(z1,32,I)",
+          "K(z0,32,I)"
+        ]
+      },
+      {
+        "tensor": "input",
+        "size_bits": 131072,
+        "reuse_factor": 1,
+        "reuse_stop_level": 0,
+        "on_chip_tiles": 1,
+        "loop_nest_out_to_in": [
+          "T(z10,1,V)",
+          "ST(z13,4,A)",
+          "S(z6,4,I)",
+          "K(z13,8,I)",
+          "K(z12,32,I)",
+          "K(z11,32,I)",
+          "K(z10,1,V)",
+          "K(z9,16,I)",
+          "K(z8,3,I)",
+          "K(z7,3,I)",
+          "K(z6,8,I)",
+          "K(z5,32,I)",
+          "K(z4,8,V)",
+          "K(z3,3,I)",
+          "K(z2,3,I)",
+          "K(z1,32,V)",
+          "K(z0,32,V)"
+        ]
+      },
+      {
+        "tensor": "input_1",
+        "size_bits": 131072,
+        "reuse_factor": 1,
+        "reuse_stop_level": -1,
+        "on_chip_tiles": 1,
+        "loop_nest_out_to_in": [
+          "T(z10,1,V)",
+          "ST(z13,4,A)",
+          "S(z6,4,V)",
+          "K(z13,8,I)",
+          "K(z12,32,I)",
+          "K(z11,32,I)",
+          "K(z10,1,V)",
+          "K(z9,16,I)",
+          "K(z8,3,I)",
+          "K(z7,3,I)",
+          "K(z6,8,V)",
+          "K(z5,32,V)",
+          "K(z4,8,V)",
+          "K(z3,3,V)",
+          "K(z2,3,V)",
+          "K(z1,32,I)",
+          "K(z0,32,I)"
+        ]
+      },
+      {
+        "tensor": "weights_2",
+        "size_bits": 73728,
+        "reuse_factor": 1,
+        "reuse_stop_level": 0,
+        "on_chip_tiles": 1,
+        "loop_nest_out_to_in": [
+          "T(z10,1,I)",
+          "S(z13,4,I)",
+          "ST(z6,4,A)",
+          "K(z13,8,I)",
+          "K(z12,32,I)",
+          "K(z11,32,V)",
+          "K(z10,1,I)",
+          "K(z9,16,V)",
+          "K(z8,3,V)",
+          "K(z7,3,V)",
+          "K(z6,8,I)",
+          "K(z5,32,I)",
+          "K(z4,8,I)",
+          "K(z3,3,I)",
+          "K(z2,3,I)",
+          "K(z1,32,I)",
+          "K(z0,32,I)"
+        ]
+      },
+      {
+        "tensor": "weights_2_1",
+        "size_bits": 73728,
+        "reuse_factor": 1,
+        "reuse_stop_level": -1,
+        "on_chip_tiles": 1,
+        "loop_nest_out_to_in": [
+          "T(z10,1,I)",
+          "S(z13,4,I)",
+          "ST(z6,4,A)",
+          "K(z13,8,I)",
+          "K(z12,32,I)",
+          "K(z11,32,V)",
+          "K(z10,1,I)",
+          "K(z9,16,V)",
+          "K(z8,3,V)",
+          "K(z7,3,V)",
+          "K(z6,8,I)",
+          "K(z5,32,I)",
+          "K(z4,8,I)",
+          "K(z3,3,I)",
+          "K(z2,3,I)",
+          "K(z1,32,I)",
+          "K(z0,32,I)"
+        ]
+      },
+      {
+        "tensor": "weights_1",
+        "size_bits": 18432,
+        "reuse_factor": 1,
+        "reuse_stop_level": 0,
+        "on_chip_tiles": 1,
+        "loop_nest_out_to_in": [
+          "T(z10,1,I)",
+          "ST(z13,4,A)",
+          "S(z6,4,I)",
+          "K(z13,8,I)",
+          "K(z12,32,I)",
+          "K(z11,32,I)",
+          "K(z10,1,I)",
+          "K(z9,16,V)",
+          "K(z8,3,I)",
+          "K(z7,3,I)",
+          "K(z6,8,I)",
+          "K(z5,32,I)",
+          "K(z4,8,V)",
+          "K(z3,3,V)",
+          "K(z2,3,V)",
+          "K(z1,32,I)",
+          "K(z0,32,I)"
+        ]
+      },
+      {
+        "tensor": "weights_1_1",
+        "size_bits": 18432,
+        "reuse_factor": 1,
+        "reuse_stop_level": -1,
+        "on_chip_tiles": 1,
+        "loop_nest_out_to_in": [
+          "T(z10,1,I)",
+          "ST(z13,4,A)",
+          "S(z6,4,I)",
+          "K(z13,8,I)",
+          "K(z12,32,I)",
+          "K(z11,32,I)",
+          "K(z10,1,I)",
+          "K(z9,16,V)",
+          "K(z8,3,I)",
+          "K(z7,3,I)",
+          "K(z6,8,I)",
+          "K(z5,32,I)",
+          "K(z4,8,V)",
+          "K(z3,3,V)",
+          "K(z2,3,V)",
+          "K(z1,32,I)",
+          "K(z0,32,I)"
+        ]
+      }
+    ],
+    "memory_occupancy": [
+      {
+        "core_id": 0,
+        "core_name": "compute",
+        "resident_bits": 681984,
+        "capacity_bits": 16777216,
+        "utilization": 0.0406494140625,
+        "tensors": [
+          {
+            "tensor": "conv1_out_1",
+            "bits": 262144
+          },
+          {
+            "tensor": "output_1",
+            "bits": 131072
+          },
+          {
+            "tensor": "input_1",
+            "bits": 131072
+          },
+          {
+            "tensor": "weights_2_1",
+            "bits": 73728
+          },
+          {
+            "tensor": "conv1_out",
+            "bits": 65536
+          },
+          {
+            "tensor": "weights_1_1",
+            "bits": 18432
+          }
+        ]
+      },
+      {
+        "core_id": 1,
+        "core_name": "compute",
+        "resident_bits": 681984,
+        "capacity_bits": 16777216,
+        "utilization": 0.0406494140625,
+        "tensors": [
+          {
+            "tensor": "conv1_out_1",
+            "bits": 262144
+          },
+          {
+            "tensor": "output_1",
+            "bits": 131072
+          },
+          {
+            "tensor": "input_1",
+            "bits": 131072
+          },
+          {
+            "tensor": "weights_2_1",
+            "bits": 73728
+          },
+          {
+            "tensor": "conv1_out",
+            "bits": 65536
+          },
+          {
+            "tensor": "weights_1_1",
+            "bits": 18432
+          }
+        ]
+      },
+      {
+        "core_id": 2,
+        "core_name": "compute",
+        "resident_bits": 681984,
+        "capacity_bits": 16777216,
+        "utilization": 0.0406494140625,
+        "tensors": [
+          {
+            "tensor": "conv1_out_1",
+            "bits": 262144
+          },
+          {
+            "tensor": "output_1",
+            "bits": 131072
+          },
+          {
+            "tensor": "input_1",
+            "bits": 131072
+          },
+          {
+            "tensor": "weights_2_1",
+            "bits": 73728
+          },
+          {
+            "tensor": "conv1_out",
+            "bits": 65536
+          },
+          {
+            "tensor": "weights_1_1",
+            "bits": 18432
+          }
+        ]
+      },
+      {
+        "core_id": 3,
+        "core_name": "compute",
+        "resident_bits": 681984,
+        "capacity_bits": 16777216,
+        "utilization": 0.0406494140625,
+        "tensors": [
+          {
+            "tensor": "conv1_out_1",
+            "bits": 262144
+          },
+          {
+            "tensor": "output_1",
+            "bits": 131072
+          },
+          {
+            "tensor": "input_1",
+            "bits": 131072
+          },
+          {
+            "tensor": "weights_2_1",
+            "bits": 73728
+          },
+          {
+            "tensor": "conv1_out",
+            "bits": 65536
+          },
+          {
+            "tensor": "weights_1_1",
+            "bits": 18432
+          }
+        ]
+      },
+      {
+        "core_id": 6,
+        "core_name": "offchip",
+        "resident_bits": 524288,
+        "capacity_bits": 10000000000,
+        "utilization": 0.0000524288,
+        "tensors": [
+          {
+            "tensor": "output",
+            "bits": 524288
+          }
+        ]
+      }
+    ]
+  },
+  "steady_state": {
+    "operators": [
+      {
+        "name": "Conv1",
+        "op": "Conv",
+        "tensors": [
+          {
+            "name": "input",
+            "shape": [
+              1,
+              8,
+              32,
+              32
+            ]
+          },
+          {
+            "name": "weights_1",
+            "shape": [
+              16,
+              8,
+              3,
+              3
+            ]
+          },
+          {
+            "name": "conv1_out",
+            "shape": [
+              1,
+              16,
+              32,
+              32
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Conv2",
+        "op": "Conv",
+        "tensors": [
+          {
+            "name": "conv1_out",
+            "shape": [
+              1,
+              16,
+              32,
+              32
+            ]
+          },
+          {
+            "name": "weights_2",
+            "shape": [
+              32,
+              16,
+              3,
+              3
+            ]
+          },
+          {
+            "name": "output",
+            "shape": [
+              1,
+              32,
+              32,
+              32
+            ]
+          }
+        ]
+      }
+    ],
+    "loops": [
+      {
+        "dim": "z6",
+        "size": 4,
+        "type": "spatial",
+        "node": null
+      },
+      {
+        "dim": "z13",
+        "size": 4,
+        "type": "spatial",
+        "node": null
+      },
+      {
+        "dim": "D6",
+        "size": 4,
+        "type": "core_temporal",
+        "node": "Conv1"
+      },
+      {
+        "dim": "D1",
+        "size": 2,
+        "type": "core_temporal",
+        "node": "Conv1"
+      },
+      {
+        "dim": "D4",
+        "size": 3,
+        "type": "core_temporal",
+        "node": "Conv1"
+      },
+      {
+        "dim": "D3",
+        "size": 3,
+        "type": "core_temporal",
+        "node": "Conv1"
+      },
+      {
+        "dim": "D1",
+        "size": 4,
+        "type": "core_temporal",
+        "node": "Conv1"
+      },
+      {
+        "dim": "D6",
+        "size": 4,
+        "type": "core_temporal",
+        "node": "Conv1"
+      },
+      {
+        "dim": "D2",
+        "size": 32,
+        "type": "core_spatial",
+        "node": "Conv1"
+      },
+      {
+        "dim": "D5",
+        "size": 8,
+        "type": "core_spatial",
+        "node": "Conv1"
+      },
+      {
+        "dim": "D6",
+        "size": 8,
+        "type": "core_temporal",
+        "node": "Conv2"
+      },
+      {
+        "dim": "D1",
+        "size": 2,
+        "type": "core_temporal",
+        "node": "Conv2"
+      },
+      {
+        "dim": "D4",
+        "size": 3,
+        "type": "core_temporal",
+        "node": "Conv2"
+      },
+      {
+        "dim": "D1",
+        "size": 4,
+        "type": "core_temporal",
+        "node": "Conv2"
+      },
+      {
+        "dim": "D6",
+        "size": 4,
+        "type": "core_temporal",
+        "node": "Conv2"
+      },
+      {
+        "dim": "D3",
+        "size": 3,
+        "type": "core_temporal",
+        "node": "Conv2"
+      },
+      {
+        "dim": "D2",
+        "size": 32,
+        "type": "core_spatial",
+        "node": "Conv2"
+      },
+      {
+        "dim": "D5",
+        "size": 16,
+        "type": "core_spatial",
+        "node": "Conv2"
+      }
+    ],
+    "tiled_graph": {
+      "nodes": [
+        {
+          "name": "Conv1",
+          "kind": "compute",
+          "op": "Conv"
+        },
+        {
+          "name": "Conv2",
+          "kind": "compute",
+          "op": "Conv"
+        },
+        {
+          "name": "Transfer(input)",
+          "kind": "transfer",
+          "transfer_type": "MEM_TO_COMPUTE",
+          "tensor": "input_1",
+          "elements": 8192
+        },
+        {
+          "name": "Transfer(weights_1)",
+          "kind": "transfer",
+          "transfer_type": "MEM_TO_COMPUTE",
+          "tensor": "weights_1_1",
+          "elements": 1152
+        },
+        {
+          "name": "Transfer(conv1_out)",
+          "kind": "transfer",
+          "transfer_type": "COMPUTE_TO_COMPUTE",
+          "tensor": "conv1_out_1",
+          "elements": 16384
+        },
+        {
+          "name": "Transfer(weights_2)",
+          "kind": "transfer",
+          "transfer_type": "MEM_TO_COMPUTE",
+          "tensor": "weights_2_1",
+          "elements": 4608
+        },
+        {
+          "name": "Transfer(output_1)",
+          "kind": "transfer",
+          "transfer_type": "COMPUTE_TO_MEM",
+          "tensor": "output",
+          "elements": 32768
+        }
+      ],
+      "edges": [
+        {
+          "source": "input",
+          "target": "Transfer(input)"
+        },
+        {
+          "source": "weights_1",
+          "target": "Transfer(weights_1)"
+        },
+        {
+          "source": "Conv1",
+          "target": "Transfer(conv1_out)"
+        },
+        {
+          "source": "weights_2",
+          "target": "Transfer(weights_2)"
+        },
+        {
+          "source": "Conv2",
+          "target": "Transfer(output_1)"
+        },
+        {
+          "source": "Transfer(input)",
+          "target": "Conv1"
+        },
+        {
+          "source": "Transfer(weights_1)",
+          "target": "Conv1"
+        },
+        {
+          "source": "Transfer(conv1_out)",
+          "target": "Conv2"
+        },
+        {
+          "source": "Transfer(weights_2)",
+          "target": "Conv2"
+        },
+        {
+          "source": "Transfer(output_1)",
+          "target": "output"
+        }
+      ]
+    }
+  },
+  "fusion": {
+    "n_groups": 1,
+    "groups": [
+      {
+        "name": "Fused_Group_1",
+        "layers": [
+          "Conv1",
+          "Conv2"
+        ],
+        "intra_core_tiling": [
+          [
+            "z10",
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "tiling": {
+    "fusion_splits": [
+      {
+        "dim": "z10",
+        "factor": 1
+      }
+    ],
+    "inter_core": {
+      "Conv1": [
+        {
+          "dim": "z6",
+          "factor": 4
+        }
+      ],
+      "Conv2": [
+        {
+          "dim": "z13",
+          "factor": 4
+        }
+      ],
+      "Transfer(input)": [],
+      "Transfer(weights_1)": [],
+      "Transfer(conv1_out)": [],
+      "Transfer(weights_2)": [],
+      "Transfer(output_1)": []
+    },
+    "intra_core": {
+      "Fused_Group_1": [
+        {
+          "dim": "z10",
+          "tile": 1
+        }
+      ]
+    }
+  },
+  "overlays": []
+}

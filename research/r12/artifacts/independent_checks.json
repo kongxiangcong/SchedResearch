@@ -1,0 +1,10 @@
+{
+  "status": "PASS (offline independent review only)",
+  "raw_coordinate_oracle_pairs": 28800,
+  "events": {
+    "prioritized_topological_replays": 56,
+    "early_source_reuse_before_prior_ack": true
+  },
+  "candidate_address_checks": 96,
+  "limits": "Conditional DAG proof and scalar data only; no native kernels, partial-byte simulation, physical credits, network liveness or timing validation."
+}
