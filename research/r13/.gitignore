@@ -1,0 +1,8 @@
+# Reproducible temporary pipeline outputs; compact exports live in artifacts/.
+/logs/
+/inputs_micro/**/console.log
+/inputs_micro/**/tetra_output/
+/inputs_micro/**/producer_source.py
+/local_replays/
+__pycache__/
+*.py[cod]

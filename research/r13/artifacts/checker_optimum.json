@@ -1,0 +1,432 @@
+{
+  "schema": "r13.post-enumeration-winner-independent-tick.v1",
+  "created_utc": "2026-09-08T04:25:16.167010+00:00",
+  "selection": "post-enumeration verification of p0024, one of two nominal finite-C winners; not a preregistered witness, not an independent search or replay of all576 candidates",
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Python314\\python.exe",
+  "reproduction": "Load p0024 nominal row and small_plan_space plan; micro_graph(plan, row.params, payload_bytes=1024, bank_layout=row.bank_layout, tie_break=row.tie_break); independent_checker.simulate(spec,max_ticks=2000000); event_machine.simulate(spec); compare_core; audit_builder_rules(spec,HARDWARE); audit_trace(spec,independent). No timing values from DES or enumeration are supplied to tick execution.",
+  "nominal_artifact": "micro_nominal.json",
+  "nominal_artifact_sha256": "fb96d8193e78e249f78d77f7c1dd54250a84c95b4782ee3950e6e36dc1a70ff9",
+  "source_hashes_before": {
+    "proposal_contract.md": "fb44635f391699e010fd2d0c1e5a76da9a94da3008a3cbe86127735a36414399",
+    "machine_contract.md": "6cbd8f20b247c448d12d917962abe225330ccbd7cd4cb877767ba7fa5f5a88f4",
+    "hardware_model.json": "162b8cb6fb8f32a4a7997b26d578593e5ba389cd980973afd167936ebb5a069c",
+    "model_builder.py": "c60556f275d0c8efe5505333535a472288b2d92d8a57f6616f1deee84281703b",
+    "event_machine.py": "e52d2ad6ee652e7beb8c9d6c3ccc97502e47e996dd4e02665189e1def93c8696",
+    "trace_audit.py": "45ed9618e9a2c31518e65fff26c4f1555164656f224cd0308050c3c16c6ba58a",
+    "run_micro.py": "33371b8815ad8acbe7afdaa00922564800870d814a47a062e8dec04406b21453",
+    "independent_checker.py": "c752b00faceb1a2ccde9cc6375c43dab7d9325bcdb9d07e05e54be803226d308"
+  },
+  "source_hashes_after": {
+    "proposal_contract.md": "fb44635f391699e010fd2d0c1e5a76da9a94da3008a3cbe86127735a36414399",
+    "machine_contract.md": "6cbd8f20b247c448d12d917962abe225330ccbd7cd4cb877767ba7fa5f5a88f4",
+    "hardware_model.json": "162b8cb6fb8f32a4a7997b26d578593e5ba389cd980973afd167936ebb5a069c",
+    "model_builder.py": "c60556f275d0c8efe5505333535a472288b2d92d8a57f6616f1deee84281703b",
+    "event_machine.py": "e52d2ad6ee652e7beb8c9d6c3ccc97502e47e996dd4e02665189e1def93c8696",
+    "trace_audit.py": "45ed9618e9a2c31518e65fff26c4f1555164656f224cd0308050c3c16c6ba58a",
+    "run_micro.py": "33371b8815ad8acbe7afdaa00922564800870d814a47a062e8dec04406b21453",
+    "independent_checker.py": "c752b00faceb1a2ccde9cc6375c43dab7d9325bcdb9d07e05e54be803226d308"
+  },
+  "plan": {
+    "id": "p0024",
+    "producers": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "consumers": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "placement": "same_channel_alias",
+    "nocs": [
+      1,
+      0,
+      0
+    ],
+    "chain1_offset_cycles": 0,
+    "source_wait": "source"
+  },
+  "diff_from_p0000": {
+    "nocs": {
+      "p0000": [
+        0,
+        0,
+        0
+      ],
+      "p0024": [
+        1,
+        0,
+        0
+      ]
+    }
+  },
+  "payload_bytes": 1024,
+  "parameters": {
+    "eta_n": 0.75,
+    "eta_d": 0.75,
+    "eta_c": 0.5,
+    "niu_buffer_flits": 4,
+    "credit_cycles": 18,
+    "niu_processing_cycles": 9,
+    "control_scale": 1
+  },
+  "bank_layout": "interleaved",
+  "tie_break": "ascending",
+  "model_ticks": {
+    "output_visible": 81136,
+    "final_ack": 85456,
+    "quiescent": 86032
+  },
+  "model_cycles": {
+    "output_visible": 2253.777777777778,
+    "final_ack": 2373.777777777778,
+    "quiescent": 2389.777777777778
+  },
+  "tick_wall_seconds": 40.27061710006092,
+  "des_wall_seconds": 0.2841033999575302,
+  "jobs": 1112,
+  "operations": 6120,
+  "buffers": 1733,
+  "spec_sha256": "807e65ebb23767b8d0345f41f12051d4d347e989fa32f34a2f8eca96d936f5a0",
+  "des_trace_sha256": "b1d7ca615840a8438ecb22b2729d95ecba39d798428842c0e68551c0d58e22b9",
+  "independent_trace_sha256": "96e1405a3d57a7e4cbcf0c6400dab8b916875110143eefdd8a2b23c1a4ae6cba",
+  "core_mismatches": [],
+  "builder_rules": {
+    "passed": true,
+    "errors": [],
+    "packets": 40,
+    "link_operations": 4584,
+    "memory_operations": 1296,
+    "memory_16B_blocks": 2576,
+    "expected_link_launches": {
+      "link/0/niu(0,5)->r(0,5)": 4,
+      "link/0/niu(1,1)->r(1,1)": 70,
+      "link/0/niu(2,1)->r(2,1)": 70,
+      "link/0/niu(3,1)->r(3,1)": 72,
+      "link/0/niu(3,2)->r(3,2)": 72,
+      "link/0/r(0,1)->r(0,2)": 66,
+      "link/0/r(0,1)->r(1,1)": 6,
+      "link/0/r(0,2)->r(0,3)": 132,
+      "link/0/r(0,2)->r(1,2)": 6,
+      "link/0/r(0,3)->r(0,4)": 132,
+      "link/0/r(0,4)->r(0,5)": 132,
+      "link/0/r(0,5)->niu(0,5)": 132,
+      "link/0/r(0,5)->r(1,5)": 4,
+      "link/0/r(1,1)->niu(1,1)": 6,
+      "link/0/r(1,1)->r(2,1)": 70,
+      "link/0/r(1,2)->r(2,2)": 6,
+      "link/0/r(1,5)->r(2,5)": 4,
+      "link/0/r(2,0)->r(2,1)": 6,
+      "link/0/r(2,1)->niu(2,1)": 6,
+      "link/0/r(2,1)->r(3,1)": 140,
+      "link/0/r(2,10)->r(2,11)": 6,
+      "link/0/r(2,11)->r(2,0)": 6,
+      "link/0/r(2,2)->r(2,3)": 6,
+      "link/0/r(2,3)->r(2,4)": 6,
+      "link/0/r(2,4)->r(2,5)": 6,
+      "link/0/r(2,5)->r(2,6)": 6,
+      "link/0/r(2,5)->r(3,5)": 4,
+      "link/0/r(2,6)->r(2,7)": 6,
+      "link/0/r(2,7)->r(2,8)": 6,
+      "link/0/r(2,8)->r(2,9)": 6,
+      "link/0/r(2,9)->r(2,10)": 6,
+      "link/0/r(3,0)->r(3,1)": 4,
+      "link/0/r(3,1)->niu(3,1)": 72,
+      "link/0/r(3,1)->r(3,2)": 72,
+      "link/0/r(3,1)->r(4,1)": 72,
+      "link/0/r(3,10)->r(3,11)": 4,
+      "link/0/r(3,11)->r(3,0)": 4,
+      "link/0/r(3,2)->niu(3,2)": 72,
+      "link/0/r(3,2)->r(4,2)": 72,
+      "link/0/r(3,5)->r(3,6)": 4,
+      "link/0/r(3,6)->r(3,7)": 4,
+      "link/0/r(3,7)->r(3,8)": 4,
+      "link/0/r(3,8)->r(3,9)": 4,
+      "link/0/r(3,9)->r(3,10)": 4,
+      "link/0/r(4,1)->r(5,1)": 72,
+      "link/0/r(4,2)->r(5,2)": 72,
+      "link/0/r(5,1)->r(6,1)": 72,
+      "link/0/r(5,2)->r(6,2)": 72,
+      "link/0/r(6,1)->r(7,1)": 72,
+      "link/0/r(6,2)->r(7,2)": 72,
+      "link/0/r(7,1)->r(8,1)": 72,
+      "link/0/r(7,2)->r(8,2)": 72,
+      "link/0/r(8,1)->r(9,1)": 72,
+      "link/0/r(8,2)->r(9,2)": 72,
+      "link/0/r(9,1)->r(0,1)": 72,
+      "link/0/r(9,2)->r(0,2)": 72,
+      "link/1/niu(0,0)->r(0,0)": 66,
+      "link/1/niu(0,1)->r(0,1)": 66,
+      "link/1/niu(1,1)->r(1,1)": 2,
+      "link/1/niu(2,1)->r(2,1)": 2,
+      "link/1/r(0,0)->niu(0,0)": 2,
+      "link/1/r(0,0)->r(0,11)": 66,
+      "link/1/r(0,1)->niu(0,1)": 2,
+      "link/1/r(0,1)->r(9,1)": 132,
+      "link/1/r(0,10)->r(0,9)": 66,
+      "link/1/r(0,11)->r(0,10)": 66,
+      "link/1/r(0,2)->r(0,1)": 66,
+      "link/1/r(0,3)->r(0,2)": 66,
+      "link/1/r(0,4)->r(0,3)": 66,
+      "link/1/r(0,5)->r(0,4)": 66,
+      "link/1/r(0,6)->r(0,5)": 66,
+      "link/1/r(0,7)->r(0,6)": 66,
+      "link/1/r(0,8)->r(0,7)": 66,
+      "link/1/r(0,9)->r(0,8)": 66,
+      "link/1/r(1,0)->r(0,0)": 2,
+      "link/1/r(1,1)->niu(1,1)": 66,
+      "link/1/r(1,1)->r(0,1)": 2,
+      "link/1/r(1,1)->r(1,0)": 2,
+      "link/1/r(2,1)->niu(2,1)": 66,
+      "link/1/r(2,1)->r(1,1)": 68,
+      "link/1/r(3,1)->r(2,1)": 132,
+      "link/1/r(4,1)->r(3,1)": 132,
+      "link/1/r(5,1)->r(4,1)": 132,
+      "link/1/r(6,1)->r(5,1)": 132,
+      "link/1/r(7,1)->r(6,1)": 132,
+      "link/1/r(8,1)->r(7,1)": 132,
+      "link/1/r(9,1)->r(8,1)": 132
+    },
+    "scope": "independent modular routing, full packet-class flit ledger, registered 16B memory costs/offsets, and finite pool/credit constraints; no value/epoch replay"
+  },
+  "independent_trace_audit": {
+    "schema": "r13.independent-trace-audit.v1",
+    "passed": true,
+    "checked_output_blocks": 256,
+    "data_read_16B_blocks": 1280,
+    "written_16B_blocks_including_controls": 1288,
+    "observed_control_16B_blocks": 8,
+    "individual_memory_completion_events": 2576,
+    "all_declared_operation_times_checked": 6120,
+    "block_timeline_sha256": "12c2de10d91def6c35f58755143a2d864c2b8faed4b987b459d92a7c8a002d8d",
+    "protocol_boundaries": [
+      {
+        "transaction": "c0e0/load",
+        "last_actual_source_read": 7496,
+        "source_release": 7496,
+        "target_visible": 18372,
+        "ack_observed": 18444
+      },
+      {
+        "transaction": "c0e0/peer",
+        "last_actual_source_read": 29160,
+        "source_release": 29160,
+        "target_visible": 31272,
+        "ack_observed": 34620
+      },
+      {
+        "transaction": "c0e0/notify",
+        "last_actual_source_read": 34764,
+        "source_release": 34764,
+        "target_visible": 36144,
+        "ack_observed": 39492
+      },
+      {
+        "transaction": "c0e0/token",
+        "last_actual_source_read": 37548,
+        "source_release": 37548,
+        "target_visible": 40872,
+        "ack_observed": 42276
+      },
+      {
+        "transaction": "c0e0/output",
+        "last_actual_source_read": 46968,
+        "source_release": 46968,
+        "target_visible": 55432,
+        "ack_observed": 59752
+      },
+      {
+        "transaction": "c0e1/load",
+        "last_actual_source_read": 36728,
+        "source_release": 36728,
+        "target_visible": 44544,
+        "ack_observed": 44616
+      },
+      {
+        "transaction": "c0e1/peer",
+        "last_actual_source_read": 55332,
+        "source_release": 55332,
+        "target_visible": 57444,
+        "ack_observed": 60792
+      },
+      {
+        "transaction": "c0e1/notify",
+        "last_actual_source_read": 60936,
+        "source_release": 60936,
+        "target_visible": 62316,
+        "ack_observed": 65664
+      },
+      {
+        "transaction": "c0e1/token",
+        "last_actual_source_read": 63720,
+        "source_release": 63720,
+        "target_visible": 67044,
+        "ack_observed": 68448
+      },
+      {
+        "transaction": "c0e1/output",
+        "last_actual_source_read": 73140,
+        "source_release": 73140,
+        "target_visible": 81136,
+        "ack_observed": 85456
+      },
+      {
+        "transaction": "c1e0/load",
+        "last_actual_source_read": 7560,
+        "source_release": 7560,
+        "target_visible": 11424,
+        "ack_observed": 11496
+      },
+      {
+        "transaction": "c1e0/peer",
+        "last_actual_source_read": 22212,
+        "source_release": 22212,
+        "target_visible": 24324,
+        "ack_observed": 31560
+      },
+      {
+        "transaction": "c1e0/notify",
+        "last_actual_source_read": 31704,
+        "source_release": 31704,
+        "target_visible": 33084,
+        "ack_observed": 40320
+      },
+      {
+        "transaction": "c1e0/token",
+        "last_actual_source_read": 34488,
+        "source_release": 34488,
+        "target_visible": 41700,
+        "ack_observed": 43104
+      },
+      {
+        "transaction": "c1e0/output",
+        "last_actual_source_read": 43908,
+        "source_release": 43908,
+        "target_visible": 48628,
+        "ack_observed": 53272
+      },
+      {
+        "transaction": "c1e1/load",
+        "last_actual_source_read": 29780,
+        "source_release": 29780,
+        "target_visible": 33708,
+        "ack_observed": 33780
+      },
+      {
+        "transaction": "c1e1/peer",
+        "last_actual_source_read": 47916,
+        "source_release": 47916,
+        "target_visible": 50028,
+        "ack_observed": 57264
+      },
+      {
+        "transaction": "c1e1/notify",
+        "last_actual_source_read": 57408,
+        "source_release": 57408,
+        "target_visible": 58788,
+        "ack_observed": 66024
+      },
+      {
+        "transaction": "c1e1/token",
+        "last_actual_source_read": 60192,
+        "source_release": 60192,
+        "target_visible": 67404,
+        "ack_observed": 69096
+      },
+      {
+        "transaction": "c1e1/output",
+        "last_actual_source_read": 69612,
+        "source_release": 69612,
+        "target_visible": 74332,
+        "ack_observed": 78976
+      }
+    ],
+    "reuse_guards": [
+      {
+        "chain": 0,
+        "epoch": 1,
+        "role": "source",
+        "reuse_start": 29232,
+        "release_observed": 29232
+      },
+      {
+        "chain": 0,
+        "epoch": 1,
+        "role": "receive",
+        "reuse_start": 49296,
+        "release_observed": 40980
+      },
+      {
+        "chain": 0,
+        "epoch": 1,
+        "role": "result",
+        "reuse_start": 65880,
+        "release_observed": 47040
+      },
+      {
+        "chain": 1,
+        "epoch": 1,
+        "role": "source",
+        "reuse_start": 22284,
+        "release_observed": 22284
+      },
+      {
+        "chain": 1,
+        "epoch": 1,
+        "role": "receive",
+        "reuse_start": 41808,
+        "release_observed": 41808
+      },
+      {
+        "chain": 1,
+        "epoch": 1,
+        "role": "result",
+        "reuse_start": 62352,
+        "release_observed": 43980
+      }
+    ],
+    "failure_count": 0,
+    "failures": [],
+    "verified_scope": "Named two-chain integer micro DFG: each16B data block contains four identical32-bit words; notification immediate32 replicates its epoch into the four words; distinct blocks and epochs retain distinct identities",
+    "not_verified": [
+      "arbitrary per-byte masks or sub16B tearing",
+      "full MLP floating point execution or performance",
+      "physical chip memory ordering beyond this registered model",
+      "router/credit liveness and resource-capacity correctness (separate checker)",
+      "all possible interleavings not present in the supplied traces",
+      "physical RF allocation or vendor instruction lowering"
+    ]
+  },
+  "checks": {
+    "source_hash_stable": true,
+    "enumeration_source_matches": true,
+    "enumeration_artifact_stable": true,
+    "spec_matches_enumeration": true,
+    "des_trace_matches_enumeration": true,
+    "core_differential": true,
+    "independent_trace_audit": true,
+    "builder_rules": true,
+    "link_ledger": true,
+    "reported_metrics_match": true,
+    "independent_completed": true
+  },
+  "passed": true,
+  "not_proven": [
+    "global optimum outside finiteC",
+    "new compiler contribution or qualified completeP0",
+    "chip timing accuracy or tt-npe cross-tool execution",
+    "all576 candidates independently tick-replayed"
+  ]
+}

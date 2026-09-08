@@ -1,0 +1,23 @@
+{
+  "schema": "r13.tetra-lowering-negative-checks.v1",
+  "source_sha256": "1679bc3563be378e29b24018960f96966dd51cfca941978ce93203c520affb48",
+  "lowering_producer_sha256": "945e909b780c6e28a0adea18a94fd444d382612555b74aa81033cc7a1157feee",
+  "checks": [
+    {
+      "mutation": "wrong_selected_tensor_core",
+      "rejected": true,
+      "reason": "selected tensor placement mismatch tensor1"
+    },
+    {
+      "mutation": "wrong_payload_bytes",
+      "rejected": true,
+      "reason": "F payload differs c0e0/load payload_bytes"
+    },
+    {
+      "mutation": "unsupported_selected_depth",
+      "rejected": true,
+      "reason": "this lowering implements selected depth1 only"
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "r13.intake-history.v1",
+  "date": "2026-09-08",
+  "baseline_repository_commit": "eb56ecea0a946c8ce2f6f7f8f2251b233ad27be0",
+  "scope": "Original working-tree bytes of the two activity documents before the R1-R12 progress update; frozen R1-R12 experiments remain unchanged",
+  "files": {
+    "research_progress_before_r13.md": {
+      "source_path": "research/research_progress.md",
+      "bytes": 25961,
+      "sha256": "4b7698a7a4a17208925d098ede7555b7823cbc34a966aa1fbd767bfae1e384ab"
+    },
+    "retrospective_before_r13.md": {
+      "source_path": "research/analysis/r1_r10_research_retrospective.md",
+      "bytes": 22192,
+      "sha256": "5e9104aa406887c7452b438df267a72cdca523a43c4937d24513f6b4e1249a5b"
+    }
+  }
+}

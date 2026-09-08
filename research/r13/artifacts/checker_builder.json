@@ -1,0 +1,1047 @@
+{
+  "schema": "r13.independent-checker.builder.v1",
+  "command": "research/r12/.venv/Scripts/python.exe -X utf8 -B research/r13/test_independent_checker.py --micro",
+  "source_hashes": {
+    "independent_checker.py": "c752b00faceb1a2ccde9cc6375c43dab7d9325bcdb9d07e05e54be803226d308",
+    "test_independent_checker.py": "94453d0fe0899e24edac775d3555fae238a1232562d5d4c92b9b5a0b90407ccd",
+    "model_builder.py": "c60556f275d0c8efe5505333535a472288b2d92d8a57f6616f1deee84281703b",
+    "event_machine.py": "e52d2ad6ee652e7beb8c9d6c3ccc97502e47e996dd4e02665189e1def93c8696",
+    "hardware_model.json": "162b8cb6fb8f32a4a7997b26d578593e5ba389cd980973afd167936ebb5a069c",
+    "machine_contract.md": "6cbd8f20b247c448d12d917962abe225330ccbd7cd4cb877767ba7fa5f5a88f4"
+  },
+  "source_unchanged_during_run": true,
+  "passed": true,
+  "execution_cases": [
+    {
+      "name": "micro64_noc1_other_channel",
+      "plan": {
+        "id": "p0090",
+        "producers": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "consumers": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "placement": "same_group_other_channel",
+        "nocs": [
+          1,
+          1,
+          1
+        ],
+        "chain1_offset_cycles": 0,
+        "source_wait": "source"
+      },
+      "payload_bytes": 64,
+      "jobs": 272,
+      "buffers": 1411,
+      "independent_seconds": 5.543479199986905,
+      "status": "ok",
+      "quiescent": 53920,
+      "operations": 1124,
+      "mismatches": [],
+      "builder_rules": {
+        "passed": true,
+        "errors": [],
+        "packets": 40,
+        "link_operations": 788,
+        "memory_operations": 96,
+        "memory_16B_blocks": 176,
+        "expected_link_launches": {
+          "link/1/niu(0,0)->r(0,0)": 6,
+          "link/1/niu(0,1)->r(0,1)": 6,
+          "link/1/niu(0,5)->r(0,5)": 4,
+          "link/1/niu(1,1)->r(1,1)": 12,
+          "link/1/niu(2,1)->r(2,1)": 12,
+          "link/1/niu(3,1)->r(3,1)": 12,
+          "link/1/niu(3,2)->r(3,2)": 12,
+          "link/1/r(0,0)->niu(0,0)": 2,
+          "link/1/r(0,0)->r(0,11)": 6,
+          "link/1/r(0,1)->niu(0,1)": 2,
+          "link/1/r(0,1)->r(9,1)": 24,
+          "link/1/r(0,10)->r(0,9)": 6,
+          "link/1/r(0,11)->r(0,10)": 6,
+          "link/1/r(0,2)->r(0,1)": 8,
+          "link/1/r(0,2)->r(9,2)": 12,
+          "link/1/r(0,3)->r(0,2)": 10,
+          "link/1/r(0,4)->r(0,3)": 10,
+          "link/1/r(0,5)->niu(0,5)": 12,
+          "link/1/r(0,5)->r(0,4)": 10,
+          "link/1/r(0,6)->r(0,5)": 6,
+          "link/1/r(0,7)->r(0,6)": 6,
+          "link/1/r(0,8)->r(0,7)": 6,
+          "link/1/r(0,9)->r(0,8)": 6,
+          "link/1/r(1,0)->r(0,0)": 2,
+          "link/1/r(1,1)->niu(1,1)": 12,
+          "link/1/r(1,1)->r(0,1)": 12,
+          "link/1/r(1,1)->r(1,0)": 2,
+          "link/1/r(1,2)->r(0,2)": 10,
+          "link/1/r(1,5)->r(0,5)": 12,
+          "link/1/r(2,0)->r(2,11)": 10,
+          "link/1/r(2,1)->niu(2,1)": 12,
+          "link/1/r(2,1)->r(1,1)": 14,
+          "link/1/r(2,1)->r(2,0)": 10,
+          "link/1/r(2,10)->r(2,9)": 10,
+          "link/1/r(2,11)->r(2,10)": 10,
+          "link/1/r(2,2)->r(1,2)": 10,
+          "link/1/r(2,3)->r(2,2)": 10,
+          "link/1/r(2,4)->r(2,3)": 10,
+          "link/1/r(2,5)->r(1,5)": 12,
+          "link/1/r(2,5)->r(2,4)": 10,
+          "link/1/r(2,6)->r(2,5)": 10,
+          "link/1/r(2,7)->r(2,6)": 10,
+          "link/1/r(2,8)->r(2,7)": 10,
+          "link/1/r(2,9)->r(2,8)": 10,
+          "link/1/r(3,0)->r(3,11)": 12,
+          "link/1/r(3,1)->niu(3,1)": 12,
+          "link/1/r(3,1)->r(2,1)": 24,
+          "link/1/r(3,1)->r(3,0)": 12,
+          "link/1/r(3,10)->r(3,9)": 12,
+          "link/1/r(3,11)->r(3,10)": 12,
+          "link/1/r(3,2)->niu(3,2)": 12,
+          "link/1/r(3,2)->r(3,1)": 12,
+          "link/1/r(3,5)->r(2,5)": 12,
+          "link/1/r(3,6)->r(3,5)": 12,
+          "link/1/r(3,7)->r(3,6)": 12,
+          "link/1/r(3,8)->r(3,7)": 12,
+          "link/1/r(3,9)->r(3,8)": 12,
+          "link/1/r(4,1)->r(3,1)": 24,
+          "link/1/r(4,2)->r(3,2)": 12,
+          "link/1/r(5,1)->r(4,1)": 24,
+          "link/1/r(5,2)->r(4,2)": 12,
+          "link/1/r(6,1)->r(5,1)": 24,
+          "link/1/r(6,2)->r(5,2)": 12,
+          "link/1/r(7,1)->r(6,1)": 24,
+          "link/1/r(7,2)->r(6,2)": 12,
+          "link/1/r(8,1)->r(7,1)": 24,
+          "link/1/r(8,2)->r(7,2)": 12,
+          "link/1/r(9,1)->r(8,1)": 24,
+          "link/1/r(9,2)->r(8,2)": 12
+        },
+        "scope": "independent modular routing, full packet-class flit ledger, registered 16B memory costs/offsets, and finite pool/credit constraints; no value/epoch replay"
+      },
+      "actual_link_ledger_matches": true,
+      "passed": true
+    },
+    {
+      "name": "micro1024_noc0_alias",
+      "plan": {
+        "id": "p0000",
+        "producers": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "consumers": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "placement": "same_channel_alias",
+        "nocs": [
+          0,
+          0,
+          0
+        ],
+        "chain1_offset_cycles": 0,
+        "source_wait": "source"
+      },
+      "payload_bytes": 1024,
+      "jobs": 1112,
+      "buffers": 1411,
+      "independent_seconds": 32.649934399989434,
+      "status": "ok",
+      "quiescent": 89020,
+      "operations": 4584,
+      "mismatches": [],
+      "builder_rules": {
+        "passed": true,
+        "errors": [],
+        "packets": 40,
+        "link_operations": 3048,
+        "memory_operations": 1296,
+        "memory_16B_blocks": 2576,
+        "expected_link_launches": {
+          "link/0/niu(0,0)->r(0,0)": 66,
+          "link/0/niu(0,1)->r(0,1)": 66,
+          "link/0/niu(0,5)->r(0,5)": 4,
+          "link/0/niu(1,1)->r(1,1)": 72,
+          "link/0/niu(2,1)->r(2,1)": 72,
+          "link/0/niu(3,1)->r(3,1)": 72,
+          "link/0/niu(3,2)->r(3,2)": 72,
+          "link/0/r(0,0)->niu(0,0)": 2,
+          "link/0/r(0,0)->r(1,0)": 66,
+          "link/0/r(0,1)->niu(0,1)": 2,
+          "link/0/r(0,1)->r(0,2)": 68,
+          "link/0/r(0,1)->r(1,1)": 72,
+          "link/0/r(0,10)->r(0,11)": 2,
+          "link/0/r(0,11)->r(0,0)": 2,
+          "link/0/r(0,2)->r(0,3)": 134,
+          "link/0/r(0,2)->r(1,2)": 6,
+          "link/0/r(0,3)->r(0,4)": 134,
+          "link/0/r(0,4)->r(0,5)": 134,
+          "link/0/r(0,5)->niu(0,5)": 132,
+          "link/0/r(0,5)->r(0,6)": 2,
+          "link/0/r(0,5)->r(1,5)": 4,
+          "link/0/r(0,6)->r(0,7)": 2,
+          "link/0/r(0,7)->r(0,8)": 2,
+          "link/0/r(0,8)->r(0,9)": 2,
+          "link/0/r(0,9)->r(0,10)": 2,
+          "link/0/r(1,0)->r(1,1)": 66,
+          "link/0/r(1,1)->niu(1,1)": 72,
+          "link/0/r(1,1)->r(2,1)": 138,
+          "link/0/r(1,2)->r(2,2)": 6,
+          "link/0/r(1,5)->r(2,5)": 4,
+          "link/0/r(2,0)->r(2,1)": 6,
+          "link/0/r(2,1)->niu(2,1)": 72,
+          "link/0/r(2,1)->r(3,1)": 144,
+          "link/0/r(2,10)->r(2,11)": 6,
+          "link/0/r(2,11)->r(2,0)": 6,
+          "link/0/r(2,2)->r(2,3)": 6,
+          "link/0/r(2,3)->r(2,4)": 6,
+          "link/0/r(2,4)->r(2,5)": 6,
+          "link/0/r(2,5)->r(2,6)": 6,
+          "link/0/r(2,5)->r(3,5)": 4,
+          "link/0/r(2,6)->r(2,7)": 6,
+          "link/0/r(2,7)->r(2,8)": 6,
+          "link/0/r(2,8)->r(2,9)": 6,
+          "link/0/r(2,9)->r(2,10)": 6,
+          "link/0/r(3,0)->r(3,1)": 4,
+          "link/0/r(3,1)->niu(3,1)": 72,
+          "link/0/r(3,1)->r(3,2)": 72,
+          "link/0/r(3,1)->r(4,1)": 76,
+          "link/0/r(3,10)->r(3,11)": 4,
+          "link/0/r(3,11)->r(3,0)": 4,
+          "link/0/r(3,2)->niu(3,2)": 72,
+          "link/0/r(3,2)->r(4,2)": 72,
+          "link/0/r(3,5)->r(3,6)": 4,
+          "link/0/r(3,6)->r(3,7)": 4,
+          "link/0/r(3,7)->r(3,8)": 4,
+          "link/0/r(3,8)->r(3,9)": 4,
+          "link/0/r(3,9)->r(3,10)": 4,
+          "link/0/r(4,1)->r(5,1)": 76,
+          "link/0/r(4,2)->r(5,2)": 72,
+          "link/0/r(5,1)->r(6,1)": 76,
+          "link/0/r(5,2)->r(6,2)": 72,
+          "link/0/r(6,1)->r(7,1)": 76,
+          "link/0/r(6,2)->r(7,2)": 72,
+          "link/0/r(7,1)->r(8,1)": 76,
+          "link/0/r(7,2)->r(8,2)": 72,
+          "link/0/r(8,1)->r(9,1)": 76,
+          "link/0/r(8,2)->r(9,2)": 72,
+          "link/0/r(9,1)->r(0,1)": 76,
+          "link/0/r(9,2)->r(0,2)": 72
+        },
+        "scope": "independent modular routing, full packet-class flit ledger, registered 16B memory costs/offsets, and finite pool/credit constraints; no value/epoch replay"
+      },
+      "actual_link_ledger_matches": true,
+      "passed": true
+    }
+  ],
+  "construction_only_service_checks": [
+    {
+      "scenario_index": 0,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 1,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 2,
+      "params": {
+        "eta_n": 1,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 3,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.5,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 4,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 1,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 5,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 6,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 1,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 7,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 1,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 8,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 16,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 9,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 10,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 36,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 11,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 0,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 12,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 18,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 13,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.5,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 14,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.5,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 15,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.5,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 16,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.5,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 17,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.75,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 18,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.75,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 19,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 20,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.5,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 21,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.5,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 22,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.5,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 23,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 24,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 0.5
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 25,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 2
+      },
+      "bank_layout": "interleaved",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 0,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 1,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 2,
+      "params": {
+        "eta_n": 1,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 3,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.5,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 4,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 1,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 5,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 6,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 1,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 7,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 1,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 8,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 16,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 9,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 10,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 36,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 11,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 0,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 12,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 18,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 13,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.5,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 14,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.5,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 15,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.5,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 16,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.5,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 17,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.75,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 18,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.75,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 19,
+      "params": {
+        "eta_n": 0.5,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 20,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.5,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 21,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.5,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 22,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.5,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 23,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.25,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 9,
+        "niu_processing_cycles": 9,
+        "control_scale": 1
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 24,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 0.5
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "scenario_index": 25,
+      "params": {
+        "eta_n": 0.75,
+        "eta_d": 0.75,
+        "eta_c": 0.5,
+        "niu_buffer_flits": 4,
+        "credit_cycles": 18,
+        "niu_processing_cycles": 9,
+        "control_scale": 2
+      },
+      "bank_layout": "mono",
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "scope": "full micro DFG service replay plus independently derived network and memory costs; matrix rows check construction only, not sensitivity performance, numerical values, M1, or M2"
+}

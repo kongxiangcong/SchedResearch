@@ -1,0 +1,132 @@
+{
+  "schema": "r13.demand-checks.v1",
+  "status": "passed",
+  "evidence": "Actual independent finite source-access enumeration and integer resource-conservation checks, no timing simulation",
+  "affine_2conv": {
+    "input_sha256": {
+      "research\\r12\\deps\\stream\\stream\\inputs\\testing\\workload\\2conv_1_8_32_32_16_32_3.onnx": "049590d81e54bc107c1e1486a214d2d0e055b5a904f8ca6b372b646a034e63da",
+      "research\\r12\\results\\baseline_smoke\\pipeline\\upstream-2conv\\group_0\\core_cost_lut.pickle": "b51fc045b33292403800c3b7e535fcbf682e18a69c8f8972cfc937359fd8f40d",
+      "research\\r12\\results\\baseline_smoke\\pipeline\\upstream-2conv\\group_0\\tetra\\steady_state_workload_final.svg": "90a7dca1cc89a6566f2836295cac50fdc02741c473d1bef92d684591264e6367",
+      "research\\r12\\results\\baseline_smoke\\allocation_ir.json": "78b52519d5a781620cecbf5dc4b1ec080f7d137d695f8afca5d1e7030f48ed32"
+    },
+    "source": "Original ONNX Conv attributes plus independently probed final output affine split identity",
+    "intermediate_shape": [
+      1,
+      16,
+      32,
+      32
+    ],
+    "mapping": [
+      {
+        "operator": "Conv1",
+        "final_split": "z6",
+        "factor": 4,
+        "local_position": 1,
+        "output_coordinate_delta": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "operator": "Conv2",
+        "final_split": "z13",
+        "factor": 4,
+        "local_position": 1,
+        "output_coordinate_delta": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    ],
+    "per_core": [
+      {
+        "core": 0,
+        "output_x_half_open": [
+          0,
+          8
+        ],
+        "owned_words": 4096,
+        "distinct_demand_words": 4608,
+        "remote_words": 512,
+        "remote_x": [
+          8
+        ]
+      },
+      {
+        "core": 1,
+        "output_x_half_open": [
+          8,
+          16
+        ],
+        "owned_words": 4096,
+        "distinct_demand_words": 5120,
+        "remote_words": 1024,
+        "remote_x": [
+          7,
+          16
+        ]
+      },
+      {
+        "core": 2,
+        "output_x_half_open": [
+          16,
+          24
+        ],
+        "owned_words": 4096,
+        "distinct_demand_words": 5120,
+        "remote_words": 1024,
+        "remote_x": [
+          15,
+          24
+        ]
+      },
+      {
+        "core": 3,
+        "output_x_half_open": [
+          24,
+          32
+        ],
+        "owned_words": 4096,
+        "distinct_demand_words": 4608,
+        "remote_words": 512,
+        "remote_x": [
+          23
+        ]
+      }
+    ],
+    "remote_payload_bits": 49152,
+    "shared_128_bit_bus_service_lower_bound_cycles": 384,
+    "ownership_scope": "Continuous aligned owner and consumer x ranges, same core order; a legal demand witness",
+    "not_proved": "384 is a necessary service bound; neither a realizable 384-cycle protocol nor correctness of the prior 512-cycle protocol is asserted"
+  },
+  "explicit_full_copy": {
+    "contract": "Each of four owners initially has a unique quarter; all four destinations require the full tensor; perfect broadcast on the one bus is allowed",
+    "distinct_words_crossing_bus": 16384,
+    "minimum_shared_bus_bits": 262144,
+    "minimum_shared_bus_cycles_with_ideal_broadcast": 2048,
+    "remote_deliveries_without_broadcast": 49152,
+    "cycles_without_broadcast": 6144,
+    "invalid_512_cycle_shared_bus_claim_rejected": true,
+    "independent_links_positive_control": {
+      "contract": "Four separate source-quarter to distinct-destination transfers, each on its own 128-bit/cycle link; not full all-gather",
+      "bits_per_link": [
+        65536,
+        65536,
+        65536,
+        65536
+      ],
+      "cycles_per_link": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "parallel_service_lower_bound": 512
+    }
+  },
+  "producer_sha256": "1b6e8499ca1f46360c266d0d9502f62a0a95df4bfceeed4ca4558798c12860fa"
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "r13.hardware-model.v1",
+  "registered_before_model_performance": true,
+  "ticks_per_cycle": 36,
+  "reference_clock_ghz": 1,
+  "dimensions": [10, 12],
+  "active_tiles_4": [[1,1],[2,1],[3,1],[3,2]],
+  "active_tiles_8": [[1,1],[2,1],[3,1],[3,2],[6,1],[7,1],[8,1],[8,2]],
+  "dram_groups": [[[0,0],[0,1],[0,11]],[[0,5],[0,6],[0,7]],[[5,0],[5,1],[5,11]],[[5,2],[5,9],[5,10]],[[5,3],[5,4],[5,8]],[[5,5],[5,6],[5,7]]],
+  "public_fixed": {
+    "flit_bytes": 32,
+    "block_bytes": 16,
+    "packet_payload_max_bytes": 8192,
+    "link_initiation_cycles": 1,
+    "router_hop_cycles": 9,
+    "router_vcs": 16,
+    "router_guaranteed_flits_per_vc": 1,
+    "router_shared_flits": 48,
+    "router_max_flits_per_vc": 16,
+    "l1_bytes_per_tile": 1499136,
+    "l1_banks": 16,
+    "l1_bank_bytes_per_cycle": 16,
+    "l1_noc_read_lanes": 2,
+    "l1_noc_write_lanes": 2,
+    "channel_bytes": 1073741824,
+    "transaction_id_count_per_niu": 16
+  },
+  "public_approx_or_peak": {
+    "niu_hop_cycles": 5,
+    "channel_bytes_per_reference_cycle": 24,
+    "noc_l1_bytes_per_cycle_per_direction": 32
+  },
+  "nominal": {"eta_n": 0.75, "eta_d": 0.75, "eta_c": 0.5, "niu_buffer_flits": 4, "credit_cycles": 18, "niu_processing_cycles": 9, "control_scale": 1},
+  "axes": {"eta_n": [0.5,0.75,1], "eta_d": [0.5,0.75,1], "eta_c": [0.25,0.5,1], "niu_buffer_flits": [1,4,16], "credit_cycles": [9,18,36], "niu_processing_cycles": [0,9,18]},
+  "control_cycles": {"command_issue": 4, "local_completion_observe": 2, "receive_notification_observe": 2, "publish": 2},
+  "model_choices": {
+    "credit_return": "separate delayed token from queue departure; no invented reverse payload flit",
+    "niu_buffer": "one shared data pool per physical NIU, NoC and direction, across VC queues; not BN independently per VC",
+    "l1_banking": "scenario: interleaved 16B blocks modulo16; mono-bank stress uses bank0 for every block",
+    "memory_service": "32B flit uses two 16B bank actions; independent NoC read/write interfaces share bank resources. Per-interface paired-lane interval is 1/eta_n cycles; each involved bank is held for this service quantum (an explicit conservative occupancy assumption below the public peak). Interleaved blocks finish together; mono-bank blocks finish at one and two service quanta. Tags carry individual16B completion offsets. Local compute uses eta=1; 16B control accesses conservatively consume one full quantum. DRAM16B blocks finish sequentially at16/(24*eta_d)cycles",
+    "dram_service": "all endpoints/NoCs of one physical channel share read+write byte service; ideal single FIFO service with no row/refresh model; not a calibrated GDDR6 controller",
+    "niu_processing": "once per packet before its first flit, on per-NIU command/response preparation resource; separate from 5cycle hops",
+    "dateline": "scenario: reset dateline bit at dimension turn, flip after crossing wrap edge in that dimension; static buddy0, request class0, notification class1, response class3. Exact vendor dateline positions not established; liveness tested within this declared scheme",
+    "compute_micro": "exact integer x*2 then x+3; local read, deterministic compute service and local publish/write; explicit RF scratch holds one1KiB payload per compute task, sequential tasks per tile; no hardware GEMM performance inference",
+    "compute_micro_cycles_at_eta1": 32,
+    "l1_reserved_code_control_bytes": 65536,
+    "rf_scratch_bytes_per_tile": 2048,
+    "transaction_ids": "statically distinct stage scopes load/peer/notify/token/output; same scope next request waits previous scope completion, at most five IDs per tile/NoC; individual ACK never assigned to arbitrary request",
+    "source_release": "paid local observation after all source reads; next load may issue before peer ACK",
+    "receive_release": "consumer reads into paid RF scratch then sends explicit nonposted token to producer; next peer issue waits observed token",
+    "full_module_status": "not yet lowered or performance qualified"
+  },
+  "sources": {
+    "revision": "5287a62727350bcef35f7b411d1b8a706172ec4c",
+    "NoC": "../r12/deps/tt-isa-documentation/WormholeB0/NoC/README.md:3-66",
+    "routing": "../r12/deps/tt-isa-documentation/WormholeB0/NoC/RoutingPaths.md:3-63",
+    "DRAM": "../r12/deps/tt-isa-documentation/WormholeB0/DRAMTile/README.md:3-70",
+    "L1": "../r12/deps/tt-isa-documentation/WormholeB0/TensixTile/L1.md:3-53",
+    "counters": "../r12/deps/tt-isa-documentation/WormholeB0/NoC/Counters.md:119-173"
+  }
+}

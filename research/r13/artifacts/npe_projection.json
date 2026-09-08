@@ -1,0 +1,726 @@
+{
+  "schema": "r13.npe-request-projection.v1",
+  "created_utc": "2026-09-08T03:55:40.534507+00:00",
+  "command": "research/r12/.venv/Scripts/python.exe -X utf8 -B research/r13/npe_projection.py",
+  "passed": false,
+  "cross_tool_status": "not_executed",
+  "source_hashes": {
+    "research\\r13\\npe_projection.py": "3834e5e18b06aba06a852afbc80ec6e6f20d7507d969844368e28fa70d25cb0e",
+    "research\\r13\\model_builder.py": "c60556f275d0c8efe5505333535a472288b2d92d8a57f6616f1deee84281703b",
+    "research\\r13\\event_machine.py": "e52d2ad6ee652e7beb8c9d6c3ccc97502e47e996dd4e02665189e1def93c8696",
+    "research\\r13\\hardware_model.json": "162b8cb6fb8f32a4a7997b26d578593e5ba389cd980973afd167936ebb5a069c",
+    "research\\r12\\deps\\tt-npe\\tt_npe\\cpp\\include\\device_models\\wormhole_b0.hpp": "0cafae4db0d8503103a39ad0b5a494b72192ee8edea06016cc947989d05ebf78",
+    "research\\r12\\deps\\tt-npe\\tt_npe\\cpp\\pybind\\bindings.cpp": "cf73d787a8397848ef22fb8c80f1c8ec255c4fbffaf77c0a1a49cf85fc697fe3"
+  },
+  "source_unchanged_during_run": true,
+  "F_rows": [
+    {
+      "case": {
+        "id": "overlap_1024B_1flow",
+        "shape": "overlap",
+        "payload_bytes_per_flow": 1024,
+        "flows": 1,
+        "noc": 0,
+        "transfers": [
+          {
+            "src_xy": [
+              1,
+              1
+            ],
+            "dst_xy": [
+              3,
+              1
+            ]
+          }
+        ]
+      },
+      "status": "ok",
+      "request_target_visible_ticks": 8004,
+      "request_target_visible_model_cycles": 222.33333333333334,
+      "quiescent_ticks": 8604,
+      "request_router_edges": [
+        [
+          [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ]
+        ]
+      ],
+      "request_payload_byte_hops": 2048,
+      "request_flit_hops_including_header": 66,
+      "network_flit_hops_including_niu": 132,
+      "shared_router_edges": [],
+      "actual_router_launches": 66,
+      "actual_all_network_launches": 132,
+      "ledger_passed": true,
+      "packet_kinds": [
+        "write_request"
+      ]
+    },
+    {
+      "case": {
+        "id": "separated_1024B_1flow",
+        "shape": "separated",
+        "payload_bytes_per_flow": 1024,
+        "flows": 1,
+        "noc": 0,
+        "transfers": [
+          {
+            "src_xy": [
+              1,
+              1
+            ],
+            "dst_xy": [
+              2,
+              2
+            ]
+          }
+        ]
+      },
+      "status": "ok",
+      "request_target_visible_ticks": 8004,
+      "request_target_visible_model_cycles": 222.33333333333334,
+      "quiescent_ticks": 8604,
+      "request_router_edges": [
+        [
+          [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ]
+        ]
+      ],
+      "request_payload_byte_hops": 2048,
+      "request_flit_hops_including_header": 66,
+      "network_flit_hops_including_niu": 132,
+      "shared_router_edges": [],
+      "actual_router_launches": 66,
+      "actual_all_network_launches": 132,
+      "ledger_passed": true,
+      "packet_kinds": [
+        "write_request"
+      ]
+    },
+    {
+      "case": {
+        "id": "overlap_1024B_2flow",
+        "shape": "overlap",
+        "payload_bytes_per_flow": 1024,
+        "flows": 2,
+        "noc": 0,
+        "transfers": [
+          {
+            "src_xy": [
+              1,
+              1
+            ],
+            "dst_xy": [
+              3,
+              1
+            ]
+          },
+          {
+            "src_xy": [
+              2,
+              1
+            ],
+            "dst_xy": [
+              3,
+              2
+            ]
+          }
+        ]
+      },
+      "status": "ok",
+      "request_target_visible_ticks": 13572,
+      "request_target_visible_model_cycles": 377.0,
+      "quiescent_ticks": 14172,
+      "request_router_edges": [
+        [
+          [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        ]
+      ],
+      "request_payload_byte_hops": 4096,
+      "request_flit_hops_including_header": 132,
+      "network_flit_hops_including_niu": 264,
+      "shared_router_edges": [
+        [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      ],
+      "actual_router_launches": 132,
+      "actual_all_network_launches": 264,
+      "ledger_passed": true,
+      "packet_kinds": [
+        "write_request",
+        "write_request"
+      ]
+    },
+    {
+      "case": {
+        "id": "separated_1024B_2flow",
+        "shape": "separated",
+        "payload_bytes_per_flow": 1024,
+        "flows": 2,
+        "noc": 0,
+        "transfers": [
+          {
+            "src_xy": [
+              1,
+              1
+            ],
+            "dst_xy": [
+              2,
+              2
+            ]
+          },
+          {
+            "src_xy": [
+              2,
+              1
+            ],
+            "dst_xy": [
+              3,
+              2
+            ]
+          }
+        ]
+      },
+      "status": "ok",
+      "request_target_visible_ticks": 8004,
+      "request_target_visible_model_cycles": 222.33333333333334,
+      "quiescent_ticks": 8604,
+      "request_router_edges": [
+        [
+          [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        ]
+      ],
+      "request_payload_byte_hops": 4096,
+      "request_flit_hops_including_header": 132,
+      "network_flit_hops_including_niu": 264,
+      "shared_router_edges": [],
+      "actual_router_launches": 132,
+      "actual_all_network_launches": 264,
+      "ledger_passed": true,
+      "packet_kinds": [
+        "write_request",
+        "write_request"
+      ]
+    },
+    {
+      "case": {
+        "id": "overlap_8192B_1flow",
+        "shape": "overlap",
+        "payload_bytes_per_flow": 8192,
+        "flows": 1,
+        "noc": 0,
+        "transfers": [
+          {
+            "src_xy": [
+              1,
+              1
+            ],
+            "dst_xy": [
+              3,
+              1
+            ]
+          }
+        ]
+      },
+      "status": "ok",
+      "request_target_visible_ticks": 54372,
+      "request_target_visible_model_cycles": 1510.3333333333333,
+      "quiescent_ticks": 54972,
+      "request_router_edges": [
+        [
+          [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ]
+        ]
+      ],
+      "request_payload_byte_hops": 16384,
+      "request_flit_hops_including_header": 514,
+      "network_flit_hops_including_niu": 1028,
+      "shared_router_edges": [],
+      "actual_router_launches": 514,
+      "actual_all_network_launches": 1028,
+      "ledger_passed": true,
+      "packet_kinds": [
+        "write_request"
+      ]
+    },
+    {
+      "case": {
+        "id": "separated_8192B_1flow",
+        "shape": "separated",
+        "payload_bytes_per_flow": 8192,
+        "flows": 1,
+        "noc": 0,
+        "transfers": [
+          {
+            "src_xy": [
+              1,
+              1
+            ],
+            "dst_xy": [
+              2,
+              2
+            ]
+          }
+        ]
+      },
+      "status": "ok",
+      "request_target_visible_ticks": 54372,
+      "request_target_visible_model_cycles": 1510.3333333333333,
+      "quiescent_ticks": 54972,
+      "request_router_edges": [
+        [
+          [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ]
+        ]
+      ],
+      "request_payload_byte_hops": 16384,
+      "request_flit_hops_including_header": 514,
+      "network_flit_hops_including_niu": 1028,
+      "shared_router_edges": [],
+      "actual_router_launches": 514,
+      "actual_all_network_launches": 1028,
+      "ledger_passed": true,
+      "packet_kinds": [
+        "write_request"
+      ]
+    },
+    {
+      "case": {
+        "id": "overlap_8192B_2flow",
+        "shape": "overlap",
+        "payload_bytes_per_flow": 8192,
+        "flows": 2,
+        "noc": 0,
+        "transfers": [
+          {
+            "src_xy": [
+              1,
+              1
+            ],
+            "dst_xy": [
+              3,
+              1
+            ]
+          },
+          {
+            "src_xy": [
+              2,
+              1
+            ],
+            "dst_xy": [
+              3,
+              2
+            ]
+          }
+        ]
+      },
+      "status": "ok",
+      "request_target_visible_ticks": 104700,
+      "request_target_visible_model_cycles": 2908.3333333333335,
+      "quiescent_ticks": 105300,
+      "request_router_edges": [
+        [
+          [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        ]
+      ],
+      "request_payload_byte_hops": 32768,
+      "request_flit_hops_including_header": 1028,
+      "network_flit_hops_including_niu": 2056,
+      "shared_router_edges": [
+        [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      ],
+      "actual_router_launches": 1028,
+      "actual_all_network_launches": 2056,
+      "ledger_passed": true,
+      "packet_kinds": [
+        "write_request",
+        "write_request"
+      ]
+    },
+    {
+      "case": {
+        "id": "separated_8192B_2flow",
+        "shape": "separated",
+        "payload_bytes_per_flow": 8192,
+        "flows": 2,
+        "noc": 0,
+        "transfers": [
+          {
+            "src_xy": [
+              1,
+              1
+            ],
+            "dst_xy": [
+              2,
+              2
+            ]
+          },
+          {
+            "src_xy": [
+              2,
+              1
+            ],
+            "dst_xy": [
+              3,
+              2
+            ]
+          }
+        ]
+      },
+      "status": "ok",
+      "request_target_visible_ticks": 54372,
+      "request_target_visible_model_cycles": 1510.3333333333333,
+      "quiescent_ticks": 54972,
+      "request_router_edges": [
+        [
+          [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        ]
+      ],
+      "request_payload_byte_hops": 32768,
+      "request_flit_hops_including_header": 1028,
+      "network_flit_hops_including_niu": 2056,
+      "shared_router_edges": [],
+      "actual_router_launches": 1028,
+      "actual_all_network_launches": 2056,
+      "ledger_passed": true,
+      "packet_kinds": [
+        "write_request",
+        "write_request"
+      ]
+    }
+  ],
+  "contrasts": [
+    {
+      "payload_bytes_per_flow": 1024,
+      "flows": 1,
+      "F_overlap_minus_separated_ticks": 0,
+      "F_overlap_minus_separated_cycles": 0.0,
+      "F_trend": "neutral",
+      "equal_request_byte_hops": true,
+      "NPE": [],
+      "cross_tool_trend": "not_executed"
+    },
+    {
+      "payload_bytes_per_flow": 1024,
+      "flows": 2,
+      "F_overlap_minus_separated_ticks": 5568,
+      "F_overlap_minus_separated_cycles": 154.66666666666666,
+      "F_trend": "overlap_slower",
+      "equal_request_byte_hops": true,
+      "NPE": [],
+      "cross_tool_trend": "not_executed"
+    },
+    {
+      "payload_bytes_per_flow": 8192,
+      "flows": 1,
+      "F_overlap_minus_separated_ticks": 0,
+      "F_overlap_minus_separated_cycles": 0.0,
+      "F_trend": "neutral",
+      "equal_request_byte_hops": true,
+      "NPE": [],
+      "cross_tool_trend": "not_executed"
+    },
+    {
+      "payload_bytes_per_flow": 8192,
+      "flows": 2,
+      "F_overlap_minus_separated_ticks": 50328,
+      "F_overlap_minus_separated_cycles": 1398.0,
+      "F_trend": "overlap_slower",
+      "equal_request_byte_hops": true,
+      "NPE": [],
+      "cross_tool_trend": "not_executed"
+    }
+  ],
+  "NPE": {
+    "status": "not_executed",
+    "rows": [],
+    "reason": "WSL process did not reach the NPE probe; see captured process error"
+  },
+  "process": {
+    "command": [
+      "wsl.exe",
+      "-d",
+      "SchedResearch-R12",
+      "--exec",
+      "/usr/bin/env",
+      "PYTHONPATH=/opt/schedresearch-r12/install/tt-npe/lib",
+      "/opt/schedresearch-r12/venv-npe/bin/python",
+      "-X",
+      "utf8",
+      "-B",
+      "/mnt/d/dsh-proj/SchedResarch/research/r13/npe_projection.py",
+      "--linux-npe"
+    ],
+    "returncode": 4294967295,
+    "stdout": "拒绝访问。 \r\n错误代码: Wsl/Service/E_ACCESSDENIED\r\n",
+    "stderr": "",
+    "stdout_sha256": "30ee8727ea48d776900b5f40263c9e3503a771d6c4f4cf4b9708d7a74a66bdfb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "scope": {
+    "common": "Tensix-to-Tensix unicast NoC0 request payload, fixed endpoints, 1 or 2 simultaneous flows, 1KiB/8KiB; compare only coarse congestion trend",
+    "F": "expanded one-header-plus-data-flit request with source/target L1 service, finite VC/NIU queues, nominal parameters, no ACK/notice; target-visible and credit-quiescent are separate",
+    "NPE": "one API Transfer per flow, num_packets=1, inferred source injection, fast congestion model; no manual ACK/response/header expansion, no trusted native golden",
+    "not_compared": "real hardware accuracy, full transaction completion, remote visibility, epoch/slot lifecycle, DRAM, DFG, or compiler speedup",
+    "parameters": "F parameters unchanged; NPE timestep 32/64/128/256 all preregistered by this script; no fitting or tuning"
+  },
+  "route_source_check": {
+    "status": "source_read_not_runtime_route_output",
+    "source": "research/r12/deps/tt-npe/tt_npe/cpp/include/device_models/wormhole_b0.hpp:320-356",
+    "result": "fixed C++ NoC0 increments col then row, NoC1 decrements row then col; mapped Coord(device,row=y,col=x); matches declared directional paths",
+    "api_source": "research/r12/deps/tt-npe/tt_npe/cpp/pybind/bindings.cpp:262-289",
+    "unfitted_cost_difference": "fixed NPE table: 1024B transfer bandwidth27.4 and8192B30.0 B/cycle, WORKER injection28.1; F nominal NIU efficiency0.75 plus explicit finite queue/credit. These are different contracts; no numeric matching criterion."
+  }
+}

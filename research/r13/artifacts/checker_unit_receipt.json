@@ -1,0 +1,192 @@
+{
+  "schema": "r13.independent-checker.qualification.v1",
+  "python": "3.13.12 (main, Mar 10 2026, 18:14:40) [MSC v.1944 64 bit (AMD64)]",
+  "command": "research/r12/.venv/Scripts/python.exe -X utf8 -B research/r13/test_independent_checker.py --receipt",
+  "tests_run": 17,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "scope": "independent state-machine fixtures; DES differential in separate receipt; not complete M0",
+  "source_hashes": {
+    "independent_checker.py": "c752b00faceb1a2ccde9cc6375c43dab7d9325bcdb9d07e05e54be803226d308",
+    "test_independent_checker.py": "94453d0fe0899e24edac775d3555fae238a1232562d5d4c92b9b5a0b90407ccd",
+    "machine_contract.md": "6cbd8f20b247c448d12d917962abe225330ccbd7cd4cb877767ba7fa5f5a88f4"
+  },
+  "fixtures": {
+    "one_hop_pipeline": {
+      "status": "ok",
+      "job_end": {
+        "a0": 684,
+        "a1": 720
+      },
+      "quiescent": 1188,
+      "stopped_at": 1188,
+      "last_progress": 1188,
+      "buffer_peaks": {
+        "input": 2,
+        "r0": 2,
+        "r1": 2
+      },
+      "resource_launches": {
+        "in": 2,
+        "out": 2,
+        "wire": 2
+      },
+      "waiting": {}
+    },
+    "credit_roundtrip": {
+      "status": "ok",
+      "job_end": {
+        "a0": 12,
+        "a1": 112
+      },
+      "quiescent": 200,
+      "stopped_at": 200,
+      "last_progress": 200,
+      "buffer_peaks": {
+        "input": 2,
+        "one": 1
+      },
+      "resource_launches": {
+        "link": 2,
+        "sink": 2
+      },
+      "waiting": {}
+    },
+    "independent_crossing": {
+      "status": "ok",
+      "job_end": {
+        "a": 324,
+        "b": 324
+      },
+      "quiescent": 324,
+      "stopped_at": 324,
+      "last_progress": 324,
+      "buffer_peaks": {
+        "left": 1,
+        "up": 1
+      },
+      "resource_launches": {
+        "horizontal": 1,
+        "vertical": 1
+      },
+      "waiting": {}
+    },
+    "bank_conflict": {
+      "status": "ok",
+      "job_end": {
+        "a": 36,
+        "b": 72
+      },
+      "quiescent": 72,
+      "stopped_at": 72,
+      "last_progress": 72,
+      "buffer_peaks": {
+        "noc0": 1,
+        "noc1": 1
+      },
+      "resource_launches": {
+        "bank0": 2
+      },
+      "waiting": {}
+    },
+    "channel_alias": {
+      "status": "ok",
+      "job_end": {
+        "a": 64,
+        "b": 128
+      },
+      "quiescent": 128,
+      "stopped_at": 128,
+      "last_progress": 128,
+      "buffer_peaks": {
+        "endpoint0": 1,
+        "endpoint1": 1
+      },
+      "resource_launches": {
+        "physical_channel": 2
+      },
+      "waiting": {}
+    },
+    "zero_dependency": {
+      "status": "ok",
+      "job_end": {
+        "a": 0,
+        "b": 0
+      },
+      "quiescent": 0,
+      "stopped_at": 0,
+      "last_progress": 0,
+      "buffer_peaks": {
+        "one": 1,
+        "two": 1
+      },
+      "resource_launches": {},
+      "waiting": {}
+    },
+    "shared_pool": {
+      "status": "ok",
+      "job_end": {
+        "0_0": 10,
+        "1_0": 11,
+        "0_1": 12,
+        "1_1": 40
+      },
+      "quiescent": 60,
+      "stopped_at": 60,
+      "last_progress": 60,
+      "buffer_peaks": {
+        "vc0": 2,
+        "vc1": 2
+      },
+      "resource_launches": {
+        "wire": 4
+      },
+      "waiting": {}
+    },
+    "same_vc_exclusion": {
+      "status": "ok",
+      "job_end": {
+        "a0": 10,
+        "a1": 11,
+        "b0": 21
+      },
+      "quiescent": 21,
+      "stopped_at": 21,
+      "last_progress": 21,
+      "buffer_peaks": {
+        "qa": 2,
+        "qb": 1
+      },
+      "resource_launches": {
+        "wire": 3
+      },
+      "waiting": {}
+    },
+    "different_vc_interleave": {
+      "status": "ok",
+      "job_end": {
+        "a0": 10,
+        "b0": 11,
+        "a1": 12
+      },
+      "quiescent": 12,
+      "stopped_at": 12,
+      "last_progress": 12,
+      "buffer_peaks": {
+        "qa": 2,
+        "qb": 1
+      },
+      "resource_launches": {
+        "wire": 3
+      },
+      "waiting": {}
+    }
+  },
+  "unverified_by_this_receipt": [
+    "source/target DFG builder costs",
+    "16B memory epoch audit",
+    "real STREAM/TETRA admission",
+    "full MLP and M1/M2"
+  ]
+}

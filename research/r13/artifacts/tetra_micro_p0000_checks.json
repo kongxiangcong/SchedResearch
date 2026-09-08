@@ -1,0 +1,32 @@
+{
+  "schema": "r13.tetra-micro-intake-checks.v1",
+  "artifact_sha256": "57ac6dcbd94345047bced2fada503321fddaccb35acb82b64ec70e03efd20bd6",
+  "producer_sha_matches": true,
+  "passed": true,
+  "actual_source_unary_nodes": 8,
+  "actual_transfer_nodes": 12,
+  "identity_operand_maps_checked": 16,
+  "payload_bits_per_tensor": 8192,
+  "fixed_r13_compute_coordinates_match": true,
+  "upstream_slots_respect_graph_dependencies": true,
+  "default_io_resolver_test": {
+    "nodes_checked": 8,
+    "returned_core": 4,
+    "returned_coordinate": [
+      0,
+      0
+    ],
+    "required_output_coordinate": [
+      0,
+      5
+    ],
+    "target_model_match": false
+  },
+  "r13_p0_qualified": false,
+  "minimum_missing_interfaces": [
+    "per-InEdge/OutEdge placement resolver in both scheduler and allocator",
+    "legal dual-NoC packet path choices with explicit physical link identities",
+    "shared physical controller service identity independent of endpoint identity",
+    "F address/phase lowering and common window refinement; upstream whole-transfer slots remain a seed"
+  ]
+}

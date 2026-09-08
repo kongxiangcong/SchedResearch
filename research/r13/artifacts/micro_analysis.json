@@ -1,0 +1,2826 @@
+{
+  "schema": "r13.micro-analysis.v1",
+  "input_sha256": {
+    "preregistration_serial.json": "ee20100dd2f55c3c4a08ac76c4b69f9c014aeeb93cd995d5fa0cb4f3ac8ae2ff",
+    "artifacts/micro_nominal.json": "fb96d8193e78e249f78d77f7c1dd54250a84c95b4782ee3950e6e36dc1a70ff9",
+    "artifacts/micro_witnesses.json": "470856995afd1b6cf3a8982a0db732cdc6a1059ea8e6b362ae504d16f0ceafc9"
+  },
+  "producer_sha256": "27cac1c3c4f6ce6b77f92ca102ba05b438e4c0a95625cb2429203825f7377537",
+  "coverage": {
+    "nominal_unique": 576,
+    "witness_unique": 168,
+    "nominal_valid": 576,
+    "witness_valid": 168,
+    "same_frozen_sources": true
+  },
+  "exact_and_diagnostic_regret": {
+    "valid": 576,
+    "rejected": 0,
+    "exact": {
+      "plan": "p0024",
+      "output_ticks": 81136,
+      "cycles": 2253.777777777778,
+      "all_tied_plans": [
+        "p0024",
+        "p0072"
+      ],
+      "final_ack_ticks": 85456,
+      "quiescent_ticks": 86032
+    },
+    "diagnostic_estimators": {
+      "payload_router_byte_hops": {
+        "chosen_plan": "p0000",
+        "chosen_output_ticks": 84124,
+        "regret_percent_of_exact": 3.6827055807532982,
+        "coarse_tie_count": 24,
+        "coarse_tie_best_F_ticks": 82512,
+        "coarse_tie_worst_F_ticks": 94780
+      },
+      "full_protocol_flit_hops": {
+        "chosen_plan": "p0000",
+        "chosen_output_ticks": 84124,
+        "regret_percent_of_exact": 3.6827055807532982,
+        "coarse_tie_count": 24,
+        "coarse_tie_best_F_ticks": 82512,
+        "coarse_tie_worst_F_ticks": 94780
+      },
+      "zero_contention_critical_path": {
+        "chosen_plan": "p0000",
+        "chosen_output_ticks": 84124,
+        "regret_percent_of_exact": 3.6827055807532982,
+        "coarse_tie_count": 8,
+        "coarse_tie_best_F_ticks": 81136,
+        "coarse_tie_worst_F_ticks": 87492
+      }
+    },
+    "lexical_enumeration_prefixes": [
+      {
+        "calls": 16,
+        "plan": "p0014",
+        "output_ticks": 83872
+      },
+      {
+        "calls": 48,
+        "plan": "p0024",
+        "output_ticks": 81136
+      },
+      {
+        "calls": 96,
+        "plan": "p0024",
+        "output_ticks": 81136
+      },
+      {
+        "calls": 192,
+        "plan": "p0024",
+        "output_ticks": 81136
+      },
+      {
+        "calls": 576,
+        "plan": "p0024",
+        "output_ticks": 81136
+      }
+    ],
+    "Hcompiler": "not tested; no claimed P1 or complete strong P0 portfolio; exact alone cannot establish algorithm novelty"
+  },
+  "frozen_plan_parameter_effects": {
+    "equal_aggregate_protocol_routes": {
+      "A": "p0384",
+      "B": "p0528",
+      "positive_means": "B lower output-visible than A; denominator A",
+      "points": [
+        {
+          "scenario": "parameter_00",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 85232,
+              "B_ticks": 85232,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 89228,
+              "B_ticks": 88904,
+              "B_improvement_over_A_percent": 0.36311471735329715
+            },
+            "quiescent": {
+              "A_ticks": 89804,
+              "B_ticks": 89480,
+              "B_improvement_over_A_percent": 0.36078571110418245
+            }
+          }
+        },
+        {
+          "scenario": "parameter_01",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 85528,
+              "B_ticks": 85528,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 89524,
+              "B_ticks": 89200,
+              "B_improvement_over_A_percent": 0.3619141235869711
+            },
+            "quiescent": {
+              "A_ticks": 90100,
+              "B_ticks": 89776,
+              "B_improvement_over_A_percent": 0.35960044395116536
+            }
+          }
+        },
+        {
+          "scenario": "parameter_02",
+          "params": {
+            "eta_n": 1,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 85088,
+              "B_ticks": 85088,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 89084,
+              "B_ticks": 88760,
+              "B_improvement_over_A_percent": 0.36370167482376187
+            },
+            "quiescent": {
+              "A_ticks": 89660,
+              "B_ticks": 89336,
+              "B_improvement_over_A_percent": 0.3613651572607629
+            }
+          }
+        },
+        {
+          "scenario": "parameter_03",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.5,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 85296,
+              "B_ticks": 85296,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 89292,
+              "B_ticks": 88968,
+              "B_improvement_over_A_percent": 0.3628544550463647
+            },
+            "quiescent": {
+              "A_ticks": 89868,
+              "B_ticks": 89544,
+              "B_improvement_over_A_percent": 0.36052877553745494
+            }
+          }
+        },
+        {
+          "scenario": "parameter_04",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 1,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 85200,
+              "B_ticks": 85200,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 89196,
+              "B_ticks": 88872,
+              "B_improvement_over_A_percent": 0.3632449885645096
+            },
+            "quiescent": {
+              "A_ticks": 89772,
+              "B_ticks": 89448,
+              "B_improvement_over_A_percent": 0.3609143162678786
+            }
+          }
+        },
+        {
+          "scenario": "parameter_05",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 92144,
+              "B_ticks": 92144,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 96140,
+              "B_ticks": 95816,
+              "B_improvement_over_A_percent": 0.33700852922820884
+            },
+            "quiescent": {
+              "A_ticks": 96716,
+              "B_ticks": 96392,
+              "B_improvement_over_A_percent": 0.33500144753711897
+            }
+          }
+        },
+        {
+          "scenario": "parameter_06",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 1,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 82660,
+              "B_ticks": 82660,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 86656,
+              "B_ticks": 86332,
+              "B_improvement_over_A_percent": 0.3738921713441654
+            },
+            "quiescent": {
+              "A_ticks": 87232,
+              "B_ticks": 86908,
+              "B_improvement_over_A_percent": 0.3714233308877476
+            }
+          }
+        },
+        {
+          "scenario": "parameter_07",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 1,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 210448,
+              "B_ticks": 210148,
+              "B_improvement_over_A_percent": 0.14255302972705847
+            },
+            "final_ack": {
+              "A_ticks": 214120,
+              "B_ticks": 213820,
+              "B_improvement_over_A_percent": 0.14010835045768727
+            },
+            "quiescent": {
+              "A_ticks": 214696,
+              "B_ticks": 214396,
+              "B_improvement_over_A_percent": 0.13973245891865707
+            }
+          }
+        },
+        {
+          "scenario": "parameter_08",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 16,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 66388,
+              "B_ticks": 66388,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 70384,
+              "B_ticks": 70060,
+              "B_improvement_over_A_percent": 0.4603318936121846
+            },
+            "quiescent": {
+              "A_ticks": 70960,
+              "B_ticks": 70636,
+              "B_improvement_over_A_percent": 0.45659526493799324
+            }
+          }
+        },
+        {
+          "scenario": "parameter_09",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 74336,
+              "B_ticks": 74336,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 78332,
+              "B_ticks": 78008,
+              "B_improvement_over_A_percent": 0.41362406168615634
+            },
+            "quiescent": {
+              "A_ticks": 78584,
+              "B_ticks": 78260,
+              "B_improvement_over_A_percent": 0.4122976687366385
+            }
+          }
+        },
+        {
+          "scenario": "parameter_10",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 36,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 115792,
+              "B_ticks": 115792,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 119788,
+              "B_ticks": 119464,
+              "B_improvement_over_A_percent": 0.2704778441914048
+            },
+            "quiescent": {
+              "A_ticks": 121012,
+              "B_ticks": 120688,
+              "B_improvement_over_A_percent": 0.26774204211152614
+            }
+          }
+        },
+        {
+          "scenario": "parameter_11",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 0,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 82424,
+              "B_ticks": 82424,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 86096,
+              "B_ticks": 85772,
+              "B_improvement_over_A_percent": 0.3763241033265192
+            },
+            "quiescent": {
+              "A_ticks": 86672,
+              "B_ticks": 86348,
+              "B_improvement_over_A_percent": 0.3738231493446557
+            }
+          }
+        },
+        {
+          "scenario": "parameter_12",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 18,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 88852,
+              "B_ticks": 88852,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 93172,
+              "B_ticks": 92848,
+              "B_improvement_over_A_percent": 0.34774395741209807
+            },
+            "quiescent": {
+              "A_ticks": 93748,
+              "B_ticks": 93424,
+              "B_improvement_over_A_percent": 0.34560737295728977
+            }
+          }
+        },
+        {
+          "scenario": "parameter_13",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.5,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 79536,
+              "B_ticks": 79536,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 83532,
+              "B_ticks": 83208,
+              "B_improvement_over_A_percent": 0.387875305272231
+            },
+            "quiescent": {
+              "A_ticks": 83784,
+              "B_ticks": 83460,
+              "B_improvement_over_A_percent": 0.38670867946147236
+            }
+          }
+        },
+        {
+          "scenario": "parameter_14",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.5,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 92496,
+              "B_ticks": 92496,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 96492,
+              "B_ticks": 96168,
+              "B_improvement_over_A_percent": 0.3357791319487626
+            },
+            "quiescent": {
+              "A_ticks": 97068,
+              "B_ticks": 96744,
+              "B_improvement_over_A_percent": 0.3337866238101125
+            }
+          }
+        },
+        {
+          "scenario": "parameter_15",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.5,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 74616,
+              "B_ticks": 74616,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 78612,
+              "B_ticks": 78288,
+              "B_improvement_over_A_percent": 0.41215081666921083
+            },
+            "quiescent": {
+              "A_ticks": 78864,
+              "B_ticks": 78540,
+              "B_improvement_over_A_percent": 0.4108338405356056
+            }
+          }
+        },
+        {
+          "scenario": "parameter_16",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.5,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 85584,
+              "B_ticks": 85584,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 89580,
+              "B_ticks": 89256,
+              "B_improvement_over_A_percent": 0.36168787675820496
+            },
+            "quiescent": {
+              "A_ticks": 90156,
+              "B_ticks": 89832,
+              "B_improvement_over_A_percent": 0.35937707972847066
+            }
+          }
+        },
+        {
+          "scenario": "parameter_17",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.75,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 79480,
+              "B_ticks": 79480,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 83476,
+              "B_ticks": 83152,
+              "B_improvement_over_A_percent": 0.3881355120034501
+            },
+            "quiescent": {
+              "A_ticks": 83728,
+              "B_ticks": 83404,
+              "B_improvement_over_A_percent": 0.3869673227594114
+            }
+          }
+        },
+        {
+          "scenario": "parameter_18",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.75,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 92440,
+              "B_ticks": 92440,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 96436,
+              "B_ticks": 96112,
+              "B_improvement_over_A_percent": 0.3359741175494629
+            },
+            "quiescent": {
+              "A_ticks": 97012,
+              "B_ticks": 96688,
+              "B_improvement_over_A_percent": 0.3339793015297077
+            }
+          }
+        },
+        {
+          "scenario": "parameter_19",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 74584,
+              "B_ticks": 74584,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 78580,
+              "B_ticks": 78256,
+              "B_improvement_over_A_percent": 0.4123186561466022
+            },
+            "quiescent": {
+              "A_ticks": 78832,
+              "B_ticks": 78508,
+              "B_improvement_over_A_percent": 0.41100060888979095
+            }
+          }
+        },
+        {
+          "scenario": "parameter_20",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.5,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 79248,
+              "B_ticks": 79248,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 83244,
+              "B_ticks": 82920,
+              "B_improvement_over_A_percent": 0.38921724088222576
+            },
+            "quiescent": {
+              "A_ticks": 83496,
+              "B_ticks": 83172,
+              "B_improvement_over_A_percent": 0.388042540960046
+            }
+          }
+        },
+        {
+          "scenario": "parameter_21",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.5,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 92208,
+              "B_ticks": 92208,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 96204,
+              "B_ticks": 95880,
+              "B_improvement_over_A_percent": 0.336784333291755
+            },
+            "quiescent": {
+              "A_ticks": 96780,
+              "B_ticks": 96456,
+              "B_improvement_over_A_percent": 0.33477991320520767
+            }
+          }
+        },
+        {
+          "scenario": "parameter_22",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.5,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 74400,
+              "B_ticks": 74400,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 78396,
+              "B_ticks": 78072,
+              "B_improvement_over_A_percent": 0.41328639216286545
+            },
+            "quiescent": {
+              "A_ticks": 78648,
+              "B_ticks": 78324,
+              "B_improvement_over_A_percent": 0.41196216051266404
+            }
+          }
+        },
+        {
+          "scenario": "parameter_23",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 79184,
+              "B_ticks": 79184,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 83180,
+              "B_ticks": 82856,
+              "B_improvement_over_A_percent": 0.3895167107477759
+            },
+            "quiescent": {
+              "A_ticks": 83432,
+              "B_ticks": 83108,
+              "B_improvement_over_A_percent": 0.3883402051970467
+            }
+          }
+        },
+        {
+          "scenario": "parameter_24",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 0.5
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 84568,
+              "B_ticks": 84568,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 88528,
+              "B_ticks": 88204,
+              "B_improvement_over_A_percent": 0.3659859027652268
+            },
+            "quiescent": {
+              "A_ticks": 89140,
+              "B_ticks": 88816,
+              "B_improvement_over_A_percent": 0.3634731882432129
+            }
+          }
+        },
+        {
+          "scenario": "parameter_25",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 2
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 86816,
+              "B_ticks": 86816,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 90884,
+              "B_ticks": 90560,
+              "B_improvement_over_A_percent": 0.3564983935566216
+            },
+            "quiescent": {
+              "A_ticks": 91388,
+              "B_ticks": 91064,
+              "B_improvement_over_A_percent": 0.3545323237186502
+            }
+          }
+        }
+      ],
+      "range_percent": [
+        0.0,
+        0.14255302972705847
+      ],
+      "positive_zero_negative": [
+        1,
+        25,
+        0
+      ]
+    },
+    "input_channel_separation": {
+      "A": "p0000",
+      "B": "p0048",
+      "positive_means": "B lower output-visible than A; denominator A",
+      "points": [
+        {
+          "scenario": "parameter_00",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 84124,
+              "B_ticks": 84124,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 88444,
+              "B_ticks": 88444,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 89020,
+              "B_ticks": 89020,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_01",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 84412,
+              "B_ticks": 84412,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 88732,
+              "B_ticks": 88732,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 89308,
+              "B_ticks": 89308,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_02",
+          "params": {
+            "eta_n": 1,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 83980,
+              "B_ticks": 83980,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 88300,
+              "B_ticks": 88300,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 88876,
+              "B_ticks": 88876,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_03",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.5,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 84156,
+              "B_ticks": 84156,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 88476,
+              "B_ticks": 88476,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 89052,
+              "B_ticks": 89052,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_04",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 1,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 84108,
+              "B_ticks": 84108,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 88428,
+              "B_ticks": 88428,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 89004,
+              "B_ticks": 89004,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_05",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 91036,
+              "B_ticks": 91036,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 95356,
+              "B_ticks": 95356,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 95932,
+              "B_ticks": 95932,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_06",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 1,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 80668,
+              "B_ticks": 80668,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 84988,
+              "B_ticks": 84988,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 85564,
+              "B_ticks": 85564,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_07",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 1,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 220708,
+              "B_ticks": 220708,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 225028,
+              "B_ticks": 225028,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 225604,
+              "B_ticks": 225604,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_08",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 16,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 56440,
+              "B_ticks": 56440,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 61084,
+              "B_ticks": 61084,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 61660,
+              "B_ticks": 61660,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_09",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 67588,
+              "B_ticks": 67588,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 72232,
+              "B_ticks": 72232,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 72484,
+              "B_ticks": 72484,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_10",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 36,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 120592,
+              "B_ticks": 120592,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 124912,
+              "B_ticks": 124912,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 126136,
+              "B_ticks": 126136,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_11",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 0,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 81700,
+              "B_ticks": 81700,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 85696,
+              "B_ticks": 85696,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 86272,
+              "B_ticks": 86272,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_12",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 18,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 86716,
+              "B_ticks": 86716,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 91360,
+              "B_ticks": 91360,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 91936,
+              "B_ticks": 91936,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_13",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.5,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 72960,
+              "B_ticks": 72960,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 77280,
+              "B_ticks": 77280,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 77532,
+              "B_ticks": 77532,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_14",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.5,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 91356,
+              "B_ticks": 91356,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 95676,
+              "B_ticks": 95676,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 96252,
+              "B_ticks": 96252,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_15",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.5,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 67956,
+              "B_ticks": 67956,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 72600,
+              "B_ticks": 72600,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 72852,
+              "B_ticks": 72852,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_16",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.5,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 84444,
+              "B_ticks": 84444,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 88764,
+              "B_ticks": 88764,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 89340,
+              "B_ticks": 89340,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_17",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.75,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 72928,
+              "B_ticks": 72928,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 77248,
+              "B_ticks": 77248,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 77500,
+              "B_ticks": 77500,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_18",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.75,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 91324,
+              "B_ticks": 91324,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 95644,
+              "B_ticks": 95644,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 96220,
+              "B_ticks": 96220,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_19",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 67924,
+              "B_ticks": 67924,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 72568,
+              "B_ticks": 72568,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 72820,
+              "B_ticks": 72820,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_20",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.5,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 72816,
+              "B_ticks": 72816,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 77136,
+              "B_ticks": 77136,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 77388,
+              "B_ticks": 77388,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_21",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.5,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 91068,
+              "B_ticks": 91068,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 95388,
+              "B_ticks": 95388,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 95964,
+              "B_ticks": 95964,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_22",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.5,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 67620,
+              "B_ticks": 67620,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 72264,
+              "B_ticks": 72264,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 72516,
+              "B_ticks": 72516,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_23",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 72784,
+              "B_ticks": 72784,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 77104,
+              "B_ticks": 77104,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 77356,
+              "B_ticks": 77356,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_24",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 0.5
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 83512,
+              "B_ticks": 83512,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 87796,
+              "B_ticks": 87796,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 88408,
+              "B_ticks": 88408,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_25",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 2
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 85348,
+              "B_ticks": 85348,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 89740,
+              "B_ticks": 89740,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 90244,
+              "B_ticks": 90244,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        }
+      ],
+      "range_percent": [
+        0.0,
+        0.0
+      ],
+      "positive_zero_negative": [
+        0,
+        26,
+        0
+      ]
+    },
+    "source_reuse_vs_ack_wait": {
+      "A": "p0001",
+      "B": "p0000",
+      "positive_means": "B lower output-visible than A; denominator A",
+      "points": [
+        {
+          "scenario": "parameter_00",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 87492,
+              "B_ticks": 84124,
+              "B_improvement_over_A_percent": 3.8494948109541443
+            },
+            "final_ack": {
+              "A_ticks": 91812,
+              "B_ticks": 88444,
+              "B_improvement_over_A_percent": 3.668365790964144
+            },
+            "quiescent": {
+              "A_ticks": 92388,
+              "B_ticks": 89020,
+              "B_improvement_over_A_percent": 3.645495085941897
+            }
+          }
+        },
+        {
+          "scenario": "parameter_01",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 87652,
+              "B_ticks": 84412,
+              "B_improvement_over_A_percent": 3.696435905626797
+            },
+            "final_ack": {
+              "A_ticks": 91972,
+              "B_ticks": 88732,
+              "B_improvement_over_A_percent": 3.522811290392728
+            },
+            "quiescent": {
+              "A_ticks": 92548,
+              "B_ticks": 89308,
+              "B_improvement_over_A_percent": 3.5008860267104636
+            }
+          }
+        },
+        {
+          "scenario": "parameter_02",
+          "params": {
+            "eta_n": 1,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 87420,
+              "B_ticks": 83980,
+              "B_improvement_over_A_percent": 3.9350263097689315
+            },
+            "final_ack": {
+              "A_ticks": 91740,
+              "B_ticks": 88300,
+              "B_improvement_over_A_percent": 3.749727490734685
+            },
+            "quiescent": {
+              "A_ticks": 92316,
+              "B_ticks": 88876,
+              "B_improvement_over_A_percent": 3.72633129684995
+            }
+          }
+        },
+        {
+          "scenario": "parameter_03",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.5,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 87588,
+              "B_ticks": 84156,
+              "B_improvement_over_A_percent": 3.9183449787642144
+            },
+            "final_ack": {
+              "A_ticks": 91908,
+              "B_ticks": 88476,
+              "B_improvement_over_A_percent": 3.734168951560256
+            },
+            "quiescent": {
+              "A_ticks": 92484,
+              "B_ticks": 89052,
+              "B_improvement_over_A_percent": 3.7109121577786426
+            }
+          }
+        },
+        {
+          "scenario": "parameter_04",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 1,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 87444,
+              "B_ticks": 84108,
+              "B_improvement_over_A_percent": 3.815013036915054
+            },
+            "final_ack": {
+              "A_ticks": 91764,
+              "B_ticks": 88428,
+              "B_improvement_over_A_percent": 3.63541258009677
+            },
+            "quiescent": {
+              "A_ticks": 92340,
+              "B_ticks": 89004,
+              "B_improvement_over_A_percent": 3.6127355425601038
+            }
+          }
+        },
+        {
+          "scenario": "parameter_05",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 94404,
+              "B_ticks": 91036,
+              "B_improvement_over_A_percent": 3.5676454387525953
+            },
+            "final_ack": {
+              "A_ticks": 98724,
+              "B_ticks": 95356,
+              "B_improvement_over_A_percent": 3.4115311373121022
+            },
+            "quiescent": {
+              "A_ticks": 99300,
+              "B_ticks": 95932,
+              "B_improvement_over_A_percent": 3.391742195367573
+            }
+          }
+        },
+        {
+          "scenario": "parameter_06",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 1,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 84036,
+              "B_ticks": 80668,
+              "B_improvement_over_A_percent": 4.007806178304536
+            },
+            "final_ack": {
+              "A_ticks": 88356,
+              "B_ticks": 84988,
+              "B_improvement_over_A_percent": 3.8118520530580833
+            },
+            "quiescent": {
+              "A_ticks": 88932,
+              "B_ticks": 85564,
+              "B_improvement_over_A_percent": 3.78716322583547
+            }
+          }
+        },
+        {
+          "scenario": "parameter_07",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 1,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 220708,
+              "B_ticks": 220708,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 225028,
+              "B_ticks": 225028,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 225604,
+              "B_ticks": 225604,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "parameter_08",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 16,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 59700,
+              "B_ticks": 56440,
+              "B_improvement_over_A_percent": 5.460636515912898
+            },
+            "final_ack": {
+              "A_ticks": 64020,
+              "B_ticks": 61084,
+              "B_improvement_over_A_percent": 4.586066854108092
+            },
+            "quiescent": {
+              "A_ticks": 64596,
+              "B_ticks": 61660,
+              "B_improvement_over_A_percent": 4.545173075732244
+            }
+          }
+        },
+        {
+          "scenario": "parameter_09",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 71956,
+              "B_ticks": 67588,
+              "B_improvement_over_A_percent": 6.0703763410973375
+            },
+            "final_ack": {
+              "A_ticks": 76276,
+              "B_ticks": 72232,
+              "B_improvement_over_A_percent": 5.301798730924538
+            },
+            "quiescent": {
+              "A_ticks": 76528,
+              "B_ticks": 72484,
+              "B_improvement_over_A_percent": 5.2843403721513695
+            }
+          }
+        },
+        {
+          "scenario": "parameter_10",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 36,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 123580,
+              "B_ticks": 120592,
+              "B_improvement_over_A_percent": 2.417866968765172
+            },
+            "final_ack": {
+              "A_ticks": 127900,
+              "B_ticks": 124912,
+              "B_improvement_over_A_percent": 2.3362001563721657
+            },
+            "quiescent": {
+              "A_ticks": 129124,
+              "B_ticks": 126136,
+              "B_improvement_over_A_percent": 2.31405470710325
+            }
+          }
+        },
+        {
+          "scenario": "parameter_11",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 0,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 84144,
+              "B_ticks": 81700,
+              "B_improvement_over_A_percent": 2.904544590226279
+            },
+            "final_ack": {
+              "A_ticks": 88140,
+              "B_ticks": 85696,
+              "B_improvement_over_A_percent": 2.7728613569321534
+            },
+            "quiescent": {
+              "A_ticks": 88716,
+              "B_ticks": 86272,
+              "B_improvement_over_A_percent": 2.754858199197439
+            }
+          }
+        },
+        {
+          "scenario": "parameter_12",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 18,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 91056,
+              "B_ticks": 86716,
+              "B_improvement_over_A_percent": 4.76629766297663
+            },
+            "final_ack": {
+              "A_ticks": 95700,
+              "B_ticks": 91360,
+              "B_improvement_over_A_percent": 4.535005224660397
+            },
+            "quiescent": {
+              "A_ticks": 96276,
+              "B_ticks": 91936,
+              "B_improvement_over_A_percent": 4.507873197889401
+            }
+          }
+        },
+        {
+          "scenario": "parameter_13",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.5,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 79068,
+              "B_ticks": 72960,
+              "B_improvement_over_A_percent": 7.724996205797542
+            },
+            "final_ack": {
+              "A_ticks": 83388,
+              "B_ticks": 77280,
+              "B_improvement_over_A_percent": 7.324794934522953
+            },
+            "quiescent": {
+              "A_ticks": 83640,
+              "B_ticks": 77532,
+              "B_improvement_over_A_percent": 7.302725968436155
+            }
+          }
+        },
+        {
+          "scenario": "parameter_14",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.5,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 94644,
+              "B_ticks": 91356,
+              "B_improvement_over_A_percent": 3.4740712564980347
+            },
+            "final_ack": {
+              "A_ticks": 98964,
+              "B_ticks": 95676,
+              "B_improvement_over_A_percent": 3.3224202740390445
+            },
+            "quiescent": {
+              "A_ticks": 99540,
+              "B_ticks": 96252,
+              "B_improvement_over_A_percent": 3.303194695599759
+            }
+          }
+        },
+        {
+          "scenario": "parameter_15",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.5,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 72156,
+              "B_ticks": 67956,
+              "B_improvement_over_A_percent": 5.820721769499418
+            },
+            "final_ack": {
+              "A_ticks": 76476,
+              "B_ticks": 72600,
+              "B_improvement_over_A_percent": 5.068256707986819
+            },
+            "quiescent": {
+              "A_ticks": 76728,
+              "B_ticks": 72852,
+              "B_improvement_over_A_percent": 5.051610885204879
+            }
+          }
+        },
+        {
+          "scenario": "parameter_16",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.5,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 87732,
+              "B_ticks": 84444,
+              "B_improvement_over_A_percent": 3.747777321843797
+            },
+            "final_ack": {
+              "A_ticks": 92052,
+              "B_ticks": 88764,
+              "B_improvement_over_A_percent": 3.571894146786599
+            },
+            "quiescent": {
+              "A_ticks": 92628,
+              "B_ticks": 89340,
+              "B_improvement_over_A_percent": 3.549682601373235
+            }
+          }
+        },
+        {
+          "scenario": "parameter_17",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.75,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 79012,
+              "B_ticks": 72928,
+              "B_improvement_over_A_percent": 7.700096187920822
+            },
+            "final_ack": {
+              "A_ticks": 83332,
+              "B_ticks": 77248,
+              "B_improvement_over_A_percent": 7.300916814669034
+            },
+            "quiescent": {
+              "A_ticks": 83584,
+              "B_ticks": 77500,
+              "B_improvement_over_A_percent": 7.278905053598775
+            }
+          }
+        },
+        {
+          "scenario": "parameter_18",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.75,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 94564,
+              "B_ticks": 91324,
+              "B_improvement_over_A_percent": 3.4262510046106343
+            },
+            "final_ack": {
+              "A_ticks": 98884,
+              "B_ticks": 95644,
+              "B_improvement_over_A_percent": 3.276566481938433
+            },
+            "quiescent": {
+              "A_ticks": 99460,
+              "B_ticks": 96220,
+              "B_improvement_over_A_percent": 3.257590991353308
+            }
+          }
+        },
+        {
+          "scenario": "parameter_19",
+          "params": {
+            "eta_n": 0.5,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 72100,
+              "B_ticks": 67924,
+              "B_improvement_over_A_percent": 5.791955617198336
+            },
+            "final_ack": {
+              "A_ticks": 76420,
+              "B_ticks": 72568,
+              "B_improvement_over_A_percent": 5.040565297042659
+            },
+            "quiescent": {
+              "A_ticks": 76672,
+              "B_ticks": 72820,
+              "B_improvement_over_A_percent": 5.023998330550918
+            }
+          }
+        },
+        {
+          "scenario": "parameter_20",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.5,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 78924,
+              "B_ticks": 72816,
+              "B_improvement_over_A_percent": 7.739090770868177
+            },
+            "final_ack": {
+              "A_ticks": 83244,
+              "B_ticks": 77136,
+              "B_improvement_over_A_percent": 7.337465763298256
+            },
+            "quiescent": {
+              "A_ticks": 83496,
+              "B_ticks": 77388,
+              "B_improvement_over_A_percent": 7.315320494394941
+            }
+          }
+        },
+        {
+          "scenario": "parameter_21",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.5,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 94500,
+              "B_ticks": 91068,
+              "B_improvement_over_A_percent": 3.6317460317460317
+            },
+            "final_ack": {
+              "A_ticks": 98820,
+              "B_ticks": 95388,
+              "B_improvement_over_A_percent": 3.472981177899211
+            },
+            "quiescent": {
+              "A_ticks": 99396,
+              "B_ticks": 95964,
+              "B_improvement_over_A_percent": 3.452855245683931
+            }
+          }
+        },
+        {
+          "scenario": "parameter_22",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.5,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 72012,
+              "B_ticks": 67620,
+              "B_improvement_over_A_percent": 6.098983502749542
+            },
+            "final_ack": {
+              "A_ticks": 76332,
+              "B_ticks": 72264,
+              "B_improvement_over_A_percent": 5.3293507310171355
+            },
+            "quiescent": {
+              "A_ticks": 76584,
+              "B_ticks": 72516,
+              "B_improvement_over_A_percent": 5.311814478219993
+            }
+          }
+        },
+        {
+          "scenario": "parameter_23",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.25,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 9,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 78868,
+              "B_ticks": 72784,
+              "B_improvement_over_A_percent": 7.714155297459046
+            },
+            "final_ack": {
+              "A_ticks": 83188,
+              "B_ticks": 77104,
+              "B_improvement_over_A_percent": 7.313554839640333
+            },
+            "quiescent": {
+              "A_ticks": 83440,
+              "B_ticks": 77356,
+              "B_improvement_over_A_percent": 7.2914669223394055
+            }
+          }
+        },
+        {
+          "scenario": "parameter_24",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 0.5
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 86772,
+              "B_ticks": 83512,
+              "B_improvement_over_A_percent": 3.7569722952104367
+            },
+            "final_ack": {
+              "A_ticks": 91056,
+              "B_ticks": 87796,
+              "B_improvement_over_A_percent": 3.580214373572307
+            },
+            "quiescent": {
+              "A_ticks": 91668,
+              "B_ticks": 88408,
+              "B_improvement_over_A_percent": 3.5563119081904264
+            }
+          }
+        },
+        {
+          "scenario": "parameter_25",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 2
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 89040,
+              "B_ticks": 85348,
+              "B_improvement_over_A_percent": 4.146451033243486
+            },
+            "final_ack": {
+              "A_ticks": 93432,
+              "B_ticks": 89740,
+              "B_improvement_over_A_percent": 3.951536946656392
+            },
+            "quiescent": {
+              "A_ticks": 93936,
+              "B_ticks": 90244,
+              "B_improvement_over_A_percent": 3.930335547606881
+            }
+          }
+        }
+      ],
+      "range_percent": [
+        0.0,
+        7.739090770868177
+      ],
+      "positive_zero_negative": [
+        25,
+        1,
+        0
+      ]
+    }
+  },
+  "structural_effects": {
+    "equal_aggregate_protocol_routes": {
+      "A": "p0384",
+      "B": "p0528",
+      "positive_means": "B lower output-visible than A; denominator A",
+      "points": [
+        {
+          "scenario": "mono_nominal",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 92788,
+              "B_ticks": 92788,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 96784,
+              "B_ticks": 96460,
+              "B_improvement_over_A_percent": 0.33476607703752687
+            },
+            "quiescent": {
+              "A_ticks": 97360,
+              "B_ticks": 97036,
+              "B_improvement_over_A_percent": 0.33278553820870993
+            }
+          }
+        },
+        {
+          "scenario": "descending_nominal",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 85232,
+              "B_ticks": 85232,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 89228,
+              "B_ticks": 88904,
+              "B_improvement_over_A_percent": 0.36311471735329715
+            },
+            "quiescent": {
+              "A_ticks": 89804,
+              "B_ticks": 89480,
+              "B_improvement_over_A_percent": 0.36078571110418245
+            }
+          }
+        }
+      ],
+      "range_percent": [
+        0.0,
+        0.0
+      ],
+      "positive_zero_negative": [
+        0,
+        2,
+        0
+      ]
+    },
+    "input_channel_separation": {
+      "A": "p0000",
+      "B": "p0048",
+      "positive_means": "B lower output-visible than A; denominator A",
+      "points": [
+        {
+          "scenario": "mono_nominal",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 91840,
+              "B_ticks": 91840,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 96160,
+              "B_ticks": 96160,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 96736,
+              "B_ticks": 96736,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        },
+        {
+          "scenario": "descending_nominal",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 84124,
+              "B_ticks": 84124,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "final_ack": {
+              "A_ticks": 88444,
+              "B_ticks": 88444,
+              "B_improvement_over_A_percent": 0.0
+            },
+            "quiescent": {
+              "A_ticks": 89020,
+              "B_ticks": 89020,
+              "B_improvement_over_A_percent": 0.0
+            }
+          }
+        }
+      ],
+      "range_percent": [
+        0.0,
+        0.0
+      ],
+      "positive_zero_negative": [
+        0,
+        2,
+        0
+      ]
+    },
+    "source_reuse_vs_ack_wait": {
+      "A": "p0001",
+      "B": "p0000",
+      "positive_means": "B lower output-visible than A; denominator A",
+      "points": [
+        {
+          "scenario": "mono_nominal",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 94708,
+              "B_ticks": 91840,
+              "B_improvement_over_A_percent": 3.028255268826287
+            },
+            "final_ack": {
+              "A_ticks": 99028,
+              "B_ticks": 96160,
+              "B_improvement_over_A_percent": 2.8961505836733044
+            },
+            "quiescent": {
+              "A_ticks": 99604,
+              "B_ticks": 96736,
+              "B_improvement_over_A_percent": 2.8794024336372033
+            }
+          }
+        },
+        {
+          "scenario": "descending_nominal",
+          "params": {
+            "eta_n": 0.75,
+            "eta_d": 0.75,
+            "eta_c": 0.5,
+            "niu_buffer_flits": 4,
+            "credit_cycles": 18,
+            "niu_processing_cycles": 9,
+            "control_scale": 1
+          },
+          "both_valid": true,
+          "effects": {
+            "output_visible": {
+              "A_ticks": 87168,
+              "B_ticks": 84124,
+              "B_improvement_over_A_percent": 3.492107195301028
+            },
+            "final_ack": {
+              "A_ticks": 91488,
+              "B_ticks": 88444,
+              "B_improvement_over_A_percent": 3.3272123119972017
+            },
+            "quiescent": {
+              "A_ticks": 92064,
+              "B_ticks": 89020,
+              "B_improvement_over_A_percent": 3.3063955509210983
+            }
+          }
+        }
+      ],
+      "range_percent": [
+        3.028255268826287,
+        3.492107195301028
+      ],
+      "positive_zero_negative": [
+        2,
+        0,
+        0
+      ]
+    }
+  },
+  "reuse_event_examples_ticks": [
+    {
+      "chain": 0,
+      "old_source_last_read": 26100,
+      "old_source_observed": 26172,
+      "new_load_issue_start": 26172,
+      "old_peer_ack": 33240,
+      "legal_before_ack": true
+    },
+    {
+      "chain": 1,
+      "old_source_last_read": 22212,
+      "old_source_observed": 22284,
+      "new_load_issue_start": 22284,
+      "old_peer_ack": 31560,
+      "legal_before_ack": true
+    }
+  ],
+  "channel_service_nominal_ticks": {
+    "alias": {
+      "dram/0/0": 8192,
+      "dram/1/0": 8192
+    },
+    "separate": {
+      "dram/0/0": 4096,
+      "dram/0/1": 4096,
+      "dram/1/0": 8192
+    }
+  },
+  "nominal_selected_plans": {
+    "p0000": {
+      "model_cycles": {
+        "output_visible": 2336.777777777778,
+        "final_ack": 2456.777777777778,
+        "quiescent": 2472.777777777778
+      },
+      "estimator_scores": {
+        "payload_router_byte_hops": 59392,
+        "full_protocol_flit_hops": 3048,
+        "zero_contention_critical_path": 42392
+      },
+      "full_protocol_flit_hops": 3048,
+      "cross_chain_router_shared_flits": 378
+    },
+    "p0001": {
+      "model_cycles": {
+        "output_visible": 2430.3333333333335,
+        "final_ack": 2550.3333333333335,
+        "quiescent": 2566.3333333333335
+      },
+      "estimator_scores": {
+        "payload_router_byte_hops": 59392,
+        "full_protocol_flit_hops": 3048,
+        "zero_contention_critical_path": 42392
+      },
+      "full_protocol_flit_hops": 3048,
+      "cross_chain_router_shared_flits": 378
+    },
+    "p0048": {
+      "model_cycles": {
+        "output_visible": 2336.777777777778,
+        "final_ack": 2456.777777777778,
+        "quiescent": 2472.777777777778
+      },
+      "estimator_scores": {
+        "payload_router_byte_hops": 59392,
+        "full_protocol_flit_hops": 3048,
+        "zero_contention_critical_path": 42392
+      },
+      "full_protocol_flit_hops": 3048,
+      "cross_chain_router_shared_flits": 378
+    },
+    "p0096": {
+      "model_cycles": {
+        "output_visible": 2555.8888888888887,
+        "final_ack": 2675.8888888888887,
+        "quiescent": 2691.8888888888887
+      },
+      "estimator_scores": {
+        "payload_router_byte_hops": 75776,
+        "full_protocol_flit_hops": 3584,
+        "zero_contention_critical_path": 46280
+      },
+      "full_protocol_flit_hops": 3584,
+      "cross_chain_router_shared_flits": 314
+    },
+    "p0384": {
+      "model_cycles": {
+        "output_visible": 2367.5555555555557,
+        "final_ack": 2478.5555555555557,
+        "quiescent": 2494.5555555555557
+      },
+      "estimator_scores": {
+        "payload_router_byte_hops": 141312,
+        "full_protocol_flit_hops": 5632,
+        "zero_contention_critical_path": 52760
+      },
+      "full_protocol_flit_hops": 5632,
+      "cross_chain_router_shared_flits": 872
+    },
+    "p0528": {
+      "model_cycles": {
+        "output_visible": 2367.5555555555557,
+        "final_ack": 2469.5555555555557,
+        "quiescent": 2485.5555555555557
+      },
+      "estimator_scores": {
+        "payload_router_byte_hops": 141312,
+        "full_protocol_flit_hops": 5632,
+        "zero_contention_critical_path": 52760
+      },
+      "full_protocol_flit_hops": 5632,
+      "cross_chain_router_shared_flits": 944
+    }
+  },
+  "inference_limits": [
+    "No full MLP simulation or M2 decision",
+    "No Hcompiler test or complete strong P0 portfolio",
+    "Route pair does not isolate pure contention",
+    "Sensitivity points are a discrete model domain, not random samples"
+  ]
+}

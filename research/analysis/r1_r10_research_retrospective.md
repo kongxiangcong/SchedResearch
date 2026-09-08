@@ -1,4 +1,98 @@
-# R1–R10 科研回溯：proposal 台账、收敛判断与下一步
+# R1–R13 科研回溯：proposal 台账、收敛判断与模型研究主线
+
+更新：2026-09-08。文件名保留历史 `r1_r10`，当前范围已经覆盖 R1–R12。**下一轮以公开架构依据下的硬件模型仿真为研究方式，研究强静态联合计算映射、张量放置、NoC 路径与发送窗口，以及共享资源和分作用域 completion 对完整模块执行的影响。** 用户明确没有 Wormhole 设备，不要求先取得真实板卡。现有 R12 环境与探针允许继续模型研究；尚不足以宣称强 Wormhole P0 已准入、P1/H1 已成立，或立即开发 Rh。
+
+本次完整阅读更新前两份活动台账，回到 R1/R2 原始候选与 R3–R12 关键报告/结果核对；没有重跑历史性能实验。详细逐文件阅读范围、结果入口和执行分级见 [当前进度表](../research_progress.md)。更新前原字节保存在 [本文件快照](../r13/history/retrospective_before_r13.md)，SHA-256 `5e9104aa406887c7452b438df267a72cdca523a43c4937d24513f6b4e1249a5b`；[进度表快照](../r13/history/research_progress_before_r13.md) 为 `4b7698a7a4a17208925d098ede7555b7823cbc34a966aa1fbd767bfae1e384ab`。R1–R12 冻结报告、代码、合同、结果与 hash 文件不改。本文后半的旧 §1–9 是历史原文，其“当前”“下一步”均为当时决策，不继续约束本轮方向。
+
+## R13 第一阶段追加：模型可运行，尚无新算法结论
+
+2026-09-08，已在新会话实际实现参考硬件DES、独立tick检查器和16B数据/epoch审计，并接通真实TETRA来源seed。576项冻结有限小图全集和168次预选见证回放全部合法，名义最优81136 tick（2253.7778 model cycles）；最少总流量按登记规则选出的84124 tick计划比最优慢3.6827%。这是**局部Hmodel估价边界**，不能直接归于编译算法。依赖/latency下界估价的最小并列项包含最优，故其问题是分辨力和打平，不能说所有粗估价都有严格排序反转。[实际报告](../r13/experiment_report.md)、[独立全表核查](../r13/artifacts/micro_independent_analysis.json)
+
+反证同样保留：预选等总协议流量的路径对名义输出持平，分离输入channel在26参数点全部持平。source合法提前复用相对保守ACK等待名义改善3.8495%，但强P0也拥有此能力，且BN=1时改善为0。没有将这项消融当作新方法收益；26点也未测试exact计划的失配稳健性。
+
+**当前门：M0内部实现资格已有证据，限定NPE跨工具执行因WSL访问拒绝尚缺；完整强P0组合和Hcompiler未完成，M1整门/M2未通过。** 一个保守TETRA seed的资源偏序并不与canonical C同空间，不能以其较长时间当作弱分母。下一步只补共同计划/地址/顺序能力和真实P0搜索轨迹，再决定算法残差；不启动新增runtime或完整MLP性能六配置。[下一步资格合同](../r13/p0_qualification_next.md)
+
+以下R1–R12重审和旧轮次正文继续作为历史记录保留；它们的更新措辞不覆盖本节新增的R13执行事实。
+
+## R1–R12重审时的判断：问题已收窄，尚无新的收益结论
+
+1. **历史实验没有证明动态调度普遍无效，也没有证明公开多 tile/NoC 架构上的强静态已经足够。** R3 小图证明信息价值可存在；R4/R5 关闭的是已测通用 ready，R9 关闭具名回看动作收益主张，R10 的触发器根本没有改序，R11 关闭完整 GDN cold-weight/staged ABI 的驻留候选。每个判决只在其硬件、工作量、数值和合法动作合同内成立。
+2. **旧模型不是一条连续逼近 Wormhole 的模型链。** R5 有 bank、逐请求、outstanding、credit 与反压，不能说“没有通信”；R8 比较 peer/staging 账本，R9/R10 又固定为单 EXT 写回再读，R11 改为双核 staged ABI。真实 NoC 路径、分布式 controller/channel 与 completion 作用域没有持续进入同一联合优化空间。重新建模有理由，但模型更细本身不保证新贡献。
+3. **R5 静态驻留正例已在 R11 的完整模块合同中失败，不能仍将其写成当前首选待验证方向。** 该结果不否定 warm-weight、融合、跨层或其他存储合同，却不足以支持继续延长同一候选。R9 的静态分片/traffic 结果保留为具体数据移动动机，不能与 R5 收益相加。
+4. **R12 接通了真实软件工具与公开语义证据，但没有完成强目标基线或完整模块性能实验。** 96 个流量计划、56 个事件和 tt-npe API 粗估价不能代替完整 DFG 资源/完成模型。STREAM/TETRA 已有 placement/routing/容量/BD/DMA/FIFO/lifetime 相关能力；这些应先成为 P0，宽泛的“联合规划”“DFG 合同”“缩小等待范围”不能直接宣称原创。
+5. **R12 红队撤回了一个看似支持新方向的真实 fixture 判断。** 2conv 中“分配完整缓冲区，所以必须完整 all-gather”不成立。这个反证要求下一轮从消费者实际访问集合推导远端数据需求，再估算资源负载；不能先调高费用再把分析周期变化称为发现。
+
+来源分别为 [R3](../r3/experiment_report.md)、[R5](../r5/experiment_report.md)、[R9](../r9/experiment_report.md)、[R10](../r10/experiment_report.md)、[R11](../r11/experiment_report.md)、[R12](../r12/experiment_report.md) 与 [基线源码审计](../r12/baseline_source_audit.md)。上述是历史取证与本次范围判断，不是新一轮文献检索或性能结果。
+
+## R1–R12 按轮次收敛
+
+| 轮次 | 已得到的证据 | 不能跨出的边界 |
+|---|---|---|
+| R1 | 责任边界、C1–C10 及保留 D1–D5 的选题论证。 | 五个保留方向无性能闭环；被筛除与被实验证伪不同。 |
+| R2 | toy 局部现象与 P1–P5 的原始定义。 | 无复用/重尾必要性和最优静态/oracle 标签已撤回。 |
+| R3 | 3,920 合成执行；精确例固定 150、免费 ready 140、每 task 加 8 cycle 后 156。 | 存在性不等于可承受成本或实际模块收益，有限窗口外仍有全图历史状态。 |
+| R4 | 来源缩尺图、强静态/因果检查，13,440 主执行与 4,480 priority 修正。 | 无收费方案通过 5% 门；后验修正不是独立确认，全宽和完整 NoC 未建模。 |
+| R5 | 全宽来源切片与请求资源细化，36 组无 5% 达门；两 head 静态驻留 7.155%–24.027%。 | 原通用 ready 关闭；驻留只是四个 prepared token 的局部控制，约 33% 投影差分不是固定 binary 设备干扰。 |
+| R6 | Phoenix copy 功能与 host 时间；32-head/跨层 state 生命周期检查。 | 没有强静态残差或设备性能归因；不能把 48 MiB state 直接当每 token 外存量。 |
+| R7 | 四次固定 copy、四次 INT8 GEMM 全量数值通过；profiler/编译接口缺口明确。 | 只有具名 fixture 功能，不是 BF16、研究 kernel 或 strong-static 性能接受；不阻塞模型路线。 |
+| R8 | 分片与路径 bytes、18 CPU 数值比较、70 个单 payload 扩展。 | split-K 容差通过不等于数值许可；37 个错误序不是错误概率或设备故障。 |
+| R9 | 204 静态候选；quiet C2K 比 C2N 快 14.5514%，属于固定 EXT/broadcast/staging 合同的静态流量选择。 | 大供给损失不是同量恢复机会；最好收费回看均值 0.0210%、CI 跨零，最大 5.1579% 上界使严格关闭门失败。 |
+| R10 | 两硬件各 960 候选；部分松上界被 credit/串联下界解释；固定规则 1,440 观察。 | 0 次实际改序，不能说动作价值已被否定；残余约 10%–13% 平均上界不是加速。 |
+| R11 | 完整 32-head GDN 数值/容量/生命周期及 122 保存轨迹审计；local state bytes 显著下降。 | quiet −0.015670637%、两背景约 −0.60%；strict decode 两图相同。关闭这一完整模块 cold-weight/staged ABI 驻留候选。 |
+| R12 | 公开 Wormhole 来源、工具构建、实际 TETRA、完整 MLP 账本、路由/事件小图与反证。 | 工具/条件功能通过不等于完整目标模型或性能通过；真实 2conv full-copy 诊断撤回，native 旧门原判保留。 |
+
+各轮详细条件与来源在 [进度表](../research_progress.md) 和本文后半历史条目。当前仍无得到充分证据支持的新增硬件收益 proposal；这只是成熟度判断，不把物理 PPA/板卡验收设为软件或架构模型论文的通用必要条件。
+
+## 原始候选账本如何继承
+
+正式编号仍为 **R1 C1–C10 十项 + R2 P1–P5 五项**；D1–D5 不另计。原定义可从当前仓库路径阅读：[R1 候选表](../r1-base/redteam_claim_frameworks.md)、[R2 §九–十一](../r2-ooo-npu/research.md)。后半旧表保存 15 项原记录；R11/R12 带来的状态更新如下。
+
+| 候选 | 截至 R12 的状态变化 |
+|---|---|
+| R1 C1/D1、C3/D3、C4/D4、C5/D5 | remapper、3D 近存、阵列分区和原 direct fabric 主实验仍未完成。R12 引入真实 NoC 来源，不等于这些原机制获证或全部重开。 |
+| R1 C2/D2 | R8 单 payload 与 R12 两代事件继续澄清 source-last-read、destination-visible、consumer-last-read 的安全义务；未证明必须新增 generation-lease 硬件，静态或已有 runtime 合同仍是强基线。 |
+| R1 C6/C7/C8/C9/C10 | 原选题淘汰、合并或未测储备状态保持；不把后续调度负结果倒写成这些方向的性能试验。 |
+| R2 P1 | 宽泛“memory plan→合法执行合同”原创性不能恢复。R5 具体驻留正例经 R11 完整模块未过门；R12 发现既有基线更强。新模型下具体联合优化问题可继续，但需独立识别额外耦合与净收益。 |
+| R2 P2 | 已测 ready 与具名触发规则维持关闭。R12 未建立强 P1 后的残差，不开 Rh；没有全域不可能性结论。 |
+| R2 P3 | 数据相关 quasi-static 变体仍未完成原工作量/性能验证，不因 P2 的规则化图结果被否定；本轮也不自动改成 MoE 主线。 |
+| R2 P4 | Phoenix 功能/计量工作和 R12 工具链有成果，真实目标残差仍未测。用户现要求模型研究，可以由来源约束的服务模型与参数敏感性推进，不等待物理测量，也不声称模型等同实测。 |
+| R2 P5 | DAE、预取、双缓冲、重叠以及既有 runtime 仲裁继续作为强基线；无独立新硬件贡献主张。 |
+
+## R12 的实际成果与一次撤回
+
+固定来源与工具入口已经建立：Windows 项目独立环境、固定 STREAM/TETRA，另有独立 WSL2 Ubuntu 24.04/GCC12 的 tt-npe。完整 Qwen MLP 的 H=2560/I=9216、135 MiB 三权重与 M=1/32/128 全工作量已核算，没有下载权重、执行完整 BF16 kernel 或证明原生布局。输入证据包六文件全文已读、五项登记原字节 hash 匹配；Qwen 历史四文件按明确 LF/CRLF 表示匹配，工作树原字节只有 2/4 匹配，不能把归一化结果写成 raw 全通过。[阅读覆盖](../r12/reading_coverage.md)、[工作量账本](../r12/workload_intake.md)
+
+路由侧核对 28,800 个端点/NoC 组合；96 个离散计划各 12,288 B payload，最大有向链路 132–202 flit。账本包括 load、peer、output 的请求/响应/ACK，但未计通知/credit-return 包、NIU 服务、router credit、计算及 controller 时间。两链、两代、两源 slot 加独立接收/结果 span 的 56 事件，10 条已登记 HB 义务由可达性证明；四类错误规则被拒绝，另 56 条优先拓扑序数值回放通过。它们分别是流量与条件性功能证据，不能称 96 个完整时序计划的最优搜索或全部执行序的物理正确性验证。[原始摘要](../r12/artifacts/qualification_summary.json)、[独立结果](../r12/artifacts/independent_checks.json)
+
+真实 SCIP/TETRA 官方 2conv 管线已通过，导出五条 transfer path，原始分析周期 12,808。共享 bus helper 按端点数量使用 `chains`：**若明确要求所有 262,144 bits 经过同一 128 bit/cycle bus，2,048 是乐观守恒下界，512 低计费；四条独立链路各分担四分之一则可以是 512。** 这一参数化反例成立，但实际 Tensor 与分配 footprint 本身没有定义这个完整远端需求合同。[探针与源码链](../r12/shared_resource_probe.md)
+
+实际 2conv 最终 affine maps 把 Conv1 z6、Conv2 z13 都映射到 `ox`，不是输出 channel。两算子按相同 core 顺序作连续对齐四等分的合法 ownership 见证中，远端需求为六列 `{7,8,15,16,23,24}`，共 3,072 个 16-bit word，即 **49,152 bits / 128 = 384 个必要服务 cycles**。独立反向几何枚举得到相同结果。这个数学见证不证明现有 native 地址/搬运程序采用了 selective halo，却足以推翻“计算强制完整 262,144 bits 远程”的原断言。512 未被该界否定，也未证明能包含完整协议、局部复制、零填充与完成开销。[affine 回执](../r12/artifacts/shared_resource_affine_audit.json)、[独立审计](../r12/independent_research_audit.md)
+
+在反证前已执行的临时费用 overlay 原样保留：具名 transfer 512→2,048 后重新运行真实 TETRA 得到 14,344，mapping/fusion 与原始相同；40 次 helper 调用中 8 次匹配，5 次来自 allocator。它只能回答 full-payload 费用合同下优化器如何响应，**不能称已确认的 P0 修复、真实 2conv 低估、计划变化或 H1 收益**。初始事前合同的 footprint→full all-gather 理由已经被后续审计明确撤回；预登记存在不能挽救一个被反证的前提。[保留原合同](../r12/shared_resource_counterfactual_contract.json)、[保留原运行](../r12/results/shared_resource_counterfactual/result.json)
+
+tt-npe 的固定构建、45/45 C++ 和 10/10 pytest 通过，官方 Python API 示例估计 437 cycles，使用 `fast` 模型、32-cycle timestep 和 injection-rate inference；golden=450 没有本项目独立实测依据。官方 CLI 因 `Stats.wallclock_runtime_us` 与 `DeviceStats` 字段位置不匹配而失败，因此 `ready_for_coarse_api_use=true` 与总体 `passed=false` 同时保留。可用的粗估价器是模型研究工具，不是完整 DFG 执行、completion 或收益误差的独立真值。[环境回执](../r12/artifacts/npe_environment.json)、[API 示例](../r12/artifacts/npe/example_api_20260908T010242Z.json)
+
+## R13 待测：多 tile 模型中的完成事件与联合静态编译
+
+当前最具体的问题是：在同一目标模型、工作量、数值规则、初末位置与存储预算下，**consumer 实际需求、共享 link/channel/NIU 资源、source-last-read 与 destination-visible 的差异，是否共同改变最佳静态 mapping/placement/routing/send-window，并产生超出正确重定向既有编译器的完整模块净收益？** 确定性 DFG 固定必要决策与合法约束，执行仍可按依赖和资源自定时；不预设新增 descriptor、队列、同步编码或 scheduler。
+
+新轮次先落实三项可判别工作：
+
+1. **模型资格。** 固定 Wormhole B0 公开版本，把 tile/双 NoC 方向、endpoint alias、物理 channel、共享资源容量及完成作用域映射为明确模型动作；未知时序单列参数及范围。对数据需求、资源守恒、容量、复用、部分写入、完成与终止提供独立 checker/解析见证。公开语义与建模假设分开，不因为没有板卡而放弃这些检查。
+2. **强 P0 与同合同消融。** 先移植并强化 STREAM/TETRA 已有 mapping、placement、routing、buffer/prefetch、DMA/FIFO 和 lifetime 能力；允许强基线利用 source-local 数据与合法 halo/分片，拒绝拿缓冲 footprint 替代必传量。再逐项比较资源服务与分作用域 completion 的增量影响；所有方案共享硬件、计算/数值、实际 bytes、初末位置与成本。不得让新增方法独占正确硬件知识。
+3. **完整模块判决与停止条件。** 小规模 exact、独立资源下界、不同实现的参考模型和参数敏感性共同检查计划排名与完整输出可见时间。若已有方法吸收全部收益，接受 H0/工程解释；若只有微图/极端参数或下界变化，记录负结果或未决。只有完整模块非极端条件下的稳健净改善才继续 P1；强 P1 后仍有具名残差才另行讨论收费 Rh，当前不实现。
+
+R12 冻结合同的 `G0_native=NOT_PASSED`、`G1/G2=NOT_TESTED`、`G3=NOT_OPEN` 不改判。[原预登记](../r12/preregistration.json) 要求原生后端、board/harvest 与校准；这些是该轮冻结目标，**不作为用户现在要求的模型路线阻塞项**。[R13 proposal contract](../r13/proposal_contract.md) 已确定为后续唯一执行合同，使用 M0 模型资格、M1 可识别残差、M2 完整模块与稳健性三门，分别判定 Hmodel 的模型排序变化与 Hcompiler 的额外搜索价值。M2 保留至少两个非退化完整配置 3% 净改善，并要求事前参数失配范围内保持正向；约 1 个百分点是同模型数值细化对相对收益的稳定性目标，不能称为板卡实测精度。本文只解释历史与方向，具体实现/矩阵/门槛以该合同为准。
+
+此前“先做设备门”“只能回到 GDN 驻留”均历史化。无需重新进行无边界 Phoenix SDK 建设，也不直接恢复 R5/R10/R11 已关闭候选。3D memory 可在具有独立公开资源/热/成本合同后比较，不预先锁定 MoE 或把它拼接到 Wormhole 免费供带宽。**R13 启动时方向与合同已确定；后续实际 DES、独立回放和有限小图结果见本文顶部追加段与 [R13 报告](../r13/experiment_report.md)。R13 不开启 Hruntime/Rh 实验。**
+
+## 本次证据等级与历史原文说明
+
+本次维护执行的是文件阅读、已存结果字段核对、原字节快照/hash 与文本更新检查。R3–R11 执行量及 PASS 属于对应报告记载；R12 源码/工具/affine 求解事实依据其已存报告和回执，本次没有重新执行。完整阅读两份活动台账、R1/R2 原候选定义与 R12 最终纠错；R3–R9 按关键问题选择原报告章节，R10/R11 报告全文核对。具体章节与范围在 [阅读覆盖表](../research_progress.md)。没有访问仓库其他方案初稿、演示或解析副本，没有借本次维护改写冻结结果。
+
+下文保留更新前正文，以记录 R10 后的建议和 R11 的实际否定过程。旧正文中的 Windows 绝对链接可能缺少现有 `research/` 层级，核查时按上述当前相对链接定位；旧标题为“R1–R10 科研回溯：proposal 台账、收敛判断与下一步”。
+
+## 历史正文：R10 决策及 R11 追加
 
 日期：2026-09-05。本文件是R10冻结后的新回溯意见，不改任何历史实验判决。本次核查R10、R9、R8结果及历史check均PASS；三路独立复核分别覆盖R1–R3候选、R4–R8证据和R9–R10收敛性。没有进行新的性能实验或新颖性检索。文中的当前建议是基于本项目证据的资源投入判断，区别于历史报告的原决定。
 
