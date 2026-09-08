@@ -1,0 +1,258 @@
+{
+  "schema": "r12-npe-environment-v1",
+  "created_utc": "2026-09-08T01:01:36.860060+00:00",
+  "run_id": "20260908T005053Z",
+  "exit_code": 137,
+  "passed": false,
+  "evidence_level": "compiled official estimator, upstream tests and documented Python API example only",
+  "hardware_measurement": false,
+  "full_dfg_timing_calibrated": false,
+  "distribution": "SchedResearch-R12",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "os_release": "PRETTY_NAME=\"Ubuntu 24.04.4 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.4 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+  "expected_commit": "341da058f0b65e51d3643fb36f011a0784abedff",
+  "source": "/opt/schedresearch-r12/tt-npe",
+  "build": "/opt/schedresearch-r12/build/tt-npe",
+  "install": "/opt/schedresearch-r12/install/tt-npe",
+  "python_venv": "/opt/schedresearch-r12/venv-npe",
+  "build_configuration": {
+    "type": "Release",
+    "compiler": "GCC12",
+    "enable_libcxx": false,
+    "generator": "Ninja",
+    "parallel_jobs": 4
+  },
+  "phases": [
+    {
+      "phase": "apt_update",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_apt_update_20260908T005053Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "apt_install",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_apt_install_20260908T005053Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "clone",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_clone_20260908T005053Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "venv",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_venv_20260908T005053Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "python_install",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_python_install_20260908T005053Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "python_check",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_python_check_20260908T005053Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "python_freeze",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_python_freeze_20260908T005053Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "configure",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_configure_20260908T005053Z.log",
+      "exit_code": 137
+    }
+  ],
+  "official_cli_passed": null,
+  "official_cli_failure_is_recorded_separately": true,
+  "commands": {
+    "gcc": {
+      "exit_code": 0,
+      "stdout": "gcc-12 (Ubuntu 12.4.0-2ubuntu1~24.04.1) 12.4.0\nCopyright (C) 2022 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+      "stderr": ""
+    },
+    "gxx": {
+      "exit_code": 0,
+      "stdout": "g++-12 (Ubuntu 12.4.0-2ubuntu1~24.04.1) 12.4.0\nCopyright (C) 2022 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+      "stderr": ""
+    },
+    "cmake": {
+      "exit_code": 0,
+      "stdout": "cmake version 3.28.3\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).",
+      "stderr": ""
+    },
+    "ninja": {
+      "exit_code": 0,
+      "stdout": "1.11.1",
+      "stderr": ""
+    },
+    "python": {
+      "exit_code": 0,
+      "stdout": "Python 3.12.3",
+      "stderr": ""
+    },
+    "source_head": {
+      "exit_code": 0,
+      "stdout": "341da058f0b65e51d3643fb36f011a0784abedff",
+      "stderr": ""
+    },
+    "source_status": {
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "test_xml": {},
+  "installed_files": [],
+  "dependency_commits": [
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_assert/c083177e9a98ce8b863539709ca00bda04be94bd",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "2242cfb58269c03328957860006076386e7fa356",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_concept_check/dd18ed11fd47e2998c0cb9ebd79d561a1ee1c385",
+      "commit": {
+        "exit_code": 128,
+        "stdout": "HEAD",
+        "stderr": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_config/8e29534ec40e6b4f3a02083cbadb6b3e90f0f2dc",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "5e98c6ddd4d58311b52e8f0fdde38c80c04f70ae",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_container/157a6daa0889fec063143ce9f95703d68265176e",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "866fd30df1ab723e2104e3de504f4a8c116f2c41",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_container_hash/55b208588d08c8f8515055e27c10fa622d93eeaf",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "89e5b98f6bc05841a21069d76cc5adcbee62b9cc",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_core/525f881ae229783cdb12b1ee3c79d02bbe9e1a43",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "e3a2e88e4cc9ec39f4c67aef2a20e1b246c2a3b1",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_describe/5a42d119c361cb12659d313d5de8573bfa294a7f",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "3da6a1e295689612a5ba53e906ad036f84729ede",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_intrusive/b7e7863a1c1e671b5af43c2250f244d4b044f019",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "ec5e251f547aa850e0e41a9ed204a08581931a6b",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_iterator/3b65d7a949c60dfa52c76857867ad2fe1ebfaadb",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "4b40364d6d110b130207bc498791e00050f94d6b",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_move/9c7e962b7f1778dac4f88e90016d7492612bc42f",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "a2bb5c88539fe78cd0177c9f43bab1cb01681450",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_mp11/567ca5daf0faaa4ab83ac519d9a4e614c0c813ac",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "1caff7ffa929662f57fac1dbea24c3d2d95205f6",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_predef/abbe341c0162deb218a7ca87e8776a630c6007b4",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "9aca7f5b609a731106a6d70e8dca9a4196dca968",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_smart_ptr/abbd8fc0ff433f5a4ade5d05d8a4be617a022f91",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "316f4cef77164a37b6a1a8891aa173910d3c2b46",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_static_assert/4f3484e4cfeed8085362ce4a387147c71273c760",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "ba72d3340f3dc6e773868107f35902292f84b07e",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_throw_exception/626c21729cb071cea729bd984dd444953aea0ede",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "ca85c198c81c1daeed31e6a5c920f499d360bade",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_tokenizer/616f37c48d932f2ed44b1bb59893153169ff5a4b",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "90106f155bd72b62aaca0d9ad826f4132030dba0",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_unordered/1ebb0932db99167b329cf2e790a42e5a33ec1605",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "b41c054c66e7c71d6c6105a1e9da096f6731434d",
+        "stderr": ""
+      }
+    }
+  ],
+  "downloaded_archives": [
+    {
+      "path": "/opt/schedresearch-r12/build/tt-npe/_deps/zstd-subbuild/zstd-populate-prefix/src/zstd-1.5.5.tar.gz",
+      "size": 2368543,
+      "sha256": "9c4396cc829cfae319a6e2615202e82aad41372073482fce286fac78646d3ee4"
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/cpm/CPM_0.40.2.cmake",
+      "size": 41017,
+      "sha256": "c8cdc32c03816538ce22781ed72964dc864b2a34a310d3b7104812a5ca2d835d"
+    }
+  ]
+}

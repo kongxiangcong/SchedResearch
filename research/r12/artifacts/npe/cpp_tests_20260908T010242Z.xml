@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="45" failures="0" disabled="0" errors="0" time="14.026" timestamp="2026-09-08T09:05:28.209" name="AllTests">
+  <testsuite name="npeAPITest" tests="4" failures="0" disabled="0" skipped="0" errors="0" time="0.004" timestamp="2026-09-08T09:05:28.209">
+    <testcase name="CanConstructAPI" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_api.cpp" line="12" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.209" classname="npeAPITest" />
+    <testcase name="CanCatchUndefinedDevice" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_api.cpp" line="18" status="run" result="completed" time="0.002" timestamp="2026-09-08T09:05:28.210" classname="npeAPITest" />
+    <testcase name="CanCatchInvalidConfig" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_api.cpp" line="24" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.212" classname="npeAPITest" />
+    <testcase name="ValidatesMulticastUtilizationFromTrace" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_api.cpp" line="30" status="run" result="completed" time="0.001" timestamp="2026-09-08T09:05:28.212" classname="npeAPITest" />
+  </testsuite>
+  <testsuite name="NpeCompressionUtilTest" tests="6" failures="0" disabled="0" skipped="0" errors="0" time="0.011" timestamp="2026-09-08T09:05:28.214">
+    <testcase name="CompressSmallString" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_compression.cpp" line="75" status="run" result="completed" time="0.002" timestamp="2026-09-08T09:05:28.214" classname="NpeCompressionUtilTest" />
+    <testcase name="CompressLargeString" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_compression.cpp" line="95" status="run" result="completed" time="0.005" timestamp="2026-09-08T09:05:28.216" classname="NpeCompressionUtilTest" />
+    <testcase name="CompressToInvalidPath" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_compression.cpp" line="129" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.222" classname="NpeCompressionUtilTest" />
+    <testcase name="CompressWithSpecialCharacters" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_compression.cpp" line="138" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.223" classname="NpeCompressionUtilTest" />
+    <testcase name="CompressRepeatedContent" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_compression.cpp" line="159" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.224" classname="NpeCompressionUtilTest" />
+    <testcase name="CompressOverwriteExistingFile" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_compression.cpp" line="189" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.224" classname="NpeCompressionUtilTest" />
+  </testsuite>
+  <testsuite name="npeDeviceTest" tests="11" failures="0" disabled="0" skipped="0" errors="0" time="0.001" timestamp="2026-09-08T09:05:28.225">
+    <testcase name="CanConstructWormholeB0Device" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_device.cpp" line="17" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.225" classname="npeDeviceTest" />
+    <testcase name="CanErrOutOnUndefinedDevice" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_device.cpp" line="20" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.225" classname="npeDeviceTest" />
+    <testcase name="CanRouteWormholeB0Noc" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_device.cpp" line="23" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.225" classname="npeDeviceTest" />
+    <testcase name="CanGetCoreTypeWormholeB0" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_device.cpp" line="32" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.225" classname="npeDeviceTest" />
+    <testcase name="CanGetSrcInjectionRateWormholeB0" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_device.cpp" line="48" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.225" classname="npeDeviceTest" />
+    <testcase name="TestLinkIDLookups" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_device.cpp" line="62" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.225" classname="npeDeviceTest" />
+    <testcase name="CanConstructWormholeMultichipDevice" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_device.cpp" line="85" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.226" classname="npeDeviceTest" />
+    <testcase name="CanGetCoreTypeWormholeMultichip" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_device.cpp" line="90" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.226" classname="npeDeviceTest" />
+    <testcase name="CanGetSrcInjectionRateWormholeMultichip" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_device.cpp" line="116" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.226" classname="npeDeviceTest" />
+    <testcase name="TestLinkIDLookupsWormholeMultichip" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_device.cpp" line="139" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.226" classname="npeDeviceTest" />
+    <testcase name="CanQueryArchUsingDeviceModel" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_device.cpp" line="179" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.226" classname="npeDeviceTest" />
+  </testsuite>
+  <testsuite name="npeEngineTest" tests="4" failures="0" disabled="0" skipped="0" errors="0" time="13.995" timestamp="2026-09-08T09:05:28.226">
+    <testcase name="CanConstructEngineForWormholeB0" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_engine.cpp" line="9" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.226" classname="npeEngineTest" />
+    <testcase name="CanRunSimpleWorkload" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_engine.cpp" line="11" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.226" classname="npeEngineTest" />
+    <testcase name="CanRunSimpleWorkloadCongestionFree" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_engine.cpp" line="26" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:28.227" classname="npeEngineTest" />
+    <testcase name="CanTimeoutOnMaxCycles" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_engine.cpp" line="42" status="run" result="completed" time="13.995" timestamp="2026-09-08T09:05:28.227" classname="npeEngineTest" />
+  </testsuite>
+  <testsuite name="npeUtilTest" tests="9" failures="0" disabled="0" skipped="0" errors="0" time="0.004" timestamp="2026-09-08T09:05:42.222">
+    <testcase name="CanGetMulticastCoordSetGridSize" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_util.cpp" line="11" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.222" classname="npeUtilTest" />
+    <testcase name="CanIterateOverMulticastCoordSet" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_util.cpp" line="23" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.222" classname="npeUtilTest" />
+    <testcase name="MultiDeviceMulticastCoordSet" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_util.cpp" line="92" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.222" classname="npeUtilTest" />
+    <testcase name="MultiDeviceDisjointMulticastCoordSet" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_util.cpp" line="201" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.223" classname="npeUtilTest" />
+    <testcase name="HashFunctions" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_util.cpp" line="297" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.223" classname="npeUtilTest" />
+    <testcase name="HashFunctionQuality" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_util.cpp" line="346" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.223" classname="npeUtilTest" />
+    <testcase name="HashContainerBasic" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_util.cpp" line="418" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.223" classname="npeUtilTest" />
+    <testcase name="HashFunctionQualityIntegers" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_util.cpp" line="479" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.223" classname="npeUtilTest" />
+    <testcase name="HashFunctionQualityLinkAndNIUAttrs" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_util.cpp" line="542" status="run" result="completed" time="0.003" timestamp="2026-09-08T09:05:42.223" classname="npeUtilTest" />
+  </testsuite>
+  <testsuite name="npeWorkloadTest" tests="11" failures="0" disabled="0" skipped="0" errors="0" time="0.008" timestamp="2026-09-08T09:05:42.227">
+    <testcase name="CanConstructWorkload" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_workload.cpp" line="15" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.227" classname="npeWorkloadTest" />
+    <testcase name="CanValidateWorkload" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_workload.cpp" line="25" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.227" classname="npeWorkloadTest" />
+    <testcase name="CanRejectInvalidTransferSrc" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_workload.cpp" line="35" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.227" classname="npeWorkloadTest" />
+    <testcase name="CanRejectInvalidTransferDst" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_workload.cpp" line="45" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.227" classname="npeWorkloadTest" />
+    <testcase name="CanRejectInvalidNumPackets" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_workload.cpp" line="55" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.227" classname="npeWorkloadTest" />
+    <testcase name="CanRejectInvalidPacketSize" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_workload.cpp" line="65" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.227" classname="npeWorkloadTest" />
+    <testcase name="CanRejectMismatchedDeviceIds" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_workload.cpp" line="76" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.227" classname="npeWorkloadTest" />
+    <testcase name="CanRejectInvalidSourceDeviceId" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_workload.cpp" line="96" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.227" classname="npeWorkloadTest" />
+    <testcase name="CanRejectInvalidSourceDeviceIdMultiChip" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_workload.cpp" line="116" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.227" classname="npeWorkloadTest" />
+    <testcase name="CanCountRouteHops" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_workload.cpp" line="137" status="run" result="completed" time="0." timestamp="2026-09-08T09:05:42.227" classname="npeWorkloadTest" />
+    <testcase name="CanIngestAndValidateMultichipTraceFile" file="/opt/schedresearch-r12/tt-npe/tt_npe/cpp/test/test_npe_workload.cpp" line="160" status="run" result="completed" time="0.008" timestamp="2026-09-08T09:05:42.227" classname="npeWorkloadTest" />
+  </testsuite>
+</testsuites>

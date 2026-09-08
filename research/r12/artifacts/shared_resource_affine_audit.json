@@ -1,0 +1,270 @@
+{
+  "schema": "r12.shared-resource-affine-audit.v1",
+  "status": "earlier_full_allgather_demand_inference_refuted",
+  "evidence_level": "saved real operand maps + final SVG/IR dimension identity + exact finite affine access enumeration",
+  "source_artifact_sha256": {
+    "results\\baseline_smoke\\pipeline\\upstream-2conv\\group_0\\core_cost_lut.pickle": "b51fc045b33292403800c3b7e535fcbf682e18a69c8f8972cfc937359fd8f40d",
+    "results\\baseline_smoke\\pipeline\\upstream-2conv\\group_0\\tetra\\steady_state_workload_final.svg": "90a7dca1cc89a6566f2836295cac50fdc02741c473d1bef92d684591264e6367",
+    "results\\baseline_smoke\\allocation_ir.json": "78b52519d5a781620cecbf5dc4b1ec080f7d137d695f8afca5d1e7030f48ed32"
+  },
+  "final_dimension_evidence": {
+    "Conv1": {
+      "saved_source_type": "stream.workload.node.ComputationNode",
+      "operand_affine_maps": [
+        "(d0, d1, d2, d3, d4, d5, d6) -> (d0, d5, ((d2 + d4) + -1), ((d1 + d3) + -1))",
+        "(d0, d1, d2, d3, d4, d5, d6) -> (d6, d5, d4, d3)",
+        "(d0, d1, d2, d3, d4, d5, d6) -> (d0, d6, d2, d1)"
+      ],
+      "tensor_names_and_shapes": [
+        {
+          "name": "input",
+          "shape": [
+            1,
+            8,
+            32,
+            32
+          ]
+        },
+        {
+          "name": "weights_1",
+          "shape": [
+            16,
+            8,
+            3,
+            3
+          ]
+        },
+        {
+          "name": "conv1_out",
+          "shape": [
+            1,
+            16,
+            32,
+            32
+          ]
+        }
+      ],
+      "final_svg_local_dimension_order": [
+        "z10",
+        "z6",
+        "z5",
+        "z2",
+        "z3",
+        "z4",
+        "z9"
+      ],
+      "final_svg_local_dimension_sizes": [
+        1,
+        32,
+        32,
+        3,
+        3,
+        8,
+        16
+      ],
+      "final_inter_core_tiling": [
+        [
+          "z6",
+          4
+        ]
+      ],
+      "split_local_position": 1,
+      "split_axis_meaning": "output spatial x (ox); not output channel k",
+      "output_channel_local_position": 6
+    },
+    "Conv2": {
+      "saved_source_type": "stream.workload.node.ComputationNode",
+      "operand_affine_maps": [
+        "(d0, d1, d2, d3, d4, d5, d6) -> (d0, d5, ((d2 + d4) + -1), ((d1 + d3) + -1))",
+        "(d0, d1, d2, d3, d4, d5, d6) -> (d6, d5, d4, d3)",
+        "(d0, d1, d2, d3, d4, d5, d6) -> (d0, d6, d2, d1)"
+      ],
+      "tensor_names_and_shapes": [
+        {
+          "name": "conv1_out",
+          "shape": [
+            1,
+            16,
+            32,
+            32
+          ]
+        },
+        {
+          "name": "weights_2",
+          "shape": [
+            32,
+            16,
+            3,
+            3
+          ]
+        },
+        {
+          "name": "output",
+          "shape": [
+            1,
+            32,
+            32,
+            32
+          ]
+        }
+      ],
+      "final_svg_local_dimension_order": [
+        "z10",
+        "z13",
+        "z12",
+        "z7",
+        "z8",
+        "z9",
+        "z11"
+      ],
+      "final_svg_local_dimension_sizes": [
+        1,
+        32,
+        32,
+        3,
+        3,
+        16,
+        32
+      ],
+      "final_inter_core_tiling": [
+        [
+          "z13",
+          4
+        ]
+      ],
+      "split_local_position": 1,
+      "split_axis_meaning": "output spatial x (ox); not output channel k",
+      "output_channel_local_position": 6
+    }
+  },
+  "ownership_assumption": "contiguous aligned ox ranges assigned in core order 0..3 for both operators; this is an allowed static mapping witness, not native address/transfer acceptance",
+  "consumer_input_map_note": "input map does not contain output channel k; k=0 suffices to enumerate the same input set for every output channel",
+  "per_core_affine_demand": [
+    {
+      "core": 0,
+      "output_x_half_open": [
+        0,
+        8
+      ],
+      "producer_output_words": 4096,
+      "consumer_distinct_input_words": 4608,
+      "consumer_input_x_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "remote_input_words": 512,
+      "remote_input_bits": 8192,
+      "remote_x_columns": [
+        8
+      ]
+    },
+    {
+      "core": 1,
+      "output_x_half_open": [
+        8,
+        16
+      ],
+      "producer_output_words": 4096,
+      "consumer_distinct_input_words": 5120,
+      "consumer_input_x_columns": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "remote_input_words": 1024,
+      "remote_input_bits": 16384,
+      "remote_x_columns": [
+        7,
+        16
+      ]
+    },
+    {
+      "core": 2,
+      "output_x_half_open": [
+        16,
+        24
+      ],
+      "producer_output_words": 4096,
+      "consumer_distinct_input_words": 5120,
+      "consumer_input_x_columns": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "remote_input_words": 1024,
+      "remote_input_bits": 16384,
+      "remote_x_columns": [
+        15,
+        24
+      ]
+    },
+    {
+      "core": 3,
+      "output_x_half_open": [
+        24,
+        32
+      ],
+      "producer_output_words": 4096,
+      "consumer_distinct_input_words": 4608,
+      "consumer_input_x_columns": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "remote_input_words": 512,
+      "remote_input_bits": 8192,
+      "remote_x_columns": [
+        23
+      ]
+    }
+  ],
+  "halo_payload_bits": 49152,
+  "halo_shared_bus_conservation_cycles_at_128_bits_per_cycle": 384,
+  "full_tensor_bits": 262144,
+  "prior_counterfactual_applicability": {
+    "original_contract_sha256_preserved": "cedcad0a3759e6993cba1bcc14706b495a9561c20a862c8787ea8f9eecb7caf8",
+    "original_result_sha256_preserved": "42ce2e9afdc53d6593d7d14f002be82076e8d99e813d00e9d2f3593d73d3068d",
+    "original_recorded_analytical_cycles": 14344.0,
+    "prior_full_allgather_scope_justification_supported": false,
+    "current_interpretation": "conditional full-payload contract sensitivity; not a confirmed baseline cost repair",
+    "original_contract_and_run_files_modified": false
+  },
+  "corrections": [
+    "Final z6/z13 are local D1=ox spatial dimensions, not output channels.",
+    "Allocated full conv1_out_1 footprint does not prove every input is used by each consumer.",
+    "2048 is NOT established as a minimum required by the 2conv computation; aligned selective halo needs only 49152 remote bits (384 bus service cycles).",
+    "512 is above this necessary halo bound; this audit does not prove an implementable 512-cycle transfer or complete schedule.",
+    "The separate parameterized allgather/four-distinct-target shared-bus counterexamples remain valid under their explicit full-payload transfer contracts.",
+    "The actual process-overlay solve of 14344 remains a recorded full-payload analytical intervention, not validation of the false allgather data-demand premise or a confirmed P0 repair."
+  ],
+  "optimizer_rerun": false,
+  "hardware_measurement": false,
+  "producer_sha256": "d7e55f620319a8efb6ca612cdbcb2d62ad4c2296a56faa5ecc84faeda6ae33ce"
+}

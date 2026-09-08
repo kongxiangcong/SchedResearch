@@ -1,0 +1,432 @@
+[
+  {
+    "name": "boost_any",
+    "repo": "boostorg/any",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/any/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "407d5527dd034afe70c2dcd938cf48ff23058bad33ce8eab1ddf464fc643b0a3",
+    "bytes": 23758,
+    "archive": "artifacts/npe_downloads/boost_any.tar.gz",
+    "root_directory": "any-boost-1.87.0"
+  },
+  {
+    "name": "boost_assert",
+    "repo": "boostorg/assert",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/assert/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "6ceba65bf896cbe5c348c27e7642868a9d3a989d27d3ba42d6c96b26d7e112f4",
+    "bytes": 20645,
+    "archive": "artifacts/npe_downloads/boost_assert.tar.gz",
+    "root_directory": "assert-boost-1.87.0"
+  },
+  {
+    "name": "boost_bind",
+    "repo": "boostorg/bind",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/bind/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "40141a1c79107a8b53ea63226a89133a2897fa4192e7bf3fdbe638f90011a067",
+    "bytes": 85714,
+    "archive": "artifacts/npe_downloads/boost_bind.tar.gz",
+    "root_directory": "bind-boost-1.87.0"
+  },
+  {
+    "name": "boost_concept_check",
+    "repo": "boostorg/concept_check",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/concept_check/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "44ac6a26d214ab9481b89618adc3d63c65207a4d2b5c2a688892616cb69f95b8",
+    "bytes": 56131,
+    "archive": "artifacts/npe_downloads/boost_concept_check.tar.gz",
+    "root_directory": "concept_check-boost-1.87.0"
+  },
+  {
+    "name": "boost_config",
+    "repo": "boostorg/config",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/config/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "e3e2639f5d8a6f6bac80f9883596d75a60038d4f0c9fc8c9507dcddf4d7427e4",
+    "bytes": 386554,
+    "archive": "artifacts/npe_downloads/boost_config.tar.gz",
+    "root_directory": "config-boost-1.87.0"
+  },
+  {
+    "name": "boost_container",
+    "repo": "boostorg/container",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/container/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "164e5bfcd0d8279b2f8aaa5f993f9f55002b9939bbb3348483357f01d858fbe4",
+    "bytes": 1388615,
+    "archive": "artifacts/npe_downloads/boost_container.tar.gz",
+    "root_directory": "container-boost-1.87.0"
+  },
+  {
+    "name": "boost_container_hash",
+    "repo": "boostorg/container_hash",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/container_hash/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "12752731f9b56393b6ef53d54d04639816742112a07ec4fbacc3d3c5e2812434",
+    "bytes": 65831,
+    "archive": "artifacts/npe_downloads/boost_container_hash.tar.gz",
+    "root_directory": "container_hash-boost-1.87.0"
+  },
+  {
+    "name": "boost_core",
+    "repo": "boostorg/core",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/core/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "d7bce8722429aa83a7f30d90b7198d805daf1133292c5974de3b4794771d6974",
+    "bytes": 172057,
+    "archive": "artifacts/npe_downloads/boost_core.tar.gz",
+    "root_directory": "core-boost-1.87.0"
+  },
+  {
+    "name": "boost_describe",
+    "repo": "boostorg/describe",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/describe/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "6f377d72544f31c4feeae9342b5db79b2436f60f67123ef9f3a4b4f760bace10",
+    "bytes": 42386,
+    "archive": "artifacts/npe_downloads/boost_describe.tar.gz",
+    "root_directory": "describe-boost-1.87.0"
+  },
+  {
+    "name": "boost_detail",
+    "repo": "boostorg/detail",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/detail/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "344aa0eb171fd40ed2c44a272fb7d22cd44fdb16c31a26fb0a3e923a3a27ee28",
+    "bytes": 74373,
+    "archive": "artifacts/npe_downloads/boost_detail.tar.gz",
+    "root_directory": "detail-boost-1.87.0"
+  },
+  {
+    "name": "boost_function",
+    "repo": "boostorg/function",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/function/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "5714e6e6dd35ae6578067c5894492e79cf4a7491a540160f3717326c08e95b79",
+    "bytes": 46398,
+    "archive": "artifacts/npe_downloads/boost_function.tar.gz",
+    "root_directory": "function-boost-1.87.0"
+  },
+  {
+    "name": "boost_function_types",
+    "repo": "boostorg/function_types",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/function_types/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "11b94db2726bf5ce2910250cac19a498ca1358484793b8c7e2823838df0a6c9f",
+    "bytes": 79880,
+    "archive": "artifacts/npe_downloads/boost_function_types.tar.gz",
+    "root_directory": "function_types-boost-1.87.0"
+  },
+  {
+    "name": "boost_functional",
+    "repo": "boostorg/functional",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/functional/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "f7c2ce0a815ea67dde2d22a86ab90ce60d2d32e76d7ad71b9c168956cec7af79",
+    "bytes": 57186,
+    "archive": "artifacts/npe_downloads/boost_functional.tar.gz",
+    "root_directory": "functional-boost-1.87.0"
+  },
+  {
+    "name": "boost_fusion",
+    "repo": "boostorg/fusion",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/fusion/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "a87bd3e51c65286f5d88c077c1afa4606b6539653a9f45d4ae800d54b5f607cb",
+    "bytes": 718257,
+    "archive": "artifacts/npe_downloads/boost_fusion.tar.gz",
+    "root_directory": "fusion-boost-1.87.0"
+  },
+  {
+    "name": "boost_intrusive",
+    "repo": "boostorg/intrusive",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/intrusive/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "b14cfa8a62cd70f5e2296f706a84ab6a9515783af949014ad1c2f5b1236e71ae",
+    "bytes": 342888,
+    "archive": "artifacts/npe_downloads/boost_intrusive.tar.gz",
+    "root_directory": "intrusive-boost-1.87.0"
+  },
+  {
+    "name": "boost_io",
+    "repo": "boostorg/io",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/io/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "58051a9c64abd3705d96b8c982a5415cca6a323b465734d6def9538c99662908",
+    "bytes": 17477,
+    "archive": "artifacts/npe_downloads/boost_io.tar.gz",
+    "root_directory": "io-boost-1.87.0"
+  },
+  {
+    "name": "boost_iterator",
+    "repo": "boostorg/iterator",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/iterator/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "34a96f9bebd2e2cb631ee19b42055402971e2e410a810c7f8bc664d9fe981765",
+    "bytes": 1525144,
+    "archive": "artifacts/npe_downloads/boost_iterator.tar.gz",
+    "root_directory": "iterator-boost-1.87.0"
+  },
+  {
+    "name": "boost_lexical_cast",
+    "repo": "boostorg/lexical_cast",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/lexical_cast/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "ac2d2110a119443fc2ae8a10122bf59495c09872a8f3a070e7fcc854d2e602aa",
+    "bytes": 62589,
+    "archive": "artifacts/npe_downloads/boost_lexical_cast.tar.gz",
+    "root_directory": "lexical_cast-boost-1.87.0"
+  },
+  {
+    "name": "boost_move",
+    "repo": "boostorg/move",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/move/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "758a63a2e7cfdcfe750cd8311033ce79c27de3d416e34a9af111223c10fbbfdd",
+    "bytes": 133396,
+    "archive": "artifacts/npe_downloads/boost_move.tar.gz",
+    "root_directory": "move-boost-1.87.0"
+  },
+  {
+    "name": "boost_mp11",
+    "repo": "boostorg/mp11",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/mp11/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "f07a7282a4b440ff9f2917224badd4c112affede946ae25fba6b3e3538a858de",
+    "bytes": 130125,
+    "archive": "artifacts/npe_downloads/boost_mp11.tar.gz",
+    "root_directory": "mp11-boost-1.87.0"
+  },
+  {
+    "name": "boost_mpl",
+    "repo": "boostorg/mpl",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/mpl/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "fdc3632c8ff236fc6d058494c8aab4d841153a937798399b772759b3f56ad3e1",
+    "bytes": 1512670,
+    "archive": "artifacts/npe_downloads/boost_mpl.tar.gz",
+    "root_directory": "mpl-boost-1.87.0"
+  },
+  {
+    "name": "boost_optional",
+    "repo": "boostorg/optional",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/optional/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "3b43ef899f71f5adbf074de2f99ea442dbd68a80d63a1491a580cceff3ec65b3",
+    "bytes": 86723,
+    "archive": "artifacts/npe_downloads/boost_optional.tar.gz",
+    "root_directory": "optional-boost-1.87.0"
+  },
+  {
+    "name": "boost_predef",
+    "repo": "boostorg/predef",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/predef/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "cb7cff97d180ba58f8a0945e5bedee830a3f311daa64732c4cb31cd94fea1a58",
+    "bytes": 109278,
+    "archive": "artifacts/npe_downloads/boost_predef.tar.gz",
+    "root_directory": "predef-boost-1.87.0"
+  },
+  {
+    "name": "boost_preprocessor",
+    "repo": "boostorg/preprocessor",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/preprocessor/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "b56db0e8c6757fe7dea8181a13a68e2328b51b8297f3a5f12d91159e6cd268fc",
+    "bytes": 866066,
+    "archive": "artifacts/npe_downloads/boost_preprocessor.tar.gz",
+    "root_directory": "preprocessor-boost-1.87.0"
+  },
+  {
+    "name": "boost_program_options",
+    "repo": "boostorg/program_options",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/program_options/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "d716debed5ace68f74d82c3c0cdfece9f7b0a01f74843cc2c91b2cc23bf650f6",
+    "bytes": 134852,
+    "archive": "artifacts/npe_downloads/boost_program_options.tar.gz",
+    "root_directory": "program_options-boost-1.87.0"
+  },
+  {
+    "name": "boost_smart_ptr",
+    "repo": "boostorg/smart_ptr",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/smart_ptr/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "1c984b1b70b95fa8c4ff4055567e355847fdc2218fc84ab925eaf3dfa4d8d532",
+    "bytes": 172869,
+    "archive": "artifacts/npe_downloads/boost_smart_ptr.tar.gz",
+    "root_directory": "smart_ptr-boost-1.87.0"
+  },
+  {
+    "name": "boost_static_assert",
+    "repo": "boostorg/static_assert",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/static_assert/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "4cba06491424fdaed7208f47f5248725b2f4b68f7fa2c894411cc5ac97bcebd1",
+    "bytes": 12885,
+    "archive": "artifacts/npe_downloads/boost_static_assert.tar.gz",
+    "root_directory": "static_assert-boost-1.87.0"
+  },
+  {
+    "name": "boost_throw_exception",
+    "repo": "boostorg/throw_exception",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/throw_exception/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "0aa8af4075b851f38bb723b544e9f67de826ddbf1c7c4c4ec186cb2204005d86",
+    "bytes": 19968,
+    "archive": "artifacts/npe_downloads/boost_throw_exception.tar.gz",
+    "root_directory": "throw_exception-boost-1.87.0"
+  },
+  {
+    "name": "boost_tokenizer",
+    "repo": "boostorg/tokenizer",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/tokenizer/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "8f86bf37f98749f71c35246b4b129d05b8f8ff544b7dc246a6e93a6e89293e7a",
+    "bytes": 26092,
+    "archive": "artifacts/npe_downloads/boost_tokenizer.tar.gz",
+    "root_directory": "tokenizer-boost-1.87.0"
+  },
+  {
+    "name": "boost_tuple",
+    "repo": "boostorg/tuple",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/tuple/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "dbaad62f6f7e8ea5ad48eed409ee31de0aae7aabdb360d4cbf27d622fccd7d52",
+    "bytes": 31311,
+    "archive": "artifacts/npe_downloads/boost_tuple.tar.gz",
+    "root_directory": "tuple-boost-1.87.0"
+  },
+  {
+    "name": "boost_type_index",
+    "repo": "boostorg/type_index",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/type_index/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "adacb41b1414b99c45de84f7150f17139fd0bf3b1963a33c6f0c6c57cdf9f914",
+    "bytes": 41270,
+    "archive": "artifacts/npe_downloads/boost_type_index.tar.gz",
+    "root_directory": "type_index-boost-1.87.0"
+  },
+  {
+    "name": "boost_type_traits",
+    "repo": "boostorg/type_traits",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/type_traits/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "31d92a431eb74b4899928ad2a033aa91edfcc0613c965db4bf7ebf1542791abc",
+    "bytes": 399497,
+    "archive": "artifacts/npe_downloads/boost_type_traits.tar.gz",
+    "root_directory": "type_traits-boost-1.87.0"
+  },
+  {
+    "name": "boost_typeof",
+    "repo": "boostorg/typeof",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/typeof/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "b8469306baafa8aab9ec4e717d5e5408b12f991bdf21ad3a9d27fe0bac192c59",
+    "bytes": 22215,
+    "archive": "artifacts/npe_downloads/boost_typeof.tar.gz",
+    "root_directory": "typeof-boost-1.87.0"
+  },
+  {
+    "name": "boost_unordered",
+    "repo": "boostorg/unordered",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/unordered/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "c46bea36bd8f3992a342c8db4f102b4e2f4028b21e1a99af06c1833428774c14",
+    "bytes": 3996264,
+    "archive": "artifacts/npe_downloads/boost_unordered.tar.gz",
+    "root_directory": "unordered-boost-1.87.0"
+  },
+  {
+    "name": "boost_utility",
+    "repo": "boostorg/utility",
+    "tag": "boost-1.87.0",
+    "url": "https://codeload.github.com/boostorg/utility/tar.gz/refs/tags/boost-1.87.0",
+    "sha256": "92be96d54d6f8d6d7a80f5bcfc7a301d0a970122b974b0210caf41c05c652345",
+    "bytes": 160176,
+    "archive": "artifacts/npe_downloads/boost_utility.tar.gz",
+    "root_directory": "utility-boost-1.87.0"
+  },
+  {
+    "name": "fmt",
+    "repo": "fmtlib/fmt",
+    "tag": "11.1.4",
+    "url": "https://codeload.github.com/fmtlib/fmt/tar.gz/refs/tags/11.1.4",
+    "sha256": "ac366b7b4c2e9f0dde63a59b3feb5ee59b67974b14ee5dc9ea8ad78aa2c1ee1e",
+    "bytes": 703832,
+    "archive": "artifacts/npe_downloads/fmt.tar.gz",
+    "root_directory": "fmt-11.1.4"
+  },
+  {
+    "name": "googletest",
+    "repo": "google/googletest",
+    "tag": "v1.16.0",
+    "url": "https://codeload.github.com/google/googletest/tar.gz/refs/tags/v1.16.0",
+    "sha256": "78c676fc63881529bf97bf9d45948d905a66833fbfa5318ea2cd7478cb98f399",
+    "bytes": 876245,
+    "archive": "artifacts/npe_downloads/googletest.tar.gz",
+    "root_directory": "googletest-1.16.0"
+  },
+  {
+    "name": "json",
+    "repo": "nlohmann/json",
+    "tag": "v3.12.0",
+    "url": "https://codeload.github.com/nlohmann/json/tar.gz/refs/tags/v3.12.0",
+    "sha256": "4b92eb0c06d10683f7447ce9406cb97cd4b453be18d7279320f7b2f025c10187",
+    "bytes": 9678593,
+    "archive": "artifacts/npe_downloads/json.tar.gz",
+    "root_directory": "json-3.12.0"
+  },
+  {
+    "name": "magic_enum",
+    "repo": "Neargye/magic_enum",
+    "tag": "v0.9.6",
+    "url": "https://codeload.github.com/Neargye/magic_enum/tar.gz/refs/tags/v0.9.6",
+    "sha256": "fcda8295256a2084f1f98a63b3d2c66b3d7140eea008e1ef94ea015b2f6d3034",
+    "bytes": 199886,
+    "archive": "artifacts/npe_downloads/magic_enum.tar.gz",
+    "root_directory": "magic_enum-0.9.6"
+  },
+  {
+    "name": "pybind11",
+    "repo": "pybind/pybind11",
+    "tag": "v2.13.6",
+    "url": "https://codeload.github.com/pybind/pybind11/tar.gz/refs/tags/v2.13.6",
+    "sha256": "e08cb87f4773da97fa7b5f035de8763abc656d87d5773e62f6da0587d1f0ec20",
+    "bytes": 800804,
+    "archive": "artifacts/npe_downloads/pybind11.tar.gz",
+    "root_directory": "pybind11-2.13.6"
+  },
+  {
+    "name": "reflect",
+    "repo": "boost-ext/reflect",
+    "tag": "v1.1.1",
+    "url": "https://codeload.github.com/boost-ext/reflect/tar.gz/refs/tags/v1.1.1",
+    "sha256": "49b20cbc0e5d9f94bcdc96056f8c5d91ee2e45d8642e02cb37e511079671ad48",
+    "bytes": 13173,
+    "archive": "artifacts/npe_downloads/reflect.tar.gz",
+    "root_directory": "reflect-1.1.1"
+  },
+  {
+    "name": "simdjson",
+    "repo": "simdjson/simdjson",
+    "tag": "v3.12.3",
+    "url": "https://codeload.github.com/simdjson/simdjson/tar.gz/refs/tags/v3.12.3",
+    "sha256": "d0af071f2f4187d8b26b556e83ef832b634bd5feb4e2f537b9dabbd334d4e334",
+    "bytes": 2717490,
+    "archive": "artifacts/npe_downloads/simdjson.tar.gz",
+    "root_directory": "simdjson-3.12.3"
+  },
+  {
+    "name": "yaml-cpp",
+    "repo": "jbeder/yaml-cpp",
+    "tag": "0.8.0",
+    "url": "https://codeload.github.com/jbeder/yaml-cpp/tar.gz/refs/tags/0.8.0",
+    "sha256": "fbe74bbdcee21d656715688706da3c8becfd946d92cd44705cc6098bb23b3a16",
+    "bytes": 1017151,
+    "archive": "artifacts/npe_downloads/yaml-cpp.tar.gz",
+    "root_directory": "yaml-cpp-0.8.0"
+  }
+]

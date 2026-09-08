@@ -1,0 +1,33 @@
+{
+  "schema": "r12.shared-resource-counterfactual-contract.v1",
+  "registered_date": "2026-09-08",
+  "question": "Does a narrowly scoped shared-bus conservation correction actually enter the original TETRA solve, and what analytical fixture plan/cost results?",
+  "evidence_level": "uncalibrated analytical fixture counterfactual; baseline cost repair, not P1 or H1",
+  "stream_revision": "75748cc17e7c43add5a7d0d8f080841eb26531c4",
+  "original_result": "results/baseline_smoke/result.json",
+  "original_expected_analytical_cycles": 12808,
+  "original_expected_transfer_cycles": 512,
+  "inputs": {
+    "hardware": "stream/inputs/examples/hardware/tpu_like_quad_core.yaml",
+    "hardware_sha256": "611e5d0fc71b1122b65b2c027550d6aa9719a4be40a4d6435f210955415d2ccc",
+    "workload": "stream/inputs/testing/workload/2conv_1_8_32_32_16_32_3.onnx",
+    "workload_sha256": "049590d81e54bc107c1e1486a214d2d0e055b5a904f8ca6b372b646a034e63da"
+  },
+  "intervention": {
+    "mechanism": "process-local overlay of utils.get_transfer_latency_for_path and its imported allocator binding; no source checkout edits",
+    "eligible_transfer_name": "Transfer(conv1_out)",
+    "eligible_transfer_type": "COMPUTE_TO_COMPUTE",
+    "eligible_input_shape": [1, 16, 32, 32],
+    "eligible_input_bits": 262144,
+    "eligible_sources_and_targets": [0, 1, 2, 3],
+    "eligible_resources": "exactly one bidirectional CommunicationLink with sender=Any, receiver=Any, bandwidth=128",
+    "old_cost": "ceil(tensor_bits/(bandwidth*4)) = 512",
+    "overlay_cost": "ceil(tensor_bits/bandwidth) = 2048",
+    "unmatched_paths": "unchanged; retain disjoint-chain behavior",
+    "scope_justification": "original IR proves per-core source 65536 bits to per-core target 262144 bits; all-gather on one shared bus"
+  },
+  "fixed": ["workload", "hardware resources", "mapping generation", "all constraint toggles", "backend ortools_gscip", "full public API solve", "original smoke checks"],
+  "required_checks": ["overlay binding identity", "nonzero eligible call count", "every changed call old=512 and new=2048", "actual selected transfer cost", "source checkout unchanged", "original result artifact hashes unchanged", "separate result folder", "explicit process overlay metadata"],
+  "record": ["all changed calls and caller modules", "total helper call count", "new analytical latency", "selected paths and mapping differences", "final solver statistics with their existing scope", "input/contract/runner hashes"],
+  "interpretation": "14344 from fixed-plan arithmetic is only a preregistered diagnostic; reoptimized output may differ. No device speedup, full MLP result, H1, or new algorithm contribution is inferred."
+}

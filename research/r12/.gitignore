@@ -1,0 +1,11 @@
+/deps/
+/.venv/
+/build/
+/.wsl/
+/artifacts/logs/
+/artifacts/stream_smoke/
+/artifacts/npe_downloads/*.tar.gz
+/results/baseline_smoke/pipeline/
+/results/baseline_smoke/*.log
+/results/shared_resource_counterfactual*/pipeline/
+/results/shared_resource_counterfactual*/*.log

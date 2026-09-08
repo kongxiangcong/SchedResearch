@@ -1,0 +1,56 @@
+{
+  "schema": "r12-npe-smoke-v1",
+  "created_utc": "2026-09-08T01:05:28.062159+00:00",
+  "passed": true,
+  "evidence_level": "official coarse estimator and upstream example workload",
+  "hardware_measurement": false,
+  "golden_reference_independently_verified": false,
+  "full_dfg_timing_calibrated": false,
+  "module": "/opt/schedresearch-r12/install/tt-npe/lib/tt_npe_pybind.cpython-312-x86_64-linux-gnu.so",
+  "workload": {
+    "path": "/opt/schedresearch-r12/tt-npe/tt_npe/workload/example_wl.json",
+    "sha256": "6dd385b68704b180508b21ec7d10ca2f7161c857eea72611d06cfb6c5c99ff1c"
+  },
+  "config": {
+    "device": "wormhole_b0",
+    "congestion_model": "fast",
+    "cycles_per_timestep": 32,
+    "injection_rate_inference": true
+  },
+  "per_device_stats": {
+    "-1": {
+      "completed": true,
+      "estimated_cycles": 437,
+      "estimated_cong_free_cycles": 437,
+      "golden_cycles": 450,
+      "cycle_prediction_error": -2.888888888888889,
+      "wallclock_runtime_us": 654,
+      "dram_bw_util": 0.6026364978962835,
+      "dram_bw_util_sim": 0.6205639061386992,
+      "overall_avg_noc0_link_util": 0.0,
+      "overall_avg_noc1_link_util": 8.255463070339625,
+      "overall_avg_niu_demand": 0.8895761110164501,
+      "overall_max_niu_demand": 1.426953143543667,
+      "dram_bw_util_per_controller": {
+        "0": 3.615819209039548
+      }
+    },
+    "0": {
+      "completed": true,
+      "estimated_cycles": 437,
+      "estimated_cong_free_cycles": 437,
+      "golden_cycles": 450,
+      "cycle_prediction_error": -2.888888888888889,
+      "wallclock_runtime_us": 654,
+      "dram_bw_util": 0.6026364978962835,
+      "dram_bw_util_sim": 0.6205639061386992,
+      "overall_avg_noc0_link_util": 0.0,
+      "overall_avg_noc1_link_util": 8.255463070339625,
+      "overall_avg_niu_demand": 0.8895761110164501,
+      "overall_max_niu_demand": 1.426953143543667,
+      "dram_bw_util_per_controller": {
+        "0": 3.615819209039548
+      }
+    }
+  }
+}

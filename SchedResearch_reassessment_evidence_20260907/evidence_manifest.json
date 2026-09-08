@@ -1,0 +1,484 @@
+{
+  "date": "2026-09-07",
+  "project_commit": "a947b563356610cf4dbb05995debf18fc3054e66",
+  "scope": "仅指定 research 记录及关联实验；未读取其他方案初稿/演示/解析副本",
+  "historical_experiment_reruns": 0,
+  "hardware_runs": 0,
+  "repository_writes": 0,
+  "executed_this_review": [
+    "bound_witness.py：R9/R11 算术复算与 NoC0 request-link 下界见证"
+  ],
+  "project_coverage": [
+    {
+      "path": "research/research_progress.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/research_progress.md",
+      "read_scope": "全文，含 R10/R11 末尾追加",
+      "evidence_level": "历史报告阅读",
+      "basis": "逐轮结论有明确合同边界；旧投入建议不作为本次选题约束",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/analysis/r1_r10_research_retrospective.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/analysis/r1_r10_research_retrospective.md",
+      "read_scope": "全文，含 R11 追加",
+      "evidence_level": "历史报告阅读",
+      "basis": "正式候选台账、关闭/未测区分",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r1-base/redteam_claim_frameworks.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r1-base/redteam_claim_frameworks.md",
+      "read_scope": "1–150 行：C1–C10 定义表及 D1 开头",
+      "evidence_level": "节选阅读",
+      "basis": "仅核查原始候选定义；不把历史 TARS 当作新硬件",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r2-ooo-npu/research.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r2-ooo-npu/research.md",
+      "read_scope": "228–360 行：原始 P1–P5 及末尾",
+      "evidence_level": "节选阅读",
+      "basis": "quasi-static 变体原已提出；宽泛必要条件被 R3 撤回",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r3/experiment_report.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r3/experiment_report.md",
+      "read_scope": "全文",
+      "evidence_level": "历史报告阅读",
+      "basis": "150/140 存在性；收费可达 156；并非真实 NoC",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r3/architecture_proposal.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r3/architecture_proposal.md",
+      "read_scope": "全文",
+      "evidence_level": "历史报告阅读",
+      "basis": "window 外的 O(N+E) 状态及成本边界",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/analysis/static_vs_dynamic.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/analysis/static_vs_dynamic.md",
+      "read_scope": "全文",
+      "evidence_level": "历史报告阅读",
+      "basis": "固定资源序 + self-timed，不是固定启动周期",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r4/experiment_report.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r4/experiment_report.md",
+      "read_scope": "§1–§4、§5 开头",
+      "evidence_level": "节选阅读",
+      "basis": "强静态、因果单动作对照；未独立读取全部 raw trace",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r5/experiment_report.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r5/experiment_report.md",
+      "read_scope": "全文，含 compiler residency 控制",
+      "evidence_level": "历史报告阅读",
+      "basis": "request/bank/credit 已测；非完整 NoC",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r5/model.py",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r5/model.py",
+      "read_scope": "全文",
+      "evidence_level": "源码检查",
+      "basis": "资源配置、图与请求粒度；不是 router 模型",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r5/resource_sim.py",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r5/resource_sim.py",
+      "read_scope": "80–245 行",
+      "evidence_level": "源码检查",
+      "basis": "同周期批量完成，return credit，串行 fabric，本地 bank；总 SRAM BW 不因 bank 数增加",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r8/experiment_report.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r8/experiment_report.md",
+      "read_scope": "全文",
+      "evidence_level": "历史报告阅读",
+      "basis": "direct peer/staging 字节与有限可见性枚举；未测时序",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r8/source_contract_audit.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r8/source_contract_audit.md",
+      "read_scope": "全文",
+      "evidence_level": "历史报告阅读",
+      "basis": "split-K 非 bitwise；物理路由与数值准入分开",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r9/reference_hardware.json",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r9/reference_hardware.json",
+      "read_scope": "全文",
+      "evidence_level": "合同检查",
+      "basis": "单全局 EXT，两 cluster DMA，cross-cluster staging，无本地 bank/NoC",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r9/model_notes.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r9/model_notes.md",
+      "read_scope": "全文",
+      "evidence_level": "合同/模型说明检查",
+      "basis": "ready-command 准入及 RR 是 baseline 自带行为",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r9/model.py",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r9/model.py",
+      "read_scope": "全文",
+      "evidence_level": "源码检查",
+      "basis": "external_busy；read/write 两段服务；credit、完成和可见性",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r9/experiment_report.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r9/experiment_report.md",
+      "read_scope": "全文",
+      "evidence_level": "历史报告阅读 + 独立算术复算",
+      "basis": "47,776；2,998,272 B；46,848 下界；1.9424% 固定流量余量",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r10/reference_hardware.json",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r10/reference_hardware.json",
+      "read_scope": "全文",
+      "evidence_level": "合同检查",
+      "basis": "继承 R9 参考硬件；对照 contract_delta",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r10/contract_delta.json",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r10/contract_delta.json",
+      "read_scope": "全文",
+      "evidence_level": "合同检查",
+      "basis": "EXT128/DMA32 与观察/动作收费",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r10/experiment_report.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r10/experiment_report.md",
+      "read_scope": "全文",
+      "evidence_level": "历史报告阅读",
+      "basis": "1,440 次观察，0 次实际改序；不是全面动作否定",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r11/contract.json",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r11/contract.json",
+      "read_scope": "全文",
+      "evidence_level": "合同检查",
+      "basis": "独立双核、共享 local/EXT、cold-weight、staged ABI、strict decode clobber",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r11/simulator.py",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r11/simulator.py",
+      "read_scope": "全文",
+      "evidence_level": "源码检查",
+      "basis": "资源顺序已编码在 DFG；不是 R9 的连续细化",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r11/model.py",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r11/model.py",
+      "read_scope": "1–100 行：Builder.add 及资源前驱",
+      "evidence_level": "源码检查",
+      "basis": "last[res] 插入 FIFO 顺序边",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r11/experiment_report.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r11/experiment_report.md",
+      "read_scope": "全文",
+      "evidence_level": "历史报告阅读 + 独立算术复算",
+      "basis": "local-state −75%，external bytes 不变，完整 elapsed 未改善",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r11/independent_audit.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r11/independent_audit.md",
+      "read_scope": "全文",
+      "evidence_level": "历史审计报告阅读",
+      "basis": "122 trace PASS 是历史审计；本次没有重放它们",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/r11/results.json",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/r11/results.json",
+      "read_scope": "quiet aggregate 与开头配对结果；长文件未全读",
+      "evidence_level": "已有结果部分检查",
+      "basis": "核对 quiet 值、固定 external bytes；非全部 trace 审计",
+      "historical_experiment_rerun_this_review": false
+    },
+    {
+      "path": "research/literature/prior_art_registry.md",
+      "url": "https://github.com/kongxiangcong/SchedResearch/blob/a947b563356610cf4dbb05995debf18fc3054e66/research/literature/prior_art_registry.md",
+      "read_scope": "全文",
+      "evidence_level": "既有登记阅读",
+      "basis": "继承条目不等于本次全文核验；逐项分开",
+      "historical_experiment_rerun_this_review": false
+    }
+  ],
+  "external_sources": [
+    {
+      "name": "Tenstorrent memory guide",
+      "url": "https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tt_metal/advanced_topics/memory_for_kernel_developers.html",
+      "version": "官方在线文档，2026-09-07 获取",
+      "coverage": "内存与 NoC 开发者合同正文",
+      "limits": "非 coherence；多个 DRAM endpoint 可共享 controller；未测设备"
+    },
+    {
+      "name": "Wormhole ISA NoC",
+      "url": "https://github.com/tenstorrent/tt-isa-documentation/tree/5287a62727350bcef35f7b411d1b8a706172ec4c/WormholeB0/NoC",
+      "version": "5287a62727350bcef35f7b411d1b8a706172ec4c",
+      "coverage": "README/Ordering/RoutingPaths 全文；MemoryMap 1–180、Counters 1–155、Coordinates 1–130",
+      "limits": "计数器、请求发起、源读完、目的写完的事件不同；队列深度与板卡参数仍需确认"
+    },
+    {
+      "name": "STREAM/TETRA",
+      "url": "https://github.com/KULeuven-MICAS/stream/tree/75748cc17e7c43add5a7d0d8f080841eb26531c4",
+      "version": "75748cc17e7c43add5a7d0d8f080841eb26531c4 / 1.14.1",
+      "coverage": "官方 hardware/mapping 文档；TransferAndTensorAllocator 1–230；utils.py 全文；DMA constraint 搜索",
+      "limits": "当前实现已有 capacity/FIFO/BD/DMA、placement/routing；路径估价函数不是 VC 周期模型；原始正式论文全文未获取"
+    },
+    {
+      "name": "tt-npe",
+      "url": "https://github.com/tenstorrent/tt-npe/tree/341da058f0b65e51d3643fb36f011a0784abedff",
+      "version": "341da058f0b65e51d3643fb36f011a0784abedff",
+      "coverage": "README，npeAPI.cpp 全文，npeEngine.cpp 1–250",
+      "limits": "fast 拥塞估价；n−2 dependency 是 2-VC 效果近似，不是逐 flit credit；未运行"
+    },
+    {
+      "name": "ttsim",
+      "url": "https://github.com/tenstorrent/ttsim",
+      "version": "在线 README",
+      "coverage": "功能仿真入口说明",
+      "limits": "未证明可作周期/吞吐校准，未运行"
+    },
+    {
+      "name": "TPU v4",
+      "url": "https://arxiv.org/abs/2304.01433",
+      "version": "TPU v4 论文",
+      "coverage": "§3.5 和 Fig.7（PDF 第6页图像）",
+      "limits": "SparseCore tile–HBM channel 关联，不能外推 TensorCore 或把 ICI 当片内 NoC"
+    },
+    {
+      "name": "Groq ISCA 2022",
+      "url": "https://groq.com/isca-2022-paper/",
+      "version": "DOI 10.1145/3470496.3527405",
+      "coverage": "作者全文取得，重点 §2.3、§3–4",
+      "limits": "静态 compute/communication 与软件流控；非 Wormhole 透明替代合同"
+    },
+    {
+      "name": "Simba",
+      "url": "https://research.nvidia.com/publication/2019-10_simba-scaling-deep-learning-inference-multi-chip-module-based-architecture",
+      "version": "MICRO 2019；另定位作者 CACM 后续",
+      "coverage": "作者题录/摘要；原 PDF 多入口下载失败",
+      "limits": "未声称完整核验原论文算法、全部参数或实现"
+    },
+    {
+      "name": "Occamy",
+      "url": "https://pulp-platform.github.io/occamy/rm/1_overview.html",
+      "version": "公开手册；论文 2406.15068 / 2501.07330 题录",
+      "coverage": "手册和论文元数据",
+      "limits": "cluster DMA、HBM、AXI；手册与论文容量版本不一致；原论文全文未成功获取"
+    },
+    {
+      "name": "TETRIS",
+      "url": "https://web.stanford.edu/~mgao12/pubs/tetris.asplos17.pdf",
+      "version": "ASPLOS 2017，10.1145/3037697.3037702",
+      "coverage": "架构 §3、算法 §4、方法 §5、相关工作；Fig.2/3 图像核验",
+      "limits": "16 vault；每 vault 多 bank 共享 TSV；论文架构，非产品；不是 BF16 Qwen 原生硬件"
+    },
+    {
+      "name": "nn_dataflow",
+      "url": "https://github.com/stanford-mast/nn_dataflow/blob/master/README.rst",
+      "version": "README blob d53c0c3b01c935a65bf1e26aa9dbcf6aae26a9c0",
+      "coverage": "README 全文",
+      "limits": "TETRIS/TANGRAM dataflow/partition/pipeline 作者入口；不等于原 cycle simulator 完整发布"
+    },
+    {
+      "name": "Neurocube",
+      "url": "https://casl.gatech.edu/2016/09/neurocube-isca-2016-paper-makes-news/",
+      "version": "ISCA 2016",
+      "coverage": "作者机构页面及 TETRIS 的直接引用",
+      "limits": "原文全文未取得；不使用未核验的产品参数"
+    },
+    {
+      "name": "Tesseract",
+      "url": "https://doi.org/10.1145/2749469.2750386",
+      "version": "ISCA 2015",
+      "coverage": "一手题录/摘要，另定位作者 retrospective 2306.15577",
+      "limits": "图处理 PIM，原始全文未获取，不等于 DNN 编译合同"
+    },
+    {
+      "name": "HD-MoE",
+      "url": "https://arxiv.org/abs/2509.09420",
+      "version": "v1；ICCAD 2025 DOI 10.1109/ICCAD66269.2025.11240984",
+      "coverage": "原文 hardware/mapping/online/evaluation 方法；作者代码",
+      "limits": "offline TP/EP + node/link balance + online pre-broadcast 是直接近邻"
+    },
+    {
+      "name": "HD-MoE code",
+      "url": "https://github.com/angerybob/HD-MoE/tree/94ba08ecaa01bbfe3ace2c56aab1698cdfcc7f8f",
+      "version": "94ba08ecaa01bbfe3ace2c56aab1698cdfcc7f8f",
+      "coverage": "README 全文；simulator.py 1–230；node_allocation.py 1–295",
+      "limits": "逐链路 chunk calendar，不是 VC/DRAM cycle model；入口参数签名需资格核查；未运行"
+    },
+    {
+      "name": "HDA-MoE",
+      "url": "https://github.com/angerybob/HDA-MoE",
+      "version": "README blob 786e7d628c9824c137ded4312387a210d183dd4f",
+      "coverage": "作者 README 全文",
+      "limits": "作者称 TCAD accepted；尚无最终 DOI/取得的全文；容量/拓扑/动态/gating 扩展，gating 改路由应另立数值合同"
+    },
+    {
+      "name": "Expert Streaming",
+      "url": "https://arxiv.org/abs/2603.27624",
+      "version": "2026 预印本",
+      "coverage": "§IV–V、实现与约束正文",
+      "limits": "动态 trajectory + micro-expert + overlap；prototype/evaluation 限制不能忽略；未获取作者代码"
+    },
+    {
+      "name": "DeepStack",
+      "url": "https://arxiv.org/html/2604.04750v1",
+      "version": "v1，2026 预印本",
+      "coverage": "§4.1.3/4.1.4 模型、DSE/功耗热方法",
+      "limits": "bank 映射、逐链路字节与 3D DSE 已覆盖；非 NIU/VC/visibility 精确执行模型；未核查代码"
+    },
+    {
+      "name": "LATTICE / DAN",
+      "url": "https://arxiv.org/html/2607.17422v3",
+      "version": "同一 arXiv 编号；v1 DAN-Scheduler，v3 LATTICE",
+      "coverage": "v3 §I–IV、评估开头；v1 元数据",
+      "limits": "同一工作版本演进，不能列成独立两篇；memory-plan-preserving scheduling 已有"
+    },
+    {
+      "name": "Event Tensor",
+      "url": "https://arxiv.org/html/2604.13327v1",
+      "version": "v1，2026 预印本",
+      "coverage": "§II–III 等方法正文",
+      "limits": "事件依赖与 compiled tile runtime 已有；GPU 开销不可移植"
+    },
+    {
+      "name": "TaskStream",
+      "url": "https://polyarch.cs.ucla.edu/papers/asplos2022-taskstream.pdf",
+      "version": "ASPLOS 2022 作者 PDF",
+      "coverage": "§2 typed task graph、§6 讨论、参考文献",
+      "limits": "typed edges/coreMask/NoC/动态执行；文中已有 bisection 瓶颈讨论；非本次硬件成本"
+    },
+    {
+      "name": "ASPEN",
+      "url": "https://papers.neurips.cc/paper_files/paper/2023/file/d899a31938c7838965b589d9b14a5ca6-Paper-Conference.pdf",
+      "version": "NeurIPS 2023 正式版",
+      "coverage": "§3.1–3.3 和算法1",
+      "limits": "offline tile DAG + distributed scheduling engines + Ready Pool；CPU 成本不能借用"
+    },
+    {
+      "name": "SoMa",
+      "url": "https://arxiv.org/html/2501.12634",
+      "version": "HPCA 2025 作者原文",
+      "coverage": "§II–V、评估与 artifact 入口",
+      "limits": "fusion/tiling/prefetch/delayed store/buffer allocation 已有；未检查作者源代码"
+    },
+    {
+      "name": "TileLink",
+      "url": "https://arxiv.org/html/2503.20313",
+      "version": "2025 原文",
+      "coverage": "§3 方法与 mapping/synchronization",
+      "limits": "tile-level data/signal、acquire/release、compute/comm 解耦已存在"
+    },
+    {
+      "name": "Mozart / ESP",
+      "url": "https://experts.illinois.edu/en/publications/mozart-taming-taxes-and-composing-accelerators-with-shared-memory/",
+      "version": "PACT 2024 DOI 10.1145/3656019.3676896",
+      "coverage": "作者机构题录与摘要",
+      "limits": "ASI/control tax/data tax；未取得本次可核查全文，不借用其端到端费用"
+    },
+    {
+      "name": "Bounded process-network execution",
+      "url": "https://ptolemy.berkeley.edu/publications/papers/99/HMAD/html/pn.html",
+      "version": "Ptolemy 官方说明；Parks 1995 作者入口",
+      "coverage": "PN 说明正文；thesis PDF 失败",
+      "limits": "有界 FIFO 可引入额外死锁；不把无限队列语义当物理证明"
+    },
+    {
+      "name": "ZigZag",
+      "url": "https://kuleuven-micas.github.io/zigzag/hardware.html",
+      "version": "官方在线文档",
+      "coverage": "hardware model 说明",
+      "limits": "单核估价/数据流，不是原生 Wormhole kernel 周期校准"
+    },
+    {
+      "name": "Timeloop / Accelergy",
+      "url": "https://timeloop.csail.mit.edu/",
+      "version": "官方入口",
+      "coverage": "架构/映射/成本角色",
+      "limits": "候选估价与能耗组件；未运行"
+    },
+    {
+      "name": "BookSim2",
+      "url": "https://github.com/booksim/booksim2",
+      "version": "作者 README",
+      "coverage": "工具能力",
+      "limits": "需要目标 routing/VC/credit adapter；支持 torus 不等于复现 Wormhole"
+    },
+    {
+      "name": "Ramulator2",
+      "url": "https://github.com/CMU-SAFARI/ramulator2",
+      "version": "作者 README",
+      "coverage": "工具能力",
+      "limits": "不能默认 GDDR6/controller 合同已支持或已经校准；未运行"
+    },
+    {
+      "name": "3D thermal follow-up search",
+      "url": "https://doi.org/10.1145/3806645.3820075",
+      "version": "2026 HPDC 检索结果",
+      "coverage": "题录/摘要检索，打开全文失败",
+      "limits": "只列新增近邻与缺口，不用于具体方法或性能主张"
+    }
+  ],
+  "search_groups": [
+    {
+      "group": "硬件",
+      "keywords": "multi-cluster accelerator NoC DMA shared DRAM; Tensix NoC DRAM controller; TPU SparseCore HBM channel; Groq TSP compiler scheduled communication; Occamy cluster DMA HBM; Simba communication aware data placement",
+      "sources": "官方 docs、作者/大学页面、arXiv、GitHub connector",
+      "outcome": "A 首选 Wormhole；Occamy 合同版本需进一步固定"
+    },
+    {
+      "group": "3D",
+      "keywords": "3D stacked memory neural network accelerator vault scheduling; bank local near memory processing compiler mapping; TETRIS Neurocube Tesseract; 3D logic memory hybrid bonding NoC scheduling",
+      "sources": "作者 PDF、arXiv、出版社题录、作者 GitHub",
+      "outcome": "TETRIS 可追溯论文合同；DeepStack/HD/HDA 提高广义联合规划新颖性风险"
+    },
+    {
+      "group": "编译/执行",
+      "keywords": "static dataflow graph bounded out of order accelerator runtime; compiler memory plan dependency scheduling contract; communication memory placement routing co optimization DNN accelerator; STREAM TETRA tensor placement transfer routing; hardware task manager heterogeneous accelerator dependency synchronization",
+      "sources": "作者论文、官方文档、GitHub code search",
+      "outcome": "不能把 contract/completion dispatch、tensor placement 或有限 DMA 配额作为新贡献"
+    },
+    {
+      "group": "近邻",
+      "keywords": "MoE 3D near memory hybrid dynamic parallelism; expert streaming chiplet scheduling; finite buffer dataflow scheduling deadlock; compiler controlled NoC injection scheduling",
+      "sources": "arXiv、作者仓库、Ptolemy 官方资料",
+      "outcome": "区分形状确定的内生争用与 routing 揭示后的工作量；保留反证"
+    }
+  ],
+  "gaps": [
+    "R6/R7 原始报告、原始设备回执未重新读取；依据两份完整台账",
+    "R4 报告只读取指定主要章节；R4/R5/R9/R10 原始 timing traces 未独立重放",
+    "R11 results.json 仅部分读取；122 traces 审计仅为历史报告记载",
+    "Simba/Occamy/Neurocube/Tesseract/STREAM 正式论文和 Mozart 全文未完成取得或逐章核验",
+    "HDA-MoE 接受状态来自作者仓库，最终发表 DOI 与完整稿未取得",
+    "未进行完整前后向引文数据库穷尽检索，不宣称没有其他先例",
+    "没有可用的原生硬件端到端成本校准；ttsim 不能替代周期数据",
+    "TETRIS 部分表格页截图失败；引用参数取自可读正文，架构图截图成功"
+  ]
+}

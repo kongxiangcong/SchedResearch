@@ -1,0 +1,1143 @@
+{
+  "schema": "r12-npe-environment-v1",
+  "created_utc": "2026-09-08T01:05:55.512566+00:00",
+  "run_id": "20260908T010242Z",
+  "exit_code": 1,
+  "passed": false,
+  "passed_criteria": "all requested phases including the official CLI; see ready_for_coarse_api_use for library readiness",
+  "ready_for_coarse_api_use": true,
+  "upstream_tests_passed": true,
+  "evidence_level": "compiled official estimator, upstream tests and documented Python API example only",
+  "hardware_measurement": false,
+  "full_dfg_timing_calibrated": false,
+  "distribution": "SchedResearch-R12",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "os_release": "PRETTY_NAME=\"Ubuntu 24.04.4 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.4 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+  "expected_commit": "341da058f0b65e51d3643fb36f011a0784abedff",
+  "source": "/opt/schedresearch-r12/tt-npe",
+  "build": "/opt/schedresearch-r12/build/tt-npe",
+  "install": "/opt/schedresearch-r12/install/tt-npe",
+  "python_venv": "/opt/schedresearch-r12/venv-npe",
+  "build_configuration": {
+    "type": "Release",
+    "compiler": "GCC12",
+    "enable_libcxx": false,
+    "generator": "Ninja",
+    "parallel_jobs": 4
+  },
+  "phases": [
+    {
+      "phase": "apt_update",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_apt_update_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "apt_install",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_apt_install_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "clone",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_clone_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "venv",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_venv_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "python_install",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_python_install_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "python_check",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_python_check_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "python_freeze",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_python_freeze_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "source_archives",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_source_archives_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "configure",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_configure_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "build",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_build_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "install",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_install_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "example_api",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_example_api_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "example_cli",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_example_cli_20260908T010242Z.log",
+      "exit_code": 1
+    },
+    {
+      "phase": "cpp_tests",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_cpp_tests_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "python_tests",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_python_tests_20260908T010242Z.log",
+      "exit_code": 0
+    },
+    {
+      "phase": "source_status",
+      "log": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/logs/npe_source_status_20260908T010242Z.log",
+      "exit_code": 0
+    }
+  ],
+  "official_cli_passed": false,
+  "official_cli_failure_is_recorded_separately": true,
+  "commands": {
+    "gcc": {
+      "exit_code": 0,
+      "stdout": "gcc-12 (Ubuntu 12.4.0-2ubuntu1~24.04.1) 12.4.0\nCopyright (C) 2022 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+      "stderr": ""
+    },
+    "gxx": {
+      "exit_code": 0,
+      "stdout": "g++-12 (Ubuntu 12.4.0-2ubuntu1~24.04.1) 12.4.0\nCopyright (C) 2022 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+      "stderr": ""
+    },
+    "cmake": {
+      "exit_code": 0,
+      "stdout": "cmake version 3.28.3\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).",
+      "stderr": ""
+    },
+    "ninja": {
+      "exit_code": 0,
+      "stdout": "1.11.1",
+      "stderr": ""
+    },
+    "python": {
+      "exit_code": 0,
+      "stdout": "Python 3.12.3",
+      "stderr": ""
+    },
+    "source_head": {
+      "exit_code": 0,
+      "stdout": "341da058f0b65e51d3643fb36f011a0784abedff",
+      "stderr": ""
+    },
+    "source_status": {
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "test_xml": {
+    "cpp_tests": {
+      "path": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/npe/cpp_tests_20260908T010242Z.xml",
+      "tests": 45,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "python_tests": {
+      "path": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/npe/python_tests_20260908T010242Z.xml",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "installed_files": [
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/bin/fabric_post_process.py",
+      "size": 29381,
+      "sha256": "6b678a4da482f1b28f5496f1c01541b3d42dc8387f984fe633780691b50a0e6a"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/bin/npe_analyze_noc_trace_dir.py",
+      "size": 20234,
+      "sha256": "83526f8e73b6fecdd7041336546bb7a07c1f295f322d9f6acb7c1be11f45998c"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/bin/programmatic_workload_generation.py",
+      "size": 3545,
+      "sha256": "e6ec5db718849ad12276962280dd3540e8078d1af603a76cdd3189c6fa3f8b22"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/bin/tt_npe.py",
+      "size": 5332,
+      "sha256": "0009ed7c72cf96638eb81424c0223cc43704d0488895da5d33b0bc60b937c35a"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/ScopedTimer.hpp",
+      "size": 1749,
+      "sha256": "43e6b8aed00bc2960f5d4c4eb683a37ac0e6263ee5fe6c003199195b6acb32bc"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/cliOptions.hpp",
+      "size": 321,
+      "sha256": "138c8734de005a8c15898af7d5f7f8dcde263e54361436cabfc4a611afd3fba1"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/args.h",
+      "size": 7180,
+      "sha256": "cd2a4230a2b95db60f00673743769fe7372f0f708713520cab787173b5055187"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/base.h",
+      "size": 102780,
+      "sha256": "b0d52ef9d0f7203100eeee451056938e11536894feff6f99a6566497d6f40d4b"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/chrono.h",
+      "size": 80038,
+      "sha256": "53b0e6c79fa37f055b5f49ea0c1e7061803b6816c1d4bf56853da4bb61d8555d"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/color.h",
+      "size": 23338,
+      "sha256": "757bbc2f67d6740962b9d9aba56455dc9ab865452face99d1a9afc9f8fe5b5fc"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/compile.h",
+      "size": 18792,
+      "sha256": "10d648fbfbce99481eece2aaa4f9ec8ce8ab25fef0841442296b7149c386487a"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/core.h",
+      "size": 187,
+      "sha256": "b2b6692145b11c7c2774db106078c97575a47d18e80c7783c68566475325ebb4"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/format-inl.h",
+      "size": 80997,
+      "sha256": "02f79502fc57326bbafec8f07c2b664ac0bcb83cb444ee464359dba83c10c36f"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/format.h",
+      "size": 157742,
+      "sha256": "f6515852b0b0375fb05d27d27cd386da4c6aff40a4fb9232413f604c8c49b6d8"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/os.h",
+      "size": 12786,
+      "sha256": "031ecf02e65aaf1be16de4af179e1b3d11540f88a0989667d5f4138fe93e5938"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/ostream.h",
+      "size": 4999,
+      "sha256": "d64d9d83362d2bd3e5c258db40b78fbdf259f221d27200b9937974b8c03d94bf"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/printf.h",
+      "size": 20440,
+      "sha256": "7a6ffac354daa137db9a4ed14dd817b7f7b5b6e5ecf46daf27431f41e7b2e5ef"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/ranges.h",
+      "size": 28203,
+      "sha256": "1b7e6df2d389a3a89a313648eb6a6403ccb5d972f4a32c9acb9b309b5ed56cc9"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/std.h",
+      "size": 21969,
+      "sha256": "355d73ee16a6ac9211160a9069a7c6ad30660f1e21a67871adeb8531098d8232"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/fmt/xchar.h",
+      "size": 13838,
+      "sha256": "b6a64fbc0987e27cc1a202b24d93541845a0cc62d66c35c2dccccadf5fef9059"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/grid.hpp",
+      "size": 3484,
+      "sha256": "f22eeb821248bbaf25628b83c1ac716789dd49953d9717aa89486b320d860957"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/ingestWorkload.hpp",
+      "size": 352,
+      "sha256": "80c1d48534313a174abbf087d25960f5aa1c7a5eb95a95042a9f5e943ae6a1fa"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeAPI.hpp",
+      "size": 1149,
+      "sha256": "c6073ee95baf131c439a11548588138958971e2eb05885c9d4b57374fb8d300b"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeAssert.hpp",
+      "size": 5777,
+      "sha256": "769bba1d58da4dabb5c6b2cfe7a4a6fc05ece2bd15ef5a3e1f0a56f4eb8e1e6c"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeChart.hpp",
+      "size": 5754,
+      "sha256": "423b8d4e972fbe7aa6c7282840d9150fac4d0462cff34c91184ce71dfd4cf1f9"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeCommon.hpp",
+      "size": 1324,
+      "sha256": "0d5e8598e695815bbab9e5f9f842045f64a70388fac486ef0a5595a6f5e4799e"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeCompressionUtil.hpp",
+      "size": 943,
+      "sha256": "5eae078e81a04d04889cb0c6cdd5bf2d3935c670636c55841e8e7fb08b5230e1"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeConfig.hpp",
+      "size": 3545,
+      "sha256": "273c6fd6459f31b7ac533b4b86db2beff91bc1e1215af2a86a703185f1462aa9"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeDependencyTracker.hpp",
+      "size": 3010,
+      "sha256": "9525dc5e4c45f39d827cd3807cb4ded6299771f72c89898a59d4f9e4ea0452a2"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeDeviceModelFactory.hpp",
+      "size": 2360,
+      "sha256": "6f5188f2db9fe7a7f728617769fe50d1bd111a02b46df2f44b4f78364b8940d9"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeDeviceModelIface.hpp",
+      "size": 2639,
+      "sha256": "31e1c310534ceeb22b5526b892ad613ecf372fa0d615c584b27401dca68aac0c"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeDeviceModelUtils.hpp",
+      "size": 6848,
+      "sha256": "7bf96de8b52797c4998a22ae063c08ec66283879dfdd34d0688ecaf0383ba186"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeDeviceState.hpp",
+      "size": 1657,
+      "sha256": "9a71da729f1f7d547ffb4c99865dee85b2437b3eb38eba0633d1ee1da23469bd"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeDeviceTypes.hpp",
+      "size": 2347,
+      "sha256": "511dfbcbf4ca446ae6a21656c23f3493a8e3fffbf2dd278d0b5530dd49f11303"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeEngine.hpp",
+      "size": 2738,
+      "sha256": "deb5399edbac11bfbe047069d9981599717ff9ab45d0520deafea00ae1a954fd"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeResult.hpp",
+      "size": 310,
+      "sha256": "df51250afa8120d8515ef06ceffa3c10fe51be64196e1f024d4de6ef9777a327"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeSocDescriptor.hpp",
+      "size": 973,
+      "sha256": "49a9ee59be66e75bc2d2ea9e6338a31b06f0dfd89ddad233b5515a390c39ff95"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeStats.hpp",
+      "size": 4564,
+      "sha256": "061b62488bfb93d53590f606da3a477c884fbd061446c7d90c3c7d0d0cf20f5b"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeTransferState.hpp",
+      "size": 1124,
+      "sha256": "56355e6292292129af62f9fe86e39525d7bb3cf7751b3b203cb416bfaf38d24c"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeUtil.hpp",
+      "size": 18720,
+      "sha256": "228e9d85f8a8ecd5b49e755b72ee817fe15165411b8e447e675b663c0e9023e3"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/npeWorkload.hpp",
+      "size": 5568,
+      "sha256": "e2957546d95f4a9a0842279b51491ae29688570dc1356ca219b381de77398b7f"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/zdict.h",
+      "size": 26433,
+      "sha256": "02a34169467501fcc665cccb33f5bd455fdb665e9806851777dc8a6c4d5a75e3"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/zstd.h",
+      "size": 171378,
+      "sha256": "41d0f43747d0dee56f60bd10aed262f193d725b7e11eb9e94aa4ad80183c7da8"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/include/zstd_errors.h",
+      "size": 4532,
+      "sha256": "36dbd0a595852e10ff5b52992294f610055b8781101f4634036e05cf7d4bb506"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/fmt/fmt-config-version.cmake",
+      "size": 1862,
+      "sha256": "b3b2e5800c149c620871dca4f8b21db94dad097295fb536b0878b67a068a853e"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/fmt/fmt-config.cmake",
+      "size": 999,
+      "sha256": "09df979ff1d267e2e4e590435fcab8f4e40a4af9d2d3f938af4fad6fa1bc2d6e"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/fmt/fmt-targets-release.cmake",
+      "size": 814,
+      "sha256": "50eef38fbf861a2fb93cc342cda066ce9b2fa60584f16428fb8e28b046fb1094"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/fmt/fmt-targets.cmake",
+      "size": 4422,
+      "sha256": "e07c858c4b4f7bba5427282a1cc51eb7ab784e9b66b290fee574e159b35c0eb3"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/simdjson/simdjson-config-version.cmake",
+      "size": 3678,
+      "sha256": "bc28ea8d53a3dd7c137282faf702d62cf857e09adb0ec19ce7447de35ed3eb23"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/simdjson/simdjson-config.cmake",
+      "size": 213,
+      "sha256": "7112e60de69e538cfa37bccf32295cd0bddfe1618226e08b2cdabbdbe006ca79"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/simdjson/simdjsonTargets-release.cmake",
+      "size": 879,
+      "sha256": "d14663b8bc8cf48aca4d354715a0e8c52678454bcbcb1c286cab5543cddc6358"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/simdjson/simdjsonTargets.cmake",
+      "size": 4198,
+      "sha256": "8007dd300bcce6ee3afe8ae52edca7eb5d141ae1006922c052a8db6e0353d188"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/simdjson/simdjson_staticTargets-release.cmake",
+      "size": 916,
+      "sha256": "b807d6073c8a355119f3f45ae68b55fd450148942d70aa765f7a0d290c7b1aea"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/simdjson/simdjson_staticTargets.cmake",
+      "size": 4233,
+      "sha256": "1e5ba4b49abf1f6b7182eeda00bd9ed45e3f2eadc7a54b19b1e5525bc5c1e91f"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/zstd/zstdConfig.cmake",
+      "size": 55,
+      "sha256": "bfbf6e24afbf8299ee0180a84638e92e7770a6366f20a1e89db6716c115f60de"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/zstd/zstdConfigVersion.cmake",
+      "size": 2762,
+      "sha256": "42501fe6fde30ee0c82c47919715f9fb4408c1b391f3ddfb0c71de086e91bb10"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/zstd/zstdTargets-release.cmake",
+      "size": 867,
+      "sha256": "2e284ae61caa37a4f41422d91211a3fe7cdb371f09c1f651758eed58ce44f272"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/cmake/zstd/zstdTargets.cmake",
+      "size": 3920,
+      "sha256": "f24da86018886b5e99630e79bd1d543a53be2d03eab55973c7ad495c53013b13"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/libfmt.so.11.1.4",
+      "size": 180352,
+      "sha256": "e537311dd0aed491fd49fb6a7a87c2c62a3370d6a910f0ed2c2bef595949330c"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/libsimdjson.so.25.0.0",
+      "size": 226888,
+      "sha256": "843817200220fb218afe1b70d557072cdbe0355c37a35287c190ea53bdc7db0b"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/libsimdjson_static.a",
+      "size": 260002,
+      "sha256": "1522d833caab903c941599c45c0792de04eca01a532ba8211ea48ae52de29cf5"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/libtt_npe.so.0.00.1",
+      "size": 2186264,
+      "sha256": "c636ddd4e8fa0cd61f6926dc2e20c31961395b3c414b9c651e43b1e657d2f783"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/libzstd.a",
+      "size": 1305622,
+      "sha256": "6a26f2e0b7f2c37ff310725507a16300356416cdda231db3c57e5eb9e7befd83"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/pkgconfig/fmt.pc",
+      "size": 267,
+      "sha256": "c49d5df7e318091e766eef9cd0638ec8cde3e7cc4be3bf7935b0dccc525f63c0"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/pkgconfig/libzstd.pc",
+      "size": 481,
+      "sha256": "ec9819bb3a64e7385dc724e19a6099c662af2e42d2071d9b3e7f79b5549e4e13"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/pkgconfig/simdjson.pc",
+      "size": 287,
+      "sha256": "31e59c9ce9e4ef02e8a5f94f6c4d6359978221942178fdaeefd41f52687db000"
+    },
+    {
+      "path": "/opt/schedresearch-r12/install/tt-npe/lib/tt_npe_pybind.cpython-312-x86_64-linux-gnu.so",
+      "size": 528512,
+      "sha256": "9e17d22c8edb3a3f30edde20baa69e36ce3546d975ba1f599d11700f1d8b04ad"
+    }
+  ],
+  "dependency_commits": [
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_assert/c083177e9a98ce8b863539709ca00bda04be94bd",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "2242cfb58269c03328957860006076386e7fa356",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_concept_check/dd18ed11fd47e2998c0cb9ebd79d561a1ee1c385",
+      "commit": {
+        "exit_code": 128,
+        "stdout": "HEAD",
+        "stderr": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_config/8e29534ec40e6b4f3a02083cbadb6b3e90f0f2dc",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "5e98c6ddd4d58311b52e8f0fdde38c80c04f70ae",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_container/157a6daa0889fec063143ce9f95703d68265176e",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "866fd30df1ab723e2104e3de504f4a8c116f2c41",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_container_hash/55b208588d08c8f8515055e27c10fa622d93eeaf",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "89e5b98f6bc05841a21069d76cc5adcbee62b9cc",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_core/525f881ae229783cdb12b1ee3c79d02bbe9e1a43",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "e3a2e88e4cc9ec39f4c67aef2a20e1b246c2a3b1",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_describe/5a42d119c361cb12659d313d5de8573bfa294a7f",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "3da6a1e295689612a5ba53e906ad036f84729ede",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_intrusive/b7e7863a1c1e671b5af43c2250f244d4b044f019",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "ec5e251f547aa850e0e41a9ed204a08581931a6b",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_iterator/3b65d7a949c60dfa52c76857867ad2fe1ebfaadb",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "4b40364d6d110b130207bc498791e00050f94d6b",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_move/9c7e962b7f1778dac4f88e90016d7492612bc42f",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "a2bb5c88539fe78cd0177c9f43bab1cb01681450",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_mp11/567ca5daf0faaa4ab83ac519d9a4e614c0c813ac",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "1caff7ffa929662f57fac1dbea24c3d2d95205f6",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_predef/abbe341c0162deb218a7ca87e8776a630c6007b4",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "9aca7f5b609a731106a6d70e8dca9a4196dca968",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_smart_ptr/abbd8fc0ff433f5a4ade5d05d8a4be617a022f91",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "316f4cef77164a37b6a1a8891aa173910d3c2b46",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_static_assert/4f3484e4cfeed8085362ce4a387147c71273c760",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "ba72d3340f3dc6e773868107f35902292f84b07e",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_throw_exception/626c21729cb071cea729bd984dd444953aea0ede",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "ca85c198c81c1daeed31e6a5c920f499d360bade",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_tokenizer/616f37c48d932f2ed44b1bb59893153169ff5a4b",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "90106f155bd72b62aaca0d9ad826f4132030dba0",
+        "stderr": ""
+      }
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/boost_unordered/1ebb0932db99167b329cf2e790a42e5a33ec1605",
+      "commit": {
+        "exit_code": 0,
+        "stdout": "b41c054c66e7c71d6c6105a1e9da096f6731434d",
+        "stderr": ""
+      }
+    }
+  ],
+  "downloaded_archives": [
+    {
+      "path": "/opt/schedresearch-r12/build/tt-npe/_deps/zstd-subbuild/zstd-populate-prefix/src/zstd-1.5.5.tar.gz",
+      "size": 2368543,
+      "sha256": "9c4396cc829cfae319a6e2615202e82aad41372073482fce286fac78646d3ee4"
+    },
+    {
+      "path": "/opt/schedresearch-r12/tt-npe/.cpmcache/cpm/CPM_0.40.2.cmake",
+      "size": 41017,
+      "sha256": "c8cdc32c03816538ce22781ed72964dc864b2a34a310d3b7104812a5ca2d835d"
+    }
+  ],
+  "official_source_archives": [
+    {
+      "name": "boost_any",
+      "repo": "boostorg/any",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/any/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "407d5527dd034afe70c2dcd938cf48ff23058bad33ce8eab1ddf464fc643b0a3",
+      "bytes": 23758,
+      "archive": "artifacts/npe_downloads/boost_any.tar.gz",
+      "root_directory": "any-boost-1.87.0"
+    },
+    {
+      "name": "boost_assert",
+      "repo": "boostorg/assert",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/assert/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "6ceba65bf896cbe5c348c27e7642868a9d3a989d27d3ba42d6c96b26d7e112f4",
+      "bytes": 20645,
+      "archive": "artifacts/npe_downloads/boost_assert.tar.gz",
+      "root_directory": "assert-boost-1.87.0"
+    },
+    {
+      "name": "boost_bind",
+      "repo": "boostorg/bind",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/bind/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "40141a1c79107a8b53ea63226a89133a2897fa4192e7bf3fdbe638f90011a067",
+      "bytes": 85714,
+      "archive": "artifacts/npe_downloads/boost_bind.tar.gz",
+      "root_directory": "bind-boost-1.87.0"
+    },
+    {
+      "name": "boost_concept_check",
+      "repo": "boostorg/concept_check",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/concept_check/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "44ac6a26d214ab9481b89618adc3d63c65207a4d2b5c2a688892616cb69f95b8",
+      "bytes": 56131,
+      "archive": "artifacts/npe_downloads/boost_concept_check.tar.gz",
+      "root_directory": "concept_check-boost-1.87.0"
+    },
+    {
+      "name": "boost_config",
+      "repo": "boostorg/config",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/config/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "e3e2639f5d8a6f6bac80f9883596d75a60038d4f0c9fc8c9507dcddf4d7427e4",
+      "bytes": 386554,
+      "archive": "artifacts/npe_downloads/boost_config.tar.gz",
+      "root_directory": "config-boost-1.87.0"
+    },
+    {
+      "name": "boost_container",
+      "repo": "boostorg/container",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/container/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "164e5bfcd0d8279b2f8aaa5f993f9f55002b9939bbb3348483357f01d858fbe4",
+      "bytes": 1388615,
+      "archive": "artifacts/npe_downloads/boost_container.tar.gz",
+      "root_directory": "container-boost-1.87.0"
+    },
+    {
+      "name": "boost_container_hash",
+      "repo": "boostorg/container_hash",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/container_hash/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "12752731f9b56393b6ef53d54d04639816742112a07ec4fbacc3d3c5e2812434",
+      "bytes": 65831,
+      "archive": "artifacts/npe_downloads/boost_container_hash.tar.gz",
+      "root_directory": "container_hash-boost-1.87.0"
+    },
+    {
+      "name": "boost_core",
+      "repo": "boostorg/core",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/core/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "d7bce8722429aa83a7f30d90b7198d805daf1133292c5974de3b4794771d6974",
+      "bytes": 172057,
+      "archive": "artifacts/npe_downloads/boost_core.tar.gz",
+      "root_directory": "core-boost-1.87.0"
+    },
+    {
+      "name": "boost_describe",
+      "repo": "boostorg/describe",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/describe/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "6f377d72544f31c4feeae9342b5db79b2436f60f67123ef9f3a4b4f760bace10",
+      "bytes": 42386,
+      "archive": "artifacts/npe_downloads/boost_describe.tar.gz",
+      "root_directory": "describe-boost-1.87.0"
+    },
+    {
+      "name": "boost_detail",
+      "repo": "boostorg/detail",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/detail/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "344aa0eb171fd40ed2c44a272fb7d22cd44fdb16c31a26fb0a3e923a3a27ee28",
+      "bytes": 74373,
+      "archive": "artifacts/npe_downloads/boost_detail.tar.gz",
+      "root_directory": "detail-boost-1.87.0"
+    },
+    {
+      "name": "boost_function",
+      "repo": "boostorg/function",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/function/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "5714e6e6dd35ae6578067c5894492e79cf4a7491a540160f3717326c08e95b79",
+      "bytes": 46398,
+      "archive": "artifacts/npe_downloads/boost_function.tar.gz",
+      "root_directory": "function-boost-1.87.0"
+    },
+    {
+      "name": "boost_function_types",
+      "repo": "boostorg/function_types",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/function_types/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "11b94db2726bf5ce2910250cac19a498ca1358484793b8c7e2823838df0a6c9f",
+      "bytes": 79880,
+      "archive": "artifacts/npe_downloads/boost_function_types.tar.gz",
+      "root_directory": "function_types-boost-1.87.0"
+    },
+    {
+      "name": "boost_functional",
+      "repo": "boostorg/functional",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/functional/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "f7c2ce0a815ea67dde2d22a86ab90ce60d2d32e76d7ad71b9c168956cec7af79",
+      "bytes": 57186,
+      "archive": "artifacts/npe_downloads/boost_functional.tar.gz",
+      "root_directory": "functional-boost-1.87.0"
+    },
+    {
+      "name": "boost_fusion",
+      "repo": "boostorg/fusion",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/fusion/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "a87bd3e51c65286f5d88c077c1afa4606b6539653a9f45d4ae800d54b5f607cb",
+      "bytes": 718257,
+      "archive": "artifacts/npe_downloads/boost_fusion.tar.gz",
+      "root_directory": "fusion-boost-1.87.0"
+    },
+    {
+      "name": "boost_intrusive",
+      "repo": "boostorg/intrusive",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/intrusive/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "b14cfa8a62cd70f5e2296f706a84ab6a9515783af949014ad1c2f5b1236e71ae",
+      "bytes": 342888,
+      "archive": "artifacts/npe_downloads/boost_intrusive.tar.gz",
+      "root_directory": "intrusive-boost-1.87.0"
+    },
+    {
+      "name": "boost_io",
+      "repo": "boostorg/io",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/io/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "58051a9c64abd3705d96b8c982a5415cca6a323b465734d6def9538c99662908",
+      "bytes": 17477,
+      "archive": "artifacts/npe_downloads/boost_io.tar.gz",
+      "root_directory": "io-boost-1.87.0"
+    },
+    {
+      "name": "boost_iterator",
+      "repo": "boostorg/iterator",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/iterator/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "34a96f9bebd2e2cb631ee19b42055402971e2e410a810c7f8bc664d9fe981765",
+      "bytes": 1525144,
+      "archive": "artifacts/npe_downloads/boost_iterator.tar.gz",
+      "root_directory": "iterator-boost-1.87.0"
+    },
+    {
+      "name": "boost_lexical_cast",
+      "repo": "boostorg/lexical_cast",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/lexical_cast/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "ac2d2110a119443fc2ae8a10122bf59495c09872a8f3a070e7fcc854d2e602aa",
+      "bytes": 62589,
+      "archive": "artifacts/npe_downloads/boost_lexical_cast.tar.gz",
+      "root_directory": "lexical_cast-boost-1.87.0"
+    },
+    {
+      "name": "boost_move",
+      "repo": "boostorg/move",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/move/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "758a63a2e7cfdcfe750cd8311033ce79c27de3d416e34a9af111223c10fbbfdd",
+      "bytes": 133396,
+      "archive": "artifacts/npe_downloads/boost_move.tar.gz",
+      "root_directory": "move-boost-1.87.0"
+    },
+    {
+      "name": "boost_mp11",
+      "repo": "boostorg/mp11",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/mp11/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "f07a7282a4b440ff9f2917224badd4c112affede946ae25fba6b3e3538a858de",
+      "bytes": 130125,
+      "archive": "artifacts/npe_downloads/boost_mp11.tar.gz",
+      "root_directory": "mp11-boost-1.87.0"
+    },
+    {
+      "name": "boost_mpl",
+      "repo": "boostorg/mpl",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/mpl/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "fdc3632c8ff236fc6d058494c8aab4d841153a937798399b772759b3f56ad3e1",
+      "bytes": 1512670,
+      "archive": "artifacts/npe_downloads/boost_mpl.tar.gz",
+      "root_directory": "mpl-boost-1.87.0"
+    },
+    {
+      "name": "boost_optional",
+      "repo": "boostorg/optional",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/optional/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "3b43ef899f71f5adbf074de2f99ea442dbd68a80d63a1491a580cceff3ec65b3",
+      "bytes": 86723,
+      "archive": "artifacts/npe_downloads/boost_optional.tar.gz",
+      "root_directory": "optional-boost-1.87.0"
+    },
+    {
+      "name": "boost_predef",
+      "repo": "boostorg/predef",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/predef/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "cb7cff97d180ba58f8a0945e5bedee830a3f311daa64732c4cb31cd94fea1a58",
+      "bytes": 109278,
+      "archive": "artifacts/npe_downloads/boost_predef.tar.gz",
+      "root_directory": "predef-boost-1.87.0"
+    },
+    {
+      "name": "boost_preprocessor",
+      "repo": "boostorg/preprocessor",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/preprocessor/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "b56db0e8c6757fe7dea8181a13a68e2328b51b8297f3a5f12d91159e6cd268fc",
+      "bytes": 866066,
+      "archive": "artifacts/npe_downloads/boost_preprocessor.tar.gz",
+      "root_directory": "preprocessor-boost-1.87.0"
+    },
+    {
+      "name": "boost_program_options",
+      "repo": "boostorg/program_options",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/program_options/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "d716debed5ace68f74d82c3c0cdfece9f7b0a01f74843cc2c91b2cc23bf650f6",
+      "bytes": 134852,
+      "archive": "artifacts/npe_downloads/boost_program_options.tar.gz",
+      "root_directory": "program_options-boost-1.87.0"
+    },
+    {
+      "name": "boost_smart_ptr",
+      "repo": "boostorg/smart_ptr",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/smart_ptr/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "1c984b1b70b95fa8c4ff4055567e355847fdc2218fc84ab925eaf3dfa4d8d532",
+      "bytes": 172869,
+      "archive": "artifacts/npe_downloads/boost_smart_ptr.tar.gz",
+      "root_directory": "smart_ptr-boost-1.87.0"
+    },
+    {
+      "name": "boost_static_assert",
+      "repo": "boostorg/static_assert",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/static_assert/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "4cba06491424fdaed7208f47f5248725b2f4b68f7fa2c894411cc5ac97bcebd1",
+      "bytes": 12885,
+      "archive": "artifacts/npe_downloads/boost_static_assert.tar.gz",
+      "root_directory": "static_assert-boost-1.87.0"
+    },
+    {
+      "name": "boost_throw_exception",
+      "repo": "boostorg/throw_exception",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/throw_exception/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "0aa8af4075b851f38bb723b544e9f67de826ddbf1c7c4c4ec186cb2204005d86",
+      "bytes": 19968,
+      "archive": "artifacts/npe_downloads/boost_throw_exception.tar.gz",
+      "root_directory": "throw_exception-boost-1.87.0"
+    },
+    {
+      "name": "boost_tokenizer",
+      "repo": "boostorg/tokenizer",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/tokenizer/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "8f86bf37f98749f71c35246b4b129d05b8f8ff544b7dc246a6e93a6e89293e7a",
+      "bytes": 26092,
+      "archive": "artifacts/npe_downloads/boost_tokenizer.tar.gz",
+      "root_directory": "tokenizer-boost-1.87.0"
+    },
+    {
+      "name": "boost_tuple",
+      "repo": "boostorg/tuple",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/tuple/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "dbaad62f6f7e8ea5ad48eed409ee31de0aae7aabdb360d4cbf27d622fccd7d52",
+      "bytes": 31311,
+      "archive": "artifacts/npe_downloads/boost_tuple.tar.gz",
+      "root_directory": "tuple-boost-1.87.0"
+    },
+    {
+      "name": "boost_type_index",
+      "repo": "boostorg/type_index",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/type_index/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "adacb41b1414b99c45de84f7150f17139fd0bf3b1963a33c6f0c6c57cdf9f914",
+      "bytes": 41270,
+      "archive": "artifacts/npe_downloads/boost_type_index.tar.gz",
+      "root_directory": "type_index-boost-1.87.0"
+    },
+    {
+      "name": "boost_type_traits",
+      "repo": "boostorg/type_traits",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/type_traits/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "31d92a431eb74b4899928ad2a033aa91edfcc0613c965db4bf7ebf1542791abc",
+      "bytes": 399497,
+      "archive": "artifacts/npe_downloads/boost_type_traits.tar.gz",
+      "root_directory": "type_traits-boost-1.87.0"
+    },
+    {
+      "name": "boost_typeof",
+      "repo": "boostorg/typeof",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/typeof/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "b8469306baafa8aab9ec4e717d5e5408b12f991bdf21ad3a9d27fe0bac192c59",
+      "bytes": 22215,
+      "archive": "artifacts/npe_downloads/boost_typeof.tar.gz",
+      "root_directory": "typeof-boost-1.87.0"
+    },
+    {
+      "name": "boost_unordered",
+      "repo": "boostorg/unordered",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/unordered/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "c46bea36bd8f3992a342c8db4f102b4e2f4028b21e1a99af06c1833428774c14",
+      "bytes": 3996264,
+      "archive": "artifacts/npe_downloads/boost_unordered.tar.gz",
+      "root_directory": "unordered-boost-1.87.0"
+    },
+    {
+      "name": "boost_utility",
+      "repo": "boostorg/utility",
+      "tag": "boost-1.87.0",
+      "url": "https://codeload.github.com/boostorg/utility/tar.gz/refs/tags/boost-1.87.0",
+      "sha256": "92be96d54d6f8d6d7a80f5bcfc7a301d0a970122b974b0210caf41c05c652345",
+      "bytes": 160176,
+      "archive": "artifacts/npe_downloads/boost_utility.tar.gz",
+      "root_directory": "utility-boost-1.87.0"
+    },
+    {
+      "name": "fmt",
+      "repo": "fmtlib/fmt",
+      "tag": "11.1.4",
+      "url": "https://codeload.github.com/fmtlib/fmt/tar.gz/refs/tags/11.1.4",
+      "sha256": "ac366b7b4c2e9f0dde63a59b3feb5ee59b67974b14ee5dc9ea8ad78aa2c1ee1e",
+      "bytes": 703832,
+      "archive": "artifacts/npe_downloads/fmt.tar.gz",
+      "root_directory": "fmt-11.1.4"
+    },
+    {
+      "name": "googletest",
+      "repo": "google/googletest",
+      "tag": "v1.16.0",
+      "url": "https://codeload.github.com/google/googletest/tar.gz/refs/tags/v1.16.0",
+      "sha256": "78c676fc63881529bf97bf9d45948d905a66833fbfa5318ea2cd7478cb98f399",
+      "bytes": 876245,
+      "archive": "artifacts/npe_downloads/googletest.tar.gz",
+      "root_directory": "googletest-1.16.0"
+    },
+    {
+      "name": "json",
+      "repo": "nlohmann/json",
+      "tag": "v3.12.0",
+      "url": "https://codeload.github.com/nlohmann/json/tar.gz/refs/tags/v3.12.0",
+      "sha256": "4b92eb0c06d10683f7447ce9406cb97cd4b453be18d7279320f7b2f025c10187",
+      "bytes": 9678593,
+      "archive": "artifacts/npe_downloads/json.tar.gz",
+      "root_directory": "json-3.12.0"
+    },
+    {
+      "name": "magic_enum",
+      "repo": "Neargye/magic_enum",
+      "tag": "v0.9.6",
+      "url": "https://codeload.github.com/Neargye/magic_enum/tar.gz/refs/tags/v0.9.6",
+      "sha256": "fcda8295256a2084f1f98a63b3d2c66b3d7140eea008e1ef94ea015b2f6d3034",
+      "bytes": 199886,
+      "archive": "artifacts/npe_downloads/magic_enum.tar.gz",
+      "root_directory": "magic_enum-0.9.6"
+    },
+    {
+      "name": "pybind11",
+      "repo": "pybind/pybind11",
+      "tag": "v2.13.6",
+      "url": "https://codeload.github.com/pybind/pybind11/tar.gz/refs/tags/v2.13.6",
+      "sha256": "e08cb87f4773da97fa7b5f035de8763abc656d87d5773e62f6da0587d1f0ec20",
+      "bytes": 800804,
+      "archive": "artifacts/npe_downloads/pybind11.tar.gz",
+      "root_directory": "pybind11-2.13.6"
+    },
+    {
+      "name": "reflect",
+      "repo": "boost-ext/reflect",
+      "tag": "v1.1.1",
+      "url": "https://codeload.github.com/boost-ext/reflect/tar.gz/refs/tags/v1.1.1",
+      "sha256": "49b20cbc0e5d9f94bcdc96056f8c5d91ee2e45d8642e02cb37e511079671ad48",
+      "bytes": 13173,
+      "archive": "artifacts/npe_downloads/reflect.tar.gz",
+      "root_directory": "reflect-1.1.1"
+    },
+    {
+      "name": "simdjson",
+      "repo": "simdjson/simdjson",
+      "tag": "v3.12.3",
+      "url": "https://codeload.github.com/simdjson/simdjson/tar.gz/refs/tags/v3.12.3",
+      "sha256": "d0af071f2f4187d8b26b556e83ef832b634bd5feb4e2f537b9dabbd334d4e334",
+      "bytes": 2717490,
+      "archive": "artifacts/npe_downloads/simdjson.tar.gz",
+      "root_directory": "simdjson-3.12.3"
+    },
+    {
+      "name": "yaml-cpp",
+      "repo": "jbeder/yaml-cpp",
+      "tag": "0.8.0",
+      "url": "https://codeload.github.com/jbeder/yaml-cpp/tar.gz/refs/tags/0.8.0",
+      "sha256": "fbe74bbdcee21d656715688706da3c8becfd946d92cd44705cc6098bb23b3a16",
+      "bytes": 1017151,
+      "archive": "artifacts/npe_downloads/yaml-cpp.tar.gz",
+      "root_directory": "yaml-cpp-0.8.0"
+    }
+  ],
+  "example_api_result": {
+    "path": "/mnt/d/dsh-proj/SchedResarch/research/r12/artifacts/npe/example_api_20260908T010242Z.json",
+    "result": {
+      "schema": "r12-npe-smoke-v1",
+      "created_utc": "2026-09-08T01:05:28.062159+00:00",
+      "passed": true,
+      "evidence_level": "official coarse estimator and upstream example workload",
+      "hardware_measurement": false,
+      "golden_reference_independently_verified": false,
+      "full_dfg_timing_calibrated": false,
+      "module": "/opt/schedresearch-r12/install/tt-npe/lib/tt_npe_pybind.cpython-312-x86_64-linux-gnu.so",
+      "workload": {
+        "path": "/opt/schedresearch-r12/tt-npe/tt_npe/workload/example_wl.json",
+        "sha256": "6dd385b68704b180508b21ec7d10ca2f7161c857eea72611d06cfb6c5c99ff1c"
+      },
+      "config": {
+        "device": "wormhole_b0",
+        "congestion_model": "fast",
+        "cycles_per_timestep": 32,
+        "injection_rate_inference": true
+      },
+      "per_device_stats": {
+        "-1": {
+          "completed": true,
+          "estimated_cycles": 437,
+          "estimated_cong_free_cycles": 437,
+          "golden_cycles": 450,
+          "cycle_prediction_error": -2.888888888888889,
+          "wallclock_runtime_us": 654,
+          "dram_bw_util": 0.6026364978962835,
+          "dram_bw_util_sim": 0.6205639061386992,
+          "overall_avg_noc0_link_util": 0.0,
+          "overall_avg_noc1_link_util": 8.255463070339625,
+          "overall_avg_niu_demand": 0.8895761110164501,
+          "overall_max_niu_demand": 1.426953143543667,
+          "dram_bw_util_per_controller": {
+            "0": 3.615819209039548
+          }
+        },
+        "0": {
+          "completed": true,
+          "estimated_cycles": 437,
+          "estimated_cong_free_cycles": 437,
+          "golden_cycles": 450,
+          "cycle_prediction_error": -2.888888888888889,
+          "wallclock_runtime_us": 654,
+          "dram_bw_util": 0.6026364978962835,
+          "dram_bw_util_sim": 0.6205639061386992,
+          "overall_avg_noc0_link_util": 0.0,
+          "overall_avg_noc1_link_util": 8.255463070339625,
+          "overall_avg_niu_demand": 0.8895761110164501,
+          "overall_max_niu_demand": 1.426953143543667,
+          "dram_bw_util_per_controller": {
+            "0": 3.615819209039548
+          }
+        }
+      }
+    }
+  }
+}

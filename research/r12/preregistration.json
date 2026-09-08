@@ -1,0 +1,34 @@
+{
+  "schema": "r12.preregistration.v1",
+  "date": "2026-09-08",
+  "parent_contract": "SchedResearch_reassessment_evidence_20260907/proposal_contract.md",
+  "stage": "offline source, baseline and event qualification; before any target performance test",
+  "hypotheses": {"H0": "Correctly retargeted strong compiler and native runtime absorb the loss", "H1": "Execution semantics change a strong joint plan and improve complete-module elapsed", "H2": "Only after H1, paid bounded runtime retains a residual"},
+  "witness_families": ["equal payload and byte-hops, overlapping versus disjoint directed links", "endpoint aliases of one physical channel versus separate channels/domains", "source-last-read, destination-visible, notification and address reuse"],
+  "functional_fixture": {
+    "tiles_noc0_raw": [[1,1],[2,1],[3,1],[3,2]],
+    "chains": 2,
+    "generations_per_chain": 2,
+    "reusable_source_slots": 2,
+    "additional_storage": "two peer receive spans and two consumer result spans; all separately accounted; outputs for four chain/generation pairs disjoint",
+    "payload_bytes_per_transfer": 1024,
+    "numeric_fixture": "exact integer load -> x*2 -> peer -> x+3 -> disjoint output",
+    "backend_publication_and_poll_ordering": "explicit proof obligations; not discharged by offline DAG",
+    "credit_model": "one logical receive-slot token per chain, not router/NIU queue capacity",
+    "hardware_liveness": "not certified by finite DAG acyclicity"
+  },
+  "workload": {"name": "Qwen3.5-4B full MLP", "H": 2560, "I": 9216, "M": [1,32,128], "native_numerics": null, "cold_warm_policy": "pending native layout; no performance runs allowed yet"},
+  "gates": {
+    "G0": "full small-graph numerical/event/reuse/credit/termination and actual native action coverage",
+    "G1": "residual after admitted strong P0, no changed hardware or illegal order",
+    "G2_net_elapsed_percent": 3,
+    "G2_min_non_extreme_full_configs": 2,
+    "G2_relative_gain_error_percentage_points_max": 1,
+    "G3_net_elapsed_percent": 3,
+    "G3_gross_to_exposed_control_cost_min": 2,
+    "G3_quiet_regression_percent_max": 1,
+    "G3_PPA_required": true
+  },
+  "unknowns": ["board and harvest mask", "firmware and admitted tt-metal revision", "kernel numeric tree and packing", "NIU queue and credit timing", "sustained service and calibration uncertainty"],
+  "forbidden_inference": "bounds or functional PASS imply no timing speedup, no H1, no H2, and no native G0 PASS"
+}

@@ -1,0 +1,307 @@
+{
+  "schema": "r12.shared-resource-probe.v1",
+  "status": "parameterized_shared_bus_undercharge_confirmed_2conv_demand_inference_refuted",
+  "stream_revision": "75748cc17e7c43add5a7d0d8f080841eb26531c4",
+  "source_sha256": {
+    "stream/opt/allocation/constraint_optimization/utils.py": "783db6305056558524b64e03a068174f40c893c210e4a512acc31c9bff4b4f04",
+    "stream/opt/allocation/constraint_optimization/transfer_and_tensor_allocation.py": "f42db0c8b08c5753fe531e86abad9ec48c7caea88325a55397b5905d0fc2cdd2",
+    "stream/cost_model/communication_manager.py": "7853ba5e3e8487ff25449651fc68a5bc5ad2a63d5a5bad96928a61b25c49f4a9",
+    "stream/cost_model/steady_state_scheduler.py": "b8fdf9eaad16f3d6ffede6c9a024a29a53b23e2e8eb856033e8f56907becec58",
+    "stream/parser/accelerator_factory.py": "17cd85591269577e2a3b111b9256eb182210cee1cd394120a71c205968574a8a",
+    "stream/hardware/architecture/noc/communication_link.py": "5805c50ccbacac7501929d2da8f0a349cb37ca6129b1eaeb87d656b848885c71"
+  },
+  "upstream_status_before": "",
+  "upstream_status_after": "",
+  "real_upstream_type_cases": [
+    {
+      "name": "one_to_four_broadcast_control",
+      "sources": [
+        0
+      ],
+      "targets": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "path_origin": "upstream AcceleratorFactory and CommunicationManager",
+      "tensor_bits": 262144,
+      "global_bus_bits_per_cycle": 128,
+      "distinct_bus_objects": 1,
+      "links_per_plan": 1,
+      "plan_count": 1,
+      "upstream_path_cycles": 2048,
+      "optimistic_broadcast_conservation_cycles": 2048,
+      "below_optimistic_conservation": false,
+      "conservation_assumption": "every distinct source-owned bit is needed remotely; perfect broadcast allowed, no compression/recomputation/free extra copies"
+    },
+    {
+      "name": "four_to_one_gather_control",
+      "sources": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "targets": [
+        4
+      ],
+      "path_origin": "upstream AcceleratorFactory and CommunicationManager",
+      "tensor_bits": 262144,
+      "global_bus_bits_per_cycle": 128,
+      "distinct_bus_objects": 1,
+      "links_per_plan": 1,
+      "plan_count": 1,
+      "upstream_path_cycles": 2048,
+      "optimistic_broadcast_conservation_cycles": 2048,
+      "below_optimistic_conservation": false,
+      "conservation_assumption": "every distinct source-owned bit is needed remotely; perfect broadcast allowed, no compression/recomputation/free extra copies"
+    },
+    {
+      "name": "two_core_shards_to_replicas",
+      "sources": [
+        0,
+        1
+      ],
+      "targets": [
+        0,
+        1
+      ],
+      "path_origin": "upstream AcceleratorFactory and CommunicationManager",
+      "tensor_bits": 262144,
+      "global_bus_bits_per_cycle": 128,
+      "distinct_bus_objects": 1,
+      "links_per_plan": 1,
+      "plan_count": 1,
+      "upstream_path_cycles": 1024,
+      "optimistic_broadcast_conservation_cycles": 2048,
+      "below_optimistic_conservation": true,
+      "conservation_assumption": "every distinct source-owned bit is needed remotely; perfect broadcast allowed, no compression/recomputation/free extra copies"
+    },
+    {
+      "name": "four_core_shards_to_replicas",
+      "sources": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "targets": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "path_origin": "upstream AcceleratorFactory and CommunicationManager",
+      "tensor_bits": 262144,
+      "global_bus_bits_per_cycle": 128,
+      "distinct_bus_objects": 1,
+      "links_per_plan": 1,
+      "plan_count": 1,
+      "upstream_path_cycles": 512,
+      "optimistic_broadcast_conservation_cycles": 2048,
+      "below_optimistic_conservation": true,
+      "conservation_assumption": "every distinct source-owned bit is needed remotely; perfect broadcast allowed, no compression/recomputation/free extra copies"
+    },
+    {
+      "name": "four_sources_four_distinct_targets_shared_bus",
+      "sources": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "targets": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "path_origin": "upstream AcceleratorFactory and CommunicationManager",
+      "tensor_bits": 262144,
+      "global_bus_bits_per_cycle": 128,
+      "distinct_bus_objects": 1,
+      "links_per_plan": 1,
+      "plan_count": 1,
+      "upstream_path_cycles": 512,
+      "optimistic_broadcast_conservation_cycles": 2048,
+      "below_optimistic_conservation": true,
+      "conservation_assumption": "every distinct source-owned bit is needed remotely; perfect broadcast allowed, no compression/recomputation/free extra copies"
+    }
+  ],
+  "disjoint_chain_positive_control": {
+    "path_origin": "explicit upstream MulticastPathPlan with four separate equal-bandwidth links",
+    "upstream_cycles": 512,
+    "per_link_bits": 65536,
+    "independent_per_link_bound_cycles": 512
+  },
+  "independent_four_core_conservation": {
+    "logical_words": 16384,
+    "bits_per_word": 16,
+    "words_initially_owned_per_core": [
+      4096,
+      4096,
+      4096,
+      4096
+    ],
+    "remote_words_required_per_core": [
+      12288,
+      12288,
+      12288,
+      12288
+    ],
+    "distinct_words_requiring_bus_service_even_with_perfect_broadcast": 16384,
+    "minimum_bus_payload_bits": 262144,
+    "minimum_bus_service_cycles": 2048,
+    "without_broadcast_remote_delivery_cycles": 6144
+  },
+  "observed_existing_2conv_solve": {
+    "evidence": "read existing solver artifacts; this probe did not reoptimize",
+    "input_artifact_sha256": {
+      "results\\baseline_smoke\\result.json": "399b23dd895b63b56899fb8652912c1a4bc4dece2204174191e616de7a1dc921",
+      "results\\baseline_smoke\\allocation_ir.json": "78b52519d5a781620cecbf5dc4b1ec080f7d137d695f8afca5d1e7030f48ed32",
+      "results\\baseline_smoke\\pipeline\\upstream-2conv\\group_0\\tetra\\slot_latency_breakdown.yaml": "276f70df232e45b0d008fbda7d1ed0038f34866f4a904ff173497c9cd16847af"
+    },
+    "chosen_path": {
+      "transfer": "Transfer(conv1_out)",
+      "tensor_bits": 262144,
+      "sources": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "targets": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "link_resources": [
+        "CL(Any, Any, bw=128)"
+      ],
+      "upstream_single_firing_path_cycles": 512
+    },
+    "matching_slot_entries": [
+      {
+        "slot": 4,
+        "slot_latency_cycles": 512,
+        "contributor": {
+          "name": "Transfer(conv1_out)",
+          "tensor_bits": 262144,
+          "min_link_bw": 128,
+          "raw_path_cycles": 512,
+          "active_latency_absent_loops": 512,
+          "reuse_factor": null,
+          "contribution": null
+        }
+      }
+    ],
+    "source_target_allocation_footprints_bits_not_consumer_demand": [
+      {
+        "core": 0,
+        "source_bits": 65536,
+        "target_bits": 262144
+      },
+      {
+        "core": 1,
+        "source_bits": 65536,
+        "target_bits": 262144
+      },
+      {
+        "core": 2,
+        "source_bits": 65536,
+        "target_bits": 262144
+      },
+      {
+        "core": 3,
+        "source_bits": 65536,
+        "target_bits": 262144
+      }
+    ],
+    "iterations": 1,
+    "overlap_cycles": 0,
+    "source_target_reuse": [
+      {
+        "tensor": "conv1_out",
+        "size_bits": 262144,
+        "reuse_factor": 1,
+        "reuse_stop_level": -1,
+        "on_chip_tiles": 1,
+        "loop_nest_out_to_in": [
+          "T(z10,1,V)",
+          "ST(z13,4,A)",
+          "S(z6,4,V)",
+          "K(z13,8,I)",
+          "K(z12,32,I)",
+          "K(z11,32,I)",
+          "K(z10,1,V)",
+          "K(z9,16,V)",
+          "K(z8,3,I)",
+          "K(z7,3,I)",
+          "K(z6,8,V)",
+          "K(z5,32,V)",
+          "K(z4,8,I)",
+          "K(z3,3,I)",
+          "K(z2,3,I)",
+          "K(z1,32,I)",
+          "K(z0,32,I)"
+        ]
+      },
+      {
+        "tensor": "conv1_out_1",
+        "size_bits": 262144,
+        "reuse_factor": 1,
+        "reuse_stop_level": -1,
+        "on_chip_tiles": 1,
+        "loop_nest_out_to_in": [
+          "T(z10,1,V)",
+          "S(z13,4,V)",
+          "ST(z6,4,I)",
+          "K(z13,8,V)",
+          "K(z12,32,V)",
+          "K(z11,32,I)",
+          "K(z10,1,V)",
+          "K(z9,16,V)",
+          "K(z8,3,V)",
+          "K(z7,3,V)",
+          "K(z6,8,I)",
+          "K(z5,32,I)",
+          "K(z4,8,I)",
+          "K(z3,3,I)",
+          "K(z2,3,I)",
+          "K(z1,32,I)",
+          "K(z0,32,I)"
+        ]
+      }
+    ],
+    "sum_of_all_slot_cycles": 12808,
+    "same_fixed_plan_substitution_arithmetic": {
+      "old_total": 12808,
+      "old_transfer_slot": 512,
+      "conditional_full_payload_transfer_slot": 2048,
+      "arithmetic_total": 14344,
+      "not_a_reoptimized_or_measured_result": true,
+      "condition": "require the complete 262144-bit payload to cross the bus; this is not established as necessary for the actual spatially partitioned 2conv computation"
+    }
+  },
+  "fixture_affine_correction": {
+    "artifact": "artifacts\\shared_resource_affine_audit.json",
+    "sha256": "10616bf84ed2fba30955da69091019531dd2c8e2638cadddee2313eeac059abd",
+    "final_split_axis": "ox for both Conv1 and Conv2; not output channel",
+    "aligned_halo_payload_bits": 49152,
+    "aligned_halo_bus_service_bound_cycles": 384,
+    "original_512_below_this_bound": false,
+    "complete_tensor_2048_not_a_fixture_necessity_proof": true
+  },
+  "scope": {
+    "upstream_files_modified": false,
+    "full_solver_rerun": false,
+    "native_hardware_measurement": false,
+    "wormhole_bug_claim": false,
+    "H1_performance_result": false,
+    "novel_algorithm_claim": false,
+    "claim": "under an explicitly required full-payload transfer contract, one shared 128-bit/cycle bus cannot carry 262144 bits in 512 cycles; the actual 2conv computation only establishes a 49152-bit aligned-halo demand witness"
+  },
+  "producer_sha256": "15e2ac001715ed4ee4056153ed407e6b7a399260b243da3503e85d502920505e"
+}

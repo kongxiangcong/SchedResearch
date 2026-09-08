@@ -1,0 +1,513 @@
+{
+  "schema": "r12.workload-intake.v1",
+  "status": "source_and_logical_work_accepted_native_admission_pending",
+  "evidence_level": "local pinned-source/AST/hash checks and exact integer arithmetic",
+  "source_audit": {
+    "status": "pinned_content_and_declared_archive_hashes_verified",
+    "content_authority": "pinned_git_blobs",
+    "project_revision": "a947b563356610cf4dbb05995debf18fc3054e66",
+    "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "transformers_revision": "f62dc9bf2c90353b442a56e74391fbb8c689b55e",
+    "manifest_path": "research/r5/sources/resource_source_manifest.json",
+    "manifest_pinned_git_sha256": "cfa7e213879547aa8dccbe0810f0332aca2e148c63978099c2397f48e63aaa8c",
+    "raw_working_tree_manifest_matches": 2,
+    "source_count": 4,
+    "files": [
+      {
+        "path": "research/r5/sources/qwen/config.json",
+        "manifest_sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+        "manifest_bytes": 3161,
+        "declared_archive_eol": "LF",
+        "reconstructed_archive_sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+        "reconstructed_archive_exact_match": true,
+        "pinned_git_blob_sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+        "pinned_git_blob_bytes": 3161,
+        "working_tree_sha256": "c857db69a33400b29db19b4aa8212174253f8c76498b79c5aa9b2a6fd4013ecc",
+        "working_tree_bytes": 3264,
+        "working_tree_raw_manifest_match": false,
+        "working_tree_matches_pinned_content_after_explicit_crlf_to_lf": true
+      },
+      {
+        "path": "research/r5/sources/qwen/modeling_qwen3_5.py",
+        "manifest_sha256": "458360c8072e6130580639170ad3e645b975512dbabae31eab5f92de5f0f09ef",
+        "manifest_bytes": 95578,
+        "declared_archive_eol": "LF",
+        "reconstructed_archive_sha256": "458360c8072e6130580639170ad3e645b975512dbabae31eab5f92de5f0f09ef",
+        "reconstructed_archive_exact_match": true,
+        "pinned_git_blob_sha256": "458360c8072e6130580639170ad3e645b975512dbabae31eab5f92de5f0f09ef",
+        "pinned_git_blob_bytes": 95578,
+        "working_tree_sha256": "2582e9fd6d949cd593a9874c7173af512be5b58ccb08f146a20d3396232abde7",
+        "working_tree_bytes": 97695,
+        "working_tree_raw_manifest_match": false,
+        "working_tree_matches_pinned_content_after_explicit_crlf_to_lf": true
+      },
+      {
+        "path": "research/r5/sources/qwen/representative_weight_shapes.json",
+        "manifest_sha256": "0cfea86881cb17b746b5b8150bf7ce35605756141c1ab365b1c4df9e962d372a",
+        "manifest_bytes": 4013,
+        "declared_archive_eol": "CRLF",
+        "reconstructed_archive_sha256": "0cfea86881cb17b746b5b8150bf7ce35605756141c1ab365b1c4df9e962d372a",
+        "reconstructed_archive_exact_match": true,
+        "pinned_git_blob_sha256": "27da313faa5dcd84b7c62dc34bbec819f22566769d387647aacf37e336d4c7db",
+        "pinned_git_blob_bytes": 3819,
+        "working_tree_sha256": "0cfea86881cb17b746b5b8150bf7ce35605756141c1ab365b1c4df9e962d372a",
+        "working_tree_bytes": 4013,
+        "working_tree_raw_manifest_match": true,
+        "working_tree_matches_pinned_content_after_explicit_crlf_to_lf": true
+      },
+      {
+        "path": "research/r5/sources/qwen/r4_manifest.json",
+        "manifest_sha256": "cc49171e4ad054b04372299c06e1a441f8f5792b652a4e25789f791fdfd8a05e",
+        "manifest_bytes": 5081,
+        "declared_archive_eol": "CRLF",
+        "reconstructed_archive_sha256": "cc49171e4ad054b04372299c06e1a441f8f5792b652a4e25789f791fdfd8a05e",
+        "reconstructed_archive_exact_match": true,
+        "pinned_git_blob_sha256": "2ac50d089c3edf3962cb743861c033e87bd10ed9690581bc6d08a7de2ff06213",
+        "pinned_git_blob_bytes": 5009,
+        "working_tree_sha256": "cc49171e4ad054b04372299c06e1a441f8f5792b652a4e25789f791fdfd8a05e",
+        "working_tree_bytes": 5081,
+        "working_tree_raw_manifest_match": true,
+        "working_tree_matches_pinned_content_after_explicit_crlf_to_lf": true
+      }
+    ],
+    "network_requests": 0,
+    "weight_payloads_downloaded": false
+  },
+  "mlp": {
+    "H": 2560,
+    "I": 9216,
+    "M": [
+      1,
+      32,
+      128
+    ],
+    "module": "one complete dense MLP; not a complete decoder layer or model",
+    "algebra": "down(SiLU(gate(X))*up(X))",
+    "source_class_lines": [
+      822,
+      835
+    ],
+    "bias": false,
+    "weights": [
+      {
+        "tensor": "W_gate",
+        "shape_out_in": [
+          9216,
+          2560
+        ],
+        "parameters": 23592960,
+        "storage_dtype": "BF16",
+        "bytes": 47185920
+      },
+      {
+        "tensor": "W_up",
+        "shape_out_in": [
+          9216,
+          2560
+        ],
+        "parameters": 23592960,
+        "storage_dtype": "BF16",
+        "bytes": 47185920
+      },
+      {
+        "tensor": "W_down",
+        "shape_out_in": [
+          2560,
+          9216
+        ],
+        "parameters": 23592960,
+        "storage_dtype": "BF16",
+        "bytes": 47185920
+      }
+    ],
+    "total_parameters": 70778880,
+    "total_bf16_weight_bytes": 141557760,
+    "activation_storage_dtype": "pending native numerical contract; byte alternatives listed below"
+  },
+  "configurations": [
+    {
+      "M": 1,
+      "input_availability": "one current request only; no future-token input",
+      "logical_tensors": [
+        {
+          "tensor": "X",
+          "shape": [
+            1,
+            2560
+          ],
+          "elements": 2560,
+          "bytes_if_bf16": 5120,
+          "bytes_if_fp32": 10240,
+          "producer": "module_input",
+          "all_logical_readers": [
+            "gate",
+            "up"
+          ]
+        },
+        {
+          "tensor": "G",
+          "shape": [
+            1,
+            9216
+          ],
+          "elements": 9216,
+          "bytes_if_bf16": 18432,
+          "bytes_if_fp32": 36864,
+          "producer": "gate",
+          "all_logical_readers": [
+            "silu"
+          ]
+        },
+        {
+          "tensor": "U",
+          "shape": [
+            1,
+            9216
+          ],
+          "elements": 9216,
+          "bytes_if_bf16": 18432,
+          "bytes_if_fp32": 36864,
+          "producer": "up",
+          "all_logical_readers": [
+            "multiply"
+          ]
+        },
+        {
+          "tensor": "S",
+          "shape": [
+            1,
+            9216
+          ],
+          "elements": 9216,
+          "bytes_if_bf16": 18432,
+          "bytes_if_fp32": 36864,
+          "producer": "silu",
+          "all_logical_readers": [
+            "multiply"
+          ]
+        },
+        {
+          "tensor": "A",
+          "shape": [
+            1,
+            9216
+          ],
+          "elements": 9216,
+          "bytes_if_bf16": 18432,
+          "bytes_if_fp32": 36864,
+          "producer": "multiply",
+          "all_logical_readers": [
+            "down"
+          ]
+        },
+        {
+          "tensor": "Y",
+          "shape": [
+            1,
+            2560
+          ],
+          "elements": 2560,
+          "bytes_if_bf16": 5120,
+          "bytes_if_fp32": 10240,
+          "producer": "down",
+          "all_logical_readers": [
+            "module_output"
+          ]
+        }
+      ],
+      "logical_macs_by_projection": {
+        "gate": 23592960,
+        "up": 23592960,
+        "down": 23592960
+      },
+      "logical_macs_total": 70778880,
+      "gemm_flops_if_mac_counted_as_two": 141557760,
+      "silu_evaluations": 9216,
+      "elementwise_gate_up_multiplies": 9216,
+      "pointwise_kernel_instruction_count": null,
+      "native_padded_macs": null,
+      "conditional_cold_bf16_boundary_payload_bytes": 141568000,
+      "boundary_payload_condition": "one copy of each W and BF16 X read from shared DRAM, BF16 Y written to shared DRAM exactly once; excludes all additional movement",
+      "actual_external_bytes": null,
+      "actual_noc_bytes": null,
+      "peak_sram_bytes": null,
+      "elapsed": null,
+      "numerical_admission": "not_run"
+    },
+    {
+      "M": 32,
+      "input_availability": "all M input rows exist at module entry; prefill",
+      "logical_tensors": [
+        {
+          "tensor": "X",
+          "shape": [
+            32,
+            2560
+          ],
+          "elements": 81920,
+          "bytes_if_bf16": 163840,
+          "bytes_if_fp32": 327680,
+          "producer": "module_input",
+          "all_logical_readers": [
+            "gate",
+            "up"
+          ]
+        },
+        {
+          "tensor": "G",
+          "shape": [
+            32,
+            9216
+          ],
+          "elements": 294912,
+          "bytes_if_bf16": 589824,
+          "bytes_if_fp32": 1179648,
+          "producer": "gate",
+          "all_logical_readers": [
+            "silu"
+          ]
+        },
+        {
+          "tensor": "U",
+          "shape": [
+            32,
+            9216
+          ],
+          "elements": 294912,
+          "bytes_if_bf16": 589824,
+          "bytes_if_fp32": 1179648,
+          "producer": "up",
+          "all_logical_readers": [
+            "multiply"
+          ]
+        },
+        {
+          "tensor": "S",
+          "shape": [
+            32,
+            9216
+          ],
+          "elements": 294912,
+          "bytes_if_bf16": 589824,
+          "bytes_if_fp32": 1179648,
+          "producer": "silu",
+          "all_logical_readers": [
+            "multiply"
+          ]
+        },
+        {
+          "tensor": "A",
+          "shape": [
+            32,
+            9216
+          ],
+          "elements": 294912,
+          "bytes_if_bf16": 589824,
+          "bytes_if_fp32": 1179648,
+          "producer": "multiply",
+          "all_logical_readers": [
+            "down"
+          ]
+        },
+        {
+          "tensor": "Y",
+          "shape": [
+            32,
+            2560
+          ],
+          "elements": 81920,
+          "bytes_if_bf16": 163840,
+          "bytes_if_fp32": 327680,
+          "producer": "down",
+          "all_logical_readers": [
+            "module_output"
+          ]
+        }
+      ],
+      "logical_macs_by_projection": {
+        "gate": 754974720,
+        "up": 754974720,
+        "down": 754974720
+      },
+      "logical_macs_total": 2264924160,
+      "gemm_flops_if_mac_counted_as_two": 4529848320,
+      "silu_evaluations": 294912,
+      "elementwise_gate_up_multiplies": 294912,
+      "pointwise_kernel_instruction_count": null,
+      "native_padded_macs": null,
+      "conditional_cold_bf16_boundary_payload_bytes": 141885440,
+      "boundary_payload_condition": "one copy of each W and BF16 X read from shared DRAM, BF16 Y written to shared DRAM exactly once; excludes all additional movement",
+      "actual_external_bytes": null,
+      "actual_noc_bytes": null,
+      "peak_sram_bytes": null,
+      "elapsed": null,
+      "numerical_admission": "not_run"
+    },
+    {
+      "M": 128,
+      "input_availability": "all M input rows exist at module entry; prefill",
+      "logical_tensors": [
+        {
+          "tensor": "X",
+          "shape": [
+            128,
+            2560
+          ],
+          "elements": 327680,
+          "bytes_if_bf16": 655360,
+          "bytes_if_fp32": 1310720,
+          "producer": "module_input",
+          "all_logical_readers": [
+            "gate",
+            "up"
+          ]
+        },
+        {
+          "tensor": "G",
+          "shape": [
+            128,
+            9216
+          ],
+          "elements": 1179648,
+          "bytes_if_bf16": 2359296,
+          "bytes_if_fp32": 4718592,
+          "producer": "gate",
+          "all_logical_readers": [
+            "silu"
+          ]
+        },
+        {
+          "tensor": "U",
+          "shape": [
+            128,
+            9216
+          ],
+          "elements": 1179648,
+          "bytes_if_bf16": 2359296,
+          "bytes_if_fp32": 4718592,
+          "producer": "up",
+          "all_logical_readers": [
+            "multiply"
+          ]
+        },
+        {
+          "tensor": "S",
+          "shape": [
+            128,
+            9216
+          ],
+          "elements": 1179648,
+          "bytes_if_bf16": 2359296,
+          "bytes_if_fp32": 4718592,
+          "producer": "silu",
+          "all_logical_readers": [
+            "multiply"
+          ]
+        },
+        {
+          "tensor": "A",
+          "shape": [
+            128,
+            9216
+          ],
+          "elements": 1179648,
+          "bytes_if_bf16": 2359296,
+          "bytes_if_fp32": 4718592,
+          "producer": "multiply",
+          "all_logical_readers": [
+            "down"
+          ]
+        },
+        {
+          "tensor": "Y",
+          "shape": [
+            128,
+            2560
+          ],
+          "elements": 327680,
+          "bytes_if_bf16": 655360,
+          "bytes_if_fp32": 1310720,
+          "producer": "down",
+          "all_logical_readers": [
+            "module_output"
+          ]
+        }
+      ],
+      "logical_macs_by_projection": {
+        "gate": 3019898880,
+        "up": 3019898880,
+        "down": 3019898880
+      },
+      "logical_macs_total": 9059696640,
+      "gemm_flops_if_mac_counted_as_two": 18119393280,
+      "silu_evaluations": 1179648,
+      "elementwise_gate_up_multiplies": 1179648,
+      "pointwise_kernel_instruction_count": null,
+      "native_padded_macs": null,
+      "conditional_cold_bf16_boundary_payload_bytes": 142868480,
+      "boundary_payload_condition": "one copy of each W and BF16 X read from shared DRAM, BF16 Y written to shared DRAM exactly once; excludes all additional movement",
+      "actual_external_bytes": null,
+      "actual_noc_bytes": null,
+      "peak_sram_bytes": null,
+      "elapsed": null,
+      "numerical_admission": "not_run"
+    }
+  ],
+  "native_admission_gaps": [
+    {
+      "id": "hardware",
+      "status": "pending",
+      "required": "board/SKU, firmware, tt-metal revision, SoC descriptor and harvest mask"
+    },
+    {
+      "id": "numerics",
+      "status": "pending",
+      "required": "BF16/FP32 math fidelity, accumulator/export/cast rounding, SiLU approximation and explicit reduction tree; compare full output with independent FP64 source algebra"
+    },
+    {
+      "id": "split_k",
+      "status": "pending",
+      "required": "explicit permission for reduction reassociation; R8 tolerance results are not native permission"
+    },
+    {
+      "id": "padding",
+      "status": "pending",
+      "required": "M=1 legal native tiling/tail, zero-fill source, valid output mask, padded MAC/transfer counts; no imported TARS 32-multiple rule"
+    },
+    {
+      "id": "layout_and_lifetime",
+      "status": "pending",
+      "required": "physical tensor tiling, bank/controller placement, addresses, sharding/replication, all readers, SRAM reserves, CB slots, fusion and spill"
+    },
+    {
+      "id": "cold_warm",
+      "status": "pending",
+      "required": "freeze complete initial/final locations and cold/warm policy before performance; warm weights require capacity and lifetime evidence, no free residency"
+    },
+    {
+      "id": "noc_events",
+      "status": "pending",
+      "required": "bind each transfer to acceptance, source-last-read, destination-visible and notification; all last readers must precede reuse"
+    },
+    {
+      "id": "native_execution",
+      "status": "pending",
+      "required": "execute full gate/up/SiLU/multiply/down, check output and physical work/traffic; R8 down N=128 slice is ineligible as full-module metric"
+    },
+    {
+      "id": "performance",
+      "status": "pending",
+      "required": "calibration and preregistered P0/P1 complete-module elapsed, timing boundary and controller/link/NIU evidence"
+    }
+  ],
+  "exclusions": [
+    "no weight payload download or generation",
+    "no full-module numerical execution",
+    "no physical padding/layout/traffic inference from logical elements",
+    "tensor inventory is neither peak live memory nor memory traffic",
+    "source BF16 dtype does not fix backend arithmetic semantics",
+    "no performance ranking, H1/H2 result, device validation or hardware admission",
+    "no historical result changes or historical performance reruns"
+  ],
+  "producer_script_sha256": "1c45df899038d2256d94535e31fb40fcbc9c4bbb74d31b788e3908a4b6fc1c50"
+}
