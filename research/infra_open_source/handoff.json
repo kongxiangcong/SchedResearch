@@ -1,156 +1,144 @@
 {
-  "schema_version": "schedresearch.infra_handoff.v1",
-  "overall_status": "PARTIAL",
-  "verdict_reason": "Plan/workload/CPU-numerical layers are real code that actually runs and passes. The timing-backend layer did not run: ONNXim cannot be built on this host (no cmake, no conan, PyPI replaced by an HTML interception page) and, independent of that, its pinned source shows cross-operator residency and core-to-core exchange are unsupported by design. B1/B2/B3 are therefore unexecuted.",
-  "base_commit": "2c3cda1b7e3d10f6700977abc5200df75372578b",
-  "base_branch": "codex/r12-wormhole-qualification",
-  "workspace_changes": {
-    "committed": false,
-    "tracked_modified": 0,
-    "untracked_new": [
-      "research/infra_open_source/",
-      "SchedResearch_next_round_infra_prompt.md"
-    ],
-    "note": "No commit, push or PR was created. R1-R13 frozen code, contracts and results were not modified."
+  "schema_version": "schedresearch.infra_handoff.v2",
+  "round": "round2_repair_and_static_eval",
+  "layered_verdict": {
+    "PLAN_SAFE": "YES",
+    "STATIC_EVAL_READY": "YES",
+    "RUNTIME_READY": "NO",
+    "explanation": "PLAN_SAFE: the checker now proves overwrite safety against the full partial order (ALL readers must be transitive predecessors), independent of the reuse_of annotation, with counterexample tests. STATIC_EVAL_READY: STREAM (pinned commit 75748cc) ran natively and on the Qwen MLP; results are evaluation_kind=analytical_static, never claimed as runtime. RUNTIME_READY: no execution backend exists; ONNXim adapter is explicitly NOT IMPLEMENTED and the runner is fail-closed, so nothing fabricated a runtime result."
   },
-  "selected_backend": {
-    "name": "ONNXim",
-    "upstream_commit": "a1e86296e080fa1c82f8ad3f1b6de1079c192afc",
-    "patch_identity": null,
-    "patch_identity_note": "No patch was applied. Nothing was built, so nothing was modified upstream.",
-    "hardware_profile": "onnxim_tpuv4_c4 (4 systolic_ws 128x128 cores, 32 MiB scratchpad/core, simple NoC, ramulator2 DRAM), taken verbatim from upstream configs/systolic_ws_128x128_c4_simple_noc_tpuv4.json at the pinned commit",
-    "built": false,
-    "ran": false
-  },
-  "candidates_considered_not_selected": [
-    {
-      "name": "STREAM / TETRA",
-      "reason": "Analytical cost model, not an execution backend: it cannot provide the execution feedback B1-B3 require, so it was deliberately not put on the critical path. Also needs a pip-installable stack that is unreachable here. Already exercised by this project in R12/R13 (research/r12/baseline_source_audit.md). NOT recorded as a run failure."
+  "base_commit": "4db062ed255951c843d1c63e592ad62e1c2fdfcf",
+  "base_note": "Round-1 HEAD (verdict PARTIAL). Round-1 handoff archived as handoff_2026-09-09_round1.json / handoff_2026-09-09_round1_to_chatgpt.md.",
+  "prompt_file": "SchedResearch_round2_repair_and_static_eval_prompt_COMPLETED.md",
+  "p0_repairs": {
+    "A1_checker_reuse_safety": {
+      "before": "checker accepted an overwrite of slot A if the writer waited for ANY ONE of A's readers (any(reader in predecessors)); a plan where Q overwrites A after only R1 (but not R2) was accepted.",
+      "after": "check_overwrite_safety does a pairwise scan over same-(level,core,slot) byte-range overlaps and requires dead_before(old,new): EVERY reader of the old value (including EXTERNAL/initial-resident) must be a transitive predecessor of the new writer, using deps-derived reachability only (never static_order).",
+      "counterexample": "P writes A; R1,R2 read A; Q overwrites A's slot. Old code: deps Q<-{P,R1} ACCEPTED (bug). New code: REJECTED unless both R1 and R2 precede Q.",
+      "tests": ["test_overwrite_after_only_one_reader_is_rejected", "test_overwrite_after_all_readers_is_accepted", "test_overwrite_safety_does_not_need_the_reuse_annotation", "test_initial_resident_counts_towards_capacity", "test_initial_resident_cannot_be_overwritten_while_read"]
     },
-    {
-      "name": "TileLoom / loom-dataflow",
-      "reason": "Its input is a tile program / ETG / constraint model, i.e. a planner input rather than an executable plan for a timing backend. Deprioritised behind the one executable candidate. NOT recorded as a run failure."
+    "A2_slot_model_and_structure": {
+      "alias_derivation": "overwrite/alias is derived from actual (level, core, slot, byte_range) overlap via Chunk.byte_range()/overlaps(); reuse_of is now only checked for annotation consistency, never used as the safety source.",
+      "order_semantics_distinction": "check.safety_scope separates 'dependency_and_overwrite_safety: all executions consistent with deps' from 'capacity_peak: declared static_order only - not a hardware peak under arbitrary interleaving'. static_order itself is validated to be a true topological order (static_order_not_topological).",
+      "naive_generator_barrier": "naive_layered_plan previously wired silu/mul/cast against a growing prefix of the previous stage; now silu.{j} deps = ALL gate ops, mul.{j} deps = ALL silu + ALL up ops, cast.{j} deps = ALL mul ops (true whole-layer barrier). Verified by test_naive_is_a_true_whole_layer_barrier. Plan identity changed dbe43cc256081c5a -> d3a4c6c861535e7f and edges 1170 -> 1476 as an honest consequence.",
+      "structural_validation": "new check_structure validates: duplicate op/chunk ids, core range, chunk-key vs producer consistency, valid memory level, positive size, non-negative offset, producer/writes bidirectional uniqueness, consumer read-source existence, EXTERNAL/initial-resident consistency. Missing dep references produce a structured rejection (unknown_dependency), never KeyError/RecursionError (test_unknown_dep_is_a_structured_rejection_not_a_crash).",
+      "renames": "summary field resident_bytes_by_level renamed to resident_value_bytes_sum (documented: sum of logical value sizes placed on-chip; NOT traffic, NOT saved DRAM bytes, NOT a peak)."
+    },
+    "A3_fail_closed_runner": {
+      "fail_closed": "run_plans checks each plan first; check.ok==False -> backend.execute is NEVER called (entry backend={'skipped':'check_failed'}); spy-backend test asserts zero calls (test_illegal_plan_never_reaches_the_backend). Rejection reasons surface identically in CLI output and manifest admission.illegal_plans.",
+      "onnxim_adapter": "OnnximBackend.execution_adapter_implemented=False; execute() raises BackendUnavailable stating the adapter is NOT IMPLEMENTED; probe_environment() does a LIVE host probe (binary/cmake/conan) separated from historical 2026-09-09 blockers; source-audit capability findings are labelled source_only.",
+      "run_dir": "new run directories refuse overwrite (test_run_directory_is_never_overwritten, test_new_run_dir_is_unique).",
+      "identities": "manifest v2 records workload/contract/hardware/backend/policy as separate content identities (hashes); plan_id is a plan identity, not the whole-experiment identity (test_run_identities_are_separate)."
+    },
+    "A4_expressiveness_layering": {
+      "three_layers": "plan/lowering.py: logical_semantics (checker) -> backend_expressibility (per-feature source-audit verdicts) -> physical_lowering (READY/NOT_READY). assess_plan combines all three into admission.",
+      "remote_reads": "resident_pipelined has 134 remote on-chip reads (down.* reads A16#k from other cores) with no movement contract -> physical_lowering_status=NOT_READY with explicit reason; a remote read is never free. Verified by test_resident_plan_remote_reads_block_physical_lowering.",
+      "permutation_use_case": "generators.permute_plan_cores(plan, permutation) is a legal core-mapping control case: only core fields change, checker still passes (test_core_permutation_is_a_legal_mapping_control_case).",
+      "numeric_licence": "generators._numeric_replay_meta attaches schema/shape-slice/layout/op-semantics/dtype/tolerance metadata so a plan carries enough info for functional replay.",
+      "functional_replay": "analysis/plan_replay.py: PlanReplay walks a deps-derived topological order, honours physical slot overwrite semantics, and compares against an independent float64 oracle (oracle_mlp). No cycles, no bandwidth, no fabricated timing. Mutations caught: wrong shard source, omitted cast, broken reuse (checker), premature overwrite (slot guard)."
     }
-  ],
-  "gate_results": {
-    "native_reproduction": {
-      "status": "BLOCKED",
-      "evidence": "docs/02_environment_blockers.md",
-      "detail": "ONNXim never built; no upstream example or test was run."
+  },
+  "p1_static_eval": {
+    "backend": {
+      "name": "STREAM/TETRA (KULeuven-MICAS)",
+      "checkout": "research/r12/deps/stream",
+      "pinned_commit": "75748cc17e7c43add5a7d0d8f080841eb26531c4",
+      "checkout_clean_before_and_after": true,
+      "environment": "research/r12/.venv (Python 3.13.12): stream-dse 1.14.1, zigzag-dse 3.8.5, ortools 9.15.6755, numpy 2.5.3, onnx 1.21.0",
+      "evaluation_kind": "analytical_static"
     },
-    "B1_external_plan_control": {
-      "status": "NOT_RUN",
-      "evidence": "runs/2026-09-09T16-51-02Z_plan-check-M32/manifest.json",
-      "detail": "Plan-level evidence exists (two structurally different legal plans, ids dbe43cc256081c5a and 738420509c6733af) but no backend confirmed it preserves the mapping."
-    },
-    "B2_lifetime_and_pipelining": {
-      "status": "NOT_RUN",
-      "evidence": "src/schedinfra/plan/checker.py",
-      "detail": "Checker rejects premature reuse, capacity overflow and missing dependencies (6 negative tests pass), but no timing backend observed real residency or traffic."
-    },
-    "B3_policy_replacement": {
-      "status": "NOT_RUN",
-      "evidence": "src/schedinfra/backend/onnxim.py",
-      "detail": "ONNXim's Scheduler interface looks clean (source_only). Never executed or timed."
-    },
-    "full_dimension_module": {
-      "status": "PARTIAL",
-      "evidence": "runs/cpu_reference/cpu_reference.json",
-      "detail": "Complete H=2560 / I=9216 MLP executed on CPU at M=1 and M=32 with bitwise agreement between two independent reduction implementations. This is arithmetic and workload provenance, NOT timing."
-    },
-    "repeatable_entry": {
+    "native_smoke": {
       "status": "PASS",
-      "evidence": "src/schedinfra/cli.py",
-      "detail": "plan-check / cpu-reference / backend-audit / inventory all run and write timestamped evidence under runs/."
+      "run_dir": "runs/2026-09-13T18-04-49Z_stream-native-smoke",
+      "command": "stream_static.py native-smoke (upstream tpu_like_quad_core.yaml + upstream 2conv workload, both sha256-recorded)",
+      "measured_cycles": 12808.0,
+      "upstream_documented_reference_cycles": 14344,
+      "matches_documented_reference": false,
+      "note": "12808 equals the value R12's own baseline_smoke measured at the same pinned commit; 14344 is the upstream docs/golden value. The mismatch is inherited from R12 and recorded, not hidden. No upstream source was modified to chase the number."
+    },
+    "cast_diagnostic": {
+      "status": "PARTIAL_feature_missing",
+      "run_dir": "runs/2026-09-13T17-54-17Z_stream-cast-diagnostic",
+      "finding": "cast_supported=false: 'No parser registered for ONNX op type Cast.' The contract's explicit FP32->BF16 cast cannot be modelled as a node; PARTIAL, not substituted."
+    },
+    "qwen_mlp": {
+      "status": "PASS_with_declared_deviations",
+      "run_dir": "runs/2026-09-13T18-19-30Z_stream-qwen-mlp",
+      "workload": "Gemm,Gemm,Silu,Mul,Gemm at H=2560/I=9216/M=32; dtypes contract-exact (BF16 x/w/A16, FP32 G/U/S/Y); onnx sha256 e707a11d...",
+      "hardware": "tpu_v7_ironwood.yaml (upstream big-chip example, 64 MiB VMEM/TensorCore), sha256 929e8bfc...",
+      "failed_alternatives_recorded": [
+        "tpu_like_quad_core: InfeasibleAllocationError, 33.84 MB resident vs 2 MiB/core (runs/2026-09-13T18-09-33Z)",
+        "tpu_v7_ironwood fully-fused (no cut): InfeasibleAllocationError, 3.21 MB vs 2 MiB on core 37 (runs/2026-09-13T18-15-06Z) - upstream-documented fused SwiGLU is structurally infeasible here, so fusion_cut_points=per-layer"
+      ],
+      "two_static_choices": {
+        "shared": "same named hardware + fusion_cut_points=per-layer",
+        "config_a": "constraint_selection.pipelining=occupancy -> 23886.0 cycles",
+        "config_b": "constraint_selection.pipelining=span -> 25136.0 cycles",
+        "selected_structure_changed": false,
+        "note": "both runs solved OPTIMAL (gscip, mip_gap 0.0); the two legal static configurations differ in latency but select the same structure. Honestly reported; no speedup claimed."
+      },
+      "declared_deviations": [
+        "Cast unsupported: Mul is typed to emit BF16 directly; bitwidth/materialisation match the contract but the cast's arithmetic work (M*I conversions) is charged to no node",
+        "initializer values are zeros; only shapes/bitwidths feed the analysis",
+        "no arithmetic executed analytically: BF16 rounding happens nowhere"
+      ]
     }
   },
-  "test_counts": {"passed": 16, "failed": 0, "not_run": 3},
-  "workload_runs": [
-    {
-      "kind": "cpu_numerical_reference",
-      "module": "qwen3.5-4b.mlp",
-      "scope": "complete gate/up/down, SiLU, elementwise multiply, explicit FP32->BF16 cast, FP32 output, M padded to 32",
-      "shape": {"H": 2560, "I": 9216, "M": 1, "padded_M": 32},
-      "precision_contract": "research/r13/numerical_contract.json (BF16 multiplicands, FP32 k_block=32 pair tree, forbidden reassociation, BF16 RNE cast)",
-      "plan_identity": null,
-      "result": {"passed": true, "relative_l2_vs_fp64": 0.0016238196248702127, "match_with_r13_frozen_value": "0.162382%"},
-      "host_cost_seconds": 10.9
-    },
-    {
-      "kind": "cpu_numerical_reference",
-      "module": "qwen3.5-4b.mlp",
-      "scope": "same as above",
-      "shape": {"H": 2560, "I": 9216, "M": 32, "padded_M": 32},
-      "precision_contract": "research/r13/numerical_contract.json",
-      "plan_identity": null,
-      "result": {"passed": true, "relative_l2_vs_fp64": 0.0016506450773327993, "match_with_r13_frozen_value": "0.165065%"},
-      "host_cost_seconds": 16.7
-    },
-    {
-      "kind": "plan_generation_and_legality",
-      "module": "qwen3.5-4b.mlp",
-      "scope": "two legal plans compared at plan level",
-      "shape": {"H": 2560, "I": 9216, "M": 32, "padded_M": 32},
-      "precision_contract": null,
-      "plan_identity": {
-        "naive_layered": "dbe43cc256081c5a",
-        "resident_pipelined": "738420509c6733af"
-      },
-      "result": {
-        "both_legal": true,
-        "ops": 100,
-        "total_macs": 2264924160,
-        "dependency_edges": {"naive_layered": 1170, "resident_pipelined": 292},
-        "spad_resident_bytes": {"naive_layered": 0, "resident_pipelined": 5308416},
-        "peak_residency_per_core_bytes": {"resident_pipelined": {"core0": 327680, "core1": 327680, "core2": 294912, "core3": 294912}},
-        "cycles": null,
-        "note": "no timing claim of any kind"
-      },
-      "host_cost_seconds": 0.773
-    }
+  "p2_notes": [
+    "STREAM is an analytical cost model: it can suggest, never enforce, dynamic B1-B3 behaviour. No dynamic claim was derived from it.",
+    "loom-mlar / loom-dataflow remains a strict subset (planner input, not an executable plan); not on the critical path."
   ],
-  "key_limitations": [
-    "No timing backend ran. There are zero cycles, bytes-on-wire or bandwidth numbers in this round's results.",
-    "ONNXim's pinned source shows cross-operator scratchpad residency and core-to-core data exchange are unsupported by design (Core.cc, Simulator.cc); the simple scheduler also imposes a whole-layer completion barrier (Scheduler.cc). This is a selection risk, not an environment issue.",
-    "Capacity and slot-reuse checking in our layer uses the plan's declared static order. It is a necessary-condition check; a real interleaving backend could still overflow. It is not a substitute for observed residency.",
-    "The CPU reference ran on numpy 2.3.5 while the R13 contract pins 2.5.3 (not installable here). Recorded as an explicit deviation in the run output.",
-    "SiLU exists in ONNXim only as 'swish' inside a fused BiasAct; there is no standalone elementwise-multiply op and Cast is a Dummy no-op, so the target module's cast would be silently free.",
-    "Only M=1 and M=32 were executed; M=128 was not run."
+  "test_counts": {"round1": {"passed": 16}, "round2": {"passed": 42, "failed": 0}, "command": "python -m pytest tests -q (4.15s)"},
+  "identities": {
+    "plans": {
+      "naive_layered": {"round1": "dbe43cc256081c5a", "round2": "d3a4c6c861535e7f", "change_reason": "true whole-layer barrier repair (A2); edges 1170 -> 1476"},
+      "resident_pipelined": "738420509c6733af",
+      "tiny_replay_fixtures": {"resident": "f9204509d5c3d992", "naive": "013911e8d598b007"}
+    },
+    "contract_sha256": "0fb2c74fc005667885f6caa8a4d25934e6456500f7b8cd697a423c83844cc13e",
+    "hardware_profile_sha256": "42440c301f64db00eb5419f4433f6f4edbcee878ddc9c10b470a0cfa03039702",
+    "onnxim_upstream_commit": "a1e86296e080fa1c82f8ad3f1b6de1079c192afc",
+    "onnxim_patch_identity": null,
+    "stream_commit": "75748cc17e7c43add5a7d0d8f080841eb26531c4",
+    "qwen_mlp_onnx_sha256": "e707a11d143a6ffc27aeffec6ff285c4751c767c6aac5c3598b322fc651e914c"
+  },
+  "command_log": [
+    {"cmd": "python -m pytest tests -q", "result": "42 passed in 4.15s"},
+    {"cmd": "python -m schedinfra.cli plan-check --m 32", "run_dir": "runs/2026-09-13T17-51-54Z_plan-check-M32", "result": "ADMITTED; naive READY / resident NOT_READY(134 remote reads); backend never executed (BackendUnavailable, adapter not implemented)"},
+    {"cmd": "python -m schedinfra.cli plan-replay --style resident|naive", "run_dirs": ["runs/2026-09-13T17-52-35Z_plan-replay-resident", "runs/2026-09-13T17-52-36Z_plan-replay-naive"], "result": "both pass, relative_l2 6.93e-05 <= 1e-4 vs float64 oracle; evaluation_kind=functional_replay"},
+    {"cmd": "python -m schedinfra.cli stream-eval native-smoke", "run_dir": "runs/2026-09-13T18-04-49Z_stream-native-smoke", "result": "passed, 12808 cycles analytical"},
+    {"cmd": "python -m schedinfra.cli stream-eval cast-diagnostic", "run_dir": "runs/2026-09-13T17-54-17Z_stream-cast-diagnostic", "result": "passed (diagnostic), cast_supported=false"},
+    {"cmd": "python -m schedinfra.cli stream-eval qwen-mlp --hardware tpu_v7_ironwood", "run_dir": "runs/2026-09-13T18-19-30Z_stream-qwen-mlp", "result": "passed, occupancy 23886 / span 25136 cycles analytical, structure_changed=false"},
+    {"cmd": "python -m schedinfra.cli cpu-reference --m 1 32", "run_dir": "runs/2026-09-13T18-05-51Z_cpu-reference", "result": "all_passed; relative_l2 0.0016238 (M=1) / 0.0016506 (M=32) matching R13 frozen values; numpy 2.3.5 vs pinned 2.5.3 recorded as explicit deviation"}
   ],
-  "next_round": {
-    "recommended_goal": "Decide, with authorisation, whether to build a minimal tile-level execution core (bounded, ~1-2 kLOC, reuse this round's plan IR and checker) so B1-B3 can actually execute, OR to obtain a Linux/WSL2 host with cmake+conan and re-admit ONNXim under a reduced research scope that does not require cross-operator residency.",
-    "entry_files": [
-      "research/infra_open_source/src/schedinfra/plan/schema.py",
-      "research/infra_open_source/src/schedinfra/plan/checker.py",
-      "research/infra_open_source/src/schedinfra/plan/generators.py",
-      "research/infra_open_source/src/schedinfra/backend/onnxim.py",
-      "research/infra_open_source/src/schedinfra/runner.py",
-      "research/infra_open_source/capabilities.json"
+  "files_changed": {
+    "modified": [
+      "src/schedinfra/plan/checker.py (+416/-... rewrite: check_structure, check_overwrite_safety, check_static_order, staged check_plan)",
+      "src/schedinfra/plan/schema.py (byte_range/overlaps, initial_resident, resident_value_bytes_sum, v2 to_dict, legal_order)",
+      "src/schedinfra/plan/generators.py (true whole-layer barrier, movement_contract note, permute_plan_cores, numeric replay meta)",
+      "src/schedinfra/runner.py (fail-closed run_plans, unique run dir, manifest v2 with admission+identities)",
+      "src/schedinfra/backend/onnxim.py (adapter NOT IMPLEMENTED marker, live environment probe, capabilities)",
+      "src/schedinfra/cli.py (plan-replay, stream-eval commands, layered admission in output, PYTHONPATH isolation for R12 venv)",
+      "tests/test_plan.py (16 -> 29 tests incl. P/R1/R2/Q counterexample family)"
     ],
-    "acceptance": [
-      "B1: two externally supplied plans produce different observed core assignment and tile identity in backend output, with no silent re-tiling or added global barrier",
-      "B2: a producer-consumer subgraph shows a consumer starting after its own data is visible rather than after the whole producer layer; one premature-reuse case and one capacity-overflow case are rejected or explicitly charged",
-      "B3: two policies swap through an explicit interface and produce different, recorded issue orders on a fixture where the orders genuinely differ",
-      "One full H/I MLP (M=32) comparing two legal plans, reporting cycles with an explicit start/end convention",
-      "Repeat run with fixed input and seed reproducing identical metrics"
-    ],
-    "external_decisions_needed": [
-      "Authorisation to build a minimal execution core: the round brief forbids expanding into a long-term simulator project without new scope authorisation, so this needs an explicit yes/no.",
-      "If no: provide a Linux or WSL2 host with cmake >= 3.22 and conan 1.57, or lift the wsl.exe security-policy block, so ONNXim can actually be built.",
-      "Confirm whether the research question can be reshaped to avoid cross-operator residency, since ONNXim cannot express it without a redesign."
+    "new": [
+      "src/schedinfra/plan/lowering.py (three-layer admission: expressibility + physical lowering)",
+      "src/schedinfra/analysis/plan_replay.py (functional replay vs independent float64 oracle)",
+      "src/schedinfra/backend/stream_static.py (pinned STREAM static evaluation driver)",
+      "tests/test_runner.py (5 tests: fail-closed spy, identities, run-dir uniqueness)",
+      "tests/test_replay.py (8 tests: oracle match + 4 mutation catches)"
     ]
   },
-  "artifact_paths": {
-    "report": "research/infra_open_source/report.md",
-    "readme": "research/infra_open_source/README.md",
-    "capabilities": "research/infra_open_source/capabilities.json",
-    "environment_blockers": "research/infra_open_source/docs/02_environment_blockers.md",
-    "pinned_versions": "research/infra_open_source/configs/pinned_versions.json",
-    "hardware_profile": "research/infra_open_source/configs/hardware/onnxim_tpuv4_c4.json",
-    "onnxim_source_audit": "research/infra_open_source/runs/2026-09-09T16-51-02Z_backend-audit/onnxim_source_audit.json",
-    "plan_check_run": "research/infra_open_source/runs/2026-09-09T16-51-02Z_plan-check-M32/manifest.json",
-    "cpu_reference": "research/infra_open_source/runs/cpu_reference/cpu_reference.json",
-    "tests": "research/infra_open_source/tests/test_plan.py",
-    "upstream_vendor": "research/infra_open_source/vendor/ONNXim_git (not committed)"
+  "key_limitations": [
+    "RUNTIME_READY=NO: zero dynamic execution. STREAM numbers are analytical_static; replay numbers are functional only. No cycles from any execution backend exist.",
+    "Capacity peak is still declared-static_order scope, not an arbitrary-interleaving hardware peak; overwrite safety IS partial-order complete.",
+    "STREAM cannot model the contract's Cast (parser missing) - PARTIAL with declared deviation, not substituted.",
+    "resident_pipelined remains NOT_READY for physical lowering until a movement/remote-access contract exists for its 134 remote reads.",
+    "CPU reference runs numpy 2.3.5 vs contract-pinned 2.5.3 (explicit deviation, unchanged from round 1).",
+    "tpu_v7_ironwood is an upstream example hardware, not a measured research target; qwen-mlp used it because the smaller tpu_like_quad_core is measurably infeasible."
+  ],
+  "next_round": {
+    "recommended_goal": "RUNTIME layer: either (a) authorise the bounded minimal tile-level execution core (~1-2 kLOC, reusing this plan IR + checker, which are now proven safe), or (b) obtain a Linux/WSL2 host with cmake>=3.22+conan and re-admit ONNXim under a scope not requiring cross-operator residency. The plan layer and analytical static layer no longer block this decision.",
+    "acceptance_carried_over": "Round-1 B1/B2/B3 acceptance criteria in handoff_2026-09-09_round1.json remain valid and unmet at the RUNTIME layer."
   }
 }

@@ -1,0 +1,69 @@
+nodes:
+- name: Conv1
+  cores:
+  - core_id: 0
+    core_type: zigzag.compute
+    latency_total: 2376
+    ideal_cycle: 288
+    ideal_temporal_cycle: 1152
+    energy_total: 550217.3759999999
+    metadata:
+      backend: zigzag
+  - core_id: 1
+    core_type: zigzag.compute
+    latency_total: 2376
+    ideal_cycle: 288
+    ideal_temporal_cycle: 1152
+    energy_total: 550217.3759999999
+    metadata:
+      backend: zigzag
+  - core_id: 2
+    core_type: zigzag.compute
+    latency_total: 2376
+    ideal_cycle: 288
+    ideal_temporal_cycle: 1152
+    energy_total: 550217.3759999999
+    metadata:
+      backend: zigzag
+  - core_id: 3
+    core_type: zigzag.compute
+    latency_total: 2376
+    ideal_cycle: 288
+    ideal_temporal_cycle: 1152
+    energy_total: 550217.3759999999
+    metadata:
+      backend: zigzag
+- name: Conv2
+  cores:
+  - core_id: 0
+    core_type: zigzag.compute
+    latency_total: 4656
+    ideal_cycle: 1152
+    ideal_temporal_cycle: 2304
+    energy_total: 1257593.4719999998
+    metadata:
+      backend: zigzag
+  - core_id: 1
+    core_type: zigzag.compute
+    latency_total: 4656
+    ideal_cycle: 1152
+    ideal_temporal_cycle: 2304
+    energy_total: 1257593.4719999998
+    metadata:
+      backend: zigzag
+  - core_id: 2
+    core_type: zigzag.compute
+    latency_total: 4656
+    ideal_cycle: 1152
+    ideal_temporal_cycle: 2304
+    energy_total: 1257593.4719999998
+    metadata:
+      backend: zigzag
+  - core_id: 3
+    core_type: zigzag.compute
+    latency_total: 4656
+    ideal_cycle: 1152
+    ideal_temporal_cycle: 2304
+    energy_total: 1257593.4719999998
+    metadata:
+      backend: zigzag

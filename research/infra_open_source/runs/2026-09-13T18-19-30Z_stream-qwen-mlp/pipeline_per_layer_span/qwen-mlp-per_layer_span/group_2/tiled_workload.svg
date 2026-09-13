@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="813" height="113" viewBox="0 0 813 113" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9aa3ad"/></marker></defs>
+<rect width="813" height="113" fill="#fcfcfb"/>
+<path d="M116.6,49.0 C148.6,49.0 148.6,56.5 180.6,56.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M456.2,49.0 C488.2,49.0 488.2,56.5 520.2,56.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M286.4,56.5 C318.4,56.5 318.4,49.0 350.4,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M626.0,56.5 C658.0,56.5 658.0,49.0 690.0,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="24.0" y="24.0" width="92.6" height="50.0" rx="9" fill="#fdf3c8" stroke="#b9992a" stroke-width="1.5"/>
+<text x="70.3" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">G_bridge_in</text>
+<text x="70.3" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<rect x="350.4" y="24.0" width="105.8" height="50.0" rx="9" fill="#dbeafe" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="403.3" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">silu</text>
+<text x="403.3" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<rect x="690.0" y="24.0" width="99.2" height="50.0" rx="9" fill="#d6f5e3" stroke="#1baf7a" stroke-width="1.5"/>
+<text x="739.6" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">silu_cut_out</text>
+<text x="739.6" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<rect x="180.6" y="24.0" width="105.8" height="65.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="233.5" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">G</text>
+<text x="233.5" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<text x="233.5" y="75.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<rect x="520.2" y="24.0" width="105.8" height="65.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="573.1" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">S</text>
+<text x="573.1" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<text x="573.1" y="75.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+</svg>

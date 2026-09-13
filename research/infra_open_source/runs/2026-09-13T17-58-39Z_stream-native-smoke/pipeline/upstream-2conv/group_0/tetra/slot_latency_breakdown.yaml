@@ -1,0 +1,330 @@
+totals:
+  latency_per_iteration: 12808
+  overlap: 0
+  iter_step: 12808
+  total_latency: 12808
+resource_slack:
+- resource: CL(Any, Any, bw=128)
+  kind: link
+  slack_cycles: 4656
+- resource: Core(0, zigzag.compute)
+  kind: core
+  slack_cycles: 5776
+- resource: Core(1, zigzag.compute)
+  kind: core
+  slack_cycles: 5776
+- resource: Core(2, zigzag.compute)
+  kind: core
+  slack_cycles: 5776
+- resource: Core(3, zigzag.compute)
+  kind: core
+  slack_cycles: 5776
+tensor_reuse:
+- tensor: output_1
+  size_bits: 524288
+  reuse_factor: 1
+  reuse_stop_level: -1
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z10,1,V)
+  - S(z13,4,V)
+  - ST(z6,4,A)
+  - K(z13,8,V)
+  - K(z12,32,V)
+  - K(z11,32,V)
+  - K(z10,1,V)
+  - K(z9,16,I)
+  - K(z8,3,I)
+  - K(z7,3,I)
+  - K(z6,8,I)
+  - K(z5,32,I)
+  - K(z4,8,I)
+  - K(z3,3,I)
+  - K(z2,3,I)
+  - K(z1,32,I)
+  - K(z0,32,I)
+- tensor: output
+  size_bits: 524288
+  reuse_factor: 1
+  reuse_stop_level: -1
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z10,1,V)
+  - ST(z13,4,V)
+  - ST(z6,4,A)
+  - K(z13,8,V)
+  - K(z12,32,V)
+  - K(z11,32,V)
+  - K(z10,1,V)
+  - K(z9,16,I)
+  - K(z8,3,I)
+  - K(z7,3,I)
+  - K(z6,8,I)
+  - K(z5,32,I)
+  - K(z4,8,I)
+  - K(z3,3,I)
+  - K(z2,3,I)
+  - K(z1,32,I)
+  - K(z0,32,I)
+- tensor: conv1_out
+  size_bits: 262144
+  reuse_factor: 1
+  reuse_stop_level: -1
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z10,1,V)
+  - ST(z13,4,A)
+  - S(z6,4,V)
+  - K(z13,8,I)
+  - K(z12,32,I)
+  - K(z11,32,I)
+  - K(z10,1,V)
+  - K(z9,16,V)
+  - K(z8,3,I)
+  - K(z7,3,I)
+  - K(z6,8,V)
+  - K(z5,32,V)
+  - K(z4,8,I)
+  - K(z3,3,I)
+  - K(z2,3,I)
+  - K(z1,32,I)
+  - K(z0,32,I)
+- tensor: conv1_out_1
+  size_bits: 262144
+  reuse_factor: 1
+  reuse_stop_level: -1
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z10,1,V)
+  - S(z13,4,V)
+  - ST(z6,4,I)
+  - K(z13,8,V)
+  - K(z12,32,V)
+  - K(z11,32,I)
+  - K(z10,1,V)
+  - K(z9,16,V)
+  - K(z8,3,V)
+  - K(z7,3,V)
+  - K(z6,8,I)
+  - K(z5,32,I)
+  - K(z4,8,I)
+  - K(z3,3,I)
+  - K(z2,3,I)
+  - K(z1,32,I)
+  - K(z0,32,I)
+- tensor: input
+  size_bits: 131072
+  reuse_factor: 1
+  reuse_stop_level: 0
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z10,1,V)
+  - ST(z13,4,A)
+  - S(z6,4,I)
+  - K(z13,8,I)
+  - K(z12,32,I)
+  - K(z11,32,I)
+  - K(z10,1,V)
+  - K(z9,16,I)
+  - K(z8,3,I)
+  - K(z7,3,I)
+  - K(z6,8,I)
+  - K(z5,32,I)
+  - K(z4,8,V)
+  - K(z3,3,I)
+  - K(z2,3,I)
+  - K(z1,32,V)
+  - K(z0,32,V)
+- tensor: input_1
+  size_bits: 131072
+  reuse_factor: 1
+  reuse_stop_level: -1
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z10,1,V)
+  - ST(z13,4,A)
+  - S(z6,4,V)
+  - K(z13,8,I)
+  - K(z12,32,I)
+  - K(z11,32,I)
+  - K(z10,1,V)
+  - K(z9,16,I)
+  - K(z8,3,I)
+  - K(z7,3,I)
+  - K(z6,8,V)
+  - K(z5,32,V)
+  - K(z4,8,V)
+  - K(z3,3,V)
+  - K(z2,3,V)
+  - K(z1,32,I)
+  - K(z0,32,I)
+- tensor: weights_2
+  size_bits: 73728
+  reuse_factor: 1
+  reuse_stop_level: 0
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z10,1,I)
+  - S(z13,4,I)
+  - ST(z6,4,A)
+  - K(z13,8,I)
+  - K(z12,32,I)
+  - K(z11,32,V)
+  - K(z10,1,I)
+  - K(z9,16,V)
+  - K(z8,3,V)
+  - K(z7,3,V)
+  - K(z6,8,I)
+  - K(z5,32,I)
+  - K(z4,8,I)
+  - K(z3,3,I)
+  - K(z2,3,I)
+  - K(z1,32,I)
+  - K(z0,32,I)
+- tensor: weights_2_1
+  size_bits: 73728
+  reuse_factor: 1
+  reuse_stop_level: -1
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z10,1,I)
+  - S(z13,4,I)
+  - ST(z6,4,A)
+  - K(z13,8,I)
+  - K(z12,32,I)
+  - K(z11,32,V)
+  - K(z10,1,I)
+  - K(z9,16,V)
+  - K(z8,3,V)
+  - K(z7,3,V)
+  - K(z6,8,I)
+  - K(z5,32,I)
+  - K(z4,8,I)
+  - K(z3,3,I)
+  - K(z2,3,I)
+  - K(z1,32,I)
+  - K(z0,32,I)
+- tensor: weights_1
+  size_bits: 18432
+  reuse_factor: 1
+  reuse_stop_level: 0
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z10,1,I)
+  - ST(z13,4,A)
+  - S(z6,4,I)
+  - K(z13,8,I)
+  - K(z12,32,I)
+  - K(z11,32,I)
+  - K(z10,1,I)
+  - K(z9,16,V)
+  - K(z8,3,I)
+  - K(z7,3,I)
+  - K(z6,8,I)
+  - K(z5,32,I)
+  - K(z4,8,V)
+  - K(z3,3,V)
+  - K(z2,3,V)
+  - K(z1,32,I)
+  - K(z0,32,I)
+- tensor: weights_1_1
+  size_bits: 18432
+  reuse_factor: 1
+  reuse_stop_level: -1
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z10,1,I)
+  - ST(z13,4,A)
+  - S(z6,4,I)
+  - K(z13,8,I)
+  - K(z12,32,I)
+  - K(z11,32,I)
+  - K(z10,1,I)
+  - K(z9,16,V)
+  - K(z8,3,I)
+  - K(z7,3,I)
+  - K(z6,8,I)
+  - K(z5,32,I)
+  - K(z4,8,V)
+  - K(z3,3,V)
+  - K(z2,3,V)
+  - K(z1,32,I)
+  - K(z0,32,I)
+slots:
+- slot: 0
+  slot_latency_cycles: 0
+  compute_contributors: []
+  transfer_contributors: []
+- slot: 1
+  slot_latency_cycles: 1024
+  compute_contributors: []
+  transfer_contributors:
+  - name: Transfer(input)
+    tensor_bits: 131072
+    min_link_bw: 128
+    raw_path_cycles: 1024
+    active_latency_absent_loops: 1024
+    reuse_factor: null
+    contribution: null
+- slot: 2
+  slot_latency_cycles: 144
+  compute_contributors: []
+  transfer_contributors:
+  - name: Transfer(weights_1)
+    tensor_bits: 18432
+    min_link_bw: 128
+    raw_path_cycles: 144
+    active_latency_absent_loops: 144
+    reuse_factor: null
+    contribution: null
+- slot: 3
+  slot_latency_cycles: 2376
+  compute_contributors:
+  - name: Conv1
+    n_cores_in_lut: 4
+    lut_latency_total: 2376
+    ssis_fraction: 1
+    active_latency: 2376
+  transfer_contributors:
+  - name: Transfer(weights_2)
+    tensor_bits: 73728
+    min_link_bw: 128
+    raw_path_cycles: 576
+    active_latency_absent_loops: 576
+    reuse_factor: null
+    contribution: null
+- slot: 4
+  slot_latency_cycles: 512
+  compute_contributors: []
+  transfer_contributors:
+  - name: Transfer(conv1_out)
+    tensor_bits: 262144
+    min_link_bw: 128
+    raw_path_cycles: 512
+    active_latency_absent_loops: 512
+    reuse_factor: null
+    contribution: null
+- slot: 5
+  slot_latency_cycles: 4656
+  compute_contributors:
+  - name: Conv2
+    n_cores_in_lut: 4
+    lut_latency_total: 4656
+    ssis_fraction: 1
+    active_latency: 4656
+  transfer_contributors: []
+- slot: 6
+  slot_latency_cycles: 4096
+  compute_contributors: []
+  transfer_contributors:
+  - name: Transfer(output_1)
+    tensor_bits: 524288
+    min_link_bw: 128
+    raw_path_cycles: 4096
+    active_latency_absent_loops: 4096
+    reuse_factor: null
+    contribution: null
+- slot: 7
+  slot_latency_cycles: 0
+  compute_contributors: []
+  transfer_contributors: []

@@ -1,0 +1,17 @@
+layers:
+- name: silu
+  core_allocation:
+  - - 8
+    - 18
+    - 28
+    - 38
+  inter_core_tiling:
+  - - dim: D1
+      split: 4
+fused_groups:
+- name: Fused_Group_1
+  layers:
+  - silu
+  intra_core_tiling:
+  - dim: silu.D0
+    tile: 32

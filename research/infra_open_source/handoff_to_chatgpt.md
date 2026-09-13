@@ -1,114 +1,131 @@
-# 本轮交接：开源多核 NPU 调度实验基础设施
+# 本轮交接（第 2 轮）：检查器修复 + STREAM 静态评估接通
 
-**判决：PARTIAL。** 计划层、工作量层和 CPU 数值层是能跑、能改、能复现的真实代码并已通过；
-**时序后端这一层没有跑起来**。现在能开展的实验是"计划生成与合法性研究"和"数值/工作量来源研究"，
-**还不能**开展任何产生 cycles、带宽或加速比的调度实验。
+**分层判决：PLAN_SAFE = 是；STATIC_EVAL_READY = 是；RUNTIME_READY = 否。**
+
+计划层的安全性已经从"声明顺序下的必要条件检查"升级为"对完整偏序可证明的覆写安全"；
+STREAM 分析型静态评估在固定 commit 上真实跑通（原生 smoke + Qwen MLP 两种静态配置）；
+**仍然没有任何执行后端跑过**——所有 cycles 数字都标注 `evaluation_kind=analytical_static`，
+runner 对非法计划 fail-closed，ONNXim 适配器明确标记 NOT IMPLEMENTED，零伪造。
+
+起点：第 1 轮 HEAD `4db062e`（判决 PARTIAL），旧交接已归档为
+`handoff_2026-09-09_round1.json` / `handoff_2026-09-09_round1_to_chatgpt.md`。
 
 ---
 
-## 1. 最重要的完成项与限制
+## 1. P0：检查器复用安全修复（A1/A2）
 
-完成的是一个后端无关的研究基础设施：有来源的 Qwen3.5-4B MLP 规格、内容寻址的候选计划 IR、
-能拒绝非法计划的检查器、复用 R13 冻结实现的独立 CPU 数值参考，以及"生成计划 → 检查 → 执行 → 汇总"
-的入口。全部实际运行过。
+**Bug（修复前）**：旧代码用 `any(reader in predecessors)` 判定 slot 覆写安全——
+P 写 A、R1/R2 都读 A、Q 覆写 A 的 slot，只要 Q 等了 R1/R2 中**任意一个**就放行。
 
-限制是一句话：**没有一个时序后端被执行过，本轮结果里没有任何 cycles 数字。**
+**修复后**：`check_overwrite_safety` 对同一 (level, core, slot) 上字节区间相交的 chunk
+两两判定 `dead_before(old, new)`——旧值的**每一个** reader（含 EXTERNAL/初始驻留）
+都必须是新写者的传递前驱；可达性只从 `deps` 推导，**绝不使用 static_order**。
+安全性来源是实际的 (level/core/slot/字节区间) 重叠，`reuse_of` 注解只做一致性校验。
 
-## 2. 底座选择
+**反例前后对照**：
 
-选定审计对象 **ONNXim**（PSAL-POSTECH，IEEE CAL 2024），固定 commit
-`a1e86296e080fa1c82f8ad3f1b6de1079c192afc`（2026-01-08），硬件配置取自其自带的
-`systolic_ws_128x128_c4_simple_noc_tpuv4.json`（4 核 systolic_ws 128×128、每核 32 MiB
-scratchpad、simple NoC、ramulator2 DRAM）。
+| 场景 | 修复前 | 修复后 |
+|---|---|---|
+| Q 只等 R1（漏 R2）就覆写 A | **错误接受** | 拒绝 |
+| Q 等齐 R1+R2 后覆写 A | 接受 | 接受 |
+| 无 `reuse_of` 注解的裸同 slot 覆写 | 不检查 | 同样按上述规则判定 |
 
-**它没有被构建，也没有运行**，原因有两条且互相独立：
+**naive 生成器整层屏障修复**：silu/mul/cast 原来只依赖前一阶段的**增长前缀**，
+现在 `silu.{j}` 依赖全部 gate、`mul.{j}` 依赖全部 silu+up、`cast.{j}` 依赖全部 mul
+（真整层屏障，由 `test_naive_is_a_true_whole_layer_barrier` 验证）。
+诚实后果：naive plan_id 从 `dbe43cc256081c5a` 变为 `d3a4c6c861535e7f`，依赖边 1170→1476。
 
-- **环境阻断**：主机无 cmake（全盘搜索无 cmake.exe）、无 conan；PyPI 被网络过滤替换成 HTML
-  拦截页（`pip install numpy` 报 hash 不匹配，直接 curl 取回的是 `<!DOCTYPE html>`）；
-  git 大文件克隆被代理截断（`curl 56` / `gzip: unexpected end of file`，8.7 MB 处停住）。
-  WSL2 被主机安全策略列入黑名单，全程只能 Windows 原生。
-- **能力阻断（更重要）**：源码审计显示三项与研究需求直接冲突——跨算子驻留不支持
-  （`Core.cc` 每个 tile 刷新 scratchpad，输出一律写回 DRAM）、核间通信不支持
-  （`Simulator.cc` 只路由 core↔DRAM）、simple 调度器有整层完成屏障（`Scheduler.cc:207-209`）。
-  这属于"需要重写执行、存储所有权与通信路由"，按本轮规则应记为**选型风险**，不能藏进"未来可扩展"。
+**结构校验**（新增 `check_structure`，失败即停后续分析）：重复 id、core 越界、
+chunk key 与 producer 一致性、level 合法性、size>0、offset≥0、producer/writes 双向唯一、
+consumer 读源存在、EXTERNAL/初始驻留一致性。`deps` 引用缺失 op 时给出**结构化拒绝**
+（`unknown_dependency`），不再 KeyError/RecursionError。
+`resident_bytes_by_level` 更名 `resident_value_bytes_sum`，并注明：是逻辑值尺寸之和，
+**不是**流量、**不是**节省的 DRAM 字节、**不是**峰值。
 
-考察但未选择（**均非运行失败**）：`KULeuven-MICAS/stream`（分析型代价模型，无法提供 B1–B3
-所需的执行反馈，本轮刻意不放在关键路径上；R12/R13 已跑过）、`ecolab-nus/loom-dataflow`
-（输入是 tile 程序/ETG/约束模型，是规划器输入而非可执行计划）。
+**顺序语义分层**（报告里显式区分）：
+- 依赖与覆写安全：对**所有与 deps 一致的执行**成立（偏序完备）；
+- 容量峰值：仅对**声明的 static_order** 成立，不是任意交错下的硬件峰值；
+- `static_order` 本身会被校验必须是合法拓扑序。
 
-## 3. 实际完成
+## 2. P0：fail-closed runner 与身份（A3）
 
-**原生复现：未通过（BLOCKED）。** 没有构建 ONNXim，没有运行其自带示例或 GoogleTest。
+- 非法计划**绝不调用** `backend.execute`；间谍后端测试确认零调用；
+  拒绝原因在 CLI 与 manifest `admission.illegal_plans` 中一致。
+- ONNXim 适配器显式标记 `execution_adapter_implemented=False`，`execute()` 抛
+  `BackendUnavailable` 并注明 NOT IMPLEMENTED；`probe_environment()` 是**实时**探测
+  （binary/cmake/conan），与 2026-09-09 历史阻断分开记录；能力结论标注 `source_only`。
+- 新运行目录拒绝覆盖。
+- manifest v2 中 workload/contract/hardware/backend/policy 各自有独立内容身份（hash），
+  plan_id 只是计划身份，不是整个实验的身份。
 
-**B1 外部计划控制：NOT_RUN。** 计划层有真实证据：同一工作量、同一硬件下两份合法计划
-`naive_layered`（id `dbe43cc256081c5a`）与 `resident_pipelined`（id `738420509c6733af`），
-M=32、4 核，各 100 个 op、147 个 chunk、MAC 总数同为 2,264,924,160 = 3×32×2560×9216；
-区别是**依赖边 1170 vs 292**（去掉整层屏障后约 4 倍）与**片上驻留 0 B vs 5,308,416 B**
-（峰值每核 294,912–327,680 B）。但没有后端确认它会保留该映射。
+## 3. P0：表达力分层（A4）
 
-**B2 跨算子流水与存储生命周期：NOT_RUN。** 检查器能拒绝：缺失依赖、容量溢出、提前复用、
-复用缺顺序边、依赖成环、消费者声明不一致（6 个负例测试通过）；但没有时序后端观测真实驻留与流量。
+三层准入：逻辑语义（checker）→ 后端可表达性（逐特性源码审计结论）→ 物理下降
+（READY/NOT_READY）。
+- `resident_pipelined` 有 **134 个远程片上读**（down.* 读其他核的 A16#k）且无 movement
+  contract → `physical_lowering_status=NOT_READY`，理由写明"远程读永远不免费"。
+- 核映射置换用例：`permute_plan_cores` 只改 core 字段，checker 仍通过。
+- 数值许可：生成器附带 schema/shape-slice/layout/op 语义/dtype/容差元数据。
+- **功能回放引擎**（`analysis/plan_replay.py`）：按 deps 拓扑序执行计划自己的 chunk
+  读写、遵守物理 slot 覆写语义，对照独立 float64 oracle。tiny fixture 两种风格
+  （resident 乒乓 slot / naive DRAM+整层屏障）都通过，relative_l2 ≈ 6.93e-05 ≤ 1e-4。
+  变异捕捉：分片源改错、省略 cast、reuse 依赖断裂（checker）、提前覆写（slot 守卫）。
+  **无 cycles、无带宽、无伪造时序。**
 
-**B3 策略替换：NOT_RUN。** ONNXim 的 `Scheduler` 是虚基类 + 工厂选择（源码级，未执行、未计时）。
+## 4. P1：STREAM 静态评估（真实进度）
 
-**完整维度真实模块：PARTIAL（真实执行）。** CPU 上跑了完整 H=2560 / I=9216 的 MLP：
-M=1 相对 FP64 的 L2 = 0.0016238196、M=32 = 0.0016506451，与 R13 冻结值 0.162382% / 0.165065%
-一致；两套独立归约实现逐位相同。这只是**代数与工作量来源**的正确性，不是时序。
+环境：R12 固定 checkout `75748cc17e7c43add5a7d0d8f080841eb26531c4`（运行前后均干净），
+R12 venv（Python 3.13.12，stream-dse 1.14.1 / ortools 9.15.6755 / numpy 2.5.3）。
 
-**可重复入口：PASS。** `python -m schedinfra.cli {inventory,plan-check,cpu-reference,backend-audit}`
-均能运行并写入带时间戳的证据目录。计划检查主机耗时 0.773 s，CPU 参考 M=1/32 共 16.7 s。
+| 运行 | 结果 | 证据目录 |
+|---|---|---|
+| 原生 smoke（上游 2conv + tpu_like_quad_core） | **PASS**，12808 cycles | `runs/2026-09-13T18-04-49Z_stream-native-smoke` |
+| Cast 诊断 | **PARTIAL**：`No parser registered for ONNX op type 'Cast'` | `runs/2026-09-13T17-54-17Z_stream-cast-diagnostic` |
+| Qwen MLP（H=2560/I=9216/M=32） | **PASS**（含声明偏差） | `runs/2026-09-13T18-19-30Z_stream-qwen-mlp` |
 
-## 4. 改动范围
+诚实记录：
+- 原生 smoke 实测 12808 ≠ 上游文档 14344；该差异**继承自 R12**（R12 同 commit 实测也是
+  12808），未修改上游去追数。
+- 合同的显式 FP32→BF16 cast 无法建节点（PARTIL，不替代）；MLP 模型中 Mul 直接按 BF16
+  输出，位宽/物化与合同一致，但 cast 的算术工作量（M×I 次转换）未计任何节点。
+- 硬件选型过程有失败记录：tpu_like_quad_core 实测不可行（33.84 MB 驻留 vs 2 MiB/核），
+  ironwood 全融合也不可行（3.21 MB vs 2 MiB，上游文档化）→ 最终用上游大芯片示例
+  **tpu_v7_ironwood** + `fusion_cut_points=per-layer`。
+- 同一命名硬件、同一 per-layer 切分下两种合法静态配置：pipelining=occupancy
+  **23886 cycles** vs pipelining=span **25136 cycles**；两者均 OPTIMAL（gscip, gap 0），
+  **选中的结构相同（structure_changed=false）**——如实报告，不声称任何加速。
 
-新增 `research/infra_open_source/`（未提交、未 push）。核心文件：`src/schedinfra/workload/qwen_mlp.py`、
-`plan/schema.py`、`plan/checker.py`、`plan/generators.py`、`analysis/cpu_reference.py`、
-`backend/onnxim.py`、`runner.py`、`cli.py`，以及 `configs/`、`tests/`、`docs/`。
-**没有修改任何上游代码，没有打补丁**（没构建就无从修改）。R1–R13 冻结代码、合同、结果未被改动。
-仓库基础 HEAD `2c3cda1b`（分支 `codex/r12-wormhole-qualification`），工作区除新增目录外无改动。
+全部标注 `evaluation_kind=analytical_static`，**永不**标注 RUNTIME_READY。
 
-## 5. 能力与缺口
+## 5. 测试与身份
 
-原生可用：分块/循环序、buffer 容量、依赖与资源顺序、策略接口、反压（仅在 booksim2/ramulator2
-后端）、self-timed 推进、SiLU（仅 fused `swish`）。
-需extension：逐 tile 核映射、显式 slot 复用、独立逐元素乘法。
-**锁死**：跨算子驻留、核间通信、整层屏障、精度 cast（Cast 是 Dummy 空操作，会让目标模块的 cast 免费）。
-未验证：以上所有"原生"判断都是 `source_only`，**没有任何一项经过执行验证**。
-
-三个最重要的阻断：
-1. **无时序后端**（环境 + 能力双重）——已尝试 pip/镜像/trusted-host、curl、断点续传、
-   blobless 稀疏克隆（成功拿到源码，但构建仍缺 cmake/conan/子模块）。
-2. **ONNXim 不能表达研究所需语义**——不是环境问题是设计问题，不能靠适配层绕过。
-3. **自建执行核心需要授权**——本轮规则禁止未经新范围授权扩成长期模拟器项目。
+- 测试：**16 → 42 passed**（`python -m pytest tests -q`，4.15s）。新增：P/R1/R2/Q 反例族
+  （5）、结构校验族、runner fail-closed 族（5）、replay 族（8）。
+- 关键身份：naive `d3a4c6c861535e7f`（修复后）/ resident `738420509c6733af`（不变）；
+  合同 sha256 `0fb2c74f…`；STREAM commit `75748cc…`；ONNXim commit `a1e86296…`，
+  patch_identity=null；qwen_mlp_m32.onnx sha256 `e707a11d…`。
 
 ## 6. 复现方法
 
 ```bash
 cd research/infra_open_source
-. ./scripts/env.ps1            # PowerShell 7；Git Bash 用 source scripts/env.sh
-python -m pytest tests -q      # 16 passed
-python -m schedinfra.cli plan-check --m 32
-python -m schedinfra.cli cpu-reference --m 1 32
-python -m schedinfra.cli backend-audit
+. ./scripts/env.ps1            # 或 source scripts/env.sh
+python -m pytest tests -q                                # 42 passed
+python -m schedinfra.cli plan-check --m 32               # 三层准入 + fail-closed
+python -m schedinfra.cli plan-replay --style resident    # 功能回放 vs oracle
+python -m schedinfra.cli stream-eval native-smoke        # STREAM 原生 smoke
+python -m schedinfra.cli stream-eval cast-diagnostic     # Cast 缺失诊断
+python -m schedinfra.cli stream-eval qwen-mlp --hardware tpu_v7_ironwood
+python -m schedinfra.cli cpu-reference --m 1 32          # CPU 数值参考（不变）
 ```
 
-主机：Windows 10/11、Python 3.14.0、numpy 2.3.5（**注意：R13 合同钉的是 2.5.3，本机装不上，
-已作为显式偏差记录**）。代表用例：计划检查 0.773 s；CPU 参考 M=1 约 10.9 s、M=32 约 16.7 s；
-峰值内存未实测（**未测**）。M=128 未跑（**未测**）。cycles、带宽、加速比全部**未测**。
+## 7. 遗留缺口（下一轮唯一目标）
 
-## 7. 下一轮建议（只推荐一个目标）
+**RUNTIME 层**。B1/B2/B3 的验收条件（见归档的第 1 轮 handoff）仍未在执行层满足。
+计划层与分析静态层已不再阻塞这个决定：请授权 (a) 有界最小 tile 级执行核心
+（~1–2 kLOC，复用本轮已证明安全的计划 IR+checker），或 (b) 提供 Linux/WSL2 主机
+重新准入 ONNXim（范围收窄到不要求跨算子驻留）。
 
-**先解决"能执行"这一个问题**：请授权二选一——
-
-- **(a)** 建一个**有界的最小 tile 级执行核心**（约 1–2 kLOC，直接复用本轮的计划 IR 与检查器，
-  只做 B1–B3 所需的最小语义：多核、容量受限的分布式 scratchpad、显式 slot 复用、
-  DRAM 中转并显式计费、self-timed 完成事件、可替换发行策略），使 B1–B3 能真正执行；或
-- **(b)** 提供带 cmake ≥ 3.22 与 conan 1.57 的 Linux / WSL2 主机（或解除 `wsl.exe` 策略封锁），
-  重新准入 ONNXim，并把研究范围收窄到**不要求跨算子驻留**的问题。
-
-起始文件：`src/schedinfra/plan/schema.py`、`plan/checker.py`、`plan/generators.py`、
-`backend/onnxim.py`、`runner.py`、`capabilities.json`。
-验收条件见 `handoff.json` 的 `next_round.acceptance`（B1/B2/B3 各一条 + 完整 MLP 两份计划对比
-+ 固定 seed 可复现）。
-真正需要外部决定的：(a)/(b) 选哪个；若选 (b) 则能否提供主机；以及研究问题是否可以在
-不含跨算子驻留的前提下重新表述。
-本轮证据**不支持**开展：任何加速比或 gate 阈值实验、跨后端性能对比、把 292 vs 1170 边数说成性能收益。
+其他遗留：容量峰值仍是声明顺序口径；STREAM 无法建模 cast；resident 计划需 movement
+contract 才能 READY；CPU 参考 numpy 2.3.5 vs 合同钉 2.5.3（显式偏差）；
+tpu_v7_ironwood 是上游示例硬件而非实测目标。

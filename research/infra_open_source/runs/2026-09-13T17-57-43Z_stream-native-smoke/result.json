@@ -1,0 +1,41 @@
+{
+  "schema": "schedresearch.infra.stream_static.v1",
+  "run_kind": "native_smoke",
+  "evaluation_kind": "analytical_static",
+  "created_utc": "2026-09-13T17:57:43Z",
+  "inputs": {
+    "hardware": {
+      "path": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\inputs\\examples\\hardware\\tpu_like_quad_core.yaml",
+      "sha256": "611e5d0fc71b1122b65b2c027550d6aa9719a4be40a4d6435f210955415d2ccc"
+    },
+    "workload": {
+      "path": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\inputs\\testing\\workload\\2conv_1_8_32_32_16_32_3.onnx",
+      "sha256": "049590d81e54bc107c1e1486a214d2d0e055b5a904f8ca6b372b646a034e63da"
+    }
+  },
+  "command": "D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\src\\schedinfra\\backend\\stream_static.py native-smoke --output D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\runs\\2026-09-13T17-57-43Z_stream-native-smoke",
+  "passed": false,
+  "environment": {
+    "stream_commit": "75748cc17e7c43add5a7d0d8f080841eb26531c4",
+    "stream_checkout": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream",
+    "python": "3.13.12",
+    "executable": "D:\\dsh-proj\\SchedResarch\\research\\r12\\.venv\\Scripts\\python.exe",
+    "checkout_clean_before": true,
+    "packages": {
+      "stream-dse": "1.14.1",
+      "zigzag-dse": "3.8.5",
+      "ortools": "9.15.6755",
+      "pydantic": "2.11.10",
+      "xdsl": "0.29.1",
+      "numpy": "2.5.3",
+      "onnx": "1.21.0"
+    },
+    "stream_api_path": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\api.py",
+    "checkout_clean_after": true
+  },
+  "error": {
+    "type": "AttributeError",
+    "message": "'str' object has no attribute 'core_allocation'",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\src\\schedinfra\\backend\\stream_static.py\", line 179, in cmd_native_smoke\n    run = run_allocation(api, HARDWARE_YAML, UPSTREAM_FIXTURE, \"upstream-2conv\",\n                         output / \"pipeline\", constraint_selection=None)\n  File \"D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\src\\schedinfra\\backend\\stream_static.py\", line 144, in run_allocation\n    structure = selected_structure(context, {})\n  File \"D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\src\\schedinfra\\backend\\stream_static.py\", line 104, in selected_structure\n    node_cores[entry.node] = sorted({core for group in entry.core_allocation for core in group})\n                                                       ^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'str' object has no attribute 'core_allocation'\n"
+  }
+}

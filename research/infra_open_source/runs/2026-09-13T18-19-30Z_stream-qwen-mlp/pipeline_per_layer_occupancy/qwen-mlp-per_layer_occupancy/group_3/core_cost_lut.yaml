@@ -1,0 +1,35 @@
+nodes:
+- name: mul
+  cores:
+  - core_id: 8
+    core_type: zigzag.compute
+    latency_total: 197
+    ideal_cycle: 72
+    ideal_temporal_cycle: 72
+    energy_total: 5894.88
+    metadata:
+      backend: zigzag
+  - core_id: 18
+    core_type: zigzag.compute
+    latency_total: 197
+    ideal_cycle: 72
+    ideal_temporal_cycle: 72
+    energy_total: 5894.88
+    metadata:
+      backend: zigzag
+  - core_id: 28
+    core_type: zigzag.compute
+    latency_total: 197
+    ideal_cycle: 72
+    ideal_temporal_cycle: 72
+    energy_total: 5894.88
+    metadata:
+      backend: zigzag
+  - core_id: 38
+    core_type: zigzag.compute
+    latency_total: 197
+    ideal_cycle: 72
+    ideal_temporal_cycle: 72
+    energy_total: 5894.88
+    metadata:
+      backend: zigzag

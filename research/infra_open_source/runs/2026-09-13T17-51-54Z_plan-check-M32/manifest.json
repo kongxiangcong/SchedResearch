@@ -1,0 +1,874 @@
+{
+  "schema": "schedresearch.infra.run.v2",
+  "run_id": "2026-09-13T17-51-54Z_plan-check-M32",
+  "mode": "research",
+  "created_utc": "2026-09-13T17:51:54Z",
+  "admission": {
+    "all_plans_legal": true,
+    "overall": "ADMITTED",
+    "illegal_plans": []
+  },
+  "identities": {
+    "workload": {
+      "module": "qwen3.5-4b.mlp",
+      "M": 32,
+      "padded_M": 32,
+      "H": 2560,
+      "I": 9216,
+      "contract": {
+        "path": "research/r13/numerical_contract.json",
+        "sha256": "0fb2c74fc005667885f6caa8a4d25934e6456500f7b8cd697a423c83844cc13e",
+        "model": "Qwen/Qwen3.5-4B",
+        "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+        "transformers_revision": "f62dc9bf2c90353b442a56e74391fbb8c689b55e",
+        "algebra": "down(SiLU(gate(X))*up(X))",
+        "H": 2560,
+        "I": 9216,
+        "M_allowed": [
+          1,
+          32,
+          128
+        ],
+        "k_block": 32,
+        "reassociation": "Forbidden; candidate split-K must preserve this tree and block accumulation order",
+        "padding": {
+          "tile_m": 32,
+          "tile_k": 32,
+          "tile_n": 32,
+          "rule": "Explicit positive-zero M padding to ceil(M/32)*32. H and I are divisible by 32. Run padded rows and verify they remain zero; expose all padded MACs to the performance model",
+          "mask": "Only original M rows are module outputs; padding initialization and relevant storage/movement must be charged by physical plans"
+        }
+      },
+      "inventory_hash": "7926a19aebf25336667a4b744435eb55276352896390ca468583189425f286cc",
+      "graph_hash": "dcd8fc9705cfd27ba8e598a3cafd67c25b91a5cc81688fac064ffe1726a4dd2a"
+    },
+    "contract": {
+      "path": "research/r13/numerical_contract.json",
+      "sha256": "0fb2c74fc005667885f6caa8a4d25934e6456500f7b8cd697a423c83844cc13e",
+      "model": "Qwen/Qwen3.5-4B",
+      "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "transformers_revision": "f62dc9bf2c90353b442a56e74391fbb8c689b55e",
+      "algebra": "down(SiLU(gate(X))*up(X))",
+      "H": 2560,
+      "I": 9216,
+      "M_allowed": [
+        1,
+        32,
+        128
+      ],
+      "k_block": 32,
+      "reassociation": "Forbidden; candidate split-K must preserve this tree and block accumulation order",
+      "padding": {
+        "tile_m": 32,
+        "tile_k": 32,
+        "tile_n": 32,
+        "rule": "Explicit positive-zero M padding to ceil(M/32)*32. H and I are divisible by 32. Run padded rows and verify they remain zero; expose all padded MACs to the performance model",
+        "mask": "Only original M rows are module outputs; padding initialization and relevant storage/movement must be charged by physical plans"
+      }
+    },
+    "hardware": {
+      "profile_id": "onnxim_tpuv4_c4",
+      "source_path": "D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\configs\\hardware\\onnxim_tpuv4_c4.json",
+      "content_sha256": "42440c301f64db00eb5419f4433f6f4edbcee878ddc9c10b470a0cfa03039702"
+    },
+    "backend": {
+      "name": "onnxim",
+      "upstream_commit": "a1e86296e080fa1c82f8ad3f1b6de1079c192afc",
+      "patch_identity": null,
+      "execution_adapter_implemented": false
+    },
+    "policy": {
+      "mode": "research",
+      "generator_version": "generators.v2",
+      "plan_names": [
+        "naive_layered",
+        "resident_pipelined"
+      ]
+    }
+  },
+  "hardware_profile": {
+    "profile_id": "onnxim_tpuv4_c4",
+    "cores": 4,
+    "spad_bytes_per_core": 16777216,
+    "accum_bytes_per_core": 2097152,
+    "precision_bytes": 2,
+    "raw": {
+      "schema": "schedresearch.infra.hardware_profile.v1",
+      "profile_id": "onnxim_tpuv4_c4",
+      "label": "ONNXim example multi-core NPU (4 systolic-WS cores, simple NoC)",
+      "provenance": {
+        "source_repo": "https://github.com/PSAL-POSTECH/ONNXim",
+        "upstream_commit": "a1e86296e080fa1c82f8ad3f1b6de1079c192afc",
+        "upstream_file": "configs/systolic_ws_128x128_c4_simple_noc_tpuv4.json",
+        "normalisation": "The upstream file repeats an identical block per core. This profile keeps one per_core block plus cores=4; the four upstream core blocks are byte-identical, so this is lossless.",
+        "verified_by": "file read from vendor/ONNXim_git at the pinned commit"
+      },
+      "cores": 4,
+      "core_freq_mhz": 1000,
+      "per_core": {
+        "core_type": "systolic_ws",
+        "core_width": 128,
+        "core_height": 128,
+        "spad_size_kb": 32768,
+        "accum_spad_size_kb": 4096,
+        "sram_width_bytes": 32,
+        "vector_process_bit": 65536,
+        "add_latency": 1,
+        "mul_latency": 1,
+        "mac_latency": 1,
+        "exp_latency": 1,
+        "gelu_latency": 1,
+        "div_latency": 1,
+        "add_tree_latency": 1,
+        "scalar_sqrt_latency": 1,
+        "scalar_add_latency": 1,
+        "scalar_mul_latency": 1
+      },
+      "dram": {
+        "dram_type": "ramulator2",
+        "dram_freq_mhz": 1200,
+        "dram_channels": 16,
+        "dram_req_size_bytes": 32,
+        "dram_latency_cycles": 10,
+        "dram_size": 16,
+        "dram_nbl": 1
+      },
+      "interconnect": {
+        "icnt_type": "simple",
+        "icnt_latency_cycles": 1,
+        "icnt_freq_mhz": 1000,
+        "icnt_injection_ports_per_core": 16
+      },
+      "precision_bytes": 2,
+      "layout": "NHWC",
+      "scheduler": "simple",
+      "derived": {
+        "_comment": "Sram.cc sizes each scratchpad as spad_size/2 (two halves for double buffering). Recorded because any capacity check must use the same number as the backend.",
+        "spad_usable_bytes_per_core": 16777216,
+        "accum_usable_bytes_per_core": 2097152,
+        "note_on_backpressure": "With icnt_type=simple the interconnect reports is_full()==false, i.e. NO backpressure. Backpressure only exists with the booksim2/ramulator2 backends."
+      }
+    },
+    "source_path": "D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\configs\\hardware\\onnxim_tpuv4_c4.json"
+  },
+  "environment": {
+    "python": "3.14.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "host_wall_seconds": 1.004
+  },
+  "git": {
+    "commit": "4db062ed255951c843d1c63e592ad62e1c2fdfcf",
+    "branch": "main"
+  },
+  "plans": [
+    {
+      "name": "naive_layered",
+      "plan_id": "d3a4c6c861535e7f",
+      "summary": {
+        "name": "naive_layered",
+        "plan_id": "d3a4c6c861535e7f",
+        "workload_id": "qwen3.5-4b.mlp.M32",
+        "hardware": "onnxim_tpuv4_c4",
+        "ops": 100,
+        "ops_per_core": {
+          "0": 28,
+          "1": 28,
+          "2": 22,
+          "3": 22
+        },
+        "chunks": 147,
+        "resident_value_bytes_sum": {},
+        "remote_reads": 0,
+        "total_macs": 2264924160,
+        "edges": 1476
+      },
+      "check": {
+        "ok": true,
+        "error_count": 0,
+        "warning_count": 0,
+        "errors": [],
+        "warnings": [],
+        "stats": {
+          "peak_residency_bytes": {},
+          "peak_residency_scope": "declared static_order only",
+          "capacity_bytes": {},
+          "ops": 100,
+          "chunks": 147,
+          "remote_reads": 0
+        },
+        "safety_scope": {
+          "dependency_and_overwrite_safety": "all executions consistent with deps",
+          "capacity_peak": "declared static_order only - not a hardware peak under arbitrary interleaving",
+          "resident_value_bytes_sum": "sum of logical value sizes placed on-chip; not traffic, not saved DRAM bytes"
+        }
+      },
+      "admission": {
+        "logical_semantics": "PASS",
+        "backend_expressibility": {
+          "status": "EXPRESSIBLE_UNVERIFIED",
+          "features": {
+            "uses_on_chip_residency": false,
+            "uses_explicit_slot_reuse": false,
+            "remote_reads": [],
+            "has_movement_contract": false
+          },
+          "capability_verdicts": {},
+          "note": "verdicts are source-audit level until the backend executes one"
+        },
+        "physical_lowering_status": "READY",
+        "physical_lowering": {
+          "status": "READY",
+          "reason": "no remote on-chip reads",
+          "remote_read_count": 0
+        }
+      },
+      "backend": {
+        "backend": "onnxim",
+        "executed": false,
+        "blocker": {
+          "exception": "BackendUnavailable",
+          "detail": "ONNXim execution adapter is NOT IMPLEMENTED (and the simulator is absent here); refusing to fabricate a result. {\"environment_probe\": {\"probed_at\": \"2026-09-13T17:51:54Z\", \"binary_expected\": \"D:\\\\dsh-proj\\\\SchedResarch\\\\research\\\\infra_open_source\\\\vendor\\\\ONNXim_git\\\\build\\\\bin\\\\Simulator\", \"binary_present\": false, \"cmake_on_path\": null, \"conan_on_path\": null, \"source_tree_present\": true}, \"historical_build_blockers_2026_09_09\": [\"cmake: absent on host and not obtainable (PyPI returns an HTML interception page)\", \"conan==1.57.0: absent and not installable\", \"git submodules onnx/protobuf/booksim/ramulator2: not fetchable through the truncating proxy\", \"gcc: available (MinGW), but C++20 + conan + cmake are all required\"], \"capability_blockers_source_audit\": [\"cross-operator scratchpad residency is not supported (Core.cc)\", \"core-to-core data exchange is not supported (Simulator.cc)\", \"simple scheduler imposes a whole-layer completion barrier (Scheduler.cc)\"], \"note\": \"capability blockers are pinned-source findings; the environment probe is live. A different host does not change the source audit, and a new host is re-probed rather than re-served the old machine's verdict.\"}"
+        }
+      }
+    },
+    {
+      "name": "resident_pipelined",
+      "plan_id": "738420509c6733af",
+      "summary": {
+        "name": "resident_pipelined",
+        "plan_id": "738420509c6733af",
+        "workload_id": "qwen3.5-4b.mlp.M32",
+        "hardware": "onnxim_tpuv4_c4",
+        "ops": 100,
+        "ops_per_core": {
+          "0": 28,
+          "1": 28,
+          "2": 22,
+          "3": 22
+        },
+        "chunks": 147,
+        "resident_value_bytes_sum": {
+          "spad": 5308416
+        },
+        "remote_reads": 134,
+        "total_macs": 2264924160,
+        "edges": 292
+      },
+      "check": {
+        "ok": true,
+        "error_count": 0,
+        "warning_count": 0,
+        "errors": [],
+        "warnings": [],
+        "stats": {
+          "peak_residency_bytes": {
+            "core0.spad": 327680,
+            "core1.spad": 327680,
+            "core2.spad": 294912,
+            "core3.spad": 294912
+          },
+          "peak_residency_scope": "declared static_order only",
+          "capacity_bytes": {
+            "core0.spad": 16777216,
+            "core1.spad": 16777216,
+            "core2.spad": 16777216,
+            "core3.spad": 16777216
+          },
+          "ops": 100,
+          "chunks": 147,
+          "remote_reads": 134
+        },
+        "safety_scope": {
+          "dependency_and_overwrite_safety": "all executions consistent with deps",
+          "capacity_peak": "declared static_order only - not a hardware peak under arbitrary interleaving",
+          "resident_value_bytes_sum": "sum of logical value sizes placed on-chip; not traffic, not saved DRAM bytes"
+        }
+      },
+      "admission": {
+        "logical_semantics": "PASS",
+        "backend_expressibility": {
+          "status": "NOT_EXPRESSIBLE",
+          "features": {
+            "uses_on_chip_residency": true,
+            "uses_explicit_slot_reuse": true,
+            "remote_reads": [
+              [
+                "down.0",
+                "A16#1"
+              ],
+              [
+                "down.0",
+                "A16#2"
+              ],
+              [
+                "down.0",
+                "A16#3"
+              ],
+              [
+                "down.0",
+                "A16#5"
+              ],
+              [
+                "down.0",
+                "A16#6"
+              ],
+              [
+                "down.0",
+                "A16#7"
+              ],
+              [
+                "down.0",
+                "A16#9"
+              ],
+              [
+                "down.0",
+                "A16#10"
+              ],
+              [
+                "down.0",
+                "A16#11"
+              ],
+              [
+                "down.0",
+                "A16#13"
+              ],
+              [
+                "down.0",
+                "A16#14"
+              ],
+              [
+                "down.0",
+                "A16#15"
+              ],
+              [
+                "down.0",
+                "A16#17"
+              ],
+              [
+                "down.1",
+                "A16#0"
+              ],
+              [
+                "down.1",
+                "A16#2"
+              ],
+              [
+                "down.1",
+                "A16#3"
+              ],
+              [
+                "down.1",
+                "A16#4"
+              ],
+              [
+                "down.1",
+                "A16#6"
+              ],
+              [
+                "down.1",
+                "A16#7"
+              ],
+              [
+                "down.1",
+                "A16#8"
+              ],
+              [
+                "down.1",
+                "A16#10"
+              ],
+              [
+                "down.1",
+                "A16#11"
+              ],
+              [
+                "down.1",
+                "A16#12"
+              ],
+              [
+                "down.1",
+                "A16#14"
+              ],
+              [
+                "down.1",
+                "A16#15"
+              ],
+              [
+                "down.1",
+                "A16#16"
+              ],
+              [
+                "down.2",
+                "A16#0"
+              ],
+              [
+                "down.2",
+                "A16#1"
+              ],
+              [
+                "down.2",
+                "A16#3"
+              ],
+              [
+                "down.2",
+                "A16#4"
+              ],
+              [
+                "down.2",
+                "A16#5"
+              ],
+              [
+                "down.2",
+                "A16#7"
+              ],
+              [
+                "down.2",
+                "A16#8"
+              ],
+              [
+                "down.2",
+                "A16#9"
+              ],
+              [
+                "down.2",
+                "A16#11"
+              ],
+              [
+                "down.2",
+                "A16#12"
+              ],
+              [
+                "down.2",
+                "A16#13"
+              ],
+              [
+                "down.2",
+                "A16#15"
+              ],
+              [
+                "down.2",
+                "A16#16"
+              ],
+              [
+                "down.2",
+                "A16#17"
+              ],
+              [
+                "down.3",
+                "A16#0"
+              ],
+              [
+                "down.3",
+                "A16#1"
+              ],
+              [
+                "down.3",
+                "A16#2"
+              ],
+              [
+                "down.3",
+                "A16#4"
+              ],
+              [
+                "down.3",
+                "A16#5"
+              ],
+              [
+                "down.3",
+                "A16#6"
+              ],
+              [
+                "down.3",
+                "A16#8"
+              ],
+              [
+                "down.3",
+                "A16#9"
+              ],
+              [
+                "down.3",
+                "A16#10"
+              ],
+              [
+                "down.3",
+                "A16#12"
+              ],
+              [
+                "down.3",
+                "A16#13"
+              ],
+              [
+                "down.3",
+                "A16#14"
+              ],
+              [
+                "down.3",
+                "A16#16"
+              ],
+              [
+                "down.3",
+                "A16#17"
+              ],
+              [
+                "down.4",
+                "A16#1"
+              ],
+              [
+                "down.4",
+                "A16#2"
+              ],
+              [
+                "down.4",
+                "A16#3"
+              ],
+              [
+                "down.4",
+                "A16#5"
+              ],
+              [
+                "down.4",
+                "A16#6"
+              ],
+              [
+                "down.4",
+                "A16#7"
+              ],
+              [
+                "down.4",
+                "A16#9"
+              ],
+              [
+                "down.4",
+                "A16#10"
+              ],
+              [
+                "down.4",
+                "A16#11"
+              ],
+              [
+                "down.4",
+                "A16#13"
+              ],
+              [
+                "down.4",
+                "A16#14"
+              ],
+              [
+                "down.4",
+                "A16#15"
+              ],
+              [
+                "down.4",
+                "A16#17"
+              ],
+              [
+                "down.5",
+                "A16#0"
+              ],
+              [
+                "down.5",
+                "A16#2"
+              ],
+              [
+                "down.5",
+                "A16#3"
+              ],
+              [
+                "down.5",
+                "A16#4"
+              ],
+              [
+                "down.5",
+                "A16#6"
+              ],
+              [
+                "down.5",
+                "A16#7"
+              ],
+              [
+                "down.5",
+                "A16#8"
+              ],
+              [
+                "down.5",
+                "A16#10"
+              ],
+              [
+                "down.5",
+                "A16#11"
+              ],
+              [
+                "down.5",
+                "A16#12"
+              ],
+              [
+                "down.5",
+                "A16#14"
+              ],
+              [
+                "down.5",
+                "A16#15"
+              ],
+              [
+                "down.5",
+                "A16#16"
+              ],
+              [
+                "down.6",
+                "A16#0"
+              ],
+              [
+                "down.6",
+                "A16#1"
+              ],
+              [
+                "down.6",
+                "A16#3"
+              ],
+              [
+                "down.6",
+                "A16#4"
+              ],
+              [
+                "down.6",
+                "A16#5"
+              ],
+              [
+                "down.6",
+                "A16#7"
+              ],
+              [
+                "down.6",
+                "A16#8"
+              ],
+              [
+                "down.6",
+                "A16#9"
+              ],
+              [
+                "down.6",
+                "A16#11"
+              ],
+              [
+                "down.6",
+                "A16#12"
+              ],
+              [
+                "down.6",
+                "A16#13"
+              ],
+              [
+                "down.6",
+                "A16#15"
+              ],
+              [
+                "down.6",
+                "A16#16"
+              ],
+              [
+                "down.6",
+                "A16#17"
+              ],
+              [
+                "down.7",
+                "A16#0"
+              ],
+              [
+                "down.7",
+                "A16#1"
+              ],
+              [
+                "down.7",
+                "A16#2"
+              ],
+              [
+                "down.7",
+                "A16#4"
+              ],
+              [
+                "down.7",
+                "A16#5"
+              ],
+              [
+                "down.7",
+                "A16#6"
+              ],
+              [
+                "down.7",
+                "A16#8"
+              ],
+              [
+                "down.7",
+                "A16#9"
+              ],
+              [
+                "down.7",
+                "A16#10"
+              ],
+              [
+                "down.7",
+                "A16#12"
+              ],
+              [
+                "down.7",
+                "A16#13"
+              ],
+              [
+                "down.7",
+                "A16#14"
+              ],
+              [
+                "down.7",
+                "A16#16"
+              ],
+              [
+                "down.7",
+                "A16#17"
+              ],
+              [
+                "down.8",
+                "A16#1"
+              ],
+              [
+                "down.8",
+                "A16#2"
+              ],
+              [
+                "down.8",
+                "A16#3"
+              ],
+              [
+                "down.8",
+                "A16#5"
+              ],
+              [
+                "down.8",
+                "A16#6"
+              ],
+              [
+                "down.8",
+                "A16#7"
+              ],
+              [
+                "down.8",
+                "A16#9"
+              ],
+              [
+                "down.8",
+                "A16#10"
+              ],
+              [
+                "down.8",
+                "A16#11"
+              ],
+              [
+                "down.8",
+                "A16#13"
+              ],
+              [
+                "down.8",
+                "A16#14"
+              ],
+              [
+                "down.8",
+                "A16#15"
+              ],
+              [
+                "down.8",
+                "A16#17"
+              ],
+              [
+                "down.9",
+                "A16#0"
+              ],
+              [
+                "down.9",
+                "A16#2"
+              ],
+              [
+                "down.9",
+                "A16#3"
+              ],
+              [
+                "down.9",
+                "A16#4"
+              ],
+              [
+                "down.9",
+                "A16#6"
+              ],
+              [
+                "down.9",
+                "A16#7"
+              ],
+              [
+                "down.9",
+                "A16#8"
+              ],
+              [
+                "down.9",
+                "A16#10"
+              ],
+              [
+                "down.9",
+                "A16#11"
+              ],
+              [
+                "down.9",
+                "A16#12"
+              ],
+              [
+                "down.9",
+                "A16#14"
+              ],
+              [
+                "down.9",
+                "A16#15"
+              ],
+              [
+                "down.9",
+                "A16#16"
+              ]
+            ],
+            "has_movement_contract": false
+          },
+          "capability_verdicts": {
+            "same_core_cross_operator_residency": {
+              "feature": "cross-operator scratchpad residency",
+              "source": "unsupported",
+              "verified": "source_only",
+              "evidence": "Core.cc:36-74 flushes scratchpad per tile; accumulator preserved only within one fused op (Core.cc:54-58); outputs go back to DRAM"
+            },
+            "explicit_slot_reuse": {
+              "feature": "explicit slot reuse",
+              "source": "extension",
+              "verified": "source_only",
+              "evidence": "AddressAllocator.h is an abstract base and is unused at runtime"
+            },
+            "core_to_core_communication": {
+              "feature": "core-to-core data exchange",
+              "source": "unsupported",
+              "verified": "source_only",
+              "evidence": "Simulator.cc:269-275 routes every request to DRAM and every response to a core"
+            }
+          },
+          "note": "verdicts are source-audit level until the backend executes one"
+        },
+        "physical_lowering_status": "NOT_READY",
+        "physical_lowering": {
+          "status": "NOT_READY",
+          "reason": "134 remote on-chip reads (e.g. down.0 reads A16#1 from another core) and no movement/remote-access contract is declared; a remote read is never free",
+          "remote_read_count": 134
+        }
+      },
+      "backend": {
+        "backend": "onnxim",
+        "executed": false,
+        "blocker": {
+          "exception": "BackendUnavailable",
+          "detail": "ONNXim execution adapter is NOT IMPLEMENTED (and the simulator is absent here); refusing to fabricate a result. {\"environment_probe\": {\"probed_at\": \"2026-09-13T17:51:54Z\", \"binary_expected\": \"D:\\\\dsh-proj\\\\SchedResarch\\\\research\\\\infra_open_source\\\\vendor\\\\ONNXim_git\\\\build\\\\bin\\\\Simulator\", \"binary_present\": false, \"cmake_on_path\": null, \"conan_on_path\": null, \"source_tree_present\": true}, \"historical_build_blockers_2026_09_09\": [\"cmake: absent on host and not obtainable (PyPI returns an HTML interception page)\", \"conan==1.57.0: absent and not installable\", \"git submodules onnx/protobuf/booksim/ramulator2: not fetchable through the truncating proxy\", \"gcc: available (MinGW), but C++20 + conan + cmake are all required\"], \"capability_blockers_source_audit\": [\"cross-operator scratchpad residency is not supported (Core.cc)\", \"core-to-core data exchange is not supported (Simulator.cc)\", \"simple scheduler imposes a whole-layer completion barrier (Scheduler.cc)\"], \"note\": \"capability blockers are pinned-source findings; the environment probe is live. A different host does not change the source audit, and a new host is re-probed rather than re-served the old machine's verdict.\"}"
+        }
+      }
+    }
+  ],
+  "host_wall_seconds": 1.004
+}

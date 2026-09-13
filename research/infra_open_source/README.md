@@ -3,9 +3,11 @@
 以 Qwen / FLUX.2 场景下的多核 NPU 调度为长期目标。本轮交付的是**科研实验基础设施**：
 有来源的模型模块 → 可替换的候选执行计划 → 合法性检查 →（时序后端）→ 可解释结果。
 
-> **当前状态：PARTIAL。** 计划层、工作量层和 CPU 数值层已经真实跑通；
-> **时序后端这一层本轮没有跑起来**，原因是环境阻断 + 所选后端能力不匹配，
-> 详见 [`docs/02_environment_blockers.md`](docs/02_environment_blockers.md)。
+> **当前状态（第 2 轮）：PLAN_SAFE = 是 / STATIC_EVAL_READY = 是 / RUNTIME_READY = 否。**
+> 检查器对完整偏序可证明覆写安全（42 项测试通过）；STREAM 分析型静态评估
+> （固定 commit `75748cc`）已在原生 smoke 与 Qwen MLP 上真实跑通，全部标注
+> `evaluation_kind=analytical_static`；**执行后端仍未运行**，ONNXim 适配器明确
+> NOT IMPLEMENTED，runner 对非法计划 fail-closed。详见 `handoff_to_chatgpt.md`。
 > 本目录**没有**用假执行器输出任何"通过"。
 
 ## 目录结构
@@ -16,9 +18,9 @@
 | `configs/hardware/` | 有来源的硬件配置（含上游 commit 与归一化说明） |
 | `configs/workloads/` | 工作量配置 |
 | `src/schedinfra/workload/` | 有来源的 Qwen3.5-4B MLP 规格与工作量账本 |
-| `src/schedinfra/plan/` | 计划 IR（`schema.py`）、合法性检查（`checker.py`）、参考计划生成器（`generators.py`） |
-| `src/schedinfra/analysis/` | 独立 CPU 数值参考（复用 R13 冻结实现） |
-| `src/schedinfra/backend/` | 后端适配层；`onnxim.py` 记录能力审计并**拒绝伪造结果** |
+| `src/schedinfra/plan/` | 计划 IR（`schema.py`）、合法性检查（`checker.py`）、参考计划生成器（`generators.py`）、三层准入（`lowering.py`） |
+| `src/schedinfra/analysis/` | 独立 CPU 数值参考（复用 R13 冻结实现）、功能回放引擎（`plan_replay.py`） |
+| `src/schedinfra/backend/` | 后端适配层；`onnxim.py` 记录能力审计并**拒绝伪造结果**；`stream_static.py` 驱动固定 commit 的 STREAM 分析型静态评估 |
 | `src/schedinfra/runner.py` / `cli.py` | "生成计划 → 检查 → 执行 → 汇总"入口 |
 | `experiments/` | 各能力用例脚本 |
 | `tests/` | 单元测试与负例 |
@@ -70,6 +72,15 @@ python -m schedinfra.cli cpu-reference --m 1 32
 
 # 4) 记录 ONNXim 源码能力审计
 python -m schedinfra.cli backend-audit
+
+# 5) 功能回放：计划自身语义 vs 独立 float64 oracle（无 cycles/带宽）
+python -m schedinfra.cli plan-replay --style resident
+python -m schedinfra.cli plan-replay --style naive
+
+# 6) STREAM 分析型静态评估（固定 commit，evaluation_kind=analytical_static）
+python -m schedinfra.cli stream-eval native-smoke
+python -m schedinfra.cli stream-eval cast-diagnostic
+python -m schedinfra.cli stream-eval qwen-mlp --hardware tpu_v7_ironwood
 ```
 
 ### 两种模式
@@ -106,14 +117,15 @@ for plan in (naive_layered_plan(module, hw), resident_pipelined_plan(module, hw)
 
 实测输出（M=32，4 核）：
 
-| 计划 | plan_id | 合法 | ops | 依赖边数 | 片上驻留 | 每核峰值驻留 |
+| 计划 | plan_id | 合法 | ops | 依赖边数 | 片上驻留 | 物理下降 |
 |---|---|---|---|---|---|---|
-| `naive_layered` | `dbe43cc256081c5a` | 是 | 100 | 1170 | 0 B（全部落 DRAM） | — |
-| `resident_pipelined` | `738420509c6733af` | 是 | 100 | **292** | 5,308,416 B | 294,912–327,680 B |
+| `naive_layered` | `d3a4c6c861535e7f` | 是 | 100 | 1476（真整层屏障） | 0 B（全部落 DRAM） | READY |
+| `resident_pipelined` | `738420509c6733af` | 是 | 100 | **292** | 5,308,416 B | **NOT_READY**（134 个远程读，无 movement contract） |
 
 两者 MAC 总数相同（2,264,924,160 = 3×32×2560×9216），差别在**驻留位置与顺序约束**：
-去掉整层屏障后依赖边数减少约 4 倍。这是可解释的结构差异，**不是性能结论**——
-没有任何 cycles 数字。
+naive 是真整层屏障（1476 边），resident 去掉屏障后 292 边。这是可解释的结构差异，
+**不是性能结论**。STREAM 静态评估另有分析型 cycles（见 `handoff_to_chatgpt.md` 第 4 节），
+标注 `analytical_static`，同样不是执行时序。
 
 ## 常见阻断
 

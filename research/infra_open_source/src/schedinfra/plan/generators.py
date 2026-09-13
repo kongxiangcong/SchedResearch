@@ -44,6 +44,45 @@ PINGPONG_KINDS = {"G": 0, "U": 1, "S": 2, "A32": 3}
 A16_SLOT_BASE = 16  # never reused: live until the down reduction completes
 
 
+def _numeric_replay_meta(n_tile: int, n_tile_down: int) -> dict:
+    """Minimal shape/slice/layout/op/tolerance contract for functional replay.
+
+    This is the *only* numerical licence a replay may use. It models values,
+    reads/writes and overwrites - never cycles or bandwidth.
+    """
+    return {
+        "schema": "schedresearch.infra.numeric_replay.v1",
+        "layout": "row-major 2-D tensors [M_pad, N]; chunks are column blocks of one tensor",
+        "chunk_slices": {
+            "x": "whole",
+            "w_gate": {"axis": 1, "block": n_tile},
+            "w_up": {"axis": 1, "block": n_tile},
+            "w_down": {"axis": 1, "block": n_tile_down},
+            "G": {"axis": 1, "block": n_tile},
+            "U": {"axis": 1, "block": n_tile},
+            "S": {"axis": 1, "block": n_tile},
+            "A32": {"axis": 1, "block": n_tile},
+            "A16": {"axis": 1, "block": n_tile},
+            "Y": {"axis": 1, "block": n_tile_down},
+        },
+        "op_semantics": {
+            "gemm": "out = concat(reads[:-1], axis=1) @ reads[-1]; "
+                    "gate/up: concat is just x; down: concat is every A16 chunk in index order",
+            "silu": "elementwise x*sigmoid(x) in FP32",
+            "mul": "elementwise product in FP32",
+            "cast_bf16": "FP32 -> BF16 round-to-nearest-even; result stored as exactly-representable FP32",
+        },
+        "dtypes": {"x": "BF16", "w_gate": "BF16", "w_up": "BF16", "w_down": "BF16",
+                   "G": "FP32", "U": "FP32", "S": "FP32", "A32": "FP32",
+                   "A16": "BF16", "Y": "FP32"},
+        "tolerance": {
+            "metric": "relative_l2_vs_float64_oracle",
+            "max": 1e-4,
+            "note": "functional replay only; produces no cycles and no bandwidth",
+        },
+    }
+
+
 def _weight_chunks(chunks: dict, name: str, rows: int, cols: int, n_tile: int, dtype: str) -> list[ChunkRef]:
     refs = []
     for j in range(0, cols, n_tile):
@@ -82,7 +121,16 @@ def naive_layered_plan(
     w_down = _weight_chunks(chunks, "w_down", I, H, n_tile_down, "BF16")
 
     n_chunks = len(w_gate)
-    gate_ids, up_ids = [], []
+    # Whole-layer barrier means *whole*: build the complete stage id lists
+    # first, then wire dependencies. (An earlier version of this generator
+    # read the mul/cast stage lists while they were still growing, which made
+    # mul/cast wait on a *prefix* of their stage rather than the full layer.)
+    gate_ids = [f"gate.{j}" for j in range(n_chunks)]
+    up_ids = [f"up.{j}" for j in range(n_chunks)]
+    silu_ids = [f"silu.{j}" for j in range(n_chunks)]
+    mul_ids = [f"mul.{j}" for j in range(n_chunks)]
+    cast_ids = [f"cast.{j}" for j in range(n_chunks)]
+
     for j, (wg, wu) in enumerate(zip(w_gate, w_up)):
         for name, weight in (("gate", wg), ("up", wu)):
             out = ChunkRef("G" if name == "gate" else "U", j)
@@ -92,10 +140,7 @@ def naive_layered_plan(
                        writes=(out,), macs=mp * H * n_tile, elements=mp * n_tile, deps=())
             )
             chunks[weight.key].consumers = (f"{name}.{j}",)
-        gate_ids.append(f"gate.{j}")
-        up_ids.append(f"up.{j}")
 
-    silu_ids, mul_ids, cast_ids = [], [], []
     for j in range(n_chunks):
         g_ref, u_ref = ChunkRef("G", j), ChunkRef("U", j)
         chunks[g_ref.key].consumers = (f"silu.{j}",)
@@ -106,19 +151,18 @@ def naive_layered_plan(
         ops.append(PlanOp(f"silu.{j}", "silu", j % cores, (g_ref,), (s_ref,), 0, mp * n_tile,
                           deps=tuple(gate_ids),
                           notes="whole-layer barrier: waits on ALL gate chunks"))
-        silu_ids.append(f"silu.{j}")
 
         a_ref = ChunkRef("A32", j)
         chunks[a_ref.key] = Chunk(a_ref, mp * n_tile * 4, "FP32", f"mul.{j}", (f"cast.{j}",), Placement(LEVEL_DRAM))
         ops.append(PlanOp(f"mul.{j}", "mul", j % cores, (s_ref, u_ref), (a_ref,), 0, mp * n_tile,
-                          deps=tuple(silu_ids) + tuple(up_ids)))
-        mul_ids.append(f"mul.{j}")
+                          deps=tuple(silu_ids) + tuple(up_ids),
+                          notes="whole-layer barrier: waits on ALL silu and ALL up chunks"))
 
         a16_ref = ChunkRef("A16", j)
         chunks[a16_ref.key] = Chunk(a16_ref, mp * n_tile * 2, "BF16", f"cast.{j}", (), Placement(LEVEL_DRAM))
         ops.append(PlanOp(f"cast.{j}", "cast_bf16", j % cores, (a_ref,), (a16_ref,), 0, mp * n_tile,
-                          deps=tuple(mul_ids)))
-        cast_ids.append(f"cast.{j}")
+                          deps=tuple(mul_ids),
+                          notes="whole-layer barrier: waits on ALL mul chunks"))
 
     n_down = H // n_tile_down
     for k in range(n_down):
@@ -133,12 +177,19 @@ def naive_layered_plan(
         chunks[ChunkRef("A16", j).key].consumers = tuple(f"down.{k}" for k in range(n_down))
     chunks[x_ref.key].consumers = tuple(gate_ids + up_ids)
 
+    # Ops are created interleaved per chunk, but the whole-layer barriers make
+    # that order impossible as a schedule: declare the stage-major order.
+    stage_major = (
+        gate_ids + up_ids + silu_ids + mul_ids + cast_ids
+        + [f"down.{k}" for k in range(n_down)]
+    )
     return Plan(
         name="naive_layered", workload_id=f"qwen3.5-4b.mlp.M{module.m}", hardware=hardware,
-        ops=ops, chunks=chunks,
+        ops=ops, chunks=chunks, static_order=stage_major,
         metadata={"generator": "naive_layered_plan", "n_tile": n_tile, "n_tile_down": n_tile_down,
                   "residency": "all intermediates materialised to DRAM",
-                  "barriers": "whole-layer between every operator stage"},
+                  "barriers": "whole-layer between every operator stage",
+                  "numeric_replay": _numeric_replay_meta(n_tile, n_tile_down)},
     )
 
 
@@ -250,5 +301,48 @@ def resident_pipelined_plan(
                   "barriers": "none between pointwise stages; the I reduction remains a barrier",
                   "slot_reuse": f"ping-pong over {slots_per_core} slots per core for G/U/S/A32, "
                                 f"with an explicit dependency on the previous occupant's last reader; "
-                                f"A16 is not reused"},
+                                f"A16 is not reused",
+                  # down.* reads every A16 chunk, most of which sit on *other*
+                  # cores. No movement/remote-access contract is declared this
+                  # round, so this plan is a logical candidate only: physical
+                  # lowering must report NOT_READY (see plan/lowering.py).
+                  "movement_contract": None,
+                  "remote_read_note": "down.* reads A16 chunks resident on other cores; "
+                                      "no movement/remote-access contract declared",
+                  "numeric_replay": _numeric_replay_meta(n_tile, n_tile_down)},
+    )
+
+
+def permute_plan_cores(plan: Plan, permutation: list[int], name: str | None = None) -> Plan:
+    """A legal core-permutation of *plan* - the core-mapping control case.
+
+    ``permutation[c]`` is the core that replaces core ``c`` everywhere (ops
+    and on-chip placements). Only the core assignment changes; dependencies,
+    residency and slot reuse are preserved, so the result stays legal. This
+    exists so that a test of core mapping control compares two plans that
+    differ *only* in core assignment, instead of describing
+    placement/dependency differences as mapping differences.
+    """
+    if sorted(permutation) != list(range(plan.hardware.cores)):
+        raise ValueError("permutation must be a bijection over 0..cores-1")
+
+    ops = [
+        PlanOp(id=op.id, kind=op.kind, core=permutation[op.core], reads=op.reads,
+               writes=op.writes, macs=op.macs, elements=op.elements, deps=op.deps, notes=op.notes)
+        for op in plan.ops
+    ]
+    chunks: dict[str, Chunk] = {}
+    for key, chunk in plan.chunks.items():
+        p = chunk.placement
+        new_p = Placement(p.level, permutation[p.core], p.slot, p.offset) if chunk.on_chip else p
+        chunks[key] = Chunk(ref=chunk.ref, size_bytes=chunk.size_bytes, dtype=chunk.dtype,
+                            producer=chunk.producer, consumers=chunk.consumers,
+                            placement=new_p, reuse_of=chunk.reuse_of)
+    return Plan(
+        name=name or f"{plan.name}_coreperm",
+        workload_id=plan.workload_id, hardware=plan.hardware,
+        ops=ops, chunks=chunks, static_order=plan.order(),
+        metadata={**plan.metadata, "generator": "permute_plan_cores",
+                  "base_plan_id": plan.plan_id, "core_permutation": list(permutation),
+                  "core_mapping_control_case": True},
     )

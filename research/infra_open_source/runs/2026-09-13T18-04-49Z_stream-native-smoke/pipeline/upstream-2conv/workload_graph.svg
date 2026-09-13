@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1786" height="287" viewBox="0 0 1786 287" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9aa3ad"/></marker></defs>
+<rect width="1786" height="287" fill="#fcfcfb"/>
+<path d="M136.4,49.0 C168.4,49.0 168.4,56.5 200.4,56.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M133.1,121.0 C183.2,121.0 183.2,143.5 233.4,143.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M136.4,193.0 C181.6,193.0 181.6,230.5 226.8,230.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M759.8,49.0 C791.8,49.0 791.8,56.5 823.8,56.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M425.0,56.5 C457.0,56.5 457.0,49.0 489.0,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M392.0,143.5 C440.5,143.5 440.5,49.0 489.0,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M1343.6,49.0 C1375.6,49.0 1375.6,56.5 1407.6,56.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M995.6,56.5 C1027.6,56.5 1027.6,49.0 1059.6,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M398.6,230.5 C729.1,230.5 729.1,49.0 1059.6,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M1579.4,56.5 C1611.4,56.5 1611.4,49.0 1643.4,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="24.0" y="24.0" width="112.4" height="50.0" rx="9" fill="#fdf3c8" stroke="#b9992a" stroke-width="1.5"/>
+<text x="80.2" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">input</text>
+<text x="80.2" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(1, 8, 32, 32)</text>
+<rect x="27.3" y="96.0" width="105.8" height="50.0" rx="9" fill="#fdf3c8" stroke="#b9992a" stroke-width="1.5"/>
+<text x="80.2" y="117.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">weights_1</text>
+<text x="80.2" y="132.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(16, 8, 3, 3)</text>
+<rect x="24.0" y="168.0" width="112.4" height="50.0" rx="9" fill="#fdf3c8" stroke="#b9992a" stroke-width="1.5"/>
+<text x="80.2" y="189.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">weights_2</text>
+<text x="80.2" y="204.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 16, 3, 3)</text>
+<rect x="489.0" y="24.0" width="270.8" height="50.0" rx="9" fill="#dbeafe" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="624.4" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">Conv1</text>
+<text x="624.4" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z5=1 z0=32 z1=32 z2=3 z3=3 z4=8 z10=16</text>
+<rect x="1059.6" y="24.0" width="284.0" height="50.0" rx="9" fill="#dbeafe" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="1201.6" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">Conv2</text>
+<text x="1201.6" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z5=1 z6=32 z7=32 z8=3 z9=3 z10=16 z11=32</text>
+<rect x="1643.4" y="24.0" width="119.0" height="50.0" rx="9" fill="#d6f5e3" stroke="#1baf7a" stroke-width="1.5"/>
+<text x="1702.9" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">output</text>
+<text x="1702.9" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(1, 32, 32, 32)</text>
+<rect x="200.4" y="24.0" width="224.6" height="65.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="312.7" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">input</text>
+<text x="312.7" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(1, 8, 32, 32)</text>
+<text x="312.7" y="75.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=32 z2=3 z3=3 z4=8 z5=1</text>
+<rect x="233.4" y="111.0" width="158.6" height="65.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="312.7" y="132.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">weights_1</text>
+<text x="312.7" y="147.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(16, 8, 3, 3)</text>
+<text x="312.7" y="162.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z2=3 z3=3 z4=8 z10=16</text>
+<rect x="226.8" y="198.0" width="171.8" height="65.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="312.7" y="219.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">weights_2</text>
+<text x="312.7" y="234.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 16, 3, 3)</text>
+<text x="312.7" y="249.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z8=3 z9=3 z10=16 z11=32</text>
+<rect x="823.8" y="24.0" width="171.8" height="65.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="909.7" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">conv1_out</text>
+<text x="909.7" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(1, 16, 32, 32)</text>
+<text x="909.7" y="75.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=32 z5=1 z10=16</text>
+<rect x="1407.6" y="24.0" width="171.8" height="65.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="1493.5" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">output</text>
+<text x="1493.5" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(1, 32, 32, 32)</text>
+<text x="1493.5" y="75.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z5=1 z6=32 z7=32 z11=32</text>
+</svg>

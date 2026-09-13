@@ -1,0 +1,26 @@
+{
+  "schema": "schedresearch.infra.stream_static.v1",
+  "run": "cast_diagnostic",
+  "evaluation_kind": "analytical_static",
+  "created_utc": "2026-09-13T17:54:18Z",
+  "environment": {
+    "stream_commit": "75748cc17e7c43add5a7d0d8f080841eb26531c4",
+    "stream_checkout": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream",
+    "python": "3.13.12",
+    "executable": "D:\\dsh-proj\\SchedResarch\\research\\r12\\.venv\\Scripts\\python.exe",
+    "checkout_clean_before": true,
+    "packages": {
+      "stream-dse": "1.14.1",
+      "zigzag-dse": "3.8.5",
+      "ortools": "9.15.6755",
+      "pydantic": "2.11.10",
+      "xdsl": "0.29.1",
+      "numpy": "2.5.3",
+      "onnx": "1.21.0"
+    },
+    "stream_api_path": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\api.py"
+  },
+  "cast_supported": false,
+  "parser_error": "No parser registered for ONNX op type 'Cast'.",
+  "passed": true
+}

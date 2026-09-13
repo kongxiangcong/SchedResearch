@@ -1,0 +1,14 @@
+{
+  "plan_id": "f9204509d5c3d992",
+  "style": "resident",
+  "seed": 20260914,
+  "executed_ops": 42,
+  "metrics": {
+    "relative_l2": 6.930745648511949e-05,
+    "max_abs": 2.1448233383125626e-05
+  },
+  "tolerance_max": 0.0001,
+  "passed": true,
+  "evaluation_kind": "functional_replay",
+  "note": "values, reads/writes and overwrites only; no cycles, no bandwidth"
+}

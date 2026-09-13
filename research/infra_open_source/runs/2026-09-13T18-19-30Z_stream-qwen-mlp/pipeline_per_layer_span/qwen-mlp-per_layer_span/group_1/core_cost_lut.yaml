@@ -1,0 +1,259 @@
+nodes:
+- name: gemm_up
+  cores:
+  - core_id: 0
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 1
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 2
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 3
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 4
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 5
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 6
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 7
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 10
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 11
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 12
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 13
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 14
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 15
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 16
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 17
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 20
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 21
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 22
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 23
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 24
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 25
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 26
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 27
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 30
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 31
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 32
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 33
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 34
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 35
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 36
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag
+  - core_id: 37
+    core_type: zigzag.compute
+    latency_total: 328
+    ideal_cycle: 180
+    ideal_temporal_cycle: 320
+    energy_total: 481955.04000000004
+    metadata:
+      backend: zigzag

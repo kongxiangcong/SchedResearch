@@ -1,0 +1,955 @@
+{
+  "traceEvents": [
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 0,
+      "args": {
+        "name": "Cores 0,1,2,3,4,5,6,7,10,11,12,13,14,15,16,17,20,21,22,23,24,25,26,27,30,31,32,33,34,35,36,37 [col=0-3, row=0-7]"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 0,
+      "args": {
+        "sort_index": 0
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 1,
+      "args": {
+        "name": "Transfer(x) (1 link)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 1,
+      "args": {
+        "sort_index": 1000001
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 2,
+      "args": {
+        "name": "Transfer(x_1) (2 links)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 2,
+      "args": {
+        "sort_index": 1000002
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 3,
+      "args": {
+        "name": "Transfer(w_gate) (1 link)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 3,
+      "args": {
+        "sort_index": 1000003
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 4,
+      "args": {
+        "name": "Transfer(w_gate_1) (2 links)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 4,
+      "args": {
+        "sort_index": 1000004
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 5,
+      "args": {
+        "name": "Transfer(G_1) (2 links)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 5,
+      "args": {
+        "sort_index": 1000006
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 6,
+      "args": {
+        "name": "Transfer(G_2) (1 link)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 6,
+      "args": {
+        "sort_index": 1000007
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 0,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37
+        ],
+        "n_cores": 32
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7480.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 0,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37
+        ],
+        "n_cores": 32
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 11428.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 0,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37
+        ],
+        "n_cores": 32
+      }
+    },
+    {
+      "name": "Transfer(x) [i-1]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 0.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 1,
+      "cname": "bad",
+      "args": {
+        "iteration": "i-1",
+        "slot": 1,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": true,
+        "is_const_input": true,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 40\u2192?",
+        "n_links": 1,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(x) [i]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 3948.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 1,
+      "cname": "bad",
+      "args": {
+        "iteration": "i",
+        "slot": 1,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": true,
+        "is_const_input": true,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 40\u2192?",
+        "n_links": 1,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(x) [i+1]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 7896.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 1,
+      "cname": "bad",
+      "args": {
+        "iteration": "i+1",
+        "slot": 1,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": true,
+        "is_const_input": true,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 40\u2192?",
+        "n_links": 1,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(x_1) [i-1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 7.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 2,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i-1",
+        "slot": 2,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "n_links": 2,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(x_1) [i]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 3955.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 2,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i",
+        "slot": 2,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "n_links": 2,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(x_1) [i+1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 7903.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 2,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i+1",
+        "slot": 2,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "n_links": 2,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate) [i-1]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 14.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 3,
+      "cname": "bad",
+      "args": {
+        "iteration": "i-1",
+        "slot": 3,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": true,
+        "is_const_input": true,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 40\u2192?",
+        "n_links": 1,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate) [i]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 3962.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 3,
+      "cname": "bad",
+      "args": {
+        "iteration": "i",
+        "slot": 3,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": true,
+        "is_const_input": true,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 40\u2192?",
+        "n_links": 1,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate) [i+1]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 7910.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 3,
+      "cname": "bad",
+      "args": {
+        "iteration": "i+1",
+        "slot": 3,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": true,
+        "is_const_input": true,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 40\u2192?",
+        "n_links": 1,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate_1) [i-1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 1773.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 4,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i-1",
+        "slot": 4,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "n_links": 2,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate_1) [i]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 5721.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 4,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i",
+        "slot": 4,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "n_links": 2,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate_1) [i+1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 9669.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 4,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i+1",
+        "slot": 4,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "n_links": 2,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_1) [i-1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 3860.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 5,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i-1",
+        "slot": 6,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [
+          "gemm_gate"
+        ],
+        "full_path": "Path 0\u2192?\u2192?",
+        "n_links": 2,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_1) [i]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 7808.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 5,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i",
+        "slot": 6,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [
+          "gemm_gate"
+        ],
+        "full_path": "Path 0\u2192?\u2192?",
+        "n_links": 2,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_1) [i+1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 11756.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 5,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i+1",
+        "slot": 6,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [
+          "gemm_gate"
+        ],
+        "full_path": "Path 0\u2192?\u2192?",
+        "n_links": 2,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_2) [i-1]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 3904.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 6,
+      "cname": "bad",
+      "args": {
+        "iteration": "i-1",
+        "slot": 7,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": true,
+        "is_const_input": false,
+        "is_const_output": true,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 9\u2192?",
+        "n_links": 1,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_2) [i]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 7852.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 6,
+      "cname": "bad",
+      "args": {
+        "iteration": "i",
+        "slot": 7,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": true,
+        "is_const_input": false,
+        "is_const_output": true,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 9\u2192?",
+        "n_links": 1,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_2) [i+1]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 11800.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 6,
+      "cname": "bad",
+      "args": {
+        "iteration": "i+1",
+        "slot": 7,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": true,
+        "is_const_input": false,
+        "is_const_output": true,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 9\u2192?",
+        "n_links": 1,
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "displayTimeUnit": "ns",
+  "otherData": {
+    "note": "Timestamps and durations are in hardware clock cycles. Three representative iterations are shown: i-1 at t=0, i at t=iter_step, i+1 at t=2*iter_step. displayTimeUnit='ns' is used as a Perfetto label approximation.",
+    "total_iterations": 2,
+    "latency_per_iteration_cycles": 3948,
+    "overlap_cycles": 0,
+    "iter_step_cycles": 3948,
+    "total_latency_cycles": 7896,
+    "slot_latencies_cycles": {
+      "0": -0.0,
+      "1": 7.0,
+      "2": 7.0,
+      "3": 1759.0,
+      "4": 1759.0,
+      "5": 328.0,
+      "6": 44.0,
+      "7": 44.0,
+      "8": -0.0
+    },
+    "compact": true
+  }
+}

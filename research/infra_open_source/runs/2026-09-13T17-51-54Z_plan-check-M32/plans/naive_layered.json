@@ -1,0 +1,7592 @@
+{
+  "schema": "schedresearch.infra.plan.v2",
+  "plan_semantics": "logical candidate: passes logical-semantics checking only; backend expressibility and physical lowering are separate admission layers (see plan/lowering.py)",
+  "name": "naive_layered",
+  "plan_id": "d3a4c6c861535e7f",
+  "workload_id": "qwen3.5-4b.mlp.M32",
+  "hardware": {
+    "profile_id": "onnxim_tpuv4_c4",
+    "cores": 4,
+    "spad_bytes_per_core": 16777216,
+    "accum_bytes_per_core": 2097152,
+    "precision_bytes": 2
+  },
+  "ops": [
+    {
+      "id": "gate.0",
+      "kind": "gemm",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 0
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 0
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.0",
+      "kind": "gemm",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 0
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 0
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.1",
+      "kind": "gemm",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 1
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 1
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.1",
+      "kind": "gemm",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 1
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 1
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.2",
+      "kind": "gemm",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 2
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 2
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.2",
+      "kind": "gemm",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 2
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 2
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.3",
+      "kind": "gemm",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 3
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 3
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.3",
+      "kind": "gemm",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 3
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 3
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.4",
+      "kind": "gemm",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 4
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 4
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.4",
+      "kind": "gemm",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 4
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 4
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.5",
+      "kind": "gemm",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 5
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 5
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.5",
+      "kind": "gemm",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 5
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 5
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.6",
+      "kind": "gemm",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 6
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 6
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.6",
+      "kind": "gemm",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 6
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 6
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.7",
+      "kind": "gemm",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 7
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 7
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.7",
+      "kind": "gemm",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 7
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 7
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.8",
+      "kind": "gemm",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 8
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 8
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.8",
+      "kind": "gemm",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 8
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 8
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.9",
+      "kind": "gemm",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 9
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 9
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.9",
+      "kind": "gemm",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 9
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 9
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.10",
+      "kind": "gemm",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 10
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 10
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.10",
+      "kind": "gemm",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 10
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 10
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.11",
+      "kind": "gemm",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 11
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 11
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.11",
+      "kind": "gemm",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 11
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 11
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.12",
+      "kind": "gemm",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 12
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 12
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.12",
+      "kind": "gemm",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 12
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 12
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.13",
+      "kind": "gemm",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 13
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 13
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.13",
+      "kind": "gemm",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 13
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 13
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.14",
+      "kind": "gemm",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 14
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 14
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.14",
+      "kind": "gemm",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 14
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 14
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.15",
+      "kind": "gemm",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 15
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 15
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.15",
+      "kind": "gemm",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 15
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 15
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.16",
+      "kind": "gemm",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 16
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 16
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.16",
+      "kind": "gemm",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 16
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 16
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "gate.17",
+      "kind": "gemm",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_gate",
+          "index": 17
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "G",
+          "index": 17
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "up.17",
+      "kind": "gemm",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "x",
+          "index": 0
+        },
+        {
+          "tensor": "w_up",
+          "index": 17
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "U",
+          "index": 17
+        }
+      ],
+      "macs": 41943040,
+      "elements": 16384,
+      "deps": [],
+      "notes": ""
+    },
+    {
+      "id": "silu.0",
+      "kind": "silu",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 0
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 0
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.0",
+      "kind": "mul",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 0
+        },
+        {
+          "tensor": "U",
+          "index": 0
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 0
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.0",
+      "kind": "cast_bf16",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 0
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 0
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.1",
+      "kind": "silu",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 1
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 1
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.1",
+      "kind": "mul",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 1
+        },
+        {
+          "tensor": "U",
+          "index": 1
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 1
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.1",
+      "kind": "cast_bf16",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 1
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 1
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.2",
+      "kind": "silu",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 2
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 2
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.2",
+      "kind": "mul",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 2
+        },
+        {
+          "tensor": "U",
+          "index": 2
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 2
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.2",
+      "kind": "cast_bf16",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 2
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 2
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.3",
+      "kind": "silu",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 3
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 3
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.3",
+      "kind": "mul",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 3
+        },
+        {
+          "tensor": "U",
+          "index": 3
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 3
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.3",
+      "kind": "cast_bf16",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 3
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 3
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.4",
+      "kind": "silu",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 4
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 4
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.4",
+      "kind": "mul",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 4
+        },
+        {
+          "tensor": "U",
+          "index": 4
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 4
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.4",
+      "kind": "cast_bf16",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 4
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 4
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.5",
+      "kind": "silu",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 5
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 5
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.5",
+      "kind": "mul",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 5
+        },
+        {
+          "tensor": "U",
+          "index": 5
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 5
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.5",
+      "kind": "cast_bf16",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 5
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 5
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.6",
+      "kind": "silu",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 6
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 6
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.6",
+      "kind": "mul",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 6
+        },
+        {
+          "tensor": "U",
+          "index": 6
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 6
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.6",
+      "kind": "cast_bf16",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 6
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 6
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.7",
+      "kind": "silu",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 7
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 7
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.7",
+      "kind": "mul",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 7
+        },
+        {
+          "tensor": "U",
+          "index": 7
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 7
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.7",
+      "kind": "cast_bf16",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 7
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 7
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.8",
+      "kind": "silu",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 8
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 8
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.8",
+      "kind": "mul",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 8
+        },
+        {
+          "tensor": "U",
+          "index": 8
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 8
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.8",
+      "kind": "cast_bf16",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 8
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 8
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.9",
+      "kind": "silu",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 9
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 9
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.9",
+      "kind": "mul",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 9
+        },
+        {
+          "tensor": "U",
+          "index": 9
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 9
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.9",
+      "kind": "cast_bf16",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 9
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 9
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.10",
+      "kind": "silu",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 10
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 10
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.10",
+      "kind": "mul",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 10
+        },
+        {
+          "tensor": "U",
+          "index": 10
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 10
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.10",
+      "kind": "cast_bf16",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 10
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 10
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.11",
+      "kind": "silu",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 11
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 11
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.11",
+      "kind": "mul",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 11
+        },
+        {
+          "tensor": "U",
+          "index": 11
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 11
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.11",
+      "kind": "cast_bf16",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 11
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 11
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.12",
+      "kind": "silu",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 12
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 12
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.12",
+      "kind": "mul",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 12
+        },
+        {
+          "tensor": "U",
+          "index": 12
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 12
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.12",
+      "kind": "cast_bf16",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 12
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 12
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.13",
+      "kind": "silu",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 13
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 13
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.13",
+      "kind": "mul",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 13
+        },
+        {
+          "tensor": "U",
+          "index": 13
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 13
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.13",
+      "kind": "cast_bf16",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 13
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 13
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.14",
+      "kind": "silu",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 14
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 14
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.14",
+      "kind": "mul",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 14
+        },
+        {
+          "tensor": "U",
+          "index": 14
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 14
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.14",
+      "kind": "cast_bf16",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 14
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 14
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.15",
+      "kind": "silu",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 15
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 15
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.15",
+      "kind": "mul",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 15
+        },
+        {
+          "tensor": "U",
+          "index": 15
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 15
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.15",
+      "kind": "cast_bf16",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 15
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 15
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.16",
+      "kind": "silu",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 16
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 16
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.16",
+      "kind": "mul",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 16
+        },
+        {
+          "tensor": "U",
+          "index": 16
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 16
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.16",
+      "kind": "cast_bf16",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 16
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 16
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "silu.17",
+      "kind": "silu",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "G",
+          "index": 17
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "S",
+          "index": 17
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL gate chunks"
+    },
+    {
+      "id": "mul.17",
+      "kind": "mul",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "S",
+          "index": 17
+        },
+        {
+          "tensor": "U",
+          "index": 17
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A32",
+          "index": 17
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "silu.0",
+        "silu.1",
+        "silu.2",
+        "silu.3",
+        "silu.4",
+        "silu.5",
+        "silu.6",
+        "silu.7",
+        "silu.8",
+        "silu.9",
+        "silu.10",
+        "silu.11",
+        "silu.12",
+        "silu.13",
+        "silu.14",
+        "silu.15",
+        "silu.16",
+        "silu.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL silu and ALL up chunks"
+    },
+    {
+      "id": "cast.17",
+      "kind": "cast_bf16",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "A32",
+          "index": 17
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "A16",
+          "index": 17
+        }
+      ],
+      "macs": 0,
+      "elements": 16384,
+      "deps": [
+        "mul.0",
+        "mul.1",
+        "mul.2",
+        "mul.3",
+        "mul.4",
+        "mul.5",
+        "mul.6",
+        "mul.7",
+        "mul.8",
+        "mul.9",
+        "mul.10",
+        "mul.11",
+        "mul.12",
+        "mul.13",
+        "mul.14",
+        "mul.15",
+        "mul.16",
+        "mul.17"
+      ],
+      "notes": "whole-layer barrier: waits on ALL mul chunks"
+    },
+    {
+      "id": "down.0",
+      "kind": "gemm",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "A16",
+          "index": 0
+        },
+        {
+          "tensor": "A16",
+          "index": 1
+        },
+        {
+          "tensor": "A16",
+          "index": 2
+        },
+        {
+          "tensor": "A16",
+          "index": 3
+        },
+        {
+          "tensor": "A16",
+          "index": 4
+        },
+        {
+          "tensor": "A16",
+          "index": 5
+        },
+        {
+          "tensor": "A16",
+          "index": 6
+        },
+        {
+          "tensor": "A16",
+          "index": 7
+        },
+        {
+          "tensor": "A16",
+          "index": 8
+        },
+        {
+          "tensor": "A16",
+          "index": 9
+        },
+        {
+          "tensor": "A16",
+          "index": 10
+        },
+        {
+          "tensor": "A16",
+          "index": 11
+        },
+        {
+          "tensor": "A16",
+          "index": 12
+        },
+        {
+          "tensor": "A16",
+          "index": 13
+        },
+        {
+          "tensor": "A16",
+          "index": 14
+        },
+        {
+          "tensor": "A16",
+          "index": 15
+        },
+        {
+          "tensor": "A16",
+          "index": 16
+        },
+        {
+          "tensor": "A16",
+          "index": 17
+        },
+        {
+          "tensor": "w_down",
+          "index": 0
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "Y",
+          "index": 0
+        }
+      ],
+      "macs": 75497472,
+      "elements": 8192,
+      "deps": [
+        "cast.0",
+        "cast.1",
+        "cast.2",
+        "cast.3",
+        "cast.4",
+        "cast.5",
+        "cast.6",
+        "cast.7",
+        "cast.8",
+        "cast.9",
+        "cast.10",
+        "cast.11",
+        "cast.12",
+        "cast.13",
+        "cast.14",
+        "cast.15",
+        "cast.16",
+        "cast.17"
+      ],
+      "notes": "reduction over the full I dimension: needs every A16 chunk"
+    },
+    {
+      "id": "down.1",
+      "kind": "gemm",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "A16",
+          "index": 0
+        },
+        {
+          "tensor": "A16",
+          "index": 1
+        },
+        {
+          "tensor": "A16",
+          "index": 2
+        },
+        {
+          "tensor": "A16",
+          "index": 3
+        },
+        {
+          "tensor": "A16",
+          "index": 4
+        },
+        {
+          "tensor": "A16",
+          "index": 5
+        },
+        {
+          "tensor": "A16",
+          "index": 6
+        },
+        {
+          "tensor": "A16",
+          "index": 7
+        },
+        {
+          "tensor": "A16",
+          "index": 8
+        },
+        {
+          "tensor": "A16",
+          "index": 9
+        },
+        {
+          "tensor": "A16",
+          "index": 10
+        },
+        {
+          "tensor": "A16",
+          "index": 11
+        },
+        {
+          "tensor": "A16",
+          "index": 12
+        },
+        {
+          "tensor": "A16",
+          "index": 13
+        },
+        {
+          "tensor": "A16",
+          "index": 14
+        },
+        {
+          "tensor": "A16",
+          "index": 15
+        },
+        {
+          "tensor": "A16",
+          "index": 16
+        },
+        {
+          "tensor": "A16",
+          "index": 17
+        },
+        {
+          "tensor": "w_down",
+          "index": 1
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "Y",
+          "index": 1
+        }
+      ],
+      "macs": 75497472,
+      "elements": 8192,
+      "deps": [
+        "cast.0",
+        "cast.1",
+        "cast.2",
+        "cast.3",
+        "cast.4",
+        "cast.5",
+        "cast.6",
+        "cast.7",
+        "cast.8",
+        "cast.9",
+        "cast.10",
+        "cast.11",
+        "cast.12",
+        "cast.13",
+        "cast.14",
+        "cast.15",
+        "cast.16",
+        "cast.17"
+      ],
+      "notes": "reduction over the full I dimension: needs every A16 chunk"
+    },
+    {
+      "id": "down.2",
+      "kind": "gemm",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "A16",
+          "index": 0
+        },
+        {
+          "tensor": "A16",
+          "index": 1
+        },
+        {
+          "tensor": "A16",
+          "index": 2
+        },
+        {
+          "tensor": "A16",
+          "index": 3
+        },
+        {
+          "tensor": "A16",
+          "index": 4
+        },
+        {
+          "tensor": "A16",
+          "index": 5
+        },
+        {
+          "tensor": "A16",
+          "index": 6
+        },
+        {
+          "tensor": "A16",
+          "index": 7
+        },
+        {
+          "tensor": "A16",
+          "index": 8
+        },
+        {
+          "tensor": "A16",
+          "index": 9
+        },
+        {
+          "tensor": "A16",
+          "index": 10
+        },
+        {
+          "tensor": "A16",
+          "index": 11
+        },
+        {
+          "tensor": "A16",
+          "index": 12
+        },
+        {
+          "tensor": "A16",
+          "index": 13
+        },
+        {
+          "tensor": "A16",
+          "index": 14
+        },
+        {
+          "tensor": "A16",
+          "index": 15
+        },
+        {
+          "tensor": "A16",
+          "index": 16
+        },
+        {
+          "tensor": "A16",
+          "index": 17
+        },
+        {
+          "tensor": "w_down",
+          "index": 2
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "Y",
+          "index": 2
+        }
+      ],
+      "macs": 75497472,
+      "elements": 8192,
+      "deps": [
+        "cast.0",
+        "cast.1",
+        "cast.2",
+        "cast.3",
+        "cast.4",
+        "cast.5",
+        "cast.6",
+        "cast.7",
+        "cast.8",
+        "cast.9",
+        "cast.10",
+        "cast.11",
+        "cast.12",
+        "cast.13",
+        "cast.14",
+        "cast.15",
+        "cast.16",
+        "cast.17"
+      ],
+      "notes": "reduction over the full I dimension: needs every A16 chunk"
+    },
+    {
+      "id": "down.3",
+      "kind": "gemm",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "A16",
+          "index": 0
+        },
+        {
+          "tensor": "A16",
+          "index": 1
+        },
+        {
+          "tensor": "A16",
+          "index": 2
+        },
+        {
+          "tensor": "A16",
+          "index": 3
+        },
+        {
+          "tensor": "A16",
+          "index": 4
+        },
+        {
+          "tensor": "A16",
+          "index": 5
+        },
+        {
+          "tensor": "A16",
+          "index": 6
+        },
+        {
+          "tensor": "A16",
+          "index": 7
+        },
+        {
+          "tensor": "A16",
+          "index": 8
+        },
+        {
+          "tensor": "A16",
+          "index": 9
+        },
+        {
+          "tensor": "A16",
+          "index": 10
+        },
+        {
+          "tensor": "A16",
+          "index": 11
+        },
+        {
+          "tensor": "A16",
+          "index": 12
+        },
+        {
+          "tensor": "A16",
+          "index": 13
+        },
+        {
+          "tensor": "A16",
+          "index": 14
+        },
+        {
+          "tensor": "A16",
+          "index": 15
+        },
+        {
+          "tensor": "A16",
+          "index": 16
+        },
+        {
+          "tensor": "A16",
+          "index": 17
+        },
+        {
+          "tensor": "w_down",
+          "index": 3
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "Y",
+          "index": 3
+        }
+      ],
+      "macs": 75497472,
+      "elements": 8192,
+      "deps": [
+        "cast.0",
+        "cast.1",
+        "cast.2",
+        "cast.3",
+        "cast.4",
+        "cast.5",
+        "cast.6",
+        "cast.7",
+        "cast.8",
+        "cast.9",
+        "cast.10",
+        "cast.11",
+        "cast.12",
+        "cast.13",
+        "cast.14",
+        "cast.15",
+        "cast.16",
+        "cast.17"
+      ],
+      "notes": "reduction over the full I dimension: needs every A16 chunk"
+    },
+    {
+      "id": "down.4",
+      "kind": "gemm",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "A16",
+          "index": 0
+        },
+        {
+          "tensor": "A16",
+          "index": 1
+        },
+        {
+          "tensor": "A16",
+          "index": 2
+        },
+        {
+          "tensor": "A16",
+          "index": 3
+        },
+        {
+          "tensor": "A16",
+          "index": 4
+        },
+        {
+          "tensor": "A16",
+          "index": 5
+        },
+        {
+          "tensor": "A16",
+          "index": 6
+        },
+        {
+          "tensor": "A16",
+          "index": 7
+        },
+        {
+          "tensor": "A16",
+          "index": 8
+        },
+        {
+          "tensor": "A16",
+          "index": 9
+        },
+        {
+          "tensor": "A16",
+          "index": 10
+        },
+        {
+          "tensor": "A16",
+          "index": 11
+        },
+        {
+          "tensor": "A16",
+          "index": 12
+        },
+        {
+          "tensor": "A16",
+          "index": 13
+        },
+        {
+          "tensor": "A16",
+          "index": 14
+        },
+        {
+          "tensor": "A16",
+          "index": 15
+        },
+        {
+          "tensor": "A16",
+          "index": 16
+        },
+        {
+          "tensor": "A16",
+          "index": 17
+        },
+        {
+          "tensor": "w_down",
+          "index": 4
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "Y",
+          "index": 4
+        }
+      ],
+      "macs": 75497472,
+      "elements": 8192,
+      "deps": [
+        "cast.0",
+        "cast.1",
+        "cast.2",
+        "cast.3",
+        "cast.4",
+        "cast.5",
+        "cast.6",
+        "cast.7",
+        "cast.8",
+        "cast.9",
+        "cast.10",
+        "cast.11",
+        "cast.12",
+        "cast.13",
+        "cast.14",
+        "cast.15",
+        "cast.16",
+        "cast.17"
+      ],
+      "notes": "reduction over the full I dimension: needs every A16 chunk"
+    },
+    {
+      "id": "down.5",
+      "kind": "gemm",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "A16",
+          "index": 0
+        },
+        {
+          "tensor": "A16",
+          "index": 1
+        },
+        {
+          "tensor": "A16",
+          "index": 2
+        },
+        {
+          "tensor": "A16",
+          "index": 3
+        },
+        {
+          "tensor": "A16",
+          "index": 4
+        },
+        {
+          "tensor": "A16",
+          "index": 5
+        },
+        {
+          "tensor": "A16",
+          "index": 6
+        },
+        {
+          "tensor": "A16",
+          "index": 7
+        },
+        {
+          "tensor": "A16",
+          "index": 8
+        },
+        {
+          "tensor": "A16",
+          "index": 9
+        },
+        {
+          "tensor": "A16",
+          "index": 10
+        },
+        {
+          "tensor": "A16",
+          "index": 11
+        },
+        {
+          "tensor": "A16",
+          "index": 12
+        },
+        {
+          "tensor": "A16",
+          "index": 13
+        },
+        {
+          "tensor": "A16",
+          "index": 14
+        },
+        {
+          "tensor": "A16",
+          "index": 15
+        },
+        {
+          "tensor": "A16",
+          "index": 16
+        },
+        {
+          "tensor": "A16",
+          "index": 17
+        },
+        {
+          "tensor": "w_down",
+          "index": 5
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "Y",
+          "index": 5
+        }
+      ],
+      "macs": 75497472,
+      "elements": 8192,
+      "deps": [
+        "cast.0",
+        "cast.1",
+        "cast.2",
+        "cast.3",
+        "cast.4",
+        "cast.5",
+        "cast.6",
+        "cast.7",
+        "cast.8",
+        "cast.9",
+        "cast.10",
+        "cast.11",
+        "cast.12",
+        "cast.13",
+        "cast.14",
+        "cast.15",
+        "cast.16",
+        "cast.17"
+      ],
+      "notes": "reduction over the full I dimension: needs every A16 chunk"
+    },
+    {
+      "id": "down.6",
+      "kind": "gemm",
+      "core": 2,
+      "reads": [
+        {
+          "tensor": "A16",
+          "index": 0
+        },
+        {
+          "tensor": "A16",
+          "index": 1
+        },
+        {
+          "tensor": "A16",
+          "index": 2
+        },
+        {
+          "tensor": "A16",
+          "index": 3
+        },
+        {
+          "tensor": "A16",
+          "index": 4
+        },
+        {
+          "tensor": "A16",
+          "index": 5
+        },
+        {
+          "tensor": "A16",
+          "index": 6
+        },
+        {
+          "tensor": "A16",
+          "index": 7
+        },
+        {
+          "tensor": "A16",
+          "index": 8
+        },
+        {
+          "tensor": "A16",
+          "index": 9
+        },
+        {
+          "tensor": "A16",
+          "index": 10
+        },
+        {
+          "tensor": "A16",
+          "index": 11
+        },
+        {
+          "tensor": "A16",
+          "index": 12
+        },
+        {
+          "tensor": "A16",
+          "index": 13
+        },
+        {
+          "tensor": "A16",
+          "index": 14
+        },
+        {
+          "tensor": "A16",
+          "index": 15
+        },
+        {
+          "tensor": "A16",
+          "index": 16
+        },
+        {
+          "tensor": "A16",
+          "index": 17
+        },
+        {
+          "tensor": "w_down",
+          "index": 6
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "Y",
+          "index": 6
+        }
+      ],
+      "macs": 75497472,
+      "elements": 8192,
+      "deps": [
+        "cast.0",
+        "cast.1",
+        "cast.2",
+        "cast.3",
+        "cast.4",
+        "cast.5",
+        "cast.6",
+        "cast.7",
+        "cast.8",
+        "cast.9",
+        "cast.10",
+        "cast.11",
+        "cast.12",
+        "cast.13",
+        "cast.14",
+        "cast.15",
+        "cast.16",
+        "cast.17"
+      ],
+      "notes": "reduction over the full I dimension: needs every A16 chunk"
+    },
+    {
+      "id": "down.7",
+      "kind": "gemm",
+      "core": 3,
+      "reads": [
+        {
+          "tensor": "A16",
+          "index": 0
+        },
+        {
+          "tensor": "A16",
+          "index": 1
+        },
+        {
+          "tensor": "A16",
+          "index": 2
+        },
+        {
+          "tensor": "A16",
+          "index": 3
+        },
+        {
+          "tensor": "A16",
+          "index": 4
+        },
+        {
+          "tensor": "A16",
+          "index": 5
+        },
+        {
+          "tensor": "A16",
+          "index": 6
+        },
+        {
+          "tensor": "A16",
+          "index": 7
+        },
+        {
+          "tensor": "A16",
+          "index": 8
+        },
+        {
+          "tensor": "A16",
+          "index": 9
+        },
+        {
+          "tensor": "A16",
+          "index": 10
+        },
+        {
+          "tensor": "A16",
+          "index": 11
+        },
+        {
+          "tensor": "A16",
+          "index": 12
+        },
+        {
+          "tensor": "A16",
+          "index": 13
+        },
+        {
+          "tensor": "A16",
+          "index": 14
+        },
+        {
+          "tensor": "A16",
+          "index": 15
+        },
+        {
+          "tensor": "A16",
+          "index": 16
+        },
+        {
+          "tensor": "A16",
+          "index": 17
+        },
+        {
+          "tensor": "w_down",
+          "index": 7
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "Y",
+          "index": 7
+        }
+      ],
+      "macs": 75497472,
+      "elements": 8192,
+      "deps": [
+        "cast.0",
+        "cast.1",
+        "cast.2",
+        "cast.3",
+        "cast.4",
+        "cast.5",
+        "cast.6",
+        "cast.7",
+        "cast.8",
+        "cast.9",
+        "cast.10",
+        "cast.11",
+        "cast.12",
+        "cast.13",
+        "cast.14",
+        "cast.15",
+        "cast.16",
+        "cast.17"
+      ],
+      "notes": "reduction over the full I dimension: needs every A16 chunk"
+    },
+    {
+      "id": "down.8",
+      "kind": "gemm",
+      "core": 0,
+      "reads": [
+        {
+          "tensor": "A16",
+          "index": 0
+        },
+        {
+          "tensor": "A16",
+          "index": 1
+        },
+        {
+          "tensor": "A16",
+          "index": 2
+        },
+        {
+          "tensor": "A16",
+          "index": 3
+        },
+        {
+          "tensor": "A16",
+          "index": 4
+        },
+        {
+          "tensor": "A16",
+          "index": 5
+        },
+        {
+          "tensor": "A16",
+          "index": 6
+        },
+        {
+          "tensor": "A16",
+          "index": 7
+        },
+        {
+          "tensor": "A16",
+          "index": 8
+        },
+        {
+          "tensor": "A16",
+          "index": 9
+        },
+        {
+          "tensor": "A16",
+          "index": 10
+        },
+        {
+          "tensor": "A16",
+          "index": 11
+        },
+        {
+          "tensor": "A16",
+          "index": 12
+        },
+        {
+          "tensor": "A16",
+          "index": 13
+        },
+        {
+          "tensor": "A16",
+          "index": 14
+        },
+        {
+          "tensor": "A16",
+          "index": 15
+        },
+        {
+          "tensor": "A16",
+          "index": 16
+        },
+        {
+          "tensor": "A16",
+          "index": 17
+        },
+        {
+          "tensor": "w_down",
+          "index": 8
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "Y",
+          "index": 8
+        }
+      ],
+      "macs": 75497472,
+      "elements": 8192,
+      "deps": [
+        "cast.0",
+        "cast.1",
+        "cast.2",
+        "cast.3",
+        "cast.4",
+        "cast.5",
+        "cast.6",
+        "cast.7",
+        "cast.8",
+        "cast.9",
+        "cast.10",
+        "cast.11",
+        "cast.12",
+        "cast.13",
+        "cast.14",
+        "cast.15",
+        "cast.16",
+        "cast.17"
+      ],
+      "notes": "reduction over the full I dimension: needs every A16 chunk"
+    },
+    {
+      "id": "down.9",
+      "kind": "gemm",
+      "core": 1,
+      "reads": [
+        {
+          "tensor": "A16",
+          "index": 0
+        },
+        {
+          "tensor": "A16",
+          "index": 1
+        },
+        {
+          "tensor": "A16",
+          "index": 2
+        },
+        {
+          "tensor": "A16",
+          "index": 3
+        },
+        {
+          "tensor": "A16",
+          "index": 4
+        },
+        {
+          "tensor": "A16",
+          "index": 5
+        },
+        {
+          "tensor": "A16",
+          "index": 6
+        },
+        {
+          "tensor": "A16",
+          "index": 7
+        },
+        {
+          "tensor": "A16",
+          "index": 8
+        },
+        {
+          "tensor": "A16",
+          "index": 9
+        },
+        {
+          "tensor": "A16",
+          "index": 10
+        },
+        {
+          "tensor": "A16",
+          "index": 11
+        },
+        {
+          "tensor": "A16",
+          "index": 12
+        },
+        {
+          "tensor": "A16",
+          "index": 13
+        },
+        {
+          "tensor": "A16",
+          "index": 14
+        },
+        {
+          "tensor": "A16",
+          "index": 15
+        },
+        {
+          "tensor": "A16",
+          "index": 16
+        },
+        {
+          "tensor": "A16",
+          "index": 17
+        },
+        {
+          "tensor": "w_down",
+          "index": 9
+        }
+      ],
+      "writes": [
+        {
+          "tensor": "Y",
+          "index": 9
+        }
+      ],
+      "macs": 75497472,
+      "elements": 8192,
+      "deps": [
+        "cast.0",
+        "cast.1",
+        "cast.2",
+        "cast.3",
+        "cast.4",
+        "cast.5",
+        "cast.6",
+        "cast.7",
+        "cast.8",
+        "cast.9",
+        "cast.10",
+        "cast.11",
+        "cast.12",
+        "cast.13",
+        "cast.14",
+        "cast.15",
+        "cast.16",
+        "cast.17"
+      ],
+      "notes": "reduction over the full I dimension: needs every A16 chunk"
+    }
+  ],
+  "chunks": {
+    "x#0": {
+      "key": "x#0",
+      "tensor": "x",
+      "index": 0,
+      "size_bytes": 163840,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.0",
+        "gate.1",
+        "gate.2",
+        "gate.3",
+        "gate.4",
+        "gate.5",
+        "gate.6",
+        "gate.7",
+        "gate.8",
+        "gate.9",
+        "gate.10",
+        "gate.11",
+        "gate.12",
+        "gate.13",
+        "gate.14",
+        "gate.15",
+        "gate.16",
+        "gate.17",
+        "up.0",
+        "up.1",
+        "up.2",
+        "up.3",
+        "up.4",
+        "up.5",
+        "up.6",
+        "up.7",
+        "up.8",
+        "up.9",
+        "up.10",
+        "up.11",
+        "up.12",
+        "up.13",
+        "up.14",
+        "up.15",
+        "up.16",
+        "up.17"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#0": {
+      "key": "w_gate#0",
+      "tensor": "w_gate",
+      "index": 0,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.0"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#1": {
+      "key": "w_gate#1",
+      "tensor": "w_gate",
+      "index": 1,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.1"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#2": {
+      "key": "w_gate#2",
+      "tensor": "w_gate",
+      "index": 2,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.2"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#3": {
+      "key": "w_gate#3",
+      "tensor": "w_gate",
+      "index": 3,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.3"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#4": {
+      "key": "w_gate#4",
+      "tensor": "w_gate",
+      "index": 4,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.4"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#5": {
+      "key": "w_gate#5",
+      "tensor": "w_gate",
+      "index": 5,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.5"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#6": {
+      "key": "w_gate#6",
+      "tensor": "w_gate",
+      "index": 6,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.6"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#7": {
+      "key": "w_gate#7",
+      "tensor": "w_gate",
+      "index": 7,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.7"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#8": {
+      "key": "w_gate#8",
+      "tensor": "w_gate",
+      "index": 8,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.8"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#9": {
+      "key": "w_gate#9",
+      "tensor": "w_gate",
+      "index": 9,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#10": {
+      "key": "w_gate#10",
+      "tensor": "w_gate",
+      "index": 10,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.10"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#11": {
+      "key": "w_gate#11",
+      "tensor": "w_gate",
+      "index": 11,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.11"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#12": {
+      "key": "w_gate#12",
+      "tensor": "w_gate",
+      "index": 12,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.12"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#13": {
+      "key": "w_gate#13",
+      "tensor": "w_gate",
+      "index": 13,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.13"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#14": {
+      "key": "w_gate#14",
+      "tensor": "w_gate",
+      "index": 14,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.14"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#15": {
+      "key": "w_gate#15",
+      "tensor": "w_gate",
+      "index": 15,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.15"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#16": {
+      "key": "w_gate#16",
+      "tensor": "w_gate",
+      "index": 16,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.16"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_gate#17": {
+      "key": "w_gate#17",
+      "tensor": "w_gate",
+      "index": 17,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "gate.17"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#0": {
+      "key": "w_up#0",
+      "tensor": "w_up",
+      "index": 0,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.0"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#1": {
+      "key": "w_up#1",
+      "tensor": "w_up",
+      "index": 1,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.1"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#2": {
+      "key": "w_up#2",
+      "tensor": "w_up",
+      "index": 2,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.2"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#3": {
+      "key": "w_up#3",
+      "tensor": "w_up",
+      "index": 3,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.3"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#4": {
+      "key": "w_up#4",
+      "tensor": "w_up",
+      "index": 4,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.4"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#5": {
+      "key": "w_up#5",
+      "tensor": "w_up",
+      "index": 5,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.5"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#6": {
+      "key": "w_up#6",
+      "tensor": "w_up",
+      "index": 6,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.6"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#7": {
+      "key": "w_up#7",
+      "tensor": "w_up",
+      "index": 7,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.7"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#8": {
+      "key": "w_up#8",
+      "tensor": "w_up",
+      "index": 8,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.8"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#9": {
+      "key": "w_up#9",
+      "tensor": "w_up",
+      "index": 9,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#10": {
+      "key": "w_up#10",
+      "tensor": "w_up",
+      "index": 10,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.10"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#11": {
+      "key": "w_up#11",
+      "tensor": "w_up",
+      "index": 11,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.11"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#12": {
+      "key": "w_up#12",
+      "tensor": "w_up",
+      "index": 12,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.12"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#13": {
+      "key": "w_up#13",
+      "tensor": "w_up",
+      "index": 13,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.13"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#14": {
+      "key": "w_up#14",
+      "tensor": "w_up",
+      "index": 14,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.14"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#15": {
+      "key": "w_up#15",
+      "tensor": "w_up",
+      "index": 15,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.15"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#16": {
+      "key": "w_up#16",
+      "tensor": "w_up",
+      "index": 16,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.16"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_up#17": {
+      "key": "w_up#17",
+      "tensor": "w_up",
+      "index": 17,
+      "size_bytes": 2621440,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "up.17"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_down#0": {
+      "key": "w_down#0",
+      "tensor": "w_down",
+      "index": 0,
+      "size_bytes": 4718592,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "down.0"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_down#1": {
+      "key": "w_down#1",
+      "tensor": "w_down",
+      "index": 1,
+      "size_bytes": 4718592,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "down.1"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_down#2": {
+      "key": "w_down#2",
+      "tensor": "w_down",
+      "index": 2,
+      "size_bytes": 4718592,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "down.2"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_down#3": {
+      "key": "w_down#3",
+      "tensor": "w_down",
+      "index": 3,
+      "size_bytes": 4718592,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "down.3"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_down#4": {
+      "key": "w_down#4",
+      "tensor": "w_down",
+      "index": 4,
+      "size_bytes": 4718592,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "down.4"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_down#5": {
+      "key": "w_down#5",
+      "tensor": "w_down",
+      "index": 5,
+      "size_bytes": 4718592,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "down.5"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_down#6": {
+      "key": "w_down#6",
+      "tensor": "w_down",
+      "index": 6,
+      "size_bytes": 4718592,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "down.6"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_down#7": {
+      "key": "w_down#7",
+      "tensor": "w_down",
+      "index": 7,
+      "size_bytes": 4718592,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "down.7"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_down#8": {
+      "key": "w_down#8",
+      "tensor": "w_down",
+      "index": 8,
+      "size_bytes": 4718592,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "down.8"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "w_down#9": {
+      "key": "w_down#9",
+      "tensor": "w_down",
+      "index": 9,
+      "size_bytes": 4718592,
+      "dtype": "BF16",
+      "producer": "<external>",
+      "consumers": [
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#0": {
+      "key": "G#0",
+      "tensor": "G",
+      "index": 0,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.0",
+      "consumers": [
+        "silu.0"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#0": {
+      "key": "U#0",
+      "tensor": "U",
+      "index": 0,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.0",
+      "consumers": [
+        "mul.0"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#1": {
+      "key": "G#1",
+      "tensor": "G",
+      "index": 1,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.1",
+      "consumers": [
+        "silu.1"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#1": {
+      "key": "U#1",
+      "tensor": "U",
+      "index": 1,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.1",
+      "consumers": [
+        "mul.1"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#2": {
+      "key": "G#2",
+      "tensor": "G",
+      "index": 2,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.2",
+      "consumers": [
+        "silu.2"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#2": {
+      "key": "U#2",
+      "tensor": "U",
+      "index": 2,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.2",
+      "consumers": [
+        "mul.2"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#3": {
+      "key": "G#3",
+      "tensor": "G",
+      "index": 3,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.3",
+      "consumers": [
+        "silu.3"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#3": {
+      "key": "U#3",
+      "tensor": "U",
+      "index": 3,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.3",
+      "consumers": [
+        "mul.3"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#4": {
+      "key": "G#4",
+      "tensor": "G",
+      "index": 4,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.4",
+      "consumers": [
+        "silu.4"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#4": {
+      "key": "U#4",
+      "tensor": "U",
+      "index": 4,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.4",
+      "consumers": [
+        "mul.4"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#5": {
+      "key": "G#5",
+      "tensor": "G",
+      "index": 5,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.5",
+      "consumers": [
+        "silu.5"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#5": {
+      "key": "U#5",
+      "tensor": "U",
+      "index": 5,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.5",
+      "consumers": [
+        "mul.5"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#6": {
+      "key": "G#6",
+      "tensor": "G",
+      "index": 6,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.6",
+      "consumers": [
+        "silu.6"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#6": {
+      "key": "U#6",
+      "tensor": "U",
+      "index": 6,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.6",
+      "consumers": [
+        "mul.6"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#7": {
+      "key": "G#7",
+      "tensor": "G",
+      "index": 7,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.7",
+      "consumers": [
+        "silu.7"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#7": {
+      "key": "U#7",
+      "tensor": "U",
+      "index": 7,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.7",
+      "consumers": [
+        "mul.7"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#8": {
+      "key": "G#8",
+      "tensor": "G",
+      "index": 8,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.8",
+      "consumers": [
+        "silu.8"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#8": {
+      "key": "U#8",
+      "tensor": "U",
+      "index": 8,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.8",
+      "consumers": [
+        "mul.8"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#9": {
+      "key": "G#9",
+      "tensor": "G",
+      "index": 9,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.9",
+      "consumers": [
+        "silu.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#9": {
+      "key": "U#9",
+      "tensor": "U",
+      "index": 9,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.9",
+      "consumers": [
+        "mul.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#10": {
+      "key": "G#10",
+      "tensor": "G",
+      "index": 10,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.10",
+      "consumers": [
+        "silu.10"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#10": {
+      "key": "U#10",
+      "tensor": "U",
+      "index": 10,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.10",
+      "consumers": [
+        "mul.10"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#11": {
+      "key": "G#11",
+      "tensor": "G",
+      "index": 11,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.11",
+      "consumers": [
+        "silu.11"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#11": {
+      "key": "U#11",
+      "tensor": "U",
+      "index": 11,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.11",
+      "consumers": [
+        "mul.11"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#12": {
+      "key": "G#12",
+      "tensor": "G",
+      "index": 12,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.12",
+      "consumers": [
+        "silu.12"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#12": {
+      "key": "U#12",
+      "tensor": "U",
+      "index": 12,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.12",
+      "consumers": [
+        "mul.12"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#13": {
+      "key": "G#13",
+      "tensor": "G",
+      "index": 13,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.13",
+      "consumers": [
+        "silu.13"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#13": {
+      "key": "U#13",
+      "tensor": "U",
+      "index": 13,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.13",
+      "consumers": [
+        "mul.13"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#14": {
+      "key": "G#14",
+      "tensor": "G",
+      "index": 14,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.14",
+      "consumers": [
+        "silu.14"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#14": {
+      "key": "U#14",
+      "tensor": "U",
+      "index": 14,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.14",
+      "consumers": [
+        "mul.14"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#15": {
+      "key": "G#15",
+      "tensor": "G",
+      "index": 15,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.15",
+      "consumers": [
+        "silu.15"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#15": {
+      "key": "U#15",
+      "tensor": "U",
+      "index": 15,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.15",
+      "consumers": [
+        "mul.15"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#16": {
+      "key": "G#16",
+      "tensor": "G",
+      "index": 16,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.16",
+      "consumers": [
+        "silu.16"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#16": {
+      "key": "U#16",
+      "tensor": "U",
+      "index": 16,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.16",
+      "consumers": [
+        "mul.16"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "G#17": {
+      "key": "G#17",
+      "tensor": "G",
+      "index": 17,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "gate.17",
+      "consumers": [
+        "silu.17"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "U#17": {
+      "key": "U#17",
+      "tensor": "U",
+      "index": 17,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "up.17",
+      "consumers": [
+        "mul.17"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#0": {
+      "key": "S#0",
+      "tensor": "S",
+      "index": 0,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.0",
+      "consumers": [
+        "mul.0"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#0": {
+      "key": "A32#0",
+      "tensor": "A32",
+      "index": 0,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.0",
+      "consumers": [
+        "cast.0"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#0": {
+      "key": "A16#0",
+      "tensor": "A16",
+      "index": 0,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.0",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#1": {
+      "key": "S#1",
+      "tensor": "S",
+      "index": 1,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.1",
+      "consumers": [
+        "mul.1"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#1": {
+      "key": "A32#1",
+      "tensor": "A32",
+      "index": 1,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.1",
+      "consumers": [
+        "cast.1"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#1": {
+      "key": "A16#1",
+      "tensor": "A16",
+      "index": 1,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.1",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#2": {
+      "key": "S#2",
+      "tensor": "S",
+      "index": 2,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.2",
+      "consumers": [
+        "mul.2"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#2": {
+      "key": "A32#2",
+      "tensor": "A32",
+      "index": 2,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.2",
+      "consumers": [
+        "cast.2"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#2": {
+      "key": "A16#2",
+      "tensor": "A16",
+      "index": 2,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.2",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#3": {
+      "key": "S#3",
+      "tensor": "S",
+      "index": 3,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.3",
+      "consumers": [
+        "mul.3"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#3": {
+      "key": "A32#3",
+      "tensor": "A32",
+      "index": 3,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.3",
+      "consumers": [
+        "cast.3"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#3": {
+      "key": "A16#3",
+      "tensor": "A16",
+      "index": 3,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.3",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#4": {
+      "key": "S#4",
+      "tensor": "S",
+      "index": 4,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.4",
+      "consumers": [
+        "mul.4"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#4": {
+      "key": "A32#4",
+      "tensor": "A32",
+      "index": 4,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.4",
+      "consumers": [
+        "cast.4"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#4": {
+      "key": "A16#4",
+      "tensor": "A16",
+      "index": 4,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.4",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#5": {
+      "key": "S#5",
+      "tensor": "S",
+      "index": 5,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.5",
+      "consumers": [
+        "mul.5"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#5": {
+      "key": "A32#5",
+      "tensor": "A32",
+      "index": 5,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.5",
+      "consumers": [
+        "cast.5"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#5": {
+      "key": "A16#5",
+      "tensor": "A16",
+      "index": 5,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.5",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#6": {
+      "key": "S#6",
+      "tensor": "S",
+      "index": 6,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.6",
+      "consumers": [
+        "mul.6"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#6": {
+      "key": "A32#6",
+      "tensor": "A32",
+      "index": 6,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.6",
+      "consumers": [
+        "cast.6"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#6": {
+      "key": "A16#6",
+      "tensor": "A16",
+      "index": 6,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.6",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#7": {
+      "key": "S#7",
+      "tensor": "S",
+      "index": 7,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.7",
+      "consumers": [
+        "mul.7"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#7": {
+      "key": "A32#7",
+      "tensor": "A32",
+      "index": 7,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.7",
+      "consumers": [
+        "cast.7"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#7": {
+      "key": "A16#7",
+      "tensor": "A16",
+      "index": 7,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.7",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#8": {
+      "key": "S#8",
+      "tensor": "S",
+      "index": 8,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.8",
+      "consumers": [
+        "mul.8"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#8": {
+      "key": "A32#8",
+      "tensor": "A32",
+      "index": 8,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.8",
+      "consumers": [
+        "cast.8"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#8": {
+      "key": "A16#8",
+      "tensor": "A16",
+      "index": 8,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.8",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#9": {
+      "key": "S#9",
+      "tensor": "S",
+      "index": 9,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.9",
+      "consumers": [
+        "mul.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#9": {
+      "key": "A32#9",
+      "tensor": "A32",
+      "index": 9,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.9",
+      "consumers": [
+        "cast.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#9": {
+      "key": "A16#9",
+      "tensor": "A16",
+      "index": 9,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.9",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#10": {
+      "key": "S#10",
+      "tensor": "S",
+      "index": 10,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.10",
+      "consumers": [
+        "mul.10"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#10": {
+      "key": "A32#10",
+      "tensor": "A32",
+      "index": 10,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.10",
+      "consumers": [
+        "cast.10"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#10": {
+      "key": "A16#10",
+      "tensor": "A16",
+      "index": 10,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.10",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#11": {
+      "key": "S#11",
+      "tensor": "S",
+      "index": 11,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.11",
+      "consumers": [
+        "mul.11"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#11": {
+      "key": "A32#11",
+      "tensor": "A32",
+      "index": 11,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.11",
+      "consumers": [
+        "cast.11"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#11": {
+      "key": "A16#11",
+      "tensor": "A16",
+      "index": 11,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.11",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#12": {
+      "key": "S#12",
+      "tensor": "S",
+      "index": 12,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.12",
+      "consumers": [
+        "mul.12"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#12": {
+      "key": "A32#12",
+      "tensor": "A32",
+      "index": 12,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.12",
+      "consumers": [
+        "cast.12"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#12": {
+      "key": "A16#12",
+      "tensor": "A16",
+      "index": 12,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.12",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#13": {
+      "key": "S#13",
+      "tensor": "S",
+      "index": 13,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.13",
+      "consumers": [
+        "mul.13"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#13": {
+      "key": "A32#13",
+      "tensor": "A32",
+      "index": 13,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.13",
+      "consumers": [
+        "cast.13"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#13": {
+      "key": "A16#13",
+      "tensor": "A16",
+      "index": 13,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.13",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#14": {
+      "key": "S#14",
+      "tensor": "S",
+      "index": 14,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.14",
+      "consumers": [
+        "mul.14"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#14": {
+      "key": "A32#14",
+      "tensor": "A32",
+      "index": 14,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.14",
+      "consumers": [
+        "cast.14"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#14": {
+      "key": "A16#14",
+      "tensor": "A16",
+      "index": 14,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.14",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#15": {
+      "key": "S#15",
+      "tensor": "S",
+      "index": 15,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.15",
+      "consumers": [
+        "mul.15"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#15": {
+      "key": "A32#15",
+      "tensor": "A32",
+      "index": 15,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.15",
+      "consumers": [
+        "cast.15"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#15": {
+      "key": "A16#15",
+      "tensor": "A16",
+      "index": 15,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.15",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#16": {
+      "key": "S#16",
+      "tensor": "S",
+      "index": 16,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.16",
+      "consumers": [
+        "mul.16"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#16": {
+      "key": "A32#16",
+      "tensor": "A32",
+      "index": 16,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.16",
+      "consumers": [
+        "cast.16"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#16": {
+      "key": "A16#16",
+      "tensor": "A16",
+      "index": 16,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.16",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "S#17": {
+      "key": "S#17",
+      "tensor": "S",
+      "index": 17,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "silu.17",
+      "consumers": [
+        "mul.17"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A32#17": {
+      "key": "A32#17",
+      "tensor": "A32",
+      "index": 17,
+      "size_bytes": 65536,
+      "dtype": "FP32",
+      "producer": "mul.17",
+      "consumers": [
+        "cast.17"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "A16#17": {
+      "key": "A16#17",
+      "tensor": "A16",
+      "index": 17,
+      "size_bytes": 32768,
+      "dtype": "BF16",
+      "producer": "cast.17",
+      "consumers": [
+        "down.0",
+        "down.1",
+        "down.2",
+        "down.3",
+        "down.4",
+        "down.5",
+        "down.6",
+        "down.7",
+        "down.8",
+        "down.9"
+      ],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "Y#0": {
+      "key": "Y#0",
+      "tensor": "Y",
+      "index": 0,
+      "size_bytes": 32768,
+      "dtype": "FP32",
+      "producer": "down.0",
+      "consumers": [],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "Y#1": {
+      "key": "Y#1",
+      "tensor": "Y",
+      "index": 1,
+      "size_bytes": 32768,
+      "dtype": "FP32",
+      "producer": "down.1",
+      "consumers": [],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "Y#2": {
+      "key": "Y#2",
+      "tensor": "Y",
+      "index": 2,
+      "size_bytes": 32768,
+      "dtype": "FP32",
+      "producer": "down.2",
+      "consumers": [],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "Y#3": {
+      "key": "Y#3",
+      "tensor": "Y",
+      "index": 3,
+      "size_bytes": 32768,
+      "dtype": "FP32",
+      "producer": "down.3",
+      "consumers": [],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "Y#4": {
+      "key": "Y#4",
+      "tensor": "Y",
+      "index": 4,
+      "size_bytes": 32768,
+      "dtype": "FP32",
+      "producer": "down.4",
+      "consumers": [],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "Y#5": {
+      "key": "Y#5",
+      "tensor": "Y",
+      "index": 5,
+      "size_bytes": 32768,
+      "dtype": "FP32",
+      "producer": "down.5",
+      "consumers": [],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "Y#6": {
+      "key": "Y#6",
+      "tensor": "Y",
+      "index": 6,
+      "size_bytes": 32768,
+      "dtype": "FP32",
+      "producer": "down.6",
+      "consumers": [],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "Y#7": {
+      "key": "Y#7",
+      "tensor": "Y",
+      "index": 7,
+      "size_bytes": 32768,
+      "dtype": "FP32",
+      "producer": "down.7",
+      "consumers": [],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "Y#8": {
+      "key": "Y#8",
+      "tensor": "Y",
+      "index": 8,
+      "size_bytes": 32768,
+      "dtype": "FP32",
+      "producer": "down.8",
+      "consumers": [],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    },
+    "Y#9": {
+      "key": "Y#9",
+      "tensor": "Y",
+      "index": 9,
+      "size_bytes": 32768,
+      "dtype": "FP32",
+      "producer": "down.9",
+      "consumers": [],
+      "placement": {
+        "level": "dram",
+        "core": -1,
+        "slot": -1,
+        "offset": 0
+      },
+      "reuse_of": null
+    }
+  },
+  "static_order": [
+    "gate.0",
+    "gate.1",
+    "gate.2",
+    "gate.3",
+    "gate.4",
+    "gate.5",
+    "gate.6",
+    "gate.7",
+    "gate.8",
+    "gate.9",
+    "gate.10",
+    "gate.11",
+    "gate.12",
+    "gate.13",
+    "gate.14",
+    "gate.15",
+    "gate.16",
+    "gate.17",
+    "up.0",
+    "up.1",
+    "up.2",
+    "up.3",
+    "up.4",
+    "up.5",
+    "up.6",
+    "up.7",
+    "up.8",
+    "up.9",
+    "up.10",
+    "up.11",
+    "up.12",
+    "up.13",
+    "up.14",
+    "up.15",
+    "up.16",
+    "up.17",
+    "silu.0",
+    "silu.1",
+    "silu.2",
+    "silu.3",
+    "silu.4",
+    "silu.5",
+    "silu.6",
+    "silu.7",
+    "silu.8",
+    "silu.9",
+    "silu.10",
+    "silu.11",
+    "silu.12",
+    "silu.13",
+    "silu.14",
+    "silu.15",
+    "silu.16",
+    "silu.17",
+    "mul.0",
+    "mul.1",
+    "mul.2",
+    "mul.3",
+    "mul.4",
+    "mul.5",
+    "mul.6",
+    "mul.7",
+    "mul.8",
+    "mul.9",
+    "mul.10",
+    "mul.11",
+    "mul.12",
+    "mul.13",
+    "mul.14",
+    "mul.15",
+    "mul.16",
+    "mul.17",
+    "cast.0",
+    "cast.1",
+    "cast.2",
+    "cast.3",
+    "cast.4",
+    "cast.5",
+    "cast.6",
+    "cast.7",
+    "cast.8",
+    "cast.9",
+    "cast.10",
+    "cast.11",
+    "cast.12",
+    "cast.13",
+    "cast.14",
+    "cast.15",
+    "cast.16",
+    "cast.17",
+    "down.0",
+    "down.1",
+    "down.2",
+    "down.3",
+    "down.4",
+    "down.5",
+    "down.6",
+    "down.7",
+    "down.8",
+    "down.9"
+  ],
+  "metadata": {
+    "generator": "naive_layered_plan",
+    "n_tile": 512,
+    "n_tile_down": 256,
+    "residency": "all intermediates materialised to DRAM",
+    "barriers": "whole-layer between every operator stage",
+    "numeric_replay": {
+      "schema": "schedresearch.infra.numeric_replay.v1",
+      "layout": "row-major 2-D tensors [M_pad, N]; chunks are column blocks of one tensor",
+      "chunk_slices": {
+        "x": "whole",
+        "w_gate": {
+          "axis": 1,
+          "block": 512
+        },
+        "w_up": {
+          "axis": 1,
+          "block": 512
+        },
+        "w_down": {
+          "axis": 1,
+          "block": 256
+        },
+        "G": {
+          "axis": 1,
+          "block": 512
+        },
+        "U": {
+          "axis": 1,
+          "block": 512
+        },
+        "S": {
+          "axis": 1,
+          "block": 512
+        },
+        "A32": {
+          "axis": 1,
+          "block": 512
+        },
+        "A16": {
+          "axis": 1,
+          "block": 512
+        },
+        "Y": {
+          "axis": 1,
+          "block": 256
+        }
+      },
+      "op_semantics": {
+        "gemm": "out = concat(reads[:-1], axis=1) @ reads[-1]; gate/up: concat is just x; down: concat is every A16 chunk in index order",
+        "silu": "elementwise x*sigmoid(x) in FP32",
+        "mul": "elementwise product in FP32",
+        "cast_bf16": "FP32 -> BF16 round-to-nearest-even; result stored as exactly-representable FP32"
+      },
+      "dtypes": {
+        "x": "BF16",
+        "w_gate": "BF16",
+        "w_up": "BF16",
+        "w_down": "BF16",
+        "G": "FP32",
+        "U": "FP32",
+        "S": "FP32",
+        "A32": "FP32",
+        "A16": "BF16",
+        "Y": "FP32"
+      },
+      "tolerance": {
+        "metric": "relative_l2_vs_float64_oracle",
+        "max": 0.0001,
+        "note": "functional replay only; produces no cycles and no bandwidth"
+      }
+    }
+  }
+}

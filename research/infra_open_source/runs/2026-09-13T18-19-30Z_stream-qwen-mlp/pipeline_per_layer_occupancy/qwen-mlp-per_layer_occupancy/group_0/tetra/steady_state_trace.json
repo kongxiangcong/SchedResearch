@@ -1,0 +1,3634 @@
+{
+  "traceEvents": [
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 0,
+      "args": {
+        "name": "Core 0 [zigzag.compute] (col=0, row=0)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 0,
+      "args": {
+        "sort_index": 0
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 1,
+      "args": {
+        "name": "Core 1 [zigzag.compute] (col=0, row=1)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 1,
+      "args": {
+        "sort_index": 1
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 2,
+      "args": {
+        "name": "Core 2 [zigzag.compute] (col=0, row=2)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 2,
+      "args": {
+        "sort_index": 2
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 3,
+      "args": {
+        "name": "Core 3 [zigzag.compute] (col=0, row=3)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 3,
+      "args": {
+        "sort_index": 3
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 4,
+      "args": {
+        "name": "Core 4 [zigzag.compute] (col=0, row=4)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 4,
+      "args": {
+        "sort_index": 4
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 5,
+      "args": {
+        "name": "Core 5 [zigzag.compute] (col=0, row=5)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 5,
+      "args": {
+        "sort_index": 5
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 6,
+      "args": {
+        "name": "Core 6 [zigzag.compute] (col=0, row=6)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 6,
+      "args": {
+        "sort_index": 6
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 7,
+      "args": {
+        "name": "Core 7 [zigzag.compute] (col=0, row=7)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 7,
+      "args": {
+        "sort_index": 7
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 8,
+      "args": {
+        "name": "Core 10 [zigzag.compute] (col=1, row=0)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 8,
+      "args": {
+        "sort_index": 1000
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 9,
+      "args": {
+        "name": "Core 11 [zigzag.compute] (col=1, row=1)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 9,
+      "args": {
+        "sort_index": 1001
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 10,
+      "args": {
+        "name": "Core 12 [zigzag.compute] (col=1, row=2)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 10,
+      "args": {
+        "sort_index": 1002
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 11,
+      "args": {
+        "name": "Core 13 [zigzag.compute] (col=1, row=3)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 11,
+      "args": {
+        "sort_index": 1003
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 12,
+      "args": {
+        "name": "Core 14 [zigzag.compute] (col=1, row=4)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 12,
+      "args": {
+        "sort_index": 1004
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 13,
+      "args": {
+        "name": "Core 15 [zigzag.compute] (col=1, row=5)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 13,
+      "args": {
+        "sort_index": 1005
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 14,
+      "args": {
+        "name": "Core 16 [zigzag.compute] (col=1, row=6)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 14,
+      "args": {
+        "sort_index": 1006
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 15,
+      "args": {
+        "name": "Core 17 [zigzag.compute] (col=1, row=7)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 15,
+      "args": {
+        "sort_index": 1007
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 16,
+      "args": {
+        "name": "Core 20 [zigzag.compute] (col=2, row=0)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 16,
+      "args": {
+        "sort_index": 2000
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 17,
+      "args": {
+        "name": "Core 21 [zigzag.compute] (col=2, row=1)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 17,
+      "args": {
+        "sort_index": 2001
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 18,
+      "args": {
+        "name": "Core 22 [zigzag.compute] (col=2, row=2)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 18,
+      "args": {
+        "sort_index": 2002
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 19,
+      "args": {
+        "name": "Core 23 [zigzag.compute] (col=2, row=3)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 19,
+      "args": {
+        "sort_index": 2003
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 20,
+      "args": {
+        "name": "Core 24 [zigzag.compute] (col=2, row=4)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 20,
+      "args": {
+        "sort_index": 2004
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 21,
+      "args": {
+        "name": "Core 25 [zigzag.compute] (col=2, row=5)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 21,
+      "args": {
+        "sort_index": 2005
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 22,
+      "args": {
+        "name": "Core 26 [zigzag.compute] (col=2, row=6)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 22,
+      "args": {
+        "sort_index": 2006
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 23,
+      "args": {
+        "name": "Core 27 [zigzag.compute] (col=2, row=7)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 23,
+      "args": {
+        "sort_index": 2007
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 24,
+      "args": {
+        "name": "Core 30 [zigzag.compute] (col=3, row=0)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 24,
+      "args": {
+        "sort_index": 3000
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 25,
+      "args": {
+        "name": "Core 31 [zigzag.compute] (col=3, row=1)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 25,
+      "args": {
+        "sort_index": 3001
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 26,
+      "args": {
+        "name": "Core 32 [zigzag.compute] (col=3, row=2)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 26,
+      "args": {
+        "sort_index": 3002
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 27,
+      "args": {
+        "name": "Core 33 [zigzag.compute] (col=3, row=3)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 27,
+      "args": {
+        "sort_index": 3003
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 28,
+      "args": {
+        "name": "Core 34 [zigzag.compute] (col=3, row=4)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 28,
+      "args": {
+        "sort_index": 3004
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 29,
+      "args": {
+        "name": "Core 35 [zigzag.compute] (col=3, row=5)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 29,
+      "args": {
+        "sort_index": 3005
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 30,
+      "args": {
+        "name": "Core 36 [zigzag.compute] (col=3, row=6)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 30,
+      "args": {
+        "sort_index": 3006
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 31,
+      "args": {
+        "name": "Core 37 [zigzag.compute] (col=3, row=7)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 31,
+      "args": {
+        "sort_index": 3007
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "args": {
+        "name": "Link ?\u2192? (bw=107345)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "args": {
+        "sort_index": 1000000
+      }
+    },
+    {
+      "name": "thread_name",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 33,
+      "args": {
+        "name": "Link ?\u2192? (bw=416974)"
+      }
+    },
+    {
+      "name": "thread_sort_index",
+      "ph": "M",
+      "pid": "steady_state_schedule",
+      "tid": 33,
+      "args": {
+        "sort_index": 1000000
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 0,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 0,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 0
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 1,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 1,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 1
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 2,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 2,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 2
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 3,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 3,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 3
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 4,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 4,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 4
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 5,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 5,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 5
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 6,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 6,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 6
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 7,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 7,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 7
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 8,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 10,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 0
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 9,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 11,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 1
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 10,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 12,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 2
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 11,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 13,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 3
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 12,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 14,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 4
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 13,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 15,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 5
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 14,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 16,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 6
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 15,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 17,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 7
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 16,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 20,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 0
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 17,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 21,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 1
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 18,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 22,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 2
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 19,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 23,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 3
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 20,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 24,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 4
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 21,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 25,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 5
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 22,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 26,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 6
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 23,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 27,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 7
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 24,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 30,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 0
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 25,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 31,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 1
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 26,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 32,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 2
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 27,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 33,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 3
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 28,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 34,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 4
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 29,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 35,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 5
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 30,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 36,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 6
+      }
+    },
+    {
+      "name": "gemm_gate [i-1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 3532.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 31,
+      "cname": "good",
+      "args": {
+        "iteration": "i-1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 37,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 7
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 0,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 0,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 0
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 1,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 1,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 1
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 2,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 2,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 2
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 3,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 3,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 3
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 4,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 4,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 4
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 5,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 5,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 5
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 6,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 6,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 6
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 7,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 7,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 7
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 8,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 10,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 0
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 9,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 11,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 1
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 10,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 12,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 2
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 11,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 13,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 3
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 12,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 14,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 4
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 13,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 15,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 5
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 14,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 16,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 6
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 15,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 17,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 7
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 16,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 20,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 0
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 17,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 21,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 1
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 18,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 22,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 2
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 19,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 23,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 3
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 20,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 24,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 4
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 21,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 25,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 5
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 22,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 26,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 6
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 23,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 27,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 7
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 24,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 30,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 0
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 25,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 31,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 1
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 26,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 32,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 2
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 27,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 33,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 3
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 28,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 34,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 4
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 29,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 35,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 5
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 30,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 36,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 6
+      }
+    },
+    {
+      "name": "gemm_gate [i]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 7152.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 31,
+      "cname": "good",
+      "args": {
+        "iteration": "i",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 37,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 7
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 0,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 0,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 0
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 1,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 1,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 1
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 2,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 2,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 2
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 3,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 3,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 3
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 4,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 4,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 4
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 5,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 5,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 5
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 6,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 6,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 6
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 7,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 7,
+        "core_type": "zigzag.compute",
+        "col": 0,
+        "row": 7
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 8,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 10,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 0
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 9,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 11,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 1
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 10,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 12,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 2
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 11,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 13,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 3
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 12,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 14,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 4
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 13,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 15,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 5
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 14,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 16,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 6
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 15,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 17,
+        "core_type": "zigzag.compute",
+        "col": 1,
+        "row": 7
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 16,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 20,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 0
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 17,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 21,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 1
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 18,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 22,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 2
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 19,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 23,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 3
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 20,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 24,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 4
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 21,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 25,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 5
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 22,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 26,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 6
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 23,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 27,
+        "core_type": "zigzag.compute",
+        "col": 2,
+        "row": 7
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 24,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 30,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 0
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 25,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 31,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 1
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 26,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 32,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 2
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 27,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 33,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 3
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 28,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 34,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 4
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 29,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 35,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 5
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 30,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 36,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 6
+      }
+    },
+    {
+      "name": "gemm_gate [i+1]",
+      "cat": "computation",
+      "ph": "X",
+      "ts": 10772.0,
+      "dur": 328,
+      "pid": "steady_state_schedule",
+      "tid": 31,
+      "cname": "good",
+      "args": {
+        "iteration": "i+1",
+        "slot": 5,
+        "slot_latency_cycles": 328.0,
+        "total_latency_cycles": 328,
+        "active_latency_cycles": 328,
+        "core_id": 37,
+        "core_type": "zigzag.compute",
+        "col": 3,
+        "row": 7
+      }
+    },
+    {
+      "name": "Transfer(x) [i-1]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 0.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "bad",
+      "args": {
+        "iteration": "i-1",
+        "slot": 1,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": true,
+        "is_const_input": true,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 40\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(x) [i]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 3620.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "bad",
+      "args": {
+        "iteration": "i",
+        "slot": 1,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": true,
+        "is_const_input": true,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 40\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(x) [i+1]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 7240.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "bad",
+      "args": {
+        "iteration": "i+1",
+        "slot": 1,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": true,
+        "is_const_input": true,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 40\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(x_1) [i-1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 7.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 33,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i-1",
+        "slot": 2,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=416974)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(x_1) [i-1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 7.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i-1",
+        "slot": 2,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(x_1) [i]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 3627.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 33,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i",
+        "slot": 2,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=416974)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(x_1) [i]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 3627.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i",
+        "slot": 2,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(x_1) [i+1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 7247.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 33,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i+1",
+        "slot": 2,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=416974)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(x_1) [i+1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 7247.0,
+      "dur": 7.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i+1",
+        "slot": 2,
+        "slot_latency_cycles": 7.0,
+        "one_transfer_latency_cycles": 7.0,
+        "active_transfer_latency_cycles": 7,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate) [i-1]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 14.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "bad",
+      "args": {
+        "iteration": "i-1",
+        "slot": 3,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": true,
+        "is_const_input": true,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 40\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate) [i]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 3634.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "bad",
+      "args": {
+        "iteration": "i",
+        "slot": 3,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": true,
+        "is_const_input": true,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 40\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate) [i+1]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 7254.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "bad",
+      "args": {
+        "iteration": "i+1",
+        "slot": 3,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": true,
+        "is_const_input": true,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 40\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate_1) [i-1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 1773.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 33,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i-1",
+        "slot": 4,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=416974)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate_1) [i-1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 1773.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i-1",
+        "slot": 4,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate_1) [i]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 5393.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 33,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i",
+        "slot": 4,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=416974)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate_1) [i]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 5393.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i",
+        "slot": 4,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate_1) [i+1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 9013.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 33,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i+1",
+        "slot": 4,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=416974)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(w_gate_1) [i+1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 9013.0,
+      "dur": 1759.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i+1",
+        "slot": 4,
+        "slot_latency_cycles": 1759.0,
+        "one_transfer_latency_cycles": 1759.0,
+        "active_transfer_latency_cycles": 1759,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [
+          "gemm_gate"
+        ],
+        "output_of": [],
+        "full_path": "Path 9\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": true,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_1) [i-1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 3860.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 33,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i-1",
+        "slot": 6,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [
+          "gemm_gate"
+        ],
+        "full_path": "Path 0\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=416974)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_1) [i-1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 3860.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i-1",
+        "slot": 6,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [
+          "gemm_gate"
+        ],
+        "full_path": "Path 0\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_1) [i]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 7480.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 33,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i",
+        "slot": 6,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [
+          "gemm_gate"
+        ],
+        "full_path": "Path 0\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=416974)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_1) [i]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 7480.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i",
+        "slot": 6,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [
+          "gemm_gate"
+        ],
+        "full_path": "Path 0\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_1) [i+1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 11100.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 33,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i+1",
+        "slot": 6,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [
+          "gemm_gate"
+        ],
+        "full_path": "Path 0\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=416974)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_1) [i+1]",
+      "cat": "transfer",
+      "ph": "X",
+      "ts": 11100.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "thread_state_running",
+      "args": {
+        "iteration": "i+1",
+        "slot": 6,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": false,
+        "is_const_input": false,
+        "is_const_output": false,
+        "input_of": [],
+        "output_of": [
+          "gemm_gate"
+        ],
+        "full_path": "Path 0\u2192?\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_2) [i-1]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 3904.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "bad",
+      "args": {
+        "iteration": "i-1",
+        "slot": 7,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": true,
+        "is_const_input": false,
+        "is_const_output": true,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 9\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_2) [i]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 7524.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "bad",
+      "args": {
+        "iteration": "i",
+        "slot": 7,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": true,
+        "is_const_input": false,
+        "is_const_output": true,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 9\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer(G_2) [i+1]",
+      "cat": "transfer_const",
+      "ph": "X",
+      "ts": 11144.0,
+      "dur": 44.0,
+      "pid": "steady_state_schedule",
+      "tid": 32,
+      "cname": "bad",
+      "args": {
+        "iteration": "i+1",
+        "slot": 7,
+        "slot_latency_cycles": 44.0,
+        "one_transfer_latency_cycles": 88.0,
+        "active_transfer_latency_cycles": 44,
+        "is_const_io": true,
+        "is_const_input": false,
+        "is_const_output": true,
+        "input_of": [],
+        "output_of": [],
+        "full_path": "Path 9\u2192?",
+        "this_link": "Link ?\u2192? (bw=107345)",
+        "reuse": {
+          "reuse_factor": 1,
+          "loops": [
+            {
+              "dim": "z0",
+              "size": 2,
+              "relevant": false,
+              "reuse": "Not Set"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "displayTimeUnit": "ns",
+  "otherData": {
+    "note": "Timestamps and durations are in hardware clock cycles. Three representative iterations are shown: i-1 at t=0, i at t=iter_step, i+1 at t=2*iter_step. displayTimeUnit='ns' is used as a Perfetto label approximation.",
+    "total_iterations": 2,
+    "latency_per_iteration_cycles": 3948,
+    "overlap_cycles": 328,
+    "iter_step_cycles": 3620,
+    "total_latency_cycles": 7568,
+    "slot_latencies_cycles": {
+      "0": 0.0,
+      "1": 7.0,
+      "2": 7.0,
+      "3": 1759.0,
+      "4": 1759.0,
+      "5": 328.0,
+      "6": 44.0,
+      "7": 44.0,
+      "8": 0.0
+    },
+    "compact": false
+  }
+}

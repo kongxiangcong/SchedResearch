@@ -1,0 +1,77 @@
+{
+  "schema": "schedresearch.infra.stream_static.v1",
+  "run": "qwen_mlp",
+  "evaluation_kind": "analytical_static",
+  "created_utc": "2026-09-13T18:15:06Z",
+  "workload_source": {
+    "contract": "research/r13/numerical_contract.json",
+    "algebra": "down(SiLU(gate(X))*up(X)) with explicit FP32->BF16 cast before down",
+    "M": 32,
+    "H": 2560,
+    "I": 9216
+  },
+  "hardware_choice": {
+    "name": "tpu_v7_ironwood",
+    "note": "tpu_like_quad_core measured infeasible for the full module (33.84 MB resident set vs 2 MiB/core SRAM, 2026-09-13T18-09-33Z run); tpu_v7_ironwood is the upstream big-chip example (64 MiB VMEM/TensorCore)"
+  },
+  "command": "D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\src\\schedinfra\\backend\\stream_static.py qwen-mlp --output D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\runs\\2026-09-13T18-15-06Z_stream-qwen-mlp --hardware tpu_v7_ironwood",
+  "passed": false,
+  "environment": {
+    "stream_commit": "75748cc17e7c43add5a7d0d8f080841eb26531c4",
+    "stream_checkout": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream",
+    "python": "3.13.12",
+    "executable": "D:\\dsh-proj\\SchedResarch\\research\\r12\\.venv\\Scripts\\python.exe",
+    "checkout_clean_before": true,
+    "packages": {
+      "stream-dse": "1.14.1",
+      "zigzag-dse": "3.8.5",
+      "ortools": "9.15.6755",
+      "pydantic": "2.11.10",
+      "xdsl": "0.29.1",
+      "numpy": "2.5.3",
+      "onnx": "1.21.0"
+    },
+    "stream_api_path": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\api.py",
+    "checkout_clean_after": true
+  },
+  "model": {
+    "path": "D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\runs\\2026-09-13T18-15-06Z_stream-qwen-mlp\\qwen_mlp_m32.onnx",
+    "sha256": "e707a11d143a6ffc27aeffec6ff285c4751c767c6aac5c3598b322fc651e914c",
+    "ops": [
+      "Gemm",
+      "Gemm",
+      "Silu",
+      "Mul",
+      "Gemm"
+    ],
+    "shapes": {
+      "M": 32,
+      "H": 2560,
+      "I": 9216
+    },
+    "dtypes": {
+      "x/w_*/A16": "BFLOAT16 (contract-exact)",
+      "G/U/S/Y": "FLOAT32 (contract-exact)"
+    },
+    "declared_deviations": [
+      "explicit FP32->BF16 cast has no STREAM parser (see cast_diagnostic): Mul is typed to emit BF16 directly; post-cast bitwidth/materialisation match the contract, but the cast's arithmetic work (M*I conversions) is not charged to any node",
+      "initializer values are zeros; only shapes and bitwidths are inputs to the analysis",
+      "no arithmetic is executed analytically: BF16 rounding happens nowhere here"
+    ]
+  },
+  "inputs": {
+    "hardware": {
+      "path": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\inputs\\examples\\hardware\\tpu_v7_ironwood.yaml",
+      "sha256": "929e8bfc97ae27a0da5e55d9c82e17a4e952c510a20bafb1ec626c9be74b8c07"
+    },
+    "workload": {
+      "path": "D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\runs\\2026-09-13T18-15-06Z_stream-qwen-mlp\\qwen_mlp_m32.onnx",
+      "sha256": "e707a11d143a6ffc27aeffec6ff285c4751c767c6aac5c3598b322fc651e914c"
+    }
+  },
+  "error": {
+    "type": "InfeasibleAllocationError",
+    "message": "Infeasible mapping — Core 37: tensors resident on Core 37 need 3.21 MB, but the on-chip memory of Core 37 is 2.00 MB (short by 1.21 MB)",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\src\\schedinfra\\backend\\stream_static.py\", line 384, in cmd_qwen_mlp\n    run = run_allocation(api, hardware, Path(model_info[\"path\"]), f\"qwen-mlp-{name}\",\n                         output / f\"pipeline_{name}\", constraint_selection=selection)\n  File \"D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\src\\schedinfra\\backend\\stream_static.py\", line 154, in run_allocation\n    context = api.optimize_allocation_co_generic(\n        hardware=str(hardware),\n    ...<5 lines>...\n        skip_if_exists=False,\n    )\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\api.py\", line 337, in optimize_allocation_co_generic\n    return _run_generic_co(\n        hardware,\n    ...<11 lines>...\n        hardware_budget=hardware_budget,\n    )\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\api.py\", line 294, in _run_generic_co\n    answers = mainstage.run()\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\stage.py\", line 59, in run\n    for ctx in self.list_of_callables[0](self.list_of_callables[1:], self.ctx).run():\n               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\parsing\\accelerator_parser.py\", line 32, in run\n    yield from sub_stage.run()\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\parsing\\onnx_model_parser.py\", line 46, in run\n    yield from sub_stage.run()\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\generation\\normalization_expansion.py\", line 21, in run\n    yield from sub_stage.run()\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\generation\\generic_mapping_generation.py\", line 60, in run\n    yield from sub_stage.run()\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\generation\\fusion_group_iteration.py\", line 71, in run\n    ctxs = list(sub_stage.run())\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\parsing\\mapping_parser.py\", line 32, in run\n    yield from sub_stage.run()\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\generation\\kernel_state.py\", line 83, in run\n    yield from sub_stage.run()\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\generation\\tiling_generation.py\", line 60, in run\n    yield from sub_stage.run()\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\estimation\\core_cost_estimation.py\", line 83, in run\n    yield from sub_stage.run()\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\allocation\\constraint_optimization_allocation.py\", line 62, in run\n    workload, scheduler = self.find_best_tensor_transfer_allocation()\n                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\allocation\\constraint_optimization_allocation.py\", line 86, in find_best_tensor_transfer_allocation\n    workload = scheduler.run()\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\cost_model\\steady_state_scheduler.py\", line 334, in run\n    ) = tta.solve()\n        ~~~~~~~~~^^\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\opt\\allocation\\constraint_optimization\\transfer_and_tensor_allocation.py\", line 2044, in solve\n    raise InfeasibleAllocationError(report)\nstream.ir.infeasibility.InfeasibleAllocationError: Infeasible mapping — Core 37: tensors resident on Core 37 need 3.21 MB, but the on-chip memory of Core 37 is 2.00 MB (short by 1.21 MB)\n"
+  }
+}

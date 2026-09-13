@@ -1,0 +1,199 @@
+totals:
+  latency_per_iteration: 472
+  overlap: 0
+  iter_step: 472
+  total_latency: 472
+resource_slack:
+- resource: CL(Any, Any, bw=107345)
+  kind: link
+  slack_cycles: 197
+- resource: Core(38, zigzag.compute)
+  kind: core
+  slack_cycles: 275
+- resource: Core(8, zigzag.compute)
+  kind: core
+  slack_cycles: 275
+- resource: Core(18, zigzag.compute)
+  kind: core
+  slack_cycles: 275
+- resource: Core(28, zigzag.compute)
+  kind: core
+  slack_cycles: 275
+- resource: CL(Any, Any, bw=416974)
+  kind: link
+  slack_cycles: 417
+tensor_reuse:
+- tensor: S
+  size_bits: 9437184
+  reuse_factor: 1
+  reuse_stop_level: 0
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z0,1,V)
+  - S(z1,4,V)
+  - K(z1,2304,V)
+  - K(z0,32,V)
+- tensor: U
+  size_bits: 9437184
+  reuse_factor: 1
+  reuse_stop_level: 0
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z0,1,V)
+  - S(z1,4,V)
+  - K(z1,2304,V)
+  - K(z0,32,V)
+- tensor: S_1
+  size_bits: 9437184
+  reuse_factor: 1
+  reuse_stop_level: 0
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z0,1,V)
+  - S(z1,4,V)
+  - K(z1,2304,V)
+  - K(z0,32,V)
+- tensor: S_2
+  size_bits: 9437184
+  reuse_factor: 1
+  reuse_stop_level: -1
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z0,1,V)
+  - S(z1,4,V)
+  - K(z1,2304,V)
+  - K(z0,32,V)
+- tensor: U_1
+  size_bits: 9437184
+  reuse_factor: 1
+  reuse_stop_level: -1
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z0,1,V)
+  - S(z1,4,V)
+  - K(z1,2304,V)
+  - K(z0,32,V)
+- tensor: U_2
+  size_bits: 9437184
+  reuse_factor: 1
+  reuse_stop_level: -1
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z0,1,V)
+  - S(z1,4,V)
+  - K(z1,2304,V)
+  - K(z0,32,V)
+- tensor: A16_1
+  size_bits: 4718592
+  reuse_factor: 1
+  reuse_stop_level: -1
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z0,1,V)
+  - S(z1,4,V)
+  - K(z1,2304,V)
+  - K(z0,32,V)
+- tensor: A16_2
+  size_bits: 4718592
+  reuse_factor: 1
+  reuse_stop_level: -1
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z0,1,V)
+  - S(z1,4,V)
+  - K(z1,2304,V)
+  - K(z0,32,V)
+- tensor: A16
+  size_bits: 4718592
+  reuse_factor: 1
+  reuse_stop_level: 0
+  on_chip_tiles: 1
+  loop_nest_out_to_in:
+  - T(z0,1,V)
+  - ST(z1,4,V)
+  - K(z1,2304,V)
+  - K(z0,32,V)
+slots:
+- slot: 0
+  slot_latency_cycles: 0
+  compute_contributors: []
+  transfer_contributors: []
+- slot: 1
+  slot_latency_cycles: 88
+  compute_contributors: []
+  transfer_contributors:
+  - name: Transfer(S)
+    tensor_bits: 9437184
+    min_link_bw: 107345
+    raw_path_cycles: 88
+    active_latency_absent_loops: 88
+    reuse_factor: null
+    contribution: null
+- slot: 2
+  slot_latency_cycles: 22
+  compute_contributors: []
+  transfer_contributors:
+  - name: Transfer(S_1)
+    tensor_bits: 9437184
+    min_link_bw: 107345
+    raw_path_cycles: 22
+    active_latency_absent_loops: 22
+    reuse_factor: null
+    contribution: null
+- slot: 3
+  slot_latency_cycles: 88
+  compute_contributors: []
+  transfer_contributors:
+  - name: Transfer(U)
+    tensor_bits: 9437184
+    min_link_bw: 107345
+    raw_path_cycles: 88
+    active_latency_absent_loops: 88
+    reuse_factor: null
+    contribution: null
+- slot: 4
+  slot_latency_cycles: 22
+  compute_contributors: []
+  transfer_contributors:
+  - name: Transfer(U_1)
+    tensor_bits: 9437184
+    min_link_bw: 107345
+    raw_path_cycles: 22
+    active_latency_absent_loops: 22
+    reuse_factor: null
+    contribution: null
+- slot: 5
+  slot_latency_cycles: 197
+  compute_contributors:
+  - name: mul
+    n_cores_in_lut: 4
+    lut_latency_total: 197
+    ssis_fraction: 1
+    active_latency: 197
+  transfer_contributors: []
+- slot: 6
+  slot_latency_cycles: 11
+  compute_contributors: []
+  transfer_contributors:
+  - name: Transfer(A16_1)
+    tensor_bits: 4718592
+    min_link_bw: 107345
+    raw_path_cycles: 11
+    active_latency_absent_loops: 11
+    reuse_factor: null
+    contribution: null
+- slot: 7
+  slot_latency_cycles: 44
+  compute_contributors: []
+  transfer_contributors:
+  - name: Transfer(A16_2)
+    tensor_bits: 4718592
+    min_link_bw: 107345
+    raw_path_cycles: 44
+    active_latency_absent_loops: 44
+    reuse_factor: null
+    contribution: null
+- slot: 8
+  slot_latency_cycles: 0
+  compute_contributors: []
+  transfer_contributors: []

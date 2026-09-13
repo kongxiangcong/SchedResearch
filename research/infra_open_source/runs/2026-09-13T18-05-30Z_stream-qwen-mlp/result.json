@@ -1,0 +1,69 @@
+{
+  "schema": "schedresearch.infra.stream_static.v1",
+  "run": "qwen_mlp",
+  "evaluation_kind": "analytical_static",
+  "created_utc": "2026-09-13T18:05:31Z",
+  "workload_source": {
+    "contract": "research/r13/numerical_contract.json",
+    "algebra": "down(SiLU(gate(X))*up(X)) with explicit FP32->BF16 cast before down",
+    "M": 32,
+    "H": 2560,
+    "I": 9216
+  },
+  "command": "D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\src\\schedinfra\\backend\\stream_static.py qwen-mlp --output D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\runs\\2026-09-13T18-05-30Z_stream-qwen-mlp",
+  "passed": false,
+  "environment": {
+    "stream_commit": "75748cc17e7c43add5a7d0d8f080841eb26531c4",
+    "stream_checkout": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream",
+    "python": "3.13.12",
+    "executable": "D:\\dsh-proj\\SchedResarch\\research\\r12\\.venv\\Scripts\\python.exe",
+    "checkout_clean_before": true,
+    "packages": {
+      "stream-dse": "1.14.1",
+      "zigzag-dse": "3.8.5",
+      "ortools": "9.15.6755",
+      "pydantic": "2.11.10",
+      "xdsl": "0.29.1",
+      "numpy": "2.5.3",
+      "onnx": "1.21.0"
+    },
+    "stream_api_path": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\api.py",
+    "checkout_clean_after": true
+  },
+  "model": {
+    "path": "D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\runs\\2026-09-13T18-05-30Z_stream-qwen-mlp\\qwen_mlp_m32.onnx",
+    "sha256": "3a5da3126f0569b33580f188797aef8862d7037af18bba28ad4fca4a9a0d6d7f",
+    "ops": [
+      "Gemm",
+      "Gemm",
+      "Silu",
+      "Mul",
+      "Gemm"
+    ],
+    "shapes": {
+      "M": 32,
+      "H": 2560,
+      "I": 9216
+    },
+    "declared_deviations": [
+      "G/U/S/A32/Y modelled as 16-bit instead of contract FP32: their modelled footprints and traffic are exactly half of research/r13/numerical_contract.json",
+      "explicit FP32->BF16 cast omitted: STREAM has no Cast parser (see cast_diagnostic); mul output feeds down directly at 16-bit. PARTIAL, not substituted",
+      "initializer values are zeros; only shapes and bitwidths are inputs to the analysis"
+    ]
+  },
+  "inputs": {
+    "hardware": {
+      "path": "D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\inputs\\examples\\hardware\\tpu_like_quad_core.yaml",
+      "sha256": "611e5d0fc71b1122b65b2c027550d6aa9719a4be40a4d6435f210955415d2ccc"
+    },
+    "workload": {
+      "path": "D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\runs\\2026-09-13T18-05-30Z_stream-qwen-mlp\\qwen_mlp_m32.onnx",
+      "sha256": "3a5da3126f0569b33580f188797aef8862d7037af18bba28ad4fca4a9a0d6d7f"
+    }
+  },
+  "error": {
+    "type": "KeyError",
+    "message": "10",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\src\\schedinfra\\backend\\stream_static.py\", line 354, in cmd_qwen_mlp\n    run = run_allocation(api, HARDWARE_YAML, Path(model_info[\"path\"]), f\"qwen-mlp-{name}\",\n                         output / f\"pipeline_{name}\", constraint_selection=selection)\n  File \"D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\src\\schedinfra\\backend\\stream_static.py\", line 144, in run_allocation\n    context = api.optimize_allocation_co_generic(\n        hardware=str(hardware),\n    ...<5 lines>...\n        skip_if_exists=False,\n    )\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\api.py\", line 337, in optimize_allocation_co_generic\n    return _run_generic_co(\n        hardware,\n    ...<11 lines>...\n        hardware_budget=hardware_budget,\n    )\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\api.py\", line 294, in _run_generic_co\n    answers = mainstage.run()\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\stage.py\", line 59, in run\n    for ctx in self.list_of_callables[0](self.list_of_callables[1:], self.ctx).run():\n               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\parsing\\accelerator_parser.py\", line 32, in run\n    yield from sub_stage.run()\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\stages\\parsing\\onnx_model_parser.py\", line 28, in run\n    onnx_model_parser.run()\n    ~~~~~~~~~~~~~~~~~~~~~^^\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\parser\\onnx\\model.py\", line 105, in run\n    self.workload = self.parse_workload()\n                    ~~~~~~~~~~~~~~~~~~~^^\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\parser\\onnx\\model.py\", line 127, in parse_workload\n    tensor = onnx_tensor_to_tensor(input)\n  File \"D:\\dsh-proj\\SchedResarch\\research\\r12\\deps\\stream\\stream\\parser\\onnx\\utils.py\", line 18, in onnx_tensor_to_tensor\n    operand_type = onnx_type_to_xdsl_type[tensor.type.tensor_type.elem_type]\n                   ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nKeyError: 10\n"
+  }
+}

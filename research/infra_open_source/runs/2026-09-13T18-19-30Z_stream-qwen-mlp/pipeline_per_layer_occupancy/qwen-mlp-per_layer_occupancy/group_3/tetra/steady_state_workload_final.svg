@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3129" height="260" viewBox="0 0 3129 260" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9aa3ad"/></marker></defs>
+<rect width="3129" height="260" fill="#fcfcfb"/>
+<path d="M116.6,121.0 C148.6,121.0 148.6,71.5 180.6,71.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M116.6,49.0 C148.6,49.0 148.6,188.5 180.6,188.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M1597.4,49.0 C1629.4,49.0 1629.4,71.5 1661.4,71.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M1427.6,71.5 C1459.6,71.5 1459.6,49.0 1491.6,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M1427.6,188.5 C1459.6,188.5 1459.6,49.0 1491.6,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M2948.0,71.5 C2980.0,71.5 2980.0,49.0 3012.0,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M608.0,49.0 C645.0,49.0 645.0,71.5 681.9,71.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M365.6,71.5 C397.6,71.5 397.6,49.0 429.6,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M1158.8,49.0 C1190.8,49.0 1190.8,71.5 1222.8,71.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M866.9,71.5 C903.8,71.5 903.8,49.0 940.8,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M608.0,121.0 C640.0,121.0 640.0,188.5 672.0,188.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M365.6,188.5 C397.6,188.5 397.6,121.0 429.6,121.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M1158.8,121.0 C1190.8,121.0 1190.8,188.5 1222.8,188.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M876.8,188.5 C908.8,188.5 908.8,121.0 940.8,121.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M2161.4,49.0 C2193.4,49.0 2193.4,71.5 2225.4,71.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M1866.2,71.5 C1898.2,71.5 1898.2,49.0 1930.2,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M2699.0,49.0 C2731.0,49.0 2731.0,71.5 2763.0,71.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M2430.2,71.5 C2462.2,71.5 2462.2,49.0 2494.2,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="24.0" y="96.0" width="92.6" height="50.0" rx="9" fill="#fdf3c8" stroke="#b9992a" stroke-width="1.5"/>
+<text x="70.3" y="117.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">silu_cut_in</text>
+<text x="70.3" y="132.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<rect x="24.0" y="24.0" width="92.6" height="50.0" rx="9" fill="#fdf3c8" stroke="#b9992a" stroke-width="1.5"/>
+<text x="70.3" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">U_bridge_in</text>
+<text x="70.3" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<rect x="1491.6" y="24.0" width="105.8" height="50.0" rx="9" fill="#dbeafe" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="1544.5" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">mul</text>
+<text x="1544.5" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<rect x="3012.0" y="24.0" width="92.6" height="50.0" rx="9" fill="#d6f5e3" stroke="#1baf7a" stroke-width="1.5"/>
+<text x="3058.3" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">mul_cut_out</text>
+<text x="3058.3" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<rect x="429.6" y="24.0" width="178.4" height="50.0" rx="9" fill="#ffe6d1" stroke="#eb6834" stroke-width="1.5"/>
+<text x="518.8" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">Transfer(S) · MEM_TO_MEM</text>
+<text x="518.8" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<rect x="940.8" y="24.0" width="218.0" height="50.0" rx="9" fill="#ffe6d1" stroke="#eb6834" stroke-width="1.5"/>
+<text x="1049.8" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">Transfer(S_1) · MEM_TO_COMPUTE</text>
+<text x="1049.8" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<rect x="429.6" y="96.0" width="178.4" height="50.0" rx="9" fill="#ffe6d1" stroke="#eb6834" stroke-width="1.5"/>
+<text x="518.8" y="117.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">Transfer(U) · MEM_TO_MEM</text>
+<text x="518.8" y="132.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<rect x="940.8" y="96.0" width="218.0" height="50.0" rx="9" fill="#ffe6d1" stroke="#eb6834" stroke-width="1.5"/>
+<text x="1049.8" y="117.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">Transfer(U_1) · MEM_TO_COMPUTE</text>
+<text x="1049.8" y="132.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<rect x="1930.2" y="24.0" width="231.2" height="50.0" rx="9" fill="#ffe6d1" stroke="#eb6834" stroke-width="1.5"/>
+<text x="2045.8" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">Transfer(A16_1) · COMPUTE_TO_MEM</text>
+<text x="2045.8" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<rect x="2494.2" y="24.0" width="204.8" height="50.0" rx="9" fill="#ffe6d1" stroke="#eb6834" stroke-width="1.5"/>
+<text x="2596.6" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">Transfer(A16_2) · MEM_TO_MEM</text>
+<text x="2596.6" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<rect x="180.6" y="24.0" width="185.0" height="95.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="273.1" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">S</text>
+<text x="273.1" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<text x="273.1" y="75.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<text x="273.1" y="90.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">ForLoops:</text>
+<text x="273.1" y="105.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">T(z0,1,V): 1; Reuse=Reuse</text>
+<rect x="180.6" y="141.0" width="185.0" height="95.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="273.1" y="162.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">U</text>
+<text x="273.1" y="177.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<text x="273.1" y="192.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<text x="273.1" y="207.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">ForLoops:</text>
+<text x="273.1" y="222.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">T(z0,1,V): 1; Reuse=Reuse</text>
+<rect x="1661.4" y="24.0" width="204.8" height="95.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="1763.8" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">A16_1</text>
+<text x="1763.8" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<text x="1763.8" y="75.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<text x="1763.8" y="90.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">ForLoops:</text>
+<text x="1763.8" y="105.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">T(z0,1,V): 1; Reuse=No Reuse</text>
+<rect x="1222.8" y="24.0" width="204.8" height="95.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="1325.2" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">S_2</text>
+<text x="1325.2" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<text x="1325.2" y="75.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<text x="1325.2" y="90.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">ForLoops:</text>
+<text x="1325.2" y="105.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">T(z0,1,V): 1; Reuse=No Reuse</text>
+<rect x="1222.8" y="141.0" width="204.8" height="95.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="1325.2" y="162.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">U_2</text>
+<text x="1325.2" y="177.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<text x="1325.2" y="192.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<text x="1325.2" y="207.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">ForLoops:</text>
+<text x="1325.2" y="222.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">T(z0,1,V): 1; Reuse=No Reuse</text>
+<rect x="2763.0" y="24.0" width="185.0" height="95.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="2855.5" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">A16</text>
+<text x="2855.5" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<text x="2855.5" y="75.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<text x="2855.5" y="90.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">ForLoops:</text>
+<text x="2855.5" y="105.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">T(z0,1,V): 1; Reuse=Reuse</text>
+<rect x="681.9" y="24.0" width="185.0" height="95.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="774.4" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">S_1</text>
+<text x="774.4" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<text x="774.4" y="75.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<text x="774.4" y="90.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">ForLoops:</text>
+<text x="774.4" y="105.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">T(z0,1,V): 1; Reuse=Reuse</text>
+<rect x="672.0" y="141.0" width="204.8" height="95.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="774.4" y="162.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">U_1</text>
+<text x="774.4" y="177.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<text x="774.4" y="192.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<text x="774.4" y="207.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">ForLoops:</text>
+<text x="774.4" y="222.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">T(z0,1,V): 1; Reuse=No Reuse</text>
+<rect x="2225.4" y="24.0" width="204.8" height="95.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="2327.8" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">A16_2</text>
+<text x="2327.8" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<text x="2327.8" y="75.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=9216</text>
+<text x="2327.8" y="90.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">ForLoops:</text>
+<text x="2327.8" y="105.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">T(z0,1,V): 1; Reuse=No Reuse</text>
+</svg>

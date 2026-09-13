@@ -1,0 +1,35 @@
+nodes:
+- name: silu
+  cores:
+  - core_id: 8
+    core_type: zigzag.compute
+    latency_total: 288
+    ideal_cycle: 288
+    ideal_temporal_cycle: 288
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+  - core_id: 18
+    core_type: zigzag.compute
+    latency_total: 288
+    ideal_cycle: 288
+    ideal_temporal_cycle: 288
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+  - core_id: 28
+    core_type: zigzag.compute
+    latency_total: 288
+    ideal_cycle: 288
+    ideal_temporal_cycle: 288
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+  - core_id: 38
+    core_type: zigzag.compute
+    latency_total: 288
+    ideal_cycle: 288
+    ideal_temporal_cycle: 288
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle

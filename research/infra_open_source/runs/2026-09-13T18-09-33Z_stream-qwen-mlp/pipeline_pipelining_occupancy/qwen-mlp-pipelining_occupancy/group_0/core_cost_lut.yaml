@@ -1,0 +1,123 @@
+nodes:
+- name: gemm_gate
+  cores:
+  - core_id: 0
+    core_type: zigzag.compute
+    latency_total: 5760
+    ideal_cycle: 5760
+    ideal_temporal_cycle: 5760
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+  - core_id: 1
+    core_type: zigzag.compute
+    latency_total: 5760
+    ideal_cycle: 5760
+    ideal_temporal_cycle: 5760
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+  - core_id: 2
+    core_type: zigzag.compute
+    latency_total: 5760
+    ideal_cycle: 5760
+    ideal_temporal_cycle: 5760
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+  - core_id: 3
+    core_type: zigzag.compute
+    latency_total: 5760
+    ideal_cycle: 5760
+    ideal_temporal_cycle: 5760
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+- name: gemm_up
+  cores:
+  - core_id: 0
+    core_type: zigzag.compute
+    latency_total: 5760
+    ideal_cycle: 5760
+    ideal_temporal_cycle: 5760
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+  - core_id: 1
+    core_type: zigzag.compute
+    latency_total: 5760
+    ideal_cycle: 5760
+    ideal_temporal_cycle: 5760
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+  - core_id: 2
+    core_type: zigzag.compute
+    latency_total: 5760
+    ideal_cycle: 5760
+    ideal_temporal_cycle: 5760
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+  - core_id: 3
+    core_type: zigzag.compute
+    latency_total: 5760
+    ideal_cycle: 5760
+    ideal_temporal_cycle: 5760
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+- name: silu
+  cores:
+  - core_id: 5
+    core_type: zigzag.compute
+    latency_total: 576
+    ideal_cycle: 576
+    ideal_temporal_cycle: 576
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+- name: mul
+  cores:
+  - core_id: 5
+    core_type: zigzag.compute
+    latency_total: 1150
+    ideal_cycle: 144
+    ideal_temporal_cycle: 576
+    energy_total: 113241.6
+    metadata:
+      backend: zigzag
+- name: gemm_down
+  cores:
+  - core_id: 0
+    core_type: zigzag.compute
+    latency_total: 5760
+    ideal_cycle: 5760
+    ideal_temporal_cycle: 5760
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+  - core_id: 1
+    core_type: zigzag.compute
+    latency_total: 5760
+    ideal_cycle: 5760
+    ideal_temporal_cycle: 5760
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+  - core_id: 2
+    core_type: zigzag.compute
+    latency_total: 5760
+    ideal_cycle: 5760
+    ideal_temporal_cycle: 5760
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle
+  - core_id: 3
+    core_type: zigzag.compute
+    latency_total: 5760
+    ideal_cycle: 5760
+    ideal_temporal_cycle: 5760
+    energy_total: 0
+    metadata:
+      backend: ideal-cycle

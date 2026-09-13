@@ -1,0 +1,22 @@
+status: None
+search:
+  nodes_explored: null
+  simplex_iterations: null
+  barrier_iterations: null
+solution:
+  objective: null
+  best_bound: null
+  mip_gap: null
+effort:
+  runtime_s: null
+  work_units: null
+model:
+  variables:
+    total: null
+    integer: null
+    binary: null
+  constraints:
+    linear: null
+    general: null
+  nonzeros: null
+trace: []

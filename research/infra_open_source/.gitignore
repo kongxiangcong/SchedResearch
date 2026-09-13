@@ -20,6 +20,10 @@ runs/*/trace/
 runs/**/*.csv.gz
 runs/**/mem_trace*.json
 runs/**/*.bin
+# Bulky reproducible run artifacts (identity recorded as sha256 in result.json)
+runs/**/*.onnx
+runs/**/*.pickle
+runs/**/*.mps
 
 # Model weights / large tensors (never download weights into the repo)
 *.onnx.data

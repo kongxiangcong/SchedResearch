@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "error_count": 0,
+  "warning_count": 0,
+  "errors": [],
+  "warnings": [],
+  "stats": {
+    "peak_residency_bytes": {},
+    "peak_residency_scope": "declared static_order only",
+    "capacity_bytes": {},
+    "ops": 100,
+    "chunks": 147,
+    "remote_reads": 0
+  },
+  "safety_scope": {
+    "dependency_and_overwrite_safety": "all executions consistent with deps",
+    "capacity_peak": "declared static_order only - not a hardware peak under arbitrary interleaving",
+    "resident_value_bytes_sum": "sum of logical value sizes placed on-chip; not traffic, not saved DRAM bytes"
+  }
+}

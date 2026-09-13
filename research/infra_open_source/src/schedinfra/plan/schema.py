@@ -66,7 +66,20 @@ class ChunkRef:
 
 @dataclass(frozen=True)
 class Placement:
-    """Where a chunk physically lives while it is resident."""
+    """Where a chunk physically lives while it is resident.
+
+    Slot model (fixed this round, not negotiable per plan):
+
+    * A slot is a byte-addressable region within one (level, core). A chunk
+      occupies the half-open byte range ``[offset, offset + size_bytes)`` of
+      its slot.
+    * Two *distinct* chunks physically overlap iff they share the same
+      (level, core, slot) and their byte ranges intersect.
+    * Overwrite safety is derived from this physical model and the dependency
+      partial order. The optional ``reuse_of`` annotation on a chunk is
+      documentation only: it never decides whether a check runs (see
+      ``checker.py``).
+    """
 
     level: str  # dram | spad | accum
     core: int = -1  # -1 for DRAM
@@ -85,11 +98,37 @@ class Chunk:
     producer: str  # op id that writes it
     consumers: tuple[str, ...] = ()  # op ids that read it
     placement: Placement = Placement(LEVEL_DRAM)
-    reuse_of: str | None = None  # key of the chunk whose slot this reuses
+    reuse_of: str | None = None  # documentation only; safety is derived physically
 
     @property
     def key(self) -> str:
         return self.ref.key
+
+    @property
+    def on_chip(self) -> bool:
+        return self.placement.level in (LEVEL_SPAD, LEVEL_ACCUM)
+
+    @property
+    def initial_resident(self) -> bool:
+        """True when the chunk exists on-chip before the plan starts.
+
+        These are module inputs / weights staged by the environment, not by
+        any op, so the capacity model must charge them from position zero.
+        """
+        return self.producer == EXTERNAL and self.on_chip
+
+    def byte_range(self) -> tuple[int, int]:
+        """Half-open occupied byte range inside the slot."""
+        return self.placement.offset, self.placement.offset + self.size_bytes
+
+    def overlaps(self, other: "Chunk") -> bool:
+        """Physical overlap under the slot model in ``Placement``."""
+        a, b = self.placement, other.placement
+        if (a.level, a.core, a.slot) != (b.level, b.core, b.slot):
+            return False
+        lo, hi = self.byte_range()
+        lo2, hi2 = other.byte_range()
+        return lo < hi2 and lo2 < hi
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -199,6 +238,32 @@ class Plan:
     def order(self) -> list[str]:
         return list(self.static_order) if self.static_order else [op.id for op in self.ops]
 
+    def legal_order(self) -> list[str]:
+        """A topological order of the ops derived from ``deps`` (Kahn).
+
+        Raises ``ValueError`` on a cycle. This is a convenience for generators
+        and tests that mutate dependencies; the checker independently verifies
+        any declared ``static_order`` instead of trusting this.
+        """
+        indeg = {op.id: len(op.deps) for op in self.ops}
+        succ: dict[str, list[str]] = {op.id: [] for op in self.ops}
+        for op in self.ops:
+            for dep in op.deps:
+                succ[dep].append(op.id)
+        ready = sorted(op_id for op_id, d in indeg.items() if d == 0)
+        order: list[str] = []
+        while ready:
+            node = ready.pop(0)
+            order.append(node)
+            for nxt in sorted(succ[node]):
+                indeg[nxt] -= 1
+                if indeg[nxt] == 0:
+                    ready.append(nxt)
+            ready.sort()
+        if len(order) != len(self.ops):
+            raise ValueError("dependency graph has a cycle")
+        return order
+
     def edges(self) -> list[tuple[str, str]]:
         edges: list[tuple[str, str]] = []
         for op in self.ops:
@@ -241,14 +306,41 @@ class Plan:
             "ops": len(self.ops),
             "ops_per_core": per_core,
             "chunks": len(self.chunks),
-            "resident_bytes_by_level": resident,
+            # Sum of the *logical value sizes* of chunks placed on-chip.
+            # It is NOT a peak residency, NOT physical traffic and NOT saved
+            # DRAM bytes; peaks belong to the checker, traffic to a backend.
+            "resident_value_bytes_sum": resident,
+            "remote_reads": len(self.remote_reads()),
             "total_macs": sum(op.macs for op in self.ops),
             "edges": len(self.edges()),
         }
 
+    def remote_reads(self) -> list[tuple[str, str]]:
+        """(op_id, chunk_key) pairs where an op reads an on-chip chunk that
+        lives on a *different* core, with no movement op in between.
+
+        A plan containing any of these is a *logical* candidate only: without
+        an explicit movement / remote-access contract it cannot be admitted to
+        physical lowering (see ``plan/lowering.py``).
+        """
+        out: list[tuple[str, str]] = []
+        for op in self.ops:
+            for ref in op.reads:
+                chunk = self.chunks.get(ref.key)
+                if chunk is None or not chunk.on_chip:
+                    continue
+                if chunk.placement.core != op.core:
+                    out.append((op.id, ref.key))
+        return out
+
     def to_dict(self) -> dict[str, Any]:
         return {
-            "schema": "schedresearch.infra.plan.v1",
+            "schema": "schedresearch.infra.plan.v2",
+            "plan_semantics": (
+                "logical candidate: passes logical-semantics checking only; "
+                "backend expressibility and physical lowering are separate "
+                "admission layers (see plan/lowering.py)"
+            ),
             "name": self.name,
             "plan_id": self.plan_id,
             "workload_id": self.workload_id,

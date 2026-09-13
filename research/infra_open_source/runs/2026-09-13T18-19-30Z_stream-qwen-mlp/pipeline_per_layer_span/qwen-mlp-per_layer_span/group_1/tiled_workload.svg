@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="886" height="200" viewBox="0 0 886 200" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9aa3ad"/></marker></defs>
+<rect width="886" height="200" fill="#fcfcfb"/>
+<path d="M118.6,121.0 C156.2,121.0 156.2,143.5 193.8,143.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M123.2,49.0 C155.2,49.0 155.2,56.5 187.2,56.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M528.8,49.0 C560.8,49.0 560.8,56.5 592.8,56.5" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M299.6,143.5 C334.9,143.5 334.9,49.0 370.2,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M306.2,56.5 C338.2,56.5 338.2,49.0 370.2,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<path d="M698.6,56.5 C730.6,56.5 730.6,49.0 762.6,49.0" fill="none" stroke="#9aa3ad" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="28.6" y="96.0" width="90.0" height="50.0" rx="9" fill="#fdf3c8" stroke="#b9992a" stroke-width="1.5"/>
+<text x="73.6" y="117.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">x</text>
+<text x="73.6" y="132.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 1280)</text>
+<rect x="24.0" y="24.0" width="99.2" height="50.0" rx="9" fill="#fdf3c8" stroke="#b9992a" stroke-width="1.5"/>
+<text x="73.6" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">w_up</text>
+<text x="73.6" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(1280, 9216)</text>
+<rect x="370.2" y="24.0" width="158.6" height="50.0" rx="9" fill="#dbeafe" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="449.5" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">gemm_up</text>
+<text x="449.5" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=1280 z2=9216</text>
+<rect x="762.6" y="24.0" width="99.2" height="50.0" rx="9" fill="#d6f5e3" stroke="#1baf7a" stroke-width="1.5"/>
+<text x="812.2" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">U_bridge_out</text>
+<text x="812.2" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<rect x="193.8" y="111.0" width="105.8" height="65.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="246.7" y="132.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">x</text>
+<text x="246.7" y="147.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 1280)</text>
+<text x="246.7" y="162.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z1=1280</text>
+<rect x="187.2" y="24.0" width="119.0" height="65.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="246.7" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">w_up</text>
+<text x="246.7" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(1280, 9216)</text>
+<text x="246.7" y="75.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z1=1280 z2=9216</text>
+<rect x="592.8" y="24.0" width="105.8" height="65.0" rx="9" fill="#f1f3f5" stroke="#8a929b" stroke-width="1.5"/>
+<text x="645.7" y="45.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0b0b0b">U</text>
+<text x="645.7" y="60.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">(32, 9216)</text>
+<text x="645.7" y="75.0" text-anchor="middle" font-size="10" font-weight="400" fill="#52514e">z0=32 z2=9216</text>
+</svg>
