@@ -1,0 +1,156 @@
+{
+  "schema_version": "schedresearch.infra_handoff.v1",
+  "overall_status": "PARTIAL",
+  "verdict_reason": "Plan/workload/CPU-numerical layers are real code that actually runs and passes. The timing-backend layer did not run: ONNXim cannot be built on this host (no cmake, no conan, PyPI replaced by an HTML interception page) and, independent of that, its pinned source shows cross-operator residency and core-to-core exchange are unsupported by design. B1/B2/B3 are therefore unexecuted.",
+  "base_commit": "2c3cda1b7e3d10f6700977abc5200df75372578b",
+  "base_branch": "codex/r12-wormhole-qualification",
+  "workspace_changes": {
+    "committed": false,
+    "tracked_modified": 0,
+    "untracked_new": [
+      "research/infra_open_source/",
+      "SchedResearch_next_round_infra_prompt.md"
+    ],
+    "note": "No commit, push or PR was created. R1-R13 frozen code, contracts and results were not modified."
+  },
+  "selected_backend": {
+    "name": "ONNXim",
+    "upstream_commit": "a1e86296e080fa1c82f8ad3f1b6de1079c192afc",
+    "patch_identity": null,
+    "patch_identity_note": "No patch was applied. Nothing was built, so nothing was modified upstream.",
+    "hardware_profile": "onnxim_tpuv4_c4 (4 systolic_ws 128x128 cores, 32 MiB scratchpad/core, simple NoC, ramulator2 DRAM), taken verbatim from upstream configs/systolic_ws_128x128_c4_simple_noc_tpuv4.json at the pinned commit",
+    "built": false,
+    "ran": false
+  },
+  "candidates_considered_not_selected": [
+    {
+      "name": "STREAM / TETRA",
+      "reason": "Analytical cost model, not an execution backend: it cannot provide the execution feedback B1-B3 require, so it was deliberately not put on the critical path. Also needs a pip-installable stack that is unreachable here. Already exercised by this project in R12/R13 (research/r12/baseline_source_audit.md). NOT recorded as a run failure."
+    },
+    {
+      "name": "TileLoom / loom-dataflow",
+      "reason": "Its input is a tile program / ETG / constraint model, i.e. a planner input rather than an executable plan for a timing backend. Deprioritised behind the one executable candidate. NOT recorded as a run failure."
+    }
+  ],
+  "gate_results": {
+    "native_reproduction": {
+      "status": "BLOCKED",
+      "evidence": "docs/02_environment_blockers.md",
+      "detail": "ONNXim never built; no upstream example or test was run."
+    },
+    "B1_external_plan_control": {
+      "status": "NOT_RUN",
+      "evidence": "runs/2026-09-09T16-51-02Z_plan-check-M32/manifest.json",
+      "detail": "Plan-level evidence exists (two structurally different legal plans, ids dbe43cc256081c5a and 738420509c6733af) but no backend confirmed it preserves the mapping."
+    },
+    "B2_lifetime_and_pipelining": {
+      "status": "NOT_RUN",
+      "evidence": "src/schedinfra/plan/checker.py",
+      "detail": "Checker rejects premature reuse, capacity overflow and missing dependencies (6 negative tests pass), but no timing backend observed real residency or traffic."
+    },
+    "B3_policy_replacement": {
+      "status": "NOT_RUN",
+      "evidence": "src/schedinfra/backend/onnxim.py",
+      "detail": "ONNXim's Scheduler interface looks clean (source_only). Never executed or timed."
+    },
+    "full_dimension_module": {
+      "status": "PARTIAL",
+      "evidence": "runs/cpu_reference/cpu_reference.json",
+      "detail": "Complete H=2560 / I=9216 MLP executed on CPU at M=1 and M=32 with bitwise agreement between two independent reduction implementations. This is arithmetic and workload provenance, NOT timing."
+    },
+    "repeatable_entry": {
+      "status": "PASS",
+      "evidence": "src/schedinfra/cli.py",
+      "detail": "plan-check / cpu-reference / backend-audit / inventory all run and write timestamped evidence under runs/."
+    }
+  },
+  "test_counts": {"passed": 16, "failed": 0, "not_run": 3},
+  "workload_runs": [
+    {
+      "kind": "cpu_numerical_reference",
+      "module": "qwen3.5-4b.mlp",
+      "scope": "complete gate/up/down, SiLU, elementwise multiply, explicit FP32->BF16 cast, FP32 output, M padded to 32",
+      "shape": {"H": 2560, "I": 9216, "M": 1, "padded_M": 32},
+      "precision_contract": "research/r13/numerical_contract.json (BF16 multiplicands, FP32 k_block=32 pair tree, forbidden reassociation, BF16 RNE cast)",
+      "plan_identity": null,
+      "result": {"passed": true, "relative_l2_vs_fp64": 0.0016238196248702127, "match_with_r13_frozen_value": "0.162382%"},
+      "host_cost_seconds": 10.9
+    },
+    {
+      "kind": "cpu_numerical_reference",
+      "module": "qwen3.5-4b.mlp",
+      "scope": "same as above",
+      "shape": {"H": 2560, "I": 9216, "M": 32, "padded_M": 32},
+      "precision_contract": "research/r13/numerical_contract.json",
+      "plan_identity": null,
+      "result": {"passed": true, "relative_l2_vs_fp64": 0.0016506450773327993, "match_with_r13_frozen_value": "0.165065%"},
+      "host_cost_seconds": 16.7
+    },
+    {
+      "kind": "plan_generation_and_legality",
+      "module": "qwen3.5-4b.mlp",
+      "scope": "two legal plans compared at plan level",
+      "shape": {"H": 2560, "I": 9216, "M": 32, "padded_M": 32},
+      "precision_contract": null,
+      "plan_identity": {
+        "naive_layered": "dbe43cc256081c5a",
+        "resident_pipelined": "738420509c6733af"
+      },
+      "result": {
+        "both_legal": true,
+        "ops": 100,
+        "total_macs": 2264924160,
+        "dependency_edges": {"naive_layered": 1170, "resident_pipelined": 292},
+        "spad_resident_bytes": {"naive_layered": 0, "resident_pipelined": 5308416},
+        "peak_residency_per_core_bytes": {"resident_pipelined": {"core0": 327680, "core1": 327680, "core2": 294912, "core3": 294912}},
+        "cycles": null,
+        "note": "no timing claim of any kind"
+      },
+      "host_cost_seconds": 0.773
+    }
+  ],
+  "key_limitations": [
+    "No timing backend ran. There are zero cycles, bytes-on-wire or bandwidth numbers in this round's results.",
+    "ONNXim's pinned source shows cross-operator scratchpad residency and core-to-core data exchange are unsupported by design (Core.cc, Simulator.cc); the simple scheduler also imposes a whole-layer completion barrier (Scheduler.cc). This is a selection risk, not an environment issue.",
+    "Capacity and slot-reuse checking in our layer uses the plan's declared static order. It is a necessary-condition check; a real interleaving backend could still overflow. It is not a substitute for observed residency.",
+    "The CPU reference ran on numpy 2.3.5 while the R13 contract pins 2.5.3 (not installable here). Recorded as an explicit deviation in the run output.",
+    "SiLU exists in ONNXim only as 'swish' inside a fused BiasAct; there is no standalone elementwise-multiply op and Cast is a Dummy no-op, so the target module's cast would be silently free.",
+    "Only M=1 and M=32 were executed; M=128 was not run."
+  ],
+  "next_round": {
+    "recommended_goal": "Decide, with authorisation, whether to build a minimal tile-level execution core (bounded, ~1-2 kLOC, reuse this round's plan IR and checker) so B1-B3 can actually execute, OR to obtain a Linux/WSL2 host with cmake+conan and re-admit ONNXim under a reduced research scope that does not require cross-operator residency.",
+    "entry_files": [
+      "research/infra_open_source/src/schedinfra/plan/schema.py",
+      "research/infra_open_source/src/schedinfra/plan/checker.py",
+      "research/infra_open_source/src/schedinfra/plan/generators.py",
+      "research/infra_open_source/src/schedinfra/backend/onnxim.py",
+      "research/infra_open_source/src/schedinfra/runner.py",
+      "research/infra_open_source/capabilities.json"
+    ],
+    "acceptance": [
+      "B1: two externally supplied plans produce different observed core assignment and tile identity in backend output, with no silent re-tiling or added global barrier",
+      "B2: a producer-consumer subgraph shows a consumer starting after its own data is visible rather than after the whole producer layer; one premature-reuse case and one capacity-overflow case are rejected or explicitly charged",
+      "B3: two policies swap through an explicit interface and produce different, recorded issue orders on a fixture where the orders genuinely differ",
+      "One full H/I MLP (M=32) comparing two legal plans, reporting cycles with an explicit start/end convention",
+      "Repeat run with fixed input and seed reproducing identical metrics"
+    ],
+    "external_decisions_needed": [
+      "Authorisation to build a minimal execution core: the round brief forbids expanding into a long-term simulator project without new scope authorisation, so this needs an explicit yes/no.",
+      "If no: provide a Linux or WSL2 host with cmake >= 3.22 and conan 1.57, or lift the wsl.exe security-policy block, so ONNXim can actually be built.",
+      "Confirm whether the research question can be reshaped to avoid cross-operator residency, since ONNXim cannot express it without a redesign."
+    ]
+  },
+  "artifact_paths": {
+    "report": "research/infra_open_source/report.md",
+    "readme": "research/infra_open_source/README.md",
+    "capabilities": "research/infra_open_source/capabilities.json",
+    "environment_blockers": "research/infra_open_source/docs/02_environment_blockers.md",
+    "pinned_versions": "research/infra_open_source/configs/pinned_versions.json",
+    "hardware_profile": "research/infra_open_source/configs/hardware/onnxim_tpuv4_c4.json",
+    "onnxim_source_audit": "research/infra_open_source/runs/2026-09-09T16-51-02Z_backend-audit/onnxim_source_audit.json",
+    "plan_check_run": "research/infra_open_source/runs/2026-09-09T16-51-02Z_plan-check-M32/manifest.json",
+    "cpu_reference": "research/infra_open_source/runs/cpu_reference/cpu_reference.json",
+    "tests": "research/infra_open_source/tests/test_plan.py",
+    "upstream_vendor": "research/infra_open_source/vendor/ONNXim_git (not committed)"
+  }
+}

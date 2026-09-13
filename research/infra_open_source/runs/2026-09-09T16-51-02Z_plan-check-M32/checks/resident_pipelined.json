@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "error_count": 0,
+  "warning_count": 0,
+  "errors": [],
+  "warnings": [],
+  "stats": {
+    "peak_residency_bytes": {
+      "core0.spad": 327680,
+      "core1.spad": 327680,
+      "core2.spad": 294912,
+      "core3.spad": 294912
+    },
+    "capacity_bytes": {
+      "core0.spad": 16777216,
+      "core1.spad": 16777216,
+      "core2.spad": 16777216,
+      "core3.spad": 16777216
+    },
+    "ops": 100,
+    "chunks": 147
+  }
+}

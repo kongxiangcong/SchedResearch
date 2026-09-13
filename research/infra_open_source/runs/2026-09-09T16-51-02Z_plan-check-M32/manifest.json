@@ -1,0 +1,236 @@
+{
+  "schema": "schedresearch.infra.run.v1",
+  "run_id": "2026-09-09T16-51-02Z_plan-check-M32",
+  "mode": "research",
+  "created_utc": "2026-09-09T16:51:02Z",
+  "workload": {
+    "module": "qwen3.5-4b.mlp",
+    "M": 32,
+    "padded_M": 32,
+    "H": 2560,
+    "I": 9216,
+    "contract": {
+      "path": "research/r13/numerical_contract.json",
+      "sha256": "0fb2c74fc005667885f6caa8a4d25934e6456500f7b8cd697a423c83844cc13e",
+      "model": "Qwen/Qwen3.5-4B",
+      "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "transformers_revision": "f62dc9bf2c90353b442a56e74391fbb8c689b55e",
+      "algebra": "down(SiLU(gate(X))*up(X))",
+      "H": 2560,
+      "I": 9216,
+      "M_allowed": [
+        1,
+        32,
+        128
+      ],
+      "k_block": 32,
+      "reassociation": "Forbidden; candidate split-K must preserve this tree and block accumulation order",
+      "padding": {
+        "tile_m": 32,
+        "tile_k": 32,
+        "tile_n": 32,
+        "rule": "Explicit positive-zero M padding to ceil(M/32)*32. H and I are divisible by 32. Run padded rows and verify they remain zero; expose all padded MACs to the performance model",
+        "mask": "Only original M rows are module outputs; padding initialization and relevant storage/movement must be charged by physical plans"
+      }
+    },
+    "inventory_hash": "7926a19aebf25336667a4b744435eb55276352896390ca468583189425f286cc",
+    "graph_hash": "dcd8fc9705cfd27ba8e598a3cafd67c25b91a5cc81688fac064ffe1726a4dd2a"
+  },
+  "contract": {
+    "path": "research/r13/numerical_contract.json",
+    "sha256": "0fb2c74fc005667885f6caa8a4d25934e6456500f7b8cd697a423c83844cc13e",
+    "model": "Qwen/Qwen3.5-4B",
+    "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "transformers_revision": "f62dc9bf2c90353b442a56e74391fbb8c689b55e",
+    "algebra": "down(SiLU(gate(X))*up(X))",
+    "H": 2560,
+    "I": 9216,
+    "M_allowed": [
+      1,
+      32,
+      128
+    ],
+    "k_block": 32,
+    "reassociation": "Forbidden; candidate split-K must preserve this tree and block accumulation order",
+    "padding": {
+      "tile_m": 32,
+      "tile_k": 32,
+      "tile_n": 32,
+      "rule": "Explicit positive-zero M padding to ceil(M/32)*32. H and I are divisible by 32. Run padded rows and verify they remain zero; expose all padded MACs to the performance model",
+      "mask": "Only original M rows are module outputs; padding initialization and relevant storage/movement must be charged by physical plans"
+    }
+  },
+  "hardware_profile": {
+    "profile_id": "onnxim_tpuv4_c4",
+    "cores": 4,
+    "spad_bytes_per_core": 16777216,
+    "accum_bytes_per_core": 2097152,
+    "precision_bytes": 2,
+    "raw": {
+      "schema": "schedresearch.infra.hardware_profile.v1",
+      "profile_id": "onnxim_tpuv4_c4",
+      "label": "ONNXim example multi-core NPU (4 systolic-WS cores, simple NoC)",
+      "provenance": {
+        "source_repo": "https://github.com/PSAL-POSTECH/ONNXim",
+        "upstream_commit": "a1e86296e080fa1c82f8ad3f1b6de1079c192afc",
+        "upstream_file": "configs/systolic_ws_128x128_c4_simple_noc_tpuv4.json",
+        "normalisation": "The upstream file repeats an identical block per core. This profile keeps one per_core block plus cores=4; the four upstream core blocks are byte-identical, so this is lossless.",
+        "verified_by": "file read from vendor/ONNXim_git at the pinned commit"
+      },
+      "cores": 4,
+      "core_freq_mhz": 1000,
+      "per_core": {
+        "core_type": "systolic_ws",
+        "core_width": 128,
+        "core_height": 128,
+        "spad_size_kb": 32768,
+        "accum_spad_size_kb": 4096,
+        "sram_width_bytes": 32,
+        "vector_process_bit": 65536,
+        "add_latency": 1,
+        "mul_latency": 1,
+        "mac_latency": 1,
+        "exp_latency": 1,
+        "gelu_latency": 1,
+        "div_latency": 1,
+        "add_tree_latency": 1,
+        "scalar_sqrt_latency": 1,
+        "scalar_add_latency": 1,
+        "scalar_mul_latency": 1
+      },
+      "dram": {
+        "dram_type": "ramulator2",
+        "dram_freq_mhz": 1200,
+        "dram_channels": 16,
+        "dram_req_size_bytes": 32,
+        "dram_latency_cycles": 10,
+        "dram_size": 16,
+        "dram_nbl": 1
+      },
+      "interconnect": {
+        "icnt_type": "simple",
+        "icnt_latency_cycles": 1,
+        "icnt_freq_mhz": 1000,
+        "icnt_injection_ports_per_core": 16
+      },
+      "precision_bytes": 2,
+      "layout": "NHWC",
+      "scheduler": "simple",
+      "derived": {
+        "_comment": "Sram.cc sizes each scratchpad as spad_size/2 (two halves for double buffering). Recorded because any capacity check must use the same number as the backend.",
+        "spad_usable_bytes_per_core": 16777216,
+        "accum_usable_bytes_per_core": 2097152,
+        "note_on_backpressure": "With icnt_type=simple the interconnect reports is_full()==false, i.e. NO backpressure. Backpressure only exists with the booksim2/ramulator2 backends."
+      }
+    },
+    "source_path": "D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\configs\\hardware\\onnxim_tpuv4_c4.json"
+  },
+  "environment": {
+    "python": "3.14.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "host_wall_seconds": 0.773
+  },
+  "git": {
+    "commit": "2c3cda1b7e3d10f6700977abc5200df75372578b",
+    "branch": "codex/r12-wormhole-qualification"
+  },
+  "plans": [
+    {
+      "name": "naive_layered",
+      "plan_id": "dbe43cc256081c5a",
+      "summary": {
+        "name": "naive_layered",
+        "plan_id": "dbe43cc256081c5a",
+        "workload_id": "qwen3.5-4b.mlp.M32",
+        "hardware": "onnxim_tpuv4_c4",
+        "ops": 100,
+        "ops_per_core": {
+          "0": 28,
+          "1": 28,
+          "2": 22,
+          "3": 22
+        },
+        "chunks": 147,
+        "resident_bytes_by_level": {},
+        "total_macs": 2264924160,
+        "edges": 1170
+      },
+      "check": {
+        "ok": true,
+        "error_count": 0,
+        "warning_count": 0,
+        "errors": [],
+        "warnings": [],
+        "stats": {
+          "peak_residency_bytes": {},
+          "capacity_bytes": {},
+          "ops": 100,
+          "chunks": 147
+        }
+      },
+      "backend": {
+        "backend": "onnxim",
+        "executed": false,
+        "blocker": {
+          "exception": "BackendUnavailable",
+          "detail": "ONNXim cannot produce a result on this host. {\"binary_expected\": \"D:\\\\dsh-proj\\\\SchedResarch\\\\research\\\\infra_open_source\\\\vendor\\\\ONNXim_git\\\\build\\\\bin\\\\Simulator\", \"binary_present\": false, \"build_performed\": false, \"build_blocked_by\": [\"cmake: absent on host and not obtainable (PyPI returns an HTML interception page)\", \"conan==1.57.0: absent and not installable\", \"git submodules onnx/protobuf/booksim/ramulator2: not fetchable through the truncating proxy\", \"gcc: available (MinGW), but C++20 + conan + cmake are all required\"], \"capability_blocked_by\": [\"cross-operator scratchpad residency is not supported (Core.cc)\", \"core-to-core data exchange is not supported (Simulator.cc)\", \"simple scheduler imposes a whole-layer completion barrier (Scheduler.cc)\"]}"
+        }
+      }
+    },
+    {
+      "name": "resident_pipelined",
+      "plan_id": "738420509c6733af",
+      "summary": {
+        "name": "resident_pipelined",
+        "plan_id": "738420509c6733af",
+        "workload_id": "qwen3.5-4b.mlp.M32",
+        "hardware": "onnxim_tpuv4_c4",
+        "ops": 100,
+        "ops_per_core": {
+          "0": 28,
+          "1": 28,
+          "2": 22,
+          "3": 22
+        },
+        "chunks": 147,
+        "resident_bytes_by_level": {
+          "spad": 5308416
+        },
+        "total_macs": 2264924160,
+        "edges": 292
+      },
+      "check": {
+        "ok": true,
+        "error_count": 0,
+        "warning_count": 0,
+        "errors": [],
+        "warnings": [],
+        "stats": {
+          "peak_residency_bytes": {
+            "core0.spad": 327680,
+            "core1.spad": 327680,
+            "core2.spad": 294912,
+            "core3.spad": 294912
+          },
+          "capacity_bytes": {
+            "core0.spad": 16777216,
+            "core1.spad": 16777216,
+            "core2.spad": 16777216,
+            "core3.spad": 16777216
+          },
+          "ops": 100,
+          "chunks": 147
+        }
+      },
+      "backend": {
+        "backend": "onnxim",
+        "executed": false,
+        "blocker": {
+          "exception": "BackendUnavailable",
+          "detail": "ONNXim cannot produce a result on this host. {\"binary_expected\": \"D:\\\\dsh-proj\\\\SchedResarch\\\\research\\\\infra_open_source\\\\vendor\\\\ONNXim_git\\\\build\\\\bin\\\\Simulator\", \"binary_present\": false, \"build_performed\": false, \"build_blocked_by\": [\"cmake: absent on host and not obtainable (PyPI returns an HTML interception page)\", \"conan==1.57.0: absent and not installable\", \"git submodules onnx/protobuf/booksim/ramulator2: not fetchable through the truncating proxy\", \"gcc: available (MinGW), but C++20 + conan + cmake are all required\"], \"capability_blocked_by\": [\"cross-operator scratchpad residency is not supported (Core.cc)\", \"core-to-core data exchange is not supported (Simulator.cc)\", \"simple scheduler imposes a whole-layer completion barrier (Scheduler.cc)\"]}"
+        }
+      }
+    }
+  ],
+  "host_wall_seconds": 0.773
+}

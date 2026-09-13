@@ -1,0 +1,87 @@
+{
+  "schema": "schedresearch.infra.pinned_versions.v1",
+  "recorded_utc": "2026-09-09T16:40:00Z",
+  "note": "Every upstream artifact is pinned so that results can be re-derived. Nothing here is a floating branch reference.",
+
+  "candidate_backends": [
+    {
+      "name": "ONNXim",
+      "role": "first admission candidate (execution backend)",
+      "repo": "https://github.com/PSAL-POSTECH/ONNXim",
+      "default_branch": "master",
+      "upstream_commit": "a1e86296e080fa1c82f8ad3f1b6de1079c192afc",
+      "commit_date": "2026-01-08T13:13:03+09:00",
+      "commit_subject": "Change runner to self-hosted for Docker build",
+      "paper": "Ham et al., 'ONNXim: A Fast, Cycle-Level Multi-Core NPU Simulator', IEEE Computer Architecture Letters 23(2):219-222, 2024, doi 10.1109/LCA.2024.3484648",
+      "obtained": true,
+      "obtain_method": "git clone --depth 1 --filter=blob:none + sparse-checkout of src/, configs/, example/, tests/, scripts/",
+      "local_path": "vendor/ONNXim_git",
+      "deps_required": {
+        "cmake": ">=3.22.1 (CMakeLists declares min 3.15)",
+        "gcc": ">=10.5.0",
+        "conan": "==1.57.0",
+        "conan_packages": ["boost/1.79.0", "robin-hood-hashing/3.11.5", "spdlog/1.11.0", "nlohmann_json/3.11.2"],
+        "git_submodules": [
+          "extern/onnx -> github.com/onnx/onnx",
+          "extern/protobuf -> github.com/protocolbuffers/protobuf",
+          "extern/booksim -> github.com/PSAL-POSTECH/booksim",
+          "extern/ramulator2 -> github.com/PSAL-POSTECH/ramulator2",
+          "extern/torch2timeloop -> github.com/Accelergy-Project/pytorch2timeloop-converter"
+        ],
+        "python": ["torch>=1.10.1", "onnxruntime>=1.10.0", "conan==1.57.0"]
+      },
+      "build_attempted": false,
+      "build_blocked": true,
+      "build_block_reason": "cmake absent on host and not obtainable; conan absent and PyPI blocked; extern submodules (onnx+protobuf, ~GB) not fetchable through the truncating proxy",
+      "source_audit_performed": true,
+      "source_audit_evidence": "runs/2026-09-09T16-51-02Z_backend-audit/onnxim_source_audit.json"
+    },
+    {
+      "name": "STREAM / TETRA",
+      "role": "static tiling, mapping, placement and communication planning; fast analytical entry",
+      "repo": "https://github.com/KULeuven-MICAS/stream",
+      "prior_project_commit": "75748cc17e7c43add5a7d0d8f080841eb26531c4",
+      "obtained": false,
+      "obtain_method": null,
+      "build_attempted": false,
+      "build_blocked": true,
+      "build_block_reason": "requires pip-installable dependency stack (zigzag, and for TETRA a MILP solver); PyPI unreachable in this environment. Also analytical only: it cannot provide the execution feedback B1-B3 require, so it was not put on the critical path.",
+      "note": "Already run in R12/R13 of this project; see research/r12/baseline_source_audit.md. Not re-fetched this round."
+    },
+    {
+      "name": "TileLoom / loom-dataflow",
+      "role": "tile-program dataflow planning (planner, not an executor)",
+      "repo": "https://github.com/ecolab-nus/loom-dataflow",
+      "paper": "Wei Li et al., 'TileLoom: Automatic Dataflow Planning for Tile-Based Languages on Spatial Dataflow Accelerators', arXiv:2512.22168v2 (2026-05-12)",
+      "obtained": false,
+      "build_attempted": false,
+      "build_blocked": true,
+      "build_block_reason": "Not attempted this round: per the round brief its input is a tile program / ETG / constraint model, which is a planner input, not an executable plan to hand to a timing backend. Deprioritised behind the one executable candidate (ONNXim).",
+      "note": "Recorded as 'considered, not selected', NOT as 'failed to run'."
+    }
+  ],
+
+  "host_environment": {
+    "os": "Windows (win32)",
+    "shell": "PowerShell 7 preferred; Git Bash used for tooling",
+    "python_used": "C:\\Python314\\python.exe (3.14.0) with PYTHONPATH -> C:\\Users\\72449\\AppData\\Roaming\\Python\\Python314\\site-packages",
+    "python_packages": {
+      "numpy": "2.3.5",
+      "onnx": "1.20.0",
+      "pyyaml": "6.0.3",
+      "pytest": "9.0.2"
+    },
+    "compilers": ["/e/compiler/mingw-posix-sjlj/mingw64/bin/g++ (MinGW)"],
+    "cmake": "ABSENT",
+    "conan": "ABSENT",
+    "docker": "not used",
+    "wsl2": "BLOCKED by host security policy (wsl.exe on program blacklist)",
+    "network": {
+      "pypi_files_pythonhosted_org": "BLOCKED - returns an HTML interception page instead of the requested file",
+      "github_api_and_raw": "reachable, intermittent TLS resets, retry works",
+      "github_codeload": "reachable but truncates large archives (>~8 MB)",
+      "github_releases": "empty reply from server",
+      "mitm_proxy": "127.0.0.1:51780 (HTTP_PROXY/HTTPS_PROXY) presents an untrusted/expired certificate"
+    }
+  }
+}

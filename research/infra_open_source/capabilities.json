@@ -1,0 +1,133 @@
+{
+  "schema": "schedresearch.infra.capabilities.v1",
+  "recorded_utc": "2026-09-09T17:00:00Z",
+  "how_to_read": "Each freedom carries source (native|extension|unsupported|unknown) and verified (executed_pass|executed_fail|source_only|not_run) exactly as the round brief requires. 'source_only' means the claim rests on reading pinned upstream source, NOT on running it. Nothing below is marked executed_pass for a backend, because no backend could be built or run on this host.",
+  "selected_backend": {
+    "name": "ONNXim",
+    "upstream_commit": "a1e86296e080fa1c82f8ad3f1b6de1079c192afc",
+    "status": "source_audited_only",
+    "built": false,
+    "ran": false
+  },
+  "freedoms": [
+    {
+      "freedom": "tiling_and_loop_order",
+      "question": "Can an external plan control tiling and loop order?",
+      "source": "native",
+      "verified": "source_only",
+      "upstream_evidence": "vendor/ONNXim_git/src/Mapping.cc:25-49 reads an optional *.mapping file of [T]/[O]/[I] loop tuples (N C M P Q S R)",
+      "own_layer": "src/schedinfra/plan/schema.py chunk model; generators choose n_tile per stage",
+      "scope": "Loop tiling only. The mapping file does not carry core placement or addresses.",
+      "remaining_limit": "No per-transfer or per-address control through this interface."
+    },
+    {
+      "freedom": "core_mapping_per_tile",
+      "question": "Can a plan decide which core runs which tile?",
+      "source": "extension",
+      "verified": "source_only",
+      "upstream_evidence": "Scheduler.cc:76-92 honours a tile's core_id when it is not -1, but Common.h:124 defaults core_id=-1 and nothing external sets it; only model-level target_core (Model.cc:22-23) and config partiton_map (SimulationConfig.h:80) exist",
+      "own_layer": "PlanOp.core is a first-class field and is hashed into plan identity",
+      "scope": "Would require patching tile creation, not just config.",
+      "remaining_limit": "Cannot be exercised without a build, so no execution evidence exists."
+    },
+    {
+      "freedom": "cross_operator_pipelining",
+      "question": "Can a consumer start once its own input is visible, without waiting for the whole producer layer?",
+      "source": "unsupported",
+      "verified": "source_only",
+      "upstream_evidence": "Scheduler.cc:207-209 issues a new layer only when every per-core queue is empty and count_active_layers()==0; Scheduler.cc:114-118 gates BAR tiles on launched==finished",
+      "own_layer": "Resident-pipelined generator emits per-chunk edges (292 vs 1170 edges for the naive plan at M=32)",
+      "scope": "This is the whole-layer barrier the research question depends on removing.",
+      "remaining_limit": "Removing it means changing the scheduler's issue condition, i.e. changing execution semantics, not an adapter."
+    },
+    {
+      "freedom": "same_core_cross_operator_residency",
+      "question": "Can data stay in a core's scratchpad across an operator boundary?",
+      "source": "unsupported",
+      "verified": "source_only",
+      "upstream_evidence": "Core.cc:36-74 flushes the scratchpad per tile (spad_id=(spad_id+1)%2 then flush); the accumulator is preserved only within one fused op (Core.cc:54-58); outputs are written back to DRAM by MOVOUT (Core.cc:364-403)",
+      "own_layer": "Plan IR models residency explicitly (5,308,416 B resident at M=32, peak 294,912-327,680 B per core)",
+      "scope": "Directly contradicts the research need. Not reachable by a thin adapter.",
+      "remaining_limit": "Would require new storage ownership semantics plus new verification."
+    },
+    {
+      "freedom": "buffer_depth_and_capacity",
+      "question": "Is on-chip capacity explicit and enforced?",
+      "source": "native",
+      "verified": "source_only",
+      "upstream_evidence": "Sram.cc:6-10 fixes capacity at spad_size/2; overflow asserts (Sram.cc:48-50) or exits (Core.cc:338-342) rather than silently growing",
+      "own_layer": "checker.check_capacity_and_reuse enforces peak residency per core against the same 16 MiB number",
+      "scope": "Enforced, but by hard failure rather than by stalling and repricing.",
+      "remaining_limit": "A capacity violation aborts instead of producing a legal, charged alternative."
+    },
+    {
+      "freedom": "explicit_slot_reuse",
+      "question": "Can a plan declare slot/buffer reuse and have it checked?",
+      "source": "extension",
+      "verified": "source_only",
+      "upstream_evidence": "AddressAllocator.h is an abstract base with a single pure virtual and is unused at runtime; double buffering is fixed at 2 (Core.cc:52-53)",
+      "own_layer": "Chunk.reuse_of plus checker rules premature_reuse / reuse_without_order_edge / slot_conflict; 6 negative tests pass",
+      "scope": "Reuse legality is checked in our layer; the backend has no matching external interface.",
+      "remaining_limit": "Not exercised against a real allocator."
+    },
+    {
+      "freedom": "cross_core_communication",
+      "question": "Can cores exchange data directly?",
+      "source": "unsupported",
+      "verified": "source_only",
+      "upstream_evidence": "Simulator.cc:269-275 routes every request to a DRAM channel and every response back to a core; no core-to-core path exists",
+      "own_layer": "Not modelled. Plans that need remote data must stage through DRAM.",
+      "scope": "Staging through DRAM is allowed if explicitly charged and labelled, which the brief permits for a first version.",
+      "remaining_limit": "Distributed residency / direct core-to-core transfer cannot be studied on this backend without rewriting routing."
+    },
+    {
+      "freedom": "dependency_and_resource_order",
+      "question": "Are dependencies and resource ordering explicit?",
+      "source": "native",
+      "verified": "source_only",
+      "upstream_evidence": "per-operation tile dependencies plus the scheduler's ready handling; schedulers selected by Scheduler::create (Scheduler.cc:4-20)",
+      "own_layer": "PlanOp.deps is a partial order; checker verifies acyclicity, coverage and missing dependencies",
+      "scope": "Expressible.",
+      "remaining_limit": "Resource-order (as opposed to data-dependency) edges are scheduler-internal."
+    },
+    {
+      "freedom": "policy_replacement",
+      "question": "Is the issue policy swappable through an explicit interface?",
+      "source": "native",
+      "verified": "source_only",
+      "upstream_evidence": "Scheduler is a virtual base (Scheduler.h:17-23) and Scheduler::create (Scheduler.cc:4-20) selects a subclass from config; four exist: simple, time_multiplex, partition_cpu, spatial_split",
+      "own_layer": "No policy layer of our own was built, because there is no executor to plug it into",
+      "scope": "Interface exists and looks clean.",
+      "remaining_limit": "Unverified: a swap has never been executed and timed here."
+    },
+    {
+      "freedom": "dram_noc_backpressure",
+      "question": "Do queues and credits feed back into issue?",
+      "source": "native",
+      "verified": "source_only",
+      "upstream_evidence": "booksim2/ramulator2 backends report finite buffers (Interconnect.cc:111-114; Dram.cc:94-96,159-161) and Simulator.cc:157,176,183 checks is_full before pushing; with icnt_type=simple, Interconnect.cc:63-66 always returns false",
+      "own_layer": "Not modelled - our layer is deliberately timing-free",
+      "scope": "Present only with the non-simple backends; the shipped example config uses simple.",
+      "remaining_limit": "The default config this round pinned has NO backpressure."
+    }
+  ],
+  "infrastructure_layer": {
+    "note": "Status of the code delivered this round, which does not depend on a backend.",
+    "items": [
+      {"name": "sourced_workload_spec", "source": "native", "verified": "executed_pass",
+       "evidence": "tests/test_plan.py::test_inventory_matches_frozen_contract; weight_bytes==141557760, padded MACs 2264924160 at M=32"},
+      {"name": "plan_ir_and_identity", "source": "native", "verified": "executed_pass",
+       "evidence": "tests/test_plan.py; plan ids dbe43cc256081c5a (naive) and 738420509c6733af (resident) differ structurally"},
+      {"name": "legality_checker", "source": "native", "verified": "executed_pass",
+       "evidence": "16 tests pass, including 6 negative cases: missing_dependency, capacity_exceeded, premature_reuse, reuse_without_order_edge, dependency_cycle, consumer_declaration_mismatch"},
+      {"name": "cpu_numerical_reference", "source": "native", "verified": "executed_pass",
+       "evidence": "runs/cpu_reference/cpu_reference.json; M=1 relative L2 0.0016238196, M=32 0.0016506451, bitwise match between two independent reduction implementations"},
+      {"name": "backend_execution", "source": "unsupported", "verified": "not_run",
+       "evidence": "ONNXim not buildable (no cmake, no conan, PyPI blocked); see docs/02_environment_blockers.md"},
+      {"name": "onnxim_source_audit", "source": "native", "verified": "source_only",
+       "evidence": "runs/2026-09-09T16-51-02Z_backend-audit/onnxim_source_audit.json"}
+    ]
+  },
+  "test_counts": {"passed": 16, "failed": 0, "not_run_gates": 3},
+  "not_run_gates": ["B1_external_plan_control", "B2_lifetime_and_pipelining", "B3_policy_replacement"]
+}

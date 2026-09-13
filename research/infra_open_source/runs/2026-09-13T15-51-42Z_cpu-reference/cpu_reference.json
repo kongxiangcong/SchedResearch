@@ -1,0 +1,110 @@
+{
+  "schema": "schedresearch.infra.cpu_reference.v1",
+  "kind": "numerical_reference_only",
+  "claim": "Independent CPU arithmetic check of the sourced MLP contract. No cycles, no bandwidth, no backend execution, no trained-weight accuracy.",
+  "contract_sha256": "0fb2c74fc005667885f6caa8a4d25934e6456500f7b8cd697a423c83844cc13e",
+  "reference_source": "research/r13/numerical_reference.py",
+  "reference_sha256": "38b070e9b15842d2755b88b14b366cbf432bfc8ebce68e1a5363b567a5fc008e",
+  "host_deviation": {
+    "field": "generation.numpy_version",
+    "contract_value": "2.5.3",
+    "host_value": "2.3.5",
+    "reason": "numpy 2.5.3 not installable (PyPI blocked); arithmetic used is not a version-dependent BLAS path and the independent checker is a separate algorithm"
+  },
+  "environment": {
+    "python": "3.14.0",
+    "numpy": "2.3.5",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "units": {
+    "passed": true,
+    "bf16_tie_cases": 10,
+    "finite_fp32_rounding_cases": 100000,
+    "silu_extreme_cases": 8,
+    "cancellation_tree_result": 1.0,
+    "forbidden_reassociation_result": 2.0,
+    "omitted_cast_mutation_detected": true,
+    "omitted_cast_max_absolute_difference": 0.019341468811035156
+  },
+  "cases": [
+    {
+      "M": 1,
+      "padded_M": 32,
+      "all_output_elements_checked": 2560,
+      "all_padded_output_elements_checked": 81920,
+      "logical_MACs": 70778880,
+      "padded_MACs": 2264924160,
+      "input_bf16_bytes": 5120,
+      "output_fp32_bytes": 10240,
+      "cast_elements": 9216,
+      "cast_logical_read_bytes": 36864,
+      "cast_logical_write_bytes": 18432,
+      "checks": {
+        "gate": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "9abd19dad066d3ef1a4af0e22ae22361ab8b7f38be72b0861a3d23dc575ec962",
+          "bitwise_independent_match": true
+        },
+        "up": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "db9af6f9deecf58c4fb80a284b89b427ca119fa86e37765158128cc8aae4c457",
+          "bitwise_independent_match": true
+        },
+        "silu": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "e36c53583203b2159e0b587766bba304b22134e7ce18ef37652e28b34be4e37b",
+          "bitwise_independent_match": true
+        },
+        "multiply_fp32": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "ddb59b90b98bda68d49480fb9ae827815f22b5806c4e1eb2739490a854420f09",
+          "bitwise_independent_match": true
+        },
+        "down_input_bf16": {
+          "shape": [
+            32,
+            9216
+          ],
+          "sha256": "1c573d7df512a7762d6747c56af310dd629205c2461dbd62823bf2c87e8a9276",
+          "bitwise_independent_match": true
+        },
+        "down": {
+          "shape": [
+            32,
+            2560
+          ],
+          "sha256": "37a30723db359755c65af6bf2972d92d9c7f564c993859ba17a9c9786ef5d51f",
+          "bitwise_independent_match": true
+        }
+      },
+      "source_algebra_error": {
+        "relative_l2": 0.0016238196248702127,
+        "max_abs_error": 0.0010438045843843159,
+        "max_abs_over_max_abs_source": 0.0015917327406944355,
+        "max_pointwise_relative_error_at_1e_minus12_floor": 3.4226604201184228,
+        "reference_max_abs": 0.6557662336762191,
+        "reference_sha256": "48be33ed0b61ab15a3de4b6674e0a0c24d228a1a3d477fabed7710ca1ec14334",
+        "passed": true
+      },
+      "output_logical_sha256": "3c8c05c7bad16a953082443ac8f80aaf8d3e7d6e1fbcab269fc59c5512f55684",
+      "cpu_validation_wall_seconds_not_model_cycles": 9.388263500004541,
+      "passed": true,
+      "host_wall_seconds": 9.389,
+      "note": "CPU host wall time, NOT model cycles and NOT backend time"
+    }
+  ],
+  "total_host_wall_seconds": 14.353,
+  "all_passed": true
+}

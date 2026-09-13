@@ -1,0 +1,57 @@
+{
+  "schema": "schedresearch.infra.hardware_profile.v1",
+  "profile_id": "onnxim_tpuv4_c4",
+  "label": "ONNXim example multi-core NPU (4 systolic-WS cores, simple NoC)",
+  "provenance": {
+    "source_repo": "https://github.com/PSAL-POSTECH/ONNXim",
+    "upstream_commit": "a1e86296e080fa1c82f8ad3f1b6de1079c192afc",
+    "upstream_file": "configs/systolic_ws_128x128_c4_simple_noc_tpuv4.json",
+    "normalisation": "The upstream file repeats an identical block per core. This profile keeps one per_core block plus cores=4; the four upstream core blocks are byte-identical, so this is lossless.",
+    "verified_by": "file read from vendor/ONNXim_git at the pinned commit"
+  },
+  "cores": 4,
+  "core_freq_mhz": 1000,
+  "per_core": {
+    "core_type": "systolic_ws",
+    "core_width": 128,
+    "core_height": 128,
+    "spad_size_kb": 32768,
+    "accum_spad_size_kb": 4096,
+    "sram_width_bytes": 32,
+    "vector_process_bit": 65536,
+    "add_latency": 1,
+    "mul_latency": 1,
+    "mac_latency": 1,
+    "exp_latency": 1,
+    "gelu_latency": 1,
+    "div_latency": 1,
+    "add_tree_latency": 1,
+    "scalar_sqrt_latency": 1,
+    "scalar_add_latency": 1,
+    "scalar_mul_latency": 1
+  },
+  "dram": {
+    "dram_type": "ramulator2",
+    "dram_freq_mhz": 1200,
+    "dram_channels": 16,
+    "dram_req_size_bytes": 32,
+    "dram_latency_cycles": 10,
+    "dram_size": 16,
+    "dram_nbl": 1
+  },
+  "interconnect": {
+    "icnt_type": "simple",
+    "icnt_latency_cycles": 1,
+    "icnt_freq_mhz": 1000,
+    "icnt_injection_ports_per_core": 16
+  },
+  "precision_bytes": 2,
+  "layout": "NHWC",
+  "scheduler": "simple",
+  "derived": {
+    "_comment": "Sram.cc sizes each scratchpad as spad_size/2 (two halves for double buffering). Recorded because any capacity check must use the same number as the backend.",
+    "spad_usable_bytes_per_core": 16777216,
+    "accum_usable_bytes_per_core": 2097152,
+    "note_on_backpressure": "With icnt_type=simple the interconnect reports is_full()==false, i.e. NO backpressure. Backpressure only exists with the booksim2/ramulator2 backends."
+  }
+}

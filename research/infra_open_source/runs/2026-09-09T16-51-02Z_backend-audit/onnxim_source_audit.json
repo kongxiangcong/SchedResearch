@@ -1,0 +1,94 @@
+{
+  "backend": "onnxim",
+  "upstream_commit": "a1e86296e080fa1c82f8ad3f1b6de1079c192afc",
+  "source_present": true,
+  "config_present": true,
+  "capabilities": {
+    "tiling_and_loop_order": {
+      "source": "native",
+      "verified": "source_only",
+      "evidence": "Mapping.cc:25-49 reads an optional *.mapping file of [T]/[O]/[I] loop tuples"
+    },
+    "core_mapping_per_tile": {
+      "source": "extension",
+      "verified": "source_only",
+      "evidence": "Scheduler.cc:76-92 honours tile->core_id but nothing external can set it; only model-level target_core and config partiton_map exist (Common.h:124 defaults core_id=-1)"
+    },
+    "cross_operator_pipelining": {
+      "source": "unsupported",
+      "verified": "source_only",
+      "evidence": "Scheduler.cc:207-209 issues the next layer only when every per-core queue is empty and count_active_layers()==0"
+    },
+    "same_core_cross_operator_residency": {
+      "source": "unsupported",
+      "verified": "source_only",
+      "evidence": "Core.cc:36-74 flushes scratchpad per tile; accumulator preserved only within one fused op (Core.cc:54-58); outputs go back to DRAM"
+    },
+    "buffer_depth_and_capacity": {
+      "source": "native",
+      "verified": "source_only",
+      "evidence": "Sram.cc:6-10 fixed capacity spad_size/2; overflow asserts (Sram.cc:48-50) or exits (Core.cc:338-342)"
+    },
+    "explicit_slot_reuse": {
+      "source": "extension",
+      "verified": "source_only",
+      "evidence": "AddressAllocator.h is an abstract base and is unused at runtime"
+    },
+    "core_to_core_communication": {
+      "source": "unsupported",
+      "verified": "source_only",
+      "evidence": "Simulator.cc:269-275 routes every request to DRAM and every response to a core"
+    },
+    "dependency_and_resource_order": {
+      "source": "native",
+      "verified": "source_only",
+      "evidence": "per-op tile dependencies plus the scheduler's ready handling"
+    },
+    "policy_replacement": {
+      "source": "native",
+      "verified": "source_only",
+      "evidence": "Scheduler::create factory (Scheduler.cc:4-20) selects a Scheduler subclass from config"
+    },
+    "dram_noc_backpressure": {
+      "source": "native",
+      "verified": "source_only",
+      "evidence": "booksim2/ramulator2 report is_full(); with icnt_type=simple, Interconnect.cc:63-66 always returns false, i.e. NO backpressure"
+    },
+    "self_timed_execution": {
+      "source": "native",
+      "verified": "source_only",
+      "evidence": "Simulator.cc:107-210 advances by actual tile completion, no global barrier"
+    },
+    "silu_swish": {
+      "source": "native",
+      "verified": "source_only",
+      "evidence": "BiasAct.cc:7 handles 'swish'; no standalone SiLU op"
+    },
+    "elementwise_multiply": {
+      "source": "extension",
+      "verified": "source_only",
+      "evidence": "Opcode::MUL only emitted inside the fused llama-MLP BiasAct (BiasAct.cc:126-134)"
+    },
+    "precision_cast": {
+      "source": "unsupported",
+      "verified": "source_only",
+      "evidence": "Cast maps to a Dummy no-op (OperationFactory.cc:48-49)"
+    }
+  },
+  "diagnosis": {
+    "binary_expected": "D:\\dsh-proj\\SchedResarch\\research\\infra_open_source\\vendor\\ONNXim_git\\build\\bin\\Simulator",
+    "binary_present": false,
+    "build_performed": false,
+    "build_blocked_by": [
+      "cmake: absent on host and not obtainable (PyPI returns an HTML interception page)",
+      "conan==1.57.0: absent and not installable",
+      "git submodules onnx/protobuf/booksim/ramulator2: not fetchable through the truncating proxy",
+      "gcc: available (MinGW), but C++20 + conan + cmake are all required"
+    ],
+    "capability_blocked_by": [
+      "cross-operator scratchpad residency is not supported (Core.cc)",
+      "core-to-core data exchange is not supported (Simulator.cc)",
+      "simple scheduler imposes a whole-layer completion barrier (Scheduler.cc)"
+    ]
+  }
+}

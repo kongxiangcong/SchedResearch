@@ -1,0 +1,8 @@
+# Pinned Python dependencies for the isolated venv (scripts/setup_env.ps1).
+# Versions are the ones actually installed and verified in this round;
+# see docs/01_environment.md for the recorded resolution.
+numpy==2.3.5
+onnx==1.20.1
+pyyaml==6.0.3
+pytest==9.0.1
+cmake==4.2.1

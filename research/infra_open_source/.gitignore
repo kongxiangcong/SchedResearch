@@ -1,0 +1,40 @@
+# --- Isolated / generated artifacts: never commit these ---
+# Python virtual environment (recreate with scripts/setup_env.ps1)
+env/
+.venv/
+
+# Third-party upstream sources (pinned by commit in configs/pinned_versions.json)
+vendor/
+
+# Build products of upstream simulators
+build/
+*.o
+*.a
+*.so
+*.dll
+*.exe
+
+# Run evidence: keep summaries + manifest, exclude bulky raw traces
+runs/*/raw/
+runs/*/trace/
+runs/**/*.csv.gz
+runs/**/mem_trace*.json
+runs/**/*.bin
+
+# Model weights / large tensors (never download weights into the repo)
+*.onnx.data
+*.safetensors
+*.pt
+*.pth
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
