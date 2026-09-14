@@ -1,0 +1,91 @@
+{
+  "date": "2026-09-14",
+  "scope": "directory and documentation only; historical literal paths resolve via this map; frozen experiments retained in place",
+  "records": [
+    {
+      "action": "move-byte-identical",
+      "old": "SchedResearch_next_round_infra_prompt.md",
+      "new": "docs/archive/prompts/infra-round-1.md",
+      "sha256": "8d2ee73cac08c4604c5eaa47e157713dd662d011f1ee43c5140f107450babeb4",
+      "original_relative_base": "."
+    },
+    {
+      "action": "move-byte-identical",
+      "old": "SchedResearch_round2_repair_and_static_eval_prompt_COMPLETED.md",
+      "new": "docs/archive/prompts/infra-round-2.md",
+      "sha256": "9795c1b9772a7b72c3838bd32bb6dccc582e32c5e363307433c7a4707e5dd01d",
+      "original_relative_base": "."
+    },
+    {
+      "action": "move-byte-identical",
+      "old": "research/infra_open_source/handoff_2026-09-09_round1.json",
+      "new": "docs/archive/infra/round-1.json",
+      "sha256": "09b8d127ebb7a1bbfc124c1d1ad2df4a3b621e6241aa623799de101633192ae1",
+      "original_relative_base": "research/infra_open_source"
+    },
+    {
+      "action": "move-byte-identical",
+      "old": "research/infra_open_source/handoff.json",
+      "new": "docs/archive/infra/round-2.json",
+      "sha256": "2f1b6def77e978910d936250d45a502168b9f2ae9bc46660ba4062ab3657fd77",
+      "original_relative_base": "research/infra_open_source"
+    },
+    {
+      "action": "move-byte-identical",
+      "old": "research/infra_open_source/report.md",
+      "new": "docs/archive/infra/round-1-source-audit.md",
+      "sha256": "960c9d27b2ebccc213e9c6fd5c9f13504a75f720716f3ceb721cf068503ce194",
+      "original_relative_base": "research/infra_open_source"
+    },
+    {
+      "action": "move-byte-identical",
+      "old": "docs/previous-archive-layout.md",
+      "new": "docs/archive/layout/initial-layout.md",
+      "sha256": "599ef2cffa1472eb44b8cbc65625ea3585c7250ad143950e54259d80c7308036",
+      "original_relative_base": "docs"
+    },
+    {
+      "action": "move-byte-identical",
+      "old": "docs/reproduction.md",
+      "new": "docs/archive/layout/reproduction-before-2026-09-14.md",
+      "sha256": "937a6a415bf254cd0b71624242adef6367cb2d04a24e917cef53bb8a4f5d473b",
+      "original_relative_base": "docs"
+    },
+    {
+      "action": "move-byte-identical",
+      "old": "research/README.md",
+      "new": "docs/archive/stages/r3-r4-homepage.md",
+      "sha256": "194d897ce8a56894e423bbdff47afac9a3773ff91beb2d7d7530b96c751c5190",
+      "original_relative_base": "research"
+    },
+    {
+      "action": "delete-superseded",
+      "old": "research/analysis/r1_r10_research_retrospective.md",
+      "sha256": "b94293a70058b49fe063f6109241a333f31d95e4a4c69d59b5b7a5b59e09b9f0",
+      "replacements": [
+        "docs/progress/scientific-questions.md",
+        "docs/progress/experimental-capabilities.md",
+        "research/r13/history/retrospective_before_r13.md"
+      ]
+    },
+    {
+      "action": "delete-superseded",
+      "old": "research/infra_open_source/handoff_to_chatgpt.md",
+      "sha256": "2f2d79d0709ef3e4bc51dbb69f61accee5783920b039c53262c6276d78d46b90",
+      "replacements": [
+        "docs/progress/experimental-capabilities.md",
+        "docs/archive/infra/round-2.json"
+      ]
+    },
+    {
+      "action": "delete-superseded",
+      "old": "research/infra_open_source/handoff_2026-09-09_round1_to_chatgpt.md",
+      "sha256": "1d89abde55b034b3faadd6ac4da3ea890531610c2a8415b87ea3f6a161b0e9fc",
+      "replacements": [
+        "docs/progress/experimental-capabilities.md",
+        "docs/archive/infra/round-1.json",
+        "docs/archive/infra/round-1-source-audit.md"
+      ]
+    }
+  ]
+}

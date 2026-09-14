@@ -1,3 +1,5 @@
 # Preserve raw bytes for the supplied evidence and hash-frozen R12 artifacts.
 SchedResearch_reassessment_evidence_20260907/** -text
 research/r12/** -text
+# Archived documents/receipts retain their recorded raw-byte migration hashes.
+docs/archive/** -text

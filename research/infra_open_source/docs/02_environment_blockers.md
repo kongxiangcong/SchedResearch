@@ -1,3 +1,5 @@
+> 历史环境诊断，非实时状态；当前能力与缺口见[实验能力线](../../../docs/progress/experimental-capabilities.md)。
+
 # 环境阻断记录（ONNXim 无法在本机构建/运行）
 
 本文只记录**本轮实际执行过的命令与真实错误**，用于把"环境阻断"与"能力不匹配"分开。
@@ -88,4 +90,4 @@ ONNXim 的 `CMakeLists.txt` 还要求 5 个 git 子模块：`extern/onnx`、`ext
 - ONNXim 固定 commit 的**源码级能力审计**（见
   `runs/2026-09-09T16-51-02Z_backend-audit/onnxim_source_audit.json`）。
 - 不依赖后端的部分：有来源 workload、计划 IR、合法性检查器、CPU 数值参考，
-  均已实际运行并通过（见 `report.md`）。
+  均已实际运行并通过（见[首轮历史源码审计](../../../docs/archive/infra/round-1-source-audit.md)）。

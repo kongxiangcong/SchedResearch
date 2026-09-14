@@ -1,0 +1,54 @@
+{
+  "date": "2026-09-14",
+  "scope": "layout/documentation audit; no historical performance or numerical experiment rerun",
+  "baseline_files": 1644,
+  "verified_existing_or_migrated_files": 1641,
+  "unexpected_modified": [],
+  "unexpected_missing": [],
+  "moves_byte_identical": 8,
+  "deleted_superseded": 3,
+  "preserved_user_workbuddy_files": 4,
+  "preserved_infra_run_files": 214,
+  "r12_integrity": {
+    "passed": true,
+    "files": 52
+  },
+  "r13_integrity": {
+    "passed": false,
+    "files": 68,
+    "mismatches": [
+      ".gitignore"
+    ],
+    "gitignore_before_sha256": "fd960bc31ccfe0f141129c0beb83e293e63469c21b0ac0dafae4067623c77b5b",
+    "gitignore_after_sha256": "fd960bc31ccfe0f141129c0beb83e293e63469c21b0ac0dafae4067623c77b5b",
+    "gitignore_manifest_sha256": "446087db2b63893a289c11810be6fa0a0d4a2b47cb0ca4afc8dc5636bc184b77"
+  },
+  "infra_tests": {
+    "passed": 37,
+    "setup_errors": 5,
+    "reason": "pytest tmp_path PermissionError WinError 5; retry with a unique TEMP basetemp also blocked",
+    "historical_42_passed_not_claimed_as_current": true
+  },
+  "entry_smoke": {
+    "root_help": true,
+    "research_cwd": true,
+    "dont_write_bytecode": true,
+    "infra_cli_help": true
+  },
+  "current_navigation": {
+    "files": 10,
+    "local_links": 138,
+    "missing": []
+  },
+  "unexpected_modified_or_missing": [],
+  "tracked_python_files_unchanged": 220,
+  "allowed_documentation_metadata_edits": [
+    ".gitattributes",
+    "README.md",
+    "docs/reproduction.md",
+    "research/README.md",
+    "research/infra_open_source/README.md",
+    "research/infra_open_source/docs/01_environment.md",
+    "research/infra_open_source/docs/02_environment_blockers.md"
+  ]
+}

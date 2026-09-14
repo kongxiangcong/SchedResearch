@@ -1,3 +1,5 @@
+> 历史环境记录，非实时状态；当前使用方法见[infra README](../README.md)，能力见[实验能力线](../../../docs/progress/experimental-capabilities.md)。
+
 # 环境
 
 ## 主机
